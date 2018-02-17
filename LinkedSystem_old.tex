@@ -1,0 +1,1064 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{esint}
+\usepackage{siunitx}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{epstopdf}
+\usepackage{float}
+\usepackage{natbib}
+\newcommand{\conj}[1]{\overline{#1}}
+\newcommand{\newpar}{\vspace{5mm}\par}
+\newcommand{\vnorm}[1]{\left\|#1\right\|}
+\usepackage{amsthm}
+\usepackage{units}
+\usepackage{tikz}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}
+
+
+\begin{document}
+\title{Linked Systems of symmetric designs}
+\section{Introduction}
+Linked systems of designs correspond to Q-antipodal 3-class co-metric associations schemes. These objects lie very closely to another object known as Mutually Unbiased Basis. In order to look at the connection closer, we describe the Linked systems of designs and ...\\
+Linked systems of symmetric designs can give rise to mutually unbiased bases under certain conditions. The number of bases and their dimension depend on the parameters of the linked system and the underlying symmetric designs. We wish to investigate this connection further to determine what systems bring rise to MUBs and to understand better the relation between them.
+\section{Linked systems of symmetric designs}
+A $LSD(v,k,\lambda;w)$ ($w\geq 2$) is a linked system of symmetric $(v,k,\lambda)$-designs with $w$ fibers. This system is described as a graph $\Gamma$ on $wv$ vertices with vertex set partitioned into $w$ sets of $v$ vertices called ``fibers":
+\[X = X_1\dot{\cup}X_2\dot{\cup}\cdots\dot{\cup}X_w.\]
+$\Gamma$ is a regular graph with adjacency relation $\sim$ and valency $k(w-1)$ satisfying the following three properties
+\begin{itemize}
+	\item No edge of $\Gamma$ has both ends in the same fiber.
+	\item For all $1\leq i,j\leq w$ with $i\neq j$, the induced subgraph between $X_i$ and $X_j$ is the incidence graph of some $(v,k,\lambda)$-design.
+	\item There exist constants $\mu$ and $\nu$ such that for distinct $h,i,j$ ($1\leq h,i,j\leq w$), 
+	\[a\in X_i, b\in X_j \rightarrow\vert\Gamma(a)\cap\Gamma(b)\cap X_h\vert=\begin{cases}
+	\mu & a\sim b\\
+	\nu & \text{o.w.}
+	\end{cases}\]
+\end{itemize}
+where $\Gamma(x)$ is the neighborhood of vertex $x$.\newpar
+We find quickly that only certain values for $\mu$ and $\nu$ will work. To find them, conisder three fibers, $X_1,X_2,X_3$ of our graph $\Gamma$. Let $A_1$, $A_2$ and $A_3$ denote the incidence matrices from $X_1$ to $X_2$, $X_2$ to $X_3$, and $X_3$ to $X_1$ respectively. We know that
+\[\begin{aligned}
+A_2 A_3 &= \nu J + (\mu-\nu) A_1^T
+\end{aligned}\]
+If we assume $\mu = \nu - s$ for some $s$ then and right multiply by the all ones matrix then,
+\[\begin{aligned}
+(A_2 A_3)J &= (\nu J - s A_1^T)J\\
+k^2J&=(\nu v - sk)J\\
+\nu&=\frac{k(k+s)}{v}.
+\end{aligned}\]
+Now, if we instead left multiply our original equation by $A_2^T$, we get:
+\[\begin{aligned}
+A_2^T(A_2A_3) &= (A_2^TA_2)A_3\\
+A_2^T(\nu J - sA_1^T)&=(\lambda J +(k-\lambda)I)A_3\\
+\nu kJ - s(A_1A_2)^T &=\lambda kJ + (k-\lambda) A_3\\
+\nu kJ - s(\nu J - sA_3)^T &= \lambda kJ +(k-\lambda)A_3\\
+\left(\nu(k-s)-\lambda k\right)J + \left(s^2-(k-\lambda)\right)A_3&=0.
+\end{aligned}\]
+Since $A_3$ and $J$ are linearly independent, this means that $\nu (k-s)-\lambda k = 0$ and $s^2 = k-\lambda$. Therefore we have $s = \pm \sqrt{k-\lambda}$ and $\nu = \frac{\lambda k}{k-s}$. These equations give us
+\[\begin{aligned}
+s &= \pm \sqrt{k-\lambda}\end{aligned}\]
+and,
+\[\begin{aligned}
+\frac{\lambda k}{k-s}&= \frac{\lambda k(k+s)}{k^2-s^2}\\
+&=\frac{\lambda k(k+s)}{k^2-(k-\lambda)}\\
+&=\frac{\lambda k(k+s)}{(v-1)\lambda+\lambda}\\
+&=\frac{k(k+s)}{v}\\
+\end{aligned}\]
+which agrees with our first equation. Therefore we now have $\nu = \frac{k(k\pm \sqrt{k-\lambda})}{v}$ and $\mu = \nu\mp \sqrt{k-\lambda}$. While there are two possibilities for $\mu$ and $\nu$, we often find that for any particular parameter set $(v,k,\lambda)$, only one definition of $\mu$ and $\nu$ give us integers. Therefore it becomes important to distinguish between the two types of LSDs. It turns out that the distinction $\mu>\nu$ and $\nu>\mu$ is not the best distinction to make, however for now we will refer to the two types of LSDs as ``$\mu$-heavy'' or ``$\nu$-heavy'' based on which value is greater. Note that $k$ is necessarily greater than $\lambda$ in every case we will consider, and therefore we will never have the situation where $\mu=\nu$.\newpar
+
+To see how a $\mu$-heavy LSD relates to a $\nu$-heavy one, we need go no further than the complement designs. Assume we have $L$, an $\nu$-heavy $LSD(v,k,\lambda,w)$. We can describe a complement design $L^\prime$ via constructing the complement symmetric designs between any pair of fibers. This means that for any pair of distinct fibers $X_i$ and $X_j$, each vertex in $X_i$ will have $v-k$ neighbors in $X_j$ and any two vertices in $X_i$ will have $v-2k+\lambda$ common neighbors in $X_j$. Therefore it is reasonable to believe that $L^\prime$ is an $LSD(v^\prime,k^\prime,\lambda^\prime)$ with
+\[\begin{aligned}
+v^\prime = v,\qquad k^\prime = v-k,\qquad \lambda^\prime = v-2k+\lambda.
+\end{aligned}\]
+What remains is to verify third condition, namely the existence of $\mu^\prime$ and $\nu^\prime$. First consider:
+\[\begin{aligned}s^\prime &= \sqrt{k^\prime-\lambda^\prime}\\
+&=\sqrt{v-k-(v-2k+\lambda)}\\
+&=\sqrt{k-\lambda}\\
+&=s.\end{aligned}\]
+Therefore our $s$ parameter remains the same. Now consider three distinct fibers $X_i$, $X_j$, and $X_h$. Let $a\in X_i$ and $b\in X_j$ such that $a~b$ in $L$. Then $a$ will not be adjacent to $b$ in $L'$. Further, the number of common neighbors in $X_h$ in our complement LSD will be exactly the number of vertices in $X_h$ which were adjacent to neither $a$ nor $b$ in $L$. Therefore
+\[\begin{aligned}
+\nu^\prime &= v-2k+\mu\\
+&=v-2k+\frac{k(k+s)}{v}-s\\
+&=(v-2k-s)+\frac{k(k+s)}{v}\\
+&=(\lambda^\prime-\lambda-s)+\frac{(v-k^\prime)((v-k^\prime)+s)}{v}\\
+&=(\lambda^\prime-\lambda-s)+\frac{v(v-k^\prime+s)-k^\prime v+k^\prime(k^\prime-s)}{v}\\
+&=(\lambda^\prime-\lambda-s)+\frac{v(v-2k^\prime+s)+k^\prime(k^\prime-s)}{v}\\
+&=(\lambda^\prime-\lambda-s)+(\lambda-\lambda^\prime+s)+\frac{k^\prime(k^\prime-s)}{v}\\
+&=\frac{k^\prime(k^\prime-s)}{v}.\end{aligned}\]
+Likewise, we repeat the same argument for two vertices not originally adjacent in $L$ to get
+\[\begin{aligned}
+\mu^\prime &= v -2k+\nu\end{aligned}\]
+subtracting our original equation $\nu^\prime = v-2k+\mu$ gives us:
+\[\begin{aligned}\mu^\prime-\nu^\prime &= \nu-\mu\\
+&=s\\
+\mu^\prime &= \nu^\prime+s.
+\end{aligned}\]
+Therefore the complement of a $\nu$-heavy LSD is a $\mu$-heavy LSD. Likewise we can start with a $\mu$-heavy LSD and find that the complement system is $\nu$-heavy. Therefore, either type exists if and only if the opposing type exists using the complement parameters for the symmetric design.
+
+%We will see later that viewing a LSD as an association scheme uses both the LSD and its complement. For this reason, it is not helpful to distinguish LSDs by ``$\mu$-heavy'' and ``$\nu$-heavy'' as in the association scheme world, these often describe the same objects. Therefore we wish to find a definition which is closed under taking complements. The natural way to approach this is to consider the sign of $(v-2k)(\mu-\nu)$. If this value is positive, then we have either the case where $k<\frac{v}{2}$ and $\mu>\nu$ or $k>\frac{v}{2}$ and $\mu<\nu$. In the first case we find that any given vertex has very few neighbors (less than half of the total possible), however it has more neighbors in common with its neighbors than with its non-neighbors ($\mu>\nu$). In the complement case, any vertex has many neighbors, however it has more neighbors in common with those it is not adjacent to. In both cases, a given vertex $x$ has more neighbors in common with the less common type of vertex (neighbor or non-neighbor). For this reason, we call this type of $LSD$ a ``concentrated'' LSD. If instead we find that $(v-2k)(\mu-\nu)<0$ then this corresponds to a ``dispersed'' LSD. This is because in this case, any vertex has more common neighbors with the vertices which are more common. With this distinction, we can 
+
+
+
+
+\section{Linked system of symmetric designs.}
+
+\begin{theorem}
+  A $LSD(v,k,\lambda;w)$ yields a 3 class Q-antipodal Association scheme on $X$ via the following relations:
+	\begin{itemize}
+		\item $R_0$ is the identity relation on $X$.
+		\item $R_1$ is given by adjacency in $\Gamma_1$.
+		\item $R_2$ is the union of complete graphs on each $X_i$.
+		\item $R_3$ is given by adjacency in $\Gamma_2$.
+	\end{itemize}
+\end{theorem}
+Let $L_1 = LSD(v,k,\lambda)$ and $L_2 = LSD(v^\prime,k^\prime,\lambda^\prime)$ and assume for now that $\Gamma_1$ is $\nu$-heavy. Many of the properties of an association scheme follow trivially from our relations. To prove the existence of our intersection numbers, $p_{ij}^k$, we list their values. We do this by listing the four matrices $L_0,L_1,L_2,L_3$ where $L_i = [p_{ij}^k]_{k,j}$.
+\[\begin{aligned}
+L_0 &= \left[\begin{array}{cccc}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1\\
+\end{array}\right] & L_1 = \left[\begin{array}{cccc}
+0 & k(w-1)       & 0   & 0               \\
+1 & \mu(w-2)     & k-1 & (k-\mu)(w-2)    \\
+0 & \lambda(w-1) & 0   & (k-\lambda)(w-1)\\
+0 & \nu(w-2)     & k   & (k-\nu)(w-2)    \\
+\end{array}\right]\\
+L_2 &= \left[\begin{array}{cccc}
+0 & 0   & v-1 & 0    \\
+0 & k-1 & 0   & v-k  \\
+1 & 0   & v-2 & 0    \\
+0 & k   & 0   & v-k-1\\
+\end{array}\right]
+& L_3 = \left[\begin{array}{cccc}
+    0 & 0             & 0     & (v-k)(w-1)\\
+0 & (k-\mu)(w-2)  & v-k   & (v+\mu-2k)(w-2)\\
+0 & (k-\lambda)(w-1) & 0     &(v+\lambda-2k)(w-1)\\
+1 & (k-\nu)(w-2)  & v-k-1 & (v+\nu-2k)(w-2)\\
+\end{array}\right]\\
+\end{aligned}\]
+In an association scheme, the mapping $\phi:\mathbb{A}\rightarrow \left<L_0,\dots,L_d\right>$ via $\phi:A_i\mapsto L_i$ is an algebra isomorphism. Therefore the eigenvalues of $A_i$ are exactly the eigenvalues of $L_i$. We can calculate the eigenvalues of each of our $L_i$ matrices to get
+\[P = \left[\begin{array}{cccc}
+1&k(w-1)       &v-1 &(v-k)(w-1)   \\
+1&\alpha-\beta &-1  &-\alpha+\beta\\
+1&\alpha+\beta &-1  &-\alpha-\beta\\
+1&-k           &v-1 &k-v          \\
+\end{array}\right]\]
+where $\alpha = \frac{1}{2}(2-w)(\nu-\mu)$ and $\beta = \frac{1}{2}\sqrt{(\nu-\mu)^2(w-2)^2+4(k-\lambda)(w-1)}$. For any LSD we know that $(\nu-\mu)^2 = s^2 = k-\lambda$ giving us the simplification 
+\[\begin{aligned}\beta &= \frac{1}{2}\sqrt{(k-\lambda)(w-2)^2+4(k-\lambda)(w-1)}\\
+&=\frac{1}{2}\sqrt{(k-\lambda)w^2}\\
+&=\frac{1}{2}w\sqrt{k-\lambda}.\end{aligned}\]
+If we now assume we have a type 1 LSD, then
+\[\begin{aligned}
+\alpha &= \frac{1}{2}(2-w)(\nu-\mu)\\
+&=\frac{1}{2}(2-w)\sqrt{k-\lambda}
+\end{aligned}\]
+giving us finally that
+\[\begin{aligned}
+\alpha+\beta &= \sqrt{k-\lambda}
+\alpha-\beta &= -\sqrt{k-\lambda}(w-1).
+\end{aligned}\]
+This gives that our $P$ matrix is
+\[P = \left[\begin{array}{cccc}
+1&(v-k)(w-1)&v-1&k(w-1)\\
+1&\sqrt{k-\lambda}(w-1)&-1&-\sqrt{k-\lambda}(w-1)\\
+1&-\sqrt{k-\lambda}&-1&\sqrt{k-\lambda}\\
+1&k-v&v-1&-k\\
+\end{array}\right]\]
+With this matrix we can now calculate our $Q$ matrix using the identity $PQ = \vert X\vert I$ or $Q = \vert X\vert P^{-1}$. Then we have
+\[Q = \left[\begin{array}{cccc}
+1 & v-1 & (w-1)(v-1) & w-1\\
+1 & \frac{k}{\sqrt{k-\lambda}} & -\frac{k}{\sqrt{k-\lambda}} & -1\\
+1 & -1 & 1-w & w-1\\
+1 & -\frac{v-k}{\sqrt{k-\lambda}} & \frac{v-k}{\sqrt{k-\lambda}} & -1\\
+  \end{array}\right]\]
+
+
+
+\section{Feasible symmetric Designs}
+The handbook of combinatorial designs gives us a list of 21 Distinct families of Symmetric designs. We now examine each family to determine the parameter sets to check for viability of extending them to LSDs. The two main conditions we will employ are the rationality of $\sqrt{k-\lambda}$ and the integrality of our extra parameters $\mu$ and $\nu$. Since we always have $\mu = \nu\pm \sqrt{k-\lambda}$, checking $\nu$ and $s=\sqrt{k-\lambda}$ will be sufficient.
+
+\subsection{Menon}
+\[\begin{aligned}
+v &= 4t^2 \qquad k= 2t^2-t \qquad \lambda = t^2-t\\
+n&= t^2 \qquad s = t\\
+\nu &= \frac{(2t^2-t)(2t^2-t\pm t)}{4t^2}\\
+&=\frac{1}{2}(2t-1)\left(t-\frac{1\mp1}{2}\right)
+\end{aligned}\]
+Since $2t-1$ will always be odd, we must have that $\left(t-\frac{1\mp1}{2}\right)$ is even. This means that for odd $t$, we must choose the $+$ so that we have $\nu = (2t-1)\frac{t-1}{2}$. If instead $t$ is even then we must choose the $-$ so that $\nu = (2t-1)\frac{t}{2}$. This means that Menon parameters are always feasible, though we must choose our parameters to be $\nu$-heavy or $\mu$-heavy based on the parity of $t$.
+\subsection{McFarland}
+\[\begin{aligned}
+v &= q^{m+1}(q^m+\dots+q+2) \qquad k= q^m(q^m+\dots+q+1) \qquad \lambda = q^m(q^{m-1}+\dots+q+1)\\
+n&= q^{2m} \qquad s = q^m\\
+\nu &= \frac{q^m(q^m+\dots+q+1)(q^m(q^m+\dots+q+1)\pm q^m)}{q^{m+1}(q^m+\dots+q+2)}\\
+\end{aligned}\]
+If we assume our parameters are $\nu$-heavy, then we have:
+\[\begin{aligned}
+\nu&=\frac{q^m(q^m+\dots+q+1)(q^m(q^m+\dots+q+2))}{q^{m+1}(q^m+\dots+q+2)}\\
+&=q^{m-1}(q^m+\dots+q+1)
+\end{aligned}\]
+If instead we choose our parameters to be $\mu$-heavy, then we have:
+\[\begin{aligned}
+\nu&=\frac{q^m(q^m+\dots+q+1)(q^m(q^m+\dots+q))}{q^{m+1}(q^m+\dots+q+2)}\\
+&=\frac{q^m(q^m+\dots+q+1)(q^{m-1}+\dots+1)}{q^m+\dots+q+2}\\
+&=q^m(q^{m-1}+\dots+1)-\frac{q^m(q^{m-1}+\dots+1)}{q^m+\dots+q+2}\\
+&=q^m(q^{m-1}+\dots+1)-q^m+\frac{q^m(q^m+1)}{q^m+\dots+q+2}.\\
+\end{aligned}\]
+As long as $q\neq 2$ we have that $q^m$ and $q^m+\dots+q+2$ are relatively prime. However $q^m+1<q^m+\dots+q+2$ so $(q^m+\dots+q+2)\not\vert (q^m+1)$. Therefore the fraction is not reducible to an integer. Since $q^m+\dots+q+2 =\frac{q^{m+1}-1}{q-1}+1$, we have that the denominator equals $q^{m+1}$ when $q=2$. This reduces the fraction to $\frac{2^m+1}{2}$. Therefore for any $q$, McFarland paramters will not work in the $\mu$-heavy case.\\
+This means that McFarland parameters will work for us, however only with $\nu$-heavy parameters.
+
+\subsection{Spence}
+\[\begin{aligned}
+v&= \frac{1}{2}3^m(3^m-1)\qquad k=\frac{1}{2}3^{m-1}(3^m+1)\qquad \lambda = \frac{1}{2}3^{m-1}(3^{m-1}+1)\\
+n&=3^{2(m-1)}\qquad s&=3^{m-1}\\
+\nu&=\frac{\frac{1}{2}3^{m-1}(3^m+1)(\frac{1}{2}3^{m-1}(3^m+1)-3^{m-1}}{ \frac{1}{2}3^m(3^m-1)}\\
+&=\frac{(3^m+1)\left(\frac{1}{2}3^{m-1}(3^m-1)\right)}{3(3^m-1)}\\
+&=3^{m-2}\left(\frac{3^m+1}{2}\right)
+\end{aligned}\]
+
+
+\subsection{Point-hyperplane Designs (not feasible)}
+\[\begin{aligned}
+v &= q^m+\dots+1 \qquad
+k = q^{m-1}+\dots+1\qquad
+\lambda = q^{m-2}+\dots+1\\
+n&= q^{m-1}\qquad s=q^{\frac{m-1}{2}}\end{aligned}\]
+First note that $k = v-q^m$. Then,
+\[\begin{aligned}
+\nu&=\frac{k(k\pm s)}{v}\\
+&=(k\pm s) -\frac{q^m(k\pm s)}{v}\\
+&=(k\pm s) - q^m +\frac{q^m(q^m\pm s)}{v}
+\end{aligned}\]
+However $q$ doesn't divide $v$ and therefore $q^m$ is relatively prime to $v$. Since $s<q^{m-1}$, we also know that $q^m\pm s < q^m+\dots + 1 = v$. Therefore $v\not\vert (q^m\pm s)$ and the fraction does not reduce to an integer for either choice of $\nu$. Therefore these parameters are never feasible.
+
+
+\subsection{Hadamard designs (not feasible)}
+\[\begin{aligned}
+v &= 4n-1 \qquad k= 2n-1 \qquad \lambda = n-1\\
+s &= \sqrt{n}\\
+\nu &= \frac{(2s^2-1)(2s^2-1\pm s)}{4s^2-1}\\
+&=\frac{(2s^2-1)(2s\mp 1)(s\pm 1)}{(2s+1)(2s-1)}\\
+&=\frac{(2s^2-1)(s\pm 1)}{2s\pm 1}\\
+\end{aligned}\]
+First consider the $\nu$ heavy case where we have $\nu = \frac{(2s^2-1)(s+1)}{2s+1}$. Now assume $p$ is a prime which divides $2s+1$. If $p$ also divides $s+1$ then it must divide $2s+2$ and therefore $p=1$ leading to a contradiction. If instead $p$ divides $2s^2-1$ then $p$ must divide $2s^2-1 - s(2s+1) = s-1$ again leading to a contradiction. Therefore $\nu$ is irreducible and is nonintegral except in the case where $s=1$. In this case however we have the parameter set $(3,2,1)$ which leads to a degenerate association scheme and is not of interest. Therefore Hadamard designs never lead to interesting LSDs.
+
+\subsection{Chowla (not feasible)}
+\[\begin{aligned}
+v&=4t^2+1 \qquad k=t^2 \qquad \lambda = \frac{1}{4}(t^2-1)
+n&=\frac{1}{4}(3t^2+1)\qquad s&=\frac{1}{2}\sqrt{3t^2+1}\\
+\nu &= \frac{t^2(t^2\pm s)}{4t^2+1}\\
+&=\frac{t^2(4s^2-2t^2-1\pm s)}{4s^2+t^2}
+\end{aligned}\]
+However, $t^2$ is relatively prime to $4t^2+1$ and $(t^2\pm1)<(4t^2+1)$. Therefore $(4t^2+1)\not\vert(t^2\pm 1)$ and the fraction is non-integral. Therefore Chowla designs will never give us LSDs.
+
+\subsection{Lehmer}
+\begin{enumerate}[(a)]
+\item
+  \[\begin{aligned}
+  v&= 4t^2+9\qquad k=t^2+3\qquad \lambda = \frac{1}{3}(t^2+3)\\
+  n&=\frac{3}{4}k
+  \end{aligned}\]
+  This means that $3\vert s^2$ and therefore $9\vert s^2$. However we then have:
+  \[\begin{aligned}
+  s^2&=\frac{3}{4}\left(t^2+3\right)
+  12\ell^2-3&=t^2\\
+  3(4\ell^2-3)&=t^2\\
+  \end{aligned}\]
+  Therefore $3\vert t$ and we then have $3\vert(4t^2+9)=v$. However $v$ must be a prime for Lehmer parameters, therefore these can never yield LSDs.
+\item
+  \[\begin{aligned}
+  v&=8t^2+1 = 64u^2+9 \qquad k=t^2\qquad \lambda&=u^2\\
+  n&=t^2-u^2\\
+  \nu&=\frac{t^2(t^2\pm\sqrt{t^2-u^2}}{8t^2+1}
+  \end{aligned}\]
+  Since, $t^2$ is relatively prime to $8t^2+1$ we know that for $\nu$ to be an integer, we must have $(8t^2+1)\vert (t^2\pm\sqrt{t^2-u^2})$. However $t^2\pm(t^2-u^2)<2t^2<8t^2+1$ and therefore this is not possible. Therefore these also cannot yield LSDs.
+
+\item
+  \[\begin{aligned}
+  v&=8t^2+49 = 64u^2+441\qquad k=t^2+6\qquad \lambda = u^2+7\\
+  n&=t^2-u^2-1\\
+  \nu&=\frac{(t^2+6)(t^2+6\pm\sqrt{t^2-u^2-1})}{8t^2+49}
+  \end{aligned}\]
+  First note that $t^2+6$ and $8t^2+49$ are relatively prime. This is because if any $p$ divides $t^2+6$, then it must divide $8t^2+48$. If it also divides $8t^2+49$ then $p=1$ and is not prime. However we also have that $t^2+6\pm\sqrt{t^2-u^2-1}<2t^2+6<8t^2+49$. Therefore $(8t^2+49)\not\vert(t^2+6\pm\sqrt{t^2-u^2-1})$ and we have that $\nu$ is non-integral.\\
+  Therefore non of the Lehmer parameters will produce LSDs.
+\end{enumerate}
+
+\subsection{Whiteman}
+\[\begin{aligned}
+v&=p(3p+2) \qquad k=\frac{1}{4}(p(3p+2)-1) \qquad \lambda = \frac{1}{16}(p(3p+2)-5)\\
+n&=\frac{1}{16}(3p(3p+2)+1) = \frac{1}{16}(9p^2+6p+1) = \left(\frac{1}{4}(3p+1)\right)^2\\
+s&=\frac{1}{4}(3p+1)\\
+\nu&=\frac{\frac{1}{4}(p(3p+2)-1)\left(\frac{1}{4}(p(3p+2)-1)\pm\frac{1}{4}(3p+1)\right)}{p(3p+2)}\\
+&=\frac{(3p^2+2p-1)(3p^2+2p-1\pm3p\pm1)}{16p(3p+2)}
+\end{aligned}\]
+Consider first the $\nu$-heavy case:
+\[\begin{aligned}
+\nu&=\frac{(3p^2+2p-1)(3p^2+2p-1+3p+1}{16p(3p+2)}\\
+&=\frac{(3p-1)(p+1)(3p^2+5p)}{16p(3p+2)}\\
+&=\frac{(3p-1)(p+1)(3p+5)}{16(3p+2)}
+\end{aligned}\]
+Now assume that we have some integer $t$ which divides $3p+2$. If $t\vert (p+1)$ as well then $t\vert(3p+3)$ and therefor $t=1$. If instead $t\vert (3p-1)$ then $t\vert 3$. Likewise if $t\vert(3p+5)$ then $t\vert 3$. This is a contradiction since $3$ itself does not divide $3p+2$. Therefore $\nu$ cannot be an integer.\\
+Now consider teh $\mu$-heavy case:
+\[\begin{aligned}
+\nu&=\frac{(3p^2+2p-1)(3p^2+2p-1-3p-1)}{16p(3p+2)}\\
+&=\frac{(3p-1)(p+1)(3p^2-p-2)}{16p(3p+2)}\\
+&=\frac{(3p-1)(p+1)(p-1)}{16p}\\
+\end{aligned}\]
+however $p$ does not divide $3p-1$, $p+1$, nor $p-1$. Therefore neither options allows for $\nu$ to be an integer and therefore Whiteman paramters will never give LSDs.
+
+\subsection{Wilson}
+\[\begin{aligned}
+v&= m^3+m+1 \qquad k=m^2+1\qquad \lambda = m\\
+n&=m^2-m+1\\
+\nu&=\frac{(m^2+1)(m^2+1\pm\sqrt{m^2-m+1})}{m^3+m+1}
+\end{aligned}\]
+First note that $m^2+1$ and $m^3+m+1$ are relatively prime. This is because if $p\vert(m^2+1)$ then $p\vert(m^3+m)$. If $p$ also divides $m^3+m+1$ then $p = 1$. However, $\sqrt{m^2-(m-1)}<m$ and therefore we have $(m^2+1)\pm\sqrt{m^2-m+1}<(m^3+1)+m$. Therefore $m^3+m+1$ does not divide $(m^2+1\pm\sqrt{m^2-m+1})$ and we know that $\nu$ is not an integer.
+
+\subsection{Rajkundlia and Mitchell}
+\[\begin{aligned}
+v&=1+qr\frac{r^m-1}{r-1}\qquad k=r^m\qquad \lambda = r^{m-1}\frac{r-1}{q}\\
+r&=\frac{q^d-1}{q-1}\\
+n&=r^{m-1}q^{d-1}\\
+\nu&=\frac{r^m(r^m-r^{m-1}q^{d-1})}{1+qr(r^{m-1}+\dots+1)}\\
+&=\frac{r^{2m-1}(r-q^{d-1})}{1+qr(r^{m-1}+\dots+1)}
+\end{aligned}\]
+However, as before, $r^{2m-1}$ is relatively prime to $1+qr(r^{m-1}+\dots+1)$ yet $1+qr(r^{m-1}+\dots+1)$ does not divide $r-q^{d-1}$ because $1+qr(r^{m-1}+\dots+1)>r>r-q^{d-1}$ (note that for any $d>1$ we have that $r>q$ 
+
+\subsection{Wilson}
+\[\begin{aligned}
+v&= 2(q^m+\dots + q)+1\qquad k=q^m\qquad \lambda=\frac{1}{2}q^{m-1}(q-1)\\
+n&=\frac{1}{2}q^{m-1}(q+1)\\
+\nu&=\frac{q^m(q^m\pm \sqrt{\frac{1}{2}q^{m-1}(q+1)}}{2(q^m+\dots + q)+1}
+\end{aligned}\]
+Note that $q^m$ is relatively prime to the denominator, however we have $q^m>\sqrt{\frac{1}{2}q^{m-1}(q+1)}$ and therefore $2(q^m+\dots + q)+1>q^m\pm \sqrt{\frac{1}{2}q^{m-1}(q+1)}$. This tells us that $\nu$ cannot be integral.
+
+
+\subsection{Spence, Jungnickel and Pott}
+\[\begin{aligned}
+v&=q^{d+1}\frac{r^{2m}-1}{r-1}\qquad k=r^{2m-1}q^d\qquad\lambda = (r-1)r^{2m-2}q^{d-1}\\
+n&=r^{2m-2}q^{2d}\qquad s=r^{m-1}q^d\\
+r&=\frac{q^{d+1}-1}{q-1}\\
+\nu&=\frac{r^{2m-1}q^d(r^{2m-1}q^d\pm r^{m-1}q^d)}{q^{d+1}\frac{r^{2m}-1}{r-1}} = \frac{q^{d-1}r^{3m-2}(r^{m}\pm 1)}{r^{2m-1}+\dots+1}
+\end{aligned}\]
+However $r^{3m-2}$ is relatively prime with the denominator, so we must have $(r^{2m-1}+\dots+1)\vert q^{d-1}\left(r^m\pm 1\right)$. However since $r = \frac{q^{d+1}-1}{q-1} = q^{d}+\dots+1$, we have that $q^{d-1}<r$. Therefore $q^{d-1}\left(r^m\pm 1\right)<r^{m+1}\pm r<r^{2m-1}+r<r^{2m-1}\dots+1$ in all cases except $m=1$. However, when $m=1$,
+\[\begin{aligned}
+v&=q^{d+1}\frac{r^2-1}{r-1} = q^{d+1}(r+1)\qquad k=r^3q^d\qquad\lambda=r^2(r-1)q^{d-1}\\
+n&=r^2q^{2d}\qquad s=rq^d\\
+\nu&= \frac{q^{d-1}r(r\pm 1)}{r+1}.
+\end{aligned}\]
+Therefore if we take $\nu$-heavy parameters, we get $\nu=q^{d-1}r$, giving us that these symmetric designs are feasible when using $nu$-heavy parameters.
+
+\subsection{Davis and Jedwab}
+\[\begin{aligned}
+v&=\frac{1}{3}2^{2d+4}\left(2^{2d+2}-1\right)\qquad k=\frac{1}{3}2^{2d+1}\left(2^{2d+3}+1\right)\qquad \lambda = \frac{1}{3}2^{2d+1}\left(2^{2d+1}+1\right)\\
+n&=2^{4d+2}\qquad s=2^{2d+1}\\
+\nu&=\frac{\frac{1}{3}2^{2d+1}\left(2^{2d+3}+1\right)\left(\frac{1}{3}2^{2d+1}\left(2^{2d+3}+1\right)\pm 2^{2d+1}\right)}{\frac{1}{3}2^{2d+4}\left(2^{2d+2}-1\right)}\\
+&=\frac{\left(2^{2d+3}+1\right)\left(\left(2^{2d+3}+1\right)\pm 3\right)2^{2d-2}}{3\left(2^{2d+2}-1\right)}\\
+\end{aligned}\]
+If we take $\mu$-heavy parameters, then we get:
+\[\begin{aligned}
+\nu&=\frac{\left(2^{2d+3}+1\right)\left(2^{2d+3}-2\right)2^{2d-2}}{3\left(2^{2d+2}-1\right)}\\
+&=\frac{\left(2^{2d+3}+1\right)2^{2d-1}}{3}\\
+&=\left(2^{2d+2}-2^{2d+1}+\dots+1\right)2^{2d-1}
+\end{aligned}\]
+Therefore these parameters always work under $\mu$-heavy parameters.
+\subsection{Chen}
+\[\begin{aligned}
+v&=4q^{2d}\left(\frac{q^{2d}-1}{q^2-1}\right)\qquad k=q^{2d-1}\left(1+2\left(\frac{q^{2d}-1}{q-1}\right)\right)\qquad\lambda = q^{2d-1}(q-1)\left(\frac{q^{2d-1}+1}{q+1}\right)\\
+n&=q^{4d-2}\qquad s=q^{2d-1}\\
+\nu&=\frac{q^{2d-1}\left(1+2\left(\frac{q^{2d}-1}{q-1}\right)\right)\left(q^{2d-1}\left(1+2\left(\frac{q^{2d}-1}{q-1}\right)\right)\pm q^{2d-1}\right)}{4q^{2d}\left(\frac{q^{2d}-1}{q^2-1}\right)}\\
+&=\frac{\left(1+2\left(\frac{q^{2d}-1}{q-1}\right)\right)\left(q^{2d-1}\left(1+2\left(\frac{q^{2d}-1}{q-1}\right)\right)\pm q^{2d-1}\right)}{4q\left(\frac{q^{2d}-1}{q^2-1}\right)}\\
+\end{aligned}\]
+If we use $\mu$-heavy parameters, this gives us:
+\[\begin{aligned}
+\nu&=\frac{\left(1+2\left(\frac{q^{2d}-1}{q-1}\right)\right)\left(2q^{2d-1}\left(\frac{q^{2d}-1}{q-1}\right)\right)}{4q\left(\frac{q^{2d}-1}{q^2-1}\right)}\\
+&=\frac{q^{2d-2}(q+1)\left(1+2\left(\frac{q^{2d}-1}{q-1}\right)\right)}{2}\\
+\end{aligned}\]
+Since $2$ will always divide either $q^{2d-2}$ or $q+1$, we have that $\nu$ is integral under $\mu$-heavy parameters.
+
+\subsection{Ionin 2}
+\[\begin{aligned}
+v&=q^d\left(\frac{r^{2m}-1}{(q-1)(q^d+1)}\right)\qquad k= q^dr^{2m-1}\qquad \lambda = q^d(q^d+1)(q-1)r^{2m-2}\\
+n&=q^{2d}r^{2m-2} \qquad s=q^dr^{m-1}\\
+r&=q^{d+1}+q-1\\
+\nu&=\frac{q^dr^{2m-1}\left(q^dr^{2m-1}\pm q^dr^{m-1}\right)}{q^d\left(\frac{r^{2m}-1}{(q-1)(q^d+1)}\right)}\\
+&=\frac{(q-1)(q^d+1)q^dr^{3m-2}\left(r^m\pm 1\right)}{(r^m+1)(r^m-1)}\\
+&=\frac{(q-1)(q^d+1)q^dr^{3m-2}}{(r^m\mp1)}\\
+\end{aligned}\]
+
+\subsection{Ionin 3}
+\[\begin{aligned}
+v&=2*3^d\frac{q^{2m}-1}{3^d+1}\qquad k= 3^dq^{2m-1}\qquad\lambda = \frac{1}{2}3^d(3^d+1)q^{2m-2}\\
+n&=3^{2d}q^{2m-2}
+\end{aligned}\]
+
+\subsection{Ionin 4}
+\[\begin{aligned}
+v&=3^d\frac{q^{2m}-1}{2(3^d-1)}\qquad k= 3^dq^{2m-1}\qquad\lambda = 23^d(3^d-1)q^{2m-2}\\
+n&=3^{2d}q^{2m-2}
+\end{aligned}\]
+
+\subsection{Ionin 5}
+\[\begin{aligned}
+v&=2^{2d+3}\frac{q^{2m}-1}{q+1}\qquad k= 2^{2d+1q^{2m-1}}\qquad \lambda = 2^{2d-1}(q+1)q^{2m-2}\\
+n&=2^{4d+2}q^{2m-2}
+\end{aligned}\]
+
+\subsection{Ionin 6}
+\[\begin{aligned}
+v&=2^{2d+3}\frac{q^{2m}-1}{3q-3}\qquad k = 2^{2d+1}q^{2m-1} \qquad \lambda = 3*2^{2d-1}(q-1)q^{2m-2}\\
+n&=2^{4d+2}q^{2m-2}
+\end{aligned}\]
+
+\subsection{Ionin 7}
+\[\begin{aligned}
+v&=1+pq\frac{q^{e+1}-1}{q-1}\qquad k=r^{m+1}\qquad\lambda = p^d\frac{p^{d-1}q^e-1}{p-1}\\
+q&=\frac{p^d-1}{p-1}\qquad r=p^d\frac{q^{e+1}-1}{q-1}\\
+n&=
+\end{aligned}\]
+
+\subsection{Kharaghani}
+\[\begin{aligned}
+v&=4t^2\frac{q^m+2-1}{q-1}\qquad k=(2t^2-t)q^m\qquad \lambda = (t^2-t)q^m\\
+n&=t^2q^m\qquad s=tq^{\frac{m}{2}}
+\end{aligned}\]
+
+
+
+\section{Bounds for $w$}
+\subsection{Noda Bound}
+In Theorem 2 of \cite{Noda}, Noda gives the following bound:
+\[(w-1)\left((k-2)\lambda\binom{k}{3}-(v-2)\left((v-k)\binom{\nu}{3} + k\binom{\mu}{3}\right)\right)\leq(v-2)\left((v-1)\binom{\lambda}{3}+\binom{k}{3}-\left((v-k)\binom{\nu}{3} + k\binom{\mu}{3}\right)\right)\]
+with equality if and only if a pair $(X_1,X_2\cup X_3\cup\dots\cup X_f)$ forms a 3-design. If we restrict ourselves to the case of type 1 LSDs, one can verify that this gives: If $2k<v$ then
+\[w\leq\frac{(v-2)\sqrt{k-\lambda}}{v-2k}+1.\]
+Since we had to divide by the term $v-2k$, we find that in the case of $2k\geq v$ we have the vacuous condition that $w\geq-\frac{(v-2)\sqrt{k-\lambda}}{2k-v}+1$. This means that the bound only applies to type 1 LSDs with $2k<v$ or type 2 LSDs with $2k>v$.
+\subsection{Krein Conditions}
+Using this $Q$ matrix we can find the krein parameters of our association scheme in the following way:
+\[q^l_{j,k} = \frac{1}{\vert X\vert m_i}\sum_{i=0}^3v_iQ_{i,l}Q_{i,j}Q_{i,k}\]
+where $\vert X\vert = wv$, $m_i$ is the multiplicity of the $i^{th}$ eigenspace given by $Q_{0,i}$ and $v_i$ is the valency of the $i^{th}$ relation given by $P_{0,i}$.
+We display these in a similar fashion as our connection coefficients by letting $L_j^* = [q^l_{j,k}]_{l,k}$. Therefore we have
+\[\begin{aligned}
+L_0^* &= \left[\begin{array}{cccc}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1\\
+\end{array}\right]\\
+L_1^* &= \left[\begin{array}{cccc}
+0 & v-1 & 0 & 0\\
+1 & \frac{(1-w)(v-2k)+(v-2)s}{ws} &\frac{(w-1)\left(s(v-2)+(v-2k)\right)}{ws}& 0\\
+0&\frac{s(v-2)+v-2k}{ws} & \frac{s(w-1)(v-2)-(v-2k)}{ws}& 1\\
+0& 0 & v-1& 0\\
+\end{array}\right]\\
+L_2^* &= \left[\begin{array}{cccc}
+0& 0& (w-1)(v-1) & 0\\
+0&\frac{(w-1)\left(s(v-2)+(v-2k)\right)}{ws} &\frac{\left(s(v-2)(w-1)^2-(v-2k)(w-1)\right)}{ws} & w-1\\
+1& \frac{s(w-1)(v-2)-(v-2k)}{ws}& \frac{s(w-1)^2(v-2)+(v-2k)}{ws}& w-2\\
+0& v-1& (v-1)(w-2) & 0\\
+\end{array}\right]\\
+L_3^* &= \left[\begin{array}{cccc}
+0&0 &0 & w-1\\
+0& 0& w-1& 0\\
+0& 1& w-2& 0\\
+1& 0& 0& w-2\\
+\end{array}\right]\\
+\end{aligned}\]
+One requirement we have from any association scheme is that all Krein parameters are non-negative. With this in mind, consider the inequality:
+\[\begin{aligned}
+q_{1,1}^1 &\geq 0\\
+\frac{(1-w)(v-2k)+(v-2)s}{ws}&\geq 0\\
+(1-w)(v-2k)+(v-2)s&\geq 0\\
+(w-1)(v-2k)&\leq (v-2)s\\
+w&\leq \frac{(v-2)s}{v-2k}+1
+\end{aligned}\]
+assuming $v>2k$. The can immediately be seen to be equivalent to the previously stated bound by Noda. As before, the bound says nothing for the case of type 1 LSDs with $2k>v$.
+\subsection{Linear Programming Bound}
+\section{LSD as a system of Vectors}
+Now recall that if we let $A_i$ denote the adjacency matrix for the relation $R_i$ and $E_j$ denote the $j^\text{th}$ idempotent for our association scheme, then
+\[E_j = \frac{1}{\vert X\vert}\sum Q_{i,j}A_i.\]
+This gives the matrix
+\[\begin{aligned}
+E_1 &= \frac{1}{vw}\left((v-1)A_0-\frac{v-k}{\sqrt{k-\lambda}}A_1-A_2+\frac{k}{\sqrt{k-\lambda}}A_3\right).
+\end{aligned}\]
+However since $A_0 = I$ and $E_1$ is a rank $v-1$ idempotent (and therefore positive semi-definite), we have that $\frac{vw}{v-1} E_1$ corresponds to the gram matrix of a set fo $vw$ vectors in $\mathbb{R}^{v-1}$. Further we have that there are only three possible inner products given by:
+\[\begin{aligned}
+\alpha_1 &= -\frac{v-k}{(v-1)\sqrt{k-\lambda}}\\
+\alpha_2 &=-\frac{1}{v-1}\\
+\alpha_3 &= \frac{k}{(v-1)\sqrt{k-\lambda}}.
+\end{aligned}\]
+Therefore every LSD of type 1 (recall that we used the type 1 definition to reach these inner products) is equivalent to a vector system with three possible inner products. If you consider that $A_2$ corresponds to adjacency within the same fiber, our system of lines forms a set of $w$ regular simplices in $R^{v-1}$ ``interlocked'' in a way such that any pair of vectors from distinct simplicies have either $\alpha_1$ or $\alpha_3$ as their inner product.\\
+Another useful representation often advantageous to instead consider a similar structure created by adding $\frac{vw}{v-1}E_0$ to the above construction to arrive at a new rank $v$ idempotent with the following inner products:
+\[\begin{aligned}
+\beta_1 &= -\frac{v-k-\sqrt{k-\lambda}}{(v-1)\sqrt{k-\lambda}}\\
+\beta_2&= 0\\
+\beta_3&= \frac{k+\sqrt{k-\lambda}}{(v-1)\sqrt{k-\lambda}}.
+\end{aligned}\]
+Since $\beta_2 = 0$, this new set of vectors corresponds to sets of basis in $\mathbb{R}^v$ which have inner products of $\beta_1$ or $\beta_2$ between basis.
+\section{LSDs and MUBs}
+Now recall that if we let $A_i$ denote the adjacency matrix for the relation $R_i$ and $E_j$ denote the $j^\text{th}$ idempotent for our association scheme, then
+\[E_j = \frac{1}{\vert X\vert}\sum Q_{i,j}A_i.\]
+This gives the matrices
+\[\begin{aligned}
+E_0 &= \frac{1}{vw}J\\
+E_1 &= \frac{1}{vw}\left((v-1)A_0-\frac{v-k}{\sqrt{k-\lambda}}A_1-A_2+\frac{k}{\sqrt{k-\lambda}}A_3\right).
+\end{aligned}\]
+Therefore if we add the previous two idempotents we get
+\[M = E_0+E_1 = \frac{1}{vw}\left(vA_0-\frac{v-k-\sqrt{k-\lambda}}{\sqrt{k-\lambda}}A_1+\frac{k+\sqrt{k-\lambda}}{\sqrt{k-\lambda}}A_3\right).\]\newpar
+Now consider that $A_0=I$ and $A_1+ A_3 = (J-I)\otimes J$. This tells us that $M$ has block form with $v\times v$ blocks where the main diagonal blocks are all $\frac{1}{w}I$ and the entries in the off diagonal blocks only have 2 possible values. Further every $A_i$ is symmetric so $M$ is symmetric. We also know that $E_0$ and $E_1$ are both idempotents and $E_0E_1 = E_1E_0 = 0$ so $M$ must also an idempotent, giving us that $M$ is positive semidefinite. Finally the rank of $E_i$ is given by $Q_{0,i}$, so $\text{rank}(E_0) = 1$ and $\text{rank}(E_1) = v-1$. This tells us that $\text{rank}(M) = v$. This means that $M$ is a symmetric, positive semi-definite matrix of rank $v$. Therefore $wM$ forms the Gram matrix of $w$ sets of $v$ lines such that any set forms an orthonormal basis for $\mathbb{R}^v$ and any two vectors from distinct sets have inner product either $-\frac{v-k-\sqrt{k-\lambda}}{v\sqrt{k-\lambda}}$ or $\frac{k+\sqrt{k-\lambda}}{v\sqrt{k-\lambda}}$. If we find that these two values have equal absolute value, then $wM$ is the Gram matrix for a set of $w$ mutually unbiased bases in $\mathbb{R}^v$. Therefore we wish to investigate when $\vert k+\sqrt{k-\lambda}-v\vert = \vert k+\sqrt{k-\lambda}\vert$. It is easy to see that the only way the values inside the absolute values will have the same sign (and equal) is if $v = 0$. Since this is not an interesting case, we instead assume they are negatives of each other giving:
+\[\begin{aligned}v-k-\sqrt{k-\lambda}&=k+\sqrt{k-\lambda}\\
+v-2k&=2\sqrt{k-\lambda}.\\
+\end{aligned}\]
+This leads to the following Lemma:
+\begin{lemma}
+	\label{oneside}
+	Let $L$ be a type 1 $LSD(v,k,\lambda;w)$. If $v-2k = 2\sqrt{k-\lambda}$ then $wM$ as defined above is the Gram matrix of a set of $w$ MUBs in dimension $v$. 
+\end{lemma}
+This existence of MUBs allows us to further restrict the feasible parameters of type 1 LSDs with this condition because of inner product restrictions with MUBs. Consider if we did have a set of MUBs with inner products (between basis) $\pm \frac{k+\sqrt{k-\lambda}}{v\sqrt{k-\lambda}}$. Then let one basis be given by $\left\{b_i\right\}_{i=1\dots v}$ and consider a basis vector $x$ from one of the other basis. Then we have $x = \sum_{i=1}^{v}\left<x,b_i\right>b_i$ giving us:
+\[\begin{aligned}
+1=\left<x,x\right> = \left<\sum_{i=1}^{v}\left<x,b_i\right>b_i,\sum_{j=1}^{v}\left<x,b_j\right>b_j\right> =\sum_{i,j=0}^v\left<x,b_i\right>\left<x,b_j\right> \left<b_i,b_j\right>=v\left<x,b_i\right>^2.
+\end{aligned}\]
+Therefore $\left<x,b_i\right>^2=\frac{1}{v}$.\newpar
+This means that we will not be able to create a type 1 LSD with $v-2k = 2\sqrt{k-\lambda}$ unless
+\[\begin{aligned}
+\left(\frac{k+\sqrt{k-\lambda}}{v\sqrt{k-\lambda}}\right)^2&=\frac{1}{v}\\
+\left(k+\sqrt{k-\lambda}\right)^2&=v(k-\lambda)\\
+\left(k+\frac{v-2k}{2}\right)^2&=v(k-\lambda)\\
+\frac{v^2}{4}&=v(k-\lambda)\\
+v&=4(k-\lambda).\\
+\end{aligned}\]
+This condition comes for free after recognizing the relation of LSDs of this type with MUBs. Therefore every LSD satisfying $v-2k = 2\sqrt{k-\lambda}$ using our standard definition for $\mu$ and $\nu$ must also satisfy this condition. However a LSD with $w=2$ will always exist for any symmetric design. Therefore we expect every design satisfying $v-2k = 2\sqrt{k-\lambda}$ to satisfy $v = 4(k-\lambda)$. This lead to the following lemma:
+\begin{lemma}
+	Given a symmetric $(v,k,\lambda)$-design. If $v-2k = 2\sqrt{k-\lambda}$ then $v = 4(k-\lambda)$.
+\end{lemma}
+\newpar
+An important consideration before moving on is the result if we used a type 2 LSD instead. We could repeat all the previous calculations using the complement LSD , however this is not necessary. Since $R_3$ was defined as the complement of $\Gamma$ on each pair of vertex sets, it is simple to see that the complementary LSD swaps $R_1$ and $R_3$. Because of this, all of the previous analysis will be nearly the same. The only part that will change is our definition of our regularity constant $k$. Since we will have $k^\prime = v-k$, we can find the new requirement from our previous result
+	\[\begin{aligned}
+	v-2k &= 2\sqrt{k-\lambda}\\
+	v' - 2(v'-k')&=2\sqrt{v'-k'-(v'-2k'+\lambda')}\\
+	2k'-v'&=2\sqrt{k'-\lambda'}.\end{aligned}\]
+This tells us that if we use type 2 LSDs then only those designs with $2k>v$ will gives us MUBs. With this, we present the generalization of Lemma \ref{oneside}.
+\begin{lemma}
+	\label{twoside}
+	Let $L$ be a $LSD(v,k,\lambda;w)$ such that $\vert v-2k\vert = 2\sqrt{k-\lambda}$. If either:
+	\begin{itemize}
+		\item $L$ is a type 1 LSD and $v>2k$ or,
+		\item $L$ is a type 2 LSD and $v<2k$
+	\end{itemize}
+	then $wM$ as defined above is the Gram matrix of a set of $w$ MUBs in dimension $v$. 
+\end{lemma}
+It is important to note here that there exist type 2 LSDs with $v>2k$ fitting all the remaining conditions above. For example the following LSD:
+\[\begin{tikzpicture}[scale = .5,node distance=2cm,
+thin,main node/.style={circle,fill=black,scale = .5}]
+
+\node[main node] (11) at (-3,1) {};
+\node[main node] (12) at (-2.5,2) {};
+\node[main node] (13) at (-2,3) {};
+\node[main node] (14) at (-1.5,4) {};
+\node[main node] (24) at (1.5,4) {};
+\node[main node] (23) at (2,3) {};
+\node[main node] (22) at (2.5,2) {};
+\node[main node] (21) at (3,1) {};
+\node[main node] (34) at (0,-1) {};
+\node[main node] (33) at (0,-2) {};
+\node[main node] (32) at (0,-3) {};
+\node[main node] (31) at (0,-4) {};
+
+\draw [-] (11) -- (21) -- (31) -- (11);
+\draw [-] (12) -- (22) -- (32) -- (12);
+\draw [-] (13) -- (23) -- (33) -- (13);
+\draw [-] (14) -- (24) -- (34) -- (14);
+\end{tikzpicture}\]
+uses parameters $(4,1,0)$. We can easily see that $v-2k = 2 = 2\sqrt{k-\lambda}$ and $\nu = 0 =\frac{k(k-s)}{v}$. Therefore the above LSD is of type 2 while satisfying $v-2k = 2\sqrt{k-\lambda}$. Therefore we must be clear that we are not claiming that linked systems cannot exist with $v>2k$ and $ \nu = \frac{k(k-s)}{v}$ but that these do not yield MUBs. In fact, one can check that the above LSD results in the following $M$ matrix:
+\[M = E_0 + E_1 =\frac{1}{3}A_0 -\frac{1}{4}A_1\]
+which does not correspond to the Gram matrix of a set of MUBs.
+\subsection{Further Restrictions}
+We now take a closer look at our two restrictions in the type 1 case. We have $v = 4(k-\lambda)$ and $ v-2k = 2\sqrt{k-\lambda}$. Using these, we have:
+\[\begin{aligned}
+4(k-\lambda)&=2k+2\sqrt{k-\lambda}\\
+k-2\lambda&=\sqrt{k-\lambda}\\
+k^2-4k\lambda+4\lambda^2&=k-\lambda\\
+k^2-(4\lambda+1)k+4\lambda^2+\lambda&=0\\
+k&=\frac{4\lambda+1\pm\sqrt{(4\lambda+1)^2-16\lambda^2-4\lambda}}{2}\\
+&=\frac{4\lambda+1}{2}\pm\frac{\sqrt{4\lambda+1}}{2}\\
+\end{aligned}\]
+Now, we know $k$ is an integer for every design, so we need $\frac{1}{2}\pm\frac{1}{2}\sqrt{4\lambda+1}$ to be an integer. For this to happen, we need $\sqrt{4\lambda+1}$ to be an odd integer. Therefore assume $4\lambda+1 = (2u-1)^2$ for some positive integer $u$. We can solve for $\lambda$ getting $\lambda = u^2-u$. Then we have
+\[\begin{aligned}
+k&=\frac{4\lambda+1}{2}\pm\frac{\sqrt{4\lambda+1}}{2}\\
+&=\frac{(2u-1)^2}{2}\pm\frac{(2u-1)}{2}\\
+&=\frac{4u^2-4u+1}{2}\pm\left(u-\frac{1}{2}\right)\\
+&=2u^2-(2\mp 1)u+\left(\frac{1\mp1}{2}\right)\\
+\end{aligned}\]
+This gives rise to two distinct families of parameter sets. First
+\[\begin{aligned}
+\lambda &= u^2-u\\
+k&=(2u-1)u\\
+v&=4(k-\lambda) = 4u^2.
+\end{aligned}\]
+The second family is given by
+\[\begin{aligned}
+\lambda' &= u^2-u\\
+k'&=(2u-1)(u-1)\\
+v'&=4(k-\lambda) = 4(u-1)^2.
+\end{aligned}\]
+If we re-parameterize the second family to avoid the trivial $(0,0,0)$ design when $u=1$, we get
+\[\begin{aligned}
+\lambda' &= u^2+u\\
+k'&=(2u+1)u\\
+v'&=4(k-\lambda) = 4u^2.
+\end{aligned}\]
+From here, note that $v'=v$, $k' = v-k$ and $\lambda' = \lambda+v-2k$. It should not come as a surprise to us that we find two complementary families which uphold this requirement. In fact, we would reach the same result if we used the type 2 restriction $2k-v = 2\sqrt{k-\lambda}$. Since we square both sides early on, we quickly lose sight of the difference between these two cases. Note however that $v-2k = u$ while $v'-2k' = -u$. Therefore, assuming positive integers for $u$, the first family only corresponds to MUBs when used in a type 1 LSD. Likewise the second family yields MUBs only when working with type 2 LSDs.
+\subsection{Restrictions based on $\mu$ and $\nu$}
+Now that we know we can work with the specific family $(4u^2,2u^2-u,u^2-u)$, we return to the original graph $\Gamma$ and consider feasibility conditions based on $\mu$ and $\nu$. Since we are using the type 1 definition for LSD, we require $\nu = \frac{k(k+s)}{v}$ and $\mu = \nu-s$. For these values to make sense, we must find that both $\mu$ and $\nu$ are non-negative integers. Plugging in our parameters we get
+\[\begin{aligned}
+s&=\sqrt{k-\lambda}\\
+&=u\\
+\nu &=\frac{k(k+s)}{v}\\
+&=\frac{(2u^2-u)(2u^2)}{4u^2}\\
+&=u^2-\frac{u}{2}\\
+\mu&=\nu-s\\
+&=u^2-\frac{3}{2}u.
+\end{aligned}\]
+For $\nu$ (and $\mu$) to be an integer, we need $u$ to be even. This condition is also sufficient for $\mu$ to be positive since we need $u\geq\frac{3}{2}$. Therefore if we want $w\geq 3$ then we must only consider the designs such that $u$ is even. Likewise in the type 2 case we get
+\[\begin{aligned}
+s&=\sqrt{k'-\lambda'}\\
+&=u\\
+\nu &=\frac{k'(k'-s)}{v}\\
+&=\frac{(2u^2+u)2u^2}{4u^2}\\
+&=\frac{(2u+1)u}{2}\\
+&=u^2+\frac{u}{2}\\
+\mu&=\nu+s\\
+&=u^2+\frac{3u+1}{2}\\
+\end{aligned}\]
+This leads to the same result telling us that anytime we have a LSD of either type giving us MUBs, the complement LSD will also give us MUBs. This gives us the following theorem\newpage
+\begin{theorem}
+	Let $LSD(v,k,\lambda;w)$ be a type 1 linked system of $(v,k,\lambda)$ designs as described above. If $v-2k = 2\sqrt{k-\lambda}$ then:
+	\begin{enumerate}[(i)]
+		\item $v = 4u^2$
+		\item $k = 2u^2-u$
+		\item $\lambda = u^2-u$
+		\item $w\leq 2u^2+1$ (known upper bound for MUB's)
+	\end{enumerate}
+	Further, if $u$ is odd, then $w = 2$.
+\end{theorem}
+One consequence of this result is that we cannot take an arbitrary set of MUBs and project the space down one dimension to get the adjacency matrix of a linked system. This can be seen when the dimension is 4 times an odd square. For example in $\mathbb{R}^4$ we can easily achieve 3 MUBs. However, this would gives us a linked system with $v=4$ and $w = 3$ which is either type 1 with $v>2k$ or type 2 with $v<2k$. Our final statement in our theorem tells us that since $v = 4u^2$ with odd $u$, $w$ must equal 2. The question of a better upper bound when $u$ is even is still open. It is also conjectured that the lower bound of $w$ will depend on the highest power of $4$ which divides $v$ since the lower bound on maximum number of MUBs follows this trend. However, since we have shown that MUBs will not always give us LSDs, we cannot immediately transfer the bound to work for us.
+\section{Hadamard Equivalence}
+Assume that we have a type 1 $LSD(v,k,\lambda;w)$ such that $v -2k = \sqrt{k-\lambda}$. Then, using the above construction we know that we can build $w$ bases $B_1,B_2,\dots,B_v$ such that $\left\{B_1,B_2,\dots,B_v\right\}$ forms a set of mutually unbiased bases with Gram matrix given by $M$ above. We can then build Hadamard Matrices $H_{i,j}$ by
+\[ H_{i,j} = \sqrt{v}\left[\begin{array}{cccc}
+\left(b_1^i,b_1^j\right) & \left(b_1^i,b_2^j\right) & \dots & \left(b_1^i,b_n^j\right)\\
+\left(b_2^i,b_1^j\right) & \left(b_2^i,b_2^j\right) & \dots & \left(b_2^i,b_n^j\right)\\
+\vdots & \vdots& \ddots & \vdots\\
+\left(b_n^i,b_1^j\right) & \left(b_n^i,b_2^j\right) & \dots & \left(b_n^i,b_n^j\right)\\
+\end{array}\right]\]
+where $b_k^l$ is the $k^\text{th}$ basis vector of $B_l$. To show this is Hadamard, consider:
+\[\begin{aligned}H_{i,j}H_{i,j}^T &= v\left[\begin{array}{cccc}
+\left(b_1^i,b_1^j\right) & \left(b_1^i,b_2^j\right) & \dots & \left(b_1^i,b_n^j\right)\\
+\left(b_2^i,b_1^j\right) & \left(b_2^i,b_2^j\right) & \dots & \left(b_2^i,b_n^j\right)\\
+\vdots & \vdots& \ddots & \vdots\\
+\left(b_n^i,b_1^j\right) & \left(b_n^i,b_2^j\right) & \dots & \left(b_n^i,b_n^j\right)\\
+\end{array}\right]\left[\begin{array}{cccc}
+\left(b_1^i,b_1^j\right) & \left(b_2^i,b_1^j\right) & \dots & \left(b_n^i,b_1^j\right)\\
+\left(b_1^i,b_2^j\right) & \left(b_2^i,b_2^j\right) & \dots & \left(b_n^i,b_2^j\right)\\
+\vdots & \vdots& \ddots & \vdots\\
+\left(b_1^i,b_n^j\right) & \left(b_2^i,b_n^j\right) & \dots & \left(b_n^i,b_n^j\right)\\
+\end{array}\right]\\
+&=v\left[\begin{array}{cccc}
+\sum_k\left(b_1^i,b_k^j\right)^2 & \sum_k\left(b_1^i,b_k^j\right)\left(b_2^i,b_k^j\right) & \dots & \sum_k\left(b_1^i,b_k^j\right)\left(b_n^i,b_k^j\right)\\
+\sum_k\left(b_2^i,b_k^j\right)\left(b_1^i,b_k^j\right) & \sum_k\left(b_2^i,b_k^j\right)^2 & \dots & \sum_k\left(b_2^i,b_k^j\right)\left(b_n^i,b_k^j\right)\\
+\vdots & \vdots& \ddots & \vdots\\
+\sum_k\left(b_n^i,b_k^j\right)\left(b_1^i,b_k^j\right) & \sum_k\left(b_n^i,b_k^j\right)\left(b_2^i,b_k^j\right) & \dots & \sum_k\left(b_n^i,b_k^j\right)^2\\
+\end{array}\right]
+\end{aligned}\]
+but
+\[\begin{aligned}\sum_k(b_l^i,b_k^j)(b_h^i,b_k^j)&=\left(\sum_k(b_l^i,b_k^j)b_k^j,\sum_k(b_h^i,b_k^j)b_k^j\right)\\
+&=(b_l^i,b_h^i)\\
+&=\delta_{l,h}.
+\end{aligned}\]
+Therefore $H_{i,j}H_{i,j}^T = vI$ making $H_{i,j}$ a Hadamard matrix. Observe also that $H_{i,j}$ is a regular Hadamard since this matrix is the $i,j$ block in our gram matrix $M$ (scaled appropriately) which necessarily had $k$ negative entries in every row.\newpar
+Assume now that $w\geq 3$ so we have at least two such Hadamards. When we take $H_{i,j}^TH_{i,k}$ with $j\neq k$, we get:
+\[\begin{aligned}
+H_{i,j}^TH_{i,k}&=v\left[\begin{array}{cccc}
+\left(b_1^i,b_1^j\right) & \left(b_2^i,b_1^j\right) & \dots & \left(b_n^i,b_1^j\right)\\
+\left(b_1^i,b_2^j\right) & \left(b_2^i,b_2^j\right) & \dots & \left(b_n^i,b_2^j\right)\\
+\vdots & \vdots& \ddots & \vdots\\
+\left(b_1^i,b_n^j\right) & \left(b_2^i,b_n^j\right) & \dots & \left(b_n^i,b_n^j\right)\\
+\end{array}\right]\left[\begin{array}{cccc}
+\left(b_1^i,b_1^k\right) & \left(b_1^i,b_2^k\right) & \dots & \left(b_1^i,b_n^k\right)\\
+\left(b_2^i,b_1^k\right) & \left(b_2^i,b_2^k\right) & \dots & \left(b_2^i,b_n^k\right)\\
+\vdots & \vdots& \ddots & \vdots\\
+\left(b_n^i,b_1^k\right) & \left(b_n^i,b_2^k\right) & \dots & \left(b_n^i,b_n^k\right)\\
+\end{array}\right]\\
+&=v\left[\begin{array}{cccc}
+\sum_h\left(b_h^i,b_1^j\right)\left(b_h^i,b_1^k\right) & \sum_h\left(b_h^i,b_1^j\right)\left(b_h^i,b_2^k\right) & \dots & \sum_h\left(b_h^i,b_1^j\right)\left(b_h^i,b_n^k\right)\\
+\sum_h\left(b_h^i,b_2^j\right)\left(b_h^i,b_1^k\right) & \sum_h\left(b_h^i,b_2^j\right)\left(b_h^i,b_2^k\right) & \dots & \sum_h\left(b_h^i,b_2^j\right)\left(b_h^i,b_n^k\right)\\
+\vdots & \vdots& \ddots & \vdots\\
+\sum_h\left(b_h^i,b_n^j\right)\left(b_h^i,b_1^k\right) & \sum_h\left(b_h^i,b_n^j\right)\left(b_h^i,b_2^k\right) & \dots & \sum_h\left(b_h^i,b_n^j\right)\left(b_h^i,b_n^k\right)\\
+\end{array}\right]\\
+&=v\left[\begin{array}{cccc}
+\left(b_1^j,b_1^k\right) & \left(b_1^j,b_2^k\right) & \dots & \left(b_1^j,b_n^k\right)\\
+\left(b_2^j,b_1^k\right) & \left(b_2^j,b_2^k\right) & \dots & \left(b_2^j,b_n^k\right)\\
+\vdots & \vdots& \ddots & \vdots\\
+\left(b_n^j,b_1^k\right) & \left(b_n^j,b_2^k\right) & \dots & \left(b_n^j,b_n^k\right)\\
+\end{array}\right]\\
+&=\sqrt{v}H_{j,k}.
+\end{aligned}\]
+Therefore a LSD with $w\geq 3$ gives us $w-1$ regular Hadamards such that $\frac{1}{\sqrt{v}}H_i^TH_j$ with $i\neq j$ is again a hadamard with the same row sum. Note this implies that $H_i= H_j$ if and only if $i= j$.\newpar
+Now assume we have $w-1$ distinct regular Hadamard's (all with the same positive row sums) such that $\frac{1}{\sqrt{d}}H_i^TH_j$ is again a hadamard whenever $i\neq j$. First we must check that the row sum of $\frac{1}{\sqrt{d}}H_i^TH_j$ is the same as the row sum of our original Hadamards. 
+\begin{lemma}
+The product of two regular Hadamards with the same row sum will always have constant row sum equal to $p^2$ where $p$ is the row sum of each individual Hadamard.
+\end{lemma}
+\begin{proof}
+	Let $A$ and $B$ be regular Hadamards with row sum equal to $p$. Let $N = A^TB$. Then,
+	\[\begin{aligned}
+	N_{i,j} &= \sum_k A_{k,i}B_{k,j}\\
+	\sum_i N_{i,j}&= \sum_i\sum_k A_{k,i} B_{k,j}\\
+	&=\sum_kB_{k,j}\sum_iA_{k,i}\\
+	&=\sum_kB_{k,j}(p)\\
+	&=p\sum_kB_{k,j}\\
+	&=p^2
+	\end{aligned}\]
+\end{proof}
+Therefore the row sum of $\frac{1}{\sqrt{d}}H_i^TH_j$ is equal to $\frac{p^2}{\sqrt{d}}$ where $p$ is the row sum of $H_i$. Since this row sum of every $H_i$ is $\sqrt{d}$, we know that the row sum of $\frac{1}{\sqrt{d}}H_i^TH_j$ will also be $\sqrt{d}$.
+Then the following Matrix is a rank $v$ idempotent
+\[M = \frac{1}{w}\left[\begin{array}{ccccccc}
+I & \frac{1}{\sqrt{v}}H_1 & \frac{1}{\sqrt{v}}H_2 & \dots & \frac{1}{\sqrt{v}}H_i & \dots & \frac{1}{\sqrt{v}}H_{w-1}\\
+\frac{1}{\sqrt{v}}H_1^T & I & \frac{1}{v}H_1^TH_2 & \dots & \frac{1}{v}H_1^TH_i & \dots & \frac{1}{v}H_1^TH_{w-1}\\
+\vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots\\
+\frac{1}{\sqrt{v}}H_i^T & \frac{1}{v}H_i^TH_1 & \frac{1}{v}H_i^TH_2 & \dots & I & \dots & \frac{1}{v}H_j^TH_{w-1}\\
+\vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots\\
+\frac{1}{\sqrt{v}}H_{w-1}^T & \frac{1}{v}H_{w-1}^TH_1 & \frac{1}{v}H_{w-1}^TH_2 & \dots & \frac{1}{v}H_{w-1}^TH_i & \dots & I\\
+\end{array}\right]\]
+The extra $\frac{1}{\sqrt{v}}$ in each off diagonal entry comes from our definition of $M$ since we actually want scaled Hadamards in each block. Further, the negative entries in $M-I$ give the adjacency relation of a $\text{LSD}(v,k,\lambda;w)$. Note we could repeat all previous steps for type 2 LSDs making the adjustment that we instead use $-\frac{1}{\sqrt{v}}H_i^TH_j$ for each entry in our matrix $M$. This provides us with the following lemma:
+\begin{lemma}
+	\label{equiv}
+	The following are equivalent statements:
+	\begin{itemize}
+		\item There exists a type 1 $\text{LSD}(v,k,\lambda;w)$ with $v-2k=\sqrt{k-\lambda}$.
+		\item There exists a type 2 $\text{LSD}(v,k,\lambda;w)$ with $2k-v=\sqrt{k-\lambda}$.
+		\item There exists $w-1$ regular Hadamards with the property that $\frac{1}{\sqrt{v}}H_i^TH_j$ is again a Hadamard with the same row sum.
+	\end{itemize}
+\end{lemma}
+\section{Finding LSDs from certain MUBs}
+Using the results from the last section and the close relation between MUBs and Hadamards, we wish to build LSDs with large values for $w$. Given our requirements for equivalence with Hadamards, we know that we are only going to find type 1 LSDs with parameters $(4u^2,2u^2-u,u^2-u)$ or type 2 using the complement parameters. Goethals gives a construction in \cite{Cameron} for $w = 2u^2$ whenever $u$ is a power of 2. Therefore we skip this case and instead look for constructions where $u$ (and equivalently $v$) is not necessarily a power of 2.
+\subsection{Beth and Wocjan construction for MUBs}
+Beth and Wocjan in \cite{Wocjan} detail a way to create MUBs from MOLS. They take a set of $t$ MOLS with side $d$ and create $t+2$ MUBs in dimension $d^2$. The general idea of this process is to convert the MOLS into an orthogonal array with $d^2$ rows and $\lambda = 1$. They then expand the array by replacing each column with $d$ columns giving by the characteristic vector of that column for each symbol in the OA. Finally they further extend this Matrix by replacing each 1 in the array with a row from a Hadamard matrix and each 0 by an appropriate length vector of 0s. The result is that the $d$ columns arising from each original column are orthogonal to each other. In order to help understand the various expansions and to simplify calculations later, we establish some notation before moving to an example. For our purposes we are more interested in the orthogonal array without much interest in where it comes from. Therefore we forgo the Latin Squares for now and start with the OA.\newpar
+In all cases, given a column $A$, let $A_k$ denote the $k^{th}$ element of $A$. Let $O$ be an orthogonal array of size $n^2\times s$ with entries in $[n]$. Let $C^i$ denote the $i^{th}$ column of $O$. Let $B^{i,j}$ denote the binary vector created from the first expansion of $O$. This means that
+\[B^{i,j}_k = \begin{cases}
+1 & C^i_k = j\\
+0 & \text{o.w.}
+\end{cases}\]
+Note that each symbol $j$ appears in each column $C^i$ exactly $n$ times, so $B^{i,j}$ will have $n$ 1s and $n^2-n$ 0s. Now let $H$ be a Hadamard matrix of size $n\times n$ and $M^{i,j,l}$ be the vector created by replacing the 1s in $B^{i,j}$ with the $l^{th}$ column of $H$. To be more precise with this step, let $\left\{b^{i,j}\right\}$ be the $n$ indices where $B^{i,j}$ has a 1. Then
+\[M^{i,j,l}_{k} = \begin{cases}
+H_{h,l} & k \in\left\{b^{i,j}\right\}\\
+0 & o.w.
+\end{cases}\]
+In all cases above $1\leq i\leq s,$ $1\leq j,l\leq n$. Finally, when displaying each of these columns in a Matrix, we will always iterate over the last index first. For example we will give the set of $B^{i,j}$ as the following matrix
+\[B = \left[\begin{array}{cccccccc}
+\vline & \vline& & \vline& \vline&\vline& & \vline\\
+\\
+B^{1,1} & B^{1,2} & \dots & B^{1,n} & B^{2,1}& B^{2,2}& \dots & B^{s,n}\\
+\\
+\vline & \vline& & \vline& \vline&\vline& & \vline
+\end{array}\right]\]
+To give an example of the construction and our notation, consider the $9\times 4$ orthogonal array
+\[O = \left[\begin{array}{cccc}
+1& 1& 1&1\\
+1& 2& 2&3\\
+1& 3& 3&2\\
+2& 1& 2&2\\
+2& 2& 3&1\\
+2& 3& 1&3\\
+3& 1& 3&3\\
+3& 2& 1&2\\
+3& 3& 2&1\\
+\end{array}\right].\]
+We create the $B^{i,j}$ columns (using vertical lines to denote a change in $i$):
+\[B^{:,:} = \left[\begin{array}{ccc|ccc|ccc|ccc}
+1&0&0&	1&0&0& 	1&0&0& 	1& 0&0\\
+1&0&0&	0&1&0& 	0&1&0& 	0& 0&1\\
+1&0&0&	0&0&1& 	0&0&1& 	0& 1&0\\
+0&1&0&	1&0&0& 	0&1&0& 	0& 1&0\\
+0&1&0&	0&1&0& 	0&0&1& 	1& 0&0\\
+0&1&0&	0&0&1& 	1&0&0& 	0& 0&1\\
+0&0&1&	1&0&0& 	0&0&1& 	0& 0&1\\
+0&0&1&	0&1&0& 	1&0&0& 	0& 1&0\\
+0&0&1&	0&0&1& 	0&1&0& 	1& 0&0\\
+\end{array}\right].\]
+Now we take a Hadamard,
+\[H = \left[\begin{array}{ccc}
+1 & 1 & 1\\
+1 & \omega & \omega^2\\
+1 & \omega^2 & \omega
+\end{array}\right]\]
+and form the $M^{i,j,l}$ columns. For display purposes we group the columns into 4 Matrices based on the value of $i$:
+\[\begin{aligned}M^{1,:,:} &= \left[\begin{array}{ccc|ccc|ccc}
+1 & 1 & 1&0&0& 	0&0&0& 	0	\\
+1 & \omega & \omega^2&0&0&0&0&0&0\\
+1 & \omega^2 & \omega&0&0&0&0&0&0\\
+0&0&0&1 & 1 & 1&0&0&0				\\
+0&0&0&1 & \omega & \omega^2&0&0&0	\\
+0&0&0&1 & \omega^2 & \omega&0&0&0	\\
+0&0&0&0&0&0&1 & 1 & 1				\\
+0&0&0&0&0&0&1 & \omega & \omega^2	\\
+0&0&0&0&0&0&1 & \omega^2 & \omega	\\
+\end{array}\right]\qquad M^{2,:,:} = \left[\begin{array}{ccc|ccc|ccc}
+1 & 1 & 1&0&0&0&0&0&0 	\\
+0&0&0&1 & 1 & 1&0&0&0 	\\
+0&0&0&0&0&0&1 & 1 & 1 	\\
+1 & \omega & \omega^2&0&0&0&0&0&0 	\\
+0&0&0&1 & \omega & \omega^2&0&0&0 	\\
+0&0&0&0&0&0&1 & \omega & \omega^2 	\\
+1 & \omega^2 & \omega&0&0&0&0&0&0	\\
+0&0&0&1 & \omega^2 & \omega&0&0&0 	\\
+0&0&0&0&0&0&1 & \omega^2 & \omega 	\\
+\end{array}\right]\\
+M^{3,:,:} &= \left[\begin{array}{ccc|ccc|ccc}
+1 & 1 & 1&0&0&0&0&0&0 	\\
+0&0&0&1 & 1 & 1&0&0&0	\\
+0&0&0&0&0&0&1 & 1 & 1	\\
+0&0&0&1 & \omega & \omega^2&0&0&0 	\\
+0&0&0&0&0&0&1 & \omega & \omega^2 	\\
+1 & \omega & \omega^2&0&0&0&0&0&0 	\\
+0&0&0&0&0&0&1 & \omega^2 & \omega	\\
+1 & \omega^2 & \omega&0&0&0&0&0&0 	\\
+0&0&0&1 & \omega^2 & \omega&0&0&0 	\\
+\end{array}\right]\qquad M^{4,:,:} = \left[\begin{array}{ccc|ccc|ccc}
+1 & 1 & 1& 0&0&0&0&0&0\\
+0&0&0&0&0&0&1 & 1 & 1\\
+0&0&0&1 & 1 & 1&0&0&0\\
+0&0&0&1 & \omega & \omega^2&0&0&0\\
+1 & \omega & \omega^2&0&0&0&0&0&0\\
+0&0&0&0&0&0&1 & \omega & \omega^2\\
+0&0&0&0&0&0&1 & \omega^2 & \omega\\
+0&0&0&1 & \omega^2 & \omega&0&0&0\\
+1 & \omega^2 & \omega&0&0&0&0&0&0\\
+\end{array}\right]\\
+\end{aligned}\]
+It is not difficult to see that in this example that any two columns $M^{i,j,l}$ and $M^{i',j',l'}$ will have an inner product with norm $1-\delta_{i,i'}$. Therefore each set of $M^{i,:,:}$ forms an orthogonal basis for $\mathbb{C}^n$ and the set of all columns $M^{i,j,l}$ (normalized appropriately) form 4 MUBs.
+\newpar
+Now that we have seen an example, we move to more general statements about such a construction. Given an orthogonal array and all the matrices formed above, consider the inner product between $M^{i,j,l}$ and $M^{i',j',l'}$. To fully clasify the possibly inner products, we consider the following four cases
+\begin{enumerate}
+	\item $i = i'$, $j = j'$, $l = l'$\\
+	In this case $M^{i,j,l} = M^{i',j',l'}$ and the inner product will be the sum of the squared modulus of the entries. However every nonzero entry of $M^{i,j,l}$ comes from a Hadamard which, by definition, has only entries of unit norm. Therefore $\vnorm{M^{i,j,l}}^2 = n$ since $M^{i,j,l}$ is nonzero in exactly the $n$ places that $B^{i,j}$ is nonzero. Therefore every column has the same norm.
+	\item $i = i'$, $j = j'$, $l\neq l'$\\
+	In this case $M^{i,j,l}$ and $M^{i',j',l'}$ both come from the same $B^{i,j}$ however they use different columns of the Hadamard matrix. Since the columns of a Hadamard matrix must be orthogonal, we know $M^{i,j,l}\perp M^{i',j',l'}$.
+	\item $i = i'$, $j \neq j'$\\
+	In this case $B^{i,j}$ and $B^{i,j'}$ are different characteristic vectors of $C^i$. However since $C^i_k$ cannot equal $j$ and $j^\prime$ both, we know $B^{i,j}$ and $B^{i,j'}$ must be orthogonal. Therefore $M^{i,j,l}\perp M^{i',j',l'}$.
+	\item $i\neq i'$\\
+	Here, $C^i$ and $C^{i'}$ denote distinct columns in our orthogonal array. By definition of the orthogonal array, this means that for any $j$ and $j'$ (not necessarily distinct), $B^{i,j}$ and $B^{i',j'}$ must have exactly one common nonzero entry (since the pair $(j,j')$ shows up exactly $1$ time). Therefore $M^{i,j,l}$ and $M^{i',j',l'}$ also have exactly one entry in common. Since both entries have unit norm, we know the inner product will also have unit norm.
+\end{enumerate}
+This shows that in general, we will always get a set of $s$ MUBs in dimension $n^2$ from this construction.\newpar
+Now assume that the $H$ used in our construction is a regular real-valued Hadamard with row sum $p$. Fix $i,j,l$ and $i'$ such that $i\neq i'$. Now, given any $j'$ and $l'$, observe
+\[\begin{aligned}\left<M^{i,j,l},M^{i',j',l'}\right>&=\sum_{x}M^{i,j,l}_xM^{i',j',l'}_x\\
+&=M^{i,j,l}_kM^{i',j',l'}_k\\
+\end{aligned}\]
+for some common index $k$ where $M^{i,j,l}$ and $M^{i',j',l'}$ are both nonzero. Recall there exists a unique index where this occurs, so we do not run into any issues here.\\
+If we now sum over $l'$ then,
+\[\begin{aligned}\sum_{l'} \left<M^{i,j,l},M^{i',j',l'}\right>&=\sum_{l'}M^{i,j,l}_kM^{i',j',l'}_k\\
+&=M^{i,j,l}_k\left(\sum_{l'}M^{i',j',l'}_k\right)\\
+&=M^{i,j,l}_k\sum_{l'}H_{t,l'}\qquad \text{(for some value of $t$ independent of $l$)}\\
+&=pM^{i,j,l}_k
+\end{aligned}\]
+Finally, while this appears to be independent of $j'$, recall that $k$ depends fully on which $j'$ was used. Further if we sum over all possible $j'$ then we hit every nonzero entry in $M^{i,j,l}$ exactly once. Therefore
+\[\begin{aligned}
+\sum_{j'}\sum_{l'}\left<M^{i,j,l},M^{i',j',l'}\right> &=\sum_{j'}pM^{i,j,l}_{k}\\
+&=p\sum_{j'}H_{j',l}\\
+&=p^2.
+\end{aligned}\]
+However we have shown previously that given any two Bases from a MUB, we can produce a Hadamard by taking the entries of our Hadamard to be the inner products of all vectors between the two bases (see construction of $H_{i,j}$ above). Any row of this Hadamard will contain every inner product of the form $\left<M^{i,j,l},M^{i',j',l'}\right>$ with $i\neq i'$. Therefore the row sum of this Hadamard will be $p^2$. Further we showed that given $t$ bases, we can produce $t-1$ Hadamards with the property that the product between any two of them was again a regular Hadamard with the same row sum. Therefore this construction gives us $s-1$ regular Hadamards such that the product of any two is again a regular Hadamard with the same row sum. Using Lemma \ref{equiv}, this means that we have a $\text{LSD}(n^2,k,\lambda;s)$ for appropriate $k$ and $\lambda$. If we use the Hadamards produced in our construction of this LSD then we will always get a type 2 LSD (since the row sums will always be positive). We can then find the corresponding type 1 LSD by taking the complement. Before moving to an example, we note that in order to have a regular Hadamard, we need $n$ to be of the form $4t^2$ for some integer $t$. Therefore this construction will only yield LSDs with $u = 2t^2$ using the above families. This means we get type 1 LSDs with $v = 16t^4,$ $k = 8t^4-2t^2,$ and $\lambda = 4t^4-2t^2$ and type 2 LSDs with $v = 16t^4,$ $k = 8t^4+2t^2,$ and $\lambda = 4t^4+2t^2$. While this is very restrictive, it does produce an infinite family of LSDs for (mostly) $v$ not a power of 2 (the first of which being $v = 16(3)^4 = 1296$) for which $w>2$.  This leads to our final theorem:
+\begin{theorem}
+	Let $n = 4t^2$ for some integer $t$. Let $N$ be the maximum number of columns of an orthogonal array with entries in $[n]$. If there exists a regular Hadamard of order $n$ then:
+	\begin{itemize}
+		\item There exists $N$ regular Hadamards of order $n^2$ such that the product of any two is again a regular Hadamard.
+		\item There exists a type 1 $\text{LSD}(16t^4,2t^2(4t^2-1),2t^2(2t^2-1);N)$.
+		\item There exists a type 2 $\text{LSD}(16t^4,2t^2(4t^2+1),2t^2(2t^2+1);N)$.
+	\end{itemize}
+\end{theorem}
+Using \cite{Colbourn} we can now guarantee the existence of LSDs of both types with the following values for $t$ with listed $w$\newpar
+\begin{tabular}{c|*{17}{c}}
+	$t$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10& 11 & 12 & 13 & 14 & 15 & 16 & 17 \\\hline
+	$w$&5&17&9&65&10&12&8&257&10&17&17&10&10&10&29&1025&10\\\\
+	$t$ & 18 & 19 & 20& 21 & 22 & 23 & 24 & 25 & 26 & 27 & 28 & 29 & 30& 31 & 32 & 33 \\\hline
+	$w$&26&11&26&11&17&11&32&10&17&10&50&30&30&12&4097&32\\\\
+	$t$ & 34 & 35 & 36 & 37 & 38 & 39 & 40 & 41 & 42 & 43 & 44 & 45 & 46 & 47 & 48 & 49 &\\\hline
+	$w$&18&32&65&32&18&32&26&13&20&32&65&17&32&32&30&17
+\end{tabular}\newpar
+In every case where $t$ is not a power of 2, this beats the previously known bound.
+\newpar
+To give an example of this construction we build a $\text{LSD}(16,10,6; 3)$ using the orthogonal array
+\[O = \left[\begin{array}{ccc}
+1 & 1 & 1\\
+1 & 2 & 2\\
+1 & 3 & 3\\
+1 & 4 & 4\\
+2 & 1 & 2\\
+2 & 2 & 3\\
+2 & 3 & 4\\
+2 & 4 & 1\\
+3 & 1 & 3\\
+3 & 2 & 4\\
+3 & 3 & 1\\
+3 & 4 & 2\\
+4 & 1 & 4\\
+4 & 2 & 1\\
+4 & 3 & 2\\
+4 & 4 & 3\\ 
+\end{array}\right]\]
+and Hadamard
+\[\left[\begin{array}{cccc}
+-1 & 1 & 1 & 1\\
+1 & -1 & 1 & 1\\
+1 & 1 & -1 & 1\\
+1 & 1 & 1 & -1\\
+\end{array}\right].\]
+Using this OA, we have
+\[B^{:,:} = \left[\begin{array}{cccc|cccc|cccc}
+1&0&0&0 &1&0&0&0 &1&0&0&0\\
+1&0&0&0 &0&1&0&0 &0&1&0&0\\
+1&0&0&0 &0&0&1&0 &0&0&1&0\\
+1&0&0&0 &0&0&0&1 &0&0&0&1\\
+0&1&0&0 &1&0&0&0 &0&1&0&0\\
+0&1&0&0 &0&1&0&0 &0&0&1&0\\
+0&1&0&0 &0&0&1&0 &0&0&0&1\\
+0&1&0&0 &0&0&0&1 &1&0&0&0\\
+0&0&1&0 &1&0&0&0 &0&0&1&0\\
+0&0&1&0 &0&1&0&0 &0&0&0&1\\
+0&0&1&0 &0&0&1&0 &1&0&0&0\\
+0&0&1&0 &0&0&0&1 &0&1&0&0\\
+0&0&0&1 &1&0&0&0 &0&0&0&1\\
+0&0&0&1 &0&1&0&0 &1&0&0&0\\
+0&0&0&1 &0&0&1&0 &0&1&0&0\\
+0&0&0&1 &0&0&0&1 &0&0&1&0\\
+\end{array}\right]\]
+and then using our Hadamard,
+\[\begin{aligned}
+M^{1,:,:} &=\left[\begin{array}{cccc|cccc|cccc|cccc}
+-1 & 1 & 1 & 1&0&0&0&0&0&0&0&0&0&0&0&0\\
+1 & -1 & 1 & 1&0&0&0&0&0&0&0&0&0&0&0&0\\
+1 & 1 & -1 & 1&0&0&0&0&0&0&0&0&0&0&0&0\\
+1 & 1 & 1 & -1&0&0&0&0&0&0&0&0&0&0&0&0\\
+0&0&0&0&-1 & 1 & 1 & 1&0&0&0&0&0&0&0&0\\
+0&0&0&0&1 & -1 & 1 & 1&0&0&0&0&0&0&0&0\\
+0&0&0&0&1 & 1 & -1 & 1&0&0&0&0&0&0&0&0\\
+0&0&0&0&1 & 1 & 1 & -1&0&0&0&0&0&0&0&0\\
+0&0&0&0&0&0&0&0&-1 & 1 & 1 & 1&0&0&0&0\\
+0&0&0&0&0&0&0&0&1 & -1 & 1 & 1&0&0&0&0\\
+0&0&0&0&0&0&0&0&1 & 1 & -1 & 1&0&0&0&0\\
+0&0&0&0&0&0&0&0&1 & 1 & 1 & -1&0&0&0&0\\
+0&0&0&0&0&0&0&0&0&0&0&0&-1 & 1 & 1 & 1\\
+0&0&0&0&0&0&0&0&0&0&0&0&1 & -1 & 1 & 1\\
+0&0&0&0&0&0&0&0&0&0&0&0&1 & 1 & -1 & 1\\
+0&0&0&0&0&0&0&0&0&0&0&0&1 & 1 & 1 & -1\\
+\end{array}\right]\\
+M^{2,:,:} &=\left[\begin{array}{cccc|cccc|cccc|cccc}
+-1 & 1 & 1 & 1&0&0&0&0&0&0&0&0&0&0&0&0\\
+0&0&0&0&-1 & 1 & 1 & 1&0&0&0&0&0&0&0&0\\
+0&0&0&0&0&0&0&0&-1 & 1 & 1 & 1&0&0&0&0\\
+0&0&0&0&0&0&0&0&0&0&0&0&-1 & 1 & 1 & 1\\
+1 & -1 & 1 & 1&0&0&0&0&0&0&0&0&0&0&0&0\\
+0&0&0&0&1 & -1 & 1 & 1&0&0&0&0&0&0&0&0\\
+0&0&0&0&0&0&0&0&1 & -1 & 1 & 1&0&0&0&0\\
+0&0&0&0&0&0&0&0&0&0&0&0&1 & -1 & 1 & 1\\
+1 & 1 & -1 & 1&0&0&0&0&0&0&0&0&0&0&0&0\\
+0&0&0&0&1 & 1 & -1 & 1&0&0&0&0&0&0&0&0\\
+0&0&0&0&0&0&0&0&1 & 1 & -1 & 1&0&0&0&0\\
+0&0&0&0&0&0&0&0&0&0&0&0&1 & 1 & -1 & 1\\
+1 & 1 & 1 & -1&0&0&0&0&0&0&0&0&0&0&0&0\\
+0&0&0&0&1 & 1 & 1 & -1&0&0&0&0&0&0&0&0\\
+0&0&0&0&0&0&0&0&1 & 1 & 1 & -1&0&0&0&0\\
+0&0&0&0&0&0&0&0&0&0&0&0&1 & 1 & 1 & -1\\
+\end{array}\right]\\
+M^{3,:,:} &=\left[\begin{array}{cccc|cccc|cccc|cccc}
+-1 & 1 & 1 & 1&0&0&0&0&0&0&0&0&0&0&0&0\\
+0&0&0&0&-1 & 1 & 1 & 1&0&0&0&0&0&0&0&0\\
+0&0&0&0&0&0&0&0&-1 & 1 & 1 & 1&0&0&0&0\\
+0&0&0&0&0&0&0&0&0&0&0&0&-1 & 1 & 1 & 1\\
+0&0&0&0&1 & -1 & 1 & 1&0&0&0&0&0&0&0&0\\
+0&0&0&0&0&0&0&0&1 & -1 & 1 & 1&0&0&0&0\\
+0&0&0&0&0&0&0&0&0&0&0&0&1 & -1 & 1 & 1\\
+1 & -1 & 1 & 1&0&0&0&0&0&0&0&0&0&0&0&0\\
+0&0&0&0&0&0&0&0&1 & 1 & -1 & 1&0&0&0&0\\
+0&0&0&0&0&0&0&0&0&0&0&0&1 & 1 & -1 & 1\\
+1 & 1 & -1 & 1&0&0&0&0&0&0&0&0&0&0&0&0\\
+0&0&0&0&1 & 1 & -1 & 1&0&0&0&0&0&0&0&0\\
+0&0&0&0&0&0&0&0&0&0&0&0&1 & 1 & 1 & -1\\
+1 & 1 & 1 & -1&0&0&0&0&0&0&0&0&0&0&0&0\\
+0&0&0&0&1 & 1 & 1 & -1&0&0&0&0&0&0&0&0\\
+0&0&0&0&0&0&0&0&1 & 1 & 1 & -1&0&0&0&0\\
+\end{array}\right]\\
+\end{aligned}\]
+Finding the inner products of each basis we find the three Hadamards
+\[\begin{aligned}
+H_{1,2}&=\left[\begin{array}{cccccccccccccccc}
+1&-1&-1&-1&-1&1&1&1&-1&1&1&1&-1&1&1&1\\
+-1&1&1&1&1&-1&-1&-1&-1&1&1&1&-1&1&1&1\\
+-1&1&1&1&-1&1&1&1&1&-1&-1&-1&-1&1&1&1\\
+-1&1&1&1&-1&1&1&1&-1&1&1&1&1&-1&-1&-1\\
+-1&1&-1&-1&1&-1&1&1&1&-1&1&1&1&-1&1&1\\
+1&-1&1&1&-1&1&-1&-1&1&-1&1&1&1&-1&1&1\\
+1&-1&1&1&1&-1&1&1&-1&1&-1&-1&1&-1&1&1\\
+1&-1&1&1&1&-1&1&1&1&-1&1&1&-1&1&-1&-1\\
+-1&-1&1&-1&1&1&-1&1&1&1&-1&1&1&1&-1&1\\
+1&1&-1&1&-1&-1&1&-1&1&1&-1&1&1&1&-1&1\\
+1&1&-1&1&1&1&-1&1&-1&-1&1&-1&1&1&-1&1\\
+1&1&-1&1&1&1&-1&1&1&1&-1&1&-1&-1&1&-1\\
+-1&-1&-1&1&1&1&1&-1&1&1&1&-1&1&1&1&-1\\
+1&1&1&-1&-1&-1&-1&1&1&1&1&-1&1&1&1&-1\\
+1&1&1&-1&1&1&1&-1&-1&-1&-1&1&1&1&1&-1\\
+1&1&1&-1&1&1&1&-1&1&1&1&-1&-1&-1&-1&1\\
+\end{array}\right]\\\\
+H_{1,3}&=\left[\begin{array}{cccccccccccccccc}
+1&-1&-1&-1&-1&1&1&1&-1&1&1&1&-1&1&1&1\\
+-1&1&1&1&1&-1&-1&-1&-1&1&1&1&-1&1&1&1\\
+-1&1&1&1&-1&1&1&1&1&-1&-1&-1&-1&1&1&1\\
+-1&1&1&1&-1&1&1&1&-1&1&1&1&1&-1&-1&-1\\
+1&-1&1&1&-1&1&-1&-1&1&-1&1&1&1&-1&1&1\\
+1&-1&1&1&1&-1&1&1&-1&1&-1&-1&1&-1&1&1\\
+1&-1&1&1&1&-1&1&1&1&-1&1&1&-1&1&-1&-1\\
+-1&1&-1&-1&1&-1&1&1&1&-1&1&1&1&-1&1&1\\
+1&1&-1&1&1&1&-1&1&-1&-1&1&-1&1&1&-1&1\\
+1&1&-1&1&1&1&-1&1&1&1&-1&1&-1&-1&1&-1\\
+-1&-1&1&-1&1&1&-1&1&1&1&-1&1&1&1&-1&1\\
+1&1&-1&1&-1&-1&1&-1&1&1&-1&1&1&1&-1&1\\
+1&1&1&-1&1&1&1&-1&1&1&1&-1&-1&-1&-1&1\\
+-1&-1&-1&1&1&1&1&-1&1&1&1&-1&1&1&1&-1\\
+1&1&1&-1&-1&-1&-1&1&1&1&1&-1&1&1&1&-1\\
+1&1&1&-1&1&1&1&-1&-1&-1&-1&1&1&1&1&-1\\
+\end{array}\right]\\\\
+H_{2,3}&=\left[\begin{array}{cccccccccccccccc}
+1&-1&-1&-1&1&-1&1&1&1&1&-1&1&1&1&1&-1\\
+-1&1&1&1&-1&1&-1&-1&1&1&-1&1&1&1&1&-1\\
+-1&1&1&1&1&-1&1&1&-1&-1&1&-1&1&1&1&-1\\
+-1&1&1&1&1&-1&1&1&1&1&-1&1&-1&-1&-1&1\\
+1&1&1&-1&1&-1&-1&-1&1&-1&1&1&1&1&-1&1\\
+1&1&1&-1&-1&1&1&1&-1&1&-1&-1&1&1&-1&1\\
+1&1&1&-1&-1&1&1&1&1&-1&1&1&-1&-1&1&-1\\
+-1&-1&-1&1&-1&1&1&1&1&-1&1&1&1&1&-1&1\\
+1&1&-1&1&1&1&1&-1&1&-1&-1&-1&1&-1&1&1\\
+1&1&-1&1&1&1&1&-1&-1&1&1&1&-1&1&-1&-1\\
+-1&-1&1&-1&1&1&1&-1&-1&1&1&1&1&-1&1&1\\
+1&1&-1&1&-1&-1&-1&1&-1&1&1&1&1&-1&1&1\\
+1&-1&1&1&1&1&-1&1&1&1&1&-1&1&-1&-1&-1\\
+-1&1&-1&-1&1&1&-1&1&1&1&1&-1&-1&1&1&1\\
+1&-1&1&1&-1&-1&1&-1&1&1&1&-1&-1&1&1&1\\
+1&-1&1&1&1&1&-1&1&-1&-1&-1&1&-1&1&1&1\\
+\end{array}\right]\\
+\end{aligned}\]
+giving us a rank $v$ idempotent
+\[M = \frac{1}{12}\left[\begin{array}{ccc}
+4I & H_{12}& H_{13}\\
+H_{12}^T & 4I & H_{23}\\
+H_{13}^T& H_{23}^T & 4I
+\end{array}\right].\]
+Taking the negative entries of (12 times) this matrix  gives us the adjacency matrix of a $\text{LSD}(16,10,6;3)$ of type 2.
+\bibliographystyle{abbrv}
+\bibliography{LinkedSystem}
+\end{document}

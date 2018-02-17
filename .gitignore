@@ -1,0 +1,52 @@
+# Stuff I dont want
+*.vscode
+*.tmp*
+__pycache__*
+
+# Latex documents (sans .tex)
+*.aux
+*.pdf
+*.PNG
+*.bbl
+*.blg
+*Makefile
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.p
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+*.driveupload
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

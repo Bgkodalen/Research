@@ -1,0 +1,136 @@
+%% January 3, 2018
+%
+% B G Kodalen and W J Martin
+% Proving a conjecture of Terwilliger regarding a basis for the last eigenspace of the Johnson scheme J(2k,k)
+\documentclass[12pt]{article}
+
+\usepackage{graphicx,amsthm,fullpage} 
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+
+%\pagestyle{empty}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\be}{\mathbf{e}}
+\newcommand{\drop}{\mathrm{drop}}
+
+
+\newenvironment{my_enumerate}{
+\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}{\end{enumerate}
+}
+
+
+\begin{document}
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}{Lemma}
+
+\begin{center}
+{\Large{\bf Catalan basis for the last eigenspace of $J(2d,d)$}  }\\
+{\sc  Proving a Conjecture of Paul Terwilliger} \\
+Brian G.~Kodalen and William J.~Martin, WPI
+\end{center}
+
+
+\bigskip \bigskip
+
+For a $d$-subset $x$ of $\{1,\ldots,2d\}$ let $\ell(x)$ denote the $\pm 1$ vector of length $v:=2d$ with 
+$j^{\rm th}$ entry $1$ if $j\in x$ and $-1$ otherwise. Call $x$ a {\em Catalan vertex} if, for all 
+$s\le v$, $\sum_{h=1}^s \ell(x)_h \ge 0$.
+Let $J(2d,d)$ denote the antipodal Johnson scheme and let $E_d$ be the last idempotent in the $Q$-polynomial
+ordering for its Bose-Mesner algebra. Then the columns of $E_d$ indexed by Catalan vertices form a basis for
+the column space of $E_d$.
+
+\bigskip
+
+The following is well-known (e.g., de Caen [dC]) and due to Gottlieb (1966) or perhaps earlier. 
+
+\begin{lem} \label{L1}
+Let $W_{r,s}^v$ with $0\le r\le s\le v$ denote the 01-inclusion matrix of $r$-subsets versus $s$-subsets of a 
+fixed set of size $v$. If $r+s \le v$, then the rank of this matrix is $\binom{v}{r}$.
+\end{lem}
+
+Here we have $v=2d$. Let $[v]=\{1,\ldots,v\}$ and let $X$ denote the collection of all $d$-subsets of $[v]$.
+For the present discussion, a \emph{Delsarte clique} in $J(2d,d)$ is a set of vertices of the form 
+$$ C_T =  \left\{ T \cup \{i\} \mid 1\le i\le v, \ i \not\in T \right\} $$
+where $T$ is a $(d-1)$-set contained in $[v]$. The rows of the incidence matrix $W_{d-1,d}^{(2d)}$
+are the incidence vectors $\by_C$ of all Delsarte cliques\footnote{Since $v=2d$ here, there is another collection 
+of Delsarte cliques determined by subsets of $[v]$ having $d+1$ elements. But we will not use these here.} $C=C_T$
+in our collection.
+
+
+Let $\be_x$ denote the standard basis vector of length $\binom{2d}{d}$ corresponding to vertex $x$.
+
+\begin{lem}
+The set 
+$$ \left\{ \by_C \mid C \ \mbox{\rm a Delsarte clique} \right\} \bigcup  \left\{ \be_x \mid x \ \mbox{\rm a Catalan vertex} \right\}$$
+is a basis for $\mathbb{R}^X$.
+\end{lem}
+
+Before proving the lemma, we explain why it gives our result. Let $V_j$ denote the row space of the primitive idempotent $E_j$.  Delsarte proved that the rowspace of $W_{t,d}^{(2d)}$
+is equal to the sum of the row spaces of $E_0,E_1,\ldots, E_{t}$ (cf.\ Eqn.\ (4.29) in [Del]). So the span of the 
+characteristic vectors of the Delsarte cliques is exactly
+$$ V_0 + V_1 + \cdots + V_{d-1} $$
+where we are using the $Q$-polynomial ordering on eigenspaces. The number of Catalan vertices is exactly
+$$ \frac{1}{d+1} \binom{2d}{d} = \mbox{rank} \ E_d . $$
+So if the lemma holds, then every element of $V_d$ is expressible as a linear combination of the vectors
+$$ \{ E_d \be_x \mid  x \ \mbox{\rm a Catalan vertex} \}. $$
+Since the number of such vectors equals the rank of $E_d$, we then know that we have a basis.
+
+\bigskip
+
+Now we prove the lemma.
+
+For any subset $z \subseteq [v]$, define 
+\begin{equation}
+\drop(z) = \begin{cases} \min \left\{ i \mid \sum_{h=1}^i \ell(z)_h < 0 \right\} , &\mbox{if} \ \exists \ i \ \mbox{with} \ \sum_{h=1}^i \ell(z)_h < 0 ;\cr
+\infty ,&\mbox{otherwise.}
+\end{cases}
+\end{equation}
+%such $i$ exists and define $\drop(z)= \infty$ if  $  \left\{ i \mid \sum_{h=1}^i \ell(z)_h < 0 \right\} = \emptyset$. 
+So a $d$-set $x$  is Catalan if and only if $\drop(x) = \infty$. Otherwise $\drop(x)$ is an odd integer between $0$ and $2d$.
+
+Let $Y$ denote the linear span of $ \left\{ \by_C \mid C \ \mbox{\rm a Delsarte clique} \right\} \bigcup  \left\{ \be_x \mid x \ \mbox{\rm a Catalan vertex} \right\}$. We prove by induction on $\drop(x)$ that $Y$ contains $\be_x$ for all $x\in X$.
+
+The case where $\drop(x) = \infty$ is obvious. We next  consider $\drop(x)=2d-1$. Let $x'$ denote the $(d-1)$-set obtained by deleting from $x$ its largest element, which is $2d$. Since $Y$ contains the characteristic vector of 
+the Delsarte clique  $C_{x'}$, we have 
+$$ \sum_{j \not\in x'} \be_{x' \cup \{j\}} \in Y. $$
+Since $x' \cup \{j\}$ is Catalan for every $j \not\in x'$, $j\neq 2d$, we have that $Y$ contains every term in the above sum with $j<2d$, hence also contains $\be_x$.
+
+\bigskip
+
+Now let $k$ be an odd integer, $1\le k \le 2d-3$, and assume by way of induction that $Y$ contains $\be_x$ for every
+$x\in X$ with $\drop(x) > k$.  Write $k=2t+1$ and fix a $t$-element subset $L$ of $\{1,\ldots,2t\}$. For each $(d-t-1)$-element subset $R$ of $\mathcal{V} = \{2t+2,\ldots, 2d\}$, the Delsarte clique $C:=C_{L \cup R}$ contains only vertices 
+$x\in X$ with $\drop(x) \ge k$. So, since $\by_C\in Y$ and, by induction, $\be_x \in Y$ for $\drop(x)>k$, we have
+$$ \bx_R := \sum_{j \ge 2t+2, j\not\in R} \be_{ L \cup R \cup \{ j\} } \in Y. $$
+
+\newcommand{\R}{\mathcal{R} }
+\newcommand{\C}{\mathcal{C} }
+
+Now, for this choice of $L$, consider the two sets
+\begin{eqnarray*}
+\R &:=& \{ R \subseteq \mathcal{V} \mid |R| = d-t-1 \} ,\\
+\C &:=& \{ x \in X \mid x \cap \{1,\ldots,2t+1\} = L \}.
+\end{eqnarray*}
+Let $M$ be the matrix with rows indexed by $\R$ and columns indexed by $\C$ with $(R,x)$-entry equal to one if 
+$R \subseteq x$ and zero otherwise. The bijection $x \mapsto x \setminus L$ shows us that the rows and columns of
+this matrix can be rearranged if necessary to obtain the inclusion matrix $W_{d-t-1,d-t}^{(2d-k)}$. By Lemma \ref{L1},
+the square matrix $M$ is invertible. Since each $\bx_R \in Y$, we then have that $\be_x\in Y$ for every $d$-set
+$x$ containing $L$ with $\drop(x)=k$. We repeat this over all $t$-subsets $L$ of $\{1,\ldots,2t\}$ to complete the 
+induction step.
+
+
+
+\vspace{1in}
+
+
+[dC] D.~de Caen, A note on the ranks of set-inclusion matrices, \emph{Electronic J.~Combin.} {\bf 8}, Issue 1 (2001)	Note \#N5
+
+[Del] Ph.~Delsarte, An algebraic approach to the association schemes of coding theory, \emph{Philips Res.\ Rpts. Suppl.} (1973), No.\ 10. 
+
+\end{document}
