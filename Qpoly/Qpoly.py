@@ -1,20 +1,29 @@
 #!/usr/bin/python
 
+### This file is intended to be a one-off method for examining the various Q-polynomial association schemes. Ideally, there will be a paired 
+# GUI file which will call the various functions used here. As such, we try to keep any code restricted to function calls, allowing the file
+# to be imported without much difficulty.
+
 from urllib.request import urlopen
 import re
 import pickle
 import numpy as np
 from fractions import Fraction
 from math import sqrt
+from sympy import *
 
 class r:
+### This class is used to define constants used for Irrational schemes. Each attribute allows for a new constant to be defined.
+#These are recycled for each scheme, so only one is needed, though two extra are provided in case it is needed later.
     def __init__(self):
         self.a1 = ''
         self.a2 = ''
         self.a3 = ''
 
-def GetSchemes():
 
+def GetSchemes():
+### This function is used to generate the dictionary holding all the information from Williford's table.
+# The first part grabs all possible paramater sets, while the second generates the desired dictionary.
     fivebipstr = urlopen('http://www.uwyo.edu/jwilliford/data/qbip5_table.html').read().decode('utf-8')
     fivebip = re.findall(r'<\d+,\d+>[a-z]?',fivebipstr)
 
@@ -63,6 +72,8 @@ def Schemeparams(v,m,d):
     schemetxt = schemetxt.replace('.','.a')
     schemetxt = re.sub(r'\s*\+\s*','+',schemetxt)
 
+
+### I think these search calls can be simplified to simply check for brackets, but it is working now so I am not going to mess with it.
     Ptxt = re.search(r'P[\s\w]*=[\s\w\.\*()\+/\\\-\[\],]*\n\n',schemetxt)
     Prows = re.findall(r'\[[\.\*(\+)\s\d\w\-\\/]*\]',Ptxt[0].replace('\n',''))
     P = np.array([[int(num) if Fraction(eval(num)).denominator == 1 else Fraction(num) if Fraction(eval(num)).denominator<uptol else float(eval(num)) for num in Prows[i].strip('\[\]').split()] for i in range(d+1)])
@@ -79,7 +90,39 @@ def Schemeparams(v,m,d):
     Lsrows = re.findall(r'\d[\.\s\d\-\\/]*\d',Lstxt[0].replace('\n',''))
     Ls = np.array([[[int(num) if Fraction(eval(num)).denominator == 1 else Fraction(num) if Fraction(eval(num)).denominator<uptol else float(eval(num)) for num in Lsrows[i].strip('\[\]').split()] for i in range((d+1)*j,(d+1)*(j+1))] for j in range(d+1)])
     
-    
+### Each scheme currently lists the P, Q, L, and L* matrices. More can be added later if needed.    
     scheme = {'P':P,'Q':Q,'L':L,'L*':Ls}
 
     return scheme
+
+def Gegproj(Ls,k=10,verbose=0):
+### Here, we take in L* and compute our Gegenbauer projections for degrees 0 up to k.
+    if len(Ls.shape) == 3: ### If you gave all of L*
+        Ls = Ls[1,:,:]
+    side = Ls.shape[0]
+    n = Ls[0,1]
+    Projections = np.zeros((side,k+1))
+    Projections[0,0] = 1
+    Projections[1,1] = 1/n
+    for i in range(2,k+1):
+        Projections[:,i] = (2*i+n-4)/(i+n-3)/n*np.dot(Ls,Projections[:,i-1])-(i-1)/(i+n-3)*Projections[:,i-2]
+    if verbose ==1:
+        print(Ls)
+        print(n)
+        print(Projections)
+    return Projections
+
+
+def Gnk(n,k,dim=1):
+### This function builds the Gegenbauer polynomials recursively. Note this is the normalized two-term recurrence where G_1(t) = t.
+    if dim == 1:
+        t = Symbol('t')
+    else:
+        t = MatrixSymbol('t',dim,dim) ### allows for t to be a matrix input
+
+    if k == 0:
+        return 1
+    elif k == 1:
+        return t
+    else:
+        return simplify((2*k+n-4)/(k+n-3)*t*Gnk(n,k-1) + (k-1)/(k+n-3)*Gnk(n,k-2))
