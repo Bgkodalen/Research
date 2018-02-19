@@ -23,29 +23,32 @@ btn = Button(window,text = "Close",command = quit)
 btn.grid(column = 99, row = 99)
 
 ### Ability to enter class number
+numclasses = DoubleVar()
 Label(window,text = "Number of classes:").grid(row=1,sticky=W)
-d = Entry(window,width = 10)
+d = Entry(window,width = 10, textvariable = numclasses)
 d.grid(column=1,row=1)
 d.insert(0,3)
 
 ### Function to grab updates
+update_in_progress = False
 def update_d(*args):
     global update_in_progress
     if update_in_progress: return
     try:
-        temp_f_float = temp_f_number.get()
+        classes = numclasses.get()
     except ValueError:
         return
-    new_temp_c = round((temp_f_float - 32) * 5 / 9, 2)
     update_in_progress = True
-    temp_c_number.set(new_temp_c)
+    numclasses.set(classes)
     update_in_progress = False
+
+numclasses.trace("w",update_d)
 
 
 
 params = Combobox(window)
 if type(d.get())==int:
-    params['values'] = tuple(list(schemes[d.get()]))
+    params['values'] = tuple(list(schemes[numclasses.get()]))
 else:
     params['values'] = tuple(list(schemes[3]))
 params.current(0)

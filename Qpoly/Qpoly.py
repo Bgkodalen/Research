@@ -10,7 +10,7 @@ import pickle
 import numpy as np
 from fractions import Fraction
 from math import sqrt
-from sympy import *
+import sympy
 
 class r:
 ### This class is used to define constants used for Irrational schemes. Each attribute allows for a new constant to be defined.
@@ -116,13 +116,13 @@ def Gegproj(Ls,k=10,verbose=0):
 def Gnk(n,k,dim=1):
 ### This function builds the Gegenbauer polynomials recursively. Note this is the normalized two-term recurrence where G_1(t) = t.
     if dim == 1:
-        t = Symbol('t')
+        t = sympy.Symbol('t')
     else:
-        t = MatrixSymbol('t',dim,dim) ### allows for t to be a matrix input
+        t = sympy.MatrixSymbol('t',dim,dim) ### allows for t to be a matrix input
 
     if k == 0:
         return 1
     elif k == 1:
         return t
     else:
-        return simplify((2*k+n-4)/(k+n-3)*t*Gnk(n,k-1) + (k-1)/(k+n-3)*Gnk(n,k-2))
+        return sympy.simplify((2*k+n-4)/(k+n-3)*t*Gnk(n,k-1) + (k-1)/(k+n-3)*Gnk(n,k-2))
