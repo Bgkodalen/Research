@@ -11,14 +11,13 @@ import numpy as np
 from fractions import Fraction
 from math import sqrt
 import sympy
+import time
 
-class r:
 ### This class is used to define constants used for Irrational schemes. Each attribute allows for a new constant to be defined.
 #These are recycled for each scheme, so only one is needed, though two extra are provided in case it is needed later.
+class const:
     def __init__(self):
         self.a1 = ''
-        self.a2 = ''
-        self.a3 = ''
 
 
 def GetSchemes():
@@ -36,11 +35,14 @@ def GetSchemes():
 
     Associationschemes = {3:threeprim,4:fourbip,5:fivebip}
 
+    ### Edited for now. Typically replace [3] with Associationschemes
     for key in Associationschemes:
         print('starting '+str(key)+'-class schemes\n')
         schemes = Associationschemes[key]
         Associationschemes[key] = {}
         for scheme in schemes:
+            print('.')
+            time.sleep(.3)
             if scheme[-1] == '>':
                 params = scheme.strip('<>').split(',')
             else:
@@ -65,37 +67,38 @@ def Schemeparams(v,m,d):
 
     schemetxt = urlopen(base[d]+'v'+str(v)+'m'+str(m)+'.txt').read().decode('utf-8')
     
-    constants = re.findall(r'r\.\d = sqrt\(\d*\)',schemetxt)
+    constants = re.findall(r'r\.\d = sqrt\([\d*/]*\)',schemetxt)
     for item in constants:
-        exec(item.replace('.','.a'))
+        global c
+        c = const()
+        exec(item.replace('r.','c.a'))
 
-    schemetxt = schemetxt.replace('.','.a')
+    schemetxt = schemetxt.replace('r.','c.a')
     schemetxt = re.sub(r'\s*\+\s*','+',schemetxt)
 
 
 ### I think these search calls can be simplified to simply check for brackets, but it is working now so I am not going to mess with it.
     Ptxt = re.search(r'P[\s\w]*=[\s\w\.\*()\+/\\\-\[\],]*\n\n',schemetxt)
     Prows = re.findall(r'\[[\.\*(\+)\s\d\w\-\\/]*\]',Ptxt[0].replace('\n',''))
-    P = np.array([[int(num) if Fraction(eval(num)).denominator == 1 else Fraction(num) if Fraction(eval(num)).denominator<uptol else float(eval(num)) for num in Prows[i].strip('\[\]').split()] for i in range(d+1)])
+    P = np.array([[int(eval(num)) if Fraction(eval(num)).denominator == 1 else Fraction(eval(num)) if Fraction(eval(num)).denominator<uptol else float(eval(num)) for num in Prows[i].strip(r'\[\]').split()] for i in range(d+1)])
     
     Qtxt = re.search(r'Q[\s\w]*=[\s\w\.\*()\+/\\\-\[\],]*\n\n',schemetxt)
     Qrows = re.findall(r'\[[\.\*(\+)\s\d\w\-\\/]*\]',Qtxt[0].replace('\n',''))
-    Q = np.array([[int(num) if Fraction(eval(num)).denominator == 1 else Fraction(num) if Fraction(eval(num)).denominator<uptol else float(eval(num)) for num in Qrows[i].strip('\[\]').split()] for i in range(d+1)])
+    Q = np.array([[int(eval(num)) if Fraction(eval(num)).denominator == 1 else Fraction(eval(num)) if Fraction(eval(num)).denominator<uptol else float(eval(num)) for num in Qrows[i].strip(r'\[\]').split()] for i in range(d+1)])
 
     Ltxt = re.search(r'L[\s\w]*=[\s\w\[\]\-,]*\]\n\n',schemetxt)
     Lrows = re.findall(r'\d[\s\d\-]*\d',Ltxt[0].replace('\n',''))
-    L = np.array([[[int(num) for num in Lrows[i].split()] for i in range((d+1)*j,(d+1)*(j+1))] for j in range(d+1)])
+    L = np.array([[[int(eval(num)) for num in Lrows[i].split()] for i in range((d+1)*j,(d+1)*(j+1))] for j in range(d+1)])
 
     Lstxt = re.search(r'L\*[\.\s\w]*=[\s\w\.\*()\+/\\\-\[\],]*\](\n\n|$)',schemetxt)
     Lsrows = re.findall(r'\d[\.\s\d\-\\/]*\d',Lstxt[0].replace('\n',''))
-    Ls = np.array([[[int(num) if Fraction(eval(num)).denominator == 1 else Fraction(num) if Fraction(eval(num)).denominator<uptol else float(eval(num)) for num in Lsrows[i].strip('\[\]').split()] for i in range((d+1)*j,(d+1)*(j+1))] for j in range(d+1)])
+    Ls = np.array([[[int(eval(num)) if Fraction(eval(num)).denominator == 1 else Fraction(eval(num)) if Fraction(eval(num)).denominator<uptol else float(eval(num)) for num in Lsrows[i].strip(r'\[\]').split()] for i in range((d+1)*j,(d+1)*(j+1))] for j in range(d+1)])
     
 ### Each scheme currently lists the P, Q, L, and L* matrices. More can be added later if needed.    
     scheme = {'P':P,'Q':Q,'L':L,'L*':Ls}
-
     return scheme
 
-def Gegproj(Ls,k=10,verbose=0):
+def Gegproj(Ls,k=10,verbose=0,binary=0):
 ### Here, we take in L* and compute our Gegenbauer projections for degrees 0 up to k.
     if len(Ls.shape) == 3: ### If you gave all of L*
         Ls = Ls[1,:,:]
@@ -110,6 +113,17 @@ def Gegproj(Ls,k=10,verbose=0):
         print(Ls)
         print(n)
         print(Projections)
+    if binary == 1:
+        projections2 = np.chararray((side,k+1))
+        for i in range(side):
+            for j in range(k):
+                if Projections[i,j]>0:
+                    projections2[i,j] = '+'
+                elif Projections[i,j]<0:
+                    projections2[i,j] = '-'
+                elif Projections[i,j]==0:
+                    projections2[i,j] = '0'
+        return projections2
     return Projections
 
 
