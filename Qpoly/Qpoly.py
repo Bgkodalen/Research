@@ -19,6 +19,43 @@ class const:
     def __init__(self):
         self.a1 = ''
 
+def Getmoreinfo():
+    fivebipstr = urlopen('http://www.uwyo.edu/jwilliford/data/qbip5_table.html').read().decode('utf-8')
+    fourbipstr = urlopen('http://www.uwyo.edu/jwilliford/data/qbip4_table.html').read().decode('utf-8')
+    threeprimstr = urlopen('http://www.uwyo.edu/jwilliford/data/qprim3_table.html').read().decode('utf-8')
+
+    regex = r'<td[^>]*>\n[^\n]*\n'
+    info3 = re.findall(regex,threeprimstr)
+    info4 = re.findall(regex,fourbipstr)
+    info5 = re.findall(regex,fivebipstr)
+    totalinfo = [info3,info4,info5]
+
+    schemes = pickle.load(open("schemes.p",'rb'))
+    importantcols = [1,7,8,10,11,12]
+    coltitlesbip = ['exists','v','m','Krein Array','multiplicities','valencies','2nd Q','P-P','DRG', 'Quotient','Hyp','Comments']
+    coltitlesprim = ['exists','v','m','Krein Array','multiplicities','valencies','2nd Q','P-P','DRG', 'SRG','Ex','Comments']
+    for j,info in enumerate(totalinfo):
+        if j==0:
+            coltitles = coltitlesprim
+        else:
+            coltitles = coltitlesbip
+        print('Starting new schemes\n')
+        for i,match in enumerate(info):
+            key = re.findall(r'<\d+,\d+>[a-z]?',match)
+            if len(key)>0:
+                k = key[0]
+                if len(re.findall(r'[a-z]',k)):
+                    k = k.replace('>','')
+                for c in importantcols:
+                    if i+c<len(info):
+                        schemes[j+3][k][coltitles[c-1]] = info[i+c].strip(r'<td><*').strip('\n')
+                    else:
+                        print(key)
+    
+    pickle.dump(schemes,open("augschemes.p",'wb'))
+        
+
+    
 
 def GetSchemes():
 ### This function is used to generate the dictionary holding all the information from Williford's table.

@@ -7,7 +7,7 @@ from tkinter.ttk import *
 import Qpoly
 
 ### Load in all the information from Williford's tables.
-schemes = pickle.load(open('schemes2.p','rb'))
+schemes = pickle.load(open('augschemes.p','rb'))
 testmat = np.array([[1,2,3,4],[1,2,3,5], [0,1,1,2], [1,1,1,1]])
 ### The actual GUI
 root = Tk()
