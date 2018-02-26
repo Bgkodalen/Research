@@ -78,8 +78,7 @@ def GetSchemes():
         schemes = Associationschemes[key]
         Associationschemes[key] = {}
         for scheme in schemes:
-            print('.')
-            time.sleep(.3)
+            print(scheme)
             if scheme[-1] == '>':
                 params = scheme.strip('<>').split(',')
             else:
@@ -137,6 +136,7 @@ def Schemeparams(v,m,d):
 
 def Gegproj(Ls,k=10,verbose=0,binary=0):
 ### Here, we take in L* and compute our Gegenbauer projections for degrees 0 up to k.
+    tol = 10**(-8)
     if len(Ls.shape) == 3: ### If you gave all of L*
         Ls = Ls[1,:,:]
     side = Ls.shape[0]
@@ -153,16 +153,37 @@ def Gegproj(Ls,k=10,verbose=0,binary=0):
     if binary == 1:
         projections2 = np.chararray((side,k+1))
         for i in range(side):
-            for j in range(k):
-                if Projections[i,j]>0:
+            for j in range(k+1):
+                if Projections[i,j]>tol:
                     projections2[i,j] = '+'
-                elif Projections[i,j]<0:
+                elif Projections[i,j]<-tol:
                     projections2[i,j] = '-'
-                elif Projections[i,j]==0:
+                elif Projections[i,j]>=-tol and Projections[i,j]<=tol:
                     projections2[i,j] = '0'
         return projections2
     return Projections
 
+
+def CheckRational(v,m,d):
+    # This function searches through Willifords tables looking for irrational schemes
+
+    base = {3:'http://www.uwyo.edu/jwilliford/data/qprim3/qpd3',
+    4:'http://www.uwyo.edu/jwilliford/data/qbip4/qbd4',
+    5:'http://www.uwyo.edu/jwilliford/data/qbip5/qbd5'}
+
+    schemetxt = urlopen(base[d]+'v'+str(v)+'m'+str(m)+'.txt').read().decode('utf-8')
+    
+    constants = re.findall(r'r\.\d = sqrt\([\d*/]*\)',schemetxt)
+    global c
+    c = const()
+    c.a1 = 0
+    for item in constants:
+        exec(item.replace('r.','c.a'))
+
+    if c.a1 != 0:
+        return 1
+    else:
+        return 0
 
 def Gnk(n,k,dim=1):
 ### This function builds the Gegenbauer polynomials recursively. Note this is the normalized two-term recurrence where G_1(t) = t.

@@ -7,7 +7,7 @@ from tkinter.ttk import *
 import Qpoly
 
 ### Load in all the information from Williford's tables.
-schemes = pickle.load(open('augschemes.p','rb'))
+schemes = pickle.load(open('augschemesi.p','rb'))
 testmat = np.array([[1,2,3,4],[1,2,3,5], [0,1,1,2], [1,1,1,1]])
 ### The actual GUI
 root = Tk()
@@ -33,7 +33,6 @@ Radiobutton(root, text = "5-class bipartite", variable = numclasses, value = 5).
 ### The Examine Scheme window.
 def examine():
     Details = Toplevel(root)
-    Label(Details, text = params.get()).grid(row = 1,column = 1)
     
     P = schemes[numclasses.get()][params.get()]['P']
     Q = schemes[numclasses.get()][params.get()]['Q']
@@ -45,7 +44,7 @@ def examine():
     fp.grid(row = 2, column = 2,sticky = W)
     [r,c] = Matrixfrmt(P,'P',fp,2,2)
     [r,c] = Matrixfrmt(Q,'Q',fp,2,c+1)
-    [r,t] = Matrixfrmt(Geg,'G',fp,2,c+1)
+    [r,t] = Matrixfrmt(Geg,'G',fp,2,c+1,1)
 
     fl = Frame(Details)
     fl.grid(row = 4, column = 2,sticky = W)
@@ -55,26 +54,40 @@ def examine():
     fls.grid(row = 5, column = 2,sticky = W)
     [r,t] = Matrixfrmt(Ls,'L*',fls,r+1,2)
 
+    ### Extra information
+    exists = schemes[numclasses.get()][params.get()]['exists']
+    comments = schemes[numclasses.get()][params.get()]['Comments']
+
+    if exists == '-':
+        color = 'red'
+    elif exists == '?':
+        color = 'yellow'
+    else:
+        color = 'green'
+    Label(Details, text = (params.get()+' '+exists),background=color).grid(row = 1,column = 1)
+    Label(Details, text = comments).grid(row = 1,column = 3)
     
     
     exclose = Button(Details,text = "Close",command = lambda: quit(Details))
     exclose.grid(column = 99, row = 99)
 
 
-def Matrixfrmt(mat,name,window,r,c):
+def Matrixfrmt(mat,name,window,r,c,string=0):
     dim = mat.shape
     if len(name)>0:
         Label(window,text = name+'=').grid(row=r+int(dim[0]/2),column=c)
     if len(dim)>2:
         for i in range(dim[0]):
-            [t,c] = Matrixfrmt(mat[i],'',window,r,c)
+            [t,c] = Matrixfrmt(mat[i],'',window,r,c,string)
         return [t,c]
     else:
         rowpos = r
         for i in range(dim[0]):
             colpos = c+2
             for j in range(dim[1]):
-                if (type(mat[i,j]) == bytes) or (type(mat[i,j]) == str):
+                if string == 1:
+                    Label(window,text = mat[i,j]).grid(row=rowpos,column = colpos)
+                elif (type(mat[i,j]) == bytes) or (type(mat[i,j]) == str):
                     Label(window,text = mat[i,j]).grid(row=rowpos,column=colpos)
                 elif round(mat[i,j],2) == int(mat[i,j]):
                     Label(window,text = int(mat[i,j])).grid(row=rowpos,column=colpos)
@@ -90,6 +103,10 @@ def Matrixfrmt(mat,name,window,r,c):
         Label(window,text = ' ').grid(row = rowpos,column = colpos+2)
         return [rowpos,colpos+2]
 
+irrat = IntVar()
+irr = Checkbutton(root,text="Irrational schemes", variable = irrat)
+irr.grid(column = 1,row = 10)
+
 
 
 ex = Button(root, text = "Examine Scheme", command = examine)
@@ -101,11 +118,21 @@ ex.grid(column = 99, row = 1)
 ### Shows the available parameters based on the Radiobutton input.
 params = Combobox(root)
 params.grid(column = 97,row = 1,columnspan = 2)
-params['values'] = tuple(list(schemes[numclasses.get()]))
+if irrat.get():
+    params['values'] = tuple([scheme for scheme in schemes[numclasses.get()] if schemes[numclasses.get()][scheme]['irrational'] == 1])
+else:
+    params['values'] = tuple(list(schemes[numclasses.get()]))
+if len(params['values']) == 0:
+    params['values'] = ['None']
 params.current(0)
 temp = numclasses.get()
 def update_comb(temp):
-    params['values'] = tuple(list(schemes[numclasses.get()]))
+    if irrat.get()==1:
+        params['values'] = tuple([scheme for scheme in schemes[numclasses.get()] if schemes[numclasses.get()][scheme]['irrational'] == 1])
+    else:
+        params['values'] = tuple(list(schemes[numclasses.get()]))
+    if len(params['values']) == 0:
+        params['values'] = ['None']
     if temp != numclasses.get():
         params.current(0)
     temp = numclasses.get()
