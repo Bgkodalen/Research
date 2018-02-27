@@ -19,6 +19,43 @@ class const:
     def __init__(self):
         self.a1 = ''
 
+def Getmoreinfo():
+    fivebipstr = urlopen('http://www.uwyo.edu/jwilliford/data/qbip5_table.html').read().decode('utf-8')
+    fourbipstr = urlopen('http://www.uwyo.edu/jwilliford/data/qbip4_table.html').read().decode('utf-8')
+    threeprimstr = urlopen('http://www.uwyo.edu/jwilliford/data/qprim3_table.html').read().decode('utf-8')
+
+    regex = r'<td[^>]*>\n[^\n]*\n'
+    info3 = re.findall(regex,threeprimstr)
+    info4 = re.findall(regex,fourbipstr)
+    info5 = re.findall(regex,fivebipstr)
+    totalinfo = [info3,info4,info5]
+
+    schemes = pickle.load(open("schemes.p",'rb'))
+    importantcols = [1,7,8,10,11,12]
+    coltitlesbip = ['exists','v','m','Krein Array','multiplicities','valencies','2nd Q','P-P','DRG', 'Quotient','Hyp','Comments']
+    coltitlesprim = ['exists','v','m','Krein Array','multiplicities','valencies','2nd Q','P-P','DRG', 'SRG','Ex','Comments']
+    for j,info in enumerate(totalinfo):
+        if j==0:
+            coltitles = coltitlesprim
+        else:
+            coltitles = coltitlesbip
+        print('Starting new schemes\n')
+        for i,match in enumerate(info):
+            key = re.findall(r'<\d+,\d+>[a-z]?',match)
+            if len(key)>0:
+                k = key[0]
+                if len(re.findall(r'[a-z]',k)):
+                    k = k.replace('>','')
+                for c in importantcols:
+                    if i+c<len(info):
+                        schemes[j+3][k][coltitles[c-1]] = info[i+c].strip(r'<td><*').strip('\n')
+                    else:
+                        print(key)
+    
+    pickle.dump(schemes,open("augschemes.p",'wb'))
+        
+
+    
 
 def GetSchemes():
 ### This function is used to generate the dictionary holding all the information from Williford's table.
@@ -41,8 +78,7 @@ def GetSchemes():
         schemes = Associationschemes[key]
         Associationschemes[key] = {}
         for scheme in schemes:
-            print('.')
-            time.sleep(.3)
+            print(scheme)
             if scheme[-1] == '>':
                 params = scheme.strip('<>').split(',')
             else:
@@ -100,6 +136,7 @@ def Schemeparams(v,m,d):
 
 def Gegproj(Ls,k=10,verbose=0,binary=0):
 ### Here, we take in L* and compute our Gegenbauer projections for degrees 0 up to k.
+    tol = 10**(-8)
     if len(Ls.shape) == 3: ### If you gave all of L*
         Ls = Ls[1,:,:]
     side = Ls.shape[0]
@@ -116,16 +153,37 @@ def Gegproj(Ls,k=10,verbose=0,binary=0):
     if binary == 1:
         projections2 = np.chararray((side,k+1))
         for i in range(side):
-            for j in range(k):
-                if Projections[i,j]>0:
+            for j in range(k+1):
+                if Projections[i,j]>tol:
                     projections2[i,j] = '+'
-                elif Projections[i,j]<0:
+                elif Projections[i,j]<-tol:
                     projections2[i,j] = '-'
-                elif Projections[i,j]==0:
+                elif Projections[i,j]>=-tol and Projections[i,j]<=tol:
                     projections2[i,j] = '0'
         return projections2
     return Projections
 
+
+def CheckRational(v,m,d):
+    # This function searches through Willifords tables looking for irrational schemes
+
+    base = {3:'http://www.uwyo.edu/jwilliford/data/qprim3/qpd3',
+    4:'http://www.uwyo.edu/jwilliford/data/qbip4/qbd4',
+    5:'http://www.uwyo.edu/jwilliford/data/qbip5/qbd5'}
+
+    schemetxt = urlopen(base[d]+'v'+str(v)+'m'+str(m)+'.txt').read().decode('utf-8')
+    
+    constants = re.findall(r'r\.\d = sqrt\([\d*/]*\)',schemetxt)
+    global c
+    c = const()
+    c.a1 = 0
+    for item in constants:
+        exec(item.replace('r.','c.a'))
+
+    if c.a1 != 0:
+        return 1
+    else:
+        return 0
 
 def Gnk(n,k,dim=1):
 ### This function builds the Gegenbauer polynomials recursively. Note this is the normalized two-term recurrence where G_1(t) = t.
