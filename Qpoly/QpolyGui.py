@@ -119,18 +119,18 @@ ex.grid(column = 99, row = 1)
 params = Combobox(root)
 params.grid(column = 97,row = 1,columnspan = 2)
 if irrat.get():
-    params['values'] = tuple([scheme for scheme in schemes[numclasses.get()] if schemes[numclasses.get()][scheme]['irrational'] == 1])
+    params['values'] = tuple([scheme+schemes[numclasses.get()][scheme]['exists'] for scheme in schemes[numclasses.get()] if schemes[numclasses.get()][scheme]['irrational'] == 1])
 else:
-    params['values'] = tuple(list(schemes[numclasses.get()]))
+    params['values'] = tuple([scheme+schemes[numclasses.get()][scheme]['exists'] for scheme in schemes[numclasses.get()]])
 if len(params['values']) == 0:
     params['values'] = ['None']
 params.current(0)
 temp = numclasses.get()
 def update_comb(temp):
     if irrat.get()==1:
-        params['values'] = tuple([scheme for scheme in schemes[numclasses.get()] if schemes[numclasses.get()][scheme]['irrational'] == 1])
+        params['values'] = tuple([scheme+schemes[numclasses.get()][scheme]['exists'] for scheme in schemes[numclasses.get()] if schemes[numclasses.get()][scheme]['irrational'] == 1])
     else:
-        params['values'] = tuple(list(schemes[numclasses.get()]))
+        params['values'] = tuple([scheme+schemes[numclasses.get()][scheme]['exists'] for scheme in schemes[numclasses.get()]])
     if len(params['values']) == 0:
         params['values'] = ['None']
     if temp != numclasses.get():
