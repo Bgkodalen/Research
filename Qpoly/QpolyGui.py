@@ -38,7 +38,7 @@ Radiobutton(root, text = "5-class bipartite", variable = numclasses, value = 5).
 ### The Examine Scheme window.
 def examine():
     Details = Toplevel(root)
-    scheme = re.findall(r'<[,\d\w]*>',params.get())
+    scheme = re.findall(r'<[,\d\w]*>',params.get())[0]
 
     
     P = schemes[numclasses.get()][scheme]['P']
