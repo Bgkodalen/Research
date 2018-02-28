@@ -138,7 +138,7 @@ def parameterlist():
     if geg.get():
         schemelist = [scheme for scheme in schemelist if (Qpoly.Gegproj(schemes[numclasses.get()][scheme]['L*'])).min()<-tol]
     if SD.get():
-        schemelist = [scheme for scheme in schemelist if sum(Qpoly.Gegproj(schemes[numclasses.get()][scheme]['L*'])[0,1:(int(numdesign.get())+1)])==0]
+        schemelist = [scheme for scheme in schemelist if sum(np.absolute(Qpoly.Gegproj(schemes[numclasses.get()][scheme]['L*'])[0,1:(int(numdesign.get())+1)]))<tol]
     if len(schemelist) == 0:
         schemelist = ['None']
     else:
@@ -148,7 +148,7 @@ def parameterlist():
 
 ### Shows the available parameters based on the Radiobutton input.
 params = Combobox(root)
-params.grid(column = 97,row = 1,columnspan = 2)
+params.grid(column = 96,row = 1,columnspan=2)
 params['values'] = parameterlist()
 
 params.current(0)
@@ -158,6 +158,10 @@ def update_comb(temp):
     if temp != params['values'][0]:
         params.current(0)
     temp = params['values'][0]
+    if params['values'][0]!='None':
+        Label(root, text = str(len(params['values']))+' Schemes').grid(row = 2,column = 99)
+    else:
+        Label(root, text = '0 Schemes').grid(row = 2,column = 99)
     root.after(1000,lambda: update_comb(temp))
 
 root.after(1000,lambda: update_comb(temp))
