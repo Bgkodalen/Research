@@ -8,7 +8,12 @@ import Qpoly
 
 ### Load in all the information from Williford's tables.
 schemes = pickle.load(open('augschemesi.p','rb'))
-testmat = np.array([[1,2,3,4],[1,2,3,5], [0,1,1,2], [1,1,1,1]])
+### There is an annoying issue with the keys here where the lettered schemes dont have a trailing >.
+# Below is a temporary patch to this so that I don't have to redo the data compilation.
+for key in schemes:
+    for scheme in schemes[key]:
+        if scheme[-1]!= '>':
+            schemes[key][scheme+'>'] = schemes[key].pop(scheme)
 ### The actual GUI
 root = Tk()
 root.title("Cometric Association schemes")
@@ -33,11 +38,13 @@ Radiobutton(root, text = "5-class bipartite", variable = numclasses, value = 5).
 ### The Examine Scheme window.
 def examine():
     Details = Toplevel(root)
+    scheme = re.findall(r'<[,\d\w]*>',params.get())
+
     
-    P = schemes[numclasses.get()][params.get()]['P']
-    Q = schemes[numclasses.get()][params.get()]['Q']
-    L = schemes[numclasses.get()][params.get()]['L']
-    Ls = schemes[numclasses.get()][params.get()]['L*']
+    P = schemes[numclasses.get()][scheme]['P']
+    Q = schemes[numclasses.get()][scheme]['Q']
+    L = schemes[numclasses.get()][scheme]['L']
+    Ls = schemes[numclasses.get()][scheme]['L*']
     Geg = Qpoly.Gegproj(Ls,10,0,1)
 
     fp = Frame(Details)
@@ -55,8 +62,8 @@ def examine():
     [r,t] = Matrixfrmt(Ls,'L*',fls,r+1,2)
 
     ### Extra information
-    exists = schemes[numclasses.get()][params.get()]['exists']
-    comments = schemes[numclasses.get()][params.get()]['Comments']
+    exists = schemes[numclasses.get()][scheme]['exists']
+    comments = schemes[numclasses.get()][scheme]['Comments']
 
     if exists == '-':
         color = 'red'
@@ -64,7 +71,7 @@ def examine():
         color = 'yellow'
     else:
         color = 'green'
-    Label(Details, text = (params.get()+' '+exists),background=color).grid(row = 1,column = 1)
+    Label(Details, text = (scheme+' '+exists),background=color).grid(row = 1,column = 1)
     Label(Details, text = comments).grid(row = 1,column = 3)
     
     
