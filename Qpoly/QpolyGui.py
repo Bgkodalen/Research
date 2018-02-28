@@ -31,9 +31,9 @@ btn.grid(column = 99, row = 99)
 ### Ability to enter class number --- Change this to radio buttons?
 numclasses = IntVar()
 numclasses.set(3)
-Radiobutton(root, text = "3-class primitive", variable = numclasses, value = 3).grid(column=1,row=1)
-Radiobutton(root, text = "4-class bipartite", variable = numclasses, value = 4).grid(column=1,row=2)
-Radiobutton(root, text = "5-class bipartite", variable = numclasses, value = 5).grid(column=1,row=3)
+Radiobutton(root, text = "3-class primitive", variable = numclasses, value = 3).grid(column=1,row=1,sticky=W)
+Radiobutton(root, text = "4-class bipartite", variable = numclasses, value = 4).grid(column=1,row=2,sticky=W)
+Radiobutton(root, text = "5-class bipartite", variable = numclasses, value = 5).grid(column=1,row=3,sticky=W)
 
 ### The Examine Scheme window.
 def examine():
@@ -112,37 +112,52 @@ def Matrixfrmt(mat,name,window,r,c,string=0):
 
 irrat = IntVar()
 irr = Checkbutton(root,text="Irrational schemes", variable = irrat)
-irr.grid(column = 1,row = 10)
+irr.grid(column = 1,row = 10,sticky=W)
 
+geg = IntVar()
+ge = Checkbutton(root,text="Spherical bound", variable = geg)
+ge.grid(column = 1,row = 11,sticky=W)
 
+SD = IntVar()
+SDcheck = Checkbutton(root,text="Spherical design", variable = SD)
+SDcheck.grid(column = 2,row = 1,sticky=W)
+numdesign = Combobox(root,width = 2)
+numdesign.grid(column = 3,row = 1,sticky = W)
+numdesign['values'] = (3,4,5,6,7,8,9)
+numdesign.current(0)
 
 ex = Button(root, text = "Examine Scheme", command = examine)
 ex.grid(column = 99, row = 1)
 
 
+def parameterlist():
+    schemelist = [scheme for scheme in schemes[numclasses.get()]]
+    tol=10**(-8)
+    if irrat.get():
+        schemelist = [scheme for scheme in schemelist if schemes[numclasses.get()][scheme]['irrational'] == 1]
+    if geg.get():
+        schemelist = [scheme for scheme in schemelist if (Qpoly.Gegproj(schemes[numclasses.get()][scheme]['L*'])).min()<-tol]
+    if SD.get():
+        schemelist = [scheme for scheme in schemelist if sum(Qpoly.Gegproj(schemes[numclasses.get()][scheme]['L*'])[0,1:(int(numdesign.get())+1)])==0]
+    if len(schemelist) == 0:
+        schemelist = ['None']
+    else:
+        schemelist = [scheme+schemes[numclasses.get()][scheme]['exists'] for scheme in schemelist]
+    return tuple(schemelist)
 
 
 ### Shows the available parameters based on the Radiobutton input.
 params = Combobox(root)
 params.grid(column = 97,row = 1,columnspan = 2)
-if irrat.get():
-    params['values'] = tuple([scheme+schemes[numclasses.get()][scheme]['exists'] for scheme in schemes[numclasses.get()] if schemes[numclasses.get()][scheme]['irrational'] == 1])
-else:
-    params['values'] = tuple([scheme+schemes[numclasses.get()][scheme]['exists'] for scheme in schemes[numclasses.get()]])
-if len(params['values']) == 0:
-    params['values'] = ['None']
+params['values'] = parameterlist()
+
 params.current(0)
-temp = numclasses.get()
+temp = params['values'][0]
 def update_comb(temp):
-    if irrat.get()==1:
-        params['values'] = tuple([scheme+schemes[numclasses.get()][scheme]['exists'] for scheme in schemes[numclasses.get()] if schemes[numclasses.get()][scheme]['irrational'] == 1])
-    else:
-        params['values'] = tuple([scheme+schemes[numclasses.get()][scheme]['exists'] for scheme in schemes[numclasses.get()]])
-    if len(params['values']) == 0:
-        params['values'] = ['None']
-    if temp != numclasses.get():
+    params['values'] = parameterlist()
+    if temp != params['values'][0]:
         params.current(0)
-    temp = numclasses.get()
+    temp = params['values'][0]
     root.after(1000,lambda: update_comb(temp))
 
 root.after(1000,lambda: update_comb(temp))
