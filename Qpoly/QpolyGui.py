@@ -5,6 +5,7 @@ from fractions import Fraction
 from tkinter import *
 from tkinter.ttk import *
 import Qpoly
+import math
 
 ### Load in all the information from Williford's tables.
 schemes = pickle.load(open('augschemesi.p','rb'))
@@ -39,7 +40,7 @@ Radiobutton(root, text = "5-class bipartite", variable = numclasses, value = 5).
 def examine():
     Details = Toplevel(root)
     scheme = re.findall(r'<[,\d\w]*>',params.get())[0]
-
+    p = scheme.strip('<>').split(',')
     
     P = schemes[numclasses.get()][scheme]['P']
     Q = schemes[numclasses.get()][scheme]['Q']
@@ -74,9 +75,9 @@ def examine():
     Label(Details, text = (scheme+' '+exists),background=color).grid(row = 1,column = 1)
     Label(Details, text = comments).grid(row = 1,column = 3)
     
-    
     exclose = Button(Details,text = "Close",command = lambda: quit(Details))
     exclose.grid(column = 99, row = 99)
+
 
 
 def Matrixfrmt(mat,name,window,r,c,string=0):
@@ -117,6 +118,7 @@ irr.grid(column = 1,row = 10,sticky=W)
 geg = IntVar()
 ge = Checkbutton(root,text="Spherical bound", variable = geg)
 ge.grid(column = 1,row = 11,sticky=W)
+
 
 SD = IntVar()
 SDcheck = Checkbutton(root,text="Spherical design", variable = SD)
