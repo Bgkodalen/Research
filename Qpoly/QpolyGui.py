@@ -5,10 +5,16 @@ from fractions import Fraction
 from tkinter import *
 from tkinter.ttk import *
 import Qpoly
+import math
 
 ### Load in all the information from Williford's tables.
 schemes = pickle.load(open('augschemesi.p','rb'))
-testmat = np.array([[1,2,3,4],[1,2,3,5], [0,1,1,2], [1,1,1,1]])
+### There is an annoying issue with the keys here where the lettered schemes dont have a trailing >.
+# Below is a temporary patch to this so that I don't have to redo the data compilation.
+for key in schemes:
+    for scheme in schemes[key]:
+        if scheme[-1]!= '>':
+            schemes[key][scheme+'>'] = schemes[key].pop(scheme)
 ### The actual GUI
 root = Tk()
 root.title("Cometric Association schemes")
@@ -26,18 +32,20 @@ btn.grid(column = 99, row = 99)
 ### Ability to enter class number --- Change this to radio buttons?
 numclasses = IntVar()
 numclasses.set(3)
-Radiobutton(root, text = "3-class primitive", variable = numclasses, value = 3).grid(column=1,row=1)
-Radiobutton(root, text = "4-class bipartite", variable = numclasses, value = 4).grid(column=1,row=2)
-Radiobutton(root, text = "5-class bipartite", variable = numclasses, value = 5).grid(column=1,row=3)
+Radiobutton(root, text = "3-class primitive", variable = numclasses, value = 3).grid(column=1,row=1,sticky=W)
+Radiobutton(root, text = "4-class bipartite", variable = numclasses, value = 4).grid(column=1,row=2,sticky=W)
+Radiobutton(root, text = "5-class bipartite", variable = numclasses, value = 5).grid(column=1,row=3,sticky=W)
 
 ### The Examine Scheme window.
 def examine():
     Details = Toplevel(root)
+    scheme = re.findall(r'<[,\d\w]*>',params.get())[0]
+    p = scheme.strip('<>').split(',')
     
-    P = schemes[numclasses.get()][params.get()]['P']
-    Q = schemes[numclasses.get()][params.get()]['Q']
-    L = schemes[numclasses.get()][params.get()]['L']
-    Ls = schemes[numclasses.get()][params.get()]['L*']
+    P = schemes[numclasses.get()][scheme]['P']
+    Q = schemes[numclasses.get()][scheme]['Q']
+    L = schemes[numclasses.get()][scheme]['L']
+    Ls = schemes[numclasses.get()][scheme]['L*']
     Geg = Qpoly.Gegproj(Ls,10,0,1)
 
     fp = Frame(Details)
@@ -55,8 +63,8 @@ def examine():
     [r,t] = Matrixfrmt(Ls,'L*',fls,r+1,2)
 
     ### Extra information
-    exists = schemes[numclasses.get()][params.get()]['exists']
-    comments = schemes[numclasses.get()][params.get()]['Comments']
+    exists = schemes[numclasses.get()][scheme]['exists']
+    comments = schemes[numclasses.get()][scheme]['Comments']
 
     if exists == '-':
         color = 'red'
@@ -64,12 +72,12 @@ def examine():
         color = 'yellow'
     else:
         color = 'green'
-    Label(Details, text = (params.get()+' '+exists),background=color).grid(row = 1,column = 1)
+    Label(Details, text = (scheme+' '+exists),background=color).grid(row = 1,column = 1)
     Label(Details, text = comments).grid(row = 1,column = 3)
-    
     
     exclose = Button(Details,text = "Close",command = lambda: quit(Details))
     exclose.grid(column = 99, row = 99)
+
 
 
 def Matrixfrmt(mat,name,window,r,c,string=0):
@@ -105,37 +113,57 @@ def Matrixfrmt(mat,name,window,r,c,string=0):
 
 irrat = IntVar()
 irr = Checkbutton(root,text="Irrational schemes", variable = irrat)
-irr.grid(column = 1,row = 10)
+irr.grid(column = 1,row = 10,sticky=W)
+
+geg = IntVar()
+ge = Checkbutton(root,text="Spherical bound", variable = geg)
+ge.grid(column = 1,row = 11,sticky=W)
 
 
+SD = IntVar()
+SDcheck = Checkbutton(root,text="Spherical design", variable = SD)
+SDcheck.grid(column = 2,row = 1,sticky=W)
+numdesign = Combobox(root,width = 2)
+numdesign.grid(column = 3,row = 1,sticky = W)
+numdesign['values'] = (3,4,5,6,7,8,9)
+numdesign.current(0)
 
 ex = Button(root, text = "Examine Scheme", command = examine)
 ex.grid(column = 99, row = 1)
 
 
+def parameterlist():
+    schemelist = [scheme for scheme in schemes[numclasses.get()]]
+    tol=10**(-8)
+    if irrat.get():
+        schemelist = [scheme for scheme in schemelist if schemes[numclasses.get()][scheme]['irrational'] == 1]
+    if geg.get():
+        schemelist = [scheme for scheme in schemelist if (Qpoly.Gegproj(schemes[numclasses.get()][scheme]['L*'])).min()<-tol]
+    if SD.get():
+        schemelist = [scheme for scheme in schemelist if sum(np.absolute(Qpoly.Gegproj(schemes[numclasses.get()][scheme]['L*'])[0,1:(int(numdesign.get())+1)]))<tol]
+    if len(schemelist) == 0:
+        schemelist = ['None']
+    else:
+        schemelist = [scheme+schemes[numclasses.get()][scheme]['exists'] for scheme in schemelist]
+    return tuple(schemelist)
 
 
 ### Shows the available parameters based on the Radiobutton input.
 params = Combobox(root)
-params.grid(column = 97,row = 1,columnspan = 2)
-if irrat.get():
-    params['values'] = tuple([scheme for scheme in schemes[numclasses.get()] if schemes[numclasses.get()][scheme]['irrational'] == 1])
-else:
-    params['values'] = tuple(list(schemes[numclasses.get()]))
-if len(params['values']) == 0:
-    params['values'] = ['None']
+params.grid(column = 96,row = 1,columnspan=2)
+params['values'] = parameterlist()
+
 params.current(0)
-temp = numclasses.get()
+temp = params['values'][0]
 def update_comb(temp):
-    if irrat.get()==1:
-        params['values'] = tuple([scheme for scheme in schemes[numclasses.get()] if schemes[numclasses.get()][scheme]['irrational'] == 1])
-    else:
-        params['values'] = tuple(list(schemes[numclasses.get()]))
-    if len(params['values']) == 0:
-        params['values'] = ['None']
-    if temp != numclasses.get():
+    params['values'] = parameterlist()
+    if temp != params['values'][0]:
         params.current(0)
-    temp = numclasses.get()
+    temp = params['values'][0]
+    if params['values'][0]!='None':
+        Label(root, text = str(len(params['values']))+' Schemes').grid(row = 2,column = 99)
+    else:
+        Label(root, text = '0 Schemes').grid(row = 2,column = 99)
     root.after(1000,lambda: update_comb(temp))
 
 root.after(1000,lambda: update_comb(temp))
