@@ -173,7 +173,7 @@ def parameterlist():
     if SD.get():
         schemelist = [scheme for scheme in schemelist if sum(np.absolute(Qpoly.Gegproj(Qpoly.Lsm(schemes[numclasses.get()][scheme]['P']))[0,1:(int(numdesign.get())+1)]))<tol]
     if equi.get():
-        schemelist = [scheme for scheme in schemelist if sum(schemes[numclasses.get()][scheme]['Q'][0,:])-schemes[numclasses.get()][scheme]['Q'].max()<140]
+        schemelist = [scheme for scheme in schemelist if sum(Qpoly.Qm(schemes[numclasses.get()][scheme]['P'])[0,:])-Qpoly.Qm(schemes[numclasses.get()][scheme]['P']).max()<140]
     if len(schemelist) == 0:
         schemelist = ['None']
     else:
