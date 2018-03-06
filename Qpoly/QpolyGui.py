@@ -8,7 +8,7 @@ import Qpoly
 import math
 
 ### Load in all the information from Williford's tables.
-schemes = pickle.load(open('augschemesi.p','rb'))
+schemes = pickle.load(open('Schemes.tot','rb'))
 ### There is an annoying issue with the keys here where the lettered schemes dont have a trailing >.
 # Below is a temporary patch to this so that I don't have to redo the data compilation.
 for key in schemes:
@@ -33,19 +33,23 @@ btn.grid(column = 99, row = 99)
 numclasses = IntVar()
 numclasses.set(3)
 Radiobutton(root, text = "3-class primitive", variable = numclasses, value = 3).grid(column=1,row=1,sticky=W)
-Radiobutton(root, text = "4-class bipartite", variable = numclasses, value = 4).grid(column=1,row=2,sticky=W)
-Radiobutton(root, text = "5-class bipartite", variable = numclasses, value = 5).grid(column=1,row=3,sticky=W)
+Radiobutton(root, text = "3-class antipodal", variable = numclasses, value = 0).grid(column=1,row=2,sticky=W)
+Radiobutton(root, text = "4-class bipartite", variable = numclasses, value = 4).grid(column=1,row=3,sticky=W)
+Radiobutton(root, text = "5-class bipartite", variable = numclasses, value = 5).grid(column=1,row=4,sticky=W)
 
 ### The Examine Scheme window.
 def examine():
     Details = Toplevel(root)
-    scheme = re.findall(r'<[,\d\w]*>',params.get())[0]
-    p = scheme.strip('<>').split(',')
+    scheme = re.findall(r'<[,\d\w;]*>',params.get())[0]
+    #p = scheme.strip('<>').split(',')
     
     P = schemes[numclasses.get()][scheme]['P']
-    Q = schemes[numclasses.get()][scheme]['Q']
-    L = schemes[numclasses.get()][scheme]['L']
-    Ls = schemes[numclasses.get()][scheme]['L*']
+    #Q = schemes[numclasses.get()][scheme]['Q']
+    Q = Qpoly.Qm(P)
+    #L = schemes[numclasses.get()][scheme]['L']
+    L = Qpoly.Lm(P)
+    #Ls = schemes[numclasses.get()][scheme]['L*']
+    Ls = Qpoly.Lsm(P)
     Geg = Qpoly.Gegproj(Ls,10,0,1)
 
     fp = Frame(Details)
@@ -63,18 +67,38 @@ def examine():
     [r,t] = Matrixfrmt(Ls,'L*',fls,r+1,2)
 
     ### Extra information
-    exists = schemes[numclasses.get()][scheme]['exists']
-    comments = schemes[numclasses.get()][scheme]['Comments']
+    if 'exists' in schemes[numclasses.get()][scheme]:
+        exists = schemes[numclasses.get()][scheme]['exists']
+    else:
+        exists = '?'
+    if 'Comments' in schemes[numclasses.get()][scheme]:
+        comments = schemes[numclasses.get()][scheme]['Comments']
+    else:
+        comments = ''
 
     if exists == '-':
         color = 'red'
     elif exists == '?':
+        color = 'yellow'
+    elif exists == 'O':
+        color = 'blue'
+    elif exists == 'P':
         color = 'yellow'
     else:
         color = 'green'
     Label(Details, text = (scheme+' '+exists),background=color).grid(row = 1,column = 1)
     Label(Details, text = comments).grid(row = 1,column = 3)
     
+    ### Temporary Labels
+    if Ls[1,1,1]>0:
+        m = Ls[1,0,1]
+        a = Ls[1,1,1]**2
+        b = Ls[1,2,2]/Ls[1,1,1]
+        c = Ls[1,1,2]*Ls[1,2,1]
+        d = 4*m*(2*m-3)/(m+6)
+        Label(Details, text = '%0.2f + (2+%0.2f)*%0.2f > %0.2f' % (a,b,c,d)).grid(row = 99,column = 1,columnspan = 5)
+        Label(Details, text = '%0.2f > %0.2f' % (a+(2+b)*c,d)).grid(row = 100,column = 1,columnspan = 5)
+
     exclose = Button(Details,text = "Close",command = lambda: quit(Details))
     exclose.grid(column = 99, row = 99)
 
@@ -134,13 +158,13 @@ ex.grid(column = 99, row = 1)
 
 def parameterlist():
     schemelist = [scheme for scheme in schemes[numclasses.get()]]
-    tol=10**(-8)
+    tol=10**(-14)
     if irrat.get():
         schemelist = [scheme for scheme in schemelist if schemes[numclasses.get()][scheme]['irrational'] == 1]
     if geg.get():
-        schemelist = [scheme for scheme in schemelist if (Qpoly.Gegproj(schemes[numclasses.get()][scheme]['L*'])).min()<-tol]
+        schemelist = [scheme for scheme in schemelist if (Qpoly.Gegproj(Qpoly.Lsm(schemes[numclasses.get()][scheme]['P']))).min()<-tol]
     if SD.get():
-        schemelist = [scheme for scheme in schemelist if sum(np.absolute(Qpoly.Gegproj(schemes[numclasses.get()][scheme]['L*'])[0,1:(int(numdesign.get())+1)]))<tol]
+        schemelist = [scheme for scheme in schemelist if sum(np.absolute(Qpoly.Gegproj(Qpoly.Lsm(schemes[numclasses.get()][scheme]['P']))[0,1:(int(numdesign.get())+1)]))<tol]
     if len(schemelist) == 0:
         schemelist = ['None']
     else:
@@ -150,7 +174,7 @@ def parameterlist():
 
 ### Shows the available parameters based on the Radiobutton input.
 params = Combobox(root)
-params.grid(column = 96,row = 1,columnspan=2)
+params.grid(column = 96,row = 1,columnspan=3)
 params['values'] = parameterlist()
 
 params.current(0)
