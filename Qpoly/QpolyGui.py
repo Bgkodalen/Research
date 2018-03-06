@@ -4,8 +4,8 @@ import numpy as np
 from fractions import Fraction
 from tkinter import *
 from tkinter.ttk import *
-import Qpoly
 import math
+import Qpoly
 
 ### Load in all the information from Williford's tables.
 schemes = pickle.load(open('augschemesi.p','rb'))
@@ -75,6 +75,8 @@ def examine():
     Label(Details, text = (scheme+' '+exists),background=color).grid(row = 1,column = 1)
     Label(Details, text = comments).grid(row = 1,column = 3)
     
+    Label(Details, text = Qpoly.Equiangular(Q)[0]).grid(row = 6, column = 2)
+
     exclose = Button(Details,text = "Close",command = lambda: quit(Details))
     exclose.grid(column = 99, row = 99)
 
@@ -128,6 +130,11 @@ numdesign.grid(column = 3,row = 1,sticky = W)
 numdesign['values'] = (3,4,5,6,7,8,9)
 numdesign.current(0)
 
+equi = IntVar()
+equicheck = Checkbutton(root, text = "Equiangular lines", variable = equi)
+equicheck.grid(column = 2, row = 10, sticky = W)
+
+
 ex = Button(root, text = "Examine Scheme", command = examine)
 ex.grid(column = 99, row = 1)
 
@@ -141,6 +148,8 @@ def parameterlist():
         schemelist = [scheme for scheme in schemelist if (Qpoly.Gegproj(schemes[numclasses.get()][scheme]['L*'])).min()<-tol]
     if SD.get():
         schemelist = [scheme for scheme in schemelist if sum(np.absolute(Qpoly.Gegproj(schemes[numclasses.get()][scheme]['L*'])[0,1:(int(numdesign.get())+1)]))<tol]
+    if equi.get():
+        schemelist = [scheme for scheme in schemelist if sum(schemes[numclasses.get()][scheme]['Q'][0,:])-schemes[numclasses.get()][scheme]['Q'].max()<140]
     if len(schemelist) == 0:
         schemelist = ['None']
     else:
