@@ -9,9 +9,10 @@ import re
 import pickle
 import numpy as np
 from fractions import Fraction
-from math import sqrt
+import math
 import sympy
 import time
+import itertools
 
 def Qm(P):
     X = sum(P[0,:])
@@ -46,6 +47,8 @@ def Lm(P):
     if np.absolute(L-Lt).max()>tol:
         return L
     return Lt
+
+
 
 def Gegproj(Ls,k=10,verbose=0,binary=0):
 ### Here, we take in L* and compute our Gegenbauer projections for degrees 0 up to k.
@@ -89,3 +92,36 @@ def Gnk(n,k,dim=1):
         return t
     else:
         return sympy.simplify((2*k+n-4)/(k+n-3)*t*Gnk(n,k-1) + (k-1)/(k+n-3)*Gnk(n,k-2))
+
+def Equiangular(Q):
+    ### Look for Equiangular lines
+    success = 1
+    string = ''
+    tol = 10**-8
+    d = Q.shape[0]-1
+    indx = Q[0,:].argmax()
+    goodindx = [i for i in range(d+1)]
+    goodindx.pop(indx)
+    numlines = sum(Q[0,:])
+    A = np.array(Q[1:,goodindx],dtype='float')
+    B = np.linalg.inv(A)
+    for innerprods in list(itertools.product([-1,1],repeat = d)):
+        rank = sum(Q[0,goodindx])
+        if sum(innerprods) == d:
+            continue
+        x = np.dot(B,innerprods)
+        if sum(x<-tol) == 0:
+            for i in range(len(x)):
+                if x[i]<tol:
+                    rank = rank-Q[0,goodindx[i]]
+            ip = np.dot(Q[0,goodindx],x)
+            if abs((ip-1)/2-np.rint((ip-1)/2))>tol:
+                success = 0
+            string = string+ "%0.f lines in %0.f with angle 1/%0.3f using coeffs: %s\n" % (numlines, rank, np.dot(Q[0,goodindx],x),innerprods)
+    if len(string) == 0:
+        return ["No possible Equiangular lines",success]
+    else:
+        return[string,success]
+
+
+    
