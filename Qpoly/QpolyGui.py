@@ -158,6 +158,10 @@ equi = IntVar()
 equicheck = Checkbutton(root, text = "Equiangular lines", variable = equi)
 equicheck.grid(column = 2, row = 10, sticky = W)
 
+p123 = IntVar()
+p123check = Checkbutton(root, text = "check for connectivity", variable = p123)
+p123check.grid(column = 2,row = 11, sticky = W)
+
 
 ex = Button(root, text = "Examine Scheme", command = examine)
 ex.grid(column = 99, row = 1)
@@ -165,7 +169,7 @@ ex.grid(column = 99, row = 1)
 
 def parameterlist():
     schemelist = [scheme for scheme in schemes[numclasses.get()]]
-    tol=10**(-14)
+    tol=10**(-8)
     if irrat.get():
         schemelist = [scheme for scheme in schemelist if schemes[numclasses.get()][scheme]['irrational'] == 1]
     if geg.get():
@@ -174,6 +178,8 @@ def parameterlist():
         schemelist = [scheme for scheme in schemelist if sum(np.absolute(Qpoly.Gegproj(Qpoly.Lsm(schemes[numclasses.get()][scheme]['P']))[0,1:(int(numdesign.get())+1)]))<tol]
     if equi.get():
         schemelist = [scheme for scheme in schemelist if sum(Qpoly.Qm(schemes[numclasses.get()][scheme]['P'])[0,:])-Qpoly.Qm(schemes[numclasses.get()][scheme]['P']).max()<140]
+    if p123.get():
+        schemelist = [scheme for scheme in schemelist if np.abs(Qpoly.Lm(schemes[numclasses.get()][scheme]['P'])[1,2,3]) < tol]
     if len(schemelist) == 0:
         schemelist = ['None']
     else:
