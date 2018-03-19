@@ -27,11 +27,115 @@
 
 
 \begin{document}
-\title{Gegenbauer conditions}
+\title{Bounds on Spherical Codes}
+\section{Association schemes}
+Let $X$ be a finite set of vertices. A \textit{symmetric d-class association scheme} (see \cite{BCN}) on $X$ is a pair $\mathcal{L} = (X,\mathcal{R})$ where $\mathcal{R} =\left\{R_0,R_1,\dots,R_d\right\}$ is a set of $d+1$ relations on $X$ satisfying the following properties:
+\begin{itemize}
+	\item $R_0$ is the identity relation;
+	\item $\left\{R_0,R_1,\dots, R_d\right\}$ forms a partition of $X\times X$;
+	\item $(x,y)\in R_i$ implies $(y,x)\in R_i$;
+	\item for $0\leq i,j,k\leq d$ there exist \textit{intersection numbers} $p_{i,j}^k$ such that for any $(x,y)\in R_k$, the number of vertices $z$ for which $(x,z)\in R_i$ and $(z,y)\in R_j$ is equal to $p_{i,j}^k$ independent of our original choice of $x$ and $y$.
+\end{itemize}
+Often it becomes useful to order the vertices in $X$ and then represent each $R_i$ as a 01-matrix $A_i$ where the $(x,y)$ entry of $A_i$ is 1 if and only if $(x,y)\in R_i$. With this setting in mind, the defining properties above are encoded as:
+\begin{itemize}
+	\item $A_0 = I$;
+	\item $\sum_i A_i = J$;
+	\item for all $0\leq i\leq d$, $A_i^T = A_i$;
+	\item for all $0\leq i,j,k\leq d$, $A_iA_j = \sum p_{i,j}^k A_k$.
+\end{itemize}
+The final condition tells us that $\mathbb{A} = \text{span}\left\{A_0,A_1,\dots A_d\right\}$ forms a matrix algebra under standard matrix multiplication. As our matrices are 01-matrices with disjoint support, this \emph{Bose-Mesner algebra} is also closed under Schur (element-wise) products. Using our symmetric property, we note that $p_{i,j}^k = p_{j,i}^k$ telling us that $A_iA_j = A_jA_i$ and our algebra is commutative. Therefore our adjacency matrices are simultaneously diagonalizable giving us $d+1$ orthogonal eigenspaces with projection operators $E_0,\dots,E_d$. As both $\left\{A_0,\dots,A_d\right\}$ and $\left\{E_0,\dots,E_d\right\}$ form bases for the Bose-Mesner algebra, there exists unique matrices $P$ and $Q$ so that
+\begin{equation}
+\label{PQmat}
+A_i = \sum_{j} P_{ji} E_j,\qquad E_j = \frac{1}{\vert X\vert} \sum_{i} Q_{ij}A_i.
+\end{equation}
+We call $P$ and $Q$ the first and second eigenmatrices, respectively, and note here that $P_{0i}$ is the valency of relation $R_i$ and $Q_{0j}$ is the rank of $E_j$. Finally, as our matrix algebra is closed under Schur products, we find that there exist structure constants $q_{i,j}^k$ such that for all $0\leq i,j,k\leq d$:
+\[E_i\circ E_j = \frac{1}{\vert X\vert}\sum_k q_{i,j}^k E_k.\]
+We call these parameters the Krein parameters of the association scheme. A \textit{$Q$-polynomial} (\textit{cometric}) association scheme is one in which the set $\left\{E_0,E_1,\dots,E_d\right\}$ may be ordered so that $q^{k}_{i,j} = 0$ whenever $k>i+j$ or $k<\vert i- j\vert$ and $q^{k}_{i,j}>0$ whenever $k = i+j$. Given a $Q$-polynomial ordering $E_0,\dots,E_d$ we find it convenient to order relations so that $Q_{01}>Q_{11}>\dots>Q_{d1}$; we call this the natural ordering.\newpar
+We now examine the intersection numbers and Krein parameters of our scheme. Defining $L_i$ and $L_i^*$ such that
+\[L_i = [p^k_{i,j}]_{k,j}\qquad L_i^* = [q^k_{i,j}]_{k,j},\]
+\cite[Lemma.~2.1.1(vi)]{BCN} and \cite[Lemma.~2.3.1(vi)]{BCN} gives the following equations:
+\begin{align}L_iL_j = \sum_k p^m_{i,k}p^k_{j,l}&=\sum_k p^k_{i,j}p^m_{k,l}= \sum_{k} p^k_{i,j}L_k;\label{dblsum:1}\\
+L_i^*L_j^* = \sum_k q^m_{i,k}q^k_{j,l}&=\sum_k q^k_{i,j}q^m_{k,l}=\sum_{k}q^k_{i,j}L_k^*.\label{dblsum:2}\end{align}
+Therefore, there exists algebra homomorphisms $\phi: \mathbb{A}\rightarrow \mathbb{L}= \langle L_0,L_1,\dots,L_d\rangle$ and $\phi^* : \mathbb{A}\rightarrow \mathbb{L}^* = \langle L_0^*,L_1^*,\dots,L_d^*\rangle$ via
+\[\phi(A_i) = \frac{1}{\vert X\vert}L_i\qquad\phi(XY) = \phi(X)\phi(Y)\]
+and
+\[\phi^*(E_i) = \frac{1}{\vert x\vert}L_i^*\qquad\phi^*(X\circ Y) = \phi^*(X)\phi^*(Y)\]
+\section{Spherical Bound}
+Let $\Omega_d$ denote the unit sphere in Euclidean space $\mathbb{R}^d$. For any $k\geq 0$ let $\text{Harm}_d(k)$ denote the  space of harmonic, homogeneous polynomials on $\Omega_d$. Let $N_d = \dim\text{ Harm}_d(k)$ and fix an orthogonal basis $\left\{W_{k,i}\right\}_{i=1..N}$ of $\text{Harm}(k)$. Let $Q_k^d$ denote the $k^\text{th}$ degree Gegenbauer polynomial for dimension $d$. From \cite[Theorem.~3.3.]{DGS} we have,
+\[\sum_{i=1}^N W_{k,i}(\zeta)W_{k,i}(\eta) = Q_k(\langle\zeta,\eta\rangle); \qquad \zeta,\eta\in\Omega_d.\]
+Given a finite set $X\subset \Omega_d$, define $H_k = [W_{k,i}(\zeta)],\qquad \zeta\in X, i\in \left\{1,2,\dots, N\right\}$. Then \cite[Theorem.~3.6.]{DGS},
+\[H_kH_k^T = [Q_k(\langle \zeta,\eta\rangle)]_{\zeta,\eta\in X}.\]
+Now for any vector $v\in \mathbb{R}^{\vert X\vert}$,
+\[v^TH_kH_k^Tv = \vnorm{v^TH_k}^2\geq 0.\]
+Therefore, $H_kH_k^T$ is positive semi-definite.\newpage
+Schoenberg (1942) proved that if $C$ is a finite set in $\mathbb{S}^{n-1}$, then
+\[\sum_{(x,y)\in C^2}G_k^n(\langle x,y\rangle)\geq 0\]
+where $G_0^{(n)}(t) = 1$, $G_1^{(n)}(t) = t$ and
+\[G_k^{(n)} = \frac{(2k+n-4)tG_{k-1}^{(n)}(t) - (k-1)G_{k-2}^{(n)}(t)}{k+n-3}, \qquad k\geq 2.\]
+Note these are normalized so that $G_k^{(n)}(1) = 1$. As we will only sum over a single Gegenbauer polynomial at a time, this normalization will not change our results. Below we have the first 6 polynomials:
+\[\begin{aligned}
+G_0^n(t)&=1\\
+G_1^n(t)&=t\\
+G_2^n(t)&=\frac{nt^2 - 1}{n-1}\\
+G_3^n(t)&=\frac{(n+2)t^3 - 3t}{(n-1)}\\
+G_4^n(t)&=\frac{(n+4)(n+2)t^4 - 6(n+2)t^2+3}{n^2-1}\\
+G_5^n(t)&=\frac{(n+6)(n+4)t^5-10(n+4)t^3+15t}{n^2-1}
+\end{aligned}\]
+We also know for $Q$-polynomial association schemes that there exists polynomials such that
+\[\begin{aligned}
+f_0(t) &= 1\\
+f_1(t) &= t\\
+f_{j+1}(t) &= \frac{(t-q^j_{1j})f_j(t) - q^{j-1}_{1j}f_{j-1}(t)}{q^{j+1}_{1j}}\\
+\end{aligned}\]
+This gives the first $5^*$ polynomials:
+\[\begin{aligned}
+f_0(t) &= 1\\
+f_1(t) &= t\\
+f_2(t) &=\frac{t^2-q^1_{11}t - 1}{q^{2}_{11}}\\
+f_3(t) &=\frac{t^3-(q^{2}_{12}+q^1_{11})t^2+(q^1_{11}q^{2}_{12} -1-q^2_{11}q^1_{12})t+q^2_{12}}{q^{2}_{11}q^{3}_{12}}
+\end{aligned}\]
+
+We wish to use these conditions to examine $Q$-polynomial association schemes.\newpar
+For any Association scheme, we know that
+\[(E_j\circ E_k)E_i = \frac{q^i_{jk}}{\vert X\vert}E_i.\]
+Further, for a $Q$-polynomial association scheme with $Q$-polynomial ordering $(E_0,E_1,E_2,\dots,E_d)$, we may take the columns of $\frac{\vert X\vert}{m}E_1$ to be unit vectors in $\mathbb{R}^m$ where $m$ is the multiplicity of the first eigenspace. Therefore, if we seek to sum over powers of the inner products of this spherical design, we can sum over entrywise powers of $E_1$. More precisely,
+\[\sum_{y\in X}(\left<x,y\right>)^n = \left(\left(\frac{\vert X\vert}{m}E_1\right)^{\circ n}J\right)_{1,1}=\left(\frac{\vert X\vert^{n+1}}{m^n}\left(E_1^{\circ n}\right)E_0\right)_{1,1}\]
+Using these polynomials we arrive at the following constraints
 \begin{itemize}
 	\item $4^{\text{th}}$ degree constraint:
-	\[(q^1_{11})^2+q^1_{12}q^2_{11}>\frac{2m(m-1)}{m+2}\]
-	\item $5^\text{th}$ degree constraint:
-	\[(q^1_{11})^2+\left(2+\frac{q^2_{12}}{q^1_{11}}\right)q^1_{12}q^2_{11}>\frac{m(m-12)}{m+6}\]
+	\[(q^1_{11})^2+q^1_{12}q^2_{11}\geq\frac{2m(m-1)}{m+2}\]
+	\item $5^\text{th}$ degree constraint.\\
+	Assume:
+	\begin{itemize}
+		\item[$\cdot$] $m>2$
+		\item[$\cdot$] $q^1_{11}>0$
+	\end{itemize}
+	Then:
+	\[(q^1_{11})^2+\left(2+\frac{q^2_{12}}{q^1_{11}}\right)q^1_{12}q^2_{11}\geq\frac{4m(2m-3)}{m+6}\]
+	\item $6^\text{th}$ degree constraint.\\
+	Assume:
+	\begin{itemize}
+		\item[$\cdot$] $4^{th}$ degree constraint holds.
+		\item[$\cdot$] $m>2$
+	\end{itemize}
+	Then:
+	\begin{itemize}
+		\item If $q_{11}^1 = 0$:
+		\[q_{22}^2\left(q_{12}^1\right)^3\geq\frac{8m_2^2(m-1)(m-2)}{(m+4)(m+2)}\]
+		\item If $q_{11}^1>0$:
+		\[\left(q^1_{11}\right)^4+(3q^1_{11}(q^1_{11}+q_{12}^2)+q_{11}^2q_{22}^2)q_{11}^2q_{12}^1\geq\frac{8m^2(m-1)(m-2)}{(m+4)(m+2)}\]
+	\end{itemize}
+\item 7th degree:
+\[\begin{aligned}&{{\it q111}}^{4}+{\it q112}\,{\it q121} \left( 4\,{{\it q111}}^{2}+5\,
+{\it q111}\,{\it q122}+{\it q112}\,{\it q121}+2\,{\it q121}\,{\it q222
+}+2\,{{\it q122}}^{2} \right)\\
+&+{\frac {{\it q112}\,{\it q121}\,
+		\left( 2\,{\it q222}\,{\it q121}\,{\it q122}-{{\it q122}}^{3}+{\it 
+			q123}\,{\it q132}\,{\it q133} \right) }{{\it q111}}}\\
+		&\geq{\frac { \left( 
+		170\,{m}^{4}+910\,{m}^{3}-3455\,{m}^{2}+470\,m+1200 \right) m}{
+		\left( m+10 \right)  \left( m+6 \right)  \left( m+8 \right) }}
+ \end{aligned}\]
+
 \end{itemize}
 \end{document}
