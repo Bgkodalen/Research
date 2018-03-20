@@ -94,24 +94,7 @@ numdesign.current(0)
 
 equi = IntVar()
 equicheck = Checkbutton(root, text = "Equiangular lines", variable = equi)
-<<<<<<< HEAD
-equicheck.grid(column = 2, row = 10, sticky = W)
-
-p123 = IntVar()
-p123check = Checkbutton(root, text = "check for connectivity", variable = p123)
-p123check.grid(column = 2,row = 11, sticky = W)
-
-
-ex = Button(root, text = "Examine Scheme", command = examine)
-ex.grid(column = 99, row = 1)
-
-
-def parameterlist():
-    schemelist = [scheme for scheme in schemes[numclasses.get()]]
-    tol=10**(-8)
-=======
-equicheck.grid(column = 2, row = 5, sticky = W)
-
+equicheck.grid(column = 2, row = 5)
 
 def parameterlist():
     selectedschemes = schemes[numclasses.get()][imprim.get()]
