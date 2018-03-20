@@ -85,34 +85,34 @@ Therefore, we have the following result
 \begin{theorem}[DGS]
 	\label{psdgeg}
 	Let $X$ be a set of unit vectors in $\mathbb{R}^m$ with Gram matrix $G$. Then,
-	\[G_k^\circ(G)\succeq0\]	
+	\[Q_k^\circ(G)\succeq0\]	
 \end{theorem}
 This leads to the following theorem:
 \begin{theorem}
-	Let $(X,\mathcal{R})$ be a $Q$-polynomial association scheme with $Q$-polynomial ordering $E_0,E_1,\dots,E_d$. Let $m=\text{rank}(E_1)$ and define $L_1^* = [q^k_{1,j}]_{k,j}$ and
-	\[F_k = G_k\left(\frac{1}{m}L_1^*\right).\]
-	for $k\geq 0$. Then $F_k$ must be non-negative.
+	Let $(X,\mathcal{R})$ be a $Q$-polynomial association scheme with $Q$-polynomial ordering $E_0,E_1,\dots,E_d$. Let $m=\text{rank}(E_1)$, define $L_1^* = [q^k_{1,j}]_{k,j}$ and
+	\[F_k = Q_k\left(\frac{1}{m}L_1^*\right).\]
+	for $k\geq 0$. Then $F_k$ must be non-negative for each $k\geq 0$.
 \end{theorem}
 \begin{proof}
 	From above, we know that there exists a $m\times \vert X\vert$ matrix $U$ with unit vector columns such that $U^TU = \frac{\vert X\vert}{m}E_1$. Then, by \ref{psdgeg},
-	\[G_k^\circ\left(\frac{\vert X\vert}{m}E_1\right)\succeq0\]
+	\[Q_k^\circ\left(\frac{\vert X\vert}{m}E_1\right)\succeq0\]
 	However, since $\left<E_i\right>$ is closed under entrywise multiplication, there exists constants $c_i$ such that
-	\begin{equation}\label{Gkeig}G_k^\circ\left(\frac{\vert X\vert}{m}E_1\right) = \sum_{i=0}^d\vert X\vert c_iE_i.\end{equation}
-	Note, since the $E_i$'s represent orthogonal idempotents, these $\vert X\vert c_i$'s are exactly the eigenvalues of $G_k^\circ\left(\frac{\vert X\vert}{m}E_1\right)$. Using $\phi^*$ on equation \ref{Gkeig}, we arrive at
-	\[G_k^\circ\left(\frac{1}{m}L_1^*\right) = \sum_{i=0}^dc_iL_i^*\]
-	Since each $L_i^*$ is non-negative, our result follows. It is worth noting that since $[L_i^*]_{0,j} = m_j\delta_{i,j}$, it is sufficient to check the first row of $F_k$ to guarantee $c_i\geq 0$ for all $0\leq i\leq d$. This also means that not only does $G_k^\circ\left(\frac{\vert X\vert}{m}E_1\right)\succeq 0$ imply $F_k$ is non-negative, but in fact these are equivalent conditions.
+	\begin{equation}\label{Gkeig}Q_k^\circ\left(\frac{\vert X\vert}{m}E_1\right) = \sum_{i=0}^d\vert X\vert c_iE_i.\end{equation}
+	Note, since the $E_i$'s represent orthogonal idempotents, these $\vert X\vert c_i$'s are exactly the eigenvalues of $Q_k^\circ\left(\frac{\vert X\vert}{m}E_1\right)$. Using $\phi^*$ on equation \ref{Gkeig}, we arrive at
+	\[Q_k^\circ\left(\frac{1}{m}L_1^*\right) = \sum_{i=0}^dc_iL_i^*\]
+	Since each $L_i^*$ is non-negative, our result follows. It is worth noting that since $[L_i^*]_{0,j} = m_j\delta_{i,j}$, it is sufficient to check the first row of $F_k$ to guarantee $c_i\geq 0$ for all $0\leq i\leq d$. This also means that not only does $Q_k^\circ\left(\frac{\vert X\vert}{m}E_1\right)\succeq 0$ imply $F_k$ is non-negative, but in fact these are equivalent conditions.
 \end{proof}
 \section{Computations \& Results}
-The Gegenbauer polynomials in dimension $m$ are defined via $G_0^{(n)}(t) = 1$, $G_1^{(n)}(t) = t$ and the three term recurrence:
-\[G_k^{(m)} = \frac{(2k+m-4)tG_{k-1}^{(m)}(t) - (k-1)G_{k-2}^{(m)}(t)}{k+m-3}, \qquad k\geq 2.\]
-Note these are normalized so that $G_k^{(m)}(1) = 1$. Below we have listed the first six polynomials:
+The Gegenbauer polynomials in dimension $m$ are defined via $Q_0^{(n)}(t) = 1$, $Q_1^{(n)}(t) = t$ and the three term recurrence:
+\[Q_k^{(m)} = \frac{(2k+m-4)tQ_{k-1}^{(m)}(t) - (k-1)Q_{k-2}^{(m)}(t)}{k+m-3}, \qquad k\geq 2.\]
+Note these are normalized so that $Q_k^{(m)}(1) = 1$. Below we have listed the first six polynomials:
 \[\begin{aligned}
-G_0^n(t)&=1\\
-G_1^n(t)&=t\\
-G_2^n(t)&=\frac{nt^2 - 1}{n-1}\\
-G_3^n(t)&=\frac{(n+2)t^3 - 3t}{(n-1)}\\
-G_4^n(t)&=\frac{(n+4)(n+2)t^4 - 6(n+2)t^2+3}{n^2-1}\\
-G_5^n(t)&=\frac{(n+6)(n+4)t^5-10(n+4)t^3+15t}{n^2-1}
+Q_0^n(t)&=1\\
+Q_1^n(t)&=t\\
+Q_2^n(t)&=\frac{nt^2 - 1}{n-1}\\
+Q_3^n(t)&=\frac{(n+2)t^3 - 3t}{(n-1)}\\
+Q_4^n(t)&=\frac{(n+4)(n+2)t^4 - 6(n+2)t^2+3}{n^2-1}\\
+Q_5^n(t)&=\frac{(n+6)(n+4)t^5-10(n+4)t^3+15t}{n^2-1}
 \end{aligned}\]
 Using these polynomials we arrive at the following results
 \subsection{Example Constraints}
