@@ -8,7 +8,7 @@ import math
 import Qpoly
 
 ### Load in all the current information.
-schemes = pickle.load(open('alldata.p','rb'))
+schemes = pickle.load(open('alldata2.p','rb'))
 ### There is an annoying issue with the keys here where the lettered schemes dont have a trailing >.
 # Below is a temporary patch to this so that I don't have to redo the data compilation.
 for d in schemes:
@@ -128,9 +128,9 @@ def update_comb(temp):
         params.current(0)
     temp = params['values'][0]
     if params['values'][0]!='None':
-        Label(root, text = str(len(params['values']))+' Schemes').grid(row = 2,column = 99)
+        num['text'] = str(len(params['values']))+' Schemes'
     else:
-        Label(root, text = '0 Schemes').grid(row = 2,column = 99)
+        num['text'] = '0 Schemes'
     root.after(1000,lambda: update_comb(temp))
 
 ### The Examine Scheme window.
@@ -204,6 +204,8 @@ def examine():
 ex = Button(root, text = "Examine Scheme", command = examine)
 ex.grid(column = 99, row = 1)
 
+num = Label(root,text = '')
+num.grid(row = 2,column = 99)
 
 
 

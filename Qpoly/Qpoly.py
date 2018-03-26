@@ -48,11 +48,26 @@ def Lm(P):
         return L
     return Lt
 
-
+def kreinarray(X,vals):
+    d = int(len(X)/2)
+    L1s = np.zeros((d+1,d+1))
+    for i in range(d):
+        L1s[i,i+1] = X[i]
+        L1s[i+1,i] = X[i+d]
+        if i>0:
+            L1s[i,i] = L1s[0,1]-L1s[i,i+1]-L1s[i,i-1]
+    L1s[d,d] = L1s[0,1]-L1s[d,d-1]
+    [q,Pt] = np.linalg.eig(L1s)
+    order = np.argsort(q)
+    order = order[::-1]
+    Pt[:,[i for i in range(d+1)]] = Pt[:,order]
+    for i in range(d+1):
+        Pt[:,i] = Pt[:,i]*vals[i]/Pt[0,i]
+    return Pt
 
 def Gegproj(Ls,k=10,verbose=0,binary=0):
 ### Here, we take in L* and compute our Gegenbauer projections for degrees 0 up to k.
-    tol = 10**(-14)
+    tol = 10**(-12)
     if len(Ls.shape) == 3: ### If you gave all of L*
         Ls = Ls[1,:,:]
     side = Ls.shape[0]

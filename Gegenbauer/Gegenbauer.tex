@@ -13,7 +13,7 @@
 \usepackage{wrapfig}
 \usepackage{epstopdf}
 \usepackage{float}
-\usepackage{natbib}
+%\usepackage{natbib}
 \newcommand{\conj}[1]{\overline{#1}}
 \newcommand{\newpar}{\vspace{5mm}\par}
 \newcommand{\vnorm}[1]{\left\|#1\right\|}
@@ -26,6 +26,7 @@
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}{Lemma}[section]
 \newtheorem{remark}{Remark}
+\newcommand*{\swap}[2]{#2#1}
 
 \lhead{Brian G. Kodalen}
 \rhead{\today}
@@ -52,6 +53,7 @@ The final condition tells us that $\mathbb{A} = \text{span}\left\{A_0,A_1,\dots 
 \label{PQmat}
 A_i = \sum_{j} P_{ji} E_j,\qquad E_j = \frac{1}{\vert X\vert} \sum_{i} Q_{ij}A_i.
 \end{equation}
+
 We call $P$ and $Q$ the first and second eigenmatrices, respectively, and note here that $P_{0i}$ is the valency of relation $R_i$ and $Q_{0j}$ is the rank of $E_j$. Finally, as our matrix algebra is closed under Schur products, we find that there exist structure constants $q_{i,j}^k$ such that for all $0\leq i,j,k\leq d$:
 \[E_i\circ E_j = \frac{1}{\vert X\vert}\sum_k q_{i,j}^k E_k.\]
 We call these parameters the Krein parameters of the association scheme. We conclude this section by examining the intersection numbers and Krein parameters of our scheme, and defining algebra homomorphisms from our Bose-Mesner algebra to two other matrix algebras. Defining $L_i$ and $L_i^*$ such that
@@ -70,9 +72,9 @@ Let $(X,\mathcal{R})$ be an $d$-class symmetric association scheme. We say $(X,\
 	\item $q^k_{i,j} = 0$ whenever $i+j<k$, and
 	\item $q^{i+j}_{i,j}>0$ whenever $i+j\leq d$.
 \end{enumerate}
-Under these conditions, we define orthogonal polynomials $p_j(t)$, $j=0,1,\dots,d$ by $p_0(t) = 1$, $p_1(t) = t$ and the three-term recurrence $tp_j(t) = q^{j-1}_{1,j}p_{j-1}(t) + q^{j}_{1,j}p_j(t) + q^{j+1}_{1,j}p_{j+1}(t)$. It follows that $vE_j = q_j(vE_1)$, for $j=0,1,\dots,d$ where matrix multiplication is done entrywise. Defining one final polynomial $p_{d+1}(t)$ as
-\[p_{d+1}(t) = xp_d(t) - q^{d-1}_{1,d}p_{d-1}(t) - q^d_{1,d}p_{d}(t),\]
-we see that $p_{d+1}(vE_1) = 0$. This tells us that every entry of $E_1$ must be a root of $p_{d+1}(x)$. Further, since $\left\{E_0,E_1,\dots E_d\right\}$ forms a set of linearly independent matrices, $p_{d+1}(x)$ must be the minimal (entrywise) polynomial of $E_1$. Therefore $E_1$ must contain exactly $d+1$ distinct entries and likewise column one of $Q$ must contain $d+1$ distinct entries. This immediately implies that every column of $E_1$ is distinct as the the $i^\text{th}$ column will be the only column whose $i^\text{th}$ entry is $Q_{0,1}$. We find it convenient to order the relations so that $Q_{01}>Q_{11}>\dots>Q_{d1}$; we call this the natural ordering wrt the $Q$-polynomial ordering $E_0,E_1,\dots,E_d$.\newpar
+Under these conditions, we define orthogonal polynomials $p_j(t)$, $j=0,1,\dots,d$ by $p_0(t) = 1$, $p_1(t) = t$ and the three-term recurrence $tp_j(t) = q^{j-1}_{1,j}p_{j-1}(t) + q^{j}_{1,j}p_j(t) + q^{j+1}_{1,j}p_{j+1}(t)$. It follows that $\vert X\vert E_j = q_j(\vert X\vert E_1)$, for $j=0,1,\dots,d$ where matrix multiplication is done entrywise. Defining one final polynomial $p_{d+1}(t)$ as
+\[p_{d+1}(t) = tp_d(t) - q^{d-1}_{1,d}p_{d-1}(t) - q^d_{1,d}p_{d}(t),\]
+we see that $p_{d+1}(\vert X\vert E_1) = 0$. This tells us that every entry of $E_1$ must be a root of $p_{d+1}(x)$. Further, since $\left\{E_0,E_1,\dots E_d\right\}$ forms a set of linearly independent matrices, $p_{d+1}(x)$ must be the minimal (entrywise) polynomial of $E_1$. Therefore $E_1$ must contain exactly $d+1$ distinct entries and likewise column one of $Q$ must contain $d+1$ distinct entries. This immediately implies that every column of $E_1$ is distinct as the the $i^\text{th}$ column will be the only column whose $i^\text{th}$ entry is $Q_{0,1}$. We find it convenient to order the relations so that $Q_{01}>Q_{11}>\dots>Q_{d1}$; we call this the natural ordering wrt the $Q$-polynomial ordering $E_0,E_1,\dots,E_d$.\newpar
 Now consider that $E_1$ is a positive semi-definite matrix of rank $m = Q_{0,1}$. Therefore there exists a $m\times \vert X\vert$ matrix $U$ such that $U^TU = E_1$. Further, since the main diagonal of $E_1$ is constant and every column is distinct, we must have that the columns of $U$ are $\vert X\vert$ distinct vectors of constant norm $\frac{m}{\vert X\vert}$. Therefore $\sqrt{\frac{\vert X\vert}{m}}U$ is a set of unit vectors in dimension $m$ with Gram matrix $\frac{\vert X\vert}{m}E_1$.
 \section{Spherical Bound}
 Let $\Omega_d$ denote the unit sphere in Euclidean space $\mathbb{R}^d$. For any $k\geq 0$ let $\text{Harm}(k) = \text{Harm}_d(k)$ denote the space of harmonic and homogeneous polynomials of degree $k$ on $\Omega_d$. Let $N_d = \dim\text{Harm}(k)$ and fix an orthogonal basis $\left\{W_{k,i}\right\}_{i=1..N}$ of $\text{Harm}(k)$. Let $Q_k^d$ denote the $k^\text{th}$ degree Gegenbauer polynomial for dimension $d$. From \cite[Theorem.~3.3.]{DGS} we have,
@@ -200,4 +202,36 @@ The following are computed $F$'s for this scheme:
 0.00020& 0.0& 0.060& 0.0& 0.94\end {array} \right] 
 \end{aligned}
 \]
+\begin{thebibliography}{10}
+	
+	\bibitem{DGS}
+	P.~{Delsarte}, J.M.~{Goethals}, and J.J.~{Seidel}.
+	\newblock {\em Spherical Codes and Designs}.
+	\newblock {Geometriae Dedicata}, 6(3):363-388, Sep. 1977.
+	
+	\bibitem{BCN}
+	A.~Brouwer, A.~Cohen, and A.~Neumaier.
+	\newblock {\em Distance-Regular Graphs}.
+	\newblock Springer-Verlag Berlin, 1989.
+	
+	\bibitem{Colbourn}
+	C.~J. Colbourn and J.~H. Dinitz.
+	\newblock {\em Handbook of Combinatorial Designs, Second Edition (Discrete
+		Mathematics and Its Applications)}.
+	\newblock Chapman \& Hall/CRC, 2006.
+	
+	\bibitem{DMM}
+	E.~R.~{\swap{Dam}{van }}, W.~Martin, and M.~Muzychuk.
+	\newblock Uniformity in Association Schemes and Coherent Configurations:
+	Cometric $Q$-Antipodal Schemes and Linked Systems.
+	\newblock {\em Journal of Combinatorial Theory, Series A}, 120:1401--1439,
+	2013.
+	
+	
+	\bibitem{MMW}
+	W.~J. Martin, M.~Muzychuk, and J.~Williford.
+	\newblock Imprimitive Cometric Association Schemes: Constructions and Analysis.
+	\newblock {\em Journal of Algebraic Combinatorics}, 25(4):399--415, Jun 2007.
+	
+\end{thebibliography}
 \end{document}
