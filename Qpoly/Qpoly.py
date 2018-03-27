@@ -68,13 +68,14 @@ def kreinarray(X,vals):
 def Gegproj(Ls,k=10,verbose=0,binary=0):
 ### Here, we take in L* and compute our Gegenbauer projections for degrees 0 up to k.
     tol = 10**(-12)
+    q = 1
     if len(Ls.shape) == 3: ### If you gave all of L*
-        Ls = Ls[1,:,:]
+        Ls = Ls[q,:,:]
     side = Ls.shape[0]
-    n = Ls[0,1]
+    n = Ls[0,q]
     Projections = np.zeros((side,k+1))
     Projections[0,0] = 1
-    Projections[1,1] = 1/n
+    Projections[q,1] = 1/n
     for i in range(2,k+1):
         Projections[:,i] = (2*i+n-4)/(i+n-3)/n*np.dot(Ls,Projections[:,i-1])-(i-1)/(i+n-3)*Projections[:,i-2]
     if verbose ==1:

@@ -56,25 +56,25 @@ A_i = \sum_{j} P_{ji} E_j,\qquad E_j = \frac{1}{\vert X\vert} \sum_{i} Q_{ij}A_i
 
 We call $P$ and $Q$ the first and second eigenmatrices, respectively, and note here that $P_{0i}$ is the valency of relation $R_i$ and $Q_{0j}$ is the rank of $E_j$. Finally, as our matrix algebra is closed under Schur products, we find that there exist structure constants $q_{i,j}^k$ such that for all $0\leq i,j,k\leq d$:
 \[E_i\circ E_j = \frac{1}{\vert X\vert}\sum_k q_{i,j}^k E_k.\]
-We call these parameters the Krein parameters of the association scheme. We conclude this section by examining the intersection numbers and Krein parameters of our scheme, and defining algebra homomorphisms from our Bose-Mesner algebra to two other matrix algebras. Defining $L_i$ and $L_i^*$ such that
-\[L_i = [p^k_{i,j}]_{k,j}\qquad L_i^* = [q^k_{i,j}]_{k,j},\]
-\cite[Lemma.~2.1.1(vi)]{BCN} and \cite[Lemma.~2.3.1(vi)]{BCN} gives the following equations:
-\begin{align}L_iL_j = \sum_k p^m_{i,k}p^k_{j,l}&=\sum_k p^k_{i,j}p^m_{k,l}= \sum_{k} p^k_{i,j}L_k;\label{dblsum:1}\\
-L_i^*L_j^* = \sum_k q^m_{i,k}q^k_{j,l}&=\sum_k q^k_{i,j}q^m_{k,l}=\sum_{k}q^k_{i,j}L_k^*.\label{dblsum:2}\end{align}
-Therefore, $\mathbb{L}= \langle L_0,L_1,\dots,L_d\rangle$ and $\mathbb{L}^* = \langle L_0^*,L_1^*,\dots,L_d^*\rangle$ are two matrix algebras under standard matrix multiplication. Further, we define $\phi: \mathbb{A}\rightarrow \mathbb{L}$ and $\phi^* : \mathbb{A}\rightarrow \mathbb{L}^*$ via
-\[\phi(A_i) = \frac{1}{\vert X\vert}L_i\qquad\phi(XY) = \phi(X)\phi(Y)\]
-and
-\[\phi^*(E_i) = \frac{1}{\vert X\vert}L_i^*\qquad\phi^*(X\circ Y) = \phi^*(X)\phi^*(Y).\]
-Therefore $\phi$ preserves the matrix multiplication structure of $\mathbb{A}$ while $\phi^*$ preserves the Schur multiplication structure of $\mathbb{A}$.
+We call these parameters the Krein parameters of the association scheme. We conclude this section by examining the Krein parameters of our scheme, and defining an algebra isomorphism from our Bose-Mesner algebra to a new matrix algebra. Defining $L_i^*$ such that
+\[L_i^* = [q^k_{i,j}]_{k,j},\]
+we may define the vector space $\mathbb{L}^* = \text{span}\left\{L_0^*,L_1^*,\dots,L_d^*\right\}$. From \cite[Lemma.~2.3.1(vi)]{BCN}, we have:
+\begin{align}
+L_i^*L_j^* = \sum_k q^m_{i,k}q^k_{j,l}&=\sum_k q^k_{i,j}q^m_{k,l}=\sum_{k}q^k_{i,j}L_k^*,\label{dblsum}\end{align}
+showing that $\mathbb{L}^*$ is closed under matrix multiplication. Therefore we define a homomorphism $\phi^* : \mathbb{A}\rightarrow \mathbb{L}^*$ via taking $\phi^*(E_i) = \frac{1}{\vert X\vert}L_i^*$ for each $0\leq i\leq d$ and extending linearly. From \eqref{dblsum}, we see that
+\[\phi^*(E_i\circ E_j) = \frac{1}{\vert X\vert}\sum_{k=0}^{d}q^k_{i,j}\phi^*\left(E_k\right) = \frac{1}{\vert X\vert^2}\sum_{k=0}^dq^k_{i,j}L_k^* = \left(\frac{1}{\vert X\vert}L_i^*\right)\left(\frac{1}{\vert X\vert}L_j^*\right) = \phi^*(E_i)\phi^*(E_j).\]
+Therefore $\phi^*$ is an algebra isomorphism preserving the Schur product structure of $\mathbb{A}$.
 \section{Co-metric Association schemes}
-Let $(X,\mathcal{R})$ be an $d$-class symmetric association scheme. We say $(X,\mathcal{R})$ is $Q$-polynomial, or \textit{cometric}, if there exists an ordering of the eigenspaces, say $E_0,E_1,\dots,E_d$, such that the Krein parameters satisfy the following conditions:
+Let $(X,\mathcal{R})$ be an $d$-class symmetric association scheme. We say $(X,\mathcal{R})$ is $Q$-polynomial, or \textit{cometric}, if there exists an ordering of the eigenspaces, say $E_0$, $E_1$,\dots, $E_d$, such that the Krein parameters satisfy the following conditions:
 \begin{enumerate}
 	\item $q^k_{i,j} = 0$ whenever $i+j<k$, and
 	\item $q^{i+j}_{i,j}>0$ whenever $i+j\leq d$.
 \end{enumerate}
-Under these conditions, we define orthogonal polynomials $p_j(t)$, $j=0,1,\dots,d$ by $p_0(t) = 1$, $p_1(t) = t$ and the three-term recurrence $tp_j(t) = q^{j-1}_{1,j}p_{j-1}(t) + q^{j}_{1,j}p_j(t) + q^{j+1}_{1,j}p_{j+1}(t)$. It follows that $\vert X\vert E_j = q_j(\vert X\vert E_1)$, for $j=0,1,\dots,d$ where matrix multiplication is done entrywise. Defining one final polynomial $p_{d+1}(t)$ as
-\[p_{d+1}(t) = tp_d(t) - q^{d-1}_{1,d}p_{d-1}(t) - q^d_{1,d}p_{d}(t),\]
-we see that $p_{d+1}(\vert X\vert E_1) = 0$. This tells us that every entry of $E_1$ must be a root of $p_{d+1}(x)$. Further, since $\left\{E_0,E_1,\dots E_d\right\}$ forms a set of linearly independent matrices, $p_{d+1}(x)$ must be the minimal (entrywise) polynomial of $E_1$. Therefore $E_1$ must contain exactly $d+1$ distinct entries and likewise column one of $Q$ must contain $d+1$ distinct entries. This immediately implies that every column of $E_1$ is distinct as the the $i^\text{th}$ column will be the only column whose $i^\text{th}$ entry is $Q_{0,1}$. We find it convenient to order the relations so that $Q_{01}>Q_{11}>\dots>Q_{d1}$; we call this the natural ordering wrt the $Q$-polynomial ordering $E_0,E_1,\dots,E_d$.\newpar
+Under these conditions, let $c_j^* = q_{1,j-1}^j$, $a_j^* = q_{1,j}^j$ and $b_j^* = q_{1,j+1}^j$ for $0\leq j\leq d$ (letting $b_d^*=c_0^*=0$ for convenience). Then $c_j^* + a_j^* + b_j^* = q^0_{1,1}$ and we may define orthogonal polynomials $q_j(t)$, $j=0,1,\dots,d$ by $q_0(t) = 1$, $q_1(t) = t$ and the three-term recurrence $tq_j(t) = c_{j+1}^*q_{j+1}(t) + a_j^*q_j(t) + b_{j-1}^*q_{j-1}(t)$. It follows that $\vert X\vert E_j = q_j(\vert X\vert E_1)$, for $j=0,1,\dots,d$ where matrix multiplication is computed entrywise. Defining one final polynomial $q_{d+1}(t)$ as
+\[q_{d+1}(t) = tq_d(t) - b_{d-1}^*q_{d-1}(t) - a_d^*q_{d}(t),\]
+we see that $q_{d+1}(\vert X\vert E_1) = 0$ and therefore every polynomial function $F$ may be written as a linear combination of the polynomials $q_0,q_1,\dots,q_d$ so that $F(\vert X\vert E_1) = \sum_j f_j q_j(\vert X\vert E_1)$ when applied entrywise.
+***Major confusion here... this part is not done***
+This tells us that every entry of $E_1$ must be a root of $p_{d+1}(x)$. Further, since $\left\{E_0,E_1,\dots E_d\right\}$ forms a set of linearly independent matrices, $p_{d+1}(x)$ must be the minimal (entrywise) polynomial of $E_1$. Therefore $E_1$ must contain exactly $d+1$ distinct entries and likewise column one of $Q$ must contain $d+1$ distinct entries. This immediately implies that every column of $E_1$ is distinct as the the $i^\text{th}$ column will be the only column whose $i^\text{th}$ entry is $Q_{0,1}$. We find it convenient to order the relations so that $Q_{01}>Q_{11}>\dots>Q_{d1}$; we call this the natural ordering wrt the $Q$-polynomial ordering $E_0,E_1,\dots,E_d$.\newpar
 Now consider that $E_1$ is a positive semi-definite matrix of rank $m = Q_{0,1}$. Therefore there exists a $m\times \vert X\vert$ matrix $U$ such that $U^TU = E_1$. Further, since the main diagonal of $E_1$ is constant and every column is distinct, we must have that the columns of $U$ are $\vert X\vert$ distinct vectors of constant norm $\frac{m}{\vert X\vert}$. Therefore $\sqrt{\frac{\vert X\vert}{m}}U$ is a set of unit vectors in dimension $m$ with Gram matrix $\frac{\vert X\vert}{m}E_1$.
 \section{Spherical Bound}
 Let $\Omega_d$ denote the unit sphere in Euclidean space $\mathbb{R}^d$. For any $k\geq 0$ let $\text{Harm}(k) = \text{Harm}_d(k)$ denote the space of harmonic and homogeneous polynomials of degree $k$ on $\Omega_d$. Let $N_d = \dim\text{Harm}(k)$ and fix an orthogonal basis $\left\{W_{k,i}\right\}_{i=1..N}$ of $\text{Harm}(k)$. Let $Q_k^d$ denote the $k^\text{th}$ degree Gegenbauer polynomial for dimension $d$. From \cite[Theorem.~3.3.]{DGS} we have,
@@ -101,7 +101,7 @@ This leads to the following theorem:
 	However, since $\left<E_i\right>$ is closed under entrywise multiplication, there exists constants $c_i$ such that
 	\begin{equation}\label{Gkeig}Q_k^\circ\left(\frac{\vert X\vert}{m}E_1\right) = \sum_{i=0}^d\vert X\vert c_iE_i.\end{equation}
 	Note, since the $E_i$'s represent orthogonal idempotents, these $\vert X\vert c_i$'s are exactly the eigenvalues of $Q_k^\circ\left(\frac{\vert X\vert}{m}E_1\right)$. Using $\phi^*$ on equation \ref{Gkeig}, we arrive at
-	\[Q_k^\circ\left(\frac{1}{m}L_1^*\right) = \sum_{i=0}^dc_iL_i^*\]
+	\[Q_k\left(\frac{1}{m}L_1^*\right) = \sum_{i=0}^dc_iL_i^*\]
 	Since each $L_i^*$ is non-negative, our result follows. It is worth noting that since $[L_i^*]_{0,j} = m_j\delta_{i,j}$, it is sufficient to check the first row of $F_k$ to guarantee $c_i\geq 0$ for all $0\leq i\leq d$. This also means that not only does $Q_k^\circ\left(\frac{\vert X\vert}{m}E_1\right)\succeq 0$ imply $F_k$ is non-negative, but in fact these are equivalent conditions.
 \end{proof}
 \section{Computations \& Results}
