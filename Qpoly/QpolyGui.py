@@ -8,7 +8,8 @@ import math
 import Qpoly
 
 ### Load in all the current information.
-schemes = pickle.load(open('alldata2.p','rb'))
+#schemes = pickle.load(open('alldata2.p','rb'))
+schemes = pickle.load(open('newdata.p','rb'))
 ### There is an annoying issue with the keys here where the lettered schemes dont have a trailing >.
 # Below is a temporary patch to this so that I don't have to redo the data compilation.
 for d in schemes:
@@ -96,6 +97,12 @@ equi = IntVar()
 equicheck = Checkbutton(root, text = "Equiangular lines", variable = equi)
 equicheck.grid(column = 2, row = 5)
 
+def sortedlist(lst):
+    x = [int(string.split(',')[0].strip('<')) for string in lst if (string.split(',')[0].strip('<')).isdigit()]
+    y = np.array(x).argsort()
+    l = [lst[indx] for indx in y]
+    return l
+
 def parameterlist():
     selectedschemes = schemes[numclasses.get()][imprim.get()]
     schemelist = [scheme for scheme in selectedschemes]
@@ -111,7 +118,7 @@ def parameterlist():
     if len(schemelist) == 0:
         schemelist = ['None']
     else:
-        schemelist = [scheme+selectedschemes[scheme]['exists'] for scheme in schemelist]
+        schemelist = sortedlist([scheme+selectedschemes[scheme]['exists'] for scheme in schemelist])
     return tuple(schemelist)
 
 
