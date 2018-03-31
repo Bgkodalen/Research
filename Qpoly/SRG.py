@@ -15,6 +15,22 @@ def isint(x):
         return 0
 
 
+def absolute(Ls):
+    f = [Ls[i,0,i] for i in range(5)]
+    valid = 1
+    for i in range(5):
+        for j in range(5):
+            lower = sum([f[k] for k in range(5) if Ls[i,k,j]>tol])
+            if i==j:
+                upper = 1/2*f[i]*(f[i]+1)
+            else:
+                upper = f[i]*f[j]
+            if lower>upper+tol:
+                valid = 0
+    return valid
+
+
+
 if __name__ == '__main__':
 
     if len(sys.argv) == 1:
@@ -51,9 +67,17 @@ if __name__ == '__main__':
                             for jj in range(4):
                                 for kk in range(4):
                                     valid = valid*(Ls[ii,jj,kk] > -tol)*isint(L[ii,jj,kk])*(L[ii,jj,kk]>-tol)
-                        if valid == 1:
-                            print('<%0.f,%0.f>'%(X,m))
-                            schemes[4]['bipartite']['<%0.f,%0.f>'%(n,k)] = {'P':P,'exists':'?','comments':''}
+                        if valid == 1 and absolute(Ls):
+                            name = '<%0.f,%0.f>'%(-s,k)
+                            if Ls[4,4,2]>tol:
+                                print('<%0.f,%0.f>'%(X,k))
+                                schemes[4]['bipartite'][name] = {'P':P,'comments':''}
+                                if (Qpoly.Gegproj(Ls)).min()<-tol:
+                                    schemes[4]['bipartite'][name]['exists'] = '-'
+                                else:
+                                    schemes[4]['bipartite'][name]['exists'] = '?'
+                            else:
+                                schemes[4]['B&A'][name] = {'P':P,'exists':'?','comments':''}
                     
 
     pickle.dump(schemes,open('newdata.p','wb'))

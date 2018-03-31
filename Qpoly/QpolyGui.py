@@ -98,9 +98,9 @@ equicheck = Checkbutton(root, text = "Equiangular lines", variable = equi)
 equicheck.grid(column = 2, row = 5)
 
 def sortedlist(lst):
-    x = [int(string.split(',')[0].strip('<')) for string in lst if (string.split(',')[0].strip('<')).isdigit()]
-    y = np.array(x).argsort()
-    l = [lst[indx] for indx in y]
+    x = [[int(string.split(',')[0].strip('<')),int(string.split(',')[1].split('>')[0].strip('abcdefghijklmnopqrstuvwxyz')),i] for i,string in enumerate(lst) if (string.split(',')[0].strip('<')).isdigit()]
+    x.sort()
+    l = [lst[indx[2]] for indx in x]
     return l
 
 def parameterlist():
