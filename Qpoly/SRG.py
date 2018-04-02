@@ -33,16 +33,17 @@ def absolute(Ls):
 
 if __name__ == '__main__':
 
-    if len(sys.argv) == 1:
-        print('need max k parameter')
+    if len(sys.argv) <3:
+        print('need max k and max n parameter')
         sys.exit(-1)
     
     schemes = pickle.load(open("alldata2.p",'rb'))
     maxk = int(sys.argv[1])
+    maxn = int(sys.argv[2])
     schemes[4]['bipartite'] = {}
 
     for k in range(maxk):
-        for n in range(2,int(math.sqrt(k))):
+        for n in range(2,min(int(math.sqrt(k)),maxn+1)):
             s = -n**2
             for r in range(1,int(k/(-s))):
                 valid = 1
