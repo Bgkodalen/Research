@@ -67,10 +67,14 @@ if __name__ == '__main__':
                         X = sum(P[0,:])
                         m = Q[0,1]
                         valid = 1
+                        tempvalid = 1
                         for ii in range(4):
                             for jj in range(4):
                                 for kk in range(4):
                                     valid = valid*(Ls[ii,jj,kk] > -tol)*isint(L[ii,jj,kk])*(L[ii,jj,kk]>-tol)
+                                    if valid <tempvalid and k>3000:
+                                        print(ii,jj,kk,Ls[ii,jj,kk],L[ii,jj,kk],r*s+k)
+                                        tempvalid = valid
                         if valid == 1 and absolute(Ls):
                             name = '<%0.f,%0.f,%0.f>'%(-s,k,r)
                             if Ls[4,4,2]>tol:
