@@ -24,6 +24,7 @@
 \pagestyle{fancy}
 
 \newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[section]
 \newtheorem{lemma}{Lemma}[section]
 \newtheorem{remark}{Remark}
 \newcommand*{\swap}[2]{#2#1}
@@ -32,7 +33,7 @@
 \rhead{\today}
 
 \begin{document}
-\title{Bounds on Spherical Codes}
+\title{4-class $Q$-bipartite association schemes}
 \section{Association schemes}
 Let $X$ be a finite set of vertices. A \textit{symmetric d-class association scheme} (see \cite{BCN}) on $X$ is a pair $\mathcal{L} = (X,\mathcal{R})$ where $\mathcal{R} =\left\{R_0,R_1,\dots,R_d\right\}$ is a set of $d+1$ relations on $X$ satisfying the following properties:
 \begin{itemize}
@@ -70,14 +71,96 @@ Let $(X,\mathcal{R})$ be an $d$-class symmetric association scheme. We say $(X,\
 	\item $q^k_{i,j} = 0$ whenever $i+j<k$, and
 	\item $q^{i+j}_{i,j}>0$ whenever $i+j\leq d$.
 \end{enumerate}
-Under these conditions, let $c_j^* = q_{1,j-1}^j$, $a_j^* = q_{1,j}^j$ and $b_j^* = q_{1,j+1}^j$ for $0\leq j\leq d$ (letting $b_d^*=c_0^*=0$ for convenience). Then $c_j^* + a_j^* + b_j^* = q^0_{1,1}$ and we may define orthogonal polynomials $q_j(t)$, $j=0,1,\dots,d$ by $q_0(t) = 1$, $q_1(t) = t$ and the three-term recurrence $tq_j(t) = c_{j+1}^*q_{j+1}(t) + a_j^*q_j(t) + b_{j-1}^*q_{j-1}(t)$. It follows that $\vert X\vert E_j = q_j(\vert X\vert E_1)$, for $j=0,1,\dots,d$ where matrix multiplication is computed entrywise. Defining one final polynomial $q_{d+1}(t)$ as
+Under these conditions, we see that for a given $0\leq j\leq d$, at most three possible choices for $k$ will allow $q_{1,k}^j>0$. Therefore let $c_j^* = q_{1,j-1}^j$, $a_j^* = q_{1,j}^j$ and $b_j^* = q_{1,j+1}^j$ for $0\leq j\leq d$ with the restriction that $b_d^*=c_0^*=0$. Given a cometric scheme, we define the Krein array as $\left\{b_0^*,b_1^*,\dots,b_{d-1}^*;c_1^*,c_2^*,\dots,c_d^*\right\}$ noting that for any $0\leq j\leq d$, $c_j^* + a_j^* + b_j^* = q^0_{1,1}$. We say a cometric scheme is $Q$-\emph{bipartite} if $a_j^*=0$ for all $0\leq j\leq d$. This is equivalent to the condition that $q_{i,j}^k=0$ whenever $i+j+k$ is odd. A cometric scheme is $Q$-\emph{antipodal} if $b_j^* = c_{d-j}^*$ for all $j$ except possibly $j = \lfloor \frac{d}{2}\rfloor$.\newpar
+We may define orthogonal polynomials $q_j(t)$, $j=0,1,\dots,d$ by $q_0(t) = 1$, $q_1(t) = t$ and the three-term recurrence $tq_j(t) = c_{j+1}^*q_{j+1}(t) + a_j^*q_j(t) + b_{j-1}^*q_{j-1}(t)$. It follows that $\vert X\vert E_j = q_j(\vert X\vert E_1)$, for $j=0,1,\dots,d$ where matrix multiplication is computed entrywise. Since $\frac{1}{\vert X\vert}Q_{i,j}$ for $0\leq i\leq j$ are the entries of $E_j$, this also means that $q_j(Q_{i,1}) = Q_{j,1}$. Finally note that in the $Q$-bipartite case, $q_j(t)$ is an even polynomial if and only if $j$ is even.\newpar
+The following two theorems will help us describe the quotient object we find in the $Q$-bipartite case where $I_r$ and $J_r$ denote the $r\times r$ identity and all ones matrix respectively:
+\begin{theorem}[\cite{MMW}] \label{mmw}The following are equivalent:
+	\begin{enumerate}[(i)]
+		\item $(X,\mathbb{R})$ is imprimitive;
+		\item for some $j>0$, $E_j$ has repeated columns;
+		\item for some subset $\mathcal{I} = \left\{i_0=0,i_1,\dots,i_s\right\}$ of $\left\{0,1,\dots,d\right\}$ and some ordering of the vertices $\sum_{h=0}^s A_{i_h} = I_w\otimes J_r$ for integers $w$ and $r$ with $\vert X\vert=wr$, $1<w,r<\vert X\vert$;
+		\item for some subset $\mathcal{J} = \left\{j_0=0,j_1,\dots,j_s\right\}$ of $\left\{0,1,\dots,d\right\}$ and some ordering of the vertices $\sum_{h=0}^s E_{j_h} = \frac{1}{r}\left(I_w\otimes J_r\right)$ for integers $w$ and $r$ with $\vert X\vert=wr$, $1<w,r<\vert X\vert$.
+	\end{enumerate}
+\end{theorem}
+Whenever $(iii)$ occurs, say with subset $\mathcal{I}$ as given in the theorem, we may partition our vertices into equivalence classes so that $x\tilde y$ whenever $(x,y)\in R_i$ for some $i\in \mathcal{I}$. Let $X_1,\dots,X_w$ be the corresponding equivalence classes and define $\mathcal{R}' = \left\{R_i\in \mathcal{R} : i\in \mathcal{I}\right\}$. Then there exists \emph{subschemes} $(X_i,\mathcal{R}')$ for each equivalence class $X_i$. Further, we may define a \emph{quotient scheme} $(\tilde{X},\tilde{\mathcal{R}})$ of our original scheme with respect to $\mathcal{I}$ whose point set is the set of equivalence classes and whose relations are $R_{\tilde{i}} = \cup_{i\in \tilde{i}} R_i$ where each $\tilde{i} = \left\{0\leq j\leq d : p^x_{i,j} \text{ for }x\in \mathcal{I}\right\}$. Note that $\vert \tilde{\mathcal{R}}\vert = \vert \mathcal{J}\vert$.
+\begin{theorem}[\cite{Suzuki}] \label{suzuki}Suppose $(X,\mathcal{R})$ is an imprimitive cometric association scheme. Then one of the following holds:
+	\begin{enumerate}[(i)]
+		\item $(X,\mathcal{R})$ is $Q$-bipartite and $\mathcal{J} = \left\{0,2,4,\dots\right\}$
+		\item $(X,\mathcal{R})$ is $Q$-antipodal and $\mathcal{J} = \left\{0,d\right\}$
+		\item $(X,\mathcal{R})$ is a $4$-class scheme with Krein array $\left\{m,m-1,1,b_3^*;1,c_2^*,m-b_3^*,1\right\}$ and $\mathcal{J} = \left\{0,3\right\}$;
+		\item $(X,\mathcal{R})$ is a $6$-class scheme with Krein array $\left\{m,m-1,1,b_3^*,b_4^*,1;1,c_2^*,m-b_3^*,1,c_5^*,m\right\}$ and $\mathcal{J} = \left\{0,3,6\right\}$.
+	\end{enumerate}
+\end{theorem}
+Cerzo and Suzuki \cite{cerzo} have shown that no association schemes of the third type exist.
+\begin{corollary}
+	\label{SRG}
+	The quotient scheme of a 4-class $Q$-bipartite association scheme is a strongly regular graph.
+\end{corollary}
+\begin{proof}
+	From Theorem \ref{suzuki}, we know $\mathcal{J} = \left\{0,2,4\right\}$ and therefore the quotient scheme has two nontrivial relations, forcing it to be strongly regular.
+\end{proof}
+\begin{theorem}[\cite{BGKW},\cite{MMW}]
+	\label{sym}
+	If $(X,\mathcal{R})$ is $Q$-bipartite with $w$ dual bipartite classes of size $r$ each, then $r=2$. Under the natural ordering of relations, $\mathcal{I} = \left\{0,d\right\}$ and the sequence $m = Q_{01}>Q_{11}>\dots>Q_{d1}$ is symmetric about the origin. In particular, $Q_{\frac{d}{2},1} = 0$ whenever $d$ is even.
+\end{theorem}
+\begin{corollary}
+	\label{evenpoly}
+	If $(X,\mathcal{R})$ is $Q$-bipartite, then $Q_{i,j} = Q_{d-i,j}$ $(-Q_{d-i,j}$, resp.) whenever $j$ is even (odd).
+\end{corollary}
+\begin{proof}
+	$q_j(t)$ is even (odd) whenever $j$ is even (odd). Since $Q_{i,1} = -Q_{d-i,1}$ and $Q_{i,j} = q_j(Q_{i,1})$, the result follows.
+\end{proof}
+For all that follows, let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme with $Q$-polynomial ordering $E_0,E_1,\dots,E_d$ and natural ordering $A_0,A_1,\dots A_d$. Let $(v,k,\lambda,\mu)$ be the parameters of the strongly regular graph in the quotient scheme where $k$ is the valency of the $\tilde{1}$ relation. Let $k>r>s$ be the eigenvalues of this SRG with corresponding multiplicities $1$, $f$, and $g$. Recall the $Q$ matrix of this SRG will be
+\[\tilde{Q} = \left[\begin{array}{ccc}
+1 & f & g\\
+1 & \frac{fr}{k} & \frac{gs}{k}\\
+1 & \frac{f(1+r)}{k+1-v} & \frac{g(1+s)}{k+1-v}
+\end{array}\right].\]
+Finally we note from \cite{BCN} that $PQ = QP = \vert X\vert I$ and $P_{ji} = \frac{k_i}{m_j}Q_{ij}$ where $k_i$ and $m_j$ are the valencies and multiplicities of the $i^\text{th}$ relation and $j^\text{th}$ eigenspace respectively. We will call these the first and second orthogonality properties.
+\begin{theorem}
+	Let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme with relations ordered naturally. Let the quotient SRG have parameters $(v,k,\lambda,\mu)$ and spectrum $k^1,r^f,s^g$ with $k>r>s$. Then the first and second eigenmatrices are as follows:
+	\[P = \left[\begin{array}{ccccc}
+	1 & k & 2(v-1-k) & k & 1\\
+	1 & \frac{k}{n} & 0 & -\frac{k}{n} & -1\\
+	1 & r& -2(1+r) & r & 1\\
+	1 & -n & 0 & n & -1\\
+	1 & s & -2(s+1) & s & 1\\
+	\end{array}\right]\qquad Q = \left[\begin{array}{ccccc}
+	1 & m & f & v-m & g\\
+	1 & \frac{m}{n} & \frac{fr}{k}  & -\frac{m}{n} & \frac{gs}{k}\\
+	1 & 0 & \frac{f(r+1)}{k+1-v}  & 0& \frac{g(1+s)}{k+1-v}\\
+	1 & -\frac{m}{n} & \frac{fr}{k} & \frac{m}{n} & \frac{gs}{k}\\
+	1 & -m & f & m-v & g\\
+	\end{array}\right]\]
+	where $s = -n^2$.
+\end{theorem}
+\begin{proof}
+	We begin by building all of $Q$ and then appealing to the second orthogonality property. Note that column 0 of $Q$ comes by definition. From Theorem \ref{sym}, $Q_{1,1} = -Q_{3,1}\neq 0 = Q_{2,1}$, so we define $n = \frac{m}{Q_{1,1}} = -\frac{m}{Q_{3,1}}$ and column 1 of $Q$ is defined. The first three entries of columns $0$, $2$, and $4$ of $Q$ follow from the parameters of our quotient scheme while the remaining two entries of these columns follow from Corollary \ref{evenpoly}. Column 3 of $Q$ can then be found using the first orthogonality condition (specifically that $\sum_j Q_{ij} = \vert X\vert\delta_{i0}$). The final requirement that $s = -n^2$ comes from the structure of $L_1^*$. For a $Q$-bipartite scheme, the last row of $L_1^*$ must be $\ell = \left[0,0,\dots,m,0\right]$. However, since column $i$ of $P$ must be an eigenvector of $L_1^*$ with eigenvalue $Q_{i,1}$, we take column 1 of $P$ giving us $-nm = \frac{m}{n}s$ or $s = -n^2$ as desired.
+\end{proof}
+\begin{corollary}
+	A 4-class $Q$-bipartite scheme is uniquely determined by the eigenvalues of the quotient SRG.
+\end{corollary}
+\begin{proof}
+	Our first eigenmatrix only requires $v,k,r,s,$ and $n$. However since $n>0$ (from the natural ordering of relations), $n = \sqrt{-s}$. Further \cite{BCN} states that  $v = \frac{(k-r)(k-s)}{k+rs}$. 
+\end{proof}
+
+
+*** BREAK ***
+
+ Defining one final polynomial $q_{d+1}(t)$ as
 \[q_{d+1}(t) = tq_d(t) - b_{d-1}^*q_{d-1}(t) - a_d^*q_{d}(t),\]
-we see that $q_{d+1}(\vert X\vert E_1) = 0$. Therefore we consider the polynomial ring $R = \nicefrac{\mathbb{R}[t]}{q_{d+1}(t)}$ with $\left\{q_0,\dots,q_d\right\}$ as a basis. For each polynomial $F\in R$, there exists unique constants $f_0,f_1,\dots, f_d\in\mathbb{R}$ so that $F = \sum_j f_j q_j$. Given $E_i = q_i(\vert X\vert E_1)$, $\left\{\vert X\vert f_0,\vert X\vert f_1,\dots,\vert X\vert f_d\right\}$ is the set of eigenvalues of $F\left(\vert X\vert E_1\right)$. Therefore, $F(\vert X\vert E_1)$ is positive semi-definite (psd) if and only if $f_j\geq 0$ for $0\leq j\leq d$. Define $P = \left\{F = \sum f_jq_j:f_0,f_1,\dots,f_d\geq 0  \right\}$ to be the positive semi-definite cone of $(X,\mathcal{R})$.\newpar
+we see that $q_{d+1}(\vert X\vert E_1) = 0$. This tells us that every entry of $E_1$ must be a root of $q_{d+1}(x)$. Further, since $\left\{E_0,E_1,\dots E_d\right\}$ forms a set of linearly independent matrices, $p_{d+1}(x)$ must be the minimal (entrywise) polynomial of $E_1$. Therefore $E_1$ must contain exactly $d+1$ distinct entries and likewise column one of $Q$ must contain $d+1$ distinct entries. Finally, this implies every column of $E_1$ is distinct as the $E_{i,i} = Q_{0,1}\neq E_{i,j}$ for any choice of $j\neq i$. We find it convenient to order the relations so that $Q_{01}>Q_{11}>\dots>Q_{d1}$; we call this the natural ordering wrt the $Q$-polynomial ordering $E_0,E_1,\dots,E_d$.\newpar
 
 
 
 
-This tells us that every entry of $E_1$ must be a root of $p_{d+1}(x)$. Further, since $\left\{E_0,E_1,\dots E_d\right\}$ forms a set of linearly independent matrices, $p_{d+1}(x)$ must be the minimal (entrywise) polynomial of $E_1$. Therefore $E_1$ must contain exactly $d+1$ distinct entries and likewise column one of $Q$ must contain $d+1$ distinct entries. This immediately implies that every column of $E_1$ is distinct as the the $i^\text{th}$ column will be the only column whose $i^\text{th}$ entry is $Q_{0,1}$. We find it convenient to order the relations so that $Q_{01}>Q_{11}>\dots>Q_{d1}$; we call this the natural ordering wrt the $Q$-polynomial ordering $E_0,E_1,\dots,E_d$.\newpar
+
+Therefore we consider the polynomial ring $R = \nicefrac{\mathbb{R}[t]}{q_{d+1}(t)}$ with $\left\{q_0,\dots,q_d\right\}$ as a basis. For each polynomial $F\in R$, there exists unique constants $f_0,f_1,\dots, f_d\in\mathbb{R}$ so that $F = \sum_j f_j q_j$. Given $E_i = q_i(\vert X\vert E_1)$, $\left\{\vert X\vert f_0,\vert X\vert f_1,\dots,\vert X\vert f_d\right\}$ is the set of eigenvalues of $F\left(\vert X\vert E_1\right)$. Therefore, $F(\vert X\vert E_1)$ is positive semi-definite (psd) if and only if $f_j\geq 0$ for $0\leq j\leq d$. Define $P = \left\{F = \sum f_jq_j:f_0,f_1,\dots,f_d\geq 0  \right\}$ to be the positive semi-definite cone of $(X,\mathcal{R})$.\newpar
+
+
+
+
+
 Now consider that $E_1$ is a positive semi-definite matrix of rank $m = Q_{0,1}$. Therefore there exists a $m\times \vert X\vert$ matrix $U$ such that $U^TU = E_1$. Further, since the main diagonal of $E_1$ is constant and every column is distinct, we must have that the columns of $U$ are $\vert X\vert$ distinct vectors of constant norm $\frac{m}{\vert X\vert}$. Therefore $\sqrt{\frac{\vert X\vert}{m}}U$ is a set of unit vectors in dimension $m$ with Gram matrix $\frac{\vert X\vert}{m}E_1$.
 \section{Spherical Bound}
 Let $\Omega_d$ denote the unit sphere in Euclidean space $\mathbb{R}^d$. For any $k\geq 0$ let $\text{Harm}(k) = \text{Harm}_d(k)$ denote the space of harmonic and homogeneous polynomials of degree $k$ on $\Omega_d$. Let $N_d = \dim\text{Harm}(k)$ and fix an orthogonal basis $\left\{W_{k,i}\right\}_{i=1..N}$ of $\text{Harm}(k)$. Let $Q_k^d$ denote the $k^\text{th}$ degree Gegenbauer polynomial for dimension $d$. From \cite[Theorem.~3.3.]{DGS} we have,
@@ -207,15 +290,17 @@ The following are computed $F$'s for this scheme:
 \]
 \begin{thebibliography}{10}
 	
-	\bibitem{DGS}
-	P.~{Delsarte}, J.M.~{Goethals}, and J.J.~{Seidel}.
-	\newblock {\em Spherical Codes and Designs}.
-	\newblock {Geometriae Dedicata}, 6(3):363-388, Sep. 1977.
+
 	
 	\bibitem{BCN}
 	A.~Brouwer, A.~Cohen, and A.~Neumaier.
 	\newblock {\em Distance-Regular Graphs}.
 	\newblock Springer-Verlag Berlin, 1989.
+	
+	\bibitem{BGKW}
+	A.E.~Brouwer, C.D.~Godsil, J.H.~Koolen and W.J.~Martin.
+	\newblock {\em Width and Dual Width of subsets in metric and cometric association schemes}.
+	\newblock J. Combin. Th. Ser. A, 102 (2003), 255-271.
 	
 	\bibitem{Colbourn}
 	C.~J. Colbourn and J.~H. Dinitz.
@@ -230,11 +315,21 @@ The following are computed $F$'s for this scheme:
 	\newblock {\em Journal of Combinatorial Theory, Series A}, 120:1401--1439,
 	2013.
 	
+	\bibitem{DGS}
+	P.~{Delsarte}, J.M.~{Goethals}, and J.J.~{Seidel}.
+	\newblock {\em Spherical Codes and Designs}.
+	\newblock {Geometriae Dedicata}, 6(3):363-388, Sep. 1977.
 	
 	\bibitem{MMW}
 	W.~J. Martin, M.~Muzychuk, and J.~Williford.
 	\newblock Imprimitive Cometric Association Schemes: Constructions and Analysis.
 	\newblock {\em Journal of Algebraic Combinatorics}, 25(4):399--415, Jun 2007.
+	
+	\bibitem{Suzuki}
+	H. Suzuki.
+	\newblock Imprimitive $Q$-polynomial association schemes.
+	\newblock {\em J. Alg. Combin.}, 7(1998), no. 2, 165-180.
+	
 	
 \end{thebibliography}
 \end{document}

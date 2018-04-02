@@ -155,12 +155,16 @@ def examine():
     Geg = Qpoly.Gegproj(Ls,10,0,1)
 
 
+
     ### Display the various information
     fp = Frame(Details)
     fp.grid(row = 2, column = 2,sticky = W)
     [r,c] = Matrixfrmt(P,'P',fp,2,2)
     [r,c] = Matrixfrmt(Q,'Q',fp,2,c+1)
     [r,t] = Matrixfrmt(Geg,'G',fp,2,c+1,1)
+    if imprim.get()=="bipartite" and numclasses.get() == 4:
+        Gegsrg = Qpoly.Gegproj(Qpoly.Lsm(Data['psrg']),10,0,1)
+        [r,t] = Matrixfrmt(Gegsrg,'Gsrg',fp,2,t+1,1)
 
     fl = Frame(Details)
     fl.grid(row = 4, column = 2,sticky = W)

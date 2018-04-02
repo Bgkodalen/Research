@@ -47,6 +47,7 @@ if __name__ == '__main__':
             for r in range(1,int(k/(-s))):
                 valid = 1
                 mu = k+r*s
+                l = mu+r+s
                 f = (s+1)*k*(k-s)/(mu*(s-r))
                 v = (k-r)*(k-s)/mu
                 g = v-1-f
@@ -60,6 +61,8 @@ if __name__ == '__main__':
                         L = Qpoly.Lm(P)
                         Ls = Qpoly.Lsm(P)
                         Q = Qpoly.Qm(P)
+                        Qsrg = Q[0:3,[0,2,4]]
+                        Psrg = np.linalg.inv(Qsrg)*v
                         X = sum(P[0,:])
                         m = Q[0,1]
                         valid = 1
@@ -68,16 +71,16 @@ if __name__ == '__main__':
                                 for kk in range(4):
                                     valid = valid*(Ls[ii,jj,kk] > -tol)*isint(L[ii,jj,kk])*(L[ii,jj,kk]>-tol)
                         if valid == 1 and absolute(Ls):
-                            name = '<%0.f,%0.f>'%(-s,k)
+                            name = '<%0.f,%0.f,%0.f>'%(-s,k,r)
                             if Ls[4,4,2]>tol:
                                 print('<%0.f,%0.f>'%(X,k))
-                                schemes[4]['bipartite'][name] = {'P':P,'comments':''}
+                                schemes[4]['bipartite'][name] = {'P':P,'comments':'','psrg':Psrg}
                                 if (Qpoly.Gegproj(Ls)).min()<-tol:
                                     schemes[4]['bipartite'][name]['exists'] = '-'
                                 else:
                                     schemes[4]['bipartite'][name]['exists'] = '?'
                             else:
-                                schemes[4]['B&A'][name] = {'P':P,'exists':'?','comments':''}
+                                schemes[4]['B&A'][name] = {'P':P,'exists':'?','comments':'','psrg':Psrg}
                     
 
     pickle.dump(schemes,open('newdata.p','wb'))
