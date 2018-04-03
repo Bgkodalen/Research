@@ -33,16 +33,17 @@ def absolute(Ls):
 
 if __name__ == '__main__':
 
-    if len(sys.argv) == 1:
-        print('need max k parameter')
+    if len(sys.argv) <3:
+        print('need max k and max n parameter')
         sys.exit(-1)
     
     schemes = pickle.load(open("alldata2.p",'rb'))
     maxk = int(sys.argv[1])
+    maxn = int(sys.argv[2])
     schemes[4]['bipartite'] = {}
 
     for k in range(maxk):
-        for n in range(2,int(math.sqrt(k))):
+        for n in range(2,min(int(math.sqrt(k)),maxn+1)):
             s = -n**2
             for r in range(1,int(k/(-s))):
                 valid = 1
@@ -66,10 +67,14 @@ if __name__ == '__main__':
                         X = sum(P[0,:])
                         m = Q[0,1]
                         valid = 1
+                        tempvalid = 1
                         for ii in range(4):
                             for jj in range(4):
                                 for kk in range(4):
                                     valid = valid*(Ls[ii,jj,kk] > -tol)*isint(L[ii,jj,kk])*(L[ii,jj,kk]>-tol)
+                                    if valid <tempvalid and k>3000:
+                                        print(ii,jj,kk,Ls[ii,jj,kk],L[ii,jj,kk],r*s+k)
+                                        tempvalid = valid
                         if valid == 1 and absolute(Ls):
                             name = '<%0.f,%0.f,%0.f>'%(-s,k,r)
                             if Ls[4,4,2]>tol:
