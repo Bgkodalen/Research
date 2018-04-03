@@ -87,7 +87,7 @@ if __name__ == '__main__':
                                     schemes[4]['bipartite'][name]['exists'] = '?'
                             else:
                                 schemes[4]['B&A'][name] = {'P':P,'exists':'?','comments':'','psrg':Psrg}
-                        else:
+                        else: 
                             print(valid,absolute(Ls)[1],k)
                     
 
