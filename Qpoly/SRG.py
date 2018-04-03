@@ -72,9 +72,9 @@ if __name__ == '__main__':
                             for jj in range(4):
                                 for kk in range(4):
                                     valid = valid*(Ls[ii,jj,kk] > -tol)*isint(L[ii,jj,kk])*(L[ii,jj,kk]>-tol)
-                                    if valid <tempvalid and k>3000:
-                                        print(ii,jj,kk,Ls[ii,jj,kk],L[ii,jj,kk],r*s+k)
-                                        tempvalid = valid
+                                    #if valid <tempvalid and k>3000:
+                                    #    print(ii,jj,kk,Ls[ii,jj,kk],L[ii,jj,kk],r*s+k)
+                                    #    tempvalid = valid
                         if valid == 1 and absolute(Ls):
                             name = '<%0.f,%0.f,%0.f>'%(-s,k,r)
                             if Ls[4,4,2]>tol:
@@ -86,6 +86,8 @@ if __name__ == '__main__':
                                     schemes[4]['bipartite'][name]['exists'] = '?'
                             else:
                                 schemes[4]['B&A'][name] = {'P':P,'exists':'?','comments':'','psrg':Psrg}
-                    
+        if k % int(maxk/10)==0:
+            pickle.dump(schemes,open('Data/newdata%0.f.p' % int(10*k/maxk),'wb'))
+            print('dumping current data')
 
-    pickle.dump(schemes,open('newdata.p','wb'))
+    
