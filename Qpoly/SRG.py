@@ -89,5 +89,5 @@ if __name__ == '__main__':
         if k % int(maxk/10)==0:
             pickle.dump(schemes,open('Data/newdata%0.f.p' % int(10*k/maxk),'wb'))
             print('dumping current data')
-
+pickle.dump(schemes,open('Data/finaldata.p' % int(10*k/maxk),'wb'))
     
