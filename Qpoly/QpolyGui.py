@@ -9,7 +9,7 @@ import Qpoly
 
 ### Load in all the current information.
 #schemes = pickle.load(open('alldata2.p','rb'))
-schemes = pickle.load(open('newdata.p','rb'))
+schemes = pickle.load(open('newdata9.p','rb'))
 ### There is an annoying issue with the keys here where the lettered schemes dont have a trailing >.
 # Below is a temporary patch to this so that I don't have to redo the data compilation.
 for d in schemes:
