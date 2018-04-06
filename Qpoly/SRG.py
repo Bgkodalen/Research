@@ -6,7 +6,7 @@ import pickle
 import Qpoly
 import math
 
-tol = 10**-8
+tol = 10**-6
 
 def isint(x):
     if (np.round(x)-x)**2<tol:
@@ -16,8 +16,10 @@ def isint(x):
 
 
 def absolute(Ls):
+    abstol = 1
     f = [Ls[i,0,i] for i in range(5)]
     valid = 1
+    indx = -1
     for i in range(5):
         for j in range(5):
             lower = sum([f[k] for k in range(5) if Ls[i,k,j]>tol])
@@ -25,9 +27,11 @@ def absolute(Ls):
                 upper = 1/2*f[i]*(f[i]+1)
             else:
                 upper = f[i]*f[j]
-            if lower>upper+tol:
+            if lower>upper+abstol:
                 valid = 0
-    return valid
+                indx = [i,j]
+                print(lower,upper)
+    return valid,indx
 
 
 
@@ -72,10 +76,7 @@ if __name__ == '__main__':
                             for jj in range(4):
                                 for kk in range(4):
                                     valid = valid*(Ls[ii,jj,kk] > -tol)*isint(L[ii,jj,kk])*(L[ii,jj,kk]>-tol)
-                                    #if valid <tempvalid and k>3000:
-                                    #    print(ii,jj,kk,Ls[ii,jj,kk],L[ii,jj,kk],r*s+k)
-                                    #    tempvalid = valid
-                        if valid == 1 and absolute(Ls):
+                        if valid == 1 and absolute(Ls)[0]:
                             name = '<%0.f,%0.f,%0.f>'%(-s,k,r)
                             if Ls[4,4,2]>tol:
                                 print('<%0.f,%0.f>'%(X,k))
@@ -86,8 +87,9 @@ if __name__ == '__main__':
                                     schemes[4]['bipartite'][name]['exists'] = '?'
                             else:
                                 schemes[4]['B&A'][name] = {'P':P,'exists':'?','comments':'','psrg':Psrg}
+                        else: 
+                            print(valid,absolute(Ls)[1],k)
         if k % int(maxk/10)==0:
             pickle.dump(schemes,open('Data/newdata%0.f.p' % int(10*k/maxk),'wb'))
             print('dumping current data')
-
-    
+pickle.dump(schemes,open('Data/finaldata.p' % int(10*k/maxk),'wb'))
