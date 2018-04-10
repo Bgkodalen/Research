@@ -90,7 +90,7 @@ where $\Gamma$ has spectrum $k^1,r^f,s^g$. The following are two theorems which 
 \subsection{Projective double of a strongly regular graph}
 Let $\Gamma$ be an undirected graph on $v$ vertices. A ``projective double" of $\Gamma$ is a set, $L = \left\{l_1,\dots,l_v\right\}$, of $v$ lines through the origin of $\mathbb{R}^n$ (for some $n>0$) such that only two angles, $\theta$ and $90^\circ$, occur between the lines in $S$ and there exists a bijection $\phi:L\rightarrow V(\Gamma)$ such that 
 \[\text{for }i\neq j\quad l_i\perp l_j \iff \phi(l_i)\not\sim\phi(l_j). \]
-Given such a set $L$, we consider the vertex set $X =\left\{l_1^+,l_1^-,\dots l_v^+,l_v^-\right\}$ where $l_i^+ = -l_i^-$ are the two antipodal (unit) vectors defined by $l_i$. We then form graphs $G_n$ for $n\in\left\{\pm 1, 0,\pm \cos(\theta)\right\}$ such that $G_n = \Gamma\left(X,\left\{(x,y):\left<x,y\right> = n\right\}\right)$ and note that both $G_{\cos(\theta)}$ and $G_{-\cos(\theta)}$ are double covers of $\Gamma$. We are interested when the set of graphs $\left\{G_1,G_{\cos(\theta)},G_0,G_{-\cos(\theta)},G_{-1}\right\}$ form an association scheme. Note that projective doubles need not be unique. For example,
+Given such a set $L$, we consider the vertex set $X =\left\{l_1^+,l_1^-,\dots l_v^+,l_v^-\right\}$ where $l_i^+ = -l_i^-$ are the two antipodal (unit) vectors defined by $l_i$. We then form graphs $G_n$ for $n\in\left\{\pm 1, 0,\pm \cos(\theta)\right\}$ such that $G_n = \Gamma\left(X,\left\{(x,y):\left<x,y\right> = n\right\}\right)$ and note that both $G_{\cos(\theta)}$ and $G_{-\cos(\theta)}$ are double covers of $\Gamma$. We are interested when the set of graphs $\left\{G_1,G_{\cos(\theta)},G_0,G_{-\cos(\theta)},G_{-1}\right\}$ form an association scheme and, in the case that a 4-class scheme is formed, we call this a ``bipartite double" of our strongly regular graph. Note that projective doubles need not be unique. For example,
 \[U_1 = \left[\begin{array}{cccccccc}
 1 & -1 & 0 & 0 & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2}\\
 0 & 0 & 1 & -1 & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2}\\				
@@ -101,7 +101,7 @@ and
 0 & 0 & \frac{\sqrt{3}}{2} & -\frac{\sqrt{3}}{2} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{12}}& \frac{1}{\sqrt{12}}\\
 0 & 0 & 0 & 0 & \sqrt{\frac{2}{3}} & -\sqrt{\frac{2}{3}} & \sqrt{\frac{2}{3}} & -\sqrt{\frac{2}{3}} \\			
 \end{array}\right]\]
-both represent projective doubles of the 4-cycle. In the case of $U_1$, when $\alpha = \frac{1}{\sqrt{2}}$, $G_{\alpha}$ gives the 8-cycle and $\left\{G_1,G_\alpha,G_0,G_{-\alpha},G_{-1}}\right\}$ is a 4-class association scheme. However in the case of $U_2$, when $\alpha = \frac{1}{2}$, while $G_{\alpha}$ is $C_4\cup C_4$ and $\left\{G_1,G_\alpha,G_0,G_{-\alpha},G_{-1}}\right\}$ does not give us an association scheme.
+both represent projective doubles of the 4-cycle. In the case of $U_1$, when $\alpha = \frac{1}{\sqrt{2}}$, $G_{\alpha}$ gives the 8-cycle and $\left\{G_1,G_\alpha,G_0,G_{-\alpha},G_{-1}\right\}$ is a 4-class association scheme. However in the case of $U_2$, when $\alpha = \frac{1}{2}$, $G_{\alpha}$ is $C_4\cup C_4$ and $\left\{G_1,G_\alpha,G_0,G_{-\alpha},G_{-1}\right\}$ does not give us an association scheme.
 \begin{theorem}
 	Let $\Gamma$ be a strongly regular graph with spectrum $k^1,r^f,s^g$ $(r>s)$. There exists a projective double of $\Gamma$ in $\mathbb{R}^{f+1}$ which does not correspond to an association scheme.
 \end{theorem}
@@ -111,53 +111,17 @@ both represent projective doubles of the 4-cycle. In the case of $U_1$, when $\a
 	Then $G$ is a $v\times v$ positive semi-definite matrix with rank $1+f$. Scaled appropriately, $G = U^TU$ where the columns of $U$ are unit vectors in $\mathbb{R}^{1+f}$. Then $L = \left\{\tilde{u}_1,\dots,\tilde{u}_v\right\}$ is a projective double of $\Gamma$ where $\tilde{u}_i$ is the line represented by the $i^\text{th}$ column of $U$, $u_i$. Note however that for $\left<y,z\right> = 0$, $\left\vert\left\{x:\left<x,y\right> = \left<z,x\right>=\cos(\theta)\right\}\right\vert$ 
 	depends on the choice of $y$ and $z$; therefore this will not form an association scheme.
 \end{proof}
-
- strongly regular graph is a set of $v$ lines (equivalently $2v$ antipodal vectors) through the origin where every pair of lines have angle $\theta$ ($90^\circ$) when their corresponding vertices are adjacent (non-adjacent). We are interested in when the projective double of a strongly regular graph permits a $Q$-polynomial association scheme. Perhaps the easiest example to consider is the 4-cycle: Let $\Gamma$ be the graph with adjacency matrix 
-\[A = \left[\begin{array}{cccc}
-0 & 1 & 0 & 1\\
-1 & 0 & 1 & 0\\
-0 & 1 & 0 & 1\\
-1 & 0 & 1 & 0\\
-\end{array}\right].\]
-$\Gamma$ is a strongly regular graph with parameters $(4,2,0,2)$ and the projective double represent this graph as the four lines given below:
-\[\begin{tikzpicture}
-\draw[blue,->,thick] (0,0) -> (0,3);
-\draw[blue,->,thick] (0,0) -> (0,-3);
-
-\draw[black,->,thick] (0,0) -> ($sqrt(2)*(-3/2,-3/2)$);
-\draw[black,->,thick] (0,0) -> ($sqrt(2)*(3/2,3/2)$);
-
-\draw[green,->,thick] (0,0) -> (3,0);
-\draw[green,->,thick] (0,0) -> (-3,0);
-
-\draw[red,->,thick] (0,0) -> ($sqrt(2)*(-3/2,3/2)$);
-\draw[red,->,thick] (0,0) -> ($sqrt(2)*(3/2,-3/2)$);
-\end{tikzpicture}\]
-By representing each line as two vectors in opposite direction, we arrive at the following 8 vectors:
-\[\pm\left[\begin{array}{c}
-1\\
-0\\
-\end{array}\right],\pm\left[\begin{array}{c}
-0\\
-1\\
-\end{array}\right],\pm\left[\begin{array}{c}
-\frac{\sqrt{2}}{2}\\
-\frac{\sqrt{2}}{2}\\
-\end{array}\right],\pm\left[\begin{array}{c}
-\frac{\sqrt{2}}{2}\\
--\frac{\sqrt{2}}{2}\\
-\end{array}\right]\]
-In this case, the matrix $E_1 = \frac{2}{\vert X\vert}U^TU$ where 
-\[U = \left[\begin{array}{cccccccc}
-1 & -1 & 0 & 0 & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2}\\
-0 & 0 & 1 & -1 & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2}\\				
-\end{array}\right]\]
-generates the Bose-Mesner algebra of a 4-class $Q$-bipartite and $Q$-antipodal association scheme. We are interested in when the ``double" 
-
-In this case we call the set of vectors given by the columns of $U$ the ``bipartite double" of $\Gamma$. We are interested in when such a ``double" corresponds to a $Q$-polynomial association scheme. Before moving to a discussion of association schemes, we present a few more motivating examples:
+Despite the prevalence of projective doubles, we will find that not every strongly regular graph has a bipartite double. For example, consider the following theorem.
 \begin{theorem}
-	Let $\Gamma$ be a complete multipartite graph with $w$ parts of size $v$. Let $U$ be the matrix with columns corresponding to the bipartite double of $\Gamma$. Then the columns of $U$ form a set of $w$ mutually unbiased basis in $\mathbb{R}^v$.
+	Let $\Gamma$ be a complete multipartite graph with $w$ parts of size $v$. Let $U$ be the matrix with columns corresponding to the bipartite double of $\Gamma$. Then the columns of $U$ form a set of $w$ mutually unbiased bases in $\mathbb{R}^v$.\qed
 \end{theorem}
+
+\begin{corollary}
+	Let $\Gamma = K_{2\times 3}$. Then $\Gamma$ does not have a bipartite double.
+\end{corollary}
+\begin{proof}
+	If $K_{2\times 3}$ had a bipartite double, then it would be a set of two mutually unbiased bases in $\mathbb{R}^3$ which is not possible.
+\end{proof}
 
 
 \section{Co-metric Association schemes}
