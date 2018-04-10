@@ -90,14 +90,26 @@ where $\Gamma$ has spectrum $k^1,r^f,s^g$. The following are two theorems which 
 \subsection{Projective double of a strongly regular graph}
 Let $\Gamma$ be an undirected graph on $v$ vertices. A ``projective double" of $\Gamma$ is a set, $L = \left\{l_1,\dots,l_v\right\}$, of $v$ lines through the origin of $\mathbb{R}^n$ (for some $n>0$) such that only two angles, $\theta$ and $90^\circ$, occur between the lines in $S$ and there exists a bijection $\phi:L\rightarrow V(\Gamma)$ such that 
 \[\text{for }i\neq j\quad l_i\perp l_j \iff \phi(l_i)\not\sim\phi(l_j). \]
-Given such a set $L$, we consider the vertex set $X =\left\{l_1^+,l_1^-,\dots l_v^+,l_v^-\right\}$ where $l_i^+ = -l_i^-$ are the two antipodal (unit) vectors defined by $l_i$. We then form graphs $G_n$ for $n\in\left\{\pm 1, 0,\pm \cos(\theta)\right\}$ such that $G_n = \Gamma\left(X,\left\{(x,y):\left<x,y\right> = n\right\}\right)$ and note that both $G_{\cos(\theta)}$ and $G_{-\cos(\theta)}$ are double covers of $\Gamma$. We are interested when the set of graphs $\left\{G_1,G_{\cos(\theta)},G_0,G_{-\cos(\theta)},G_{-1}\right\}$ form an association scheme.
+Given such a set $L$, we consider the vertex set $X =\left\{l_1^+,l_1^-,\dots l_v^+,l_v^-\right\}$ where $l_i^+ = -l_i^-$ are the two antipodal (unit) vectors defined by $l_i$. We then form graphs $G_n$ for $n\in\left\{\pm 1, 0,\pm \cos(\theta)\right\}$ such that $G_n = \Gamma\left(X,\left\{(x,y):\left<x,y\right> = n\right\}\right)$ and note that both $G_{\cos(\theta)}$ and $G_{-\cos(\theta)}$ are double covers of $\Gamma$. We are interested when the set of graphs $\left\{G_1,G_{\cos(\theta)},G_0,G_{-\cos(\theta)},G_{-1}\right\}$ form an association scheme. Note that projective doubles need not be unique. For example,
+\[U_1 = \left[\begin{array}{cccccccc}
+1 & -1 & 0 & 0 & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2}\\
+0 & 0 & 1 & -1 & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2}\\				
+\end{array}\right]\]
+and
+\[U_2 = \left[\begin{array}{cccccccc}
+1 & -1 & \frac{1}{2} & -\frac{1}{2} & 0 & 0 &\frac{1}{2} &-\frac{1}{2}\\
+0 & 0 & \frac{\sqrt{3}}{2} & -\frac{\sqrt{3}}{2} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{12}}& \frac{1}{\sqrt{12}}\\
+0 & 0 & 0 & 0 & \sqrt{\frac{2}{3}} & -\sqrt{\frac{2}{3}} & \sqrt{\frac{2}{3}} & -\sqrt{\frac{2}{3}} \\			
+\end{array}\right]\]
+both represent projective doubles of the 4-cycle. In the case of $U_1$, when $\alpha = \frac{1}{\sqrt{2}}$, $G_{\alpha}$ gives the 8-cycle and $\left\{G_1,G_\alpha,G_0,G_{-\alpha},G_{-1}}\right\}$ is a 4-class association scheme. However in the case of $U_2$, when $\alpha = \frac{1}{2}$, while $G_{\alpha}$ is $C_4\cup C_4$ and $\left\{G_1,G_\alpha,G_0,G_{-\alpha},G_{-1}}\right\}$ does not give us an association scheme.
 \begin{theorem}
 	Let $\Gamma$ be a strongly regular graph with spectrum $k^1,r^f,s^g$ $(r>s)$. There exists a projective double of $\Gamma$ in $\mathbb{R}^{f+1}$ which does not correspond to an association scheme.
 \end{theorem}
 \begin{proof}
 	Let $A_0$, $A_1$, and $A_2$, be the adjacency matrices of the identity graph, $\Gamma$, and $\overline{\Gamma}$ respectively. From \eqref{PQsrg} we see that there exists an idempotent $E_1 = \frac{1}{v}\left(fA_0 + \frac{fr}{k}A_1 + \frac{f(1+r)}{k+1-v}A_2\right)$. Then 
 	\[G = \frac{(1+r)}{v-k-1}E_0 + \frac{1}{f}E_1 = \left(\frac{v+r-k}{v(v-k-1)}\right)A_0 +\left(\frac{k+r(v-1)}{v(v-k-1)}\right)A_1\]
-	Then $G$ is a $v\times v$ positive semi-definite matrix with rank $1+f$. Scaled appropriately, $G = U^TU$ where the columns of $U$ are vectors in $\mathbb{R}^{1+f}$. Then $L = \left\{\tilde{u}_1,\dots,\tilde{u}_v\right\}$ is a projective double of $\Gamma$ where $\tilde{u}_i$ is the line represented by the $i^\text{th}$ column of $U$ ($u_i$). Note however that $\left\vert\left\{x:\left<x,y\right> = \cos(theta)\land \left<x,z\right> = 0\right\}\right\vert$ depends on the choice of $y$ and $z$ and therefore this will not form an association scheme.
+	Then $G$ is a $v\times v$ positive semi-definite matrix with rank $1+f$. Scaled appropriately, $G = U^TU$ where the columns of $U$ are unit vectors in $\mathbb{R}^{1+f}$. Then $L = \left\{\tilde{u}_1,\dots,\tilde{u}_v\right\}$ is a projective double of $\Gamma$ where $\tilde{u}_i$ is the line represented by the $i^\text{th}$ column of $U$, $u_i$. Note however that for $\left<y,z\right> = 0$, $\left\vert\left\{x:\left<x,y\right> = \left<z,x\right>=\cos(\theta)\right\}\right\vert$ 
+	depends on the choice of $y$ and $z$; therefore this will not form an association scheme.
 \end{proof}
 
  strongly regular graph is a set of $v$ lines (equivalently $2v$ antipodal vectors) through the origin where every pair of lines have angle $\theta$ ($90^\circ$) when their corresponding vertices are adjacent (non-adjacent). We are interested in when the projective double of a strongly regular graph permits a $Q$-polynomial association scheme. Perhaps the easiest example to consider is the 4-cycle: Let $\Gamma$ be the graph with adjacency matrix 
