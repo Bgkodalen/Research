@@ -141,7 +141,7 @@ The following two theorems will help us describe the quotient object we find in 
 		\item for some subset $\mathcal{J} = \left\{j_0=0,j_1,\dots,j_s\right\}$ of $\left\{0,1,\dots,d\right\}$ and some ordering of the vertices $\sum_{h=0}^s E_{j_h} = \frac{1}{r}\left(I_w\otimes J_r\right)$ for integers $w$ and $r$ with $\vert X\vert=wr$, $1<w,r<\vert X\vert$.
 	\end{enumerate}
 \end{theorem}
-Whenever $(iii)$ occurs, say with subset $\mathcal{I}$ as given in the theorem, we may partition our vertices into equivalence classes so that $x\tilde y$ whenever $(x,y)\in R_i$ for some $i\in \mathcal{I}$. Let $X_1,\dots,X_w$ be the corresponding equivalence classes and define $\mathcal{R}' = \left\{R_i\in \mathcal{R} : i\in \mathcal{I}\right\}$. Then there exists \emph{subschemes} $(X_i,\mathcal{R}')$ for each equivalence class $X_i$. Further, we may define a \emph{quotient scheme} $(\tilde{X},\tilde{\mathcal{R}})$ of our original scheme with respect to $\mathcal{I}$ whose point set is the set of equivalence classes and whose relations are $R_{\tilde{i}} = \cup_{i\in \tilde{i}} R_i$ where each $\tilde{i} = \left\{0\leq j\leq d : p^x_{i,j} \text{ for }x\in \mathcal{I}\right\}$. Note that $\vert \tilde{\mathcal{R}}\vert = \vert \mathcal{J}\vert$.
+Whenever $(iii)$ occurs, say with subset $\mathcal{I}$ as given in the theorem, we may partition our vertices into equivalence classes so that $x\sim y$ whenever $(x,y)\in R_i$ for some $i\in \mathcal{I}$. Let $X_1,\dots,X_w$ be the corresponding equivalence classes and define $\mathcal{R}' = \left\{R_i\in \mathcal{R} : i\in \mathcal{I}\right\}$. Then there exists \emph{subschemes} $(X_i,\mathcal{R}')$ for each equivalence class $X_i$. Further, we may define a \emph{quotient scheme} $(\tilde{X},\tilde{\mathcal{R}})$ of our original scheme with respect to $\mathcal{I}$ whose point set is the set of equivalence classes and whose relations are $R_{\tilde{i}} = \cup_{i\in \tilde{i}} R_i$ where each $\tilde{i} = \left\{0\leq j\leq d : p^x_{i,j} \text{ for }x\in \mathcal{I}\right\}$. Note that $\vert \tilde{\mathcal{R}}\vert = \vert \mathcal{J}\vert$ where $\mathcal{J}$ is the subset from Theorem $3.1(iv)$.
 \begin{theorem}[\cite{Suzuki}] \label{suzuki}Suppose $(X,\mathcal{R})$ is an imprimitive cometric association scheme. Then one of the following holds:
 	\begin{enumerate}[(i)]
 		\item $(X,\mathcal{R})$ is $Q$-bipartite and $\mathcal{J} = \left\{0,2,4,\dots\right\}$
@@ -186,16 +186,43 @@ Finally we note from \cite{BCN} that $PQ = QP = \vert X\vert I$ and $P_{ji} = \f
 	1 & -n & 0 & n & -1\\
 	1 & s & -2(s+1) & s & 1\\
 	\end{array}\right]\qquad Q = \left[\begin{array}{ccccc}
+	1 & m & f & \frac{mk}{n^2} & g\\
+	1 & \frac{m}{n} & \frac{fr}{k}  & -\frac{m}{n} & \frac{gs}{k}\\
+	1 & 0 & \frac{f(r+1)}{k+1-v}  & 0& \frac{g(1+s)}{k+1-v}\\
+	1 & -\frac{m}{n} & \frac{fr}{k} & \frac{m}{n} & \frac{gs}{k}\\
+	1 & -m & f & \frac{mk}{n^2} & g\\
+	\end{array}\right]\]
+	where $s = -n^2$ for $n\in \mathbb{Z}$.
+\end{theorem}
+\begin{proof}
+	We begin by building all of $Q$. Note that column 0 of $Q$ comes by definition. From Theorem \ref{sym}, $Q_{1,1} = -Q_{3,1}\neq 0 = Q_{2,1}$, so we define $n = \frac{m}{Q_{1,1}} = -\frac{m}{Q_{3,1}}$ and column 1 of $Q$ is given. The first three entries of columns $2$ and $4$ of $Q$ follow from the parameters of our quotient scheme while the remaining two entries of these columns follow from Corollary \ref{evenpoly}. Note that this assumes we are using the natural ordering of the relations so that $R_1$ is the double cover of our strongly regular graph while $R_2$ is given by non-adjacency in our SRG. Column 3 of $Q$ can then be found using the first orthogonality condition (specifically that $\sum_j Q_{ij} = \vert X\vert\delta_{i0}$). From here we have that 
+	\[Q = \left[\begin{array}{ccccc}
 	1 & m & f & v-m & g\\
 	1 & \frac{m}{n} & \frac{fr}{k}  & -\frac{m}{n} & \frac{gs}{k}\\
 	1 & 0 & \frac{f(r+1)}{k+1-v}  & 0& \frac{g(1+s)}{k+1-v}\\
 	1 & -\frac{m}{n} & \frac{fr}{k} & \frac{m}{n} & \frac{gs}{k}\\
 	1 & -m & f & m-v & g\\
 	\end{array}\right]\]
-	where $s = -n^2$.
-\end{theorem}
-\begin{proof}
-	We begin by building all of $Q$ and then appealing to the second orthogonality property. Note that column 0 of $Q$ comes by definition. From Theorem \ref{sym}, $Q_{1,1} = -Q_{3,1}\neq 0 = Q_{2,1}$, so we define $n = \frac{m}{Q_{1,1}} = -\frac{m}{Q_{3,1}}$ and column 1 of $Q$ is defined. The first three entries of columns $0$, $2$, and $4$ of $Q$ follow from the parameters of our quotient scheme while the remaining two entries of these columns follow from Corollary \ref{evenpoly}. Column 3 of $Q$ can then be found using the first orthogonality condition (specifically that $\sum_j Q_{ij} = \vert X\vert\delta_{i0}$). The final requirement that $s = -n^2$ comes from the structure of $L_1^*$. For a $Q$-bipartite scheme, the last row of $L_1^*$ must be $\ell = \left[0,0,\dots,m,0\right]$. However, since column $i$ of $P$ must be an eigenvector of $L_1^*$ with eigenvalue $Q_{i,1}$, we take column 1 of $P$ giving us $-nm = \frac{m}{n}s$ or $s = -n^2$ as desired.
+	Again appealing to $\left[the natural order of relations\right]$, we know the valencies of our relations are given by $[1,k,2(v-1-k),k,1]$. This extra information allows us to calculate a few Krein parameters using \cite[Theorem.~2.3.2.]{BCN} giving
+	\[q_{ij}^k = \frac{1}{\vert X\vert m_k}\sum_{l=0}^d\left(v_lQ_{li}Q_{lj}Q_{lk}\right)\]
+	where $m_k$ and $v_l$ are the multiplicities and valencies of the $k^\text{th}$ and $l^\text{th}$ relations respectively.
+	Therefore, $1=q_{01}^1 = \frac{1}{2vm}\left(2m^2+\frac{2km^2}{n^2}\right)$ giving $\left(1+\frac{k}{n^2}\right)m = v$. Therefore we now have 
+	\[Q = \left[\begin{array}{ccccc}
+	1 & m & f & \frac{mk}{n^2} & g\\
+	1 & \frac{m}{n} & \frac{fr}{k}  & -\frac{m}{n} & \frac{gs}{k}\\
+	1 & 0 & \frac{f(r+1)}{k+1-v}  & 0& \frac{g(1+s)}{k+1-v}\\
+	1 & -\frac{m}{n} & \frac{fr}{k} & \frac{m}{n} & \frac{gs}{k}\\
+	1 & -m & f & -\frac{mk}{n^2} & g\\
+	\end{array}\right]\]
+	as desired. Using the second orthogonality condition and noting that the first row of $P$ is the valencies of our relations, we have:
+	\[P = \left[\begin{array}{ccccc}
+	1 & k & 2(v-1-k) & k & 1\\
+	1 & \frac{k}{n} & 0 & -\frac{k}{n} & -1\\
+	1 & r& -2(1+r) & r & 1\\
+	1 & -n & 0 & n & -1\\
+	1 & s & -2(s+1) & s & 1\\
+	\end{array}\right].\]
+	The final requirement that $s = -n^2$ comes from the structure of $L_1^*$. For a $Q$-bipartite scheme, the last row of $L_1^*$ must be $\ell = \left[0,0,\dots,m,0\right]$. However, since column $i$ of $P$ must be an eigenvector of $L_1^*$ with eigenvalue $Q_{i,1}$, we consider column 1 of $P$ giving us $-nm = \frac{m}{n}s$ or $s = -n^2$ as desired.
 \end{proof}
 \begin{corollary}
 	A 4-class $Q$-bipartite scheme is uniquely determined by the eigenvalues of the quotient SRG.
@@ -204,17 +231,17 @@ Finally we note from \cite{BCN} that $PQ = QP = \vert X\vert I$ and $P_{ji} = \f
 	Our first eigenmatrix only requires $v,k,r,s,$ and $n$. However since $n>0$ (from the natural ordering of relations), $n = \sqrt{-s}$. Further \cite{BCN} states that  $v = \frac{(k-r)(k-s)}{k+rs}$. 
 \end{proof}
 \begin{theorem}
-	There are some bounds for the scheme. They are listed here. (I know this isnt a theorem right now)
+	Let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme and let $k,r^f,s^g$ be the spectrum of the quotient strongly regular graph with parameters $(v,k,\lambda,\mu)$. The following must hold with $n:=\sqrt{-s}$:
+	\begin{enumerate}[(i)]
+		\item $\mu>n(r+n)$,
+		\item $n\vert \mu$ and $n\vert k$,
+		\item $r\leq \frac{k-n^2}{n(n+1)}$,
+		\item $r\geq \frac{2k}{3n^2}-\frac{n^2}{3}$,
+	\end{enumerate}
 \end{theorem}
 \begin{proof}
-	$p_{13}^1 = \frac{(n-1)(\mu-n(r+n))}{2n}$ therefore
-	\begin{enumerate}
-		\item $\mu\geq n(r+n)$ with equality if and only if our scheme is $P$-polynomial.
-		\item $n\vert \mu$ and therefore $n\vert k$.
-		\item Either $n$ is odd or $\frac{\mu}{n}$ and $r$ have the same parity.
-	\end{enumerate}
-	$q_{22}^2 = \frac{(kn^2+r^2)(n^2-1)(n^2+k)}{(n^2+r)^2\mu}-\frac{(n^2+k)}{(n^2+r)}$.\\
-	$1+f\leq \frac{m(m+1)}{2}$ leads to $k-\frac{1}{2}n^4 - \frac{3}{2}rn^2\leq 0$ or $r\geq\frac{k-n^4}{n^2}$. 
+	For $(i)$ and $(ii)$, we note that	$p_{13}^1 = \frac{(n-1)(\mu-n(r+n))}{2n}$. Since this must be a non-negative integer and $s\geq n$, we must either have $-s = n = 1$ or $\mu-n(r+n)>0$. As $s=-1$ implies our SRG is a union of cliques, we may ignore this case and $(i)$ follows. Further, since $n\not\vert (n-1)$, we have that $n\vert (\mu-n(r+n))$ forcing $n\vert \mu$. Since $k=\mu+rn^2$, $(ii)$ follows. $(iii)$ follows from $(i)$ as $\mu = k-rn^2$. Finally, $(iv)$ follows from the absolute bound: $1+f \leq \frac{m(m+1)}{2}$ giving us $n^4+3n^2r-2k\geq 0$. Note that $q_{22}^2 = \frac{(kn^2+r^2)(n^2-1)(n^2+k)}{(n^2+r)^2\mu}-\frac{(n^2+k)}{(n^2+r)}$, so that we must have $(kn^2+r^2)(n^2-1)\geq (n^2+r)\mu$. However since $n^2>1$, this is weaker than $r^2(n^2-1)>rk-n^4r-n^2r^2$ and since $k\leq (3rn^2+n^4)/2$ we must have 
+	\[rk\leq\frac{r}{2}\left(rn^2-n^4\right)<r^2(n^2-1).\]
 \end{proof}
 \section*{Classical parameters}
 \subsection{Johnson Graph}
