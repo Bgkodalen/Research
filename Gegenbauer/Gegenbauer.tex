@@ -222,7 +222,7 @@ Finally we note from \cite{BCN} that $PQ = QP = \vert X\vert I$ and $P_{ji} = \f
 	1 & -n & 0 & n & -1\\
 	1 & s & -2(s+1) & s & 1\\
 	\end{array}\right].\]
-	The final requirement that $s = -n^2$ comes from the structure of $L_1^*$. For a $Q$-bipartite scheme, the last row of $L_1^*$ must be $\ell = \left[0,0,\dots,m,0\right]$. However, since column $i$ of $P$ must be an eigenvector of $L_1^*$ with eigenvalue $Q_{i,1}$, we consider column 1 of $P$ giving us $-nm = \frac{m}{n}s$ or $s = -n^2$ as desired.
+	Finally, noting that $q_{1,1}^4 = \frac{mg(n^2+s)}{n^2v}=0$ gives us that $s = -n^2$.
 \end{proof}
 \begin{corollary}
 	A 4-class $Q$-bipartite scheme is uniquely determined by the eigenvalues of the quotient SRG.
@@ -230,52 +230,37 @@ Finally we note from \cite{BCN} that $PQ = QP = \vert X\vert I$ and $P_{ji} = \f
 \begin{proof}
 	Our first eigenmatrix only requires $v,k,r,s,$ and $n$. However since $n>0$ (from the natural ordering of relations), $n = \sqrt{-s}$. Further \cite{BCN} states that  $v = \frac{(k-r)(k-s)}{k+rs}$. 
 \end{proof}
+
 \begin{theorem}
+	\label{bounds}
 	Let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme and let $k,r^f,s^g$ be the spectrum of the quotient strongly regular graph with parameters $(v,k,\lambda,\mu)$. The following must hold with $n:=\sqrt{-s}$:
 	\begin{enumerate}[(i)]
-		\item $\mu>n(r+n)$,
+		\item $\mu\geq n(r+n)$,
 		\item $n\vert \mu$ and $n\vert k$,
-		\item $r\leq \frac{k-n^2}{n(n+1)}$,
+		%\item $r\leq \frac{k-n^2}{n(n+1)}$,
 		\item $r\geq \frac{2k}{3n^2}-\frac{n^2}{3}$,
+		\item $kn^2(n^2-1)\geq \mu(n^2+r)$
 	\end{enumerate}
+	Further, either $n$ is an integer or $(X,\mathcal{R})$ is also $Q$-antipodal (the strongly regular graph is complete multipartite).
 \end{theorem}
 \begin{proof}
-	For $(i)$ and $(ii)$, we note that	$p_{13}^1 = \frac{(n-1)(\mu-n(r+n))}{2n}$. Since this must be a non-negative integer and $s\geq n$, we must either have $-s = n = 1$ or $\mu-n(r+n)>0$. As $s=-1$ implies our SRG is a union of cliques, we may ignore this case and $(i)$ follows. Further, since $n\not\vert (n-1)$, we have that $n\vert (\mu-n(r+n))$ forcing $n\vert \mu$. Since $k=\mu+rn^2$, $(ii)$ follows. $(iii)$ follows from $(i)$ as $\mu = k-rn^2$. Finally, $(iv)$ follows from the absolute bound: $1+f \leq \frac{m(m+1)}{2}$ giving us $n^4+3n^2r-2k\geq 0$. Note that $q_{22}^2 = \frac{(kn^2+r^2)(n^2-1)(n^2+k)}{(n^2+r)^2\mu}-\frac{(n^2+k)}{(n^2+r)}$, so that we must have $(kn^2+r^2)(n^2-1)\geq (n^2+r)\mu$. However since $n^2>1$, this is weaker than $r^2(n^2-1)>rk-n^4r-n^2r^2$ and since $k\leq (3rn^2+n^4)/2$ we must have 
+	For $(i)$ and $(ii)$, we note that	$p_{13}^1 = \frac{(n-1)(\mu-n(r+n))}{2n}$. Since this must be a non-negative integer and $s\geq n$, we must either have $-s = n = 1$ or $\mu-n(r+n)>0$. As $s=-1$ implies our SRG is a union of cliques, we may ignore this case and $(i)$ follows. Further, since $n\not\vert (n-1)$, we have that $n\vert (\mu-n(r+n))$ forcing $n\vert \mu$. Since $k=\mu+rn^2$, $(ii)$ follows. Next, $(iii)$ follows from the absolute bound $1+f \leq \frac{m(m+1)}{2}$ giving us $n^4+3n^2r-2k\geq 0$. Using another absolute bound, $(iv)$ follows from $\frac{v}{m}\leq f$. Finally, since $n = \sqrt{-s}$, if $n$ is not an integer, then columns one and three of $Q$ must be irrational. However since Galois conjugation is an automorphism of our Bose-Mesner algebra, $E_0$, $E_3$, $E_2$, $E_1$, $E_4$ must be a second $Q$ polynomial ordering in this case. However then $q_{3,3}^4=0$. Using our $P$ and $Q$ matrices, we find that $q_{3,3}^4 = \frac{(k-r)(k+s)}{\mu}$. As $r<k$, this means that $s = -k$ whenever $n$ is irrational, giving us that our strongly regular graph is complete multipartite.\\
+	Note that $q_{22}^2 = \frac{(kn^2+r^2)(n^2-1)(n^2+k)}{(n^2+r)^2\mu}-\frac{(n^2+k)}{(n^2+r)}$, so that we must have $(kn^2+r^2)(n^2-1)\geq (n^2+r)\mu$. However since $n^2>1$, this is weaker than $r^2(n^2-1)>rk-n^4r-n^2r^2$ and since $k\leq (3rn^2+n^4)/2$ we must have 
 	\[rk\leq\frac{r}{2}\left(rn^2-n^4\right)<r^2(n^2-1).\]
 \end{proof}
-\section*{Classical parameters}
-\subsection{Johnson Graph}
-\subsection{Grassmann Graph}
-\subsection{Dual Polar Graph}
-\subsection{U(2d,r)}
-\subsection{Half dual polar graph}
-\subsection{Hamming graph}
-\subsection{Halved cube}
-\subsection{Bilinear forms graph}
-\subsection{Alternating forms graph}
-\subsection{Hermitean forms graph}
-\subsection{Pseudo graphs}
-\subsection{Dist 1-or-2 in symplectic dual polar graph}
-\subsection{Doob graph}
-\subsection{Quadratic forms graph}
 
-*** BREAK ***
-
- Defining one final polynomial $q_{d+1}(t)$ as
-\[q_{d+1}(t) = tq_d(t) - b_{d-1}^*q_{d-1}(t) - a_d^*q_{d}(t),\]
-we see that $q_{d+1}(\vert X\vert E_1) = 0$. This tells us that every entry of $E_1$ must be a root of $q_{d+1}(x)$. Further, since $\left\{E_0,E_1,\dots E_d\right\}$ forms a set of linearly independent matrices, $p_{d+1}(x)$ must be the minimal (entrywise) polynomial of $E_1$. Therefore $E_1$ must contain exactly $d+1$ distinct entries and likewise column one of $Q$ must contain $d+1$ distinct entries. Finally, this implies every column of $E_1$ is distinct as the $E_{i,i} = Q_{0,1}\neq E_{i,j}$ for any choice of $j\neq i$. We find it convenient to order the relations so that $Q_{01}>Q_{11}>\dots>Q_{d1}$; we call this the natural ordering wrt the $Q$-polynomial ordering $E_0,E_1,\dots,E_d$.\newpar
-
-
-
-
-
-Therefore we consider the polynomial ring $R = \nicefrac{\mathbb{R}[t]}{q_{d+1}(t)}$ with $\left\{q_0,\dots,q_d\right\}$ as a basis. For each polynomial $F\in R$, there exists unique constants $f_0,f_1,\dots, f_d\in\mathbb{R}$ so that $F = \sum_j f_j q_j$. Given $E_i = q_i(\vert X\vert E_1)$, $\left\{\vert X\vert f_0,\vert X\vert f_1,\dots,\vert X\vert f_d\right\}$ is the set of eigenvalues of $F\left(\vert X\vert E_1\right)$. Therefore, $F(\vert X\vert E_1)$ is positive semi-definite (psd) if and only if $f_j\geq 0$ for $0\leq j\leq d$. Define $P = \left\{F = \sum f_jq_j:f_0,f_1,\dots,f_d\geq 0  \right\}$ to be the positive semi-definite cone of $(X,\mathcal{R})$.\newpar
-
-
-
-
-
-Now consider that $E_1$ is a positive semi-definite matrix of rank $m = Q_{0,1}$. Therefore there exists a $m\times \vert X\vert$ matrix $U$ such that $U^TU = E_1$. Further, since the main diagonal of $E_1$ is constant and every column is distinct, we must have that the columns of $U$ are $\vert X\vert$ distinct vectors of constant norm $\frac{m}{\vert X\vert}$. Therefore $\sqrt{\frac{\vert X\vert}{m}}U$ is a set of unit vectors in dimension $m$ with Gram matrix $\frac{\vert X\vert}{m}E_1$.
+\begin{corollary}
+	\label{kbnds}
+	Let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme and let $k,r,s=-n^2$ be the spectrum of the quotient strongly regular graph. Then
+	\[\frac{k}{n^2}-1\leq \frac{(n+1)}{2}\left((n+1)(n^3-n-1)+\sqrt{(n-1)(n^7+3n^6+2n^5-4n^4-9n^3-3n^2+3n-1)}\right).\]
+\end{corollary}
+\begin{proof}
+	Using Theorem \ref{bounds}$(i)$ and $(iv)$, we have that $n(r+n)\leq \mu\leq \frac{kn^2(n^2-1)}{n^2+r}$. Using $\mu = k-rn^2$, these two inequalities give us
+	\[\frac{k-n^4+\sqrt{n^8-2n^4k(2n^2+3)+k^2}}{2n^2}\leq r\leq \frac{k-n^2}{n(n+1)}.\]
+	This implies that 
+	\[k^2-n^2(n^5+2n^4-3n^2-3n+1)k+n^5(n^2+n-1)\leq0.\]
+	When $k=1$ and $n>1$, the left hand side will be negative. Therefore the only other requirement is that $k$ is less than the second root of this quadratic, giving us our bound.
+\end{proof}
 \section{Spherical Bound}
 Let $\Omega_d$ denote the unit sphere in Euclidean space $\mathbb{R}^d$. For any $k\geq 0$ let $\text{Harm}(k) = \text{Harm}_d(k)$ denote the space of harmonic and homogeneous polynomials of degree $k$ on $\Omega_d$. Let $N_d = \dim\text{Harm}(k)$ and fix an orthogonal basis $\left\{W_{k,i}\right\}_{i=1..N}$ of $\text{Harm}(k)$. Let $Q_k^d$ denote the $k^\text{th}$ degree Gegenbauer polynomial for dimension $d$. From \cite[Theorem.~3.3.]{DGS} we have,
 \[\sum_{i=1}^N W_{k,i}(\zeta)W_{k,i}(\eta) = Q_k(\langle\zeta,\eta\rangle); \qquad \zeta,\eta\in\Omega_d.\]
@@ -319,18 +304,77 @@ Q_6^m(t)&=\frac{(m+8)(m+6)(m+4)t^6-15(m+6)(m+4)t^4+45(m+4)t^2-15}{(m+3)(m+1)(m-1
 \end{aligned}\]
 Using these polynomials we arrive at the following results
 \subsection{Example Constraints}
-\begin{itemize}
-	\item $4^{\text{th}}$ degree constraint:
-	\[(q^1_{11})^2+q^1_{12}q^2_{11}\geq\frac{2m(m-1)}{m+2}\]
-	\item $5^\text{th}$ degree constraint.\\
-	Assume:
+\begin{theorem}
+	Let $(X,\mathcal{R})$ be a $Q$-bipartite association scheme with $Q$-polynomial ordering $E_0,E_1,\dots,E_d$. Then the following must be true:
 	\begin{itemize}
-		\item[$\cdot$] $m>2$
-		\item[$\cdot$] $q^1_{11}>0$
+		\item ($4^{\text{th}}$ degree constraint)
+		\[2\mu\leq n^2(r+n^2)\]
+		\item ($6^{\text{th}}$ degree constraint)
+		\[15n^4(2n^2-3)r^2+n^2(n^6-45kn^2+76k)r+k(n^2-2)(n^6+16k)\geq 0\]
 	\end{itemize}
-	Then:
+\end{theorem}
+\begin{corollary}
+	\label{gegk}
+	Let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme and let $k,r,s=-n^2$ be the spectrum of the quotient strongly regular graph. If $1<n<12$ then,
+	\[\begin{aligned}
+	\frac{k}{n^3(n^2-1)}&\leq \frac{n^7+2n^6-3n^4-17n^3+45n^2+14n-76}{-2(n^4-13n^3+15n^2+12n-32)(n^2-1)}\\
+	&\qquad+\frac{\sqrt{n^{10}+4n^9+6n^8+2n^7-35n^6+22n^5+145n^4-72n^2+32n+16}}{-2(n^4-13n^3+15n^2+12n-32)}\\
+	&\text{or}\\
+	\frac{k}{n^4}&\leq \frac{3n^2-5}{2}
+	\end{aligned}\]
+\end{corollary}
+This leads to the following new bounds on $k$:\\
+\begin{tabular}{c|c|c}
+	$n$ & Theorem \ref{kbnds} & Theorem \ref{gegk}\\\hline
+	2 & 187 & 56\\
+	3 & 3329 & 891\\
+	4 & 23631 & 5504\\
+	5 & 107149 & 22297\\
+	6 & 368747 & 85128\\
+	7 & ~$1*10^6$ & 282828\\
+	8 & ~$2.6*10^6$ & 867787\\
+	9 & ~$5.8*10^6$ & $2.6*10^6$\\
+	10 & ~$1.2*10^7$ & $8.4*10^6$\\
+\end{tabular}
+\section*{Classical parameters}
+\subsection{Johnson Graph}
+\subsection{Grassmann Graph}
+\subsection{Dual Polar Graph}
+\subsection{U(2d,r)}
+\subsection{Half dual polar graph}
+\subsection{Hamming graph}
+\subsection{Halved cube}
+\subsection{Bilinear forms graph}
+\subsection{Alternating forms graph}
+\subsection{Hermitean forms graph}
+\subsection{Pseudo graphs}
+\subsection{Dist 1-or-2 in symplectic dual polar graph}
+\subsection{Doob graph}
+\subsection{Quadratic forms graph}
+
+*** BREAK ***
+\begin{itemize}
+	\item ($4^{\text{th}}$ degree constraint)
+	\[(q^1_{11})^2+q^1_{12}q^2_{11}\geq\frac{2m(m-1)}{m+2}\]
+	\item ($5^\text{th}$ degree constraint.) if $q^{1}_{11}>0$ then,
 	\[(q^1_{11})^2+\left(2+\frac{q^2_{12}}{q^1_{11}}\right)q^1_{12}q^2_{11}\geq\frac{4m(2m-3)}{m+6}\]
 \end{itemize}
+ Defining one final polynomial $q_{d+1}(t)$ as
+\[q_{d+1}(t) = tq_d(t) - b_{d-1}^*q_{d-1}(t) - a_d^*q_{d}(t),\]
+we see that $q_{d+1}(\vert X\vert E_1) = 0$. This tells us that every entry of $E_1$ must be a root of $q_{d+1}(x)$. Further, since $\left\{E_0,E_1,\dots E_d\right\}$ forms a set of linearly independent matrices, $p_{d+1}(x)$ must be the minimal (entrywise) polynomial of $E_1$. Therefore $E_1$ must contain exactly $d+1$ distinct entries and likewise column one of $Q$ must contain $d+1$ distinct entries. Finally, this implies every column of $E_1$ is distinct as the $E_{i,i} = Q_{0,1}\neq E_{i,j}$ for any choice of $j\neq i$. We find it convenient to order the relations so that $Q_{01}>Q_{11}>\dots>Q_{d1}$; we call this the natural ordering wrt the $Q$-polynomial ordering $E_0,E_1,\dots,E_d$.\newpar
+
+
+
+
+
+Therefore we consider the polynomial ring $R = \nicefrac{\mathbb{R}[t]}{q_{d+1}(t)}$ with $\left\{q_0,\dots,q_d\right\}$ as a basis. For each polynomial $F\in R$, there exists unique constants $f_0,f_1,\dots, f_d\in\mathbb{R}$ so that $F = \sum_j f_j q_j$. Given $E_i = q_i(\vert X\vert E_1)$, $\left\{\vert X\vert f_0,\vert X\vert f_1,\dots,\vert X\vert f_d\right\}$ is the set of eigenvalues of $F\left(\vert X\vert E_1\right)$. Therefore, $F(\vert X\vert E_1)$ is positive semi-definite (psd) if and only if $f_j\geq 0$ for $0\leq j\leq d$. Define $P = \left\{F = \sum f_jq_j:f_0,f_1,\dots,f_d\geq 0  \right\}$ to be the positive semi-definite cone of $(X,\mathcal{R})$.\newpar
+
+
+
+
+
+Now consider that $E_1$ is a positive semi-definite matrix of rank $m = Q_{0,1}$. Therefore there exists a $m\times \vert X\vert$ matrix $U$ such that $U^TU = E_1$. Further, since the main diagonal of $E_1$ is constant and every column is distinct, we must have that the columns of $U$ are $\vert X\vert$ distinct vectors of constant norm $\frac{m}{\vert X\vert}$. Therefore $\sqrt{\frac{\vert X\vert}{m}}U$ is a set of unit vectors in dimension $m$ with Gram matrix $\frac{\vert X\vert}{m}E_1$.
+
 \subsection{Example Results}
 Each scheme listed below is using the $(v,m[a-z])$ notation used in Williford's tables available online.\\
 The following 3-class schemes have the property that the $(0,0)$ entry in $F_5$ is negative:
