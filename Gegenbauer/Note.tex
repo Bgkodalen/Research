@@ -1,0 +1,104 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{esint}
+\usepackage{siunitx}
+%\usepackage{fullpage}
+\usepackage[margin=1in,headheight=13.6pt]{geometry}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{epstopdf}
+\usepackage{float}
+%\usepackage{natbib}
+\newcommand{\conj}[1]{\overline{#1}}
+\newcommand{\newpar}{\vspace{5mm}\par}
+\newcommand{\vnorm}[1]{\left\|#1\right\|}
+\usepackage{amsthm}
+\usepackage{units}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usetikzlibrary{calc,arrows,quotes,angles}
+\usetikzlibrary{shapes,decorations}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}
+\newcommand*{\swap}[2]{#2#1}
+
+\lhead{Brian G. Kodalen}
+\rhead{\today}
+
+\begin{document}
+	\section{Association schemes}
+	Say I have an association scheme with the following $P$ and $Q$ matrices:
+	\[P = \left[\begin{array}{ccccc}
+	1 & k & 2(v-1-k) & k & 1\\
+	1 & \frac{k}{n} & 0 & -\frac{k}{n} & -1\\
+	1 & r& -2(1+r) & r & 1\\
+	1 & -n & 0 & n & -1\\
+	1 & s & -2(s+1) & s & 1\\
+	\end{array}\right]\qquad Q = \left[\begin{array}{ccccc}
+	1 & m & f & \frac{mk}{n^2} & g\\
+	1 & \frac{m}{n} & \frac{fr}{k}  & -\frac{m}{n} & \frac{gs}{k}\\
+	1 & 0 & \frac{f(r+1)}{k+1-v}  & 0& \frac{g(1+s)}{k+1-v}\\
+	1 & -\frac{m}{n} & \frac{fr}{k} & \frac{m}{n} & \frac{gs}{k}\\
+	1 & -m & f & \frac{mk}{n^2} & g\\
+	\end{array}\right]\]\\
+	Due to column $1$ of $Q$, the first idempotent corresponds to lines with 2 possible angles, $\pm\frac{1}{n}$ and $0$. We find that every parameter in this scheme is expressible in terms of the three parameters $k$, $r$, and $s=-n^2$. Using previously known techniques (absolute bounds for association schemes and non-negativity of intersection numbers) we know that for $n=3$, the feasible region for $r$ and $k$ is trapped between the red, maroon, and light blue lines on the plots below given by the absolute bound and $p^1_{13}$ (i.e. above the red and maroon lines but below the light blue line). However applying the 6th degree Gegenbauer we find that an additional requirement is that the feasible region is \textbf{not} between the dark blue and green lines (i.e. for a parameter set to be feasible, the point $(k,r)$ must lie \text{above} the green line or \text{below} the dark blue line). Therefore there are many association schemes ruled out which were previously still open. Note, not every integer point in the feasible region is actually feasible as other conditions such as intersection numbers being integral still apply, though there were many previously feasible parameter sets in the now-forbidden region.
+\begin{figure}[H]
+	\begin{subfigure}{.5\textwidth}
+\includegraphics[scale=.45]{Zoomedout3.png}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+\includegraphics[trim = {0 4cm 0 0},clip,scale=.45]{Zoomedin3.png}
+\end{subfigure}
+\end{figure}
+\newpage
+Below is a similar figure for when $n=5$.
+\begin{figure}[H]
+	\begin{subfigure}{.5\textwidth}
+		\includegraphics[scale=.45]{Zoomedout.png}
+	\end{subfigure}
+	\begin{subfigure}{.5\textwidth}
+		\includegraphics[trim = {0 4cm 0 0},clip,scale=.45]{Zoomedin.png}
+	\end{subfigure}
+\end{figure}
+And again, a similar figure for when $n=12$.
+\begin{figure}[H]
+	\begin{subfigure}{.5\textwidth}
+		\includegraphics[scale=.45]{Zoomedout12.png}
+	\end{subfigure}
+	\begin{subfigure}{.5\textwidth}
+		\includegraphics[trim = {0 4cm 0 0},clip,scale=.45]{Zoomedin12.png}
+	\end{subfigure}
+\end{figure}
+Note that in this one, the green line never actually passes the light blue line. This means that, in this case, we cannot find a smaller upper bound on $k$ than we previously knew. Despite this, we have still ruled out many association schemes. This gap continues to grow as $n$ gets larger.\\
+The actual bounds are listed below:
+\begin{enumerate}[(i)]
+	\item $p^1_{13}$: \[k-rn^2\geq n(r+n)\]
+	\item Absolute bound (red):\[r\geq \frac{2k}{3n^2}-\frac{n^2}{3}\]
+	\item Absolute bound (maroon):\[kn^2(n^2-1)\geq \mu(n^2+r)\]
+	\item Gegenbauer bounds:\[15n^4(2n^2-3)r^2+n^2(n^6-45kn^2+76k)r+k(n^2-2)(n^6+16k)\geq 0\]
+\end{enumerate}
+And a few useful constants are listed below:
+\[\begin{aligned}
+\mu&=k-rn^2\\
+v&=\frac{(k-r)(k+n^2)}{k-rn^2}\\
+f&=\frac{(n^2-1)k(k-s)}{(k-rn^2)(n^2+r)}\\
+g&=v-1-f\\
+m&=\frac{(k-r)n^2}{k-rn^2}
+\end{aligned}\]
+
+Two main questions that would be very helpful if you had answers:
+\begin{itemize}
+	\item Is your semidefinate programming technique equivalent to applying the Gegenbauers to our Gram matrix and checking if it is PSD?
+	\item Given an integer $n$, can you find a bound for the number of lines with angles $\pm \frac{1}{n}$ and $0$ in various dimensions (similar to what you have for equiangular lines).
+\end{itemize}
+
+\end{document}
