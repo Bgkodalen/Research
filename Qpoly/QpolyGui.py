@@ -10,6 +10,7 @@ import Qpoly
 ### Load in all the current information.
 #schemes = pickle.load(open('alldata2.p','rb'))
 schemes = pickle.load(open('Data/newdata9.p','rb'))
+
 ### There is an annoying issue with the keys here where the lettered schemes dont have a trailing >.
 # Below is a temporary patch to this so that I don't have to redo the data compilation.
 for d in schemes:
@@ -118,14 +119,20 @@ def parameterlist():
     if len(schemelist) == 0:
         schemelist = ['None']
     else:
-        schemelist = sortedlist([scheme+selectedschemes[scheme]['exists'] for scheme in schemelist])
+        #+selectedschemes[scheme]['exists']
+        schemelist = sortedlist([scheme for scheme in schemelist])
+    ### Delete this after youre done
+    if imprim.get()=="bipartite" and numclasses.get() == 4:
+        schemelist = [scheme+"("+str(selectedschemes[scheme]['P'][0,1])+","+str(selectedschemes[scheme]['P'][2,1])+","+str(selectedschemes[scheme]['P'][3,3])+")" for scheme in schemelist if selectedschemes[scheme]['P'][3,3]==7]
+    ###
     return tuple(schemelist)
 
 
 ### Shows the available parameters based on the Radiobutton input.
 params = Combobox(root)
-params.grid(column = 96,row = 1,columnspan=3)
+params.grid(column = 90,row = 1,columnspan=9)
 params['values'] = parameterlist()
+params['height'] = 50
 
 params.current(0)
 temp = params['values'][0]
@@ -163,8 +170,9 @@ def examine():
     [r,c] = Matrixfrmt(Q,'Q',fp,2,c+1)
     [r,t] = Matrixfrmt(Geg,'G',fp,2,c+1,1)
     if imprim.get()=="bipartite" and numclasses.get() == 4:
-        Gegsrg = Qpoly.Gegproj(Qpoly.Lsm(Data['psrg']),10,0,1)
-        [r,t] = Matrixfrmt(Gegsrg,'Gsrg',fp,2,t+1,1)
+        #Gegsrg = Qpoly.Gegproj(Qpoly.Lsm(Data['psrg']),10,0,1)
+        #[r,t] = Matrixfrmt(Gegsrg,'Gsrg',fp,2,t+1,1)
+        Label(Details, text = ("(k,r,s) = ("+str(P[0,1])+","+str(P[2,1])+","+str(P[3,3])+")")).grid(row = 100,column = 1)
 
     fl = Frame(Details)
     fl.grid(row = 4, column = 2,sticky = W)
