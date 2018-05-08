@@ -8,6 +8,10 @@ import math
 import sympy
 import time
 import itertools
+import Qpoly
+
+
+tol = 10**-5
 
 def is_prime(n):
   if n == 2 or n == 3: return True
@@ -37,7 +41,6 @@ def commondivisors(n,m):
         return [i for i in range(1,int(x)+1) if (m % i == 0 ) and (n % i == 0)]
 
 def isint(x):
-    tol = 10**-8
     if (np.round(x)-x)**2<tol:
         return 1
     else:
@@ -56,29 +59,7 @@ def Lsm(Q):
                 Ls[j,i,k] = sum([P[0,l]*Q[l,i]*Q[l,j]*Q[l,k] for l in range(d)])/(Q[0,i]*sum(P[0,:]))
     return Ls
 
-maxvert = 92
-def check(v1,p111,p112,p113,p121,p122,p123,p131,p132,p133):
-    valid = 1
-    dummy =0
-    if min(v1,p111,p112,p113,p121,p122,p123,p131,p132,p133)<0:
-        valid = 0
-    #v2 = p112*v1/p121
-    #v3 = p113*v1/p131
-    #p212 = p122*v2/v1
-    #p213 = p123*v2/v1
-    #if p112+p212+p213 != v2:
-    #    valid = 0
-    #p312 = p132*v3/v1
-    #p313 = p133*v3/v1
-    #if p312 != p213:
-    #    valid = 0
-    #if p133*v3/v1 != p313:
-    #    valid = 0
-    #if p113+p312+p313 != v3:
-    #    valid = 0
-    if v1+v2+v3+1>maxvert:
-        valid = 0
-    return valid
+
 
 def checkeig(L1,X):
     valid = 1
@@ -117,29 +98,42 @@ def checkeig(L1,X):
 
 ### Try 2
 
-maxv1 = 21
-numschemes = 0
-for v1 in range(1,maxv1):
-    for p111 in range(v1-1):
-        for p112 in range(1,v1-p111-1):
-            p113 = v1-p111-p112-1
-            for p121 in smalldivisors(v1*p112):
-                if p121>0:
-                    v2 = int(np.round(v1*p112/p121))
-                    denom = Fraction(v2/v1).limit_denominator(v1).denominator
-                    for mult in range(int(np.round(v1/denom)+1)):
-                        p122 = mult*denom
-                        p123 = v1-p121-p122
-                        if p123 > 0:
-                            for v3 in commondivisors(p113*v1,p123*v2):
-                                p131 = p113*v1/v3
-                                p132 = p123*v2/v3
-                                p133 = v1-p131-p132
-                                if check(v1,p111,p112,p113,p121,p122,p123,p131,p132,p133):
-                                    L1 = np.array([[0,v1,0,0],[1,p111,p112,p113],[0,p121,p122,p123],[0,p131,p132,p133]])
-                                    if checkeig(L1,[1,v1,v2,v3]):
-                                        numschemes+=1
-                                        if v1 == 20 and v2 == 30:
-                                            print(L1)
-                                        #print(L1)
-print(numschemes)
+def geg1(n):
+    k1 = n**3*(n**2-1)*((n**7+2*n**6-3*n**4-17*n**3+45*n**2+14*n-76)/(-2*(n**4-13*n**3+15*n**2+12*n-32)*(n**2-1)) + math.sqrt(n**10+4*n**9+6*n**8+2*n**7-35*n**6+22*n**5+145*n**4-72*n**2+32*n+16)/(-2*(n**4-13*n**3+15*n**2+12*n-32)))
+    k2 = ((3*n**2-5)*n**4)/2
+    return max(k1,k2)
+
+def oldk(n):
+    return int(((1/2)*n**5+n**4-3*n**2*(1/2)-3*n*(1/2)+1/2+(1/2)*math.sqrt(n**10+4*n**9+4*n**8-6*n**7-18*n**6-10*n**5+13*n**4+14*n**3-n**2-2*n+1))*n**2)
+
+def generatelist(n,k0,k1):
+    s=-n**2
+    #maxk = geg1(n)
+    maxk = oldk(n)
+    possible = {}
+    for k in range(maxk):
+        if k%n == 0:
+            possible[k] = {}
+    print(maxk)
+    for kn in range(k0,k1):
+        k = kn*n
+        if k%1000 == 0:
+            print(k)
+        if k<(9*n**2*(1/4)-13/4+3*math.sqrt(9*n**4-26*n**2+17)*(1/4))*n**4:
+            lowbnd = max(2*k/(3*n**2)-n**2/3,0)
+        else:
+            lowbnd = (-n**4+math.sqrt(n**8-4*k*n**6+6*k*n**4+k**2)+k)/(2*n**2)
+        upbnd = (k-n**2)/(n**2+n)
+        for r in range(int(lowbnd),int(upbnd)+1):
+            mu=int(r*s+k)
+            v = int((k-r)*(k-s)/(k+r*s))
+            f = int((n**2-1)*k*(k-s)/(mu*(r-s)))
+            if ((k-r)*(k-s)) % (k+r*s) == 0:
+                if ((k-r)*(n**2)) % mu == 0:
+                    if ((n**2-1)*k*(k-s)) % (mu*(r-s))==0:
+                        if (k+f*r) % n**2 == 0:
+                            if (k-r*n**2) %2 == 0:
+                                if 2*(r+1)*k*(n**2-1) % mu == 0:
+                                    possible[k][r] = 1
+    posslist = [[k,r] for k in possible for r in possible[k]]
+    return posslist

@@ -8,8 +8,8 @@ import math
 import Qpoly
 
 ### Load in all the current information.
-#schemes = pickle.load(open('alldata2.p','rb'))
-schemes = pickle.load(open('alldata.p','rb'))
+schemes = pickle.load(open('alldata2.p','rb'))
+#schemes = pickle.load(open('alldata.p','rb'))
 ### There is an annoying issue with the keys here where the lettered schemes dont have a trailing >.
 # Below is a temporary patch to this so that I don't have to redo the data compilation.
 for d in schemes:
@@ -122,7 +122,7 @@ def parameterlist():
         schemelist = sortedlist([scheme for scheme in schemelist])
     ### Delete this after youre done
     if imprim.get()=="bipartite" and numclasses.get() == 4:
-        schemelist = [scheme+"("+str(selectedschemes[scheme]['P'][0,1])+","+str(selectedschemes[scheme]['P'][2,1])+","+str(selectedschemes[scheme]['P'][3,3])+")" for scheme in schemelist if selectedschemes[scheme]['P'][3,3]==7]
+        schemelist = [scheme+"("+str(selectedschemes[scheme]['P'][0,1])+","+str(selectedschemes[scheme]['P'][2,1])+","+str(selectedschemes[scheme]['P'][3,3])+")" for scheme in schemelist if selectedschemes[scheme]['P'][3,3]==4]
     ###
     return tuple(schemelist)
 
