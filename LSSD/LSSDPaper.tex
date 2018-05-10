@@ -344,19 +344,11 @@ This brings us to the main theorem of this section (cf. \cite[Theorem~2.6(1)]{Su
   where $X_j$ is a third fiber. As we assumed $\gamma>\delta$, this also provides that $\mu>\nu$. Therefore $\Gamma$ is a $\mu$-heavy LSSD and adjacency in $\Gamma$ is the first relation of our proposed association scheme. The third relation (the $\nu$-heavy LSSD) is built from using $\delta$ to define adjacency.
 \end{proof}
 \subsection{A geometric classification}
-As a collection of linked simplices, and likewise the association scheme arising from it, incorporates both the $\mu$-heavy and $\nu$-heavy LSSDs, it becomes more useful to differentiate between LSSDs with $P_{01}>P_{03}$ or vice versa. Noting that the minimum distance between two vectors in our set of linked simplicies will be $\frac{v-P_{01}}{n(v-1)}$, we see that $\cos(\theta_\text{min}) < \frac{v}{2n(v-1)}$ if and only if $P_{01}>\frac{v}{2}$. Therefore those schemes with high $P_{01}$ will permit smaller angles. As such, we classify a LSSD as a ``low-weight LSSD" if $P_{01}>P_{03}$ and thus $\cos(\theta_\text{min})<\frac{v}{2n(v-1)}$. Likewise, we classify the opposite case as a ``high-weight LSSD". At the level of linked systems, an LSSD is low-weight if $(2k-v)(\mu-\nu)>0$ and concentrated if $(2k-v)(\mu-\nu)<0$. The following table lists the possibilities.
+As every association scheme has relations corresponding to complementary $\mu$-heavy and $\nu$-heavy LSSDs, it becomes useful to differentiate between LSSDs where $P_{01}$ (the valency of the $\mu$-heavy design) is greater than $P_{03}$ (the valency of the $\nu$-heavy design) or vice versa. As the $\mu$-heavy LSSD is the nearest neighbor graph\footnote{The ``nearest neighbor graph" here refers to the basis relation in our association scheme corresponding to largest innerproduct not equal to 1. By definition, this is $R_1$ under the natural ordering of relations for a $Q$-polynomial scheme.} of our association scheme, we classify a LSSD as ``dense" if $P_{01}>P_{03}$ (and thus every vertex has a positive inner product with more than half of the vertices in other fibers). Likewise we classify the opposite case as ``sparse". At the level of linked systems, an LSSD is dense if $(2k-v)(\mu-\nu)>0$ and sparse if $(2k-v)(\mu-\nu)<0$. The following table lists the possibilities.
 \[\begin{tabular}{c|c|c}
 & $2k>v$ & $2k<v$\\\hline
-$\mu$-heavy & low-weight LSSD & high-weight LSSD\\\hline
-$\nu$-heavy & high-weight LSSD & low-weight LSSD\\
-\end{tabular}\]
-Motivated by the natural ordering of relations, we will adopt the convention of focusing on the $\mu$-heavy LSSD. This forces us to allow for $k>\frac{v}{2}$. In fact, this is the case for all known examples of LSSDs.
-
-As a collection of linked simplices, and likewise the association scheme arising from it, incorporate both the $\mu$-heavy and $\nu$-heavy LSSDs, it becomes more useful to differentiate between LSSDs with $P_{01}>P_{03}$ or vice versa. As $P_{01}$ is the valency of the $\mu$-heavy LSSD and therefore designates the number of positive inner products a given vector has with other fibers, we classify a LSSD as an ``optimistic LSSD" if $P_{01}>P_{03}$. Likewise we classify the opposite case as a ``pessimistic LSSD". At the level of linked systems, an LSSD is optimistic if $(2k-v)(\mu-\nu)>0$ and pessimistic if $(2k-v)(\mu-\nu)<0$. The following table lists the possibilities.
-\[\begin{tabular}{c|c|c}
-& $2k>v$ & $2k<v$\\\hline
-$\mu$-heavy & optimistic LSSD & pessimistic LSSD\\\hline
-$\nu$-heavy & pessimistic LSSD & optimistic LSSD\\
+$\mu$-heavy & dense & sparse\\\hline
+$\nu$-heavy & sparse & dense\\
 \end{tabular}\]
 Motivated by the natural ordering of relations, we will adopt the convention of focusing on the $\mu$-heavy LSSD. This forces us to allow for $k>\frac{v}{2}$. In fact, this is the case for all known examples of LSSDs.
 
@@ -1043,7 +1035,7 @@ H_{13}^T& H_{23}^T & 4I
 Taking the positive entries of the off diagonal blocks of this matrix gives us the adjacency matrix of a $\mu$-heavy $\text{LSSD}(16,10,6;3)$.
 
 \section*{Acknowledgments}
-The author is grateful to Padraig \'{O} Cath\'{a}in and Bill Kantor for helpful conversations on these topics as well as Bill Martin for his mentoring and thorough review of this paper. The author is also grateful to the reviewers who carefully examined the paper and provided many suggestions and corrections.
+The author is grateful to Padraig \'{O} Cath\'{a}in and Bill Kantor for helpful conversations on these topics as well as Bill Martin for his mentoring and thorough review of this paper.
 
 
 \begin{thebibliography}{10}
@@ -1174,7 +1166,7 @@ The author is grateful to Padraig \'{O} Cath\'{a}in and Bill Kantor for helpful 
 
 \section{Appendix 1: Feasible parameter sets}
 \label{families}
-The Handbook of Combinatorial Designs gives us a list of 21 distinct families of symmetric designs. We now examine each family to determine which parameter sets could be extended to LSSDs with three or more fibers. The two conditions we will employ are that $s=\sqrt{k-\lambda}$ and $\nu = \frac{k(k\pm s)}{v}$ are integers, though we will often reference our observations from Lemma \ref{gcd}. Specifically for families $7$, $9$, and $12-19$ we show that a specified choice of parameters are integral, implying from Lemma \ref{gcd} that the other choice is not feasible. Our results show that Families 6, 7, 9, 12, 13, and 14 always permit integral parameters. Further, Families 15-19 give us integers in specific cases ($m=1$) but will not be feasible in general. It should be noted that this does not mean that we can find LSSDs in each of these families with $w>2$, instead this means that we cannot disprove the existence of such LSSDs using only our integrality conditions. In fact, two of the families (McFarland/Wallis and Spence) were ruled out by Jedwab et.\ al.\ (\cite{LDS}) in the case where the symmetric designs come from difference sets. It is still open whether these families can produce LSSDs which are not isomorphic to linking systems of difference sets.
+The Handbook of Combinatorial Designs gives us a list of 21 distinct families of symmetric designs. We now examine each family to determine which parameter sets could be extended to LSSDs with three or more fibers. The two conditions we will employ are that $s=\sqrt{k-\lambda}$ and $\nu = \frac{k(k\pm s)}{v}$ are integers, though we will often reference our observations from \ref{gcd}. Our results show that Families 6, 7, 9, 12, 13, and 14 always permit integral parameters. Further, Families 15-19 give us integers in specific cases ($m=1$) but will not be feasible in general. It should be noted that this does not mean that we can find LSSDs in each of these families with $w>2$, instead this means that we cannot disprove the existence of such LSSDs using only our integrality conditions. In fact, two of the families (McFarland/Wallis and Spence) were ruled out by Jedwab et.\ al.\ (\cite{LDS}) in the case where the symmetric designs come from difference sets. It is still open whether these families can produce LSSDs which are not isomorphic to linking systems of difference sets.
 \subsection*{Family 1 (Point-hyperplane Designs)}
 \[\begin{aligned}
 v &= q^m+\dots+1 \qquad
@@ -1248,7 +1240,7 @@ Note that $v = mk+1$. Therefore $\gcd(k,v) = 1$ and we cannot make LSSDs from th
 v&= 3^m\left(\frac{3^m-1}{2}\right)\qquad k=3^{m-1}\left(\frac{3^m+1}{2}\right)\qquad \lambda = 3^{m-1}\left(\frac{3^{m-1}+1}{2}\right)\qquad 
 s=3^{m-1}\\
 \nu&=\frac{\frac{1}{2}3^{m-1}(3^m+1)(\frac{1}{2}3^{m-1}(3^m+1)\pm3^{m-1})}{ \frac{1}{2}3^m(3^m-1)}\end{aligned}\]
-If we take $\mu$-heavy parameters, then
+If we take $\mu$ heavy parameters, then
 \[\begin{aligned}
 \nu&=\frac{(3^m+1)\left(\frac{1}{2}3^{m-1}(3^m-1)\right)}{3(3^m-1)}=3^{m-2}\left(\frac{3^m+1}{2}\right)
 \end{aligned}\]
@@ -1287,14 +1279,14 @@ As $2^n + 1$ is divisible by 3 anytime $n$ is odd, this will always be an intege
 
 \subsection*{Family 14 (Chen)}
 \[\begin{aligned}
-v&=4q^{2d}\left(\frac{q^{2d}-1}{q^2-1}\right)\qquad k=q^{2d-1}\left(1+2\left(\frac{q^{2d}-1}{q+1}\right)\right)\qquad\lambda = q^{2d-1}(q-1)\left(\frac{q^{2d-1}+1}{q+1}\right)\qquad s=q^{2d-1}\\
-\nu&=\frac{q^{2d-1}\left(1+2\left(\frac{q^{2d}-1}{q+1}\right)\right)\left(q^{2d-1}\left(1+2\left(\frac{q^{2d}-1}{q+1}\right)\right)\pm q^{2d-1}\right)}{4q^{2d}\left(\frac{q^{2d}-1}{q^2-1}\right)}\\
+v&=4q^{2d}\left(\frac{q^{2d}-1}{q^2-1}\right)\qquad k=q^{2d-1}\left(1+2\left(\frac{q^{2d}-1}{q-1}\right)\right)\qquad\lambda = q^{2d-1}(q-1)\left(\frac{q^{2d-1}+1}{q+1}\right)\qquad s=q^{2d-1}\\
+\nu&=\frac{q^{2d-1}\left(1+2\left(\frac{q^{2d}-1}{q-1}\right)\right)\left(q^{2d-1}\left(1+2\left(\frac{q^{2d}-1}{q-1}\right)\right)\pm q^{2d-1}\right)}{4q^{2d}\left(\frac{q^{2d}-1}{q^2-1}\right)}\\
 \end{aligned}\]
 If we use $\mu$-heavy parameters, this gives us:
 \[\begin{aligned}
-\nu&=\frac{\left(1+2\left(\frac{q^{2d}-1}{q+1}\right)\right)\left(2q^{2d-1}\left(\frac{q^{2d}-1}{q+1}\right)\right)}{4q\left(\frac{q^{2d}-1}{q^2-1}\right)}=\frac{q^{2d-2}(q-1)\left(1+2\left(\frac{q^{2d}-1}{q-1}\right)\right)}{2}\\
+\nu&=\frac{\left(1+2\left(\frac{q^{2d}-1}{q-1}\right)\right)\left(2q^{2d-1}\left(\frac{q^{2d}-1}{q-1}\right)\right)}{4q\left(\frac{q^{2d}-1}{q^2-1}\right)}=\frac{q^{2d-2}(q+1)\left(1+2\left(\frac{q^{2d}-1}{q-1}\right)\right)}{2}\\
 \end{aligned}\]
-Since $2$ will always divide either $q^{2d-2}$ or $q+1$, we have that $\nu$ is integral under $\mu$-heavy parameters.
+Since $2$ will always divide either $q^{2d-2}$ or $q+1$, we have that $\nu$ is integral under $\mu$-heavy parameters
 
 \subsection*{Family 15 (Ionin)}
 \[\begin{aligned}
