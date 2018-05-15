@@ -94,14 +94,19 @@ We further find that, given $v$, $k$, and $\lambda$, only one of the outcomes in
 	\end{enumerate}
 \end{lemma}
 \begin{proof}
-	Assume first (taking complements if necessary) that $k\leq\frac{v}{2}$. One can quickly check that $k+s<v$ except when $(v,k,\lambda) = (2,1,0)$ and $0<k-s$ whenever $k>1$. Then, for any $x\in\mathbb{Z}^+$, we have that if $\frac{x(k\pm s)}{v}$ is an integer then $\gcd(x,v) >1$. Using our expression for $\nu$ in \eqref{mu-nu}, we see that $\gcd(k,v)>1$. Noting that $k' = v-k$ and therefore (ii) holds: $\gcd(k',v) = \gcd(k,v)>1$. Now, using \eqref{sym:1} and our requirement that $\sqrt{k-\lambda} = s$, we have the two equations:
+	Assume first (taking complements if necessary) that $k\leq\frac{v}{2}$. One can quickly check that $k+s<v$ except when $(v,k,\lambda) = (2,1,0)$ and $0<k-s$ whenever $k>1$. Then, for any $x\in\mathbb{Z}^+$, we have that if $\frac{x(k\pm s)}{v}$ is an integer then $\gcd(x,v) >1$. Using our expression for $\nu$ in \eqref{mu-nu}, we see that $\gcd(k,v)>1$. Noting that $k' = v-k$ and therefore (ii) holds: $\gcd(k',v) = \gcd(k,v)>1$. Now, using equation \eqref{sym:1} and our requirement that $\sqrt{k-\lambda} = s$, we have the two equations:
 	\[\begin{aligned}
 	\frac{k(k\pm s)}{v} \mp\frac{s(k\pm s)}{v} &= \lambda.
 	\end{aligned}\]
 	The integer $\nu$ in \eqref{mu-nu} appears as the first term in one of these equations. Therefore we must have that either $\frac{s(k+ s)}{v}$ or $\frac{s(k-s)}{v}$ must also be an integer, giving us (iii): $\gcd(s,v)>1$. To show (i), consider that if both $\frac{k(k+ s)}{v}$ and $\frac{k(k- s)}{v}$ are integers, then the same must hold for both $\frac{s(k+s)}{v}$ and $\frac{s(k-s)}{v}$. However, this implies $\frac{2s^2}{v}\in\mathbb{Z}^+$, contradicting $s^2 <k \leq \frac{v}{2}$.
 \end{proof}
+\begin{remark}
+	\label{rmk1}
+	It is noteworthy that our assumption that the $LSSD$ exists can be replaced with the requirement that either of $\frac{k(k\pm s)}{v}$ is an integer for symmetric design parameters $(v,k,\lambda)$. Thus anytime we can show that either $\mu$-heavy or $\nu$-heavy parameters are integral, we know the opposite parameters cannot be integral as well. This will become useful in the appendix where we check the various known infinite families for feasibility.
+\end{remark}
 The case where $k=1$ or $k=v-1$ produces LSSDs which are not of interest to us and for the remainder of the paper, we will refer to these designs as degenerate. For a further description of why these designs are degenerate, see Section \ref{degenerate}. The observations that $\gcd(k,v)>1$ and $\gcd(s,v)>1$ are two tools which help us determine more easily which parameters might be feasible for a LSSD with $w>2$. There are many other statements similar to these we can find, but these two will be sufficient for now. Using these, we can immediately rule out many parameters, for instance:
 \begin{corollary}
+	\label{comp}
 	Assume $w>2$. If there exists a non-degenerate $LSSD(v,k,\lambda;w)$, then $v$ is composite.\qed
 \end{corollary}
 For a further use of these tools to rule out certain families of symmetric designs, see Section \ref{families}.
@@ -344,14 +349,13 @@ This brings us to the main theorem of this section (cf. \cite[Theorem~2.6(1)]{Su
   where $X_j$ is a third fiber. As we assumed $\gamma>\delta$, this also provides that $\mu>\nu$. Therefore $\Gamma$ is a $\mu$-heavy LSSD and adjacency in $\Gamma$ is the first relation of our proposed association scheme. The third relation (the $\nu$-heavy LSSD) is built from using $\delta$ to define adjacency.
 \end{proof}
 \subsection{A geometric classification}
-As every association scheme has relations corresponding to complementary $\mu$-heavy and $\nu$-heavy LSSDs, it becomes useful to differentiate between LSSDs where $P_{01}$ (the valency of the $\mu$-heavy design) is greater than $P_{03}$ (the valency of the $\nu$-heavy design) or vice versa. As the $\mu$-heavy LSSD is the nearest neighbor graph\footnote{The ``nearest neighbor graph" here refers to the basis relation in our association scheme corresponding to largest innerproduct not equal to 1. By definition, this is $R_1$ under the natural ordering of relations for a $Q$-polynomial scheme.} of our association scheme, we classify a LSSD as ``dense" if $P_{01}>P_{03}$ (and thus every vertex has a positive inner product with more than half of the vertices in other fibers). Likewise we classify the opposite case as ``sparse". At the level of linked systems, an LSSD is dense if $(2k-v)(\mu-\nu)>0$ and sparse if $(2k-v)(\mu-\nu)<0$. The following table lists the possibilities.
+As every association scheme has relations corresponding to complementary $\mu$-heavy and $\nu$-heavy LSSDs, it becomes useful to differentiate between LSSDs where $P_{01}$ (the valency of the $\mu$-heavy design) is greater than $P_{03}$ (the valency of the $\nu$-heavy design) or vice versa. Noting that the $\mu$-heavy LSSD gives the nearest neighbor graph\footnote{The ``nearest neighbor graph" here refers to the basis relation in our association scheme corresponding to largest innerproduct not equal to 1. By definition, this is $R_1$ under the natural ordering of relations for a $Q$-polynomial scheme.} of our association scheme and thus the only positive inner product apart from 1, we classify a LSSD as ``optimistic" if $P_{01}>P_{03}$ (and thus there are more positive inner products than negative). Likewise we classify the opposite case as ``pessimistic". While this classification helps designate whether the set of linked simplices has mostly positive or mostly negative inner products, we also note that every known non-degenerate example of a LSSD is optimistic. At the level of linked systems, an LSSD is optimistic if $(2k-v)(\mu-\nu)>0$ and pessimistic if $(2k-v)(\mu-\nu)<0$. The following table lists the possibilities.
 \[\begin{tabular}{c|c|c}
 & $2k>v$ & $2k<v$\\\hline
-$\mu$-heavy & dense & sparse\\\hline
-$\nu$-heavy & sparse & dense\\
+$\mu$-heavy & optimistic & pessimistic\\\hline
+$\nu$-heavy & pessimistic & optimistic\\
 \end{tabular}\]
-Motivated by the natural ordering of relations, we will adopt the convention of focusing on the $\mu$-heavy LSSD. This forces us to allow for $k>\frac{v}{2}$. In fact, this is the case for all known examples of LSSDs.
-
+Motivated by the natural ordering of relations, we will adopt the convention of focusing on the $\mu$-heavy LSSD. This forces us to allow for $k>\frac{v}{2}$.
 \section{Connections to Other Structures in Euclidean Space}
 In the previous section, we developed the equivalence between LSSDs and a certain geometric structure using the first and second idempotents as Gram matrices. We now explore similar structures which can be built using combinations of these idempotents, though we will not always be able to reverse these constructions. Recall that
 \[E_j = \frac{1}{\vert X\vert}\sum Q_{ij}A_i\]
@@ -1166,25 +1170,32 @@ The author is grateful to Padraig \'{O} Cath\'{a}in and Bill Kantor for helpful 
 
 \section{Appendix 1: Feasible parameter sets}
 \label{families}
-The Handbook of Combinatorial Designs gives us a list of 21 distinct families of symmetric designs. We now examine each family to determine which parameter sets could be extended to LSSDs with three or more fibers. The two conditions we will employ are that $s=\sqrt{k-\lambda}$ and $\nu = \frac{k(k\pm s)}{v}$ are integers, though we will often reference our observations from \ref{gcd}. Our results show that Families 6, 7, 9, 12, 13, and 14 always permit integral parameters. Further, Families 15-19 give us integers in specific cases ($m=1$) but will not be feasible in general. It should be noted that this does not mean that we can find LSSDs in each of these families with $w>2$, instead this means that we cannot disprove the existence of such LSSDs using only our integrality conditions. In fact, two of the families (McFarland/Wallis and Spence) were ruled out by Jedwab et.\ al.\ (\cite{LDS}) in the case where the symmetric designs come from difference sets. It is still open whether these families can produce LSSDs which are not isomorphic to linking systems of difference sets.
+The Handbook of Combinatorial Designs gives us a list of 21 distinct families of symmetric designs. We now examine each family to determine which parameter sets could be the incident symmetric design between fibers in a LSSDs with three or more fibers. The two conditions we will employ are that $s=\sqrt{k-\lambda}$ and $\nu = \frac{k(k\pm s)}{v}$ are integers, though from Lemma \ref{gcd} we saw that the following conditions must also hold:
+\begin{enumerate}[(i)]
+	\item (Corrollary \ref{comp}) $v$ must be composite;
+	\item (Lemma \ref{gcd}$(ii)$) $\gcd(v,k)>1$;
+	\item (Lemma \ref{gcd}$(iii)$) $\gcd(v,s)>1$;
+	\item (Remark \ref{rmk1}) At most one of $\frac{k(k\pm s)}{v}$ is integral.
+\end{enumerate}
+Our results show that Families 6, 7, 9, 12, 13, and 14 are feasible. Further, Families 15-19 are feasible in specific cases ($m=1$) but will not be feasible in general. It should be noted that this does not mean that we can find LSSDs in each of these families with $w>2$, instead this means that we cannot disprove the existence of such LSSDs using only our integrality conditions. In fact, two of the families (McFarland/Wallis and Spence) were ruled out by Jedwab et.\ al.\ (\cite{LDS}) in the case where the symmetric designs come from certain known constructions of difference sets. It is still open whether these families can produce LSSDs which are not isomorphic to linking systems of difference sets.
 \subsection*{Family 1 (Point-hyperplane Designs)}
 \[\begin{aligned}
 v &= q^m+\dots+1 \qquad
 k = q^{m-1}+\dots+1\qquad
 \lambda = q^{m-2}+\dots+1\qquad n= q^{m-1}\qquad s=q^{\frac{m-1}{2}}\end{aligned}\]
-Since $s$ is a power of $q$, we know that $\gcd(s,v) = 1$. Therefore we cannot form LSSDs from this family.
+Since $s$ is a power of $q$, we know that $\gcd(s,v) = 1$. Therefore via $(iii)$, any LSSD with these parameters will have $w=2$.
 \subsection*{Family 2 (Hadamard matrix designs)}
 \[\begin{aligned}
 v &= 4n-1 \qquad k= 2n-1 \qquad \lambda = n-1\qquad s = \sqrt{n}\\
 \end{aligned}\]
-Since $s$ divides $v+1$, we know that $\gcd(s,v) = 1$ Therefore we cannot form LSSDs from this family.
+Since $s$ divides $v+1$, we know that $\gcd(s,v) = 1$. Therefore via $(iii)$, any LSSD with these parameters will have $w=2$.
 
 \subsection*{Family 3 (Chowla)}
 \[\begin{aligned}
 v&=4t^2+1 \qquad k=t^2 \qquad \lambda = \frac{1}{4}(t^2-1)
 \qquad s=\frac{1}{2}\sqrt{3t^2+1}
 \end{aligned}\]
-Chowla designs require that $v$ is prime, which is impossible for LSSDs.
+Chowla designs require that $v$ is prime, therefore any LSSD with these parameters will have $w=2$ due to $(i)$.
 
 \subsection*{Family 4 (Lehmer)}
 \begin{enumerate}[(a)]
@@ -1201,14 +1212,14 @@ Chowla designs require that $v$ is prime, which is impossible for LSSDs.
   \[\begin{aligned}
   v&=8t^2+49 = 64u^2+441\qquad k=t^2+6\qquad \lambda = u^2+7\qquad  n=t^2-u^2-1\\
   \end{aligned}\]
-  All three of the Lehmer designs require $v$ to be prime, which is not possible for LSSDs.
+  All three of the Lehmer designs require $v$ to be prime, therefore any $LSSD$ with these parameters will have $w=2$ due to $(i)$.
 \end{enumerate}
 
 \subsection*{Family 5 (Whiteman)}
 \[\begin{aligned}
 v&=pq \qquad k=\frac{1}{4}(pq-1) \qquad \lambda = \frac{1}{16}(pq-5)\qquad s=\frac{1}{4}(3p+1)
 \end{aligned}\]
-where $p$ and $q = 3p+2$ are both prime. Since $\gcd(s,v) >1$ we must have $s = p$ or $s=q$. However $s=q$ implies that $p$ is negative while $s=p$ implies that $p=1$ and $q=5$. As this case gives the parameters $(5,1,0)$, only the degenerate case is possible. Therefore Whiteman parameters will never give us LSSDs.
+where $p$ and $q = 3p+2$ are both prime. Since $\gcd(s,v) >1$ we must have $s = p$ or $s=q$. However $s=q$ implies that $p$ is negative while $s=p$ implies that $p=1$ and $q=5$. As this case gives the parameters $(5,1,0)$, only the degenerate case is possible. Therefore Whiteman parameters will only give non-degenerate $LSSD$s with $w=2$.
 
 \subsection*{Family 6 (Menon)}
 \[\begin{aligned}
@@ -1216,54 +1227,56 @@ v &= 4t^2 \qquad k= 2t^2-t \qquad \lambda = t^2-t\\
 n&= t^2 \qquad s = t\\
 \nu &= \frac{(2t^2-t)(2t^2-t\pm t)}{4t^2}=\frac{1}{2}(2t-1)\left(t-\frac{1\mp1}{2}\right)
 \end{aligned}\]
-Since $2t-1$ will always be odd, we must have that $\left(t-\frac{1\mp1}{2}\right)$ is even. This means that for odd $t$, we must choose the $+$ so that we have $\nu = (2t-1)\frac{t-1}{2}$. If instead $t$ is even then we must choose the $-$ so that $\nu = (2t-1)\frac{t}{2}$. This means that Menon parameters are always feasible, though we must choose our parameters to be $\nu$-heavy or $\mu$-heavy based on the parity of $t$.
+Since $2t-1$ will always be odd, we must have that $\left(t-\frac{1\mp1}{2}\right)$ is even. This means that for odd $t$, we must choose the $+$ so that we have $\nu = (2t-1)\frac{t-1}{2}$. If instead $t$ is even then we must choose the $-$ so that $\nu = (2t-1)\frac{t}{2}$. This means that Menon parameters are feasible for all $t>0$, though our choice of $\mu$-heavy or $\nu$-heavy depends on the parity of $t$.
 
 \subsection*{Family 7 (Wallis; McFarland)}
 \[\begin{aligned}
 v &= q^{m+1}(q^m+\dots+q+2) \qquad k= q^m(q^m+\dots+q+1) \qquad \lambda = q^m(q^{m-1}+\dots+q+1) \qquad s = q^m\\
 \nu &= \frac{q^m(q^m+\dots+q+1)(q^m(q^m+\dots+q+1)\pm q^m)}{q^{m+1}(q^m+\dots+q+2)}\\
 \end{aligned}\]
-If we assume our parameters are $\nu$-heavy, then we have:
+Consider first the case of $\nu$-heavy parameters,
 \[\begin{aligned}
-\nu&=\frac{q^m(q^m+\dots+q+1)(q^m(q^m+\dots+q+2))}{q^{m+1}(q^m+\dots+q+2)}=q^{m-1}(q^m+\dots+q+1)
+\nu&=\frac{q^m(q^m+\dots+q+1)(q^m(q^m+\dots+q+2))}{q^{m+1}(q^m+\dots+q+2)}=q^{m-1}(q^m+\dots+q+1).
 \end{aligned}\]
+As this is always an integer, we note using $(iv)$ that $\mu$-heavy parameters will never be feasible.
 
 
 \subsection*{Family 8 (Wilson; Shrikhande and Singhi)}
 \[\begin{aligned}
 v&= m^3+m+1 \qquad k=m^2+1\qquad \lambda = m\qquad n=m^2-m+1\\
 \end{aligned}\]
-Note that $v = mk+1$. Therefore $\gcd(k,v) = 1$ and we cannot make LSSDs from these designs.
+Note that $v = mk+1$. Therefore $\gcd(k,v) = 1$ and, from $(ii)$, any $LSSD$ using these parameters will have $w=2$.
 
 \subsection*{Family 9 (Spence)}
 \[\begin{aligned}
 v&= 3^m\left(\frac{3^m-1}{2}\right)\qquad k=3^{m-1}\left(\frac{3^m+1}{2}\right)\qquad \lambda = 3^{m-1}\left(\frac{3^{m-1}+1}{2}\right)\qquad 
 s=3^{m-1}\\
 \nu&=\frac{\frac{1}{2}3^{m-1}(3^m+1)(\frac{1}{2}3^{m-1}(3^m+1)\pm3^{m-1})}{ \frac{1}{2}3^m(3^m-1)}\end{aligned}\]
-If we take $\mu$ heavy parameters, then
+First consider $\mu$-heavy parameters,
 \[\begin{aligned}
 \nu&=\frac{(3^m+1)\left(\frac{1}{2}3^{m-1}(3^m-1)\right)}{3(3^m-1)}=3^{m-2}\left(\frac{3^m+1}{2}\right)
 \end{aligned}\]
+As this is always an integer, we note using $(iv)$ that $\nu$-heavy parameters will never be feasible.
 \subsection*{Family 10 (Rajkundlia and Mitchell; Ionin)}
 \[\begin{aligned}
 v&=1+qr\left(\frac{r^m-1}{r-1}\right)\qquad k=r^m\qquad \lambda = r^{m-1}\left(\frac{r-1}{q}\right)\qquad r=\frac{q^d-1}{q-1}
 \end{aligned}\]
-Since $r$ divides $v-1$ and $k$ is a power of $r$, we know that $\gcd(v,k) = 1$. Therefore we cannot make LSSDs from these designs.
+Since $r$ divides $v-1$ and $k$ is a power of $r$, we know that $\gcd(v,k) = 1$. Therefore any $LSSD$ using these parameters will require $w=2$.
 \subsection*{Family 11 (Wilson; Brouwer)}
 \[\begin{aligned}
 v&= 2(q^m+\dots + q)+1\qquad k=q^m\qquad \lambda=\frac{1}{2}q^{m-1}(q-1)\qquad n=\frac{1}{2}q^{m-1}(q+1)\\
 \end{aligned}\]
-Since $q$ divides $v-1$ and $k$ is a power of $q$, we must have that $\gcd(k,v) = 1$. Therefore we cannot make LSSDs from these designs.
+Since $q$ divides $v-1$ and $k$ is a power of $q$, we must have that $\gcd(k,v) = 1$. Therefore any $LSSD$ using these parameters will require $w=2$.
 \subsection*{Family 12 (Spence, Jungnickel and Pott, Ionin)}
 \[\begin{aligned}
 v&=q^{d+1}\left(\frac{r^{2m}-1}{r-1}\right)\qquad k=r^{2m-1}q^d\qquad\lambda = (r-1)r^{2m-2}q^{d-1}\qquad s=r^{m-1}q^d\qquad r=\frac{q^{d+1}-1}{q-1}\\
 \nu&=\frac{r^{2m-1}q^d(r^{2m-1}q^d\pm r^{m-1}q^d)}{q^{d+1}\left(\frac{r^{2m}-1}{r-1}\right)} = \frac{q^{d-1}r^{3m-2}(r^{m}\pm 1)}{r^{2m-1}+\dots+1}
 \end{aligned}\]
-However $r^{3m-2}$ is relatively prime with the denominator, so we must have $(r^{2m-1}+\dots+1)\vert q^{d-1}\left(r^m\pm 1\right)$. However since $r = \frac{q^{d+1}-1}{q-1} = q^{d}+\dots+1$, we have that $q^{d-1}<r$. Therefore $q^{d-1}\left(r^m\pm 1\right)<r^{m+1}\pm r<r^{2m-1}\dots+1$ in all cases except $m=1$. However, when $m=1$,
+First consider when $m=1$,
 \[\begin{aligned}
 v&=q^{d+1}\left(q^d+\dots+q+2\right)\qquad k=q^d(q^d+\dots+1)\qquad\lambda=q^{d}\left(q^{d-1}+\dots+q+1\right)\qquad s=q^d
 \end{aligned}\]
-Giving us the same parameters as McFarland parameters (Family 7). Therefore these parameters will work for $\nu$-heavy designs when $m=1$.
+Giving us the same parameters as McFarland parameters (Family 7). While these constructions may be distinct, our conditions only depend on the parameters and thus these will work for $\nu$-heavy designs when $m=1$. If $m> 1$ however, $r^{3m-2}$ is relatively prime with the denominator, so we must have $(r^{2m-1}+\dots+1)\vert q^{d-1}\left(r^m\pm 1\right)$. Since $r = \frac{q^{d+1}-1}{q-1} = q^{d}+\dots+1$, we have that $q^{d-1}<r$. Therefore $q^{d-1}\left(r^m\pm 1\right)<r^{m+1}\pm r<r^{2m-1}\dots+1$ and thus any $LSSD$ using these parameters with $m> 1$ will require $w=2$.
 
 \subsection*{Family 13 (Davis and Jedwab)}
 \[\begin{aligned}
@@ -1271,22 +1284,22 @@ v&=\frac{1}{3}2^{2d+4}\left(2^{2d+2}-1\right)\qquad k=\frac{1}{3}2^{2d+1}\left(2
 \nu&=\frac{\frac{1}{3}2^{2d+1}\left(2^{2d+3}+1\right)\left(\frac{1}{3}2^{2d+1}\left(2^{2d+3}+1\right)\pm 2^{2d+1}\right)}{\frac{1}{3}2^{2d+4}\left(2^{2d+2}-1\right)}\\
 &=\frac{\left(2^{2d+3}+1\right)\left(\left(2^{2d+3}+1\right)\pm 3\right)2^{2d-2}}{3\left(2^{2d+2}-1\right)}\\
 \end{aligned}\]
-If we take $\mu$-heavy parameters, then we get:
+First consider $\mu$-heavy parameters,
 \[\begin{aligned}
 \nu&=\frac{\left(2^{2d+3}+1\right)\left(2^{2d+3}-2\right)2^{2d-2}}{3\left(2^{2d+2}-1\right)}=\frac{\left(2^{2d+3}+1\right)2^{2d-1}}{3}.
 \end{aligned}\]
-As $2^n + 1$ is divisible by 3 anytime $n$ is odd, this will always be an integer.
+As $2^n + 1$ is divisible by 3 anytime $n$ is odd, this will always be an integer. Therefore, using $(iv)$, $\nu$-heavy parameters will never be feasible.
 
 \subsection*{Family 14 (Chen)}
 \[\begin{aligned}
 v&=4q^{2d}\left(\frac{q^{2d}-1}{q^2-1}\right)\qquad k=q^{2d-1}\left(1+2\left(\frac{q^{2d}-1}{q-1}\right)\right)\qquad\lambda = q^{2d-1}(q-1)\left(\frac{q^{2d-1}+1}{q+1}\right)\qquad s=q^{2d-1}\\
 \nu&=\frac{q^{2d-1}\left(1+2\left(\frac{q^{2d}-1}{q-1}\right)\right)\left(q^{2d-1}\left(1+2\left(\frac{q^{2d}-1}{q-1}\right)\right)\pm q^{2d-1}\right)}{4q^{2d}\left(\frac{q^{2d}-1}{q^2-1}\right)}\\
 \end{aligned}\]
-If we use $\mu$-heavy parameters, this gives us:
+First consider $\mu$-heavy parameters,
 \[\begin{aligned}
 \nu&=\frac{\left(1+2\left(\frac{q^{2d}-1}{q-1}\right)\right)\left(2q^{2d-1}\left(\frac{q^{2d}-1}{q-1}\right)\right)}{4q\left(\frac{q^{2d}-1}{q^2-1}\right)}=\frac{q^{2d-2}(q+1)\left(1+2\left(\frac{q^{2d}-1}{q-1}\right)\right)}{2}\\
 \end{aligned}\]
-Since $2$ will always divide either $q^{2d-2}$ or $q+1$, we have that $\nu$ is integral under $\mu$-heavy parameters
+Since $2$ will always divide either $q^{2d-2}$ or $q+1$, we have that $\nu$ is integral under $\mu$-heavy parameters. Then from $(iv)$, $\nu$-heavy parameters will never be feasible.
 
 \subsection*{Family 15 (Ionin)}
 \[\begin{aligned}
@@ -1294,17 +1307,15 @@ v&=q^d\left(\frac{r^{2m}-1}{(q-1)(q^d+1)}\right)\qquad k= q^dr^{2m-1}\qquad \lam
 r&=q^{d+1}+q-1\\
 \nu&=\frac{q^dr^{2m-1}\left(q^dr^{2m-1}\pm q^dr^{m-1}\right)}{q^d\left(\frac{r^{2m}-1}{(q-1)(q^d+1)}\right)}=\frac{(q-1)(q^d+1)q^dr^{3m-2}\left(r^m\pm 1\right)}{(r^m+1)(r^m-1)}=\frac{(q-1)(q^d+1)q^dr^{3m-2}}{(r^m\mp1)}.\\
 \end{aligned}\]
-We now split these parameters into two cases, first when $m=1$ and then the remaining possibilities where $m\geq 2$.\par
 First assume that $m=1$. Then,
 \[\begin{aligned}
 \nu&=\frac{(q-1)(q^d+1)q^dr}{(r\mp1)}.
 \end{aligned}\]
-Under $\mu$-heavy conditions, this gives
+First considering $\mu$-heavy parameters,
 \[\begin{aligned}
 \nu&=\frac{(q-1)(q^d+1)q^dr}{(r+1)}=\frac{(q-1)(q^d+1)q^dr}{q(q^d+1)}=(q-1)q^{d-1}r
 \end{aligned}\]
-Therefore these parameters are feasible using $\mu$-heavy parameters when $m=1$. \par
-Now consider when $m\geq 2$. In this case, note that $r^{3m-2}$ is relatively prime to $r^m\mp 1$. Therefore if $\nu$ is integral, then $r^m\mp 1$ must divide $q^d(q-1)(q^d+1)$. However, since $q\geq 2$ we know that $r = q(q^d+1)-1>q^d+1$ and $r = q^{d+1}+q-1>q^{d+1}-q^d$. Therefore $r^m\geq r^2 > q^d(q-1)(q^d+1)$ meaning that it is not possible for $r^m$ to divide the latter. Therefore $\nu$ will never be integral when $m>1$.
+Therefore these parameters are feasible using $\mu$-heavy parameters when $m=1$ (and via $(iv)$, $\nu$-heavy parameters are infeasible). Now consider when $m> 2$. In this case, note that $r^{3m-2}$ is relatively prime to $r^m\mp 1$. Therefore if $\nu$ is integral, then $r^m\mp 1$ must divide $q^d(q-1)(q^d+1)$. However, since $q\geq 2$ we know that $r = q(q^d+1)-1>q^d+1$ and $r = q^{d+1}+q-1>q^{d+1}-q^d$. Therefore $r^m\geq r^2 > q^d(q-1)(q^d+1)$ meaning that it is not possible for $r^m$ to divide the latter. Therefore $\nu$ will never be integral when $m>1$.
 
 
 \subsection*{Family 16 (Ionin)}
@@ -1312,25 +1323,25 @@ Now consider when $m\geq 2$. In this case, note that $r^{3m-2}$ is relatively pr
 v&=2\cdot3^d\left(\frac{q^{2m}-1}{3^d+1}\right)\qquad k= 3^dq^{2m-1}\qquad\lambda = \frac{1}{2}3^d(3^d+1)q^{2m-2}\qquad s = 3^dq^{m-1}\qquad q=\frac{1}{2}(3^{d+1}+1)\\
 \nu&=\frac{3^dq^{2m-1}(3^dq^{2m-1}\pm3^dq^{m-1})}{2\cdot3^d\left(\frac{q^{2m}-1}{3^d+1}\right)}=\frac{3^d(3^d+1)q^{3m-2}(q^{m}\pm 1)}{2(q^m+1)(q^m-1)}=\frac{3^d(3^d+1)q^{3m-2}}{2(q^m\mp1)}\\
 \end{aligned}\]
-We again must consider the case when $m=1$ seperately. If $m=1$, then
+We again must consider the case when $m=1$ separately. If $m=1$, then
 \[\begin{aligned}\nu&=\frac{3^d(3^d+1)q}{2(q\mp1)}\\
 \end{aligned}\]
-If we take $\mu$ heavy parameters, we have
+We first consider $\mu$ heavy parameters,
 \[\begin{aligned}
 \nu&=\frac{3^d(3^d+1)q}{3^{d+1}+3}=3^{d-1}q\\
 \end{aligned}\]
-Therefore when $m=1$, these parameters are feasible with $\mu$-heavy parameters. Using the same arguments as before, we can quickly find that $\nu$ will not be an integer for $m>1$ noting that $q$ is relatively prime to $q^m\mp 1$ and $q^m-1> 3^d(3^d+1)$.
+Therefore when $m=1$, these parameters are feasible with $\mu$-heavy parameters (and via $(iv)$, $\nu$-heavy parameters are infeasible). Using the same arguments as before, we can quickly find that $\nu$ will not be an integer for $m>1$ noting that $q$ is relatively prime to $q^m\mp 1$ and $q^m-1> 3^d(3^d+1)$.
 
 \subsection*{Family 17 (Ionin)}
 \[\begin{aligned}
 v&=3^d\left(\frac{q^{2m}-1}{2(3^d-1)}\right)\qquad k= 3^dq^{2m-1}\qquad\lambda = 23^d(3^d-1)q^{2m-2}\qquad s=3^dq^{m-1}\qquad q=3^{d+1}-2\\
 \nu&=\frac{3^dq^{2m-1}\left(3^dq^{2m-1}\pm 3^dq^{m-1}\right)}{3^d\left(\frac{q^{2m}-1}{2(3^d-1)}\right)}=\frac{3^dq^{3m-2}\left(q^m\pm 1\right)\left(2(3^d-1)\right)}{\left(q^{2m}-1\right)}=\frac{2q^{3m-2}3^d(3^d-1)}{\left(q^{m}\mp1\right)}\\
 \end{aligned}\]
-As before, consider the case when $m=1$ under $\nu$-heavy parameters,
+As before, we first consider the case when $m=1$ using $\nu$-heavy parameters,
 \[\begin{aligned}
 \nu&=\frac{2q^{3m-2}3^d(3^d-1)}{\left(q-1\right)}=\frac{2q^{3m-2}3^d(3^d-1)}{\left(3^{d+1}-3\right)}=2q^{3m-2}3^{d-1}.\\
 \end{aligned}\]
-Therefore these parameters are feasible when $m=1$. We again find that $m\geq 2$ will not permit $\nu$ to be an integer as $q^{3m-2}$ is relatively prime to $q^m\pm 1$ and $q^m-1>2\cdot3^d(3^d-1)$.
+Therefore when $m=1$, these parameters are feasible with $\nu$-heavy parameters (and via $(iv)$, $\mu$-heavy parameters are infeasible). We again find that $m>1$ will not permit $\nu$ to be an integer as $q^{3m-2}$ is relatively prime to $q^m\pm 1$ and $q^m-1>2\cdot3^d(3^d-1)$.
 
 
 
@@ -1339,7 +1350,7 @@ Therefore these parameters are feasible when $m=1$. We again find that $m\geq 2$
 v&=2^{2d+3}\left(\frac{q^{2m}-1}{q+1}\right)\qquad k= 2^{2d+1}q^{2m-1}\qquad \lambda = 2^{2d-1}(q+1)q^{2m-2}\qquad s=2^{2d+1}q^{m-1}\qquad q=\frac{1}{3}\left(2^{2d+3}+1\right)\\
 \nu&=\frac{2^{2d+1}q^{2m-1}\left(2^{2d+1}q^{2m-1}\pm 2^{2d+1}q^{m-1}\right)}{2^{2d+3}\left(\frac{q^{2m}-1}{q+1}\right)}=\frac{(q+1)2^{2d-1}q^{3m-2}}{\left(q^{m}\mp1\right)}\\
 \end{aligned}\]
-If $m=1$ and we take $\mu$-heavy parameters, then $\nu = 2^{2d-1}q^{3m-2}$. As before, $\nu$ is non integral when $m>1$ noting that $q^{3m-2}$ is relatively prime to $q^m\mp 1$ and $q^m-1>(q+1)2^{2d-1}$. 
+First consider $m=1$ using $\mu$-heavy parameters, then $\nu = 2^{2d-1}q^{3m-2}$. Due to $(iv)$ we see that $\nu$-heavy parameters will not be feasible. Further, $\nu$ is non integral when $m>1$ noting that $q^{3m-2}$ is relatively prime to $q^m\mp 1$ and $q^m-1>(q+1)2^{2d-1}$. 
 
 
 \subsection*{Family 19 (Ionin)}
@@ -1347,14 +1358,14 @@ If $m=1$ and we take $\mu$-heavy parameters, then $\nu = 2^{2d-1}q^{3m-2}$. As b
 v&=2^{2d+3}\left(\frac{q^{2m}-1}{3q-3}\right)\qquad k = 2^{2d+1}q^{2m-1} \qquad \lambda = 3*2^{2d-1}(q-1)q^{2m-2}\qquad s = 2^{2d+1}q^{m-1}\qquad q=2^{2d+3}-3\\
 \nu&=\frac{2^{2d+1}q^{2m-1}\left(2^{2d+1}q^{2m-1}\pm 2^{2d+1}q^{m-1}\right)}{2^{2d+3}\left(\frac{q^{2m}-1}{3q-3}\right)}=\frac{2^{2d-1}q^{3m-2}3(q-1)}{\left(q^m\mp1\right)}\\
 \end{aligned}\]
-If $m=1$ and we take $\nu$-heavy parameters then $\nu = 2^{2d-1}3q$. As before, $\nu$ is non integral when $m>1$ noting that $q^{3m-2}$ is relatively prime to $q^m\mp 1$ and $q^m\mp1>3\cdot2^{2d-1}(q-1)$.
+If $m=1$ and we take $\nu$-heavy parameters then $\nu = 2^{2d-1}3q$. Due to $(iv)$ we see that $\nu$-heavy parameters will not be feasible. Further, $\nu$ is non integral when $m>1$ noting that $q^{3m-2}$ is relatively prime to $q^m\mp 1$ and $q^m\mp1>3\cdot2^{2d-1}(q-1)$.
 
 \subsection*{Family 20 (Ionin)}
 For this family we use the only known realization where $p=2$ and $q=2^d-1$ is a Mersenne prime.
 \[\begin{aligned}
 v&=1+2^{d+1}\frac{2^{dm}-1}{2^d+1}\qquad k=2^{2dm} \qquad \lambda = 2^{2dm-d-1}(2^{d}+1)\qquad n=2^{2dm-d-1}(2^d-1)\\
 \end{aligned}\]
-Our first restriction tells us that $n$ must be a square. However since $2$ does not divide $2^d+1$, we know that $2^d-1$ must be a square in order for $n$ to be a square giving us a contradiction.
+Our first restriction tells us that $n$ must be a square. However since $2$ does not divide $2^d-1$, we know that $2^d-1$ must be a square in order for $n$ to be a square giving us a contradiction. Thus any LSSD with these parameters will require $w=2$.
 \subsection*{Family 21 (Kharaghani and Ionin)}
 \[\begin{aligned}
 v&=4t^2\left(\frac{q^{m+1}-1}{q-1}\right)\qquad k=(2t^2-t)q^m\qquad \lambda = (t^2-t)q^m\qquad s=tq^{\frac{m}{2}}\qquad q=(2t-1)^2\\
@@ -1362,7 +1373,7 @@ v&=4t^2\left(\frac{q^{m+1}-1}{q-1}\right)\qquad k=(2t^2-t)q^m\qquad \lambda = (t
 &=\frac{(2t-1)^{3m+1}\left((2t-1)^{m+1}\pm 1\right)(q-1)}{4\left((2t-1)^{2m+2}-1\right)}\\
 &=\frac{(2t-1)^{3m+1}(q-1)}{4\left((2t-1)^{m+1}\mp1\right)}\\
 \end{aligned}\]
-First, since $(2t-1)$ is odd, we have that $(2t-1)^{3m+1}$ is relatively prime to $4((2t-1)^{m+1}\mp 1)$. However since $m\geq1$, $4((2t-1)^{m+1}\mp1) \geq 4(q-1)$ and thus $\nu$ is not integral. 
+First, since $(2t-1)$ is odd, we have that $(2t-1)^{3m+1}$ is relatively prime to $4((2t-1)^{m+1}\mp 1)$. However since $m\geq1$, $4((2t-1)^{m+1}\mp1) \geq 4(q-1)$ and thus $\nu$ is never integral. Thus any LSSD with these parameters will require $w=2$. 
 \subsection*{Summary}
 We have shown here that only Families 6, 7, 9, 13, and 14 will always satisfy our integrality conditions. Further, Families 12, 15, 16, 17, 18, and 19 satisfy our integrality conditions whenever $m=1$. Finally all remaining families will not allow for any LSSDs with $w>2$. 
 
