@@ -22,6 +22,7 @@
 \usepackage{scalefnt}
 \usepackage{setspace}
 \usepackage{comment}
+\usepackage{mathrsfs}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
@@ -73,7 +74,7 @@ We say $\Gamma$ is a \emph{linked system of symmetric designs}, $LSSD(v,k,\lambd
 	\end{cases}
 	\end{equation}
 \end{enumerate}
-where $\sim$ denotes adjacency in $\Gamma$ and $\Gamma(x)$ denotes the neighborhood of vertex $x$. Observe that $\Gamma$ is regular with valency $k(w-1)$. A specific type of LSSD introduced by \cite{DMP} called a \text{linking system of difference sets} is a LSSD where the symmetric design induced between any two fibers comes from a difference set. Recently Jedwab et.\ al.\ \cite{LDS} examined these in more detail, building new examples and proving non-existance results for certain parameters. However, Mathon \cite{Mathon} showed there exists three fiber LSSDs which do not come from difference sets and therefore these objects are not always equivalent to LSSDs. We will consider the general case, and therefore not assume this added structure on our symmetric designs.\newpar
+where $\sim$ denotes adjacency in $\Gamma$ and $\Gamma(x)$ denotes the neighborhood of vertex $x$. Observe that $\Gamma$ is regular with valency $k(w-1)$. A specific type of LSSD introduced by \cite{DMP} called a \text{linking system of difference sets} is a LSSD where the symmetric design induced between any two fibers comes from a difference set. Recently Jedwab et.\ al.\ \cite{LDS} examined these in more detail, building new examples and proving non-existence results for certain parameters. However, Mathon \cite{Mathon} showed there exist three fiber LSSDs which do not come from difference sets and therefore these objects are not always equivalent to LSSDs. We will consider the general case, and therefore do not assume this added structure on our symmetric designs.\newpar
 In \cite[Proposition 0]{Noda}, Noda shows that $\mu$ and $\nu$ must take one of two pairs of values given by:
 \begin{equation}
 	\nu = \frac{k(k\pm \sqrt{k-\lambda})}{v}, \qquad \mu = \nu\mp \sqrt{k-\lambda}. \label{mu-nu}
@@ -102,7 +103,7 @@ We further find that, given $v$, $k$, and $\lambda$, only one of the outcomes in
 \end{proof}
 \begin{remark}
 	\label{rmk1}
-	It is noteworthy that our assumption that the $LSSD$ exists can be replaced with the requirement that either of $\frac{k(k\pm s)}{v}$ is an integer for symmetric design parameters $(v,k,\lambda)$. Thus anytime we can show that either $\mu$-heavy or $\nu$-heavy parameters are integral, we know the opposite parameters cannot be integral as well. This will become useful in the appendix where we check the various known infinite families for feasibility.
+	It is noteworthy that our assumption that the $LSSD$ exists can be replaced with the requirement that either of $\frac{k(k\pm s)}{v}$ is an integer for symmetric design parameters $(v,k,\lambda)$. Thus any time we can show that either $\mu$-heavy or $\nu$-heavy parameters are integral, we know the opposite parameters cannot be integral as well. This will become useful in the appendix where we check the various known infinite families for feasibility.
 \end{remark}
 The case where $k=1$ or $k=v-1$ produces LSSDs which are not of interest to us and for the remainder of the paper, we will refer to these designs as degenerate. For a further description of why these designs are degenerate, see Section \ref{degenerate}. The observations that $\gcd(k,v)>1$ and $\gcd(s,v)>1$ are two tools which help us determine more easily which parameters might be feasible for a LSSD with $w>2$. There are many other statements similar to these we can find, but these two will be sufficient for now. Using these, we can immediately rule out many parameters, for instance:
 \begin{corollary}
@@ -124,16 +125,16 @@ Often it becomes useful to order the vertices in $X$ and then represent each $R_
 	\item $A_0 = I$;
 	\item $\sum_i A_i = J$;
 	\item for all $0\leq i\leq d$, $A_i^T = A_i$;
-	\item for all $0\leq i,j,k\leq d$, $A_iA_j = \sum p_{i,j}^k A_k$.
+	\item for all $0\leq i,j\leq d$, $A_iA_j = \sum p_{i,j}^k A_k$.
 \end{itemize}
 The final condition tells us that $\mathbb{A} = \text{span}\left\{A_0,A_1,\dots A_d\right\}$ forms a matrix algebra under standard matrix multiplication. As our matrices are 01-matrices with disjoint support, this \emph{Bose-Mesner algebra} is also closed under Schur (element-wise) products. Using our symmetric property, we note that $p_{i,j}^k = p_{j,i}^k$ telling us that $A_iA_j = A_jA_i$ and our matrices commute with each other. This allows us to simultaneously diagonalize our matrices to give us $d+1$ orthogonal eigenspaces with projection operators $E_0,\dots,E_d$. As both $\left\{A_0,\dots,A_d\right\}$ and $\left\{E_0,\dots,E_d\right\}$ form bases for the Bose-Mesner algebra, there exists unique matrices $P$ and $Q$ so that
 \begin{equation}
 \label{PQmat}
 	A_i = \sum_{j} P_{ji} E_j,\qquad E_j = \frac{1}{\vert X\vert} \sum_{i} Q_{ij}A_i.
 \end{equation}
-We call $P$ and $Q$ the first and second eigenmatrices, respectively and note here that $P_{0i}$ is the valency of relation $R_i$ and $Q_{0j}$ is the rank of $E_j$. Finally, as our matrix algebra is closed under Schur products, we find that there exist structure constants $q_{i,j}^k$ such that for all $0\leq i,j,k\leq d$:
+We call $P$ and $Q$ the first and second eigenmatrices, respectively and note here that $P_{0i}$ is the valency of relation $R_i$ and $Q_{0j}$ is the rank of $E_j$. Finally, as our matrix algebra is closed under Schur products, we find that there exist structure constants $q_{i,j}^k$ such that for all $0\leq i,j\leq d$:
 \[E_i\circ E_j = \frac{1}{\vert X\vert}\sum_k q_{i,j}^k E_k.\]
-We call these parameters the Krein parameters of the association scheme. A \textit{$Q$-polynomial} (\textit{cometric}) association scheme is one in which the set $\left\{E_0,E_1,\dots,E_d\right\}$ may be ordered so that $q^{k}_{i,j} = 0$ whenever $k>i+j$ or $k<\vert i- j\vert$ and $q^{k}_{i,j}>0$ whenever $k = i+j$. Finally, we say an association scheme with $Q-$polynomial ordering $E_0,\dots,E_d$ is \textit{$Q$-antipodal} if $q^{k}_{d,d} >0$ when $k = 0$ or $d$ but $q^{k}_{d,d} = 0$ otherwise. Given a $Q$-polynomial ordering $E_0,\dots,E_d$ we find it convenient to order relations so that $Q_{01}>Q_{11}>\dots>Q_{d1}$; we call this the natural ordering.
+We call these parameters the Krein parameters of the association scheme. A \textit{$Q$-polynomial} (\textit{cometric}) association scheme is one in which the set $\left\{E_0,E_1,\dots,E_d\right\}$ may be ordered so that $q^{k}_{i,j} = 0$ whenever $k>i+j$ or $k<\vert i- j\vert$ and $q^{k}_{i,j}>0$ whenever $k = i+j$. Finally, we say an association scheme with $Q-$polynomial ordering $E_0,\dots,E_d$ is \textit{$Q$-antipodal} if $q^{k}_{d,d} >0$ when $k = 0$ but $q^{k}_{d,d} = 0$ for $0<k<d$. Given a $Q$-polynomial ordering $E_0,\dots,E_d$ we find it convenient to order relations so that $Q_{01}>Q_{11}>\dots>Q_{d1}$; we call this the natural ordering.
 \begin{theorem}[Van Dam \cite{VanDam}]
 	\label{Qpoly}
   	Let $\Gamma$ be a non-degenerate LSSD with adjacency matrix $A$. Then the algebra $\langle A\rangle$ is the Bose-Mesner algebra of a 3-class Q-antipodal association scheme on $X$. Conversely, every $Q$-antipodal 3-class association scheme arises in this way. More specifically, the natural ordering of the relations of any $Q$-antipodal 3-class association scheme is as follows:
@@ -207,26 +208,26 @@ with equality if and only if a pair $(X_1,X_2\cup X_3\cup\dots\cup X_f)$ forms a
 \[(w-1)(2k-v)\leq(v-2)\sqrt{k-\lambda}.\]
 If we have that $2k>v$, then we arrive at the bound
 \begin{equation}\label{Noda}w \leq \frac{(v-2)\sqrt{k-\lambda}}{2k-v}+1.\end{equation}
-Since the condition becomes vacuous when $2k<v$, the bound only applies to optimistic LSSDs.
+Since the condition becomes vacuous when $2k<v$, the bound only applies when $(2k-v)(\mu-\nu)>0$.
 \subsubsection*{\sc Krein Conditions}
 In \cite{Mathon}, Mathon shows that the previous bound is equivalent to the requirement that $q_{1,1}^1\geq 0$. We have
 \[\begin{aligned}
 q_{1,1}^1 =\frac{(1-w)(2k-v)+(v-2)s}{ws}\geq 0,\qquad w\leq \frac{(v-2)s}{2k-v}+1
 \end{aligned}\]
-assuming $v<2k$. As before, the bound says nothing about pessimistic LSSDs.
+assuming $v<2k$. As before, the bound says nothing about LSSDs with $(2k-v)(\mu-\nu)<0$.
 \subsubsection*{\sc Absolute Bound}
 In \cite{MMW}, a bound is provided independent of the sign of $(2k-v)(\mu-\nu)$ relying only on the $Q$-polynomial structure (particularly that $q_{1,1}^3 = 0$ and $q_{1,1}^2 >0$). Let $m_i = \text{rank}(E_i)$. We know from our $Q$ matrix that $m_2 = (w-1)m_1$. Further,
 \[E_1\circ E_1 = q_{1,1}^0E_0 + q_{1,1}^1E_1+q_{1,1}^2E_2.\]
 Therefore $m_2+m_1 + 1\leq \frac{1}{2}m_1\left(m_1+1\right)$ if $q_{1,1}^1>0$ and $m_2+1\leq \frac{1}{2}m_1\left(m_1+1\right)$ otherwise (c.f. \cite{BCN} Thm. 2.3.3). First consider the case when $q_{1,1}^1>0$:
 \[\begin{aligned}
-(w-1)m &\leq \frac{m^2-m-2}{2},\\
-w&\leq \frac{m}{2}+\frac{1}{2}-\frac{2}{m}.
+(w-1)m_1 &\leq \frac{m_1^2-m_1-2}{2},\\
+w&\leq \frac{m_1}{2}+\frac{1}{2}-\frac{2}{m_1}.
 \end{aligned}\]
-Since $m = v-1$ is an integer, this gives $w \leq \frac{v-1}{2}$.\newpar
+Since $m_1 = v-1$ is an integer, this gives $w \leq \frac{v-1}{2}$.\newpar
 If instead we have that $q_{1,1}^1 = 0$ then we find $w\leq \frac{v+1}{2}$, so the absolute bound is never tight. But here, know our Krein condition is tight giving us
 \[w = \frac{(v-2)s}{2k-v}+1\]
 with $2k>v$ ($q_{1,1}^1 = 0$ is not possible unless $2k>v$ since $w\geq 2$). Further, our bound from the eigenspace structure gives
-\[w\leq \frac{m+2}{2} = \frac{v+1}{2}.\]
+\[w\leq \frac{m_1+2}{2} = \frac{v+1}{2}.\]
 Therefore we must have $\frac{(v-2)s}{2k-v}+1\leq \frac{v+1}{2}$ giving $2(v-2)s\leq(v-1)(2k-v)$ or $2s\leq (2k-v) + \frac{2s}{v-1}$. Since $2s<k<v-1$, this means that $2s\leq (2k-v)$. We can square both sides and preserve the inequality, giving:
 $4(k-\lambda)\leq 4k^2-4kv+v^2$. Using \eqref{sym:2} this gives
 \[\begin{aligned}
@@ -237,10 +238,10 @@ This means that whenever the Krein condition is tight ($q_{1,1}^1 = 0$), we must
 
 \section{Linked Simplices}
 \label{linked simplices}
-In this section, we will write $\left\{b_j\right\}$ for the set $\left\{b_1,\dots,b_v\right\}$ for both sets of points and sets of blocks. For our purposes a ``regular simplex" will be taken to be a set of $v$ unit vectors spanning $\mathbb{R}^{v-1}$ with the property that the inner product of any pair of distinct vectors is $\frac{-1}{v-1}$. Let $\mathcal{A} = \left\{a_i\right\}$ and $\mathcal{B} = \left\{b_j\right\}$ be two regular simplices in $\mathbb{R}^{v-1}$. We say $\mathcal{A}$ and $\mathcal{B}$ are \emph{linked} if there exist two real numbers $\gamma$ and $\delta$ such that for all $1\leq i,j\leq v$, $\left<a_i,b_j\right>\in \left\{\gamma,\delta\right\}$. (Note that, here, ``linked" always implies regular.) Extending this, given regular simplices $\mathcal{A}_1,\dots,\mathcal{A}_w$ in $\mathbb{R}^{v-1}$ we say $\left\{A_1,\dots,A_w\right\}$ is a \emph{set of $w$ linked simplices} if any two of them are linked with the same parameters $\gamma$ and $\delta$. The next few theorems establish an equivalence between these objects and LSSDs 
+In this section, we will write $\left\{b_j\right\}$ for the set $\left\{b_1,\dots,b_v\right\}$ for both sets of points and sets of blocks. For our purposes a ``regular simplex" will be taken to be a set of $v$ unit vectors spanning $\mathbb{R}^{v-1}$ with the property that the inner product of any pair of distinct vectors is $\frac{-1}{v-1}$. Let $\mathcal{A} = \left\{a_i\right\}$ and $\mathcal{B} = \left\{b_j\right\}$ be two regular simplices in $\mathbb{R}^{v-1}$. We say $\mathcal{A}$ and $\mathcal{B}$ are \emph{linked} if there exist two real numbers $\gamma$ and $\delta$ such that for all $1\leq i,j\leq v$, $\left<a_i,b_j\right>\in \left\{\gamma,\delta\right\}$. (Note that, here, ``linked" always implies regular.) Extending this, given regular simplices $\mathcal{A}_1,\dots,\mathcal{A}_w$ in $\mathbb{R}^{v-1}$ we say $\left\{A_1,\dots,A_w\right\}$ is a \emph{set of $w$ linked simplices} if any two of them are linked with the same parameters $\gamma$ and $\delta$. The next few theorems establish an equivalence between these objects and LSSDs. 
 \begin{theorem}
 \label{Association2Simplex}
-Consider a $LSSD(v,k,\lambda;w)$ with Bose-Mesner algebra $\mathbb{A}$. The first idempotent $E_1$ in a $Q$-pollynomial ordering of $\mathbb{A}$, appropriately scaled, is the Gram matrix of a set of $w$ linked simplices. In the case $w=2$, $E_2$ scaled similarly is also the Gram matrix of a second set of two linked simplices.
+Consider a $LSSD(v,k,\lambda;w)$ with Bose-Mesner algebra $\mathbb{A}$. The first idempotent $E_1$ in a $Q$-polynomial ordering of $\mathbb{A}$, appropriately scaled, is the Gram matrix of a set of $w$ linked simplices. In the case $w=2$, $E_2$ scaled similarly is also the Gram matrix of a second set of two linked simplices.
 \end{theorem}
 \begin{proof}
 Let $(X,\mathcal{R})$ be a $LSSD(v,k,\lambda;w)$ with Bose-Mesner algebra $\mathbb{A}$. Let $\left\{A_i\right\}$ and $\left\{E_j\right\}$ be the bases of Schur and matrix idempotents respectively. We have from \eqref{PQmat}
@@ -334,7 +335,7 @@ These match the previously determined entries of $E_1$ and $E_2$ corresponding t
 	\nu&= \frac{k(k\pm \sqrt{k-\lambda})}{v},\\
 	\mu&=\nu\mp\sqrt{k-\lambda}.
 	\end{aligned}\]
-	Since $\mu$ and $\nu$ are both cardinalities of sets, anytime we find non-integral values for $\mu$ and $\nu$ we can conclude that the hypothesized set of linked simplices does not exist.
+	Since $\mu$ and $\nu$ are both cardinalities of sets, any time we find non-integral values for $\mu$ and $\nu$ we can conclude that the hypothesized set of linked simplices does not exist.
 \end{proof}
 This brings us to the main theorem of this section (cf. \cite[Theorem~2.6(1)]{Suda}).
 \begin{theorem}
@@ -368,9 +369,9 @@ y_3 &= \frac{1}{vw}(x_0 -\frac{k}{\sqrt{k-\lambda}}x_1 - x_3).
 \end{aligned}\]
 
 \subsection{Equiangular Lines}
-This construction is a generalization of de Caen's construction \cite{deCaen} using the Cameron-Seidel scheme. Using the above idempotents, we wish to make a positive semi-definite matrix with low rank with constant diagonal and only one possible magnitude of the main diagonal. Since the rank of our matrix is the sum of the multiplicities of the idempotents we use, we avoid using $E_2$ in order to reduce the rank. Therefore consider the matrix
+This construction is a generalization of de Caen's construction \cite{deCaen} using the Cameron-Seidel scheme. Using the above idempotents, we wish to make a positive semidefinite matrix with low rank with constant diagonal and only one possible magnitude of the main diagonal. Since the rank of our matrix is the sum of the multiplicities of the idempotents we use, we avoid using $E_2$ in order to reduce the rank. Therefore consider the matrix
 \[G = vw(\alpha E_0 + \beta E_1 + \gamma E_3).\]
-This matrix will be a $vw\times vw$ matrix with rank $v+w-1$. In order to get equiangular lines, we must have a constant positive value $c$ such that
+This is a $vw\times vw$ matrix with rank $v+w-1$. In order to get equiangular lines, we must have a constant positive value $c$ such that
 \[\begin{aligned}
 \Big| \alpha + \beta\left(\frac{v-k}{\sqrt{k-\lambda}}\right) - \gamma\Big| =\Big| \alpha - \beta +(w-1)\gamma\Big| =\Big| \alpha - \beta\left(\frac{k}{\sqrt{k-\lambda}}\right) - \gamma\Big| = c.
 \end{aligned}\]
@@ -378,7 +379,7 @@ Since $\alpha$, $\beta$, and $\gamma$ must all be positive, we note that $\alpha
 \[c=\alpha+\beta\left(\frac{v-k}{\sqrt{k-\lambda}}\right) - \gamma = -\left[\alpha-\beta\left(\frac{k}{\sqrt{k-\lambda}}\right) - \gamma\right] .\]
 This tells us that
 \[\beta = \frac{2c\sqrt{k-\lambda}}{v}\qquad \text{and}\qquad \alpha - \gamma = c\left(\frac{2k-v}{v}\right).\]
-Here we have one final choice (the sign of $\alpha-\beta+(w-1)\gamma$). Plugging in our value for $\beta$, we find that 
+Here we have one final choice (the sign of $\alpha-\beta+(w-1)\gamma$). Substituting in our value for $\beta$, we find that 
 \[\alpha+(w-1)\gamma = c\left(\frac{2\sqrt{k-\lambda}\pm v}{v}\right).\]
 However, since we must have $2\sqrt{k-\lambda}<v$, we know that choosing the minus on the right hand side would make the entire side negative. However $\alpha$, $\gamma$, and $(w-1)$ are all positive and therefore this is not possible. Therefore we must use the $+$, giving
 \[\gamma=2c\left(\frac{v-k + \sqrt{k-\lambda}}{vw}\right),\qquad
@@ -394,7 +395,7 @@ Scaling by $vw$ for convenience, this gives us the final values:
  \end{aligned}\]
  with inner product $\frac{1}{2\sqrt{k-\lambda} -1}$. As we require $\alpha\geq 0$ for this construction to give a p.s.d. matrix, we need $w<\frac{2(k+s)}{v-2k}+2$ in the pessimistic LSSD case (no such restriction occurs for the optimistic case). Therefore we have the following generalization of de Caen's construction:
  \begin{theorem}
- 	Let $\mathcal{L}$ be the association scheme arising from a $LSSD(v,k,\lambda;w)$. If either $\mathcal{L}$ is optimistic, or $w\leq2+\frac{2(k+s)}{v-2k}$ then we can build a set of $vt$ lines in $\mathbb{R}^{v+t-1}$ for any $1\leq t\leq w$. In the pessimistic case with $w> 2+\frac{2(k+s)}{v-2k}$, we can achieve the construction for any $t$ less than or equal to this bound.\qed
+ 	Let $\mathcal{L}$ be the association scheme arising from a $LSSD(v,k,\lambda;w)$. If either $\mathcal{L}$ is optimistic, or $w\leq2+\frac{2(k+s)}{v-2k}$ then we can build a set of $vt$ lines in $\mathbb{R}^{v+t-1}$ for any $1\leq t\leq w$. In the pessimistic case with $w> 2+\frac{2(k+s)}{v-2k}$, we can achieve the construction for any $t\leq 2+\frac{2(k+s)}{v-2k}$.\qed
  \end{theorem}
 \subsection{Real Mutually Unbiased Bases}
 \label{bases}
@@ -407,7 +408,7 @@ Of particular interest is the case when $\vert \beta_1\vert = \vert\beta_2\vert;
 \section{Two Families}
 \subsection{Degenerate case}
 \label{degenerate}
-We first examine the case when the $Q$-polynomial structure fails as discussed in the proof of Theorem $\ref{Qpoly}$. Arguably the most interesting property of this scheme is that there are no bounds on $w$. In fact, for any choice of $v,w>0$, we can build a LSSD with $w$ fibers by imposing an ordering on the vertices in each fiber and connecting vertices with the same values, giving us a $\mu$-heavy LSSD with the complement giving us the $\nu$-heavy LSSD. Below is a representation of the complementary pairs LSSD(4,1,0;3) and LSSD(4,3,2;3).
+We first examine the case when the $Q$-polynomial structure fails as seen in the discussion of Theorem $\ref{Qpoly}$. Arguably the most interesting property of this scheme is that there are no bounds on $w$. In fact, for any choice of $v,w>0$, we can build a LSSD with $w$ fibers by building a set of cliques, each of size $w$, where each clique contains a single vertex from each fiber. This gives a $\mu$-heavy LSSD with the complement giving us the $\nu$-heavy LSSD. Below is a representation of the complementary pairs LSSD(4,1,0;3) and LSSD(4,3,2;3).
 \[\begin{tikzpicture}[scale = .6,node distance=3cm,
 thin,main node/.style={circle,fill=black,scale = .5}]
 \node at (0,5) {$\mu$-heavy LSSD};
@@ -505,10 +506,10 @@ In this case the $\mu$-heavy LSSD has parameters $(v,1,0)$, so we find that $s =
   \end{array}\right].\]
 This means that our first idempotent is given by:
 \[E_1 = (v-1)I+(v-1)A_1-A_2-A_3 = (vI-J)\otimes J.\]
-If we scale this appropriately to reach a Gram matrix, we find that $E_1$ corresponds to $w$ copies of the same simplex in $\mathbb{R}^v$. This can be seen as well from the fact that $Q_{01} = Q_{11}$ meaning that any simplex vector has inner product 1 with exactly one vector from each of the ``other" simplices, meaning the simplices are just copies of the same simplex. This explains why $w$ is unbounded as we can always copy the same simplex as many times as we would like. This also indicates why this example is not of interest to us as it is not giving $w$ distinct linked simplices.
+If we scale this appropriately to obtain a Gram matrix of unit vectors, we find that $E_1$ is the Gram matrix of $w$ copies of the same simplex in $\mathbb{R}^v$. This can be seen as well from the fact that $Q_{01} = Q_{11}$ meaning that any simplex vector has inner product 1 with exactly one vector from each of the ``other" simplices, meaning the simplices are just copies of the same simplex. This explains why $w$ is unbounded as we can always copy the same simplex as many times as we would like. This also indicates why this example is not of interest to us as it is not giving $w$ distinct linked simplices.
 \subsection{Cameron-Seidel Scheme}
 \label{kerdock}
-This construction is given originally by Goethals (\cite{GOETHALS197643}) in terms of Kerdock codes. A generalization of this concept is found in \cite{Bey}, where Bey and Kyureghyan frame the properties of Kerdock sets in terms of bent functions rather than quadratic forms. While this generalization gives the same parameter sets as the original construction, it shows that there are many non-isomorphic constructions using various different realizations of Kerdock sets. Let $Q_1,Q_2,\dots,Q_w$ be a set of $w$ quadratic forms on $\mathbb{Z}_2^n$ for which $Q_i+Q_j$ is a full rank quadratic form whenever $i\neq j$. Let $\mathcal{Q}_1,\mathcal{Q}_2,\dots,\mathcal{Q}_w$ be cosets of the Reed Muller code as defined above. For each $1\leq i\leq w$, define a set of vectors $V_i$ via
+This construction is given originally by Goethals (\cite{GOETHALS197643}) in terms of Kerdock codes. A generalization of this concept is found in \cite{Bey}, where Bey and Kyureghyan frame the properties of Kerdock sets in terms of bent functions rather than quadratic forms. While this generalization gives the same parameter sets as the original construction, it shows that there are many non-isomorphic constructions using various different realizations of Kerdock sets. Let $Q_1,Q_2,\dots,Q_w$ be a set of $w$ quadratic forms on $\mathbb{Z}_2^n$ for which $Q_i+Q_j$ is a full rank quadratic form whenever $i\neq j$. Let cosets $\mathcal{Q}_1,\mathcal{Q}_2,\dots,\mathcal{Q}_w$ be cosets, $\mathcal{Q}_i = Q_i+\mathscr{R}(1,n)$, of the first order Reed Muller code (see \cite[Section 4.5]{vanLint}). For each $1\leq i\leq w$, define a set of vectors $V_i$ via
 \[V_i = \left\{[q(1),q(2),\dots,q(2^n-1)]\quad\vert\quad q(2^n) = 0\right\}_{q\in\mathcal{Q}_i}.\]
 Since $\mathcal{Q}_i$ is closed under complements, we know that $\vert V_i\vert = \frac{1}{2}\vert\mathcal{Q}_i\vert = 2^{n}$. Further, any pair of vectors $v,w\in\bigcup_iV_i$ come from vectors $q_v,q_w\in\bigcup_i\mathcal{Q}_i$ with last entry $0$, so $wt(v\oplus w) = wt(q_v\oplus q_w)$. Finally, for each $i$ construct the vector set
 \[X_i = \left\{\frac{1}{\sqrt{2^n-1}}\left(2v-\mathbbm{1}\right)\vert v\in V_i\right\}.\]
@@ -583,8 +584,8 @@ We can form the characteristic vectors $[Q_i(v)]_v$. Below we display $[Q_2(v)]_
 [Q_2(v)]_v &= \left[\begin{array}{cccccccccccccccc}0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 0\end{array}\right],\\
 [Q_8(v)]_v &= \left[\begin{array}{cccccccccccccccc}0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 1 & 0\end{array}\right].\\
 \end{aligned}\]
-Given the characteristic vectors, we can find the cosets of $RM(1,4)$. The coset corresponding to $Q_2(v)$ is given below as the set of rows of the matrix. To improve readability, $+$ denotes a $1$, $-$ denotes a $-1$ and an empty space denotes a $0$.
-\[[Q_2(v)]_v+RM(1,4) =\setlength{\arraycolsep}{.8pt}\scalefont{.4}{\left[\begin{array}{cccccccccccccccc}
+Given the characteristic vectors, we can find the cosets of $\mathscr{R}(1,4)$. The coset corresponding to $Q_2(v)$ is given below as the set of rows of the matrix. To improve readability, $+$ denotes a $1$, $-$ denotes a $-1$ and an empty space denotes a $0$.
+\[[Q_2(v)]_v+\mathscr{R}(1,4) =\setlength{\arraycolsep}{.8pt}\scalefont{.4}{\left[\begin{array}{cccccccccccccccc}
  &  &  & + &  &  &  & + &  &  &  & + & + & + & + & \\
 + & + & + &  & + & + & + &  & + & + & + &  &  &  &  & +\\
  & + &  &  &  & + &  &  &  & + &  &  & + &  & + & +\\
@@ -736,7 +737,7 @@ Therefore $\nu$ (and $\mu$) are integral if and only if $u$ is even, resulting i
 \end{proof}
 The upper bound for $w$ is achieved whenever $u$ is a power of two using the Cameron-Seidel scheme. In light of this family and the requirement that $w=2$ whenever $v/4$ is odd, one might ask if $w$ is bounded as a function of the highest power of $2$ dividing $v$. We will show later that this is not true by constructing examples with $w$ as large as we like and $v/16$ odd.
 \subsection{Hadamard Matrix Equivalence}
-In this section, we establish an equivalence between these LSSDs with sets of regular unbiased Hadamard matrices (see \cite{Kharaghani} for more detailed information on unbiased Hadamard matrices). Van Dam et.\ al.\ \cite[p.~1423]{DMM} briefly mention this connection citing constructions of unbiased regular Hadamard matrices by Holzmann, Kharaghani, and Orrick \cite{Kharaghani} using mutually orthogonal latin squares. In this paper we describe the connection between unbiased regular Hadamard matrices and LSSDs in full using Theorem \ref{twoside}. A real Hadamard matrix of order $v$ is a $v\times v$ matrix $H$ with entries $\pm 1$ such that $HH^T = vI$. $H$ is a \textit{regular Hadamard matrix} if $HJ = cJ$ for some constant $c$. Two Hadamard matrices $H_1$ and $H_2$ are \textit{unbiased} if $\frac{1}{v}H_1H_2^T$ is itself a Hadamard matrix. Finally, a set of Hadamard matrix matrices are unbiased if each pair is unbiased. Using these definitions, consider the following:
+In this section, we establish an equivalence between LSSDs with parameters as in Theorem \ref{MubLssdrestrictions} with sets of regular unbiased Hadamard matrices (see \cite{Kharaghani} for more detailed information on unbiased Hadamard matrices). Van Dam et.\ al.\ \cite[p.~1423]{DMM} briefly mention this connection citing constructions of unbiased regular Hadamard matrices by Holzmann, Kharaghani, and Orrick \cite{Kharaghani} using mutually orthogonal latin squares. In this paper we describe the connection between unbiased regular Hadamard matrices and LSSDs in full using Theorem \ref{twoside}. A real Hadamard matrix of order $v$ is a $v\times v$ matrix $H$ with entries $\pm 1$ such that $HH^T = vI$. $H$ is a \textit{regular Hadamard matrix} if $HJ = cJ$ for some constant $c$. Two Hadamard matrices $H_1$ and $H_2$ are \textit{unbiased} if $\frac{1}{v}H_1H_2^T$ is itself a Hadamard matrix. Finally, a set of Hadamard matrix matrices are unbiased if each pair is unbiased. Using these definitions, consider the following:
 \begin{theorem}
 	\label{LSSDtoHad}
 	Let $\Gamma$ be an optimistic $LSSD(v,k,\lambda;w)$. If $\vert v-2k\vert = -2\sqrt{k-\lambda}$, then there exists a set of $w-1$ real unbiased regular Hadamard matrices.
@@ -746,7 +747,7 @@ In this section, we establish an equivalence between these LSSDs with sets of re
 	$\left[\begin{array}{ccccc}
 	I & M_2 & M_3 & \dots & M_{w}\\
 	\end{array}\right].$
-	However from \eqref{MubGram}, we have that the positive (resp., negative) entries of $M_i$ represent adjacency between vertices in the first and $i^\text{th}$ fibers of the $\mu$-heavy (resp., $\nu$-heavy) LSSD. Therefore each $M_i$ must have $k$ positive entries and $v-k$ negative entries giving that $H_i$ must be regular. Now define $\binom{w}{2}$ matrices $M_{i,j}$ where $M_{i,j}$ is the unitary matrix representing Basis $j$ when Basis $i$ is taken to be the standard basis (so $M_{1,j} = M_j$). Then we repeat all previous arguments to show that $G$ has the block form:
+	However from \eqref{MubGram}, we have that the positive (resp., negative) entries of $M_i$ represent adjacency between vertices in the first and $i^\text{th}$ fibers of the $\mu$-heavy (resp., $\nu$-heavy) LSSD. Therefore each $M_i$ must have $k$ positive entries and $v-k$ negative entries giving that $H_i$ must be regular. Now define $\binom{w}{2}$ matrices $M_{i,j}$ where $M_{i,j}$ is the unitary matrix representing basis $j$ when basis $i$ is taken to be the standard basis (so $M_{1,j} = M_j$). Then we repeat all previous arguments to show that $G$ has the block form:
 	\[G = \left[\begin{array}{ccccccc}
 	I & M_{1,2} & \dots & M_{1,w}\\
 	M_{2,1} & I & \dots & M_{2,w}\\
@@ -1129,6 +1130,11 @@ The author is grateful to Padraig \'{O} Cath\'{a}in and Bill Kantor for helpful 
 	\newblock {Linking Systems of Difference Sets}.
 	\newblock {\em ArXiv e-print https://arxiv.org/abs/1708.04405}, Aug. 2017.
 	
+	\bibitem{vanLint}
+	J.~H.~{\swap{Lint}{van }}.
+	\newblock Introduction to Coding Theory.
+	\newblock {\em Springer-Verlag}, 1998.
+	
 	\bibitem{Macneish}
 	H.~F. MacNeish.
 	\newblock Euler Squares.
@@ -1177,25 +1183,25 @@ The Handbook of Combinatorial Designs gives us a list of 21 distinct families of
 	\item (Lemma \ref{gcd}$(iii)$) $\gcd(v,s)>1$;
 	\item (Remark \ref{rmk1}) At most one of $\frac{k(k\pm s)}{v}$ is integral.
 \end{enumerate}
-Our results show that Families 6, 7, 9, 12, 13, and 14 are feasible. Further, Families 15-19 are feasible in specific cases ($m=1$) but will not be feasible in general. It should be noted that this does not mean that we can find LSSDs in each of these families with $w>2$, instead this means that we cannot disprove the existence of such LSSDs using only our integrality conditions. In fact, two of the families (McFarland/Wallis and Spence) were ruled out by Jedwab et.\ al.\ (\cite{LDS}) in the case where the symmetric designs come from certain known constructions of difference sets. It is still open whether these families can produce LSSDs which are not isomorphic to linking systems of difference sets.
+Our results show that Families 6, 7, 9, 12, 13, and 14 are feasible. Further, Families 15-19 are feasible in specific cases ($m=1$) but will not be feasible in general. It should be noted that this does not mean that we can find LSSDs in each of these families with $w>2$, instead this means that we cannot disprove the existence of such LSSDs using only our integrality conditions. In fact, two of the families (McFarland/Wallis and Spence) were ruled out by Jedwab et.\ al.\ (\cite{LDS}) in the case where the symmetric designs come from certain known constructions of difference sets. It is still open whether these families can produce LSSDs which do not arise from linking systems of difference sets.
 \subsection*{Family 1 (Point-hyperplane Designs)}
 \[\begin{aligned}
 v &= q^m+\dots+1 \qquad
 k = q^{m-1}+\dots+1\qquad
 \lambda = q^{m-2}+\dots+1\qquad n= q^{m-1}\qquad s=q^{\frac{m-1}{2}}\end{aligned}\]
-Since $s$ is a power of $q$, we know that $\gcd(s,v) = 1$. Therefore via $(iii)$, any LSSD with these parameters will have $w=2$.
+Since $s$ is a power of $q$, we know that $\gcd(s,v) = 1$. Therefore via (iii), any LSSD with these parameters will have $w=2$.
 \subsection*{Family 2 (Hadamard matrix designs)}
 \[\begin{aligned}
 v &= 4n-1 \qquad k= 2n-1 \qquad \lambda = n-1\qquad s = \sqrt{n}\\
 \end{aligned}\]
-Since $s$ divides $v+1$, we know that $\gcd(s,v) = 1$. Therefore via $(iii)$, any LSSD with these parameters will have $w=2$.
+Since $s$ divides $v+1$, we know that $\gcd(s,v) = 1$. Therefore via (iii), any LSSD with these parameters will have $w=2$.
 
 \subsection*{Family 3 (Chowla)}
 \[\begin{aligned}
 v&=4t^2+1 \qquad k=t^2 \qquad \lambda = \frac{1}{4}(t^2-1)
 \qquad s=\frac{1}{2}\sqrt{3t^2+1}
 \end{aligned}\]
-Chowla designs require that $v$ is prime, therefore any LSSD with these parameters will have $w=2$ due to $(i)$.
+Chowla designs require that $v$ is prime, therefore any LSSD with these parameters will have $w=2$ due to (i).
 
 \subsection*{Family 4 (Lehmer)}
 \begin{enumerate}[(a)]
@@ -1212,14 +1218,14 @@ Chowla designs require that $v$ is prime, therefore any LSSD with these paramete
   \[\begin{aligned}
   v&=8t^2+49 = 64u^2+441\qquad k=t^2+6\qquad \lambda = u^2+7\qquad  n=t^2-u^2-1\\
   \end{aligned}\]
-  All three of the Lehmer designs require $v$ to be prime, therefore any $LSSD$ with these parameters will have $w=2$ due to $(i)$.
+  All three of the Lehmer designs require $v$ to be prime, therefore any LSSD with these parameters will have $w=2$ due to (i).
 \end{enumerate}
 
 \subsection*{Family 5 (Whiteman)}
 \[\begin{aligned}
 v&=pq \qquad k=\frac{1}{4}(pq-1) \qquad \lambda = \frac{1}{16}(pq-5)\qquad s=\frac{1}{4}(3p+1)
 \end{aligned}\]
-where $p$ and $q = 3p+2$ are both prime. Since $\gcd(s,v) >1$ we must have $s = p$ or $s=q$. However $s=q$ implies that $p$ is negative while $s=p$ implies that $p=1$ and $q=5$. As this case gives the parameters $(5,1,0)$, only the degenerate case is possible. Therefore Whiteman parameters will only give non-degenerate $LSSD$s with $w=2$.
+where $p$ and $q = 3p+2$ are both prime. Since $\gcd(s,v) >1$ we must have $s = p$ or $s=q$. However $s=q$ implies that $p$ is negative while $s=p$ implies that $p=1$ and $q=5$. As this case gives the parameters $(5,1,0)$, only the degenerate case is possible. Therefore any non-degenerate LSSD using Whiteman parameters will require $w=2$.
 
 \subsection*{Family 6 (Menon)}
 \[\begin{aligned}
@@ -1238,14 +1244,14 @@ Consider first the case of $\nu$-heavy parameters,
 \[\begin{aligned}
 \nu&=\frac{q^m(q^m+\dots+q+1)(q^m(q^m+\dots+q+2))}{q^{m+1}(q^m+\dots+q+2)}=q^{m-1}(q^m+\dots+q+1).
 \end{aligned}\]
-As this is always an integer, we note using $(iv)$ that $\mu$-heavy parameters will never be feasible.
+As this is always an integer, we note using (iv) that $\mu$-heavy parameters will never be feasible.
 
 
 \subsection*{Family 8 (Wilson; Shrikhande and Singhi)}
 \[\begin{aligned}
 v&= m^3+m+1 \qquad k=m^2+1\qquad \lambda = m\qquad n=m^2-m+1\\
 \end{aligned}\]
-Note that $v = mk+1$. Therefore $\gcd(k,v) = 1$ and, from $(ii)$, any $LSSD$ using these parameters will have $w=2$.
+Note that $v = mk+1$. Therefore $\gcd(k,v) = 1$ and, from (ii), any LSSD using these parameters will have $w=2$.
 
 \subsection*{Family 9 (Spence)}
 \[\begin{aligned}
@@ -1257,17 +1263,17 @@ First consider $\mu$-heavy parameters,
 \[\begin{aligned}
 \nu&=\frac{(3^m+1)\left(\frac{1}{2}3^{m-1}(3^m-1)\right)}{3(3^m-1)}=3^{m-2}\left(\frac{3^m+1}{2}\right)
 \end{aligned}\]
-As this is always an integer, we note using $(iv)$ that $\nu$-heavy parameters will never be feasible.
+As this is always an integer, we note using (iv) that $\nu$-heavy parameters will never be feasible.
 \subsection*{Family 10 (Rajkundlia and Mitchell; Ionin)}
 \[\begin{aligned}
 v&=1+qr\left(\frac{r^m-1}{r-1}\right)\qquad k=r^m\qquad \lambda = r^{m-1}\left(\frac{r-1}{q}\right)\qquad r=\frac{q^d-1}{q-1}
 \end{aligned}\]
-Since $r$ divides $v-1$ and $k$ is a power of $r$, we know that $\gcd(v,k) = 1$. Therefore any $LSSD$ using these parameters will require $w=2$.
+Since $r$ divides $v-1$ and $k$ is a power of $r$, we know that $\gcd(v,k) = 1$. Therefore, by (ii), any LSSD using these parameters will require $w=2$.
 \subsection*{Family 11 (Wilson; Brouwer)}
 \[\begin{aligned}
 v&= 2(q^m+\dots + q)+1\qquad k=q^m\qquad \lambda=\frac{1}{2}q^{m-1}(q-1)\qquad n=\frac{1}{2}q^{m-1}(q+1)\\
 \end{aligned}\]
-Since $q$ divides $v-1$ and $k$ is a power of $q$, we must have that $\gcd(k,v) = 1$. Therefore any $LSSD$ using these parameters will require $w=2$.
+Since $q$ divides $v-1$ and $k$ is a power of $q$, we must have that $\gcd(k,v) = 1$. Therefore, by (ii), any LSSD using these parameters will require $w=2$.
 \subsection*{Family 12 (Spence, Jungnickel and Pott, Ionin)}
 \[\begin{aligned}
 v&=q^{d+1}\left(\frac{r^{2m}-1}{r-1}\right)\qquad k=r^{2m-1}q^d\qquad\lambda = (r-1)r^{2m-2}q^{d-1}\qquad s=r^{m-1}q^d\qquad r=\frac{q^{d+1}-1}{q-1}\\
@@ -1277,7 +1283,7 @@ First consider when $m=1$,
 \[\begin{aligned}
 v&=q^{d+1}\left(q^d+\dots+q+2\right)\qquad k=q^d(q^d+\dots+1)\qquad\lambda=q^{d}\left(q^{d-1}+\dots+q+1\right)\qquad s=q^d
 \end{aligned}\]
-Giving us the same parameters as McFarland parameters (Family 7). While these constructions may be distinct, our conditions only depend on the parameters and thus these will work for $\nu$-heavy designs when $m=1$. If $m> 1$ however, $r^{3m-2}$ is relatively prime with the denominator, so we must have $(r^{2m-1}+\dots+1)\vert q^{d-1}\left(r^m\pm 1\right)$. Since $r = \frac{q^{d+1}-1}{q-1} = q^{d}+\dots+1$, we have that $q^{d-1}<r$. Therefore $q^{d-1}\left(r^m\pm 1\right)<r^{m+1}\pm r<r^{2m-1}\dots+1$ and thus any $LSSD$ using these parameters with $m> 1$ will require $w=2$.
+Giving us the same parameters as McFarland parameters (Family 7). While these constructions may be distinct, our conditions only depend on the parameters and thus these will work for $\nu$-heavy designs when $m=1$. If $m> 1$ however, $r^{3m-2}$ is relatively prime with the denominator, so we must have $(r^{2m-1}+\dots+1)\vert q^{d-1}\left(r^m\pm 1\right)$. Since $r = \frac{q^{d+1}-1}{q-1} = q^{d}+\dots+1$, we have that $q^{d-1}<r$. Therefore $q^{d-1}\left(r^m\pm 1\right)<r^{m+1}\pm r<r^{2m-1}\dots+1$ and thus any LSSD using these parameters with $m> 1$ will require $w=2$.
 
 \subsection*{Family 13 (Davis and Jedwab)}
 \[\begin{aligned}
@@ -1289,7 +1295,7 @@ First consider $\mu$-heavy parameters,
 \[\begin{aligned}
 \nu&=\frac{\left(2^{2d+3}+1\right)\left(2^{2d+3}-2\right)2^{2d-2}}{3\left(2^{2d+2}-1\right)}=\frac{\left(2^{2d+3}+1\right)2^{2d-1}}{3}.
 \end{aligned}\]
-As $2^n + 1$ is divisible by 3 anytime $n$ is odd, this will always be an integer. Therefore, using $(iv)$, $\nu$-heavy parameters will never be feasible.
+As $2^n + 1$ is divisible by 3 any time $n$ is odd, this will always be an integer. Therefore, using (iv), $\nu$-heavy parameters will never be feasible.
 
 \subsection*{Family 14 (Chen)}
 \[\begin{aligned}
@@ -1300,7 +1306,7 @@ First consider $\mu$-heavy parameters,
 \[\begin{aligned}
 \nu&=\frac{\left(1+2\left(\frac{q^{2d}-1}{q+1}\right)\right)\left(2q^{2d-1}\left(\frac{q^{2d}-1}{q+1}\right)\right)}{4q\left(\frac{q^{2d}-1}{q^2-1}\right)}=\frac{q^{2d-2}(q-1)\left(1+2\left(\frac{q^{2d}-1}{q+1}\right)\right)}{2}\\
 \end{aligned}\]
-Since $2$ will always divide either $q^{2d-2}$ or $q-1$, we have that $\nu$ is integral under $\mu$-heavy parameters. Then from $(iv)$, $\nu$-heavy parameters will never be feasible.
+Since $2$ will always divide either $q^{2d-2}$ or $q-1$, we have that $\nu$ is integral under $\mu$-heavy parameters. Then from (iv), $\nu$-heavy parameters will never be feasible.
 
 \subsection*{Family 15 (Ionin)}
 \[\begin{aligned}
@@ -1316,7 +1322,7 @@ First considering $\mu$-heavy parameters,
 \[\begin{aligned}
 \nu&=\frac{(q-1)(q^d+1)q^dr}{(r+1)}=\frac{(q-1)(q^d+1)q^dr}{q(q^d+1)}=(q-1)q^{d-1}r
 \end{aligned}\]
-Therefore these parameters are feasible using $\mu$-heavy parameters when $m=1$ (and via $(iv)$, $\nu$-heavy parameters are infeasible). Now consider when $m> 2$. In this case, note that $r^{3m-2}$ is relatively prime to $r^m\mp 1$. Therefore if $\nu$ is integral, then $r^m\mp 1$ must divide $q^d(q-1)(q^d+1)$. However, since $q\geq 2$ we know that $r = q(q^d+1)-1>q^d+1$ and $r = q^{d+1}+q-1>q^{d+1}-q^d$. Therefore $r^m\geq r^2 > q^d(q-1)(q^d+1)$ meaning that it is not possible for $r^m$ to divide the latter. Therefore $\nu$ will never be integral when $m>1$.
+Therefore these parameters are feasible using $\mu$-heavy parameters when $m=1$ (and via (iv), $\nu$-heavy parameters are infeasible). Now consider when $m> 2$. In this case, note that $r^{3m-2}$ is relatively prime to $r^m\mp 1$. Therefore if $\nu$ is integral, then $r^m\mp 1$ must divide $q^d(q-1)(q^d+1)$. However, since $q\geq 2$ we know that $r = q(q^d+1)-1>q^d+1$ and $r = q^{d+1}+q-1>q^{d+1}-q^d$. Therefore $r^m\geq r^2 > q^d(q-1)(q^d+1)$ meaning that it is not possible for $r^m$ to divide the latter. Therefore $\nu$ will never be integral when $m>1$.
 
 
 \subsection*{Family 16 (Ionin)}
@@ -1331,7 +1337,7 @@ We first consider $\mu$ heavy parameters,
 \[\begin{aligned}
 \nu&=\frac{3^d(3^d+1)q}{3^{d+1}+3}=3^{d-1}q\\
 \end{aligned}\]
-Therefore when $m=1$, these parameters are feasible with $\mu$-heavy parameters (and via $(iv)$, $\nu$-heavy parameters are infeasible). Using the same arguments as before, we can quickly find that $\nu$ will not be an integer for $m>1$ noting that $q$ is relatively prime to $q^m\mp 1$ and $q^m-1> 3^d(3^d+1)$.
+Therefore when $m=1$, these parameters are feasible with $\mu$-heavy parameters (and via (iv), $\nu$-heavy parameters are infeasible). Using the same arguments as before, we can quickly find that $\nu$ will not be an integer for $m>1$ noting that $q$ is relatively prime to $q^m\mp 1$ and $q^m-1> 3^d(3^d+1)$.
 
 \subsection*{Family 17 (Ionin)}
 \[\begin{aligned}
@@ -1342,7 +1348,7 @@ As before, we first consider the case when $m=1$ using $\nu$-heavy parameters,
 \[\begin{aligned}
 \nu&=\frac{2q^{3m-2}3^d(3^d-1)}{\left(q-1\right)}=\frac{2q^{3m-2}3^d(3^d-1)}{\left(3^{d+1}-3\right)}=2q^{3m-2}3^{d-1}.\\
 \end{aligned}\]
-Therefore when $m=1$, these parameters are feasible with $\nu$-heavy parameters (and via $(iv)$, $\mu$-heavy parameters are infeasible). We again find that $m>1$ will not permit $\nu$ to be an integer as $q^{3m-2}$ is relatively prime to $q^m\pm 1$ and $q^m-1>2\cdot3^d(3^d-1)$.
+Therefore when $m=1$, these parameters are feasible with $\nu$-heavy parameters (and via (iv), $\mu$-heavy parameters are infeasible). We again find that $m>1$ will not permit $\nu$ to be an integer as $q^{3m-2}$ is relatively prime to $q^m\pm 1$ and $q^m-1>2\cdot3^d(3^d-1)$.
 
 
 
@@ -1351,7 +1357,7 @@ Therefore when $m=1$, these parameters are feasible with $\nu$-heavy parameters 
 v&=2^{2d+3}\left(\frac{q^{2m}-1}{q+1}\right)\qquad k= 2^{2d+1}q^{2m-1}\qquad \lambda = 2^{2d-1}(q+1)q^{2m-2}\qquad s=2^{2d+1}q^{m-1}\qquad q=\frac{1}{3}\left(2^{2d+3}+1\right)\\
 \nu&=\frac{2^{2d+1}q^{2m-1}\left(2^{2d+1}q^{2m-1}\pm 2^{2d+1}q^{m-1}\right)}{2^{2d+3}\left(\frac{q^{2m}-1}{q+1}\right)}=\frac{(q+1)2^{2d-1}q^{3m-2}}{\left(q^{m}\mp1\right)}\\
 \end{aligned}\]
-First consider $m=1$ using $\mu$-heavy parameters, then $\nu = 2^{2d-1}q^{3m-2}$. Due to $(iv)$ we see that $\nu$-heavy parameters will not be feasible. Further, $\nu$ is non integral when $m>1$ noting that $q^{3m-2}$ is relatively prime to $q^m\mp 1$ and $q^m-1>(q+1)2^{2d-1}$. 
+First consider $m=1$ using $\mu$-heavy parameters, then $\nu = 2^{2d-1}q^{3m-2}$. Due to (iv) we see that $\nu$-heavy parameters will not be feasible. Further, $\nu$ is non integral when $m>1$ noting that $q^{3m-2}$ is relatively prime to $q^m\mp 1$ and $q^m-1>(q+1)2^{2d-1}$. 
 
 
 \subsection*{Family 19 (Ionin)}
@@ -1359,7 +1365,7 @@ First consider $m=1$ using $\mu$-heavy parameters, then $\nu = 2^{2d-1}q^{3m-2}$
 v&=2^{2d+3}\left(\frac{q^{2m}-1}{3q-3}\right)\qquad k = 2^{2d+1}q^{2m-1} \qquad \lambda = 3*2^{2d-1}(q-1)q^{2m-2}\qquad s = 2^{2d+1}q^{m-1}\qquad q=2^{2d+3}-3\\
 \nu&=\frac{2^{2d+1}q^{2m-1}\left(2^{2d+1}q^{2m-1}\pm 2^{2d+1}q^{m-1}\right)}{2^{2d+3}\left(\frac{q^{2m}-1}{3q-3}\right)}=\frac{2^{2d-1}q^{3m-2}3(q-1)}{\left(q^m\mp1\right)}\\
 \end{aligned}\]
-If $m=1$ and we take $\nu$-heavy parameters then $\nu = 2^{2d-1}3q$. Due to $(iv)$ we see that $\nu$-heavy parameters will not be feasible. Further, $\nu$ is non integral when $m>1$ noting that $q^{3m-2}$ is relatively prime to $q^m\mp 1$ and $q^m\mp1>3\cdot2^{2d-1}(q-1)$.
+If $m=1$ and we take $\nu$-heavy parameters then $\nu = 2^{2d-1}3q$. Due to (iv) we see that $\nu$-heavy parameters will not be feasible. Further, $\nu$ is non integral when $m>1$ noting that $q^{3m-2}$ is relatively prime to $q^m\mp 1$ and $q^m\mp1>3\cdot2^{2d-1}(q-1)$.
 
 \subsection*{Family 20 (Ionin)}
 For this family we use the only known realization where $p=2$ and $q=2^d-1$ is a Mersenne prime.
@@ -1374,7 +1380,7 @@ v&=4t^2\left(\frac{q^{m+1}-1}{q-1}\right)\qquad k=(2t^2-t)q^m\qquad \lambda = (t
 &=\frac{(2t-1)^{3m+1}\left((2t-1)^{m+1}\pm 1\right)(q-1)}{4\left((2t-1)^{2m+2}-1\right)}\\
 &=\frac{(2t-1)^{3m+1}(q-1)}{4\left((2t-1)^{m+1}\mp1\right)}\\
 \end{aligned}\]
-First, since $(2t-1)$ is odd, we have that $(2t-1)^{3m+1}$ is relatively prime to $4((2t-1)^{m+1}\mp 1)$. However since $m\geq1$, $4((2t-1)^{m+1}\mp1) \geq 4(q-1)$ and thus $\nu$ is never integral. Thus any LSSD with these parameters will require $w=2$. 
+First, since $(2t-1)$ is odd, we have that $(2t-1)^{3m+1}$ is relatively prime to $4((2t-1)^{m+1}\mp 1)$. However since $m\geq1$, $4((2t-1)^{m+1}\mp1) \geq 4(q-1)$ and thus $\nu$ is never integral. Thus any LSSD with these parameters will require $w=2$.
 \subsection*{Summary}
 We have shown here that only Families 6, 7, 9, 13, and 14 will always satisfy our integrality conditions. Further, Families 12, 15, 16, 17, 18, and 19 satisfy our integrality conditions whenever $m=1$. Finally all remaining families will not allow for any LSSDs with $w>2$. 
 
