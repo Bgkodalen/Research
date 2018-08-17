@@ -509,9 +509,9 @@ This means that our first idempotent is given by:
 If we scale this appropriately to obtain a Gram matrix of unit vectors, we find that $E_1$ is the Gram matrix of $w$ copies of the same simplex in $\mathbb{R}^v$. This can be seen as well from the fact that $Q_{01} = Q_{11}$ meaning that any simplex vector has inner product 1 with exactly one vector from each of the ``other" simplices, meaning the simplices are just copies of the same simplex. This explains why $w$ is unbounded as we can always copy the same simplex as many times as we would like. This also indicates why this example is not of interest to us as it is not giving $w$ distinct linked simplices.
 \subsection{Cameron-Seidel Scheme}
 \label{kerdock}
-This construction is given originally by Goethals (\cite{GOETHALS197643}) in terms of Kerdock codes. A generalization of this concept is found in \cite{Bey}, where Bey and Kyureghyan frame the properties of Kerdock sets in terms of bent functions rather than quadratic forms. While this generalization gives the same parameter sets as the original construction, it shows that there are many non-isomorphic constructions using various different realizations of Kerdock sets. Let $Q_1,Q_2,\dots,Q_w$ be a set of $w$ quadratic forms on $\mathbb{Z}_2^n$ for which $Q_i+Q_j$ is a full rank quadratic form whenever $i\neq j$. Let cosets $\mathcal{Q}_1,\mathcal{Q}_2,\dots,\mathcal{Q}_w$ be cosets, $\mathcal{Q}_i = Q_i+\mathscr{R}(1,n)$, of the first order Reed Muller code (see \cite[Section 4.5]{vanLint}). For each $1\leq i\leq w$, define a set of vectors $V_i$ via
-\[V_i = \left\{[q(1),q(2),\dots,q(2^n-1)]\quad\vert\quad q(2^n) = 0\right\}_{q\in\mathcal{Q}_i}.\]
-Since $\mathcal{Q}_i$ is closed under complements, we know that $\vert V_i\vert = \frac{1}{2}\vert\mathcal{Q}_i\vert = 2^{n}$. Further, any pair of vectors $v,w\in\bigcup_iV_i$ come from vectors $q_v,q_w\in\bigcup_i\mathcal{Q}_i$ with last entry $0$, so $wt(v\oplus w) = wt(q_v\oplus q_w)$. Finally, for each $i$ construct the vector set
+This construction is given originally by Goethals (\cite{GOETHALS197643}) in terms of Kerdock codes. A generalization of this concept is found in \cite{Bey}, where Bey and Kyureghyan frame the properties of Kerdock sets in terms of bent functions rather than quadratic forms. While this generalization gives the same parameter sets as the original construction, it shows that there are many non-isomorphic constructions using various different realizations of Kerdock sets. Let $Q_1,Q_2,\dots,Q_w$ be a set of $w$ quadratic forms on $\mathbb{Z}_2^n$ for which $Q_i+Q_j$ is a full rank quadratic form whenever $i\neq j$. Note that, through evaluation, each quadratic form gives us a vector $[Q_i(v)]_{v\in\mathbb{Z}^n_2}$ of length $2^n$. Let $\mathcal{Q}_1,\mathcal{Q}_2,\dots,\mathcal{Q}_w$ be cosets, $\mathcal{Q}_i = [Q_i(v)]_{v\in\mathbb{Z}_2^n}+\mathscr{R}(1,n)$, of the first order Reed Muller code (see \cite[Section 4.5]{vanLint}). For each $1\leq i\leq w$, define the shortening of $\mathcal{Q}_i$ as the set of vectors
+\[V_i = \left\{[q(1),q(2),\dots,q(2^n-1)]\quad\vert\quad q(2^n) = 0\right\}_{q\in\mathcal{Q}_i}\]
+where $q(j)$ designates the $j^\text{th}$ entry of $q$. Since $\mathcal{Q}_i$ is closed under complements, we know that $\vert V_i\vert = \frac{1}{2}\vert\mathcal{Q}_i\vert = 2^{n}$. Further, any pair of vectors $v,w\in\bigcup_iV_i$ come from vectors $q_v,q_w\in\bigcup_i\mathcal{Q}_i$ with last entry $0$, so $wt(v\oplus w) = wt(q_v\oplus q_w)$. Finally, for each $i$ construct the vector set
 \[X_i = \left\{\frac{1}{\sqrt{2^n-1}}\left(2v-\mathbbm{1}\right)\vert v\in V_i\right\}.\]
 We claim $\left\{X_i\right\}_{i=1..w}$ is a set of linked simplices. To verify this, fix $1\leq i<j\leq w$ and let $x_i,y_i\in X_i$ and $z_j\in X_j$ with corresponding coset vectors $q_x,q_y,$ and $q_z$ respectively. Then,
 \[\begin{aligned}
@@ -619,7 +619,7 @@ Given the characteristic vectors, we can find the cosets of $\mathscr{R}(1,4)$. 
 + &  &  &  &  & + & + & + &  & + & + & + &  & + & + & +\\
  & + & + & + & + &  &  &  & + &  &  &  & + &  &  & \\
 \end{array}\right]}.\]
-To form our regular simplex we now choose all vectors with 0 in the last coordinate, discard the last element, replace every 0 with a -1, and then scale by $\frac{1}{\sqrt{15}}$ giving us the vectors (given by rows):
+To form our regular simplex we now choose all vectors with 0 in the last coordinate, discard the last element, replace every 0 with a $-1$, and then scale by $\frac{1}{\sqrt{15}}$ giving us the vectors (given by rows):
 \[\begin{aligned}
 X_2 = \frac{1}{\sqrt{15}}\setlength{\arraycolsep}{.8pt}\scalefont{.4}{\left[\begin{array}{rrrrrrrrrrrrrrrr}
 - & - & - & + & - & - & - & + & - & - & - & + & + & + & + \\
@@ -640,7 +640,7 @@ X_2 = \frac{1}{\sqrt{15}}\setlength{\arraycolsep}{.8pt}\scalefont{.4}{\left[\beg
 - & + & + & + & + & - & - & - & + & - & - & - & + & - & - \\
 \end{array}\right]}.
 \end{aligned}\]
-Likewise each $Q_j(v)$ gives us a coset of size 32, which in turn is transformed to a regular simplex $X_j$ in this manner.
+Likewise each $[Q_j(v)]_v$ gives us a coset of size 32, which in turn is transformed to a regular simplex $X_j$ in this manner.
 \subsubsection*{Symmetric design parameters}
 The parameters of this scheme will be $v = 2^{2r}$, $k = 2^{r-1}\left(2^{r}+1\right)$, $\lambda = 2^{r-1}\left(2^{r-1}+1\right)$, $s = 2^{r-1}$, $\nu = 2^{r-2}\left(2^r+1\right)$,  and $\mu=2^{r-2}\left(2^r+3\right)$.
 \subsubsection*{Intersection numbers}
