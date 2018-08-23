@@ -2,6 +2,7 @@
 *.vscode
 *.tmp*
 __pycache__*
+*.bak
 
 # Latex documents (sans .tex)
 *.aux
@@ -50,3 +51,7 @@ __pycache__*
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# numpy files #
+###############
+*.np
