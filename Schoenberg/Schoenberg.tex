@@ -1,0 +1,447 @@
+\documentclass{article}
+\usepackage{graphicx,amsthm,fullpage}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{esint}
+\usepackage{siunitx}
+\usepackage[margin=1in,headheight=13.6pt]{geometry}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{epstopdf}
+\usepackage{float}
+\usepackage{natbib}
+\usepackage{amsthm}
+\usepackage{units}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usetikzlibrary{calc,arrows,quotes,angles}
+\usetikzlibrary{shapes,decorations}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}
+\newcommand*{\swap}[2]{#2#1}
+
+\lhead{Brian G. Kodalen}
+\rhead{\today}
+
+\begin{document}
+\title{$Q$-bipartite doubles of strongly regular graphs}
+\section{Association schemes}
+Let $X$ be a finite set of vertices. A \textit{symmetric d-class association scheme} (see \cite{BCN}) on $X$ is a pair $\mathcal{L} = (X,\mathcal{R})$ where $\mathcal{R} =\left\{R_0,R_1,\dots,R_d\right\}$ is a set of $d+1$ relations on $X$ satisfying the following properties:
+\begin{itemize}
+	\item $R_0$ is the identity relation;
+	\item $\left\{R_0,R_1,\dots, R_d\right\}$ forms a partition of $X\times X$;
+	\item $(x,y)\in R_i$ implies $(y,x)\in R_i$;
+	\item for $0\leq i,j,k\leq d$ there exist \textit{intersection numbers} $p_{i,j}^k$ such that for any $(x,y)\in R_k$, the number of vertices $z$ for which $(x,z)\in R_i$ and $(z,y)\in R_j$ is equal to $p_{i,j}^k$ independent of our original choice of $x$ and $y$.
+\end{itemize}
+Often it becomes useful to order the vertices in $X$ and then represent each $R_i$ as a 01-matrix $A_i$ where the $(x,y)$ entry of $A_i$ is 1 if and only if $(x,y)\in R_i$. With this setting in mind, the defining properties above are encoded as:
+\begin{itemize}
+	\item $A_0 = I$;
+	\item $\sum_i A_i = J$;
+	\item for all $0\leq i\leq d$, $A_i^T = A_i$;
+	\item for all $0\leq i,j,k\leq d$, $A_iA_j = \sum p_{i,j}^k A_k$.
+\end{itemize}
+The final condition tells us that $\mathbb{A} = \text{span}\left\{A_0,A_1,\dots A_d\right\}$ forms a matrix algebra under standard matrix multiplication. As our matrices are 01-matrices with disjoint support, this \emph{Bose-Mesner algebra} is also closed under Schur (element-wise) products. Using our symmetric property, we note that $p_{i,j}^k = p_{j,i}^k$ telling us that $A_iA_j = A_jA_i$ and our algebra is commutative. Therefore our adjacency matrices are simultaneously diagonalizable giving us $d+1$ orthogonal eigenspaces with projection operators $E_0,\dots,E_d$. As both $\left\{A_0,\dots,A_d\right\}$ and $\left\{E_0,\dots,E_d\right\}$ form bases for the Bose-Mesner algebra, there exists unique matrices $P$ and $Q$ so that
+\begin{equation}
+\label{PQmat}
+A_i = \sum_{j} P_{ji} E_j,\qquad E_j = \frac{1}{\vert X\vert} \sum_{i} Q_{ij}A_i.
+\end{equation}
+
+We call $P$ and $Q$ the first and second eigenmatrices, respectively, and note here that $P_{0i}$ is the valency of relation $R_i$ and $Q_{0j}$ is the rank of $E_j$. Finally, as our matrix algebra is closed under Schur products, we find that there exist structure constants $q_{i,j}^k$ such that for all $0\leq i,j,k\leq d$:
+\[E_i\circ E_j = \frac{1}{\vert X\vert}\sum_k q_{i,j}^k E_k.\]
+We call these parameters the Krein parameters of the association scheme. We conclude this section by examining the Krein parameters of our scheme, and defining an algebra isomorphism from our Bose-Mesner algebra to a new matrix algebra. Defining $L_i^*$ such that
+\[L_i^* = [q^k_{i,j}]_{k,j},\]
+we may define the vector space $\mathbb{L}^* = \text{span}\left\{L_0^*,L_1^*,\dots,L_d^*\right\}$. From $[Lemma.~2.3.1(vi)]{BCN}$, we have:
+\begin{align}
+L_i^*L_j^* = \sum_k q^m_{i,k}q^k_{j,l}&=\sum_k q^k_{i,j}q^m_{k,l}=\sum_{k}q^k_{i,j}L_k^*,\label{dblsum}\end{align}
+showing that $\mathbb{L}^*$ is closed under matrix multiplication. Therefore we define a homomorphism $\phi^* : \mathbb{A}\rightarrow \mathbb{L}^*$ via taking $\phi^*(E_i) = \frac{1}{\vert X\vert}L_i^*$ for each $0\leq i\leq d$ and extending linearly. From \eqref{dblsum}, we see that
+\[\phi^*(E_i\circ E_j) = \frac{1}{\vert X\vert}\sum_{k=0}^{d}q^k_{i,j}\phi^*\left(E_k\right) = \frac{1}{\vert X\vert^2}\sum_{k=0}^dq^k_{i,j}L_k^* = \left(\frac{1}{\vert X\vert}L_i^*\right)\left(\frac{1}{\vert X\vert}L_j^*\right) = \phi^*(E_i)\phi^*(E_j).\]
+Therefore $\phi^*$ is an algebra isomorphism preserving the Schur product structure of $\mathbb{A}$.
+\section{Strongly regular graphs--2-class association schemes}
+A strongly regular graph with parameters $(v,k,\lambda,\mu)$ is a $k$-regular graph with $v$ points where every pair of adjacent (non-adjacent) vertices have exactly $\lambda$ ($\mu$) neighbors in common. Thus, a strongly regular graph $\Gamma$ corresponds to $2$-class association scheme where $\Gamma$ and $\overline{\Gamma}$ are the two non-trivial relations. Thus a 2-class association scheme has the following first and second eigenmatrices:
+\begin{equation}\label{PQsrg}P = \left[\begin{array}{ccc}
+1 & k & v-k-1\\
+1 & r & -(r+1)\\
+1 & s & -(s+1)
+\end{array}\right]\qquad Q = \left[\begin{array}{ccc}
+1 & f & g\\
+1 & \frac{fr}{k} & \frac{gs}{k}\\
+1 & \frac{f(1+r)}{k+1-v} & \frac{g(1+s)}{k+1-v}
+\end{array}\right]\end{equation}
+where $\Gamma$ has spectrum $k^1,r^f,s^g$. The following are two theorems which will prove useful later.
+\begin{theorem}\cite[Theorem.~1.3.1.(iii)]{BCN} Whenever $\mu>0$, the parameters of a strongly regular graph may be expressed in terms of $r$, $s$, and $\mu$ as
+	\[k = \mu-rs, \qquad v = \frac{(k-r)(k-s)}{\mu},\qquad \lambda = \mu+r+s.\]
+\end{theorem}
+\begin{theorem}\cite{delsarte} 
+	Let $\Gamma$ be a strongly regular graph with $v$ vertices, valency $k$, and smallest eigenvalue $-m$. If $C$ is a coclique of $\Gamma$, then
+	\[\vert C\vert\leq v\left(1+\frac{k}{m}\right))^{-1}, \]
+	with equality if and only if every vertex $\gamma\notin C$ has the same number of neighbors (namely $m$) in $C$.
+\end{theorem}
+\subsection{Projective double of a strongly regular graph}
+Let $\Gamma$ be an undirected graph on $v$ vertices. A ``projective double" of $\Gamma$ is a set, $L = \left\{l_1,\dots,l_v\right\}$, of $v$ lines through the origin of $\mathbb{R}^n$ (for some $n>0$) such that only two angles, $\theta$ and $90^\circ$, occur between the lines in $S$ and there exists a bijection $\phi:L\rightarrow V(\Gamma)$ such that 
+\[\text{for }i\neq j\quad l_i\perp l_j \iff \phi(l_i)\not\sim\phi(l_j). \]
+Given such a set $L$, we consider the vertex set $X =\left\{l_1^+,l_1^-,\dots l_v^+,l_v^-\right\}$ where $l_i^+ = -l_i^-$ are the two antipodal (unit) vectors defined by $l_i$. We then form graphs $G_n$ for $n\in\left\{\pm 1, 0,\pm \cos(\theta)\right\}$ such that $G_n = \Gamma\left(X,\left\{(x,y):\left<x,y\right> = n\right\}\right)$ and note that both $G_{\cos(\theta)}$ and $G_{-\cos(\theta)}$ are double covers of $\Gamma$. We are interested when the set of graphs $\left\{G_1,G_{\cos(\theta)},G_0,G_{-\cos(\theta)},G_{-1}\right\}$ form an association scheme and, in the case that a 4-class scheme is formed, we call this a ``bipartite double" of our strongly regular graph. Note that projective doubles need not be unique. For example,
+\[U_1 = \left[\begin{array}{cccccccc}
+1 & -1 & 0 & 0 & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2}\\
+0 & 0 & 1 & -1 & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2}\\				
+\end{array}\right]\]
+and
+\[U_2 = \left[\begin{array}{cccccccc}
+1 & -1 & \frac{1}{2} & -\frac{1}{2} & 0 & 0 &\frac{1}{2} &-\frac{1}{2}\\
+0 & 0 & \frac{\sqrt{3}}{2} & -\frac{\sqrt{3}}{2} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{12}}& \frac{1}{\sqrt{12}}\\
+0 & 0 & 0 & 0 & \sqrt{\frac{2}{3}} & -\sqrt{\frac{2}{3}} & \sqrt{\frac{2}{3}} & -\sqrt{\frac{2}{3}} \\			
+\end{array}\right]\]
+both represent projective doubles of the 4-cycle. In the case of $U_1$, when $\alpha = \frac{1}{\sqrt{2}}$, $G_{\alpha}$ gives the 8-cycle and $\left\{G_1,G_\alpha,G_0,G_{-\alpha},G_{-1}\right\}$ is a 4-class association scheme. However in the case of $U_2$, when $\alpha = \frac{1}{2}$, $G_{\alpha}$ is $C_4\cup C_4$ and $\left\{G_1,G_\alpha,G_0,G_{-\alpha},G_{-1}\right\}$ does not give us an association scheme.
+\begin{theorem}
+	Let $\Gamma$ be a strongly regular graph with spectrum $k^1,r^f,s^g$ $(r>s)$. There exists a projective double of $\Gamma$ in $\mathbb{R}^{f+1}$ which does not correspond to an association scheme.
+\end{theorem}
+\begin{proof}
+	Let $A_0$, $A_1$, and $A_2$, be the adjacency matrices of the identity graph, $\Gamma$, and $\overline{\Gamma}$ respectively. From \eqref{PQsrg} we see that there exists an idempotent $E_1 = \frac{1}{v}\left(fA_0 + \frac{fr}{k}A_1 + \frac{f(1+r)}{k+1-v}A_2\right)$. Then 
+	\[G = \frac{(1+r)}{v-k-1}E_0 + \frac{1}{f}E_1 = \left(\frac{v+r-k}{v(v-k-1)}\right)A_0 +\left(\frac{k+r(v-1)}{v(v-k-1)}\right)A_1\]
+	Then $G$ is a $v\times v$ positive semi-definite matrix with rank $1+f$. Scaled appropriately, $G = U^TU$ where the columns of $U$ are unit vectors in $\mathbb{R}^{1+f}$. Then $L = \left\{\tilde{u}_1,\dots,\tilde{u}_v\right\}$ is a projective double of $\Gamma$ where $\tilde{u}_i$ is the line represented by the $i^\text{th}$ column of $U$, $u_i$. Note however that for $\left<y,z\right> = 0$, $\left\vert\left\{x:\left<x,y\right> = \left<z,x\right>=\cos(\theta)\right\}\right\vert$ 
+	depends on the choice of $y$ and $z$; therefore this will not form an association scheme.
+\end{proof}
+Despite the prevalence of projective doubles, we will find that not every strongly regular graph has a bipartite double. For example, consider the following theorem.
+\begin{theorem}
+	Let $\Gamma$ be a complete multipartite graph with $w$ parts of size $v$. Let $U$ be the matrix with columns corresponding to the bipartite double of $\Gamma$. Then the columns of $U$ form a set of $w$ mutually unbiased bases in $\mathbb{R}^v$.\qed
+\end{theorem}
+
+\begin{corollary}
+	Let $\Gamma = K_{2\times 3}$. Then $\Gamma$ does not have a bipartite double.
+\end{corollary}
+\begin{proof}
+	If $K_{2\times 3}$ had a bipartite double, then it would be a set of two mutually unbiased bases in $\mathbb{R}^3$ which is not possible.
+\end{proof}
+
+
+\section{Co-metric Association schemes}
+Let $(X,\mathcal{R})$ be an $d$-class symmetric association scheme. We say $(X,\mathcal{R})$ is $Q$-polynomial, or \textit{cometric}, if there exists an ordering of the eigenspaces, say $E_0$, $E_1$,\dots, $E_d$, such that the Krein parameters satisfy the following conditions:
+\begin{enumerate}
+	\item $q^k_{i,j} = 0$ whenever $i+j<k$, and
+	\item $q^{i+j}_{i,j}>0$ whenever $i+j\leq d$.
+\end{enumerate}
+Under these conditions, we see that for a given $0\leq j\leq d$, at most three possible choices for $k$ will allow $q_{1,k}^j>0$. Therefore let $c_j^* = q_{1,j-1}^j$, $a_j^* = q_{1,j}^j$ and $b_j^* = q_{1,j+1}^j$ for $0\leq j\leq d$ with the restriction that $b_d^*=c_0^*=0$. Given a cometric scheme, we define the Krein array as $\left\{b_0^*,b_1^*,\dots,b_{d-1}^*;c_1^*,c_2^*,\dots,c_d^*\right\}$ noting that for any $0\leq j\leq d$, $c_j^* + a_j^* + b_j^* = q^0_{1,1}$. We say a cometric scheme is $Q$-\emph{bipartite} if $a_j^*=0$ for all $0\leq j\leq d$. This is equivalent to the condition that $q_{i,j}^k=0$ whenever $i+j+k$ is odd. A cometric scheme is $Q$-\emph{antipodal} if $b_j^* = c_{d-j}^*$ for all $j$ except possibly $j = \lfloor \frac{d}{2}\rfloor$.\\
+We may define orthogonal polynomials $q_j(t)$, $j=0,1,\dots,d$ by $q_0(t) = 1$, $q_1(t) = t$ and the three-term recurrence $tq_j(t) = c_{j+1}^*q_{j+1}(t) + a_j^*q_j(t) + b_{j-1}^*q_{j-1}(t)$. It follows that $\vert X\vert E_j = q_j(\vert X\vert E_1)$, for $j=0,1,\dots,d$ where matrix multiplication is computed entrywise. Since $\frac{1}{\vert X\vert}Q_{i,j}$ for $0\leq i\leq j$ are the entries of $E_j$, this also means that $q_j(Q_{i,1}) = Q_{j,1}$. Finally note that in the $Q$-bipartite case, $q_j(t)$ is an even polynomial if and only if $j$ is even.\\
+The following two theorems will help us describe the quotient object we find in the $Q$-bipartite case where $I_r$ and $J_r$ denote the $r\times r$ identity and all ones matrix respectively:
+\begin{theorem}[\cite{MMW}] \label{mmw}The following are equivalent:
+	\begin{enumerate}[(i)]
+		\item $(X,\mathbb{R})$ is imprimitive;
+		\item for some $j>0$, $E_j$ has repeated columns;
+		\item for some subset $\mathcal{I} = \left\{i_0=0,i_1,\dots,i_s\right\}$ of $\left\{0,1,\dots,d\right\}$ and some ordering of the vertices $\sum_{h=0}^s A_{i_h} = I_w\otimes J_r$ for integers $w$ and $r$ with $\vert X\vert=wr$, $1<w,r<\vert X\vert$;
+		\item for some subset $\mathcal{J} = \left\{j_0=0,j_1,\dots,j_s\right\}$ of $\left\{0,1,\dots,d\right\}$ and some ordering of the vertices $\sum_{h=0}^s E_{j_h} = \frac{1}{r}\left(I_w\otimes J_r\right)$ for integers $w$ and $r$ with $\vert X\vert=wr$, $1<w,r<\vert X\vert$.
+	\end{enumerate}
+\end{theorem}
+Whenever $(iii)$ occurs, say with subset $\mathcal{I}$ as given in the theorem, we may partition our vertices into equivalence classes so that $x\sim y$ whenever $(x,y)\in R_i$ for some $i\in \mathcal{I}$. Let $X_1,\dots,X_w$ be the corresponding equivalence classes and define $\mathcal{R}' = \left\{R_i\in \mathcal{R} : i\in \mathcal{I}\right\}$. Then there exists \emph{subschemes} $(X_i,\mathcal{R}')$ for each equivalence class $X_i$. Further, we may define a \emph{quotient scheme} $(\tilde{X},\tilde{\mathcal{R}})$ of our original scheme with respect to $\mathcal{I}$ whose point set is the set of equivalence classes and whose relations are $R_{\tilde{i}} = \cup_{i\in \tilde{i}} R_i$ where each $\tilde{i} = \left\{0\leq j\leq d : p^x_{i,j} \text{ for }x\in \mathcal{I}\right\}$. Note that $\vert \tilde{\mathcal{R}}\vert = \vert \mathcal{J}\vert$ where $\mathcal{J}$ is the subset from Theorem $3.1(iv)$.
+\begin{theorem}[\cite{Suzuki}] \label{suzuki}Suppose $(X,\mathcal{R})$ is an imprimitive cometric association scheme. Then one of the following holds:
+	\begin{enumerate}[(i)]
+		\item $(X,\mathcal{R})$ is $Q$-bipartite and $\mathcal{J} = \left\{0,2,4,\dots\right\}$
+		\item $(X,\mathcal{R})$ is $Q$-antipodal and $\mathcal{J} = \left\{0,d\right\}$
+		\item $(X,\mathcal{R})$ is a $4$-class scheme with Krein array $\left\{m,m-1,1,b_3^*;1,c_2^*,m-b_3^*,1\right\}$ and $\mathcal{J} = \left\{0,3\right\}$;
+		\item $(X,\mathcal{R})$ is a $6$-class scheme with Krein array $\left\{m,m-1,1,b_3^*,b_4^*,1;1,c_2^*,m-b_3^*,1,c_5^*,m\right\}$ and $\mathcal{J} = \left\{0,3,6\right\}$.
+	\end{enumerate}
+\end{theorem}
+Cerzo and Suzuki \cite{cerzo} have shown that no association schemes of the third type exist.
+\begin{corollary}
+	\label{SRG}
+	The quotient scheme of a 4-class $Q$-bipartite association scheme is a strongly regular graph.
+\end{corollary}
+\begin{proof}
+	From Theorem \ref{suzuki}, we know $\mathcal{J} = \left\{0,2,4\right\}$ and therefore the quotient scheme has two nontrivial relations, forcing it to be strongly regular.
+\end{proof}
+\begin{theorem}[\cite{BGKW},\cite{MMW}]
+	\label{sym}
+	If $(X,\mathcal{R})$ is $Q$-bipartite with $w$ dual bipartite classes of size $r$ each, then $r=2$. Under the natural ordering of relations, $\mathcal{I} = \left\{0,d\right\}$ and the sequence $m = Q_{01}>Q_{11}>\dots>Q_{d1}$ is symmetric about the origin. In particular, $Q_{\frac{d}{2},1} = 0$ whenever $d$ is even.
+\end{theorem}
+\begin{corollary}
+	\label{evenpoly}
+	If $(X,\mathcal{R})$ is $Q$-bipartite, then $Q_{i,j} = Q_{d-i,j}$ $(-Q_{d-i,j}$, resp.) whenever $j$ is even (odd).
+\end{corollary}
+\begin{proof}
+	$q_j(t)$ is even (odd) whenever $j$ is even (odd). Since $Q_{i,1} = -Q_{d-i,1}$ and $Q_{i,j} = q_j(Q_{i,1})$, the result follows.
+\end{proof}
+For all that follows, let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme with $Q$-polynomial ordering $E_0,E_1,\dots,E_d$ and natural ordering $A_0,A_1,\dots A_d$. Let $(v,k,\lambda,\mu)$ be the parameters of the strongly regular graph in the quotient scheme where $k$ is the valency of the $\tilde{1}$ relation. Let $k>r>s$ be the eigenvalues of this SRG with corresponding multiplicities $1$, $f$, and $g$. Recall the $Q$ matrix of this SRG will be
+\[\tilde{Q} = \left[\begin{array}{ccc}
+1 & f & g\\
+1 & \frac{fr}{k} & \frac{gs}{k}\\
+1 & \frac{f(1+r)}{k+1-v} & \frac{g(1+s)}{k+1-v}
+\end{array}\right].\]
+Finally we note from \cite{BCN} that $PQ = QP = \vert X\vert I$ and $P_{ji} = \frac{k_i}{m_j}Q_{ij}$ where $k_i$ and $m_j$ are the valencies and multiplicities of the $i^\text{th}$ relation and $j^\text{th}$ eigenspace respectively. We will call these the first and second orthogonality properties.
+\begin{theorem}
+	\label{Pmat}
+	Let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme with relations ordered naturally. Let the quotient SRG have parameters $(v,k,\lambda,\mu)$ and spectrum $k^1,r^f,s^g$ with $k>r>s$. Then the first and second eigenmatrices are as follows:
+	\[P = \left[\begin{array}{ccccc}
+	1 & k & 2(v-1-k) & k & 1\\
+	1 & \frac{k}{n} & 0 & -\frac{k}{n} & -1\\
+	1 & r& -2(1+r) & r & 1\\
+	1 & -n & 0 & n & -1\\
+	1 & s & -2(s+1) & s & 1\\
+	\end{array}\right]\qquad Q = \left[\begin{array}{ccccc}
+	1 & m & f & \frac{mk}{n^2} & g\\
+	1 & \frac{m}{n} & \frac{fr}{k}  & -\frac{m}{n} & \frac{gs}{k}\\
+	1 & 0 & \frac{f(r+1)}{k+1-v}  & 0& \frac{g(1+s)}{k+1-v}\\
+	1 & -\frac{m}{n} & \frac{fr}{k} & \frac{m}{n} & \frac{gs}{k}\\
+	1 & -m & f & \frac{mk}{n^2} & g\\
+	\end{array}\right]\]
+	where $s = -n^2$ for $n\in \mathbb{Z}$.
+\end{theorem}
+\begin{proof}
+	We begin by building all of $Q$. Note that column 0 of $Q$ comes by definition. From Theorem \ref{sym}, $Q_{1,1} = -Q_{3,1}\neq 0 = Q_{2,1}$, so we define $n = \frac{m}{Q_{1,1}} = -\frac{m}{Q_{3,1}}$ and column 1 of $Q$ is given. The first three entries of columns $2$ and $4$ of $Q$ follow from the parameters of our quotient scheme while the remaining two entries of these columns follow from Corollary \ref{evenpoly}. Note that this assumes we are using the natural ordering of the relations so that $R_1$ is the double cover of our strongly regular graph while $R_2$ is given by non-adjacency in our SRG. Column 3 of $Q$ can then be found using the first orthogonality condition (specifically that $\sum_j Q_{ij} = \vert X\vert\delta_{i0}$). From here we have that 
+	\[Q = \left[\begin{array}{ccccc}
+	1 & m & f & v-m & g\\
+	1 & \frac{m}{n} & \frac{fr}{k}  & -\frac{m}{n} & \frac{gs}{k}\\
+	1 & 0 & \frac{f(r+1)}{k+1-v}  & 0& \frac{g(1+s)}{k+1-v}\\
+	1 & -\frac{m}{n} & \frac{fr}{k} & \frac{m}{n} & \frac{gs}{k}\\
+	1 & -m & f & m-v & g\\
+	\end{array}\right]\]
+	Again appealing to $\left[the natural order of relations\right]$, we know the valencies of our relations are given by $[1,k,2(v-1-k),k,1]$. This extra information allows us to calculate a few Krein parameters using \cite[Theorem.~2.3.2.]{BCN} giving
+	\[q_{ij}^k = \frac{1}{\vert X\vert m_k}\sum_{l=0}^d\left(v_lQ_{li}Q_{lj}Q_{lk}\right)\]
+	where $m_k$ and $v_l$ are the multiplicities and valencies of the $k^\text{th}$ and $l^\text{th}$ relations respectively.
+	Therefore, $1=q_{01}^1 = \frac{1}{2vm}\left(2m^2+\frac{2km^2}{n^2}\right)$ giving $\left(1+\frac{k}{n^2}\right)m = v$. Therefore we now have 
+	\[Q = \left[\begin{array}{ccccc}
+	1 & m & f & \frac{mk}{n^2} & g\\
+	1 & \frac{m}{n} & \frac{fr}{k}  & -\frac{m}{n} & \frac{gs}{k}\\
+	1 & 0 & \frac{f(r+1)}{k+1-v}  & 0& \frac{g(1+s)}{k+1-v}\\
+	1 & -\frac{m}{n} & \frac{fr}{k} & \frac{m}{n} & \frac{gs}{k}\\
+	1 & -m & f & -\frac{mk}{n^2} & g\\
+	\end{array}\right]\]
+	as desired. Using the second orthogonality condition and noting that the first row of $P$ is the valencies of our relations, we have:
+	\[P = \left[\begin{array}{ccccc}
+	1 & k & 2(v-1-k) & k & 1\\
+	1 & \frac{k}{n} & 0 & -\frac{k}{n} & -1\\
+	1 & r& -2(1+r) & r & 1\\
+	1 & -n & 0 & n & -1\\
+	1 & s & -2(s+1) & s & 1\\
+	\end{array}\right].\]
+	Finally, noting that $q_{1,1}^4 = \frac{mg(n^2+s)}{n^2v}=0$ gives us that $s = -n^2$.
+\end{proof}
+\begin{corollary}
+	A 4-class $Q$-bipartite scheme is uniquely determined by the eigenvalues of the quotient SRG.
+\end{corollary}
+\begin{proof}
+	Our first eigenmatrix only requires $v,k,r,s,$ and $n$. However since $n>0$ (from the natural ordering of relations), $n = \sqrt{-s}$. Further \cite{BCN} states that  $v = \frac{(k-r)(k-s)}{k+rs}$. 
+\end{proof}
+
+\begin{theorem}
+	\label{bounds}
+	Let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme and let $k,r^f,s^g$ be the spectrum of the quotient strongly regular graph with parameters $(v,k,\lambda,\mu)$. The following must hold with $n:=\sqrt{-s}$:
+	\begin{enumerate}[(i)]
+		\item $\mu\geq n(r+n)$,
+		\item $n\vert \mu$ and $n\vert k$,
+		%\item $r\leq \frac{k-n^2}{n(n+1)}$,
+		\item $r\geq \frac{2k}{3n^2}-\frac{n^2}{3}$,
+		\item $kn^2(n^2-1)\geq \mu(n^2+r)$
+	\end{enumerate}
+	Further, either $n$ is an integer or $(X,\mathcal{R})$ is also $Q$-antipodal (the strongly regular graph is complete multipartite).
+\end{theorem}
+\begin{proof}
+	For $(i)$ and $(ii)$, we note that	$p_{13}^1 = \frac{(n-1)(\mu-n(r+n))}{2n}$. Since this must be a non-negative integer and $s\geq n$, we must either have $-s = n = 1$ or $\mu-n(r+n)>0$. As $s=-1$ implies our SRG is a union of cliques, we may ignore this case and $(i)$ follows. Further, since $n\not\vert (n-1)$, we have that $n\vert (\mu-n(r+n))$ forcing $n\vert \mu$. Since $k=\mu+rn^2$, $(ii)$ follows. Next, $(iii)$ follows from the absolute bound $1+f \leq \frac{m(m+1)}{2}$ giving us $n^4+3n^2r-2k\geq 0$. Using another absolute bound, $(iv)$ follows from $\frac{v}{m}\leq f$. Finally, since $n = \sqrt{-s}$, if $n$ is not an integer, then columns one and three of $Q$ must be irrational. However since Galois conjugation is an automorphism of our Bose-Mesner algebra, $E_0$, $E_3$, $E_2$, $E_1$, $E_4$ must be a second $Q$ polynomial ordering in this case. However then $q_{3,3}^4=0$. Using our $P$ and $Q$ matrices, we find that $q_{3,3}^4 = \frac{(k-r)(k+s)}{\mu}$. As $r<k$, this means that $s = -k$ whenever $n$ is irrational, giving us that our strongly regular graph is complete multipartite.\\
+	Note that $q_{22}^2 = \frac{(kn^2+r^2)(n^2-1)(n^2+k)}{(n^2+r)^2\mu}-\frac{(n^2+k)}{(n^2+r)}$, so that we must have $(kn^2+r^2)(n^2-1)\geq (n^2+r)\mu$. However since $n^2>1$, this is weaker than $r^2(n^2-1)>rk-n^4r-n^2r^2$ and since $k\leq (3rn^2+n^4)/2$ we must have 
+	\[rk\leq\frac{r}{2}\left(rn^2-n^4\right)<r^2(n^2-1).\]
+\end{proof}
+
+\begin{corollary}
+	\label{kbnds}
+	Let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme and let $k,r,s=-n^2$ be the spectrum of the quotient strongly regular graph. Then
+	\[\frac{k}{n^2}-1\leq \frac{(n+1)}{2}\left((n+1)(n^3-n-1)+\sqrt{(n-1)(n^7+3n^6+2n^5-4n^4-9n^3-3n^2+3n-1)}\right).\]
+\end{corollary}
+\begin{proof}
+	Using Theorem \ref{bounds}$(i)$ and $(iv)$, we have that $n(r+n)\leq \mu\leq \frac{kn^2(n^2-1)}{n^2+r}$. Using $\mu = k-rn^2$, these two inequalities give us
+	\[\frac{k-n^4+\sqrt{n^8-2n^4k(2n^2+3)+k^2}}{2n^2}\leq r\leq \frac{k-n^2}{n(n+1)}.\]
+	This implies that 
+	\[k^2-n^2(n^5+2n^4-3n^2-3n+1)k+n^5(n^2+n-1)\leq0.\]
+	When $k=1$ and $n>1$, the left hand side will be negative. Therefore the only other requirement is that $k$ is less than the second root of this quadratic, giving us our bound.
+\end{proof}
+\section{Spherical Bound}
+Let $\Omega_d$ denote the unit sphere in Euclidean space $\mathbb{R}^d$. For any $k\geq 0$ let $\text{Harm}(k) = \text{Harm}_d(k)$ denote the space of harmonic and homogeneous polynomials of degree $k$ on $\Omega_d$. Let $N_d = \dim\text{Harm}(k)$ and fix an orthogonal basis $\left\{W_{k,i}\right\}_{i=1..N}$ of $\text{Harm}(k)$. Let $Q_k^d$ denote the $k^\text{th}$ degree Gegenbauer polynomial for dimension $d$. From \cite[Theorem.~3.3.]{DGS} we have,
+\[\sum_{i=1}^N W_{k,i}(\zeta)W_{k,i}(\eta) = Q_k(\langle\zeta,\eta\rangle); \qquad \zeta,\eta\in\Omega_d.\]
+Given a finite set $X\subset \Omega_d$, define $H_k = [W_{k,i}(\zeta)],\qquad \zeta\in X, i\in \left\{1,2,\dots, N\right\}$. Then \cite[Theorem.~3.6.]{DGS},
+\[H_kH_k^T = [Q_k(\langle \zeta,\eta\rangle)]_{\zeta,\eta\in X} = Q_k^\circ(G_X).\]
+where $G_X$ is the Gram matrix of $X$ and $Q_k^\circ$ is the Gegenbauer polynomial of degree $k$ applied entrywise. Now for any vector $v\in \mathbb{R}^{\vert X\vert}$,
+\[v^TH_kH_k^Tv = \vline\vline{v^TH_k}\vline\vline^2\geq 0.\]
+Therefore, we have the following result
+\begin{theorem}[DGS]
+	\label{psdgeg}
+	Let $X$ be a set of unit vectors in $\mathbb{R}^m$ with Gram matrix $G$. Then,
+	\[Q_k^\circ(G)\succeq0\]	
+\end{theorem}
+This leads to the following theorem:
+\begin{theorem}
+	Let $(X,\mathcal{R})$ be a $Q$-polynomial association scheme with $Q$-polynomial ordering $E_0,E_1,\dots,E_d$. Let $m=\text{rank}(E_1)$, define $L_1^* = [q^k_{1,j}]_{k,j}$ and
+	\[F_k = Q_k\left(\frac{1}{m}L_1^*\right).\]
+	for $k\geq 0$. Then $F_k$ must be non-negative for each $k\geq 0$.
+\end{theorem}
+\begin{proof}
+	From above, we know that there exists a $m\times \vert X\vert$ matrix $U$ with unit vector columns such that $U^TU = \frac{\vert X\vert}{m}E_1$. Then, by \ref{psdgeg},
+	\[Q_k^\circ\left(\frac{\vert X\vert}{m}E_1\right)\succeq0\]
+	However, since $\left<E_i\right>$ is closed under entrywise multiplication, there exists constants $c_i$ such that
+	\begin{equation}\label{Gkeig}Q_k^\circ\left(\frac{\vert X\vert}{m}E_1\right) = \sum_{i=0}^d\vert X\vert c_iE_i.\end{equation}
+	Note, since the $E_i$'s represent orthogonal idempotents, these $\vert X\vert c_i$'s are exactly the eigenvalues of $Q_k^\circ\left(\frac{\vert X\vert}{m}E_1\right)$. Using $\phi^*$ on equation \ref{Gkeig}, we arrive at
+	\[Q_k\left(\frac{1}{m}L_1^*\right) = \sum_{i=0}^dc_iL_i^*\]
+	Since each $L_i^*$ is non-negative, our result follows. It is worth noting that since $[L_i^*]_{0,j} = m_j\delta_{i,j}$, it is sufficient to check the first row of $F_k$ to guarantee $c_i\geq 0$ for all $0\leq i\leq d$. This also means that not only does $Q_k^\circ\left(\frac{\vert X\vert}{m}E_1\right)\succeq 0$ imply $F_k$ is non-negative, but in fact these are equivalent conditions.
+\end{proof}
+\section{Computations \& Results}
+The Gegenbauer polynomials in dimension $m$ are defined via $Q_0^{(m)}(t) = 1$, $Q_1^{(m)}(t) = t$ and the three term recurrence:
+\[Q_k^{(m)} = \frac{(2k+m-4)tQ_{k-1}^{(m)}(t) - (k-1)Q_{k-2}^{(m)}(t)}{k+m-3}, \qquad k\geq 2.\]
+Note these are normalized so that $Q_k^{(m)}(1) = 1$. Below we have listed the first six polynomials:
+\[\begin{aligned}
+Q_0^m(t)&=1\\
+Q_1^m(t)&=t\\
+Q_2^m(t)&=\frac{mt^2 - 1}{m-1}\\
+Q_3^m(t)&=\frac{(m+2)t^3 - 3t}{(n-1)}\\
+Q_4^m(t)&=\frac{(m+4)(m+2)t^4 - 6(m+2)t^2+3}{m^2-1}\\
+Q_5^m(t)&=\frac{(m+6)(m+4)t^5-10(m+4)t^3+15t}{m^2-1}\\
+Q_6^m(t)&=\frac{(m+8)(m+6)(m+4)t^6-15(m+6)(m+4)t^4+45(m+4)t^2-15}{(m+3)(m+1)(m-1)}\\
+\end{aligned}\]
+Using these polynomials we arrive at the following results
+\subsection{Example Constraints}
+\begin{theorem}
+	Let $(X,\mathcal{R})$ be a $Q$-bipartite association scheme with $Q$-polynomial ordering $E_0,E_1,\dots,E_d$. Then the following must be true:
+	\begin{itemize}
+		\item ($4^{\text{th}}$ degree constraint)
+		\[2\mu\leq n^2(r+n^2)\]
+		\item ($6^{\text{th}}$ degree constraint)
+		\[15n^4(2n^2-3)r^2+n^2(n^6-45kn^2+76k)r+k(n^2-2)(n^6+16k)\geq 0\]
+	\end{itemize}
+\end{theorem}
+\begin{corollary}
+	\label{gegk}
+	Let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme and let $k,r,s=-n^2$ be the spectrum of the quotient strongly regular graph. If $1<n<12$ then,
+	\[\begin{aligned}
+	\frac{k}{n^3(n^2-1)}&\leq \frac{n^7+2n^6-3n^4-17n^3+45n^2+14n-76}{-2(n^4-13n^3+15n^2+12n-32)(n^2-1)}\\
+	&\qquad+\frac{\sqrt{n^{10}+4n^9+6n^8+2n^7-35n^6+22n^5+145n^4-72n^2+32n+16}}{-2(n^4-13n^3+15n^2+12n-32)}\\
+	&\text{or}\\
+	\frac{k}{n^4}&\leq \frac{3n^2-5}{2}
+	\end{aligned}\]
+\end{corollary}
+This leads to the following new bounds on $k$:\\
+\begin{tabular}{c|c|c}
+	$n$ & Theorem \ref{kbnds} & Theorem \ref{gegk}\\\hline
+	2 & 187 & 56\\
+	3 & 3329 & 891\\
+	4 & 23631 & 5504\\
+	5 & 107149 & 22297\\
+	6 & 368747 & 85128\\
+	7 & ~$1*10^6$ & 282828\\
+	8 & ~$2.6*10^6$ & 867787\\
+	9 & ~$5.8*10^6$ & $2.6*10^6$\\
+	10 & ~$1.2*10^7$ & $8.4*10^6$\\
+\end{tabular}
+\section*{Classical parameters}
+\subsection{Johnson Graph}
+\subsection{Grassmann Graph}
+\subsection{Dual Polar Graph}
+\subsection{U(2d,r)}
+\subsection{Half dual polar graph}
+\subsection{Hamming graph}
+\subsection{Halved cube}
+\subsection{Bilinear forms graph}
+\subsection{Alternating forms graph}
+\subsection{Hermitean forms graph}
+\subsection{Pseudo graphs}
+\subsection{Dist 1-or-2 in symplectic dual polar graph}
+\subsection{Doob graph}
+\subsection{Quadratic forms graph}
+
+*** BREAK ***
+\begin{itemize}
+	\item ($4^{\text{th}}$ degree constraint)
+	\[(q^1_{11})^2+q^1_{12}q^2_{11}\geq\frac{2m(m-1)}{m+2}\]
+	\item ($5^\text{th}$ degree constraint.) if $q^{1}_{11}>0$ then,
+	\[(q^1_{11})^2+\left(2+\frac{q^2_{12}}{q^1_{11}}\right)q^1_{12}q^2_{11}\geq\frac{4m(2m-3)}{m+6}\]
+\end{itemize}
+ Defining one final polynomial $q_{d+1}(t)$ as
+\[q_{d+1}(t) = tq_d(t) - b_{d-1}^*q_{d-1}(t) - a_d^*q_{d}(t),\]
+we see that $q_{d+1}(\vert X\vert E_1) = 0$. This tells us that every entry of $E_1$ must be a root of $q_{d+1}(x)$. Further, since $\left\{E_0,E_1,\dots E_d\right\}$ forms a set of linearly independent matrices, $p_{d+1}(x)$ must be the minimal (entrywise) polynomial of $E_1$. Therefore $E_1$ must contain exactly $d+1$ distinct entries and likewise column one of $Q$ must contain $d+1$ distinct entries. Finally, this implies every column of $E_1$ is distinct as the $E_{i,i} = Q_{0,1}\neq E_{i,j}$ for any choice of $j\neq i$. We find it convenient to order the relations so that $Q_{01}>Q_{11}>\dots>Q_{d1}$; we call this the natural ordering wrt the $Q$-polynomial ordering $E_0,E_1,\dots,E_d$.\\
+
+
+
+
+
+Therefore we consider the polynomial ring $R = \nicefrac{\mathbb{R}[t]}{q_{d+1}(t)}$ with $\left\{q_0,\dots,q_d\right\}$ as a basis. For each polynomial $F\in R$, there exists unique constants $f_0,f_1,\dots, f_d\in\mathbb{R}$ so that $F = \sum_j f_j q_j$. Given $E_i = q_i(\vert X\vert E_1)$, $\left\{\vert X\vert f_0,\vert X\vert f_1,\dots,\vert X\vert f_d\right\}$ is the set of eigenvalues of $F\left(\vert X\vert E_1\right)$. Therefore, $F(\vert X\vert E_1)$ is positive semi-definite (psd) if and only if $f_j\geq 0$ for $0\leq j\leq d$. Define $P = \left\{F = \sum f_jq_j:f_0,f_1,\dots,f_d\geq 0  \right\}$ to be the positive semi-definite cone of $(X,\mathcal{R})$.\\
+
+
+
+
+
+Now consider that $E_1$ is a positive semi-definite matrix of rank $m = Q_{0,1}$. Therefore there exists a $m\times \vert X\vert$ matrix $U$ such that $U^TU = E_1$. Further, since the main diagonal of $E_1$ is constant and every column is distinct, we must have that the columns of $U$ are $\vert X\vert$ distinct vectors of constant norm $\frac{m}{\vert X\vert}$. Therefore $\sqrt{\frac{\vert X\vert}{m}}U$ is a set of unit vectors in dimension $m$ with Gram matrix $\frac{\vert X\vert}{m}E_1$.
+
+\subsection{Example Results}
+Each scheme listed below is using the $(v,m[a-z])$ notation used in Williford's tables available online.\\
+The following 3-class schemes have the property that the $(0,0)$ entry in $F_5$ is negative:
+\[\left\{(441,20),(576,23),(729,26),(1015,28),(1240,30),(1548,35),(1836,35),(1944,29),(1976,25),(1000,27a),(1331,30a)\right\}.\]
+All but the last two were not previously ruled out.
+The following 4-class schemes have the property that the $(0,0)$ entry in $F_6$ is negative:
+\[\left\{(594,9)^*,(4968,27),(5280,30),(5436,27),(6148,29),(7776,27)^*,(8432,31)^\dagger,(8478,27)^*,(9984,24)^*,(9984,32)^\dagger\right\}.\]
+The marked schemes also have negative entries in lower degree $F$'s. Specifically those marked with a $*$ have negative entries in both $F_5$ and $F_4$ while the schemes with $\dagger$ have negative entries in $F_5$.\newpage
+\subsection{Example Calculations}
+Consider the 3-class scheme with $v=1015$ and $m=28$. This scheme has
+\[L_1^* = \left[ \begin {array}{cccc} 0&28&0&0\\ \noalign{\medskip}1& 7.59&
+19.0&0\\ \noalign{\medskip}0& 1.44& 13.95& 13.0\\ \noalign{\medskip}0
+&0& 12.61& 15.0\end {array} \right]\]
+The following are computed $F$'s for this scheme:
+\[\begin{aligned}
+{\it F2}&= \left[ \begin {array}{cccc} 0.0& 0.28&
+0.72& 0.0\\ \noalign{\medskip} 0.010& 0.11& 0.55& 0.32
+\\ \noalign{\medskip} 0.0019& 0.041& 0.47& 0.49\\ \noalign{\medskip}
+0.0& 0.024& 0.49& 0.49\end {array} \right] \qquad
+&{\it F3}= \left[ \begin {array}{cccc}  0.011& 0.050& 0.59& 0.35
+\\ \noalign{\medskip} 0.0018& 0.055& 0.49& 0.46\\ \noalign{\medskip}
+0.0016& 0.036& 0.48& 0.48\\ \noalign{\medskip} 0.00092& 0.034& 0.48&
+0.48\end {array} \right] \\
+{\it F4}&= \left[ \begin {array}{cccc}  0.0020& 0.031& 0.46& 0.50
+\\ \noalign{\medskip} 0.0011& 0.034& 0.48& 0.49\\ \noalign{\medskip}
+0.0012& 0.036& 0.48& 0.48\\ \noalign{\medskip} 0.0013& 0.036& 0.48&
+0.48\end {array} \right] \qquad
+&{\it F5}= \left[ \begin {array}{cccc} - 0.00017& 0.032& 0.46& 0.50
+\\ \noalign{\medskip} 0.0011& 0.032& 0.48& 0.49\\ \noalign{\medskip}
+0.0012& 0.036& 0.48& 0.48\\ \noalign{\medskip} 0.0013& 0.036& 0.48&
+0.48\end {array} \right] \\
+{\it F6}&= \left[ \begin {array}{cccc}  0.0010& 0.033& 0.48& 0.48
+\\ \noalign{\medskip} 0.0012& 0.035& 0.48& 0.48\\ \noalign{\medskip}
+0.0013& 0.036& 0.48& 0.48\\ \noalign{\medskip} 0.0013& 0.036& 0.48&
+0.48\end {array} \right] 
+\end{aligned}\]
+\newpage
+Consider the 4-class scheme with $v=9984$ and $m=24$. This scheme has
+\[L_1^* = \left[ \begin {array}{ccccc} 0&24&0&0&0\\ \noalign{\medskip}1&0&23&0&0
+\\ \noalign{\medskip}0& 1.85&0& 22.15&0\\ \noalign{\medskip}0&0& 1.33&0
+& 22.67\\ \noalign{\medskip}0&0&0&24&0\end {array} \right] 
+\]
+The following are computed $F$'s for this scheme:
+\[\small\begin{aligned}
+{\it F2}&= \left[ \begin {array}{ccccc} { 0.0}& 0.0& 1.0
+& 0.0& 0.0\\ \noalign{\medskip} 0.0& 0.077& 0.0& 0.92& 0.0
+\\ \noalign{\medskip} 0.0034& 0.0& 0.087& 0.0& 0.91
+\\ \noalign{\medskip} 0.0& 0.0045& 0.0& 1.0& 0.0\\ \noalign{\medskip}
+0.0& 0.0& 0.058& 0.0& 0.94\end {array} \right]\qquad
+&{\it F3}= \left[ \begin {array}{ccccc}  0.0& 0.00017& 0.0& 1.0& 0.0
+\\ \noalign{\medskip} 0.0000072& 0.0& 0.056& 0.0& 0.94
+\\ \noalign{\medskip} 0.0& 0.0045& 0.0& 1.0& 0.0\\ \noalign{\medskip}
+0.00020& 0.0& 0.060& 0.0& 0.94\\ \noalign{\medskip} 0.0& 0.0048& 0.0&
+1.0& 0.0\end {array} \right]\\
+{\it F4}&= \left[ \begin {array}{ccccc}  0.0000081& 0.0&- 0.058& 0.0&
+1.1\\ \noalign{\medskip} 0.0&- 0.0044& 0.0& 1.0& 0.0
+\\ \noalign{\medskip}- 0.00019& 0.0& 0.056& 0.0& 0.94
+\\ \noalign{\medskip} 0.0& 0.0049& 0.0& 1.0& 0.0\\ \noalign{\medskip}
+0.00023& 0.0& 0.060& 0.0& 0.94\end {array} \right]\qquad
+&{\it F5}= \left[ \begin {array}{ccccc}  0.0&- 0.0052& 0.0& 1.0& 0.0
+\\ \noalign{\medskip}- 0.00021& 0.0& 0.051& 0.0& 0.95
+\\ \noalign{\medskip} 0.0& 0.0041& 0.0& 1.0& 0.0\\ \noalign{\medskip}
+0.00020& 0.0& 0.060& 0.0& 0.94\\ \noalign{\medskip} 0.0& 0.0049& 0.0&
+1.0& 0.0\end {array} \right]\\
+{\it F6}&= \left[ \begin {array}{ccccc} - 0.00026& 0.0& 0.071& 0.0&
+0.93\\ \noalign{\medskip} 0.0& 0.0052& 0.0& 0.99& 0.0
+\\ \noalign{\medskip} 0.00024& 0.0& 0.060& 0.0& 0.94
+\\ \noalign{\medskip} 0.0& 0.0048& 0.0& 1.0& 0.0\\ \noalign{\medskip}
+0.00020& 0.0& 0.060& 0.0& 0.94\end {array} \right] 
+\end{aligned}
+\]
+
+\end{document}

@@ -1,0 +1,344 @@
+% Notes on 4-class, Q-antipodal, preservation of semidefinite cone.
+%
+%  B G Kodalen,  W J Martin
+% UNIX files:
+% [MATH2013]: /home/martin/res/QPOL/APR18 >>ls
+% gegF  polyL1  qbip4594  readme
+% [MATH2013]: /home/martin/res/QPOL/D4B >>ls
+% akihiro      d4triples  gegs         latin      mysrgpars  weihsuan
+% apr4         feb1-2018  getsrgpars   latinpar   srgpars    whsuan2
+% apr5         g4krein    knownparams  listkrein  vk
+% cubetriples  gegkrein   krein        moresrgs   vklammu
+\documentclass[12pt]{article}
+
+\usepackage{graphicx,amsthm,fullpage} 
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+
+\newcommand{\BMA}{\mathbb{A}}
+\newcommand{\BMB}{\mathbb{B}}
+\newcommand{\ints}{\mathbb{Z}}
+\newcommand{\rats}{\mathbb{Q}}
+\newcommand{\re}{\mathbb{R}}
+\newcommand{\cx}{\mathbb{C}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\bw}{\mathbf{w}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\sA}{\mathsf{A}}
+\newcommand{\sB}{\mathsf{B}}
+\newcommand{\sF}{\mathsf{F}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\sS}{\mathsf{S}}
+\newcommand{\ones}{\mathbf{1}}
+
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\srg}{srg}
+\DeclareMathOperator{\Mat}{\mathsf{Mat}}
+
+\newenvironment{my_enumerate}{
+\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}{\end{enumerate}
+}
+
+
+\begin{document}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{example}{Example}[section]
+\begin{center}
+{\Large{\bf Notes}}  \\
+{\sc  Non-existence for some $Q$-polynomial schemes} 
+\end{center}
+
+
+\bigskip
+
+
+We refer to Chapter 2 of \cite{bcn} for basic results and noation.
+
+Consider a symmetric association scheme $(X,\cR)$ with basis relations $R_0,\ldots,R_d$ having 
+adjacency matrices $A_0=I,\ldots,A_d$, respectively. The linear span $\BMA$ of $\{A_0,\ldots,A_d\}$ is a
+vector space of symmetric matrices closed under both ordinary and entrywise multiplication and containing
+the identities, $I$ and $J$, for these operations, respectively. So there is a vector space basis
+$E_0,\ldots,E_d$ of pairwise orthogonal idempotents which are the projections onto the maximal
+common eigenspaces of the matrices in $\BMA$. Since $A_i \circ A_j = \delta_{i,j} A_i$, there exist
+\emph{Krein parameters} $q_{ij}^h$ ($0\le h,i,j \le d$) satisfying
+\begin{eqnarray}
+\label{Eqn:qijk}
+E_i \circ E_j = \frac{1}{|X|} \sum_{h=0}^d q_{ij}^h E_h \qquad (0\le i,j \le d) .
+\end{eqnarray}
+The \emph{Krein conditions} (see, e.g., Theorem 2.3.2 in \cite{bcn}) tell us that $q_{ij}^h \ge 0$ for all
+$0\le h,i,j \le d$.
+For $0\le i\le d$, let $L_i^*$ denote the $(d+1)\times (d+1)$ matrix with $(h,j)$-entry equal to $q_{ij}^h$.
+
+\begin{lem}
+The mapping $\varphi:  E_i \mapsto |X|^{-1} L_i^*$ ($0\le i \le d$) extends linearly to a ring isomorphism that satisfies
+$\varphi( M \circ N ) = \varphi( M )\varphi(  N )$.
+\end{lem}
+
+\begin{proof}
+From Lemma 2.3.1(vi) in \cite{bcn}, we have
+$$ \sum_{s  = 0}^d q_{is}^r q_{jt}^s = \sum_{h=0}^d q_{i j}^h q_{h t}^r  $$
+which gives
+$$ L_i^* L_j^* = \sum_{h=0}^d q_{ij}^h L_h^* ~ .$$
+Since $\varphi: \sum_{h=0}^d c_h E_h \mapsto |X|^{-1} \sum_{h=0}^d c_h L_h^*$, 
+we have that $\varphi(M \circ N ) = \varphi( M )\varphi(  N )$.
+The set $\{ E_0, \ldots, E_d\}$ forms a basis for $\BMA$ and the set $\{L_i^*\}_{i=0}^d$ is linearly independent 
+since $(L_i^*)_{0,j} = \delta_{i,j} \rank E_i$, 
+%(row zero has a  non-zero entry in the $i^{\rm th}$ position and nowhere else), 
+so this is an isomorphism.
+\end{proof}
+
+Let $m$ be a fixed positive integer and, for each finite $X \subset S^{m-1}$, let $G_X$ denote the 
+Gram matrix of $X$. This matrix is always positive semidefinite; for Hermitian matrices $M$ and $N$ of the same size, we write $M \succeq N$ to denote that the matrix $M-N$ is positive semidefinite.
+A function $f:[-1,1]\rightarrow \re$ is \emph{positive definite} if, for every such finite 
+subset $X$, $f\circ (G_X) \succeq 0$ where $f \circ (M)$ has entries $f(m_{ij})$ when $M=[m_{ij}]$ is a matrix and $f$
+is an function of a single variable.
+
+Schoenberg's Theorem \cite{Schoenberg1942}
+tells us that a continuous function  $f:[-1,1]\rightarrow \re$ is positive definite if and only
+if $f$ is expressible as a non-negative linear combination of the Gegenbauer polynomials. Define
+the \emph{Gegenbauer cone} as the subspace of $\re[t]$ consisting of all polynomials with non-negative Gegenbauer coefficients:
+$$ \mathcal{G} = \left\{ f(t) =  \sum_{i=0}^D f_i G_i(t) \mid N \ge 0, \ f_i \ge 0 \ \mbox{for all} \ i \right\}.$$
+
+
+The \emph{positive semidefinite cone} of the Bose-Mesner algebra $\BMA$ is the set of all  matrices
+in $\BMA$ with non-negative eigenvalues: 
+$\cC = \left\{ \sum_{h=0}^d c_h E_h \mid \left( \forall h \right) \left( c_h \ge 0\right) \right\}$.  
+Schoenberg's Theorem implies that the linear transformation $f \mapsto f\circ (E_1)$ maps the
+Gegenbauer cone of polynomials into the positive semidefinite cone of the Bose-Mesner algebra. Typically
+the mapping is not surjective: consider $E_2 = \frac{1}{c_2^*} \left( |X| E_1 \circ E_1 - a_1^* E_1 - m E_0 \right)$
+when $a_1^* > 0$.
+
+A matrix $R = \sum_{h=0}^d c_h L_h^*$ in $\bbL = \spn\{ L_0^* ,\ldots, L_d^* \}$ has all entries non-negative
+if and only if all $c_h \ge 0$. Applying the Krein conditions, one sees this by examining the entries in row zero 
+of $R$.
+
+\begin{cor}
+The map $\varphi$ above maps the positive semidefinite cone of $\BMA$ bijectively onto the
+cone of non-negative matrices in $\bbL$. \hfill $\Box$
+\end{cor}
+
+
+\section{Parameters}
+
+The scheme is imprimitive with all fibers having size two. The quotient scheme is that of a strongly regular graph.
+Suppose the quotient is an $\srg(v,k,\lambda,\mu)$, $\Gamma$ say, with eigenvalues $k$, $r$ and $s$. 
+Then Brian has shown that
+all the parameters of $(X,\cR)$ are determined by $k$, $r$ and $s$. From standard results, e.g.\ Theorem 1.3.1 
+in \cite{bcn}, we have
+$$ \mu = k+rs, \qquad v = \frac{ (k-r)(k-s) }{\mu}, \qquad \lambda = \mu + r + s. $$
+The eigenvalue multiplicities of $r$ and $s$ are denoted by $f$ and $g$, respectively, and these are 
+given by
+$$ f = \frac{ (s+1)k(k-s) }{ \mu(s-r) }, \qquad g = \frac{ (r+1)k(k-r) }{\mu (r-s ) }. $$
+The $Q$-bipartite scheme represents the vertices of $\Gamma$ by a set of $v$ lines through the origin in
+$\re^m$ ($m=m_1$) where the lines representing non-adjacent vertices are orthogonal and two lines
+representing adjacent vertices form an angle with cosine $1/n$ for some positive real number $n$. 
+
+Brian proves that $n$ is a positive integer dividing $k$ and that $s=-n^2$.  We find
+\begin{eqnarray*}
+m &=& \frac{ n^2 (r-k)}{ r n^2-k } = \frac{s(r-k)}{\mu} \\
+v   &=&  \frac{ m(s-k) }{s} \\
+n^2 &=& \frac{mk}{v-m} 
+\end{eqnarray*}
+The first and second eigenmatrices, $P$ and $Q$, of the 4-class scheme are given by
+$$ P = \left[ \begin{array}{ccccr}
+1   &      k    &   2(v-1-k)   &     k     &    1 \\
+1   &   k/n    &          0      &   -k/n   &   -1 \\
+1   &      r     &  -2(1+r)     &     r     &     1 \\
+1   &   - n     &      0          &     n    &    -1 \\     
+1   &      s    &  -2(1+s)     &     s    &     1
+\end{array} \right], $$
+$$ Q = \left[ \begin{array}{ccccr}
+ 1    &      m        &          f            &         v-m       &          g           \\
+ 1    &     m/n       &        fr/k          &        -m/n       &        gs/k         \\ 
+ 1    &      0        &    \frac{k-s}{s-r}&          0          &   \frac{k-r}{r-s}    \\
+ 1    &    -m/n       &        fr/k          &         m/n       &        gs/k         \\
+ 1    &     -m        &          f            &         m-v       &        g  
+\end{array} \right] $$
+where the entries $f(1+r)/(k+1-v)$ and $g(1+s)/(k+1-v)$ of the second eigenmatrix of 
+$\Gamma$ have been expressed as $(k-s)/(s-r)$ and $(k-r)/(r-s)$, respectively.
+
+
+\section{Infinite families of strongly regular graphs}
+
+In this section, we specialize the parameters of our four-class schemes by specializing the strongly regular
+quotient to one of the well-studied infinite families.
+
+
+\subsection{Johnson (or triangular) graphs}
+
+The Johnson graph $J(w,\ell)$ is strongly regular when $\ell=2$ and, in this case, it is just the line graph of
+the complete graph $K_w$ and is therefore also known as the triangular graph $T_w$. The intersection
+numbers are given by
+$$\tilde{L}_1 = \left[  \begin{array}{ccc}  0 & 2(w-2) &  0  \\  1 & w-2 &  w-3 \\  0 &  4 &  2(w-4) \end{array} \right],
+\qquad
+\tilde{L}_2 = \left[  \begin{array}{ccc}  0 & 0 & \frac12 (w-2)(w-3)   \\[2mm]  0 &   w-3 & \frac12 (w-3)(w-4) \\[2mm]  1 & 2(w-4) & 
+ \frac12 (w-4)(w-5)   \end{array} \right], $$
+$$
+\tilde{P} = \left[  \begin{array}{ccc}  1 & 2(w-2) & \frac12 (w-2)(w-3) \\  1 & w-4 & 3-w \\ 1 & -2 & 1 \end{array} \right],
+\qquad
+\tilde{Q} = \left[  \begin{array}{ccc}  1 & w-1 & \frac12 w(w-3) \\[1mm]  
+1 & \frac{(w-1)(w-4)}{2(w-2)} &   \frac{w(w-3)}{2(w-2)}  \\[2mm] 
+1 & \frac{2(1-w)}{w-2} & \frac{w}{w-2} \end{array} \right].
+$$
+Since we require our strongly regular graph to have smallest eigenvalue $s=-n^2$ for some integer $n$,
+we focus on the last column of $P$ and set $w = n^2+3$. Now with $k= \frac12 (w-2)(w-3)$, $r=1$ and 
+$s=3-w$, we have 
+$$ P = \left[ \begin{array}{ccccc}  1  &    \frac12 (n^2+1)n^2  & 4(n^2+1) &    \frac12 (n^2+1)n^2 & 1 \\[2mm]
+1   &     \frac12 (n^2+1)n   &  0   & -    \frac12 (n^2+1)n^2 &   -1 \\[1mm]
+1 & 1 & -4\ & 1 & 1 \\
+1  &  -n \ & 0 & n & -1 \\
+1  & -n^2 & 2(n^2-1) & -n^2 & 1 \end{array} \right], $$
+ $$ Q = \left[ \begin{array}{ccccc}  1  &  n^2+2       &  \frac12 (n^2+3) n^2 &  \frac12 (n^2+2)(n^2+1) & n^2+2 \\[2mm]
+ 1  & \phantom{-}\frac{n^2+2}{n}  & \frac{n^2+3}{n^2+1}  &  - \frac{n^2+2}{n} & - \frac{ 2(n^2+2) }{n^2 +1} \\[2mm]
+ 1  & 0 & - \frac{ (n^2+3) n^2}{2(n^2+1) } & 0  &  \frac{ n^4 + n^2-2}{2(n^2+1) }  \\[2mm]
+ 1  & -\frac{n^2+2}{n}  & \frac{n^2+3}{n^2+1}  &   \phantom{-}  \frac{n^2+2}{n} & - \frac{ 2(n^2+2) }{n^2 +1} \\[2mm] 
+ 1  &  -n^2-2       &  \frac12 (n^2+3) n^2 &  -\frac12 (n^2+2)(n^2+1) & n^2+2  \end{array} \right]. $$
+The $Q$-polynomial ordering $01234$ on eigenspaces induces the natural ordering $01234$ on relations so
+that $(X,R_1)$ is a double cover of the strongly regular graph $T_w$.
+
+
+
+
+%%%%%%%%%%%%%
+
+To present the parameters of  the covering graph, define
+$$    p^\pm :=   \frac14 (n^2-1)( n^2 \pm n - 2) =  \frac{1}{4} ( n \mp 1)^2 (n \pm 1 ) (n\pm 2) $$
+to write 
+$$ L_1 = \left[ \begin{array}{ccccc}
+0     &    \frac12 (n^2+1)n^2             &             0               &                0              &           0        \\
+1     &             p^+                            &       2(n^2-1)          &               p^-            &           0        \\
+0     &    \frac14 (n^2-1)n^2            &            n^2             &\frac14 (n^2-1)n^2 &           0        \\ 
+0     &              p^-                            &       2(n^2-1)          &               p^+           &           1        \\  
+0     &                 0                           &              0               & \frac12 (n^2+1)n^2 &           0      \end{array} \right].$$
+Clearly $p_{11}^1 = p^+$ is not an integer for $n \equiv 0 \pmod{4}$. 
+
+As $L_0$ and $L_4$ are trivial, we give only the above and, now, $L_2$ and $L_3$, respectively:
+$$ \left[ \begin{array}{ccccc}  0&0& 4(n^2+1) &0&0 \\
+0 & 2(n^2-1) & 8 & 2(n^2-1) & 0 \\
+1 & n^2 & 2(n^2+1)  & n^2 & 1 \\
+0 & 2(n^2-1) & 8 & 2(n^2-1) & 0 \\
+0&0& 4(n^2+1) &0&0     \end{array} \right],
+\left[ \begin{array}{ccccc}
+0      &             0               &                0            &    \frac12 (n^2+1)n^2              &           0        \\
+0     &             p^-                           &       2(n^2-1)          &               p^+            &           1        \\
+0     &    \frac14 (n^2-1)n^2            &            n^2             &\frac14 (n^2-1)n^2 &           0        \\ 
+1     &              p^+                            &       2(n^2-1)          &               p^-           &           0        \\  
+0      & \frac12 (n^2+1)n^2 &                 0                           &              0              &           0      \end{array} \right].$$
+
+The Krein array is
+$$ \iota^*(X,\cR) = \phantom{\left\{ {n^6 + 3 n^4 - 4} , {2(n^2+2)}; {n^6 + 3 n^4 - 4} , 
+1, 2(n^2+2)(n^2+1) , n^4+n^2-2 , n^2+2 \right\}} $$
+$$ \left\{ n^2+2 , \ n^2+1, \ \frac{n^6 + 3 n^4 - 4}{(n^2+3)n^2} , \ \frac{2(n^2+2)}{n^2+1}; \ \  
+1, \ \frac{2(n^2+2)(n^2+1)}{(n^2+3)n^2} , \ \frac{n^4+n^2-2}{n^2+1} , \ n^2+2 \right\} $$
+%$$ \iota^*(X,\cR) = \left\{ n^2+2 \ , \ n^2+1 \ , \ \frac{n^6 + 3 n^4 - 4}{(n^2+3)n^2} , \frac{2(n^2+2)}{n^2+1}; \ \ 
+%1 \ , \ , \frac{2(n^2+2)(n^2+1)}{(n^2+3)n^2} , \frac{n^4+n^2-2}{n^2+1} \ , \ n^2+2 \right\} $$
+and the remaining Krein parameters satisfy $q_{hi}^j=0$ whenever $h+i+j$ is odd. Since $n \ge 2$, no
+Krein conditions are violated.
+
+The case $n=1$ is degenerate; the octahedron can be viewed as the solution here, but as $Q_{11}=Q_{01}$, several
+relations are identified and we have only two classes. The case $n=2$ gives us the parameters of a non-existent
+distance-regular graph with intersection array $\{10,6,3,1;1,3,6,10\}$ which is ruled out by Theorem 4.4.11 in \cite{bcn}. 
+
+The first interesting case, $n=3$, is the only case where we know of a non-trivial example. Here we have 240 vectors 
+in $\re^8$ forming 120 lines through the origin. The lines may be labelled by edges of $K_{12}$ ($w=12$ here) in
+such a way that incident edges correspond to orthogonal lines and the two lines representing a pair of 
+non-incident edges form a $60^\circ$ angle. 
+
+The Delsarte cliques in the triangular graph $T_w$ are just the sets of $w-1$ edges all incident to a common point.
+If our $4$-class scheme were to exist, these must map to an orthoplex in $\re^{w-1}$.
+
+Consider the  problem of finding $w$ orthonormal bases in $\re^{w-1}$ --- $\cB_1,\ldots,\cB_w$, say --- 
+with the property that $| \cB_i \cap \cB_j | = 1$ for all $i\neq j$ and $|\bb \cdot \bb'|$ is constant (independent 
+also of $i$ and $j$) for any $\bb \in \cB_i$ and any $\bb' \neq \bb$ in $\cB_j$. What must this inner product be?
+Must every solution to this problem arise from some $4$-class $Q$-bipartite association scheme?
+
+
+%%%%%%%%%%%%%  End Johnson quotient
+
+\section{July 2018}
+
+A special case should be $k\le d$, in which we just want $Q_k(t)$ to be a non-neg comb of $q_j(t)$. But 
+for $k=4$, this fails for $d=4$. $\iota^* = 
+\{ 9, 8, 81/11, 63/8, 1, 18/11, 9/8, 9 \}$.
+
+Jason says eleven parameter sets with $d=3$ are ruled out (one already ruled out), including $v=441$, $m=20$.
+
+
+Jason says ``try this for all sorts of schemes'' including Stan Payne's schemes from GQs.
+
+
+\section{Sch\"{o}nberg's Theorem}
+
+In 1942, Sch\"{o}nberg \cite{schoenberg} proved an elegant theorem that is now fundamental to the study of spherical codes which illustrates the importance of the Gegenbauer polynomials.
+
+The Gegenbauer polynomials in dimension $m$ are defined by the three-term recurrence
+$$ G^{(m)}_{k}(t) = \frac{    (2k+m-4) t G^{(m)}_{k-1}(t)  - (k - 1) G^{(m)}_{k-2}(t) }{   k + m - 3  } $$
+with initial values $G^{(m)}_0(t)=1$ and $G^{(m)}_1(t) = t$.
+
+\begin{thm}[Sch\"{o}nberg \cite{schoenberg}]
+Fix  a positive integer $m$ and let $F(t)$ be a real-valued function with convergent power series expansion
+$$  F(t) = \sum_{k=0}^\infty f_k G^{(m)}_k(t) $$
+where the Gegenbauer polynomials $G^{(m)}_k(t) $ are as defined above. 
+Then the following are equivalent:
+\begin{itemize}
+\item[(i)] For every finite non-empty subset $X \subset S^{m-1}$ of the unit sphere in dimension $m$, we have
+$$ \sum_{x\in X} \sum_{y \in X} F( x \cdot y ) \ge 0 ; $$
+\item[(ii)] $f_k\ge 0$ for all $k$. $\Box$
+\end{itemize}
+\end{thm}
+
+Given an association scheme $(X,\cR)$ with Bose-Mesner algebra $\BMA$ containing distinguished 
+idempotent $E_1$ of rank $m=m_1$. The matrix $\frac{|X|}{m}$ is positive semidefinite with all diagonal
+entries equal to one and is therefore the Gram matrix of some spherical code in dimension $m$. Let us 
+define the \emph{Gegenbauer cone} of $\BMA$ with respect to $E_1$ as the set 
+of all finite nonnegative combinations of Gegenbauer polynomials applied entrywise to $E_1$:
+$$ \cG_\BMA(E_1) = \left\{  \sum_{k=0}^N f_k G^{(m)}_k \circ ( \frac{|X|}{m} E_1)  \middle| N < \infty, \ f_k \ge 0 \ \mbox{for} \ k=0,1,\ldots,N\right\}$$
+where, for a single-variable function $G(t)$ and a matrix $E=[E_{ij}]_{i,j}$,  
+$G\circ(E)$ is the matrix with $(i,j)$-entry equal to $G( E_{ij} )$.
+
+
+\begin{cor}
+For any symmetric association scheme $(X,\cR)$ and any distinguished idempotent $E_1$ for its 
+Bose-Mesner algebra $\BMA$, we have $ \cG_\BMA(E_1) \subseteq \cC$ where $\cC$ is the positive
+semidefinite cone of the Bose-Mesner algebra. $\Box$
+\end{cor}
+
+If $(X,\cR)$ is  % a $Q$-polynomial 
+an association 
+scheme with $Q$-polynomial ordering $E_0,E_1,\ldots,E_d$, and Krein array $\{ b_0^*=m,b_1^*,\ldots,b_{d-1}^*;
+c_1^*=1,c_2^*,\ldots,c_d^*\}$ and $a_j^* = m-b_j^* - c_j^*$ such that $a_1^* > 0$, then we have
+$$ E_2 = \frac{1}{c_2^*} \left[ E_1\circ E_1 - a_1^* E_1 - m E_0 \right] = \frac{m-1}{c_2^* m} G_2^{(m)}(t)
+- \frac{ a_1^* }{ c_2^*} G_1^{(m)}(t) - \frac{m^2-1}{ c_2^* m} G_0^{(m)}(t)$$
+with negative Gegenbauer coefficients $f_1 = - \frac{ a_1^* }{ c_2^*}$ and $f_0 =  - \frac{m^2-1}{ c_2^* m} $.
+
+
+
+\section{Other}
+
+TO DO:
+\begin{itemize}
+\item find change-of-basis coefficients from Gegenbauers to scheme orthogonal polynomials and back
+\item find $Q$-bipartite example where $L_j^*$ has neg. Gegenbauer coefficients
+\end{itemize}
+
+I.~J.~Schoenberg, Positive definite functions on spheres, Duke Math.~J.~{\bf 9} (1942), 96--108.
+
+
+\end{document}
