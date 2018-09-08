@@ -1,0 +1,248 @@
+% Notes on 4-class, Q-antipodal, preservation of semidefinite cone.
+%
+%  B G Kodalen,  W J Martin
+
+\documentclass[12pt]{article}
+
+\usepackage{graphicx,amsthm,fullpage} 
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+
+\newcommand{\BMA}{\mathbb{A}}
+\newcommand{\BMB}{\mathbb{B}}
+\newcommand{\ints}{\mathbb{Z}}
+\newcommand{\rats}{\mathbb{Q}}
+\newcommand{\re}{\mathbb{R}}
+\newcommand{\cx}{\mathbb{C}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\bw}{\mathbf{w}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\sA}{\mathsf{A}}
+\newcommand{\sB}{\mathsf{B}}
+\newcommand{\sF}{\mathsf{F}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\sS}{\mathsf{S}}
+\newcommand{\ones}{\mathbf{1}}
+
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\srg}{srg}
+\DeclareMathOperator{\Mat}{\mathsf{Mat}}
+
+\newenvironment{my_enumerate}{
+\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}{\end{enumerate}
+}
+
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{example}{Example}[section]
+
+
+\begin{document}
+\begin{center}
+{\Large{\bf Sch\"{o}nberg's Theorem}}  \\
+{\sc  Non-existence for some $Q$-polynomial schemes} 
+\end{center}
+
+\section{Introduction}
+
+\section{Association schemes}
+Let $X$ be a finite set of vertices. A \textit{symmetric d-class association scheme} (see \cite{BCN}) on $X$ is a pair $\mathcal{L} = (X,\mathcal{R})$ where $\mathcal{R} =\left\{R_0,R_1,\dots,R_d\right\}$ is a set of $d+1$ relations on $X$ satisfying the following properties:
+\begin{itemize}
+	\item $R_0$ is the identity relation;
+	\item $\left\{R_0,R_1,\dots, R_d\right\}$ forms a partition of $X\times X$;
+	\item $(x,y)\in R_i$ implies $(y,x)\in R_i$;
+	\item for $0\leq i,j,k\leq d$ there exist \textit{intersection numbers} $p_{i,j}^k$ such that for any $(x,y)\in R_k$, the number of vertices $z$ for which $(x,z)\in R_i$ and $(z,y)\in R_j$ is equal to $p_{i,j}^k$ independent of our original choice of $x$ and $y$.
+\end{itemize}
+Often it becomes useful to order the vertices in $X$ and then represent each $R_i$ as a 01-matrix $A_i$ where the $(x,y)$ entry of $A_i$ is 1 if and only if $(x,y)\in R_i$. With this setting in mind, the defining properties above are encoded as:
+\begin{itemize}
+	\item $A_0 = I$;
+	\item $\sum_i A_i = J$;
+	\item for all $0\leq i\leq d$, $A_i^T = A_i$;
+	\item for all $0\leq i,j,k\leq d$, $A_iA_j = \sum p_{i,j}^k A_k$.
+\end{itemize}
+The final condition tells us that $\mathbb{A} = \text{span}\left\{A_0,A_1,\dots A_d\right\}$ forms a matrix algebra under standard matrix multiplication. As our matrices are 01-matrices with disjoint support, this \emph{Bose-Mesner algebra} is also closed under Schur (element-wise) products. Using our symmetric property, we note that $p_{i,j}^k = p_{j,i}^k$ telling us that $A_iA_j = A_jA_i$ and our algebra is commutative. Therefore our adjacency matrices are simultaneously diagonalizable giving us $d+1$ orthogonal maximal eigenspaces with projection operators $E_0,\dots,E_d$. As both $\left\{A_0,\dots,A_d\right\}$ and $\left\{E_0,\dots,E_d\right\}$ form bases for the Bose-Mesner algebra, there exists unique matrices $P$ and $Q$ so that
+\begin{equation}
+\label{PQmat}
+A_i = \sum_{j} P_{ji} E_j,\qquad E_j = \frac{1}{\vert X\vert} \sum_{i} Q_{ij}A_i.
+\end{equation}
+
+We call $P$ and $Q$ the first and second eigenmatrices, respectively, and note here that $P_{0i}$ is the valency of relation $R_i$ and $Q_{0j}$ is the rank of $E_j$. Finally, as our matrix algebra is closed under Schur products, we find that there exist structure constants $q_{i,j}^k$ such that for all $0\leq i,j,k\leq d$:
+\[E_i\circ E_j = \frac{1}{\vert X\vert}\sum_k q_{i,j}^k E_k.\]
+We call these parameters the \textit{Krein parameters} of the association scheme and the \emph{Krein conditions} (see, e.g., Theorem 2.3.2 in \cite{bcn}) tell us that $q_{ij}^h \ge 0$ for all
+$0\le h,i,j \le d$. For $0\le i\le d$, let $L_i^*$ denote the $(d+1)\times (d+1)$ matrix with $(h,j)$-entry equal to $q_{ij}^h$.
+
+\begin{lem}
+	The mapping $\varphi:  E_i \mapsto |X|^{-1} L_i^*$ ($0\le i \le d$) extends linearly to a ring isomorphism that satisfies
+	$\varphi( M \circ N ) = \varphi( M )\varphi(  N )$.
+\end{lem}
+
+\begin{proof}
+	From Lemma 2.3.1(vi) in \cite{bcn}, we have
+	$$ \sum_{s  = 0}^d q_{is}^r q_{jt}^s = \sum_{h=0}^d q_{i j}^h q_{h t}^r  $$
+	which gives
+	$$ L_i^* L_j^* = \sum_{h=0}^d q_{ij}^h L_h^* ~ .$$
+	Since $\varphi: \sum_{h=0}^d c_h E_h \mapsto |X|^{-1} \sum_{h=0}^d c_h L_h^*$, 
+	we have that $\varphi(M \circ N ) = \varphi( M )\varphi(  N )$.
+	The set $\{ E_0, \ldots, E_d\}$ forms a basis for $\BMA$ and the set $\{L_i^*\}_{i=0}^d$ is linearly independent 
+	since $(L_i^*)_{0,j} = \delta_{i,j} \rank E_i$, 
+	%(row zero has a  non-zero entry in the $i^{\rm th}$ position and nowhere else), 
+	so this is an isomorphism.
+\end{proof}
+The \emph{positive semidefinite cone} of the Bose-Mesner algebra $\BMA$ is the set of all  matrices
+in $\BMA$ with non-negative eigenvalues: 
+$\cC = \left\{ \sum_{h=0}^d c_h E_h \mid \left( \forall h \right) \left( c_h \ge 0\right) \right\}$.  
+
+\begin{cor}
+	The map $\varphi$ above maps the positive semidefinite cone of $\BMA$ bijectively onto the
+	cone of non-negative matrices in $\bbL$. \hfill $\Box$
+\end{cor}
+
+
+\subsection{Sch\"oenberg's Theorem}
+%Let $m$ be a fixed positive integer and, Schoenberg's Theorem \cite{Schoenberg1942} tells us that a continuous function  $f:[-1,1]\rightarrow \re$ is positive definite if and only if $f$ is expressible as a non-negative linear combination of the Gegenbauer polynomials. 
+
+%Define the \emph{Gegenbauer cone} as the subspace of $\re[t]$ consisting of all polynomials with non-negative Gegenbauer coefficients:
+%$$ \mathcal{G} = \left\{ f(t) =  \sum_{i=0}^D f_i G_i(t) \mid N \ge 0, \ f_i \ge 0 \ \mbox{for all} \ i \right\}.$$
+
+
+Let $\Omega_m$ denote the unit sphere in Euclidean space $\mathbb{R}^m$. For each finite $X \subset \Omega_m$, let $G_X$ denote the Gram matrix of $X$. This matrix is always positive semidefinite; for Hermitian matrices $M$ and $N$ of the same size, we write $M \succeq N$ to denote that the matrix $M-N$ is positive semidefinite. A function $f:[-1,1]\rightarrow \re$ is \emph{positive definite} if, for every finite subset $X\subset\Omega_m$, $f\circ (G_X) \succeq 0$ where $f \circ (M)$ has entries $f(m_{ij})$ when $M=[m_{ij}]$ is a matrix and $f$ is an function of a single variable. Below, we define a set of positive definite functions which can be used to disprove the existance of certain $Q$-polynomial association schemes.\\
+For any $k\geq 0$ let $\text{Harm}(k) = \text{Harm}_d(k)$ denote the space of harmonic and homogeneous polynomials of degree $k$ on $\Omega_m$. Let $N_m = \dim\text{Harm}(k)$ and fix an orthogonal basis $\left\{W_{k,i}\right\}_{i=1..N}$ of $\text{Harm}(k)$. We define the Gegenbauer polynomials for dimension $m$ via $Q_0^{(m)}(t) = 1$, $Q_1^{(m)}(t) = t$ and the three term recurrence:
+\[Q_k^{(m)} = \frac{(2k+m-4)tQ_{k-1}^{(m)}(t) - (k-1)Q_{k-2}^{(m)}(t)}{k+m-3}, \qquad k\geq 2.\]
+Note these are normalized so that $Q_k^{(m)}(1) = 1$. Below we have listed the first six polynomials:
+\[\begin{aligned}
+Q_0^m(t)&=1\\
+Q_1^m(t)&=t\\
+Q_2^m(t)&=\frac{mt^2 - 1}{m-1}\\
+Q_3^m(t)&=\frac{(m+2)t^3 - 3t}{(n-1)}\\
+Q_4^m(t)&=\frac{(m+4)(m+2)t^4 - 6(m+2)t^2+3}{m^2-1}\\
+Q_5^m(t)&=\frac{(m+6)(m+4)t^5-10(m+4)t^3+15t}{m^2-1}\\
+Q_6^m(t)&=\frac{(m+8)(m+6)(m+4)t^6-15(m+6)(m+4)t^4+45(m+4)t^2-15}{(m+3)(m+1)(m-1)}\\
+\end{aligned}\]
+The \textit{addition formula} relates Gegenbauer polynomials and any orthogonal basis of $Harm(k)$ via
+\begin{thm}[Thm.~3.3.{DGS}]
+\[\sum_{i=1}^N W_{k,i}(\zeta)W_{k,i}(\eta) = Q_k(\langle\zeta,\eta\rangle); \qquad \zeta,\eta\in\Omega_m.\]	
+\end{thm}
+
+
+\begin{thm}[Thm.~3.6.{DGS}]
+Let $X\subset \Omega_m$ and $H_k = [W_{k,i}(\zeta)],\qquad \zeta\in X, i\in \left\{1,2,\dots, N\right\}$. Then,
+\[H_kH_k^T = [Q_k(\langle \zeta,\eta\rangle)]_{\zeta,\eta\in X} = Q_k^\circ(G_X)\]
+where $G_X$ is the Gram matrix of $X$ and $Q_k^\circ$ is applied entrywise.
+\end{thm}
+
+However, since $v^TH_kH_k^Tv = \lVert{vH_k^T}\rVert^2\geq 0$ for any vector $v\in \re^{\vert X\vert}$, we must have that $Q_k^\circ(G_X)$ is a positive semi-definate Hermitian matrix and thus $Q_k^\circ$ is a positive definate function for any choice of $k$.
+\begin{cor}
+	Let $(X,\mathcal{R})$ be a $Q$-polynomial association scheme with $Q$-polynomial ordering $E_0,E_1,\dots,E_d$. Let $m=\text{rank}(E_1)$, define $L_1^* = [q^k_{1,j}]_{k,j}$ and
+	\[F_k = Q_k\left(\frac{1}{m}L_1^*\right).\]
+	for $k\geq 0$. Then $F_k$ must be non-negative for each $k\geq 0$.
+\end{cor}
+\begin{proof}
+	From above, we know that there exists a $m\times \vert X\vert$ matrix $U$ with unit vector columns such that $U^TU = \frac{\vert X\vert}{m}E_1$. Then, by \ref{psdgeg},
+	\[Q_k^\circ\left(\frac{\vert X\vert}{m}E_1\right)\succeq0\]
+	However, since $\left<E_i\right>$ is closed under entrywise multiplication, there exists constants $c_i$ such that
+	\begin{equation}\label{Gkeig}Q_k^\circ\left(\frac{\vert X\vert}{m}E_1\right) = \sum_{i=0}^d\vert X\vert c_iE_i.\end{equation}
+	Note, since the $E_i$'s represent orthogonal idempotents, the constants $\vert X\vert c_i$ are the eigenvalues of $Q_k^\circ\left(\frac{\vert X\vert}{m}E_1\right)$. Using $\phi^*$ on equation \ref{Gkeig}, we arrive at
+	\[Q_k\left(\frac{1}{m}L_1^*\right) = \sum_{i=0}^dc_iL_i^*\]
+	Since each $L_i^*$ is non-negative, our result follows. It is worth noting that since $[L_i^*]_{0,j} = m_j\delta_{i,j}$, it is sufficient to check the first row of $F_k$ to guarantee $c_i\geq 0$ for all $0\leq i\leq d$. This also means that not only does $Q_k^\circ\left(\frac{\vert X\vert}{m}E_1\right)\succeq 0$ imply $F_k$ is non-negative, but in fact these are equivalent conditions.
+\end{proof}
+
+Schoenberg's Theorem implies that the linear transformation $f \mapsto f\circ (E_1)$ maps the
+Gegenbauer cone of polynomials into the positive semidefinite cone of the Bose-Mesner algebra. Typically
+the mapping is not surjective: consider $E_2 = \frac{1}{c_2^*} \left( |X| E_1 \circ E_1 - a_1^* E_1 - m E_0 \right)$
+when $a_1^* > 0$.
+
+A matrix $R = \sum_{h=0}^d c_h L_h^*$ in $\bbL = \spn\{ L_0^* ,\ldots, L_d^* \}$ has all entries non-negative
+if and only if all $c_h \ge 0$. Applying the Krein conditions, one sees this by examining the entries in row zero 
+of $R$.
+
+
+
+
+
+\section{Main application: 4-class $Q$-bipartite}
+We say a $d$-class symmetric association scheme, $(X,\mathcal{R})$, is $Q$-polynomial, or \textit{cometric}, if there exists an ordering of the eigenspaces, say $E_0$, $E_1$,\dots, $E_d$, such that the Krein parameters satisfy the following conditions:
+\begin{my_enumerate}
+	\item $q^k_{i,j} = 0$ whenever $i+j<k$, and
+	\item $q^{i+j}_{i,j}>0$ whenever $i+j\leq d$.
+\end{my_enumerate}
+Under these conditions, we see that for a given $0\leq j\leq d$, at most three possible choices for $k$ will allow $q_{1,k}^j>0$. Therefore let $c_j^* = q_{1,j-1}^j$, $a_j^* = q_{1,j}^j$ and $b_j^* = q_{1,j+1}^j$ for $0\leq j\leq d$ with the restriction that $b_d^*=c_0^*=0$. Given a cometric scheme, we define the Krein array as $\left\{b_0^*,b_1^*,\dots,b_{d-1}^*;c_1^*,c_2^*,\dots,c_d^*\right\}$ noting that for any $0\leq j\leq d$, $c_j^* + a_j^* + b_j^* = q^0_{1,1}$. We say a cometric scheme is $Q$-\emph{bipartite} if $a_j^*=0$ for all $0\leq j\leq d$. This is equivalent to the condition that $q_{i,j}^k=0$ whenever $i+j+k$ is odd. A cometric scheme is $Q$-\emph{antipodal} if $b_j^* = c_{d-j}^*$ for all $j$ except possibly $j = \lfloor \frac{d}{2}\rfloor$.\\
+We may define orthogonal polynomials $q_j(t)$, $j=0,1,\dots,d$ by $q_0(t) = 1$, $q_1(t) = t$ and the three-term recurrence $tq_j(t) = c_{j+1}^*q_{j+1}(t) + a_j^*q_j(t) + b_{j-1}^*q_{j-1}(t)$. It follows that $\vert X\vert E_j = q_j(\vert X\vert E_1)$, for $j=0,1,\dots,d$ where matrix multiplication is computed entrywise. Since $\frac{1}{\vert X\vert}Q_{i,j}$ for $0\leq i\leq j$ are the entries of $E_j$, this also means that $q_j(Q_{i,1}) = Q_{j,1}$. Finally note that in the $Q$-bipartite case, $q_j(t)$ is an even (odd) polynomial if and only if $j$ is even (odd).\\
+The following two theorems will help us describe the quotient object we find in the $Q$-bipartite case where $I_r$ and $J_r$ denote the $r\times r$ identity and all ones matrix respectively:
+\begin{thm}[\cite{MMW}] \label{mmw}The following are equivalent:
+	\begin{my_enumerate}
+		\item $(X,\mathbb{R})$ is imprimitive;
+		\item for some $j>0$, $E_j$ has repeated columns;
+		\item for some subset $\mathcal{I} = \left\{i_0=0,i_1,\dots,i_s\right\}$ of $\left\{0,1,\dots,d\right\}$ and some ordering of the vertices $\sum_{h=0}^s A_{i_h} = I_w\otimes J_r$ for integers $w$ and $r$ with $\vert X\vert=wr$, $1<w,r<\vert X\vert$;
+		\item for some subset $\mathcal{J} = \left\{j_0=0,j_1,\dots,j_s\right\}$ of $\left\{0,1,\dots,d\right\}$ and some ordering of the vertices $\sum_{h=0}^s E_{j_h} = \frac{1}{r}\left(I_w\otimes J_r\right)$ for integers $w$ and $r$ with $\vert X\vert=wr$, $1<w,r<\vert X\vert$.
+	\end{my_enumerate}
+\end{thm}
+Whenever $(iii)$ occurs, say with subset $\mathcal{I}$ as given in the theorem, we may partition our vertices into equivalence classes so that $x\sim y$ whenever $(x,y)\in R_i$ for some $i\in \mathcal{I}$. Let $X_1,\dots,X_w$ be the corresponding equivalence classes and define $\mathcal{R}' = \left\{R_i\in \mathcal{R} : i\in \mathcal{I}\right\}$. Then there exists \emph{subschemes} $(X_i,\mathcal{R}')$ for each equivalence class $X_i$. Further, we may define a \emph{quotient scheme} $(\tilde{X},\tilde{\mathcal{R}})$ of our original scheme with respect to $\mathcal{I}$ whose point set is the set of equivalence classes and whose relations are $R_{\tilde{i}} = \cup_{i\in \tilde{i}} R_i$ where each $\tilde{i} = \left\{0\leq j\leq d : p^x_{i,j} \text{ for }x\in \mathcal{I}\right\}$. Note that $\vert \tilde{\mathcal{R}}\vert = \vert \mathcal{J}\vert$ where $\mathcal{J}$ is the subset from Theorem $3.1(iv)$.
+\begin{thm}[\cite{Suzuki}] \label{suzuki}Suppose $(X,\mathcal{R})$ is an imprimitive cometric association scheme. Then one of the following holds:
+	\begin{my_enumerate}
+		\item $(X,\mathcal{R})$ is $Q$-bipartite and $\mathcal{J} = \left\{0,2,4,\dots\right\}$
+		\item $(X,\mathcal{R})$ is $Q$-antipodal and $\mathcal{J} = \left\{0,d\right\}$
+		\item $(X,\mathcal{R})$ is a $4$-class scheme with Krein array $\left\{m,m-1,1,b_3^*;1,c_2^*,m-b_3^*,1\right\}$ and $\mathcal{J} = \left\{0,3\right\}$;
+		\item $(X,\mathcal{R})$ is a $6$-class scheme with Krein array $\left\{m,m-1,1,b_3^*,b_4^*,1;1,c_2^*,m-b_3^*,1,c_5^*,m\right\}$ and $\mathcal{J} = \left\{0,3,6\right\}$.
+	\end{my_enumerate}
+\end{thm}
+Cerzo and Suzuki \cite{cerzo} have shown that no association schemes of the third type exist.
+\begin{cor}
+	\label{SRG}
+	The quotient scheme of a 4-class $Q$-bipartite association scheme is a strongly regular graph.
+\end{cor}
+\begin{proof}
+	From Theorem \ref{suzuki}, we know $\mathcal{J} = \left\{0,2,4\right\}$ and therefore the quotient scheme has two nontrivial relations, forcing it to be strongly regular.
+\end{proof}
+\begin{thm}[\cite{BGKW},\cite{MMW}]
+	\label{sym}
+	If $(X,\mathcal{R})$ is $Q$-bipartite with $w$ dual bipartite classes of size $r$ each, then $r=2$. Under the natural ordering of relations, $\mathcal{I} = \left\{0,d\right\}$ and the sequence $m = Q_{01}>Q_{11}>\dots>Q_{d1}$ is symmetric about the origin. In particular, $Q_{\frac{d}{2},1} = 0$ whenever $d$ is even.
+\end{thm}
+\begin{cor}
+	\label{evenpoly}
+	If $(X,\mathcal{R})$ is $Q$-bipartite, then $Q_{i,j} = Q_{d-i,j}$ $(-Q_{d-i,j}$, resp.) whenever $j$ is even (odd).
+\end{cor}
+\begin{proof}
+	$q_j(t)$ is even (odd) whenever $j$ is even (odd). Since $Q_{i,1} = -Q_{d-i,1}$ and $Q_{i,j} = q_j(Q_{i,1})$, the result follows.
+\end{proof}
+For all that follows, let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme with $Q$-polynomial ordering $E_0,E_1,\dots,E_d$ and natural ordering $A_0,A_1,\dots A_d$. Let $(v,k,\lambda,\mu)$ be the parameters of the strongly regular graph in the quotient scheme where $k$ is the valency of the $\tilde{1}$ relation. Let $k>r>s$ be the eigenvalues of this SRG with corresponding multiplicities $1$, $f$, and $g$. Recall the $Q$ matrix of this SRG will be
+\[\tilde{Q} = \left[\begin{array}{ccc}
+1 & f & g\\
+1 & \frac{fr}{k} & \frac{gs}{k}\\
+1 & \frac{f(1+r)}{k+1-v} & \frac{g(1+s)}{k+1-v}
+\end{array}\right].\]
+Finally we note from \cite{BCN} that $PQ = QP = \vert X\vert I$ and $P_{ji} = \frac{k_i}{m_j}Q_{ij}$ where $k_i$ and $m_j$ are the valencies and multiplicities of the $i^\text{th}$ relation and $j^\text{th}$ eigenspace respectively. We will call these the first and second orthogonality properties.
+
+\subsection*{Classical parameters}
+\subsubsection*{Johnson Graph}
+\subsubsection*{Grassmann Graph}
+\subsubsection*{Dual Polar Graph}
+\subsubsection*{U(2d,r)}
+\subsubsection*{Half dual polar graph}
+\subsubsection*{Hamming graph}
+\subsubsection*{Halved cube}
+\subsubsection*{Bilinear forms graph}
+\subsubsection*{Alternating forms graph}
+\subsubsection*{Hermitean forms graph}
+\subsubsection*{Pseudo graphs}
+\subsubsection*{Dist 1-or-2 in symplectic dual polar graph}
+\subsubsection*{Doob graph}
+\subsubsection*{Quadratic forms graph}
+\section{Further Applications}
+\end{document}
