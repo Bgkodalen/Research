@@ -1,0 +1,328 @@
+\documentclass{article}
+
+
+\usepackage{tikz}
+\usepackage{units}
+\usepackage{scalefnt}
+\usepackage{bbm}
+\usepackage{mathrsfs}
+\usepackage{amsmath, amssymb, amsthm, url, graphicx,rotating,tkz-graph,relsize}
+\usepackage{graphicx}
+\usepackage{fullpage}
+
+%\numberwithin{equation}{section}
+\newcommand{\m}{{{24}}}  % Special for this paper, subscripts and superscripts {24}
+%\newcommand{\ip}[1]{\langle {#1}\rangle}
+\newcommand{\IP}{{\rm IP}}
+\newcommand{\re}{{\mathbb R}}
+\newcommand{\cx}{{\mathbb C}}
+\newcommand{\ints}{{\mathbb Z}}
+%\renewcommand{\i}{{\rm i}}
+\newcommand{\BMA}{{\mathbb A}}
+\newcommand{\A}{{\bf A}}
+\newcommand{\B}{{\bf B}}
+\newcommand{\cC}{{\mathcal C}} 
+\newcommand{\E}{{\mathsf E}}
+\newcommand{\cE}{{\mathcal E}}  % Euclidean space
+\newcommand{\F}{{\mathcal F}}
+\newcommand{\G}{{\mathcal G}}
+\newcommand{\I}{{\mathsf I}}
+\newcommand{\tI}{\tilde{I}}
+\newcommand{\J}{{\mathsf J}}
+\renewcommand{\L}{\boldsymbol{\wedge}}  % Leech lattice in \sf font
+\newcommand{\Z}{{\mathsf Z}}
+\newcommand{\cI}{{\mathcal I}}
+\newcommand{\cJ}{{\mathcal J}}
+\newcommand{\cR}{{\mathcal R}}
+\renewcommand{\S}{{\mathsf S}}
+\newcommand{\cS}{{\mathcal S}}
+\newcommand{\cT}{{\mathcal T}}
+\newcommand{\tU}{\tilde{U}}
+\newcommand{\bv}{{\mathbf v}}
+\newcommand{\bw}{{\mathbf w}}
+\newcommand{\tW}{\tilde{W}}
+\newcommand{\X}{{\mathcal X}}
+\newcommand{\cZ}{{\mathcal Z}}
+\newcommand{\QI}{{\mathcal Q}{\mathcal I}}
+\newcommand{\Nm}{{\sf Nm}}
+\newcommand{\cP}{{\mathcal P}}
+\newcommand{\one}{{\mathbf 1}}
+\newcommand{\dis}{\displaystyle}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}
+\newcommand*{\swap}[2]{#2#1}
+
+\title{Cometric Association Schemes}
+\author{Brian G. Kodalen }
+\begin{document}
+	\maketitle
+	\section{Introduction}
+	The combinatorial objects known as association schemes arise in group theory, extremal graph theory, coding theory, the design of experiments, and even Quantum information theory. The research presented in this proposal focuses mainly on $Q$-polynomial association schemes with low class number. One may think of a $d$-class association scheme as a $d+1$ dimensional matrix algebra closed under the entrywise product. Within this matrix algebra, we find many large, low rank positive semi-definite matrices with very few distinct entries. These matrices equate to Gram matrices of vectors with few angles permitted between them. Two cases of particular interest are equiangular lines and mutually unbiased bases (MUBs) which have been sought after for decades with interest in the former set of lines reaching as far back as 1948. In this proposal, we first review the basics of association schemes and cite a few results concerning polynomial schemes which relate to the original research presented. With this context in mind, we then move to describe three distinct projects which encompass the main results of this dissertation. First, we will examine connectivity of symmetric association schemes (\cite{connectivity}) where we show that deleting any vertex $x$ and its neighborhood disconnect a connected basis relation if and only if there is a second vertex $y$ such that the neighborhoods of $x$ and $y$ are exactly the same. This result is then used to partially extend Brouwer's connectivity result for distance regular graphs to general symmetric association schemes by showing that a basis relation in a symmetric association scheme has connectivity $2$ if and only if that basis relation corresponds to a cycle. Further, we show that basis relations of diameter 2 have connectivity of at least four unless they are either a cycle or a cubic graph.\par
+	After this result, we move to $3$-class $Q$-antipodal schemes and discuss results recently published in \cite{lssd}. In this context, we introduce a third line system called ``linked simplices" and prove its equivalence to a linked system of symmetric designs (LSSD). These graphs were originally studied by Cameron in 1972 (\cite{Cameron}) in relation to groups with inequivalent doubly-transitive permutation representations which have the same permutation character. It was later noticed in 2009-2010 that some LSSDs gave rise to MUBs, though the only known examples at the time required the dimension of the space to be a power of 4. As part of the results of our paper, we construct infinite families of non-trivial LSSDs which produce MUBs without this dimensional requirement. We then prove the existence of LSSDs (also giving rise to MUBs) where the number of bases rises independent of the largest power of 4 dividing the dimension. As a final result, we examine the 21 classical families of symmetric designs and classify which families satisfy necessary conditions to appear as induced subgraphs of LSSDs.\par
+	Finally, we shift to more general $Q$-polynomial schemes where we have shown that a theorem of Sch\"{o}enberg may be applied to rule out open parameter sets. We describe this technique in general for $d$-class schemes and give current results including a list of nine previously open 3-class primitive cometric schemes. We then discuss more detailed results when we may assume our scheme is 4-class $Q$-bipartite. In this setting, we show that every $4$-class $Q$-bipartite scheme is a unique double-cover of a strongly regular graph. We then use Sch\"{o}enberg's theorem to rule out infinitely many open parameter sets, as well as restricting heavily the possible schemes where the smallest eigenvalue of the underlying strongly regular graph lies between $-1$ and $-12$. We finish this section by outlining further results we expect to see within the next year.
+	
+	\section{Association schemes}
+	Let $X$ be a finite set of vertices. A \textit{symmetric d-class association scheme} (see \cite{BCN}) on $X$ is a pair $\mathcal{L} = (X,\mathcal{R})$ where $\mathcal{R} =\left\{R_0,R_1,\dots,R_d\right\}$ is a set of $d+1$ relations on $X$ satisfying the following properties:
+	\begin{itemize}
+		\item $R_0$ is the identity relation;
+		\item $\left\{R_0,R_1,\dots, R_d\right\}$ forms a partition of $X\times X$;
+		\item $(x,y)\in R_i$ implies $(y,x)\in R_i$;
+		\item for $0\leq i,j,k\leq d$ there exist \textit{intersection numbers} $p_{i,j}^k$ such that for any $(x,y)\in R_k$, the number of vertices $z$ for which $(x,z)\in R_i$ and $(z,y)\in R_j$ is equal to $p_{i,j}^k$ independent of our original choice of $x$ and $y$.
+	\end{itemize}
+	Often it becomes useful to order the vertices in $X$ and then represent each $R_i$ as a 01-matrix $A_i$ where the $(x,y)$ entry of $A_i$ is 1 if and only if $(x,y)\in R_i$. With this setting in mind, the defining properties above are encoded as:
+	\begin{itemize}
+		\item $A_0 = I$;
+		\item $\sum_i A_i = J$;
+		\item for all $0\leq i\leq d$, $A_i^T = A_i$;
+		\item for all $0\leq i,j\leq d$, $A_iA_j = \sum p_{i,j}^k A_k$.
+	\end{itemize}
+	The final condition tells us that $\mathbb{A} = \text{span}\left\{A_0,A_1,\dots A_d\right\}$ forms a matrix algebra under standard matrix multiplication. As our matrices are 01-matrices with disjoint support, this \emph{Bose-Mesner algebra} is also closed under Schur (element-wise) products. Using our symmetric property, we note that $p_{i,j}^k = p_{j,i}^k$ telling us that $A_iA_j = A_jA_i$ and our matrices commute with each other. This allows us to simultaneously diagonalize our matrices to give us $d+1$ orthogonal eigenspaces with projection operators $E_0,\dots,E_d$. As both $\left\{A_0,\dots,A_d\right\}$ and $\left\{E_0,\dots,E_d\right\}$ form bases for the Bose-Mesner algebra, there exists unique matrices $P$ and $Q$ so that
+	\begin{equation}
+	\label{PQmat}
+	A_i = \sum_{j} P_{ji} E_j,\qquad E_j = \frac{1}{\vert X\vert} \sum_{i} Q_{ij}A_i.
+	\end{equation}
+	We call $P$ and $Q$ the first and second eigenmatrices, respectively and note here that $P_{0i}$ is the valency of relation $R_i$ and $Q_{0j}$ is the rank of $E_j$. Finally, as our matrix algebra is closed under Schur products, we find that there exist structure constants $q_{i,j}^k$ such that for all $0\leq i,j\leq d$:
+	\[E_i\circ E_j = \frac{1}{\vert X\vert}\sum_k q_{i,j}^k E_k.\]
+	We call these parameters the Krein parameters of the association scheme. Finally, we call an association scheme \emph{primitive} \cite[Sec.~2.4]{BCN} if $\Gamma_i$ is connected for all $i=1,\ldots, d$ and \emph{imprimitive} otherwise.
+	\subsection{Polynomial Association Schemes}
+	A \textit{$P$-polynomial} (\textit{metric}) association scheme is one in which our basis relations given by $\left\{A_0,A_1,\dots,A_d\right\}$ may be ordered in such a way so that $p_{i,j}^k=0$ whenever $k>i+j$ or $k<\vert i-j\vert$ and $p^k_{i,j}>0$ whenever $k=i+j$. This equates to satisfying the triangle inequality when we consider vertices $x$ and $y$ to be ``distance $k$" whenever $(x,y)\in R_k$ ($[A_k]_{x,y}=1$). Under these conditions, the graph $\Gamma_1=\Gamma(X,R_1)$ with adjacency matrix $A_1$ is called a ``distance-regular graph". Noting that this property implies $p_{1,j}^k = 0$ whenever $k\notin\left\{j-1,j,j+1\right\}$, we may define polynomials $p_0,p_1,\dots, p_d$ given by $p_0(t) = 1$, $p_1(t) = t$ and 
+	\[p^{i-1}_{i,1}p_i(t) = \left(t-p^{i-1}_{i-1,1}\right)p_{i-1}(t)-p^{i-1}_{i-2,1}p_{i-2}(t)\]
+	with the property that $p_i\left(\vert X\vert A_1\right) = \vert X\vert A_i$ for any $0\leq i\leq d$.\par
+	We may do much of the same analysis using the second basis of our Bose-Mesner algebra. Similar to before, we call an association scheme \textit{$Q$-polynomial} (\textit{cometric}) whenever the set $\left\{E_0,E_1,\dots,E_d\right\}$ may be ordered so that $q^{k}_{i,j} = 0$ when $k>i+j$ or $k<\vert i- j\vert$ and $q^{k}_{i,j}>0$ whenever $k = i+j$. Just as with metric schemes, we may define polynomials $q_0, q_1,\dots,q_d$ given by $q_0(t) = 1$, $q_1(t) = t$ and 
+	\[q^{i-1}_{i,1}q_i(t) = \left(t-q^{i-1}_{i-1,1}\right)q_{i-1}(t)-q^{i-1}_{i-2,1}q_{i-2}(t)\]
+	so that $q_i^\circ\left(\vert X\vert E_1\right) = \vert X \vert E_i$ where products here are evaluated elementwise. Additionally, we define two more terms: $Q$-antipodal and $Q$-bipartite. Let $(X,\mathcal{R})$ be a $Q$-polynomial association scheme with ordering $E_0,\dots,E_d$. Then $(X,\mathcal{R})$ is \textit{$Q$-antipodal} if $q^{k}_{d,d} >0$ when $k = 0$ but $q^{k}_{d,d} = 0$ for $0<k<d$. Alternatively, $(X,\mathcal{R})$ is \textit{$Q$-bipartite} if $q^k_{i,j}=0$ whenever $k+i+j$ is odd. In 1998, Suzuki (\cite{Suzuki}) showed that every imprimitive $Q$-polynomial scheme is either $Q$-bipartite or $Q$-antipodal.
+	\section{Connectivity}
+	Brouwer and Mesner \cite{bromes} showed in 1985 that the vertex connectivity of a strongly regular graph $\Gamma$ is equal to its valency and that the only disconnecting sets of minimum size are the neighborhoods $\Gamma(a)$  of its vertices.  (Brouwer \cite{brouwer} mentions that the corresponding result for edge connectivity was established by Plesn\'{\i}k in 1975.) This result on vertex connectivity was extended by Brouwer and Koolen \cite{brouwer-koolen} in 2009 to show that a distance-regular graph of valency at least three has vertex connectivity equal to its valency  and that the only disconnecting sets of minimum size are again the neighborhoods $\Gamma(a)$.\par
+	In \cite{connectivity}, we prove the following theorem: 
+	\begin{theorem} \label{Tmain}
+		Let $(X,\cR)$ be a symmetric association scheme. Assume the graph $\Gamma=(X,R_i)$ is connected 
+		and not complete multipartite. Let
+		$H=H_i$ be the corresponding unweighted distribution diagram on $\{0,1,\ldots, d\}$. The following are equivalent:
+		%%%%%%%%%%%%  JUNE 16  : check if vertex set is smaller than {0,1,..,d} when not symmetric
+		\begin{itemize}
+			\item[(1)] there exists $a\in X$ for which the subgraph $\Gamma \setminus a^\bot$ is connected;
+			\item[(2)] for all $a\in X$, the subgraph $\Gamma \setminus a^\bot$ is connected;
+			\item[(3)]  the subgraph $H \setminus \{0,i\}$ is connected;
+			\item[(4)] $\Gamma$ contains no twins.
+		\end{itemize} 
+	\end{theorem}
+	We then obtain the following corollaries.
+	\begin{corollary}  \label{C2}
+		Let $(X,\cR)$ be a commutative association scheme. Assume the undirected graph 
+		$\Gamma=(X,R_i  \cup R_{i'})$ is connected and $a\in X$. Then $\Gamma \setminus 
+		\Gamma(a)$ contains at most one non-singleton component.
+	\end{corollary}
+	
+	
+	\begin{corollary} \label{C1}
+		Let $(X,\cR)$ be a commutative association scheme.  Assume the undirected graph 
+		$\Gamma=(X,R_i  \cup R_{i'})$ is connected and $a\in X$.  Then, for any  $T \subseteq a^\bot$ with $\Gamma(a) \not\subseteq T$, the graph  $\Gamma \setminus T$ is connected.
+	\end{corollary}
+	
+	\begin{corollary} \label{C3}
+		Let $(X,\cR)$ be a commutative association scheme. Assume the undirected graph 
+		$\Gamma=(X,R_i  \cup R_{i'})$ is connected and $C\subseteq  X$ is the vertex set of a clique in $\Gamma$. Then $\Gamma \setminus C$ is connected.
+	\end{corollary}
+	\section{Linked systems of symmetric designs}
+	A linked system of symmetric designs (LSSD) is a $w$-partite graph ($w\geq 2$) where the incidence between any two parts corresponds to a symmetric design and the designs arising from three parts are related. The original construction for LSSDs by Goethals used Kerdock sets, in which $v$ is a power of two. Some four decades later, new examples were given by Davis et.\ al.\ and Jedwab et.\ al.\ using difference sets, again with $v$ a power of two. Theorem \ref{Association2Simplex} displays a connection between LSSDs and ``linked simplices", full-dimensional regular simplices with two possible inner products between vertices of distinct simplices.
+	
+	\begin{theorem}
+		\label{Association2Simplex}
+		Consider a $LSSD(v,k,\lambda;w)$ with Bose-Mesner algebra $\mathbb{A}$. The first idempotent $E_1$ in a $Q$-polynomial ordering of $\mathbb{A}$, appropriately scaled, is the Gram matrix of a set of $w$ linked simplices. In the case $w=2$, $E_2$ scaled similarly is also the Gram matrix of a second set of two linked simplices.
+	\end{theorem}
+	
+	Theorems \ref{2design} and \ref{3fibers} then show that a set of linked simplices satisfies the required conditions to generate a linked system of symmetric designs.
+	
+	\begin{theorem}
+		\label{2design}
+		Let $\left\{a_i\right\}$ and $\left\{b_j\right\}$ be linked simplices in $\mathbb{R}^{v-1}$ with inner products $\gamma$ and $\delta$. For each $j$, let $B_j = \left\{a_i:\left<a_i,b_j\right> = \gamma\right\}$. Then $(\left\{a_i\right\},\left\{B_j\right\})$ is a symmetric 2-design.
+	\end{theorem}
+	\begin{theorem}
+		\label{3fibers}
+		Let $\left\{a_i\right\}$, $\left\{b_i\right\}$, and $\left\{c_i\right\}$ be three linked simplices in $\mathbb{R}^{v-1}$ with inner products $\gamma$ and $\delta$ as before. For each $1\leq j,k\leq v$, let $B_j = \left\{a_i:\left<a_i,b_j\right> = \gamma\right\}$ and $C_k = \left\{a_i:\left<a_i,c_k\right> = \gamma\right\}$. Then there exists integers $\mu$ and $\nu$ such that 
+		\[\vert B_j\cap C_k\vert = \begin{cases}
+		\mu  & \left<b_j,c_k\right> = \gamma\\
+		\nu  & \left<b_j,c_k\right> = \delta\\
+		\end{cases}\]
+		where $\mu$ and $\nu$ are independent of our choice of $j$ and $k$.
+	\end{theorem}
+	Defining a set of linked simplices as optimistic (pessimistic) if more than half the inner products between distinct simplices are positive (negative), Theorem \ref{const} shows a link between linked simplices and equiangular lines.
+	 \begin{theorem}\label{const}
+		Let $\mathcal{L}$ be the association scheme arising from a $LSSD(v,k,\lambda;w)$. If either $\mathcal{L}$ is optimistic, or $w\leq2+\frac{2(k+s)}{v-2k}$ then we can build a set of $vt$ lines in $\mathbb{R}^{v+t-1}$ for any $1\leq t\leq w$. In the pessimistic case with $w> 2+\frac{2(k+s)}{v-2k}$, we can achieve the construction for any $t\leq 2+\frac{2(k+s)}{v-2k}$.\qed
+	\end{theorem}
+	Exploiting a link between regular unbiased Hadamard matrices and mutually unbiased bases, we then arrive at the Theorem \ref{equiv}
+	\begin{theorem}
+		\label{equiv}
+		An optimistic $LSSD(v,k,\lambda;w)$ with $\vert v-2k\vert = 2\sqrt{k-\lambda}$ exists if and only if there exists a set of $w-1$ regular unbiased Hadamard matrices with order $v$.\qed
+	\end{theorem}
+	Finally, we may use Thoerem \ref{newLSSD} to provide examples of non-trivial LSSDs in which $w$ can be made arbitarily large for $v$ not a power of 2 (see corollary \ref{16t} and \ref{36t}). Finally we survey the known infinite families of symmetric designs and show, using basic number theoretic conditions, that $w=2$ in most cases.
+	\begin{theorem}
+		\label{newLSSD}
+		Given a regular Hadamard matrix of order $s$ and an orthogonal array of size $s^2\times N$,
+		\begin{itemize}
+			\item There exists $N-1$ regular unbiased Hadamard matrices of order $s^2$.
+			\item There exists a $LSSD$ with $v=s^2$ and $w=N$.\qed
+		\end{itemize}
+	\end{theorem}
+The following are corollaries (with proofs) of theorem \ref{newLSSD} which lead to our main results.
+\begin{corollary}
+	\label{asymptotics}
+	For sufficiently large $s$, if there exists a regular Hadamard matrix of order $s$, then there exists a $LSSD(s^2,k,\lambda; w)$ with $w \geq s^\frac{1}{14.8}$.
+\end{corollary}
+\begin{proof}
+	\cite{Colbourn} states that for sufficiently large $s$, $N(s)\geq s^\frac{1}{14.8}$ where $N(s)$ is the maximum number of columns in an orthogonal array $s$ on $s$ symbols.
+\end{proof}
+\begin{corollary}\label{16t}
+	For any $n\geq 1$ and $w>2$, there exists an odd $t$ permitting a $LSSD(16^nt,k,\lambda;w)$.
+\end{corollary}
+\begin{proof}
+	\cite{Xiang} tells us that for any odd $t$, there exists a regular Hadamard matrix of order $4t^4$. Let $H_t$ be the regular Hadamard matrix of order $4t^4$. Using Corollary \ref{asymptotics}, we can choose $t$ large enough to guarantee the existence of a $LSSD(16t^8,k,\lambda;w)$. Now consider the Hadamard matrix
+	\[H = \left[\begin{array}{rrrr}
+	-1 & 1 & 1 & 1\\
+	1 & -1 & 1 & 1\\
+	1 & 1 & -1 & 1\\
+	1 & 1 & 1 & -1\\
+	\end{array}\right].\]
+	Using this matrix, we can now build the regular Hadamard matrix $H_{n,t} = H_t\otimes^{n-1} H$ which is regular of order $4^nt^4$. This matrix, again paired with Corollary \ref{asymptotics}, now guarantees the existence of a $LSSD(16^nt^8,k,\lambda;w)$ for any choice of $n$.
+\end{proof}
+\begin{corollary}\label{36t}
+	There exists an $LSSD(v,k,\lambda;w)$ with $v=36^{2n}$ and $w = 4^n+1$ for all $n\geq 1$.
+\end{corollary}
+\begin{proof}
+	Using the MacNeish construction (\cite{Macneish},\cite[Thm~1.1.2]{Bommel}), there exists an orthogonal array $O_n$ of size $36^{2n}\times(4^n+1)$. Consider the regular Hadamard matrix of order 36:
+	\[H = \setlength{\arraycolsep}{0.6pt}\scalefont{.4}{\left[\begin{array}{cccccccccccccccccccccccccccccccccccc}
+		-&-&-&-&+&-&-&+&+&+&+&-&+&+&-&+&-&+&+&+&+&+&-&-&-&+&+&+&+&-&+&+&+&-&+&-\\
+		+&-&-&-&-&+&-&-&+&+&-&+&+&-&+&-&+&+&+&+&+&-&-&-&+&+&+&+&-&+&+&+&-&+&-&+\\
+		+&+&-&-&-&-&+&-&-&-&+&+&-&+&-&+&+&+&+&+&-&-&-&+&+&+&+&-&+&+&+&-&+&-&+&+\\
+		-&+&+&-&-&-&-&+&-&+&+&-&+&-&+&+&+&-&+&-&-&-&+&+&+&+&+&+&+&+&-&+&-&+&+&-\\
+		-&-&+&+&-&-&-&-&+&+&-&+&-&+&+&+&-&+&-&-&-&+&+&+&+&+&+&+&+&-&+&-&+&+&-&+\\
+		+&-&-&+&+&-&-&-&-&-&+&-&+&+&+&-&+&+&-&-&+&+&+&+&+&+&-&+&-&+&-&+&+&-&+&+\\
+		-&+&-&-&+&+&-&-&-&+&-&+&+&+&-&+&+&-&-&+&+&+&+&+&+&-&-&-&+&-&+&+&-&+&+&+\\
+		-&-&+&-&-&+&+&-&-&-&+&+&+&-&+&+&-&+&+&+&+&+&+&+&-&-&-&+&-&+&+&-&+&+&+&-\\
+		-&-&-&+&-&-&+&+&-&+&+&+&-&+&+&-&+&-&+&+&+&+&+&-&-&-&+&-&+&+&-&+&+&+&-&+\\
+		+&+&-&+&+&-&+&-&+&+&+&+&+&-&+&+&-&-&+&-&+&-&+&+&+&-&+&-&-&-&+&+&+&-&-&-\\
+		+&-&+&+&-&+&-&+&+&-&+&+&+&+&-&+&+&-&-&+&-&+&+&+&-&+&+&-&-&+&+&+&-&-&-&-\\
+		-&+&+&-&+&-&+&+&+&-&-&+&+&+&+&-&+&+&+&-&+&+&+&-&+&+&-&-&+&+&+&-&-&-&-&-\\
+		+&+&-&+&-&+&+&+&-&+&-&-&+&+&+&+&-&+&-&+&+&+&-&+&+&-&+&+&+&+&-&-&-&-&-&-\\
+		+&-&+&-&+&+&+&-&+&+&+&-&-&+&+&+&+&-&+&+&+&-&+&+&-&+&-&+&+&-&-&-&-&-&-&+\\
+		-&+&-&+&+&+&-&+&+&-&+&+&-&-&+&+&+&+&+&+&-&+&+&-&+&-&+&+&-&-&-&-&-&-&+&+\\
+		+&-&+&+&+&-&+&+&-&+&-&+&+&-&-&+&+&+&+&-&+&+&-&+&-&+&+&-&-&-&-&-&-&+&+&+\\
+		-&+&+&+&-&+&+&-&+&+&+&-&+&+&-&-&+&+&-&+&+&-&+&-&+&+&+&-&-&-&-&-&+&+&+&-\\
+		+&+&+&-&+&+&-&+&-&+&+&+&-&+&+&-&-&+&+&+&-&+&-&+&+&+&-&-&-&-&-&+&+&+&-&-\\
+		+&+&+&+&-&-&-&+&+&-&+&-&+&-&-&-&+&-&+&+&+&+&-&+&+&-&-&+&+&-&+&-&+&+&-&+\\
+		+&+&+&-&-&-&+&+&+&+&-&+&-&-&-&+&-&-&-&+&+&+&+&-&+&+&-&+&-&+&-&+&+&-&+&+\\
+		+&+&-&-&-&+&+&+&+&-&+&-&-&-&+&-&-&+&-&-&+&+&+&+&-&+&+&-&+&-&+&+&-&+&+&+\\
+		+&-&-&-&+&+&+&+&+&+&-&-&-&+&-&-&+&-&+&-&-&+&+&+&+&-&+&+&-&+&+&-&+&+&+&-\\
+		-&-&-&+&+&+&+&+&+&-&-&-&+&-&-&+&-&+&+&+&-&-&+&+&+&+&-&-&+&+&-&+&+&+&-&+\\
+		-&-&+&+&+&+&+&+&-&-&-&+&-&-&+&-&+&-&-&+&+&-&-&+&+&+&+&+&+&-&+&+&+&-&+&-\\
+		-&+&+&+&+&+&+&-&-&-&+&-&-&+&-&+&-&-&+&-&+&+&-&-&+&+&+&+&-&+&+&+&-&+&-&+\\
+		+&+&+&+&+&+&-&-&-&+&-&-&+&-&+&-&-&-&+&+&-&+&+&-&-&+&+&-&+&+&+&-&+&-&+&+\\
+		+&+&+&+&+&-&-&-&+&-&-&+&-&+&-&-&-&+&+&+&+&-&+&+&-&-&+&+&+&+&-&+&-&+&+&-\\
+		+&+&-&+&+&+&-&+&-&+&+&+&-&-&-&+&+&+&-&-&+&-&+&-&-&+&-&+&+&+&+&-&+&+&-&-\\
+		+&-&+&+&+&-&+&-&+&+&+&-&-&-&+&+&+&+&-&+&-&+&-&-&+&-&-&-&+&+&+&+&-&+&+&-\\
+		-&+&+&+&-&+&-&+&+&+&-&-&-&+&+&+&+&+&+&-&+&-&-&+&-&-&-&-&-&+&+&+&+&-&+&+\\
+		+&+&+&-&+&-&+&+&-&-&-&-&+&+&+&+&+&+&-&+&-&-&+&-&-&-&+&+&-&-&+&+&+&+&-&+\\
+		+&+&-&+&-&+&+&-&+&-&-&+&+&+&+&+&+&-&+&-&-&+&-&-&-&+&-&+&+&-&-&+&+&+&+&-\\
+		+&-&+&-&+&+&-&+&+&-&+&+&+&+&+&+&-&-&-&-&+&-&-&-&+&-&+&-&+&+&-&-&+&+&+&+\\
+		-&+&-&+&+&-&+&+&+&+&+&+&+&+&+&-&-&-&-&+&-&-&-&+&-&+&-&+&-&+&+&-&-&+&+&+\\
+		+&-&+&+&-&+&+&+&-&+&+&+&+&+&-&-&-&+&+&-&-&-&+&-&+&-&-&+&+&-&+&+&-&-&+&+\\
+		-&+&+&-&+&+&+&-&+&+&+&+&+&-&-&-&+&+&-&-&-&+&-&+&-&-&+&+&+&+&-&+&+&-&-&+
+		\end{array}\right]}.\]
+	Since $H$ is regular, $H_n = H^{\otimes n}$ is a regular Hadamard of order $36^n$. Then $O_n$ and $H_n$, along with Theorem \ref{newLSSD}, give us the desired LSSD.
+\end{proof}
+\section{Sch\"{o}enberg's theorem}
+Let $\Omega_m$ denote the unit sphere in Euclidean space $\mathbb{R}^m$. For each finite $X \subset \Omega_m$, let $G_X$ denote the Gram matrix of $X$. This matrix is always positive semidefinite; for Hermitian matrices $M$ and $N$ of the same size, we write $M \succeq N$ to denote that the matrix $M-N$ is positive semidefinite. A function $f:[-1,1]\rightarrow \re$ is \emph{positive definite} if, for every finite subset $X\subset\Omega_m$, $f\circ (G_X) \succeq 0$ where $f \circ (M)$ has entries $f(m_{ij})$ when $M=[m_{ij}]$ is a matrix and $f$ is an function of a single variable. Below, we define a set of positive definite functions which can be used to disprove the existance of certain $Q$-polynomial association schemes.\\
+For any $k\geq 0$ let $\text{Harm}(k) = \text{Harm}_d(k)$ denote the space of harmonic and homogeneous polynomials of degree $k$ on $\Omega_m$. Let $N_m = \dim\text{Harm}(k)$ and fix an orthogonal basis $\left\{W_{k,i}\right\}_{i=1..N}$ of $\text{Harm}(k)$. We define the Gegenbauer polynomials for dimension $m$ via $Q_0^{(m)}(t) = 1$, $Q_1^{(m)}(t) = t$ and the three term recurrence:
+\[Q_k^{(m)} = \frac{(2k+m-4)tQ_{k-1}^{(m)}(t) - (k-1)Q_{k-2}^{(m)}(t)}{k+m-3}, \qquad k\geq 2.\]
+Note these are normalized so that $Q_k^{(m)}(1) = 1$. Below we have listed the first six polynomials:
+\[\begin{aligned}
+Q_0^m(t)&=1\\
+Q_1^m(t)&=t\\
+Q_2^m(t)&=\frac{mt^2 - 1}{m-1}\\
+Q_3^m(t)&=\frac{(m+2)t^3 - 3t}{(n-1)}\\
+Q_4^m(t)&=\frac{(m+4)(m+2)t^4 - 6(m+2)t^2+3}{m^2-1}\\
+Q_5^m(t)&=\frac{(m+6)(m+4)t^5-10(m+4)t^3+15t}{m^2-1}\\
+Q_6^m(t)&=\frac{(m+8)(m+6)(m+4)t^6-15(m+6)(m+4)t^4+45(m+4)t^2-15}{(m+3)(m+1)(m-1)}\\
+\end{aligned}\]
+The \textit{addition formula} relates Gegenbauer polynomials and any orthogonal basis of $Harm(k)$ via
+\begin{theorem}[Thm.~3.3.{DGS}]
+	\[\sum_{i=1}^N W_{k,i}(\zeta)W_{k,i}(\eta) = Q_k(\langle\zeta,\eta\rangle); \qquad \zeta,\eta\in\Omega_m.\]	
+\end{theorem}
+\begin{theorem}[Thm.~3.6.{DGS}]\label{psdgeg}
+	Let $X\subset \Omega_m$ and $H_k = [W_{k,i}(\zeta)],\qquad \zeta\in X, i\in \left\{1,2,\dots, N\right\}$. Then,
+	\[H_kH_k^T = [Q_k(\langle \zeta,\eta\rangle)]_{\zeta,\eta\in X} = Q_k^\circ(G_X)\]
+	where $G_X$ is the Gram matrix of $X$ and $Q_k^\circ$ is applied entrywise.
+\end{theorem}
+
+However, since $v^TH_kH_k^Tv = \lVert{vH_k^T}\rVert^2\geq 0$ for any vector $v\in \re^{\vert X\vert}$, we must have that $Q_k^\circ(G_X)$ is a positive semi-definate Hermitian matrix and thus $Q_k^\circ$ is a positive definate function for any choice of $k$.
+\begin{corollary}\label{nonneg}
+	Let $(X,\mathcal{R})$ be a $Q$-polynomial association scheme with $Q$-polynomial ordering $E_0,E_1,\dots,E_d$. Let $m=\text{rank}(E_1)$, define $L_1^* = [q^k_{1,j}]_{k,j}$ and
+	\[F_k = Q_k\left(\frac{1}{m}L_1^*\right).\]
+	for $k\geq 0$. Then $F_k$ must be non-negative for each $k\geq 0$.
+\end{corollary}
+\begin{proof}
+	From above, we know that there exists a $m\times \vert X\vert$ matrix $U$ with unit vector columns such that $U^TU = \frac{\vert X\vert}{m}E_1$. Then, by \ref{psdgeg},
+	\[Q_k^\circ\left(\frac{\vert X\vert}{m}E_1\right)\succeq0\]
+	However, since $\left<E_i\right>$ is closed under entrywise multiplication, there exists constants $c_i$ such that
+	\begin{equation}\label{Gkeig}Q_k^\circ\left(\frac{\vert X\vert}{m}E_1\right) = \sum_{i=0}^d\vert X\vert c_iE_i.\end{equation}
+	Note, since the $E_i$'s represent orthogonal idempotents, the constants $\vert X\vert c_i$ are the eigenvalues of $Q_k^\circ\left(\frac{\vert X\vert}{m}E_1\right)$. Using $\phi^*$ on equation \ref{Gkeig}, we arrive at
+	\[Q_k\left(\frac{1}{m}L_1^*\right) = \sum_{i=0}^dc_iL_i^*\]
+	Since each $L_i^*$ is non-negative, our result follows. It is worth noting that since $[L_i^*]_{0,j} = m_j\delta_{i,j}$, it is sufficient to check the first row of $F_k$ to guarantee $c_i\geq 0$ for all $0\leq i\leq d$. This also means that not only does $Q_k^\circ\left(\frac{\vert X\vert}{m}E_1\right)\succeq 0$ imply $F_k$ is non-negative, but in fact these are equivalent conditions.
+\end{proof}
+Using the Gegenbauer polynomials listed above, along with Corollary \ref{nonneg}, we arrive at the following constraints for general $Q$-polynomial association schemes:
+\begin{theorem} \label{generalschoen}Let $(X,\cR)$ be a symmetric $Q$-polynomial association scheme with natural ordering $E_0,E_1,\dots,E_d$. Then the following inequalities must be satisfied.
+\begin{itemize}
+	\item ($4^{\text{th}}$ degree constraint)
+	\[(q^1_{11})^2+q^1_{12}q^2_{11}\geq\frac{2m(m-1)}{m+2}\]
+	\item ($5^\text{th}$ degree constraint.) if $q^{1}_{11}>0$ then,
+	\[(q^1_{11})^2+\left(2+\frac{q^2_{12}}{q^1_{11}}\right)q^1_{12}q^2_{11}\geq\frac{4m(2m-3)}{m+6}\]
+\end{itemize}
+\end{theorem}
+Using Theorem \ref{generalschoen}, we may examine Williford's tables of open $Q$-polynomial parameter sets. The following is a list of $(v,m)$ pairs ($v=\vert X\vert$ and $m$ is the multiplicity of $E_1$) for 3-class primitive $Q$-polynomial schemes which are ruled out by the $5^\text{th}$ degree constraint:
+\[\begin{aligned}(441,20),(576,23),&(729,26),(1015,28),(1240,30),(1548,35),(1836,35),(1944,29)\\
+&(1976,25),(1000,27a),(1331,30a)\end{aligned}.\]
+All but the last two were not previously ruled out by other known restrictions.\par
+In terms of $4$-class $Q$-bipartite schemes, we know that our first and second eigenmatrices are given as
+	\[Q = \left[\begin{array}{ccccc}
+1 & m & f & \frac{mk}{n^2} & g\\
+1 & \frac{m}{n} & \frac{fr}{k}  & -\frac{m}{n} & \frac{gs}{k}\\
+1 & 0 & \frac{f(r+1)}{k+1-v}  & 0& \frac{g(1+s)}{k+1-v}\\
+1 & -\frac{m}{n} & \frac{fr}{k} & \frac{m}{n} & \frac{gs}{k}\\
+1 & -m & f & -\frac{mk}{n^2} & g\\
+\end{array}\right]\qquad P = \left[\begin{array}{ccccc}
+1 & k & 2(v-1-k) & k & 1\\
+1 & \frac{k}{n} & 0 & -\frac{k}{n} & -1\\
+1 & r& -2(1+r) & r & 1\\
+1 & -n & 0 & n & -1\\
+1 & s & -2(s+1) & s & 1\\
+\end{array}\right]\]
+where $k>r>0>s$ are the three eigenvalues of the underlying strongly regular graph with multiplicity $1$, $f$, and $g$ respectively. This allows us to reduce the inequalities in \ref{generalschoen} to
+\begin{theorem}\label{4bip}
+	Let $(X,\mathcal{R})$ be a $Q$-bipartite association scheme with $Q$-polynomial ordering $E_0,E_1,\dots,E_d$. Then the following must be true:
+	\begin{itemize}
+		\item ($4^{\text{th}}$ degree constraint)
+		\[2\mu\leq n^2(r+n^2)\]
+		\item ($6^{\text{th}}$ degree constraint)
+		\[15n^4(2n^2-3)r^2+n^2(n^6-45kn^2+76k)r+k(n^2-2)(n^6+16k)\geq 0\]
+	\end{itemize}
+\end{theorem}
+Using the $6^\text{th}$ degree constraint in \ref{4bip}, the following is a list of $(v,m)$ pairs for $4$-class $Q$-bipartite schemes in Williford's online tables which are also ruled out:
+\[\begin{aligned}(594,9)^*,(4968,27),&(5280,30),(5436,27),(6148,29),(7776,27)^*,(8432,31)^\dagger,\\
+&(8478,27)^*,(9984,24)^*,(9984,32)^\dagger\end{aligned}.\]
+Figure \ref{constraint} displays the restriction given by these results for fixed smallest eigenvalue $s=-3$. In this figure we examine the possible pair of eigenvalues $(k,r)$ for fixed third eigenvalue $s$ and display 5 constraints, three of which were known previously. The red and light purple lines correspond to absolute bounds acting on our scheme. In both of these cases, we find that our scheme is infeasible if the point $(k,r)$ falls below either line. The light blue line then denotes the bound brought about by requiring $p_{1,3}^1\geq 0$. In this case, we find that our scheme is infeasible if the $(k,r)$ point falls above this line. Therefore, the previous known open cases fell within the triangular region created by these three constraints. Using \ref{4bip}, we have shown that a $(k,r)$ point is infeasible whenever it falls between the pair of curves shown corresponding to the Gegenbauer constraints. Therefore, only the small region in the bottom left of the graph remains feasible. We have found similar results for any fixed smallest eigenvalue, though we find that larger regions remain unconstrained when $s<-12$.
+\begin{figure}
+	\includegraphics[scale=0.45]{constraints.png}
+	\caption{$k$ and $r$ constraints for fixed $s=-3$.}
+	\label{constraint}
+\end{figure}
+	\nocite{*}
+	\bibliographystyle{abbrv}
+	\bibliography{Proposal}
+\end{document}
+
+
+
+
