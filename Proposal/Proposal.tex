@@ -6,7 +6,6 @@
 \usepackage{esint}
 \usepackage{siunitx}
 \usepackage{bbm}
-%\usepackage{fullpage}
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{subcaption}
@@ -22,7 +21,7 @@
 \newtheorem{remark}{Remark}
 \usepackage{amsthm}
 \mode<presentation>{}
-\usetheme{Frankfurt}
+\usetheme{CambridgeUS}
 \usepackage{tikz}
 \usepackage{collcell}
 \newtheorem{thm}{Theorem}
@@ -31,20 +30,123 @@
 \usetikzlibrary{calc,arrows,quotes,angles}
 \usepackage{arydshln}
 \usetikzlibrary{shapes,snakes}
+\usepackage{multicol}
+
+
+
 
 
 
 
 \begin{document}
-\title{Linked Simplices}
-\date{AMS Sectional Meeting\\March 17, 2018}
+\title{Cometric Association Schemes}
+\date[September 14, 2018]{PhD Thesis Proposal\\September 14, 2018}
 \author{Brian Kodalen}
-\institute{Worcester Polytechnic Institute}
+\institute[WPI]{Worcester Polytechnic Institute}
 \frame{\titlepage}
 
 \begin{frame}
 	\tableofcontents
 \end{frame}
+
+\section{Association schemes}
+\begin{frame}
+	\frametitle{Symmetric Association Scheme}
+	A \textbf{symmetric association scheme} is an ordered pair $(X,\mathcal{R})$ where $X$ is a finite set and $\mathcal{R} = \left\{R_0,\dots,R_d\right\}$ is a partition of $X\times X$ into $d+1$ symmetric binary relations satisfying
+	\begin{itemize}
+		\item $R_0$ is the identity relation on $X$
+		\item for $0\leq i,j,k\leq d$, there exists $p^k_{ij}\in\mathbb{Z}$ such that
+		\[\vert R_i(a)\cap R_j(b)\vert = p^k_{ij}\]
+		whenever $(a,b)\in R_k$.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Example: Heawood Graph}
+\centering
+\scalebox{.9}{\begin{tikzpicture}[shorten >=1pt,auto,node distance=2cm,
+thin,main node/.style = {circle,draw, minimum size = 5pt}]
+\def\r{3.5}
+\foreach \t in {0,...,13}
+{{\node[main node] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}
+{\node[main node] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}}
+\draw[-] (13)--(0)--(1)--(2)--(3)--(4)--(5)--(6)--(7)--(8)--(9)--(10)--(11)--(12)--(13);
+\draw[-] (0)--(5)--(4)--(9)--(8)--(13)--(12)--(3)--(2)--(7)--(6)--(11)--(10)--(1);
+%base
+\only<2->{
+\foreach \t in {0}
+{{\node[main node] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}
+	{\node[main node,fill=blue] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}}}
+%distance 1
+\only<3->{
+\foreach \t in {1,5,13}
+{{\node[main node] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}
+	{\node[main node,fill=red] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}}}
+%distance 2
+\only<4->{
+\foreach \t in {2,10,12,8,4,6}
+{{\node[main node] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}
+	{\node[main node,fill=green] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}}}
+%distance 3
+\only<5->{
+\foreach \t in {3,7,9,11}
+{{\node[main node] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}
+	{\node[main node,fill=yellow] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}}}
+\end{tikzpicture}}
+\end{frame}
+
+\begin{frame}
+\frametitle{Bose-Mesner Algebra}
+Let $A_i$ denote the adjacency matrix of the graph $(X,R_i)$.
+\[\mathbb{A} = \text{span}_\mathbb{R}(A_0,A_1,\dots,A_d)\]
+\begin{itemize}
+	\item commutative algebra of symmetric matrices;
+	\item closed under entrywise products.
+\end{itemize}
+\vfill
+Second basis using idempotents:
+\[\mathbb{A} = \text{span}_\mathbb{R}(E_0,E_1,\dots,E_d)\]
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Polynomial Schemes}
+$(X,\mathcal{R})$ is {\em$P$-polynomial} ({\em metric}) if we can order the relations so that:
+\[p^k_{ij}\begin{cases}
+= 0, & k>i+j \text{ or } k<\vert i-j\vert\\
+\neq 0, & k = i+j
+\end{cases}\]
+Examples
+\begin{multicols}{2}
+	\begin{itemize}
+	\item SRGs
+	\item Generalized Quadrangles
+	\item Projective Planes
+	\end{itemize}
+\end{multicols}
+\end{frame}
+
+\begin{frame}
+\frametitle{Q-polynomial}
+$(X,\mathcal{R})$ is {\em $Q$-polynomial} if we can order the idempotents so that:
+\[q^{k}_{ij} = \begin{cases}
+0 & k>i+j\text{ or }k<\vert i-j\vert\\
+>0 & k = i+j\\
+\end{cases}\]
+$\mathcal{A}$ is \textit{Q-antipodal} if $q^{k}_{dd}>0 \iff k\in\left\{0,d\right\}$
+
+\end{frame}
+
+\section{Connectivity}
+\section{Linked simplices}
+\section{Sch\"{o}nberg's theorem}
+
+\end{document}
+
+
 \section{Linked simplices}
 \subsection*{test}
 \begin{frame}
@@ -281,30 +383,7 @@ Given simplices: $\left\{a_i\right\}$, $\left\{b_j\right\}$, $\left\{c_\ell\righ
 	\end{itemize}
 \end{frame}
 
-\begin{frame}
-\frametitle{Bose-Mesner Algebra}
-Let $A_i$ denote the adjacency matrix of the graph $(X,R_i)$.
-\[\mathbb{A} = \text{span}_\mathbb{R}(A_0,A_1,\dots,A_d)\]
-\begin{itemize}
-	\item commutative algebra of symmetric matrices;
-	\item closed under entrywise products.
-\end{itemize}
-\vfill
-Second basis using idempotents:
-\[\mathbb{A} = \text{span}_\mathbb{R}(E_0,E_1,\dots,E_d)\]
 
-\end{frame}
-
-\begin{frame}
-\frametitle{Q-polynomial}
-$\mathcal{A}$ is \textit{Q-polynomial} if there exists an ordering of idempotents  $\left\{E_0,\dots,E_d\right\}$ so that:
-\[q^{k}_{ij} = \begin{cases}
-0 & k>i+j\text{ or }k<\vert i-j\vert\\
->0 & k = i+j\text{ or }k = \vert i-j\vert\\
-\end{cases}\]
-$\mathcal{A}$ is \textit{Q-antipodal} if $q^{k}_{dd}>0 \iff k\in\left\{0,d\right\}$
-
-\end{frame}
 
 \begin{frame}
 \frametitle{3-class $Q$-antipodal association schemes}
