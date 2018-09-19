@@ -27,10 +27,13 @@
 \newtheorem{thm}{Theorem}
 \newtheorem{prop}{Proposition}
 \newtheorem{lem}{Lemma}
+\newtheorem{conjec}{Conjecture}
 \usetikzlibrary{calc,arrows,quotes,angles}
 \usepackage{arydshln}
 \usetikzlibrary{shapes,snakes}
 \usepackage{multicol}
+\usepackage{booktabs}
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
 
 
 \begin{document}
@@ -108,31 +111,81 @@ Second basis using idempotents:
 
 
 \begin{frame}
-\frametitle{Polynomial Schemes}
+\frametitle{$P$-polynomial (metric)}
 $(X,\mathcal{R})$ is {\em$P$-polynomial} ({\em metric}) if we can order the relations so that:
 \[p^k_{ij}\begin{cases}
 = 0, & k>i+j \text{ or } k<\vert i-j\vert\\
 \neq 0, & k = i+j
 \end{cases}\]
-Examples
+Examples:
 \begin{multicols}{2}
 	\begin{itemize}
 	\item SRGs
 	\item Generalized Quadrangles
 	\item Projective Planes
+	\item Moore Graphs
 	\end{itemize}
 \end{multicols}
 \end{frame}
 
 \begin{frame}
-\frametitle{Q-polynomial}
+\frametitle{Q-polynomial (cometric)}
 $(X,\mathcal{R})$ is {\em $Q$-polynomial} if we can order the idempotents so that:
 \[q^{k}_{ij} = \begin{cases}
 0 & k>i+j\text{ or }k<\vert i-j\vert\\
 >0 & k = i+j\\
 \end{cases}\]
-$\mathcal{A}$ is \textit{Q-antipodal} if $q^{k}_{dd}>0 \iff k\in\left\{0,d\right\}$
+\begin{itemize}
+\item\textit{Q-antipodal} if $q^{k}_{dd}>0 \iff k\in\left\{0,d\right\}$\\
+\item\textit{Q-bipartite} if $q^{k}_{ij}=0 \text{ whenever } i+j+k\text{ is even.}$
+\end{itemize}
+\end{frame}
 
+\begin{frame}
+	\frametitle{$P$-polynomial vs. $Q$-polynomial}
+	\begin{table}
+		\centering
+		\begin{tabular}{lll}
+			\multicolumn{3}{c}{Major theorems} \\[.5\normalbaselineskip]
+			Theorem & Metric & Cometric \\
+			\midrule
+			1.~Multiple polynomial orderings& 1980 & 1998- \\
+			 &  & \quad2014 \\[.5\normalbaselineskip]
+			2.~Imprimitive classification & 1971- & 1998- \\
+			 & \quad1980 & \quad2010 \\[.5\normalbaselineskip]
+			3.~Unimodality of parameters & 1978 & still open \\[.5\normalbaselineskip]\\
+			
+			\bottomrule
+		\end{tabular}
+	\end{table}
+\end{frame}
+
+\begin{frame}
+	\frametitle{A conjecture of Bannai \& Ito}
+	\begin{conjec}[Bannai and Ito]
+		For $d$ sufficiently large, a primitive association scheme with $d$ classes is metric if and only if it is cometric.
+	\end{conjec}
+	\vspace{1cm}
+	\[\text{How about low $d$?}\]
+\end{frame}
+
+\begin{frame}
+	\frametitle{$Q$-polynomial association schemes with low class number}
+	\begin{tikzpicture}
+		\def\x{0}
+		\def\y{0}
+		\node at (\x,\y) (classes) {d};
+		\node at (\x+1,\y) (top) {};
+		\node at (\x+1,\y-2) (bot) {};
+		\node at (\x,\y-1) (left) {};
+		\node at (\x+2,\y-1) (right) {};
+		\draw[-] top -- bot;
+		\draw[-] left -- right;
+		\node at (\x+.5,\y-.5) (prim) {primitive};
+		\node at (\x+1.5,\y-.5) (bip) {$Q$-bipartite};
+		\node at (\x+.5,\y-1.5) (ant) {$Q$-antipodal};
+		\node at (\x+1.5,\y-1.5) (both) {both};
+	\end{tikzpicture}
 \end{frame}
 
 \section{Connectivity}
