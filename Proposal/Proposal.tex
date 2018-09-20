@@ -172,19 +172,74 @@ $(X,\mathcal{R})$ is {\em $Q$-polynomial} if we can order the idempotents so tha
 \begin{frame}
 	\frametitle{$Q$-polynomial association schemes with low class number}
 	\begin{tikzpicture}
+		\def\s{2}
 		\def\x{0}
 		\def\y{0}
-		\node at (\x,\y) (classes) {d};
-		\node at (\x+1,\y) (top) {};
-		\node at (\x+1,\y-2) (bot) {};
-		\node at (\x,\y-1) (left) {};
-		\node at (\x+2,\y-1) (right) {};
-		\draw[-] top -- bot;
-		\draw[-] left -- right;
-		\node at (\x+.5,\y-.5) (prim) {primitive};
-		\node at (\x+1.5,\y-.5) (bip) {$Q$-bipartite};
-		\node at (\x+.5,\y-1.5) (ant) {$Q$-antipodal};
-		\node at (\x+1.5,\y-1.5) (both) {both};
+		\def\t{2}
+		\def\l{.2}
+		\def\b{7.5}
+		\def\labeloffset{1.5}
+		\node at (\x-2.5,\y) (classes) {d};
+		\draw[-] (\x-3,\y-\l) -- (\x-2,\y-\l) -- (\x-2,\y);
+		
+		\draw[-] (\x-3,\y-\t/2) -- (\x-2,\y-\t/2);
+		\node at (\x-2.5,\y-\t) () {3};
+		\draw[-] (\x-3,\y-3*\t/2) -- (\x-2,\y-3*\t/2);
+		\node at (\x-2.5,\y-2*\t) () {4};
+		\draw[-] (\x-3,\y-5*\t/2) -- (\x-2,\y-5*\t/2);
+		\node at (\x-2.5,\y-3*\t) () {5};
+		\draw[-] (\x-3,\y-7*\t/2) -- (\x-2,\y-7*\t/2);
+		
+		\only<2>{\draw[-,color=blue] (\x-3,\y-\t/2) -- (\x-2,\y-\t/2);
+		\node[color=blue] at (\x-2.5,\y-\t) () {3};
+		\draw[-,color=blue] (\x-2,\y-\t/2) -- (\x,\y);
+		\draw[-,color=blue] (\x-2,\y-3*\t/2) -- (\x,\y-\b);}
+		
+		\only<2-3>{\draw[-,color=blue] (\x-3,\y-3*\t/2) -- (\x-2,\y-3*\t/2);}
+		
+		\only<3>{\node[blue] at (\x-2.5,\y-2*\t) () {4};
+		\draw[-,color=blue] (\x-2,\y-3*\t/2) -- (\x,\y);
+		\draw[-,color=blue] (\x-2,\y-5*\t/2) -- (\x,\y-\b);}
+		
+		\only<3-4>{\draw[-,blue] (\x-3,\y-5*\t/2) -- (\x-2,\y-5*\t/2);}
+		
+		\only<4>{\node[blue] at (\x-2.5,\y-3*\t) () {5};
+		\draw[-,blue] (\x-3,\y-7*\t/2) -- (\x-2,\y-7*\t/2);
+		\draw[-,color=blue] (\x-2,\y-5*\t/2) -- (\x,\y);
+		\draw[-,color=blue] (\x-2,\y-7*\t/2) -- (\x,\y-\b);}
+		
+		
+		
+		\draw[-] (\x+2*\s,\y) -- (\x+2*\s,\y-\b);
+		\draw[-] (\x,\y-2*\s) -- (\x+4*\s,\y-2*\s);
+		\node at (\x+\s,\y-\s+\labeloffset) (prim) {primitive};
+		\node at (\x+3*\s,\y-\s+\labeloffset) (bip) {$Q$-bipartite};
+		\node at (\x+\s,\y-3*\s+\labeloffset) (ant) {$Q$-antipodal};
+		\node at (\x+3*\s,\y-3*\s+\labeloffset) (both) {both};
+		\only<1>{
+			\node[align=center] at (\x+\s,\y-\s) (prim) {Spherical \\ $d$-distance set};
+			\node[align=center] at (\x+3*\s,\y-1.2*\s) (bip) {Inner products of \\ $\left\{-1,\pm \alpha,\dots\right\}$\\\\``lines through the\\origin"};
+			\node[align=center] at (\x+\s,\y-3*\s) (ant) {vectors\\ partitioned into sets \\ of equal size};
+			\node[align=center] at (\x+3*\s,\y-3*\s) (both) {};
+		}
+		\only<2>{
+				\node[align=center] at (\x+\s,\y-\s) (prim) {Spherical\\$3$-distance set};
+				\node[align=center] at (\x+3*\s,\y-\s) (bip) {Equiangular lines \\ (two-graphs)\\\\(Haantjes `48)};
+				\node[align=center] at (\x+\s,\y-3*\s) (ant) {``\textit{LSSD}"\\\\(Cameron `72)};
+				\node[align=center] at (\x+3*\s,\y-3*\s) (both) {None exist};%Trivial $LSSD$\\\\ uses $(v,1,0)$ as\\the symmetric design};
+		}
+		\only<3>{
+			\node[align=center] at (\x+\s,\y-\s) (prim) {Spherical\\$4$-distance set};
+			\node[align=center] at (\x+3*\s,\y-\s) (bip) {Lines with two\\angles: $\{0,\pm\alpha\}$\\\\Double covers of SRGs};
+			\node[align=center] at (\x+\s,\y-3*\s) (ant) {``\textit{LSSSD}"\\\\(Higman `95)};
+			\node[align=center] at (\x+3*\s,\y-3*\s) (both) {Mutually Unbiased \\ Bases\\\\(DGS `75)};
+		}
+		\only<4>{
+			\node[align=center] at (\x+\s,\y-\s) (prim) {Spherical\\$4$-distance set};
+			\node[align=center] at (\x+3*\s,\y-\s) (bip) {Lines with two\\angles: $\{\pm \alpha,\pm\beta\}$\\\\Double covers of SRGs};
+			\node[align=center] at (\x+\s,\y-3*\s) (ant) {``\textit{LSSSSD}"?\\(unknown)};
+			\node[align=center] at (\x+3*\s,\y-3*\s) (both) {Mutually unbiased \\ equiangular lines};
+		}
 	\end{tikzpicture}
 \end{frame}
 
