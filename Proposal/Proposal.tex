@@ -12,16 +12,20 @@
 \usepackage{wrapfig}
 \usepackage{epstopdf}
 \usepackage{float}
-\usepackage{cite}
+%\usepackage{cite}
 \usepackage{tikz}
-\usepackage{collcell}
+%\usepackage{collcell}
+
 \newtheorem{thm}{Theorem}
 \newtheorem{prop}{Proposition}
 \newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
 \newtheorem{conjec}{Conjecture}
+\newtheorem{remark}{Remark}
+
 \usetikzlibrary{calc,arrows,quotes,angles}
-\usepackage{arydshln}
-\usetikzlibrary{shapes,snakes}
+%\usepackage{arydshln}
+\usetikzlibrary{shapes,decorations}
 \usepackage{multicol}
 \usepackage{booktabs}
 \usepackage{beamerthemesplit}
@@ -32,12 +36,11 @@
 \newcommand{\vnorm}[1]{\left\|#1\right\|}
 \newcommand{\ket}[1]{\left\vert#1\right>}
 \newcommand{\bra}[1]{\left<#1\right\vert}
-\newtheorem{remark}{Remark}
 \usepackage{amsthm}
 \mode<presentation>{}
 \newcommand{\tabitem}{~~\llap{\textbullet}~~}
 
-
+%%% Beamer colors
 \usetheme{Madrid}
 \usecolortheme{beaver}
 \definecolor{Maroon}{cmyk}{0,0.8,0.68,0.32}
@@ -60,7 +63,7 @@
 
 %\setbeamercolor{title}{fg=Maroon}
 \setbeamercolor{block title}{fg=white, bg=red!75!black}
-%\setbeamercolor{block body}{bg=gray!10}
+\setbeamercolor{block body}{bg=gray!30}
 %\setbeamercolor{title}{use=structure, bg=gray!10}
 
 \AtBeginSection[]
@@ -75,7 +78,7 @@
 \begin{document}
 \title{Cometric Association Schemes}
 \date[September 14, 2018]{PhD Thesis Proposal\\September 14, 2018}
-\author{Brian Kodalen}
+%\author{Brian Kodalen}
 \institute[WPI]{Worcester Polytechnic Institute}
 \frame{\titlepage}
 
@@ -89,7 +92,7 @@
 	\frametitle{Symmetric Association Scheme}
 	A \textbf{symmetric association scheme} is an ordered pair $(X,\mathcal{R})$ where $X$ is a finite set and $\mathcal{R} = \left\{R_0,\dots,R_d\right\}$ is a partition of $X\times X$ into $d+1$ symmetric binary relations satisfying
 	\begin{itemize}
-		\item $R_0$ is the identity relation on $X$
+		\item $R_0$ is the identity relation on $X$;
 		\item for $0\leq i,j,k\leq d$, there exists $p^k_{ij}\in\mathbb{Z}$ such that
 		\[\vert R_i(a)\cap R_j(b)\vert = p^k_{ij}\]
 		whenever $(a,b)\in R_k$.
@@ -149,10 +152,10 @@ Second basis using idempotents:
 
 \begin{frame}
 \frametitle{$P$-polynomial (metric)}
-$(X,\mathcal{R})$ is {\em$P$-polynomial} ({\em metric}) if we can order the relations so that:
+$(X,\mathcal{R})$ is {\em$P$-polynomial} if we can order the relations so that:
 \[p^k_{ij}\begin{cases}
 = 0, & k>i+j \text{ or } k<\vert i-j\vert\\
-\neq 0, & k = i+j
+> 0, & k = i+j
 \end{cases}\]
 Examples:
 \begin{multicols}{2}
@@ -168,8 +171,8 @@ Examples:
 \begin{frame}
 \frametitle{Q-polynomial (cometric)}
 $(X,\mathcal{R})$ is {\em $Q$-polynomial} if we can order the idempotents so that:
-\[q^{k}_{ij} = \begin{cases}
-0 & k>i+j\text{ or }k<\vert i-j\vert\\
+\[q^{k}_{ij}\begin{cases}
+=0 & k>i+j\text{ or }k<\vert i-j\vert\\
 >0 & k = i+j\\
 \end{cases}\]
 \begin{itemize}
@@ -190,9 +193,8 @@ $(X,\mathcal{R})$ is {\em $Q$-polynomial} if we can order the idempotents so tha
 			 &  & \quad2014 \\[.5\normalbaselineskip]
 			2.~Imprimitive classification & 1971- & 1998- \\
 			 & \quad1980 & \quad2010 \\[.5\normalbaselineskip]
-			3.~Unimodality of parameters & 1978 & still open \\[.5\normalbaselineskip]\\
-			
-			\bottomrule
+			3.~Unimodality of parameters & 1978 & still open \\[.5\normalbaselineskip]
+			\midrule
 		\end{tabular}
 	\end{table}
 \end{frame}
@@ -255,7 +257,7 @@ $(X,\mathcal{R})$ is {\em $Q$-polynomial} if we can order the idempotents so tha
 		\node at (\x+3*\s,\y-3*\s+\labeloffset) (both) {both};
 		\only<1>{
 			\node[align=center] at (\x+\s,\y-\s) (prim) {Spherical \\ $d$-distance set};
-			\node[align=center] at (\x+3*\s,\y-1.2*\s) (bip) {Inner products: \\ $\left\{-1,\pm \alpha,\dots\right\}$\\\\``lines through the\\origin"};
+			\node[align=center] at (\x+3*\s,\y-1.2*\s) (bip) {Inner products: \\ $\left\{-1,\pm \alpha,\dots\right\}$\\\\``lines through\\ the origin"};
 			\node[align=center] at (\x+\s,\y-3*\s) (ant) {Fibers with \\ inner products:\\ $1>\beta_1>\alpha_2>\beta_2>\dots$};
 			\node[align=center] at (\x+3*\s,\y-3*\s) (both) {};
 		}
@@ -263,17 +265,17 @@ $(X,\mathcal{R})$ is {\em $Q$-polynomial} if we can order the idempotents so tha
 				\node[align=center] at (\x+\s,\y-\s) (prim) {Spherical\\$3$-distance set};
 				\node[align=center] at (\x+3*\s,\y-\s) (bip) {Equiangular lines \\ (two-graphs)\\\\(Haantjes `48)};
 				\node[align=center] at (\x+\s,\y-3*\s) (ant) {``\textit{LSSD}"\\$[Thm]$\\(Cameron `72)};
-				\node[align=center] at (\x+3*\s,\y-3*\s) (both) {None exist};%Trivial $LSSD$\\\\ uses $(v,1,0)$ as\\the symmetric design};
+				\node[align=center] at (\x+3*\s,\y-3*\s) (both) {Trivial $LSSD$\\\\ uses $(v,1,0)$};
 		}
 		\only<3>{
 			\node[align=center] at (\x+\s,\y-\s) (prim) {Spherical\\$4$-distance set};
-			\node[align=center] at (\x+3*\s,\y-\s) (bip) {Lines with two\\IPs: $\{0,\pm\alpha\}$\\\\Double covers of SRGs};
+			\node[align=center] at (\x+3*\s,\y-\s) (bip) {Two unique angles\\ (w/ $90^\circ$)\\\\Double covers of SRGs};
 			\node[align=center] at (\x+\s,\y-3*\s) (ant) {``\textit{LSSRD}"\\$[Thm]$\\(Higman `95)};
 			\node[align=center] at (\x+3*\s,\y-3*\s) (both) {Mutually Unbiased \\ Bases\\$[Thm]$\\(DGS `75)};
 		}
 		\only<4>{
 			\node[align=center] at (\x+\s,\y-\s) (prim) {Spherical\\$5$-distance set};
-			\node[align=center] at (\x+3*\s,\y-\s) (bip) {Lines with two\\IPs: $\{\pm \alpha,\pm\beta\}$\\\\Double covers of SRGs};
+			\node[align=center] at (\x+3*\s,\y-\s) (bip) {Two unique angles\\ (w/ob $90^\circ$)\\\\Double covers of SRGs};
 			\node[align=center] at (\x+\s,\y-3*\s) (ant) {``\textit{LSSRD}"\\$[Thm]$\\(Higman `95)};
 			\node[align=center] at (\x+3*\s,\y-3*\s) (both) {bip-double of\\ SRG $\left(q_{11}^1=0\right)$\\$[Thm]$};
 		}
@@ -316,7 +318,7 @@ $(X,\mathcal{R})$ is {\em $Q$-polynomial} if we can order the idempotents so tha
 \frametitle{Theorem on Connectivity}
 \begin{thm}[K.,Martin]
 	Let $(X,\mathcal{R})$ be a symmetric association scheme. Assume the graph $\Gamma = (X,R_i)$ is connected and not complete multipartite. Let $H=H_i$ be the corresponding unweighted distribution diagram on $\left\{0,1,\dots,d\right\}$. The following are equivalent:
-	\begin{enumerate}[(1)]
+	\begin{enumerate}
 		\item there exists $a\in X$ for which the subgraph $\Gamma\backslash a^\perp$ is connected;
 		\item for all $a\in X$, the subgraph $\Gamma\backslash a^\perp$ is connected;
 		\item the subgraph $H\backslash \left\{0,i\right\}$ is connected;
@@ -375,6 +377,7 @@ thin,main node/.style = {circle,draw, inner sep = 1pt, minimum size = 8pt}]
 	\begin{column}{.6\textwidth}
 		\begin{figure}
 			\includegraphics[scale=.2,trim={2cm 0cm 0cm 2cm}, clip]{twotetrahedra}
+			\caption*{\tiny ``Compound of two tetrahedra"\\by Tomruen licensed under CC SA 1.0}
 		\end{figure}
 	\end{column}
 	\begin{column}{.35\textwidth}
@@ -393,11 +396,11 @@ thin,main node/.style = {circle,draw, inner sep = 1pt, minimum size = 8pt}]
 			\draw[-] (1) -- (7);
 			\draw[-] (2) -- (8);
 			\draw[-] (3) -- (5);
-			\draw[-] (4) -- (6);			
+			\draw[-] (4) -- (6);
+			\node[align=center] at (1,-1) () {Adjacency denotes an\\ inner product of $-\frac{1}{3}$.};		
 		\end{tikzpicture}
 	\end{column}
-\end{columns}
-\end{frame}
+\end{columns}\end{frame}
 
 \begin{frame}
 \frametitle{Three fibers?}
@@ -417,7 +420,7 @@ thin,main node/.style = {circle,draw, inner sep = 1pt, minimum size = 8pt}]
 		\node[main node,fill=black] at (1.8,-5) (b3) {};
 		\node[main node,fill=black] at (3.6,-5) (b4) {};
 		
-		\only<1-3>{\draw[-] (y1)-- (r2);
+		\only<1-3,6>{\draw[-] (y1)-- (r2);
 		\draw[-] (y1)-- (r3);
 		\draw[-] (y1)-- (r4);
 		\draw[-] (y2)-- (r1);
@@ -429,7 +432,7 @@ thin,main node/.style = {circle,draw, inner sep = 1pt, minimum size = 8pt}]
 		\draw[-] (y4)-- (r2);
 		\draw[-] (y4)-- (r3);
 		\draw[-] (y4)-- (r1);}
-		\only<2-3>{
+		\only<2-3,6>{
 			\draw[-] (b1)-- (r2);
 			\draw[-] (b1)-- (r3);
 			\draw[-] (b1)-- (r4);
@@ -442,7 +445,7 @@ thin,main node/.style = {circle,draw, inner sep = 1pt, minimum size = 8pt}]
 			\draw[-] (b4)-- (r2);
 			\draw[-] (b4)-- (r3);
 			\draw[-] (b4)-- (r1);}
-		\only<3>{
+		\only<3,6>{
 			\draw[-] (y1)-- (b2);
 			\draw[-] (y1)-- (b3);
 			\draw[-] (y1)-- (b4);
@@ -455,7 +458,7 @@ thin,main node/.style = {circle,draw, inner sep = 1pt, minimum size = 8pt}]
 			\draw[-] (y4)-- (b2);
 			\draw[-] (y4)-- (b3);
 			\draw[-] (y4)-- (b1);}
-		\only<4->{\draw[-,very thin,gray] (y1)-- (r2);
+		\only<4-5>{\draw[-,very thin,gray] (y1)-- (r2);
 			\draw[-,very thin,gray] (y1)-- (r3);
 			\draw[-,very thin,gray] (y1)-- (r4);
 			\draw[-,very thin,gray] (y2)-- (r1);
@@ -499,7 +502,7 @@ thin,main node/.style = {circle,draw, inner sep = 1pt, minimum size = 8pt}]
 			\draw[-,yellow,thick] (y2)-- (b1);
 			\draw[-,yellow,thick] (y2)-- (b3);
 			\draw[-,yellow,thick] (y2)-- (b4);	}
-		\only<5->{
+		\only<5>{
 			\draw[dashed,thick] (r1) -- (y1);
 			\draw[-,red,thick] (r1)-- (b2);
 			\draw[-,red,thick] (r1)-- (b3);
@@ -515,20 +518,6 @@ thin,main node/.style = {circle,draw, inner sep = 1pt, minimum size = 8pt}]
 \end{frame}
 
 \begin{frame}
-\frametitle{Def: Linked Simplices}
-Regular simplex:
-\begin{itemize}
-	\item $v$ unit vectors spanning $\mathbb{R}^{v-1}$;
-	\item pairwise inner products of $-\frac{1}{v-1}$.
-\end{itemize}
-\vfill
-Simplices $A$ and $B$ are ``linked" if there exists $-1\leq\gamma,\zeta<1$ with:
-\[\forall (a,b)\in A\times B: \left<a,b\right> \in\left\{\gamma,\zeta\right\}\]
-\vfill
-Simplices $A_1,\dots,A_w$ are ``linked" if every pair is linked using the same constants.
-\end{frame}
-
-\begin{frame}
 \frametitle{Def: Linked Systems of Symmetric Designs (Cameron)}
 Let $\Gamma$ be a graph with vertex set $X$ and adjacency relation $\sim$. We say $\Gamma$ is a \textbf{linked system of symmetric $(v,k,\lambda)$ designs (LSSD) with $w$ fibers} if it is possible to partition $X$ into $w$ vertex subsets $X_1,\dots,X_w$ such that
 \begin{itemize}
@@ -536,11 +525,27 @@ Let $\Gamma$ be a graph with vertex set $X$ and adjacency relation $\sim$. We sa
 	\item the subgraph induced between any $X_i$ and $X_j$ $(i\neq j)$ is the incidence graph of some symmetric $(v,k,\lambda)$ design (so $\vert X_i\vert = v$ for all $i$)
 	\item for distinct $i,j,h$, if $a\in X_i$ and $b\in X_j$,
 	\[\left\vert \Gamma(a)\cap\Gamma(b)\cap X_h\right\vert = \begin{cases}
-	\sigma \text{ if } a\sim b;\\
-	\tau \text{ if } a\not\sim b.
+	\mu \text{ if } a\sim b;\\
+	\nu \text{ if } a\not\sim b.
 	\end{cases} \]
 \end{itemize}
 \end{frame}
+
+\begin{frame}
+\frametitle{Def: Linked Simplices}
+Regular simplex:
+\begin{itemize}
+	\item $v$ unit vectors spanning $\mathbb{R}^{v-1}$;
+	\item pairwise inner products of $-\frac{1}{v-1}$.
+\end{itemize}
+\vfill
+Simplices $A$ and $B$ are ``linked" if there exists $-1\leq\gamma,\delta<1$ with:
+\[\forall (a,b)\in A\times B: \left<a,b\right> \in\left\{\gamma,\delta\right\}\]
+\vfill
+Simplices $A_1,\dots,A_w$ are ``linked" if every pair is linked using the same constants.
+\end{frame}
+
+
 
 \begin{frame}
 \frametitle{Linked Simplices vs. LSSDs}
@@ -556,24 +561,36 @@ Let $\Gamma$ be a graph with vertex set $X$ and adjacency relation $\sim$. We sa
 \end{thm}
 \end{frame}
 
-
 \begin{frame}
-\frametitle{Table of new LSSDs}
-Given a regular Hadamard matrix of order $4t^2$, there exists a $LSSD(16t^4,k,\lambda;w(t))$.\vfill
-\scalebox{.7}{\begin{tabular}{c|*{17}{c}}
-		$t$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10& 11 & 12 & 13 & 14 & 15 & 16 & 17 \\\hline
-		$w(t)$&5&17&9&65&10&12&8&257&10&17&17&10&10&10&29&1025&10\\\\
-		$t$ & 18 & 19 & 20& 21 & 22 & 23 & 24 & 25 & 26 & 27 & 28 & 29 & 30& 31 & 32 & 33 \\\hline
-		$w(t)$&26&11&26&11&17&11&32&10&17&10&50&30&30&12&4097&32\\\\
-		$t$ & 34 & 35 & 36 & 37 & 38 & 39 & 40 & 41 & 42 & 43 & 44 & 45 & 46 & 47 & 48 & 49 &\\\hline
-		$w(t)$&18&32&65&32&18&32&26&13&20&32&65&17&32&32&30&17
-\end{tabular}}\vfill
+\frametitle{New LSSDs using Menon parameters}
+\begin{thm}
+	Given a regular Hadamard matrix of order $s$ and an orthogonal array of size $s^2\times N$, there exists a $LSSD$ with $v=s^2$ and $w=N$.
+\end{thm}
+\begin{cor}
+	For sufficiently large $s$, there exists a $LSSD(s^2,k,\lambda;w)$ with $w\geq s^\frac{1}{14.8}$ if there exists a regular Hadamard matrix of order $s$.
+\end{cor}
+\begin{cor}
+	For any $n\geq 1$ and $w>2$, there exists an odd $t$ permitting a $LSSD(16^{n}t,k,\lambda;w)$.
+\end{cor}
 \end{frame}
+
+%\begin{frame}
+%\frametitle{Table of new LSSDs}
+%Given a regular Hadamard matrix of order $4t^2$, there exists a $LSSD(16t^4,k,\lambda;w(t))$.\vfill
+%\scalebox{.7}{\begin{tabular}{c|*{17}{c}}
+%		$t$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10& 11 & 12 & 13 & 14 & 15 & 16 & 17 \\\hline
+%		$w(t)$&5&17&9&65&10&12&8&257&10&17&17&10&10&10&29&1025&10\\\\
+%		$t$ & 18 & 19 & 20& 21 & 22 & 23 & 24 & 25 & 26 & 27 & 28 & 29 & 30& 31 & 32 & 33 \\\hline
+%		$w(t)$&26&11&26&11&17&11&32&10&17&10&50&30&30&12&4097&32\\\\
+%		$t$ & 34 & 35 & 36 & 37 & 38 & 39 & 40 & 41 & 42 & 43 & 44 & 45 & 46 & 47 & 48 & 49 &\\\hline
+%		$w(t)$&18&32&65&32&18&32&26&13&20&32&65&17&32&32&30&17
+%\end{tabular}}\vfill
+%\end{frame}
 
 \section{Sch\"{o}nberg's theorem}
 \begin{frame}
 	\frametitle{Sch\"{o}nberg's theorem}
-	A function $f:[-1,1]\rightarrow \mathbb{R}$ is \textit{positive definite} if, for every finite subset $X$, $f\circ\left(G_X\right)\succeq 0$, where $G_X$ is the Gram matrix of $X$.
+	A function $f:[-1,1]\rightarrow \mathbb{R}$ is \textit{positive definite} if, for every finite subset $X$, $f\circ\left(G_X\right)\succeq 0$, where $G_X$ is the Gram matrix of $X$.\vspace{1cm}
 	\begin{thm}[Sch\"{o}nberg,`45]
 		A continuous function $f:[-1,1]\rightarrow \mathbb{R}$ is positive definite if and only if $f$ is expressible as a non-negative linear combination of the Gegenbauer polynomials.
 	\end{thm}
@@ -582,8 +599,8 @@ Given a regular Hadamard matrix of order $4t^2$, there exists a $LSSD(16t^4,k,\l
 \begin{frame}
 	\frametitle{Gegenbauer polynomials}
 	\[\begin{aligned}
-	G_0^{(m)} &= 1 \qquad G_1^{(m)} = t\\
-	G_{k}^{(m)} &= \frac{(2k+m-4)tG_{k-1}^{(m)}(t)-(k-1)G_{k-2}^{(m)}(t)}{k+m-3}
+	Q_0^{(m)} &= 1 \qquad Q_1^{(m)} = t\\
+	Q_{k}^{(m)} &= \frac{(2k+m-4)tG_{k-1}^{(m)}(t)-(k-1)G_{k-2}^{(m)}(t)}{k+m-3}
 	\end{aligned}\]\vfill
 	$$Q_0^m(t)=1\qquad	Q_1^m(t)=t\qquad Q_2^m(t)=\frac{mt^2 - 1}{m-1}$$
 	\begin{center}
@@ -618,7 +635,7 @@ For fixed smallest eigenvalue -49:
 \end{figure}\vspace{.129in}}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[noframenumbering]
 \centering{\Huge Thanks for your time!}
 \end{frame}
 
@@ -784,7 +801,7 @@ Can you find 2 without using -1 as an inner product?
 \frametitle{Linked system of symmetric designs}
 \begin{definition}[Cameron `72]
 	A \textit{linked system of symmetric designs} ($LSSD(v,k,\lambda;w)$, $w\geq 2$) is a ($w$-partite) graph $\Gamma$ on $wv$ vertices with the following properties:\vspace{-.5em}
-	\begin{enumerate}[(i)]
+	\begin{enumerate}
 		\item $X = \dot{\cup}_{i=1}^wX_i$ with $\vert X_i\vert = v$;
 		\item no edge of $\Gamma$ has both ends in the same fiber;\pause
 		\item the induced subgraph between distinct fibers is the incidence graph of a $(v,k,\lambda)$-design;\pause
