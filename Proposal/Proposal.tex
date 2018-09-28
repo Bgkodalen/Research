@@ -27,7 +27,7 @@
 %\usepackage{arydshln}
 \usetikzlibrary{shapes,decorations}
 \usepackage{multicol}
-%\usepackage{booktabs}
+\usepackage{booktabs}
 %\usepackage{beamerthemesplit}
 
 
@@ -80,8 +80,8 @@
 
 \begin{document}
 \title{Cometric Association Schemes}
-\date[September 14, 2018]{PhD Thesis Proposal\\September 14, 2018}
-%\author{Brian Kodalen}
+\date[September 26, 2018]{PhD Thesis Proposal\\September 26, 2018}
+\author{Brian Kodalen}
 \institute[WPI]{Worcester Polytechnic Institute}
 \frame{\titlepage}
 
@@ -105,7 +105,7 @@
 \begin{frame}
 \frametitle{Example: Heawood Graph}
 \centering
-\scalebox{.9}{\begin{tikzpicture}[shorten >=1pt,auto,node distance=2cm,
+\scalebox{.95}{\begin{tikzpicture}[shorten >=1pt,auto,node distance=2cm,
 thin,main node/.style = {circle,draw, minimum size = 5pt}]
 \def\r{3.5}
 \foreach \t in {0,...,13}
@@ -114,44 +114,36 @@ thin,main node/.style = {circle,draw, minimum size = 5pt}]
 \draw[-] (13)--(0)--(1)--(2)--(3)--(4)--(5)--(6)--(7)--(8)--(9)--(10)--(11)--(12)--(13);
 \draw[-] (0)--(5)--(4)--(9)--(8)--(13)--(12)--(3)--(2)--(7)--(6)--(11)--(10)--(1);
 %base
-\only<2->{
+\only<1->{
 \foreach \t in {0}
 {{\node[main node] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}
-	{\node[main node,fill=blue] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}}}
+	{\node[main node,fill=blue] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}}
+\node at (-5.5,3) () {};
+\node at (5.5,3) () {};
+\node at (-5.5,-3) () {};
+\node at (5.5,-3) () {};
+}
 %distance 1
-\only<3->{
+\only<2->{
 \foreach \t in {1,5,13}
 {{\node[main node] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}
-	{\node[main node,fill=red] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}}}
+	{\node[main node,fill=red] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}}
+\node at (-4,3) () {$p^1_{11} = 0$};}
 %distance 2
-\only<4->{
+\only<3->{
 \foreach \t in {2,10,12,8,4,6}
 {{\node[main node] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}
-	{\node[main node,fill=green] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}}}
+	{\node[main node,fill=green] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}}
+\node at (4,3) () {$p^1_{12} = p^1_{21} = 2$};
+}%\node at (-4,-3) () {$p^1_{21} = 2=p^1_{12}$};}
 %distance 3
-\only<5->{
+\only<4->{
 \foreach \t in {3,7,9,11}
 {{\node[main node] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}
-	{\node[main node,fill=yellow] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}}}
+	{\node[main node,fill=yellow] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}}
+\node at (-4,-3) () {$p^3_{11} = 0$};}
 \end{tikzpicture}}
 \end{frame}
-
-\begin{frame}
-\frametitle{Bose-Mesner Algebra}
-Let $A_i$ denote the adjacency matrix of the graph $(X,R_i)$.
-\[\mathbb{A} = \text{span}_\mathbb{R}(A_0,A_1,\dots,A_d)\]
-\begin{itemize}
-	\item commutative algebra of symmetric matrices;
-	\item closed under entrywise products.
-\end{itemize}
-\vfill
-Second basis using idempotents:
-\[\mathbb{A} = \text{span}_\mathbb{R}(E_0,E_1,\dots,E_d)\]
-
-\end{frame}
-
-
-
 
 \begin{frame}
 \frametitle{$P$-polynomial (metric)}
@@ -159,28 +151,45 @@ $(X,\mathcal{R})$ is {\em$P$-polynomial} if we can order the relations so that:
 \[p^k_{ij}\begin{cases}
 = 0, & k>i+j \text{ or } k<\vert i-j\vert\\
 > 0, & k = i+j
-\end{cases}\]
+\end{cases}\]\pause
 Examples:
 \begin{multicols}{2}
 	\begin{itemize}
-	\item SRGs
-	\item Generalized Quadrangles
-	\item Projective Planes
-	\item Moore Graphs
+		\item SRGs
+		\item Generalized Quadrangles
+		\item Projective Planes
+		\item Moore Graphs
 	\end{itemize}
 \end{multicols}
 \end{frame}
 
 \begin{frame}
+\frametitle{Bose-Mesner Algebra}
+Let $A_i$ denote the adjacency matrix of the graph $(X,R_i)$.
+\[\mathbb{A} = \text{span}_\mathbb{R}(A_0,A_1,\dots,A_d)\]
+\[A_iA_j = \sum_k p^k_{ij}A_k\]\pause
+\begin{itemize}
+	\item commutative algebra of symmetric matrices;
+	\item closed under entrywise products.
+\end{itemize}\pause
+\vfill
+Second basis using projection matrices (idempotents):
+\[\mathbb{A} = \text{span}_\mathbb{R}(E_0,E_1,\dots,E_d)\]
+
+\end{frame}
+
+
+\begin{frame}
 \frametitle{Q-polynomial (cometric)}
+\[E_i\circ E_j = \frac{1}{\vert X\vert}\sum_{k} q^k_{ij}E_k\]\pause
 $(X,\mathcal{R})$ is {\em $Q$-polynomial} if we can order the idempotents so that:
 \[q^{k}_{ij}\begin{cases}
 =0 & k>i+j\text{ or }k<\vert i-j\vert\\
 >0 & k = i+j\\
-\end{cases}\]
+\end{cases}\]\pause
 \begin{itemize}
-\item\textit{Q-antipodal} if $q^{k}_{dd}>0 \iff k\in\left\{0,d\right\}$\\
-\item\textit{Q-bipartite} if $q^{k}_{ij}=0 \text{ whenever } i+j+k\text{ is even.}$
+\item\textit{Q-antipodal} if $q^{k}_{dd}>0 \implies k\in\left\{0,d\right\}$\\
+\item\textit{Q-bipartite} if $q^{k}_{ij}=0 \text{ whenever } i+j+k\text{ is odd.}$
 \end{itemize}
 \end{frame}
 
@@ -189,17 +198,15 @@ $(X,\mathcal{R})$ is {\em $Q$-polynomial} if we can order the idempotents so tha
 	\begin{table}
 		\centering
 		\begin{tabular}{lll}
-			\multicolumn{3}{c}{Major theorems} \\%[.5\normalbaselineskip]
+			\multicolumn{3}{c}{} \\%[.5\normalbaselineskip]
 			Theorem & Metric & Cometric \\
-			%\midrule
-			1.~Multiple polynomial orderings& 1980 & 1998- \\
-			 &  & \quad2014 \\%[.5\normalbaselineskip]
-			2.~Imprimitive classification & 1971- & 1998- \\
-			 & \quad1980 & \quad2010 \\%[.5\normalbaselineskip]
-			3.~Unimodality of parameters & 1978 & still open \\%\\[.5\normalbaselineskip]\\
-			 & \quad1980 & \quad2010 \\%[.5\normalbaselineskip]
-			3.~Unimodality of parameters & 1978 & still open \\%[.5\normalbaselineskip]
-%			\midrule
+			\midrule
+			1.~Multiple polynomial orderings& {\footnotesize1980} & {\footnotesize1998-2014} \\
+			 &  & (Suzuki) \\[.5\normalbaselineskip]\pause
+			2.~Systems of Imprimitivity & {\footnotesize 1971-1980} & {\footnotesize 1998-2010} \\
+			 &  & (Suzuki) \\[.5\normalbaselineskip]\pause
+			3.~Unimodality of parameters & {\footnotesize1978} & {\footnotesize still open} \\[.5\normalbaselineskip]
+			\midrule
 		\end{tabular}
 	\end{table}
 \end{frame}
@@ -208,7 +215,7 @@ $(X,\mathcal{R})$ is {\em $Q$-polynomial} if we can order the idempotents so tha
 	\frametitle{A conjecture of Bannai \& Ito}
 	\begin{conjec}[Bannai and Ito]
 		For $d$ sufficiently large, a primitive association scheme with $d$ classes is metric if and only if it is cometric.
-	\end{conjec}
+	\end{conjec}\pause
 	\vspace{1cm}
 	\[\text{How about low $d$?}\]
 \end{frame}
@@ -269,20 +276,20 @@ $(X,\mathcal{R})$ is {\em $Q$-polynomial} if we can order the idempotents so tha
 		\only<2>{
 				\node[align=center] at (\x+\s,\y-\s) (prim) {Spherical\\$3$-distance set};
 				\node[align=center] at (\x+3*\s,\y-\s) (bip) {Equiangular lines \\ (two-graphs)\\\\(Haantjes `48)};
-				\node[align=center] at (\x+\s,\y-3*\s) (ant) {``\textit{LSSD}"\\$[Thm]$\\(Cameron `72)};
-				\node[align=center] at (\x+3*\s,\y-3*\s) (both) {Trivial $LSSD$\\\\ uses $(v,1,0)$};
+				\node[align=center] at (\x+\s,\y-3*\s) (ant) {``\textit{LSSD}"\\$[iff]$\\(Cameron `72)};
+				\node[align=center] at (\x+3*\s,\y-3*\s) (both) {Trivial $LSSD$\\$[iff]$\\ uses $(v,1,0;2)$};
 		}
 		\only<3>{
 			\node[align=center] at (\x+\s,\y-\s) (prim) {Spherical\\$4$-distance set};
-			\node[align=center] at (\x+3*\s,\y-\s) (bip) {Two unique angles\\ (w/ $90^\circ$)\\\\Double covers of SRGs};
-			\node[align=center] at (\x+\s,\y-3*\s) (ant) {``\textit{LSSRD}"\\$[Thm]$\\(Higman `95)};
-			\node[align=center] at (\x+3*\s,\y-3*\s) (both) {Mutually Unbiased \\ Bases\\$[Thm]$\\(DGS `75)};
+			\node[align=center] at (\x+3*\s,\y-\s) (bip) {Two angles\\ (w/ $90^\circ$)\\\\Double covers of SRGs};
+			\node[align=center] at (\x+\s,\y-3*\s) (ant) {``\textit{LSSRD}"\\$[iff]$\\(Higman `95)};
+			\node[align=center] at (\x+3*\s,\y-3*\s) (both) {Mutually Unbiased \\ Bases\\$[iff]$\\(DGS `75)};
 		}
 		\only<4>{
 			\node[align=center] at (\x+\s,\y-\s) (prim) {Spherical\\$5$-distance set};
-			\node[align=center] at (\x+3*\s,\y-\s) (bip) {Two unique angles\\ (w/ob $90^\circ$)\\\\Double covers of SRGs};
-			\node[align=center] at (\x+\s,\y-3*\s) (ant) {``\textit{LSSRD}"\\$[Thm]$\\(Higman `95)};
-			\node[align=center] at (\x+3*\s,\y-3*\s) (both) {bip-double of\\ SRG $\left(q_{11}^1=0\right)$\\$[Thm]$};
+			\node[align=center] at (\x+3*\s,\y-\s) (bip) {Two angles\\ (neither $90^\circ$)\\\\Double covers of SRGs};
+			\node[align=center] at (\x+\s,\y-3*\s) (ant) {``\textit{LSSRD}"\\$[iff]$\\(Higman `95)};
+			\node[align=center] at (\x+3*\s,\y-3*\s) (both) {bip-double of\\ SRG $\left(q_{11}^1=0\right)$\\$[iff]$};
 		}
 	\end{tikzpicture}
 \end{frame}
@@ -294,12 +301,15 @@ $(X,\mathcal{R})$ is {\em $Q$-polynomial} if we can order the idempotents so tha
 		\item[] Brouwer \& Mesner, 1985
 		\item The vertex connectivity of a SRG is equal to its valency, and the only disconnecting sets of minimum size are the neighborhoods of its vertices.
 	\end{itemize}
-\begin{minipage}{.58\textwidth}
+\only<1>{\begin{minipage}{.5495\textwidth}
+		\vfill\hfill
+\end{minipage}}
+\only<2->{\begin{minipage}{.56\textwidth}
 	\begin{itemize}
 		\item[] Brouwer \& Koolen, 2009
 		\item Replaced ``SRG" with ``DRG".
-	\end{itemize}
-\end{minipage}
+	\end{itemize}\hfill
+\end{minipage}}
 \begin{minipage}{.4\textwidth}
 	\begin{tikzpicture}[shorten >=1pt,auto,node distance=2cm,
 	thin,main node/.style = {circle,draw, inner sep = 1pt, minimum size = 3pt}]
@@ -329,7 +339,8 @@ $(X,\mathcal{R})$ is {\em $Q$-polynomial} if we can order the idempotents so tha
 		\item the subgraph $H\backslash \left\{0,i\right\}$ is connected;
 		\item $\Gamma$ contains no twins.
 	\end{enumerate}
-\end{thm}  
+\end{thm}
+\[H_i = \Gamma(\left\{0,\dots,d\right\},E_i)\qquad E_i = \left\{(k,j):p^k_{ij} >0\right\}\]
 \end{frame}
 
 
@@ -339,39 +350,115 @@ $(X,\mathcal{R})$ is {\em $Q$-polynomial} if we can order the idempotents so tha
 thin,main node/.style = {circle,draw, inner sep = 1pt, minimum size = 8pt}]
 \node at (1.5,3) (g) {$\Gamma$};
 \node at (6.5,3) (h) {$H$};
-\node[main node] (1) {a};
+\node[main node,fill=blue] (1) {a};
 \node[main node,fill=red] [right of = 1](2) {};
 \node[main node,fill=red] [above of = 1](3) {};
-\node[main node,fill=blue] [right of = 3](4) {};
+\node[main node,fill=green] [right of = 3](4) {};
 \node[main node,fill=red] [above right of = 1](5) {};
-\node[main node,fill=blue] [right of = 5](6) {};
-\node[main node,fill=blue] [above of = 5] (7) {};
-\node[main node,fill=green] [right of = 7](8) {};
+\node[main node,fill=green] [right of = 5](6) {};
+\node[main node,fill=green] [above of = 5] (7) {};
+\node[main node] [right of = 7](8) {};
 
-\node[main node,] [right of = 6](9) {0};
+\node[main node,fill=blue] [right of = 6](9) {0};
 \node[main node,fill=red] [right of = 9](10) {1};
-\node[main node,fill=blue] [right of = 10](11) {2};
-\node[main node,fill=green] [right of = 11](12) {3};
+\node[main node,fill=green] [right of = 10](11) {2};
+\node[main node] [right of = 11](12) {3};
 
 \draw[-] (3)--(1)--(2)--(4)--(3)--(7)--(8)--(6)--(5)--(7);
 \draw[-] (1)--(5)--(6)--(2)--(4)--(8);
 \draw[-] (9)--(10)--(11)--(12);
 
 
-{\draw[->,green,line width = 0.5mm] (7) -- (8);
- \draw[->,green,line width = 0.5mm] (8) -- (4);}
-{\draw[->,green,line width = 0.5mm] (11) -- (12);
-\draw[->,green,line width = 0.5mm] (12) -- (11);}
-\draw[->,purple,line width = 0.5mm] (1)->(2);
-\draw[->,purple,line width = 0.5mm] (2)->(4);
-\draw[->,purple,line width = 0.5mm] (4)->(3);
-\draw[->,purple,line width = 0.5mm] (9)->(10);
-\draw[->,purple,line width = 0.5mm] (10)->(11);
-\draw[->,purple,line width = 0.5mm] (11)->(10);
+%\only<3->{\draw[->,green,line width = 0.5mm] (7) -- (8);
+% \draw[->,green,line width = 0.5mm] (8) -- (4);
+% \draw[->,green,line width = 0.5mm] (11) -- (12);
+%\draw[->,green,line width = 0.5mm] (12) -- (11);}
+%\only<2->{\draw[->,purple,line width = 0.5mm] (1)->(2);
+%\draw[->,purple,line width = 0.5mm] (2)->(4);
+%\draw[->,purple,line width = 0.5mm] (4)->(3);
+%\draw[->,purple,line width = 0.5mm] (9)->(10);
+%\draw[->,purple,line width = 0.5mm] (10)->(11);
+%\draw[->,purple,line width = 0.5mm] (11)->(10);}
 \end{tikzpicture}\]
 \begin{itemize}
 	\item Need to show $\Gamma\backslash a^\perp$ is connected if and only if $H\backslash \left\{0,1\right\}$ is as well.
 \end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{$\Gamma_1$ and $H_1$ for the group $S_4$}
+	\[\begin{tikzpicture}[shorten >=1pt,auto,node distance=1.5cm,
+	thin,main node/.style = {draw, circle, inner sep = 1pt, minimum size = 8pt}]
+	\node at (0,3.5) (g) {$\Gamma$};
+	\node at (6,3) (h) {$H$};
+	\def\r{2};
+	\def\R{3};
+	\foreach\t in {0,...,11}{
+	\foreach\s in {2,3}{
+	\node[main node] at ({\s*cos(30*\t)},{\s*sin(30*\t)}) (\t\s) {};
+	}}
+	
+	
+	
+
+	\node[main node,fill=blue] at (93) {};
+	
+	\node[main node,fill=red] at (103) {};
+	\node[main node,fill=red] at (83) {};
+	\node[main node,fill=red] at (92) {};
+	\node[main node,fill=red] at (72) {};
+	\node[main node,fill=red] at (112) {};
+	\node[main node,fill=red] at (32) {};
+	
+	\node[main node,fill=green] at (62) {};
+	\node[main node,fill=green] at (02) {};
+	\node[main node,fill=green] at (33) {};
+	
+	\node[main node,fill=yellow] at (63) {};
+	\node[main node,fill=yellow] at (43) {};
+	\node[main node,fill=yellow] at (23) {};
+	\node[main node,fill=yellow] at (03) {};
+	\node[main node,fill=yellow] at (52) {};
+	\node[main node,fill=yellow] at (12) {};
+	
+	\node[main node,fill=black] at (13) {};
+	\node[main node,fill=black] at (53) {};
+	\node[main node,fill=black] at (73) {};
+	\node[main node,fill=black] at (113) {};
+	\node[main node,fill=black] at (42) {};
+	\node[main node,fill=black] at (22) {};
+	\node[main node,fill=black] at (82) {};
+	\node[main node,fill=black] at (102) {};
+	
+	\node[main node,fill=blue] at (6,-1) (b) {};
+	\node[main node,fill=red] at (6,0) (r) {};
+	\node[main node,fill=green] at (5,1) (g) {};
+	\node[main node,fill=black] at (7,1) (bl) {};
+	\node[main node,fill=yellow] at (6,2) (y) {};
+	
+	\only<1>{\foreach\t in {0,...,11}{
+				\draw let \n1={int(mod(\t+1,12))} in (\t3) -- (\n13);
+				\draw let \n1={int(mod(\t+7,12))} in (\t2) -- (\n12);
+			\draw (\t\r) -- (\t\R);
+			\draw let \n2={int(mod(\t+2,12))} in (\t\r) to [bend right=15] (\n2\R);
+			\draw let \n3={int(mod(\t+2,12))} in (\t\R) to [bend right=15] (\n3\r);
+			\draw let \n4={int(mod(\t+6,12))} in (\t\R) to [bend left=15] (\n4\r);}
+		\draw[-] (b) -- (r) -- (bl) -- (y) -- (g) -- (r);}
+	
+	\only<2->{\foreach\t in {0,...,11}{
+			\draw[very thin,gray] let \n1={int(mod(\t+1,12))} in (\t3) -- (\n13);
+			\draw[very thin,gray] let \n1={int(mod(\t+7,12))} in (\t2) -- (\n12);
+			\draw[very thin,gray] (\t\r) -- (\t\R);
+			\draw[very thin,gray] let \n2={int(mod(\t+2,12))} in (\t\r) to [bend right=15] (\n2\R);
+			\draw[very thin,gray] let \n3={int(mod(\t+2,12))} in (\t\R) to [bend right=15] (\n3\r);
+			\draw[very thin,gray] let \n4={int(mod(\t+6,12))} in (\t\R) to [bend left=15] (\n4\r);}
+		\draw[-,very thin,gray] (b) -- (r) -- (bl) -- (y) -- (g) -- (r);}
+	
+	
+	\only<2>{\draw[->,color=green,thick] (r) -> (bl);\draw[->,color=green,thick] (bl) -> (y);\draw[->,color=green,thick] (y) -> (bl);\draw[->,color=green,thick] (53) -> (43);\draw[->,color=green,thick] (32) to [bend right=15] (53);\draw[->,color=green,thick] (43) to [bend left=15] (22);}
+	\only<3>{\draw[->,color=red,thick] (g) -> (r);\draw[->,color=red,thick] (62) to [bend right=15] (83);}
+	\only<4>{\draw[->,color=red,thick] (g) -> (r);\draw[->,color=red,thick,dashed] (62) -> (72);}
+	\end{tikzpicture}\]
 \end{frame}
 
 
@@ -526,8 +613,8 @@ thin,main node/.style = {circle,draw, inner sep = 1pt, minimum size = 8pt}]
 \frametitle{Def: Linked Systems of Symmetric Designs (Cameron)}
 Let $\Gamma$ be a graph with vertex set $X$ and adjacency relation $\sim$. We say $\Gamma$ is a \textbf{linked system of symmetric $(v,k,\lambda)$ designs (LSSD) with $w$ fibers} if it is possible to partition $X$ into $w$ vertex subsets $X_1,\dots,X_w$ such that
 \begin{itemize}
-	\item no edge joints two vertices in the same fiber $X_i$
-	\item the subgraph induced between any $X_i$ and $X_j$ $(i\neq j)$ is the incidence graph of some symmetric $(v,k,\lambda)$ design (so $\vert X_i\vert = v$ for all $i$)
+	\item no edge joins two vertices in the same fiber $X_i$;
+	\item the subgraph induced between any $X_i$ and $X_j$ $(i\neq j)$ is the incidence graph of some symmetric $(v,k,\lambda)$ design (so $\vert X_i\vert = v$ for all $i$);
 	\item for distinct $i,j,h$, if $a\in X_i$ and $b\in X_j$,
 	\[\left\vert \Gamma(a)\cap\Gamma(b)\cap X_h\right\vert = \begin{cases}
 	\mu \text{ if } a\sim b;\\
@@ -592,9 +679,9 @@ Simplices $A_1,\dots,A_w$ are ``linked" if every pair is linked using the same c
 %\end{tabular}}\vfill
 %\end{frame}
 
-\section{Sch\"{o}nberg's theorem}
+\section{Sch\"{o}nberg's Theorem}
 \begin{frame}
-	\frametitle{Sch\"{o}nberg's theorem}
+	\frametitle{Sch\"{o}nberg's Theorem}
 	A function $f:[-1,1]\rightarrow \mathbb{R}$ is \textit{positive definite} if, for every finite subset $X$, $f\circ\left(G_X\right)\succeq 0$, where $G_X$ is the Gram matrix of $X$.\vspace{1cm}
 	\begin{thm}[Sch\"{o}nberg,`45]
 		A continuous function $f:[-1,1]\rightarrow \mathbb{R}$ is positive definite if and only if $f$ is expressible as a non-negative linear combination of the Gegenbauer polynomials.
@@ -605,12 +692,12 @@ Simplices $A_1,\dots,A_w$ are ``linked" if every pair is linked using the same c
 	\frametitle{Gegenbauer polynomials}
 	\[\begin{aligned}
 	Q_0^{(m)} &= 1 \qquad Q_1^{(m)} = t\\
-	Q_{k}^{(m)} &= \frac{(2k+m-4)tG_{k-1}^{(m)}(t)-(k-1)G_{k-2}^{(m)}(t)}{k+m-3}
-	\end{aligned}\]\vfill
-	$$Q_0^m(t)=1\qquad	Q_1^m(t)=t\qquad Q_2^m(t)=\frac{mt^2 - 1}{m-1}$$
+	Q_{k}^{(m)} &= \frac{(2k+m-4)tQ_{k-1}^{(m)}(t)-(k-1)Q_{k-2}^{(m)}(t)}{k+m-3}
+	\end{aligned}\]\vfill\pause
+	$$Q_0^{(m)}(t)=1\qquad	Q_1^{(m)}(t)=t\qquad Q_2^{(m)}(t)=\frac{mt^2 - 1}{m-1}$$
 	\begin{center}
-	\scalebox{.9}{$Q_3^m(t)=\frac{(m+2)t^3 - 3t}{(n-1)}\qquad Q_4^m(t)=\frac{(m+4)(m+2)t^4 - 6(m+2)t^2+3}{m^2-1}$}\\\vspace{4mm}
-	\scalebox{.9}{$Q_5^m(t)=\frac{(m+6)(m+4)t^5-10(m+4)t^3+15t}{m^2-1}$}%\\\vspace{2mm}
+	\scalebox{.9}{$Q_3^{(m)}(t)=\frac{(m+2)t^3 - 3t}{m-1}\qquad Q_4^{(m)}(t)=\frac{(m+4)(m+2)t^4 - 6(m+2)t^2+3}{m^2-1}$}\\\vspace{4mm}
+	\scalebox{.9}{$Q_5^{(m)}(t)=\frac{(m+6)(m+4)t^5-10(m+4)t^3+15t}{m^2-1}$}%\\\vspace{2mm}
 	%\scalebox{.9}{$Q_6^m(t)=\frac{(m+8)(m+6)(m+4)t^6-15(m+6)(m+4)t^4+45(m+4)t^2-15}{(m+3)(m+1)(m-1)}$}
 	\end{center}
 \end{frame}
@@ -624,7 +711,7 @@ Simplices $A_1,\dots,A_w$ are ``linked" if every pair is linked using the same c
 			\item $\left(q_{11}^1\right)^2 + \left(2+\frac{q^2_{12}}{q^1_{11}}\right)q_{12}^1q_{11}^2\geq\frac{4m(2m-3)}{m+6}$
 			\end{itemize}
 	\end{thm}
-	Proof technique: Apply $Q_4(t)$ and $Q_5(t)$ to $E_1$.
+	Proof technique: Apply $Q_4^{(m)}(t)$ and $Q_5^{(m)}(t)$ to $\frac{\vert X\vert}{m}E_1$.
 	\vfill\vfill
 	{\tiny Rules out, e.g.:
 	\[\begin{aligned}\left\{(441; 20)\right.&; (576; 23); (729; 26); (1015; 28); (1240; 30); (1548; 35);\\ &\left. (1836; 35); (1944; 29); (1976; 25); (1000; 27); (1331; 30)\right\}
@@ -635,18 +722,32 @@ Simplices $A_1,\dots,A_w$ are ``linked" if every pair is linked using the same c
 \frametitle{4-class $Q$-bipartite}
 Determined by three parameters, $k>r>s=-n^2$. For fixed $s=-49$:
 \only<1>{\begin{figure}
-		\includegraphics[width=2.5in,height=2.5in]{onlybound7}
+		\includegraphics[width=2.5in,height=2.5in]{onlybound7py}
 \end{figure}}
 \only<2>{\begin{figure}
-		\includegraphics[width=2.5in,height=2.5in]{bounds7}
+		\includegraphics[width=2.5in,height=2.5in]{bounds7py}
 \end{figure}}
 \only<3>{\begin{figure}
-		\includegraphics[width=2.5in,height=2.371in]{geg7}
-\end{figure}\vspace{.129in}}
+		\includegraphics[width=2.5in,height=2.22in]{geg7}
+\end{figure}\vspace{.7in}}\pause\pause\vspace{-.129in}\begin{center}
+304 (of 1274) sets ruled out.
+\end{center}
 \end{frame}
 
 \begin{frame}[noframenumbering]
-\centering{\Huge Thanks for your time!}
+\frametitle{Acknowledgements}
+Adviser:
+\begin{itemize}
+	\item Dr. William Martin, WPI
+\end{itemize}
+Dissertation Committee:
+\begin{itemize}
+	\item Dr. Peter J. Cameron, Queen Mary, University of London
+	\item Dr. Padraig \'{O} Cath\'{a}in, WPI
+	\item Dr. Peter R. Christopher, WPI
+	\item Dr. William M. Kantor, University of Oregon
+	\item Dr. G\'{a}bor N. S\'{a}rk\"{o}zy, WPI
+\end{itemize}
 \end{frame}
 
 
