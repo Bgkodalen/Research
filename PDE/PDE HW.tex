@@ -1,0 +1,383 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{esint}
+\usepackage{siunitx}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{epstopdf}
+\usepackage{float}
+\newcommand{\conj}[1]{\overline{#1}}
+\newcommand{\newpar}{\vspace{5mm}\par}
+\newcommand{\vnorm}[1]{\left\|#1\right\|}
+\usepackage{amsthm}
+
+
+\def\dashint{\,\ThisStyle{\ensurestackMath{%
+  \stackinset{c}{.2\LMpt}{c}{.5\LMpt}{\SavedStyle-}{\SavedStyle\phantom{\int}}}%
+  \setbox0=\hbox{$\SavedStyle\int\,$}\kern-\wd0}\int}
+\def\ddashint{\,\ThisStyle{\ensurestackMath{%
+  \stackinset{c}{.2\LMpt}{c}{.5\LMpt+.2\LMex}{\SavedStyle-}{%
+    \stackinset{c}{.2\LMpt}{c}{.5\LMpt-.2\LMex}{\SavedStyle-}{%
+      \SavedStyle\phantom{\int}}}}\setbox0=\hbox{$\SavedStyle\int\,$}\kern-\wd0}\int}
+
+\def\Xint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\Xint=}
+\def\dashint{\Xint-}
+
+\begin{document}
+PDE HW \hfill Brian Kodalen
+
+\section*{Chapter 2}
+
+\subsection*{Problem 1} Write down an explicit formula for a function $u$ solving the initial value problem
+\[\begin{aligned}
+ u_t + b\cdot Du+cu &= 0\quad \text{in } \mathbb{R}^n\times (0,\infty)\\
+ u&=g \quad \text{on }\mathbb{R}^n\times{t=0}.
+\end{aligned}\]
+Here $c\in \mathbb{R}$ and $b\in\mathbb{R}^n$ are constants.\newpar
+Following a similar ideal as the chapter, consider the function
+\[z(s) = u(x+bs,t+s)\]
+and note the derivative gives
+\[\begin{aligned}
+\dot{z}(s) &= bDu(x+bs,t+s) + u_t(x+bs,t+s)\\
+&=-cu(x+bs,t+s)\\
+&=-cz(s).
+\end{aligned}\]
+We can solve this differential equation, giving
+\[z(s) = a_1e^{-cs}\]
+where $a_1\in\mathbb{R}$. Now consider when $s = -t$,
+\[\begin{aligned}
+z(-t) &= u(x-bt,t-t)\\
+a_1e^{ct}&=u(x-bt,0)\\
+a_1&=g(x-bt)e^{-ct}.
+\end{aligned}\]
+Therefore
+\[z(s) = g(x-bt)e^{-c(s+t)}\]
+for all possible $s$. If we not choose $s=0$ we get
+\[u(x,t) = z(0) = g(x-bt)e^{-ct}.\]
+Therefore the solution of our differential equation is
+\[u(x,t) = g(x-bt)e^{-ct}.\]
+\newpage
+\subsection*{Problem 2} Prove that Laplace's equation $\Delta u= 0$ is rotation invariant; that is, if $O$ is an orthogonal $n\times n$ matrix and we define
+\[v(x):=u(Ox)\quad (x\in\mathbb{R}^n),\]
+then $\Delta v=0.$\newpar
+First we can write $Ox$ as $\sum_{i=1}^{n}\left(\sum_{j=1}^{n}o_{ji}\right)x_i$ where $O = [o_{ji}]$. Using this, we can take a first derivative in the direction of $x_i$ to get
+\[\begin{aligned}D_iv(x) &= D_i(u(Ox))\\
+&=\sum_{j=1}^{n}D_ju(Ox)o_{ji}.\end{aligned}\]
+Likewise,
+\[\begin{aligned}D_{ii}v(x) &= D_i(u(Ox))\\
+&=\sum_{k=1}^n\sum_{j=1}^{n}D_{jk}u(Ox)o_{ji}o_{ki}.\end{aligned}\]
+Note however that $O$ is orthogonal, so
+\[\sum_{i=1}^{n}o_{ji}o_{ki} = \delta_{jk}.\]
+Therefore
+\[\begin{aligned}
+\Delta v(x) &= \sum_{i=1}^{n}D_{ii}v(x)\\
+&=\sum_{i=1}^n\left(\sum_{k=1}^n\sum_{j=1}^{n}D_{jk}u(Ox)o_{ji}o_{ki}\right)\\
+&=\sum_{k=1}^n\sum_{j=1}^{n}D_{jk}u(Ox)\sum_{i=1}^{n}o_{ji}o_{ki}\\
+&=\sum_{k=1}^n\sum_{j=1}^{n}D_{jk}u(Ox)\delta_{jk}\\
+&=\sum_{j=1}^{n}D_{jj}u(Ox)\\
+&=\Delta u\\
+&=0.
+\end{aligned}\]
+\newpage
+\subsection*{Problem 3} Modify the proof of the mean value formulas to show for $n\geq 3$ that
+\[u(0) = \dashint_{\partial B(0,r)}gdS+\frac{1}{n(n-2)\alpha(n)}\int_{B(0,r)}\left(\frac{1}{\vert x\vert^{n-2}}-\frac{1}{r^{n-2}}\right)fdx,\]
+provided
+\[\begin{cases}-\Delta u = f & \text{in } B^0(0,r)\\
+u=g& \text{on }\partial B(0,r).
+\end{cases}\]\newpar
+Just as in Evans, let
+\[\phi(r) = \dashint_{\partial B(0,r)}u(y)dS(y) = \dashint_{\partial B(0,1)}u(rz)dS(z).\]
+Where $z = \frac{y}{r}$. Taking the derivative we get
+\[\begin{aligned}\phi^\prime(r) &= \dashint_{\partial B(0,1)}Du(rz)*zdS(z)\\
+&=\dashint_{\partial B(0,r)}Du(y)*\frac{y}{r}dS(y)\\
+&=\frac{1}{n\alpha(n)r^{n-1}}\int_{\partial B(0,r)}Du(y)*\frac{y}{r}dS(y)\\
+&=\frac{1}{n\alpha(n)r^{n-1}}\int_{B(0,r)}\Delta u(y)dy\\
+&=-\frac{1}{n\alpha(n)r^{n-1}}\int_{B(0,r)}fdy\\
+.\end{aligned}\]
+Now note that
+\[\begin{aligned}\phi(r)-\phi(0) &= \int_{0}^{r}\phi^\prime(s)ds\\
+&=\int_{0}^{r}\left(-\frac{1}{n\alpha(n)s^{n-1}}\int_{B(0,s)}fdy\right)ds\\
+&=\int_{0}^{r}\left(-\frac{1}{n\alpha(n)s^{n-1}}\int_{0}^s\int_{\partial B(0,\rho)}fdyd\rho\right)ds\\
+&=-\left(\frac{1}{n\alpha(n)}\right)\int_{0}^{r}\int_{0}^{s}\frac{1}{s^{n-1}}\left(\int_{\partial B(0,\rho)}fdy\right)d\rho ds\\
+&=-\left(\frac{1}{n\alpha(n)}\right)\int_{0}^{r}\int_{\rho}^{r}\frac{1}{s^{n-1}}\left(\int_{\partial B(0,\rho)}fdy\right)dsd\rho\\
+&=-\left(\frac{1}{n\alpha(n)}\right)\int_{0}^{r}\left(\frac{1}{(2-n)r^{n-2}}-\frac{1}{(2-n)\rho^{n-2}}\right)\left(\int_{\partial B(0,\rho)}fdy\right)d\rho\\
+&=-\left(\frac{1}{n\alpha(n)}\right)\int_{0}^{r}\int_{\partial B(0,\rho)}\left(\frac{1}{(2-n)r^{n-2}}-\frac{1}{(2-n)\rho^{n-2}}\right)fdyd\rho\\
+&=-\left(\frac{1}{n\alpha(n)}\right)\int_{B(0,r)}\left(\frac{1}{(2-n)r^{n-2}}-\frac{1}{(2-n)\vert x\vert^{n-2}}\right)fdx\\
+&=-\left(\frac{1}{n\alpha(n)(n-2)}\right)\int_{B(0,r)}\left(\frac{1}{\vert x\vert^{n-2}}-\frac{1}{r^{n-2}}\right)fdx.\\
+\end{aligned}\]
+Therefore
+\[\begin{aligned}\phi(0) &= \phi(r)+\left(\frac{1}{n\alpha(n)(n-2)}\right)\int_{B(0,r)}\left(\frac{1}{\vert x\vert^{n-2}}-\frac{1}{r^{n-2}}\right)fdx\\
+\lim_{r\rightarrow 0}\left(\dashint_{\partial B(0,r)}u(y)dS(y)\right) &= \dashint_{\partial B(0,r)}u(y)dS(y)+\left(\frac{1}{n\alpha(n)(n-2)}\right)\int_{B(0,r)}\left(\frac{1}{\vert x\vert^{n-2}}-\frac{1}{r^{n-2}}\right)fdx\\
+u(0) &= \dashint_{\partial B(0,r)}gdS+\left(\frac{1}{n\alpha(n)(n-2)}\right)\int_{B(0,r)}\left(\frac{1}{\vert x\vert^{n-2}}-\frac{1}{r^{n-2}}\right)fdx\\
+\end{aligned}\]\newpage
+
+\subsection*{Problem 4}
+We say $v\in C^2(\conj{U})$ is \textit{subharmonic} if
+\[-\Delta v\leq 0 \quad\text{in } U\]
+\begin{enumerate}[(a)]
+\item Prove for subharmonic $v$ that
+\[v(x) \leq \dashint_{B(x,r)}vdy\quad \text{ for all }B(x,r)\subset U\]
+\newpar
+Just as before let 
+\[\phi(r) = \dashint_{\partial B(x,r)} v(y)dS(y) = \dashint_{\partial B(0,1)}v(x+rz)dS(z).\]
+where $z = \frac{y-x}{r}$. We can now take a derivative and get
+\[\begin{aligned}\phi^\prime(r) &= \dashint_{\partial B(0,1)}Dv(x+rz)zdS(z)\\
+&=\dashint_{\partial B(0,1)}Dv*\left(\frac{y-x}{r}\right)dS(y)\\
+&=\dashint_{\partial B(0,1)}\frac{\partial v}{\partial y}dS(y)\\
+&=\frac{r}{n}\dashint_{\partial B(0,1)}\Delta v(y)dy\geq 0.\end{aligned}\]
+The last follows since $-\Delta v\leq 0\rightarrow \Delta v\geq 0$. Therefore since $\phi'(r)\geq 0$ for all $r$ and we know $\phi(\epsilon)=v(x)$ (since it is essentially averaging over a point) this gives us that $\phi(r)$ is increasing with $r$. This means the center will always have a value less than any point in a sphere around it. Since the value of $v(x)$ is less than any surrounding point, we know it will be less than the average value of any sphere surrounding it. Therefore
+\[v(x) \leq \dashint_{B(x,r)}vdy\quad \text{ for all }B(x,r)\subset U.\]
+\item Prove that therefore $\max_{\conj{U}}v = \max_{\partial U}v.$\newpar
+Assume there exists a point $x_0$ such that $v(x_0) = M = \max_{\conj{U}}v$. Then the subharmonic property of $v$ guarantees that if there exists $r>0$ such that $r<\text{dist}(x,\partial U)$ then
+\[v(x_0) \leq\dashint_{B(x_0,r)}vdy\]
+But if $v(x_0)$ is less than or equal to the average of the ball, either there must be a point $x_1\in B(x_0,r)$ such that $M<v(x_1)$ or $v(x) = M$ for all points $x\in B(x_0,r)$. The first cannot happen since we said $M$ was the maximum over $\conj{U}$. Therefore $v(x) = M\quad \forall x\in \conj{U}$. We then know $v$ must be the constant function $v = M$ so
+\[\max_{\conj{U}}v = \max_{\partial U}v = M.\]
+The other possibility is that no such $r>0$ exists, meaning $x_0\in \partial U$. In this case we have $x_0\in \partial U$ so we know that $v(x)$ attains the value $M$ on the boundary. Therefore
+\[\max_{\partial U}v \geq M = \max_{\conj{U}}v.\] 
+Since $\partial U\subseteq \conj{U}$ we know that 
+\[\max_{\partial U}v = \max_{\conj{U}}v.\] 
+\item Let $\phi:\mathbb{R}\rightarrow \mathbb{R}$ be smooth and convex. Assume $u$ is harmonic and $v:=\phi(u)$. Prove $v$ is subharmonic.\\
+Using the chain rule, we note that:
+\[\frac{d^2}{dx^2}\phi(u) = \frac{d}{dx}\left(\phi'(u)u_x\right) = \left(\phi''(u)(u_x)^2 + \phi'(u)u_{xx}\right).\]
+Therefore,
+\[\begin{aligned}\Delta\phi(u) &= \sum_{i} \left(\phi''(u)(u_{x_i})^2 + \phi'(u)u_{x_ix_i}\right)\\
+&= \sum_{i} \left(\phi''(u)(u_{x_i})^2\right) + \phi'(u)\Delta u.\\
+\end{aligned}\]
+Since $\Delta u = 0$ (harmonic), $\phi''(u)\geq 0$ (convex), and $u_{x_i}^2\geq 0$, this means that $\Delta\phi(u)\geq 0$. Therefore $-\Delta\phi(u)\leq 0$ and $v=\phi(u)$ must be subharmonic.
+\item Prove $v:=\vert Du\vert^2$ is subharmonic, whenever $u$ is harmonic.\\
+For any directional derivative $\frac{d}{dx_i}$ we have that $\Delta u_{x_i} = \left(\Delta u\right)_{x_i}$. Thus $\Delta(Du) = D(\Delta u) = 0$. Therefore $Du$ is also a harmonic function. However $\phi:\mathbb{R}\rightarrow\mathbb{R}$ via $\phi(x) = \vert x\vert ^2$ is both smooth and convex. Therefore, by part (c), we have that $v:=\vert Du\vert^2$ is subharmonic since it is representable as a smooth convex function from $\mathbb{R}$ to $\mathbb{R}$ of a harmonic function $Du$.
+
+
+\end{enumerate}
+
+
+\subsection*{Problem 5}
+Prove that there exists a constant $C$, depending only on $n$, such that
+\[\max_{B(0,1)}\vert u\vert\leq C\left(\max_{\partial B(0,1)}\vert g\vert + \max_{B(0,1)}\vert f\vert\right)\]
+whenever $u$ is a smooth solution of
+\[\begin{aligned}-\Delta u &= f \quad \text{in } B^0(0,1)\\
+u&=g\quad \text{on }\partial B(0,1).
+\end{aligned}\]
+Let $B = B(0,1)$ and note that $\Delta \vert x\vert^2 = \Delta\left(\sum_{i=1}^n(x_i^2)\right) = 2n$. Therefore consider $v = u + \frac{\vert x\vert^2}{2n}\max_{\overline{B}}\vert f\vert$ and note that we must have $-\Delta v = -\Delta u - \frac{\max_{\overline{B}}\vert f\vert}{2n}\Delta\left(\vert x\vert^2\right) = f-\max_{\overline{B}}\vert f\vert\leq 0$. Therefore $v$ is subharmonic. Part (b) of 2 then tells us that $\max_{\overline{B}} v = \max_{\partial B}v$. Since $\frac{\vert x\vert^2}{2n}\max_{\overline{B}}\vert f\vert\geq 0$ on the ball, we must have $\max_{\overline{B}} u \leq \max_{\overline{B}}v = \max_{\partial B} \left(u + \frac{\max_{\overline{B}}\vert f\vert}{2n}\right) = \max_{\partial{B}} g + \frac{1}{2n}\max_{\overline{B}}\vert f\vert$. By replacing $u$ with $-u$ in all of these arguments, we find a similar bound of $\max_{\overline{B}} -u \leq\max_{\partial{B}} -g + \frac{1}{2n}\max_{\overline{B}}\vert f\vert$. This tells us that we may find some constant $C_n$ (depending on $n$) so that $\max_{\overline{B}} \vert u\vert \leq C_n\left(\max_{\partial{B}} \vert g\vert + \max_{\overline{B}}\vert f\vert\right)$.
+
+\newpage
+\subsection*{Problem 6} Use Poisson's formula for the ball to prove
+\[r^{n-2}\frac{r-\vert x\vert}{\left(r+\vert x\vert\right)^{n-1}}u(0)\leq u(x)\leq r^{n-2}\frac{r+\vert x\vert}{\left(r-\vert x\vert\right)^{n-1}}u(0)\]
+whenever $u$ is positive and harmonic in $B^0(0,r)$. This is an explicit form of Harnack's inequality.\\
+Poisson's formula states that
+\[u(x) = \frac{r^2-\vert x\vert ^2}{n\alpha(n)r}\int_{\partial B(0,r)}\frac{g(y)}{\vert x-y\vert^n}DS(y).\]
+Since the surface area of the ball $B(0,r)$ is $n\alpha(n)r^{n-1}$, this gives
+\[u(x) = r^{n-2}\left(r^2-\vert x\vert ^2\right)\dashint_{\partial B(0,r)}\frac{g(y)}{\vert x-y\vert^n}DS(y).\]
+Since $u$ is strictly positive, the maximum and minimum values of the integrand will be $\frac{u(0)}{(r-\vert x\vert)^n}$ and $\frac{u(0)}{(r+\vert x\vert)^n}$ respectively. Therefore, $\frac{r^{n-2}u(0)(r-\vert x\vert)(r+\vert x\vert)}{(r+\vert x\vert)^n}\leq \dashint_{\partial B(0,r)}\frac{g(y)}{\vert x-y\vert^n}DS(y)\leq \frac{r^{n-2}u(0)(r-\vert x\vert)(r+\vert x\vert)}{(r-\vert x\vert)^n}$ giving 
+\[r^{n-2}\frac{r-\vert x\vert}{\left(r+\vert x\vert\right)^{n-1}}u(0)\leq u(x)\leq r^{n-2}\frac{r+\vert x\vert}{\left(r-\vert x\vert\right)^{n-1}}u(0)\]
+as desired.
+
+
+\subsection*{Problem 7}Prove Theorm 15 in 2.2.4. (Hint)
+
+
+\subsection*{Problem 8} Let $u$ be the solution of
+\[\begin{aligned}
+\Delta u&=0 \quad \text{in }\mathbb{R}^n_+\\
+u&=g \quad \text{on }\partial \mathbb{R}^n_+
+\end{aligned}\]
+given by Poisson's formula for the half-space. Assume $g$ is bounded and $g(x)=\vert x\vert$ for $x\in\partial\mathbb{R}^n_+,\vert x\vert\leq 1.$ Show that $Du$ is not bounded near $x=0$. (Hint)
+
+
+\subsection*{Problem 9} Let $U^+$ denote the open half-ball $\left\{x\in\mathbb{R}^n \vert \quad \vert x\vert<1,x_n>0\right\}.$ Assume $u\in C(\bar{U}^+)$ is harmonic in $U^+$, with $u=0$ on $\partial U^+\cap \left\{x_n=0\right\}.$ Set
+\[v(x):=\begin{cases}
+u(x) & \text{if } x_n\geq 0\\
+-u(x_1,\dots,x_{n-1},-x_n) & \text{if } x_n<0
+\end{cases}\]
+for $x\in U=B^0(0,1)$. Prove $v$ is harmonic in $U$.
+
+
+\subsection*{Problem 10} Suppose $u$ is smooth and solves $u_t - \Delta u = 0$ in $\mathbb{R}^n\times (0,\infty)$.
+\begin{enumerate}[(i)]
+\item Show $u_\lambda(x,t):=u(\lambda x,\lambda^2 t)$ also solves the heat equation for each $\lambda\in \mathbb{R}$.
+\item Use (i) to show $v(x,t):=x*Du(x,t)+2tu_t(x,t)$ solves the heat equation as well.
+\end{enumerate}
+
+
+\subsection*{Problem 11} Assume $n=1$ and $u(x,t)=v(\frac{x ^2}{t}).$
+\begin{enumerate}[(a)]
+\item Show
+\[u_t=u_xx\]
+if and only if
+\[(*)\qquad 4zv^{\prime\prime}(z)+(2+z)v^\prime(z)=0\quad (z>0).\]
+\item Show that the general solution of $(*)$ is
+\[v(z) = c\int_0^ze^{-s/4}s^{-1/2}ds+d.\]
+\item Differentiate $v(\frac{x^2}{t})$ with respect to $x$ and select the constant $c$ properly, so as to obtain the fundamental solution $\Phi$ for $n=1$.
+\end{enumerate}
+
+
+\subsection*{Problem 12} Write down an explicit formula for a solution of
+\[\begin{aligned}
+u_t - \Delta u + cu &= f \quad \text{in }\mathbb{R}^n\times (0,\infty)\\
+u&=g\quad \text{on }\mathbb{R}^n\times\left\{t=0\right\},
+\end{aligned}\]
+where $c\in \mathbb{R}$.
+
+\subsection*{Problem 13} Given $g:[0,\infty)\rightarrow\mathbb{R}$, with $g(0)=0$, derive the formula
+\[u(x,t) = \frac{x}{\sqrt{4\pi}}\int_0^t\frac{1}{(t-s)^{3/2}}e^{\frac{-x^2}{4(t-s)}}g(s)ds\]
+for a solution of the initial/boundary-value problem
+\[\begin{aligned}
+u_t - u_{xx}&=0 \quad \text{in }\mathbb{R}_+\times(0,\infty)\\
+u&=0 \quad \text{on }\mathbb{R}_+\times \left\{t=0\right\},\\
+u&=g\quad \text{on }
+\left\{x=0\right\}\times[0,\infty).\end{aligned}\]
+(Hint)
+
+
+\subsection*{Problem 14} We say $v\in C^2_1(U_T)$ is a subsolution of the heat equation if
+\[v_t-\Delta v\leq 0 \quad\text{in }U_T.\]
+\begin{enumerate}[(a)]
+\item Prove for a subsolution $v$ that
+\[v(x,t)\leq\frac{1}{4r^n}\int\int_{E(x,t;r)}v(y,s)\frac{\vert x-y\vert^2}{(t-s)^2}dyds\]
+for all $E(x,t;r)\subset U_T.$
+\item Prove that therefore $\max_{\bar{U_T}}v = \max_{\Gamma_T}v.$
+\item Let $\phi:\mathbb{R}\rightarrow \mathbb{R}$ be smooth and convex. Assume $u$ solves the heat equation and $v:=\phi(u).$ Prove $v$ is a subsolution.
+\item Prove $v:=\vert Du\vert^2 + u_t^2$ is a subsolution, whenever $u$ solves the heat equation.
+\end{enumerate}
+
+
+\subsection*{Problem 15}
+\begin{enumerate}[(a)]
+\item Show the general soultion of the PDE $u_xy=0$ is
+\[u(x,y) = F(x)+G(y)\]
+for arbitrary functions $F,G$.
+\item Using the change of variables $\zeta = x+t,\quad \eta = x-t,$ show $u_{tt}-u_{xx}=0$ if and only if $u_{\zeta\eta}=0.$
+\item Use (a) and (b) to rederive d'Alembert's formula.
+\end{enumerate}
+
+
+\subsection*{Problem 16} Assume $\textbf{E} = (E^1,E^2,E^3)$ and $\textbf{B} = (B^1,B^2,B^3)$ solve Maxwell's equations (1.2.2). Show
+\[u_{tt} - \Delta u = 0\]
+where $u = E^i$ or $B^i$ ($i=1,2,3).$
+
+
+\subsection*{Problem 17}(Equipartition of energy). Let $u\in C^2(\mathbb{R}\times [0,\infty))$ solve the initial value problem for the wave equation in one dimension:
+\[\begin{aligned} u_{tt}-u_{xx}&=0\quad\text{in }\mathbb{R}\times(0,\infty)\\
+u =g, u_t&=h\quad \text{on }\mathbb{R}\times\left\{t=0\right\}
+\end{aligned}\]
+Suppose $g,h$ have compact support. The kinetic energy is 
+\[k(t):=\frac{1}{2}\int_{-\infty}^{\infty}u_t^2(x,t)dx\]
+and the potential energy is
+\[p(t):=\frac{1}{2}\int_{-\infty}^{\infty}u_x^2(x,t)dx.\]
+Prove
+\begin{enumerate}[(i)]
+\item $k(t)+p(t)$ is constant in $t$,
+\item $k(t) = p(t)$ for all large enough times $t$.
+\end{enumerate}
+
+
+\subsection*{Problem 18} Let $u$ solve
+\[\begin{aligned}
+u_{tt} - \Delta u &= 0\quad \text{in }\mathbb{R^3}\times (0,\infty)\\
+u=g,u_t&=h\quad\text{on }\mathbb{R}^3\times\left\{t=0\right\},
+\end{aligned}\]
+where $g,h$ are smooth and have compact support. Show there exists a constant $C$ such that
+\[\vert u(x,t)\vert\leq C/t\quad (x\in \mathbb{R}^3,t>0).\]
+
+
+\section*{Chapter 3}
+\subsection*{Problem 1} Prove
+\[u(x,t,a,b) = a*x-tH(a)+b\quad (a\in\mathbb{R}^n,b\in\mathbb{R})\]
+is a complete integral of the Hamilton-Jacobi equation
+\[u_t+H(Du)=0.\]
+\subsection*{Problem 2}
+\begin{enumerate}[(a)]
+	\item Write down the characteristic equations for the PDE
+	\[(*)\qquad\qquad u_t+b*Du=f\quad\text{ in }\mathbb{R}^n\times(0,\infty)\]
+	where $b\in\mathbb{R}^n,f=f(x,t)$.
+	\item Use the characteristic ODE to solve $(*)$ subject to the initial condition
+	\[u=g\qquad\text{ on }\mathbb{R}^n\times\left\{t=0\right\}.\]
+	Make sure your answer agrees with formula $(5)$ in 2.1.2.
+\end{enumerate}
+\subsection*{Problem 3} Solve using characteristics:
+\begin{enumerate}
+	\item \[x_1u_{x_1}+x_2u_{x_2}=2u,\quad u(x_1,1) = g(x_1).\]
+	\item \[uu_{x_1}+u_{x_2}=1,\quad u(x_1,x_1)=\frac{1}{2}x_1.\]
+	\item \[x_1u_{x_1}+2x_2u_{x_2}=2u,\quad u(x_1,x_2,0) = g(x_1,x_2).\]
+\end{enumerate}
+\subsection*{Problem 4} Verify that formula $(61)$ in 3.2.5 provides an implicit solution of the scalar conservation law.
+\subsection*{Problem 5} Write $L=H^*$, if $H:\mathbb{R}^n\rightarrow \mathbb{R}$ is convex.
+\begin{enumerate}
+	\item Let $H(p) = \frac{1}{r}\vert p\vert ^r$, for $1<r<\infty$. Show
+	\[L(q) = \frac{1}{s}\vert q\vert^s, \text{ where }
+	\frac{1}{r}+\frac{1}{s} = 1.\]
+	\item Let $H(p) = \frac{1}{2}\sum_{i,j=1}^{n}a_{ij}p_ip_j + \sum_{i=1}^{n}b_ip_i$, where $A = ((a_{ij}))$ is a symmetric, positive definite matrix, $b\in\mathbb{R}^n$. Compute $L(q)$.
+\end{enumerate}
+\subsection*{Problem 6} Let $H:\mathbb{R}^n\rightarrow \mathbb{R}$ be convex. We say $q$ belongs to the subdifferential of $H$ at $p$, written
+\[q\in\partial H(p),\]
+if
+\[H(r)\geq H(p)+q*(r-p)\qquad \text{for all }r\in\mathbb{R}^n.\]
+Prove that $q\in\partial H(p)$ if and only if $p\in \partial L(q)$ if and only if $p*q=H(p)+L(q)$, where $L = H^*$.
+\subsection*{Problem 7} Prove that the Hopf-Lax formula reads
+\[\begin{aligned}u(x,t) &= \min_{y\in\mathbb{R}^n}\left\{tL\left(\frac{x-y}{t}\right)+g(y)\right\}\\
+&=\min_{y\in B(x,Rt)}\left\{tL\left(\frac{x-y}{t}\right)+g(y)\right\}\end{aligned}\]
+for $R = \sup_{\mathbb{R}^n}\left\vert DH(Dg)\right\vert$, $H = L^*$. (This proves finite propagation speed for a Hamilton-Jacobi PDE with convex Hamiltonian and Lipschitz continuous initial function $g$. Hint: Use the previous problem.)
+\subsection*{Problem 8} Let $E$ be a closed subset of $\mathbb{R}^n$. Show that if the Hopf-Lax formula could be applied to the initial-value problem
+\[\begin{cases}
+u_t+\left\vert Du\right\vert^2=0&\text{ in }\mathbb{R}^n\times (0,\infty)\\
+u = \begin{cases}
+0 & x\in E\\
++\infty & x\notin E
+\end{cases} &\text{ on }\mathbb{R}^n\times\left\{t=0\right\},
+\end{cases}\]
+it would give the solution
+\[u(x,t) = \frac{1}{4t}\text{dist}(x,E)^2.\]
+\subsection*{Problem 9} Fill in all details for the proof of Lemma 4 in 3.3.3.
+\subsection*{Problem 10} Assume $u^1,u^2$ are two weak solutions of the initial-value problems
+\[\begin{cases}
+u_t^i+H(Du^i)=0 & \text{ in } \mathbb{R}^n\times(0,\infty)\\
+u^i=g^i & \text{ on }\mathbb{R}^n\times\left\{t=0\right\}(i=1,2),
+\end{cases}\]
+for $H$ as in 3.3. Prove the $L^\infty$-contraction inequality
+\[\sup_\mathbb{R}\left\vert u^1(*,t) - u^2(*,t)\right\vert\leq\sup_\mathbb{R}\left\vert g^1-g^2\right\vert\qquad (t>0). \]
+\subsection*{Problem 11} Show that
+\[u(x,t) = \begin{cases}
+-\frac{2}{3}\left(t+\sqrt{2x+t^2}\right)&\text{ if } 4x+t^2>0\\
+0 & \text{ if } 4x+t^2<0
+\end{cases}\]
+is an (unbounded) entropy solution of $u_t + \left(\frac{u^2}{2}\right)_x = 0.$
+\subsection*{Problem 12} Assume $u(x+z) - u(x)\leq Ez$ for all $z>0$. Let $u^\epsilon = \eta_\epsilon*u$, and show
+\[u_x^\epsilon\leq E.\]
+\subsection*{Problem 13}Assume $F(0) = 0$, $u$ is a continuous integral solution of the conservation law
+\[\begin{cases}
+u_t + F(u)_x = 0 & \text{ in }\mathbb{R}\times\left(0,\infty\right)\\
+u=g & \text{ on }\mathbb{R}\times \left\{t=0\right\},
+\end{cases}\]
+and $u$ has compact support in $\mathbb{R}\times[0,\infty].$ Prove
+\[\int_{-\infty}^{\infty}u(*,t)dx = \int_{-\infty}^{\infty}gdx\]
+for all $t>0$.
+\subsection*{Problem 14} Compute explicitly the unique entropy solution of
+\[\begin{cases}
+u_t+\left(\frac{u^2}{2}\right)_x = 0 & \text{ in }\mathbb{R}\times (0,\infty)\\
+u=g & \text{ on }\mathbb{R}\times\left\{t=0\right\},
+\end{cases}\]
+for
+\[g(x) = \begin{cases}
+1 & \text{if } x<-1\\
+0 & \text{if } -1<x<0\\
+2 & \text{if } 0<x<1\\
+0 & \text{if } x>1\\
+\end{cases}\]
+Draw a picture documenting your answer, being sure to illustrate what happens for all times $t>0$.
+
+
+\end{document}
