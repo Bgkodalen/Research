@@ -1,0 +1,7 @@
+\contentsline {section}{\numberline {1}Introduction}{5}
+\contentsline {section}{\numberline {2}Association schemes}{6}
+\contentsline {section}{\numberline {3}PSD Cone}{7}
+\contentsline {section}{\numberline {4}Sch\"{o}nberg's Theorem}{8}
+\contentsline {section}{\numberline {5}3-class $Q$-antipodal: LSSDs}{9}
+\contentsline {section}{\numberline {6}4-class $Q$-bipartite: Double covers of SRGs}{10}
+\contentsline {section}{\numberline {7}Connectivity of basis relations}{11}
