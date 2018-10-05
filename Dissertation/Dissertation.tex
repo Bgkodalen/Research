@@ -1,24 +1,16 @@
-% Notes on 4-class, Q-antipodal, preservation of semidefinite cone.
+% Dissertation on cometric association schemes
 %
-%  B G Kodalen,  W J Martin
+%  B G Kodalen
 
-\documentclass[12pt]{article}
-
-\usepackage{graphicx,amsthm,fullpage} 
-\usepackage{amssymb}
-\usepackage{amsfonts}
-\usepackage{amsmath}
-\usepackage{enumitem}
-\usepackage{tabularx}
-
-
-\include{commands}
+\documentclass[12pt]{report}
+\input{preamble}
 
 
 \title{\textbf{Cometric Association Schemes}}
 \author{Brian G. Kodalen}
 \date{}
 \begin{document}
+	\singlespacing
 	\maketitle
 	\vspace{3cm}
 	\begin{center} A dissertation for the degree of\\Doctor of Philosophy.\\
@@ -35,24 +27,23 @@
 		\item Dr. William J. Martin, WPI (Advisor)
 		\item Dr. G\'{a}bor N. S\'{a}rk\"{o}zy, WPI
 	\end{itemize}
-\newpage
-\tableofcontents
-\newpage
-\listoffigures
-\newpage
-\include{symbols}
-\section{Introduction}
-\include{Introduction}
-\section{Association schemes}
-\include{association}
-\section{PSD Cone}
-\include{psdcone}
-\section{Sch\"{o}nberg's Theorem}
-\include{schoenbergs}
-\section{3-class $Q$-antipodal: LSSDs}
-\include{3-class}
-\section{4-class $Q$-bipartite: Double covers of SRGs}
-\include{4-class}
-\section{Connectivity of basis relations}
-\include{connectivity}
+	\newpage
+	\tableofcontents
+	\newpage
+	\listoffigures
+	\newpage
+	\input{symbols}
+	\newpage
+	\doublespacing
+	
+	\input{Introduction}
+	\input{association}
+	\input{psdcone}
+	\input{schoenberg}
+	\input{3-class}
+	\input{4-class}
+	\input{connectivity}
+	
+	\bibliographystyle{abbrv}
+	\bibliography{Dissertation}
 \end{document}
