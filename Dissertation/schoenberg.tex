@@ -1,24 +1,45 @@
-\chapter{Sch\"{o}nberg's Theorem}\label{schoenberg}
-In Chapter \ref{association}, we introduced a set of orthogonal polynomials $q_0(t),\dots,q_d(t)$ with the property that $q_i\circ\left(\frac{1}{\vert X\vert} E_1\right) = \frac{1}{\vert X\vert} E_i$ for any $Q$-polynomial association scheme $(X,\mathcal{R})$ with $Q$-polynomial ordering $E_0,E_1,\dots,E_d$. We observed that a polynomial $f(t) = \sum_{i=0}^d c_i q_i(t)$ will produce a matrix with eigenvalues $c_0,\dots,c_d$ when applied to $E_1$ entrywise. In this chapter, we introduce a second set of orthogonal polynomials, known as the Gegenbauer polynomials, which have been shown to preserve the positive semi-definite property. Using these, we examine the relation of these polynomials with the orthogonal polynomials previously mentioned and compare the Gegenbauer cone with the positive semi-definite cone seen in Chapter \ref{psdcone}. This comparison allows us to derive new bounds on the krein parameters of association schemes.\\
-Let $m$ be a fixed positive integer and $X\subset S^{m-1}$ be a finite set of distinct unit vectors. Let $G_X$ denote the Gram matrix of $X$, then $G_X$ is positive semi-definite ($G_X\succeq 0$). A function $f:[-1,1]\rightarrow\mathbb{R}$ is \textit{positive definite} if, for every such finite subset $X$, $f\circ(G_X)\succeq 0$. In 1942, Sch\"{o}nberg proved that a continuous function $f:[-1,1]\rightarrow \mathbb{R}$ is positive definite if and only if $f$ is expressible as a non-negative linear combination of the Gegenbauer polynomials. These Gegenbauer polynomials may be defined using the three-term recurrence:
+\chapter{Gegenbauer Polynomials}\label{schoenberg}
+Chapter $\ref{psdcone}$ examined a particular set of matrices in the Bose-Mesner algebra of an association scheme which gave us Gram matrices of finite sets $X\subset \mathbb{S}^{m-1}$ for some fixed positive integer $m$. In particular, we found that the existence of any association scheme implies the existence of sets of vectors with very few possible inner products. While we may use this correlation to create new spherical $t$-distance sets anytime we have an association scheme, we may also use this implication to rule out possible parameter sets based on the properties of the resultant vector sets. For instance, Delsarte et.\ al.\ in \cite{Delsarte1975} found bounds on the size of any $t$-distance set based solely on the dimension of the ambient space and the inner products allowed between vectors. Later, in \cite{Delsarte1977}, they were also able to prove a $t$-distance set is a spherical design if and only if the first $s$ Gegenbauer polynomials summed over the inner products give zero as a result. This characterization of spherical designs allowed Suda \cite{Suda2011} to characterize when a the first idempotent in a $Q$-polynomial ordering would result in a spherical design. Many of these results are based around a family of single-variable polynomials known as the Gegenbauer polynomials, and a result of Sch\"{o}nberg \cite{Schoenberg1942} which implies that each Gegenbauer polynomial will result in a positive semi-definite matrix when applied to a Gram matrix elementwise.\par
+In this chapter, we will define the Gegenbauer polynomials and review relevant definitions and theorems. We will then use Sch\"{o}nberg's theorem to provide a general constraint on the krein parameters of any association scheme. We will then examine these conditions more closely in the setting of $Q$-polynomial association schemes where we find three non-trivial constraints. Finally, we will give examples of new parameter sets which are ruled out by these constraints and consider the case of $4$-class $Q$-bipartite association schemes where one constraint in particular greatly restricts the feasible parameter sets. We conclude this section by defining the Gegenbauer polynomials for fixed dimension $m$.\par
+Let $m$ be a fixed positive integer. The Gegenbauer polynomials in dimension $m$ are defined using the three-term recurrence:
 \[\begin{aligned}
-Q_k(t) &= \frac{(2k+m-4)tQ_{k-1}(t) - (k-1)Q_{k-2}(t)}{k+m_3}, k\geq 2\\
-Q_0(t) &= 1\qquad Q_1(t) = t.
+Q_k^m(t) &= \frac{(2k+m-4)tQ_{k-1}(t) - (k-1)Q_{k-2}(t)}{k+m_3} \qquad k\geq 2,\\
+Q^m_0(t) &= 1\qquad Q^m_1(t) = t.
 \end{aligned}\]
-Here we have normalized the Gegenbauer polynomials so that $Q_i(1) = 1$. Below we give the first six Gegenbauer polynomials:
+We use these initial polynomials so that $Q^m_i(1) = 1$ for all $i\geq 0$. We will suppress the superscript of $m$ anytime this is clear in the context. The first six Gegenbauer polynomials are as follows,
 \[\begin{aligned}
-&Q_0^m(t)=1\qquad
-Q_1^m(t)=t\qquad
-Q_2^m(t)=\frac{mt^2 - 1}{m-1}\qquad
-Q_3^m(t)=\frac{(m+2)t^3 - 3t}{m-1}\qquad\\
-Q_4^m(t)=&\frac{(m+4)(m+2)t^4 - 6(m+2)t^2+3}{m^2-1}\qquad
-Q_5^m(t)=\frac{(m+6)(m+4)t^5-10(m+4)t^3+15t}{m^2-1}\\
+&Q_0(t)=1,\qquad
+Q_1(t)=t,\qquad
+Q_2(t)=\frac{mt^2 - 1}{m-1},\qquad
+Q_3(t)=\frac{(m+2)t^3 - 3t}{m-1},\qquad\\
+Q_4(t)=&\frac{(m+4)(m+2)t^4 - 6(m+2)t^2+3}{m^2-1},\qquad
+Q_5(t)=\frac{(m+6)(m+4)t^5-10(m+4)t^3+15t}{m^2-1}\\
 \end{aligned}\]
 \begin{figure}[h]
 	\begin{center}
-	\includegraphics[scale=.4]{gegenbauer_polynomials.PNG}
-	\caption{Gegenbauer polynomials with degree 1 through degree 5 with $m=10$.}\label{gegpic}
-\end{center}
+		\vspace{4cm}%\includegraphics[scale=.4]{gegenbauer_polynomials.PNG}
+		\caption{Gegenbauer polynomials with degree 1 through degree 5 with $m=10$.}\label{gegpic}
+	\end{center}
+\section{Sch\"{o}nberg's Theorem}\label{schoenberg}
+Let $m$ be a fixed positive integer and $X\subset S^{m-1}$ be a finite set of unit vectors. Let $G_X$ denote the Gram matrix of $X$, then $G_X$ is positive semi-definite ($G_X\succeq 0$). A function $f:[-1,1]\rightarrow\mathbb{R}$ is \textit{positive definite} if, for every such finite subset $X$, $f\circ(G_X)\succeq 0$.
+\begin{thm}[Sch\"{o}nberg \cite{Schoenberg1942}]
+	Let $m\in\mathbb{Z}^+$. A function $f:[-1,1]\rightarrow\mathbb{R}$ is positive definite if and only if $f(t) = \sum_{i} c_iQ_k^m(t)$ for non-negative constants $c_i$.
+\end{thm}
+In particular, this means that $Q_k^m(t)$ is a positive definite function for any choice of $m$ and $k$. This leads to the following corollary,
+\begin{cor}
+	Let $(X,\mathcal{R})$ be an association scheme with minimal idempotents $E_0,\dots,E_d$. Let $0\leq i\leq d$ be given and define $m_i:=\text{rank}\left(E_i\right)$. Then for any choice of $k>0$, there exists non-negative constants $c_j$ for $0\leq j\leq d$ so that
+	\[Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right) = \sum_j c_j E_j.\]
+\end{cor}
+\begin{proof}
+	Recall that the Bose-Mesner algebra given by $\BMA =\text{span}\left\{E_0,\dots,E_d\right\}$ is closed under entrywise products. Therefore we know that any entrywise polynomial of $E_i$ must be contained within the algebra. Therefore $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right)\in \BMA$ and we may write $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right) = \sum_j c_j E_j$ where each $c_j$ is the eigenvalue of the matrix in the eigenspace given by the idempotent $E_j$. Now, since  $E_i$ is an idempotent matrix with main diagonal given by $\frac{1}{\vert X\vert}Q_{11} = \frac{m_i}{\vert X\vert}$, we know that $\frac{\vert X\vert}{m_i}E_i$ is the Gram matrix of a set of unit vectors in $\mathbb{R}^{m_i}$. Therefore, Theorem \ref{schoenberg} tells us that $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right)$ must be positive semidefinite, telling us that all eigenvalues must be non-negative.
+\end{proof}
+
+
+
+
+\section{Gegenbauer Polynomials}\label{gegdef}
+
+
 
 
 \end{figure}

@@ -2,6 +2,6 @@
 \contentsline {chapter}{\numberline {2}Association schemes}{6}
 \contentsline {chapter}{\numberline {3}PSD cone}{7}
 \contentsline {chapter}{\numberline {4}Sch\"{o}nberg's Theorem}{8}
-\contentsline {chapter}{\numberline {5}3-class $Q$-antipodal: LSSDs}{9}
-\contentsline {chapter}{\numberline {6}4-class $Q$-bipartite: Double covers of SRGs}{10}
-\contentsline {chapter}{\numberline {7}Connectivity of basis relations}{11}
+\contentsline {chapter}{\numberline {5}3-class $Q$-antipodal: LSSDs}{10}
+\contentsline {chapter}{\numberline {6}4-class $Q$-bipartite: Double covers of SRGs}{11}
+\contentsline {chapter}{\numberline {7}Connectivity of basis relations}{12}
