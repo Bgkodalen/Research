@@ -16,6 +16,7 @@
 \newcommand{\newpar}{\vspace{5mm}\par}
 \newcommand{\vnorm}[1]{\left\|#1\right\|}
 \usepackage{amsthm}
+\usepackage{tikz}
 
 
 \def\dashint{\,\ThisStyle{\ensurestackMath{%
@@ -126,6 +127,10 @@ u(0) &= \dashint_{\partial B(0,r)}gdS+\left(\frac{1}{n\alpha(n)(n-2)}\right)\int
 \end{aligned}\]\newpage
 
 \subsection*{Problem 4}
+Give a direct proof that if $u\in C^2(U)\cap C(\overline{U})$ is harmonic within a bounded open set $U$, then $\max_{\overline{U}}u = \max_{\partial U} u$.\newpar
+Let $u\in C^2(U)\cap C(\overline{U})$ be harmonic within a bounded open set $U$. Now, let $\epsilon>0$ and define $u_\epsilon = u+\epsilon\vert x\vert^2$. Let $p\in U$ be a point in the interior of $\overline{U}$ such that $D(u_\epsilon(p)) = 0$. Then $u_\epsilon$ achieves a local maximum at $p$ if and only if the second derivative of $u_\epsilon$ is non-positive in every direction. Let $H = D_{ij}(u_\epsilon(p))$ and note that $\text{trace}(H) =\sum_{i} D_{ii}(u_\epsilon(x_0)) = \Delta u_\epsilon = 2n\epsilon>0$. Thus $H$ has a positive eigenvalue and therefore $u_\epsilon$ cannot achieve a local maximum at $p$. As this must be true for all $\epsilon>0$, we may let $\epsilon\rightarrow 0$ and since $u\in C^2(U)$, we know the same must hold for $u$.
+
+\subsection*{Problem 5}
 We say $v\in C^2(\conj{U})$ is \textit{subharmonic} if
 \[-\Delta v\leq 0 \quad\text{in } U\]
 \begin{enumerate}[(a)]
@@ -165,17 +170,17 @@ For any directional derivative $\frac{d}{dx_i}$ we have that $\Delta u_{x_i} = \
 \end{enumerate}
 
 
-\subsection*{Problem 5}
-Prove that there exists a constant $C$, depending only on $n$, such that
-\[\max_{B(0,1)}\vert u\vert\leq C\left(\max_{\partial B(0,1)}\vert g\vert + \max_{B(0,1)}\vert f\vert\right)\]
+\subsection*{Problem 6}
+Let $U$ be a bounded open subset of $\mathbb{R}^n$. Prove that there exists a constant $C$, depending only on $U$, such that
+\[\max_{\overline{U}}\vert u\vert\leq C\left(\max_{\partial U}\vert g\vert + \max_{\overline{U}}\vert f\vert\right)\]
 whenever $u$ is a smooth solution of
-\[\begin{aligned}-\Delta u &= f \quad \text{in } B^0(0,1)\\
-u&=g\quad \text{on }\partial B(0,1).
+\[\begin{aligned}-\Delta u &= f \quad \text{in } U\\
+u&=g\quad \text{on }\partial U.
 \end{aligned}\]
-Let $B = B(0,1)$ and note that $\Delta \vert x\vert^2 = \Delta\left(\sum_{i=1}^n(x_i^2)\right) = 2n$. Therefore consider $v = u + \frac{\vert x\vert^2}{2n}\max_{\overline{B}}\vert f\vert$ and note that we must have $-\Delta v = -\Delta u - \frac{\max_{\overline{B}}\vert f\vert}{2n}\Delta\left(\vert x\vert^2\right) = f-\max_{\overline{B}}\vert f\vert\leq 0$. Therefore $v$ is subharmonic. Part (b) of 2 then tells us that $\max_{\overline{B}} v = \max_{\partial B}v$. Since $\frac{\vert x\vert^2}{2n}\max_{\overline{B}}\vert f\vert\geq 0$ on the ball, we must have $\max_{\overline{B}} u \leq \max_{\overline{B}}v = \max_{\partial B} \left(u + \frac{\max_{\overline{B}}\vert f\vert}{2n}\right) = \max_{\partial{B}} g + \frac{1}{2n}\max_{\overline{B}}\vert f\vert$. By replacing $u$ with $-u$ in all of these arguments, we find a similar bound of $\max_{\overline{B}} -u \leq\max_{\partial{B}} -g + \frac{1}{2n}\max_{\overline{B}}\vert f\vert$. This tells us that we may find some constant $C_n$ (depending on $n$) so that $\max_{\overline{B}} \vert u\vert \leq C_n\left(\max_{\partial{B}} \vert g\vert + \max_{\overline{B}}\vert f\vert\right)$.
+Note that $\Delta \vert x\vert^2 = \Delta\left(\sum_{i=1}^n(x_i^2)\right) = 2n$. Therefore consider $v = u + \frac{\vert x\vert^2}{2n}\max_{\overline{U}}\vert f\vert$ and note that we must have $-\Delta v = -\Delta u - \frac{\max_{\overline{U}}\vert f\vert}{2n}\Delta\left(\vert x\vert^2\right) = f-\max_{\overline{U}}\vert f\vert\leq 0$. Therefore $v$ is subharmonic. Part (b) of 2 then tells us that $\max_{\overline{U}} v = \max_{\partial U}v$. Since $\frac{\vert x\vert^2}{2n}\max_{\overline{U}}\vert f\vert\geq 0$ on the ball, we must have $\max_{\overline{U}} u \leq \max_{\overline{U}}v = \max_{\partial U} \left(u + \frac{\vert x\vert^2}{2n}\max_{\overline{U}}\vert f\vert\right) = \max_{\partial{U}} g + \frac{1}{2n}\max_{\overline{U}}\vert f\vert$. By replacing $u$ with $-u$ in all of these arguments, we find a similar bound of $\max_{\overline{U}} -u \leq\max_{\partial{U}} -g + \frac{1}{2n}\max_{\overline{U}}\vert f\vert$. Thus $\max_{\overline{U}} \vert u\vert \leq\max\left\{\max_{\overline{U}} u, \max_{\overline{U}}-u\right\}\leq C\left(\max_{\partial{U}} \vert g\vert + \max_{\overline{U}}\vert f\vert\right)$ where $C$ depends only on the dimension $n$.
 
 \newpage
-\subsection*{Problem 6} Use Poisson's formula for the ball to prove
+\subsection*{Problem 7} Use Poisson's formula for the ball to prove
 \[r^{n-2}\frac{r-\vert x\vert}{\left(r+\vert x\vert\right)^{n-1}}u(0)\leq u(x)\leq r^{n-2}\frac{r+\vert x\vert}{\left(r-\vert x\vert\right)^{n-1}}u(0)\]
 whenever $u$ is positive and harmonic in $B^0(0,r)$. This is an explicit form of Harnack's inequality.\\
 Poisson's formula states that
@@ -187,52 +192,166 @@ Since $u$ is strictly positive, the maximum and minimum values of the integrand 
 as desired.
 
 
-\subsection*{Problem 7}Prove Theorm 15 in 2.2.4. (Hint)
+\subsection*{Problem 8}Prove Theorem 15 in 2.2.4. (Hint: Since $u\equiv 1$ solves (44) for $g\equiv 1$, the theorey automatically implies $\int_{\partial B(0,1)}K(x,y)dS(y) = 1$ for each $x\in B^0(0,1)$.)\\
+As with the proof of Theorem 14, we first note that for any fixed $x$, the mapping $y\mapsto G(x,y)$ is harmonic except when $y=x$. Since $G(x,y) = G(y,x)$, $x\mapsto G(x,y)$ must also be harmonic except when $x=y$. Thus $\frac{\partial G}{\partial \nu} = K(x,y)$ must also be harmonic for $x\in B^0(0,1)$, $y\in\partial B(0,1)$. Now note that $u\equiv 1$ is harmonic with the boundary condition $u = g = 1$ on $\partial B$. Therefore, using equation $43$,
+\[\begin{aligned}
+u(x) &= -\int_{\partial B(0,1)} g(y)\frac{\partial G}{\partial \nu}(x,y)dS(y)\\
+1 &=-\int_{\partial B(0,1)}K(x,y)dS(y)
+\end{aligned}\] 
 
 
-\subsection*{Problem 8} Let $u$ be the solution of
+\subsection*{Problem 9} Let $u$ be the solution of
 \[\begin{aligned}
 \Delta u&=0 \quad \text{in }\mathbb{R}^n_+\\
 u&=g \quad \text{on }\partial \mathbb{R}^n_+
 \end{aligned}\]
-given by Poisson's formula for the half-space. Assume $g$ is bounded and $g(x)=\vert x\vert$ for $x\in\partial\mathbb{R}^n_+,\vert x\vert\leq 1.$ Show that $Du$ is not bounded near $x=0$. (Hint)
-
-
-\subsection*{Problem 9} Let $U^+$ denote the open half-ball $\left\{x\in\mathbb{R}^n \vert \quad \vert x\vert<1,x_n>0\right\}.$ Assume $u\in C(\bar{U}^+)$ is harmonic in $U^+$, with $u=0$ on $\partial U^+\cap \left\{x_n=0\right\}.$ Set
+given by Poisson's formula for the half-space. Assume $g$ is bounded and $g(x)=\vert x\vert$ for $x\in\partial\mathbb{R}^n_+,\vert x\vert\leq 1.$ Show that $Du$ is not bounded near $x=0$. (Hint: Estimate $\frac{u(\lambda e_n) - u(0)}{\lambda}$.)\newpar
+First note that since $g(x)=\vert x\vert$ for $\vert x\vert\leq 1$, we have that $u(0) =g(0) = 0$. Thus $Du$ at $0$ in the direction of $e_n$ may be approximated by $\frac{u(\lambda e_n)}{\lambda}$. Poisson's formula for half-space tells us that
+\[u(x) = \frac{2x_n}{n\alpha(n)}\int_{\partial \mathbb{R}^n_+}\frac{g(y)}{\vert x-y\vert^n}dy.\]
+Therefore,
+\[\begin{aligned}
+u(\lambda e_n) &\approx \frac{2\lambda e_n}{n\alpha(n)}\int_{\partial \mathbb{R}^n_+}\frac{\vert y\vert}{\left(\lambda^2+\vert y\vert^2\right)^\frac{n}{2}}dS(y).
+\end{aligned}\]
+After dividing by $\lambda$, consider the integral on the right hand side restricting our domain to $\vert y\vert\leq 1$ for $y\in \partial \mathbb{R}^n_+$:
+\[\begin{aligned}
+&\frac{2 e_n}{n\alpha(n)}\int_{\partial \mathbb{R}^n_+,\vert y\vert\leq 1}\frac{\vert y\vert}{\left(\lambda^2+\vert y\vert^2\right)^\frac{n}{2}}dS(y)\\
+&=C\int_0^1\frac{r^{n-1}}{\left(\lambda^2+r^2\right)^\frac{n}{2}}dr\\
+&=C\int_0^1\frac{1}{r\left(\left(\frac{\lambda}{r}\right)^2+1\right)^\frac{n}{2}}dr.\\
+\end{aligned}\]
+where $C$ is a constant based solely on $n$. In the limit of $\lambda\rightarrow 0$, this integral will diverge. Therefore $\lim_{\lambda\rightarrow 0}\frac{u(\lambda e_n)}{\lambda}$ must also diverge and $Du$ must be unbounded in the direction of $e_n$ at $0$.
+\subsection*{Problem 10}
+\begin{enumerate}[a]
+	\item Let $U^+$ denote the open half-ball $\left\{x\in\mathbb{R}^n \vert \quad \vert x\vert<1,x_n>0\right\}.$ Assume $u\in C(\bar{U}^+)$ is harmonic in $U^+$, with $u=0$ on $\partial U^+\cap \left\{x_n=0\right\}.$ Set
 \[v(x):=\begin{cases}
 u(x) & \text{if } x_n\geq 0\\
 -u(x_1,\dots,x_{n-1},-x_n) & \text{if } x_n<0
 \end{cases}\]
-for $x\in U=B^0(0,1)$. Prove $v$ is harmonic in $U$.
+for $x\in U=B^0(0,1)$. Prove $v\in C^2(U)$ and thus $v$ is harmonic in $U$.
+\item Now assume only that $u\in C^2(U^+)\cap C(\overline{U})$. Show that $v$ is harmonic within $U$. (Hint: Use Poisson's formula for the ball.)
+\end{enumerate}
+
+\begin{enumerate}[a]
+	\item First, $v$ must be $C^2$ anywhere $x_n\neq 0$ since $u$ is harmonic in $U^+$. Therefore we must check that $\lim_{x_n\rightarrow 0}\partial_{x_ix_j} v(x_1,x_2,\dots,x_n)$ is well defined for all $0\leq i,j\leq n$. Since $u = 0$ on $\partial U^+\cap\left\{x_n =0\right\}$, $\partial_{x_ix_j} v(x_1,x_2,\dots,0)=0$ whenever $i\neq n$ and $j\neq n$. Further, since $u$ is harmonic, this implies that $\partial_{x_nx_n} u(x_1,\dots,0) = -\sum_{i=1}^{n-1}\partial_{x_{i}x_{i}} = 0$ and thus $\partial_{x_nx_n} v = 0$. All that is left to check is the partial derivatives when $i=n$ and $j\neq n$. In this case,
+	\[\begin{aligned}
+	\lim_{x_n\rightarrow 0^-}\frac{\partial^2}{\partial x_ix_n}v(x_1,\dots,x_n) &= \lim_{x_n\rightarrow 0^-}\frac{\partial^2}{\partial x_ix_n}\left(-u(x_1,\dots,-x_n)\right)\\
+	&=\lim_{x_n\rightarrow 0^-}\frac{\partial^2 u(x_1,\dots,-x_n)}{\partial x_ix_n}\\
+	&=\lim_{x_n\rightarrow 0^+}\frac{\partial^2 u(x_1,\dots,x_n)}{\partial x_ix_n}\\
+	&=\lim_{x_n\rightarrow 0^+}\frac{\partial^2}{\partial x_i x_n}v(x_1,\dots,x_n).
+	\end{aligned}\]
+	Thus every second derivative is well defined and $v\in C^2(U)$. To show $v$ is Harmonic, we split the region into three domains, $U^+$, $U^-=-U^+$, and $\partial U\cap\left\{x_n=0\right\}$. In $U^+$ ($U^-$) we know $v$ is harmonic since $v=u$ ($v=-u$ resp.). In the final domain, we note that $v$ is harmonic if and only if
+	\[v(x) = \dashint_{\partial B(x,r)}v(y)dy\]
+	for small enough $r$. In the case of $x_n=0$, we have
+	\[\begin{aligned}\dashint_{\partial B(x,r)}v(y)dy &= \dashint_{\partial B(x,r)\cap\left\{x_n>0\right\}}v(y)dy + \dashint_{\partial B(x,r)\cap\left\{x_n<0\right\}}v(y)dy\\
+	&=\dashint_{\partial B(x,r)\cap\left\{x_n>0\right\}}v(y)dy + \dashint_{\partial B(x,r)\cap\left\{x_n>0\right\}}-v(y)dy\\
+	&=0.
+	\end{aligned}\]
+	Since $v(x_1,\dots,0) = 0$ by definition, we know $v$ must be harmonic.
+	\item Now we only assume $u$ is in $C^2(U^+)\cap C(\overline{U})$. Then we may use $v$ as a boundary condition and find another function $w$ which satisfies:
+	\[\begin{aligned}\Delta w &= 0 \text{ in} B(0,1)\\
+	W&=v \text{ on } \partial B(0,1).
+	\end{aligned}\]
+	Poisson's formula for the ball tells us that
+	\[w(x) = \frac{r^2-\vert x\vert^2}{n\alpha(n)r}\int_{\partial B(0,1)}\frac{v(y)}{\vert x-y\vert^n}dS(y).\]
+	However, if we consider a point $x$ such that $x_n=0$, then the integral is symmetric and, since $v(x_1,\dots,x_n) = -v(x_1,\dots,-x_n)$, we have $w(x) = 0$ (whenever $x_n=0$). Therefore $w$ is a harmonic function which equals $x$ on the boundary of $U^+$. Since $x$ is also harmonic with the same boundary conditions, $w$ must equal $x$ on $U^+$. Likewise $-x$ is harmonic on $U^-$ and $w$ has the same boundary conditions, telling us that $w=-x$ on $U^-$. Therefore $w=v$ and $v$ must still be harmonic.
+\end{enumerate}
 
 
-\subsection*{Problem 10} Suppose $u$ is smooth and solves $u_t - \Delta u = 0$ in $\mathbb{R}^n\times (0,\infty)$.
+\subsection*{Problem 11} (Kelvin transform for Laplace's equation) The Kelvin transform $\mathcal{K}u = \overline{u}$ of a function $u:\mathbb{R}^n\rightarrow \mathbb{R}$ is
+\[\overline{u}(x):=u(\overline{x})\vert \overline{x}\vert^{n-2} = u\left(\frac{x}{\vert x\vert^2}\right)\vert x\vert^{2-n}, (x\neq 0),\]
+where $\overline{x} = \frac{x}{\vert x\vert^2}$. Show that if $u$ is harmonic, then so is $\overline{u}$ (Hint: First show that $D_x\overline{x}\left(D_x\overline{x}\right)^T=\vert x\vert^4I$. The mapping $x\rightarrow\overline{x}$ is conformal, meaning angle preserving.)\newpar
+We first compute derivatives entry-wise to get
+\[\frac{\partial}{\partial x_i}\overline{x}_j = \frac{\delta_{ij}}{\vert x\vert^2} - \frac{2x_ix_j}{\vert x\vert^4}\]
+giving us that
+\[D_x(\overline{x}) = \frac{1}{\vert x\vert^2}I - 2\frac{xx^T}{\vert x\vert^4}.\]
+Therefore we find that
+\[D_x(\overline{x})(D_x(\overline{x}))^T = \frac{1}{\vert x\vert^4}\left(I - 4\frac{(xx^T)}{\vert x\vert^2} + 4\frac{xx^Txx^T}{\vert x\vert^4}\right) = \frac{1}{\vert x\vert^4}I\]
+giving us that the mapping $x\rightarrow \overline{x}$ is conformal. We will also need $\Delta (\overline{x})$ so we compute
+\[\begin{aligned}\frac{\partial^2}{\partial x_i \partial x_i}\overline{x}_j &= \frac{\partial}{\partial x_i}\frac{\delta_{ij}}{\vert x\vert^2} - \frac{2x_ix_j}{\vert x\vert^4}\\
+&=-\frac{\delta_{ij}2x_i}{\vert x\vert^4} - \frac{2x_j}{\vert x\vert^4} - \frac{\delta_{ij}2x_i}{\vert x\vert^4} + \frac{8x_i^2x_j}{\vert x\vert^6}\\
+&=\frac{8x_i^2x_j}{\vert x\vert^6}-\frac{2x_j}{\vert x\vert^4}-\frac{\delta_{ij}4x_i}{\vert x\vert^4}.
+\end{aligned}\]
+Therefore
+\[\Delta \overline{x}_j = \frac{8x_j}{\vert x\vert^4} - \frac{2nx_j}{\vert x\vert^4} - \frac{4x_j}{\vert x\vert^4}\]
+and thus,
+\[\Delta \overline{x} = \frac{4-2n}{\vert x\vert^4}x.\]
+Finally, we may compute $\Delta \overline{u}$ following the rule that $\Delta(fg) = g\Delta f + 2Df(Dg)^T + f\Delta g$:
+\[\begin{aligned}
+\Delta\left(u(\overline{x})\vert x\vert^{2-n}\right)&= \vert x\vert^{2-n}\Delta(u(\overline{x}))+ 2D\left(u(\overline{x})\right)(D\vert x\vert^{2-n})^T + u(\overline{x})\Delta\vert x\vert^{2-n}\\
+&=\vert x\vert^{2-n}\left(Du\cdot \Delta\overline{x}\right) +\vert x\vert^{2-n}\text{Tr}\left((D\overline{x})^TD^2uD\overline{x}\right) +2DuD(\overline{x})(D\vert x\vert^{2-n})^T + u(\overline{x})\Delta\left(\vert x\vert^{2-n}\right).
+\end{aligned}\]
+Since $x\mapsto \overline{x}$ is a conformal map, $\text{Tr}\left((D\overline{x})^TD^2uD\overline{x}\right) = \frac{1}{\vert x\vert^4}\Delta u = 0$. Also, we have that $\vert x\vert^{2-n}$ is a harmonic function as long as $x\neq 0$, thus
+\[\Delta\left(u(\overline{x})\vert x\vert^{2-n}\right) = \vert x\vert^{2-n}\left(Du\cdot \Delta\overline{x}\right) +2DuD(\overline{x})(D\vert x\vert^{2-n})^T.\]
+Finally,
+\[\begin{aligned}
+2DuD(\overline{x})(D\vert x\vert^{2-n})^T &= 2Du\left(\frac{1}{\vert x\vert^2}I - \frac{2xx^T}{\vert x\vert^4}\right)\left(2-n\right)x\vert x\vert^{-n}\\
+&=Du\frac{(4-2n)}{\vert x\vert^4}\left(-x\right)\vert x\vert^{2-n}\\
+&=-\vert x\vert^{2-n}Du\Delta x
+\end{aligned}\]
+giving us $\Delta\left(u(\overline{x})\vert x\vert^{2-n}\right) = 0$ as desired.
+\subsection*{Problem 12} Suppose $u$ is smooth and solves $u_t - \Delta u = 0$ in $\mathbb{R}^n\times (0,\infty)$.
 \begin{enumerate}[(i)]
 \item Show $u_\lambda(x,t):=u(\lambda x,\lambda^2 t)$ also solves the heat equation for each $\lambda\in \mathbb{R}$.
-\item Use (i) to show $v(x,t):=x*Du(x,t)+2tu_t(x,t)$ solves the heat equation as well.
+\item Use (i) to show $v(x,t):=x\cdot Du(x,t)+2tu_t(x,t)$ solves the heat equation as well.
 \end{enumerate}
+\begin{enumerate}[(i)]
+	\item Taking derivatives, we have $\frac{\partial}{\partial t}u_\lambda = \lambda^2u_t(\lambda x,\lambda^2t)$ and $\frac{\partial^2}{\partial x^2}u_\lambda = \lambda^2u_{xx}(\lambda x,\lambda^2 t)$. Therefore
+	\[\frac{\partial}{\partial t} u_\lambda -\Delta u_\lambda = \lambda^2(u_t-\Delta u) = 0.\]
+	\item First consider $\frac{\partial }{\partial \lambda}u_\lambda = xDu(\lambda x,\lambda^2t) + 2t\lambda u_t(\lambda x,\lambda^2t)$. When $\lambda=1$, this gives $\frac{\partial }{\partial \lambda}u_\lambda\vert_{\lambda=1} = xDu(x,t) + 2t u_t( x,t) = v(x,t)$. However, $u$ is smooth, so we may take partials in any order we wish. Therefore
+	\[\begin{aligned}
+	v_t - \Delta v = \left[\frac{\partial}{\partial\lambda}\left(\frac{\partial}{\partial t} u_\lambda -\Delta u_\lambda\right)\right]_{\lambda=1} = 0
+	\end{aligned}\]
+	and thus $v$ also fulfills the heat equation.
+\end{enumerate}
+\newpage
 
-
-\subsection*{Problem 11} Assume $n=1$ and $u(x,t)=v(\frac{x ^2}{t}).$
+\subsection*{Problem 13} Assume $n=1$ and $u(x,t)=v(\frac{x}{\sqrt{t}}).$
 \begin{enumerate}[(a)]
-\item Show
-\[u_t=u_xx\]
-if and only if
-\[(*)\qquad 4zv^{\prime\prime}(z)+(2+z)v^\prime(z)=0\quad (z>0).\]
-\item Show that the general solution of $(*)$ is
-\[v(z) = c\int_0^ze^{-s/4}s^{-1/2}ds+d.\]
-\item Differentiate $v(\frac{x^2}{t})$ with respect to $x$ and select the constant $c$ properly, so as to obtain the fundamental solution $\Phi$ for $n=1$.
+\item Show $u_t=u_{xx}$ if and only if 
+\[(*)\qquad v''+\frac{z}{2}v'=0.\] Show that the general solution of $(*)$ is
+\[v(z) = c\int_0^ze^{-s^2/4}ds+d.\]
+\item Differentiate $u(x,t) = v(\frac{x}{\sqrt{t}})$ with respect to $x$ and select the constant $c$ properly, so as to obtain the fundamental solution $\Phi$ for $n=1$. Explain why this procedure produces the fundamental solution. (Hint: What is the initial condition for $u$?)
+\end{enumerate}
+\begin{enumerate}
+	\item First, $u_t = -\frac{x}{2t^{\frac{3}{2}}}v'\left(\frac{x}{\sqrt{t}}\right)$ and, $u_{xx} = \frac{1}{t}v''\left(\frac{x}{\sqrt{t}}\right).$
+	Thus, $u_t =u_{xx} $ if and only if
+	\[v''\left(\frac{x}{\sqrt{t}}\right) +\frac{x}{2\sqrt{t}}v'\left(\frac{x}{\sqrt{t}}\right) = 0\]
+	as desired. Setting $z = \frac{x}{\sqrt{t}}$, we must find the general solution of
+	\[v'' + \frac{z}{2}v' = 0.\]
+	First consider the substitution $f(z) = v'(z)$. This gives us the first order differential equation
+	\[f' + \frac{z}{2}f = 0.\]
+	Using seperation of variables, we find that $f = ce^{\frac{z^2}{4}}$ is the only non-trivial solution to this first order differential equation. However, since we set $f = v'$, the trivial solution $f=0$ is still of interest to us. These two solutions give the solutions $v(z) = \int_{0}^{z}ce^\frac{s^2}{4}ds$ and $v(z) = d$ respectively. Thus,
+	\[v(z) = c\int_{0}^{z}e^\frac{s^2}{4}ds + d\]
+	is the general solution.
+	\item Recall that $u_{x} = \frac{1}{\sqrt{t}}v'(z)$. Thus,
+	\[u_x = \frac{c}{\sqrt{t}}e^\frac{z^2}{4} = \frac{c}{\sqrt{t}}e^\frac{x^2}{4t}.\]
+	Since we want our fundamental solution to have the property that $\int \Phi(x,t)dx = 1$, we must have $c = \frac{1}{\sqrt{4\pi}}$ giving,
+	\[u_x = \frac{1}{\sqrt{4\pi t}}e^\frac{x^2}{4t}.\]
+	This process returns the fundamental solution because we are finding a solution to the heat equation where the initial condition $u(x,0) = \delta$, which is the purpose of the fundamental solution.
 \end{enumerate}
 
+\newpage
 
-\subsection*{Problem 12} Write down an explicit formula for a solution of
+\subsection*{Problem 14} Write down an explicit formula for a solution of
 \[\begin{aligned}
 u_t - \Delta u + cu &= f \quad \text{in }\mathbb{R}^n\times (0,\infty)\\
 u&=g\quad \text{on }\mathbb{R}^n\times\left\{t=0\right\},
 \end{aligned}\]
-where $c\in \mathbb{R}$.
+where $c\in \mathbb{R}$.\newpar
+We first seek to change the problem into a standard Heat equation. Therefore, consider $v(x,t) = u(x,t)e^{ct}$. Then $v_t = u_te^{ct} + cue^{ct}$ and $\Delta v = e^{ct}\Delta u$. Therefore
+\[\begin{aligned}v_t - \Delta v &= e^{ct}\left(u_t +cu -\Delta u\right)\\
+&=e^{ct}f.
+\end{aligned}\]
+Further, when $t=0$, $v(x,0) = u(x,0) = g$. Therefore we now must solve the differential equation
+\[\begin{aligned}
+v_t -\Delta v = f\text{ in }\mathbb{R}^n\times(0,\infty)\\
+v = g \text{ on } \mathbb{R}^n\times\left\{t=0\right\}.
+\end{aligned}\]
+This has been done for us, using equation 17, we get:
+\[v(x,t) = \int_{\mathbb{R}^n}\Phi(x-y,t)g(y)dy + \int_0^t\int_{\mathbb{R}^n}\Phi(x-y,t-s)f(y,x)dyds.\]
+Finally, since $v(x,t) = u(x,t)e^{ct}$, we have
+\[u(x,t) = e^{-ct}\left(\int_{\mathbb{R}^n}\Phi(x-y,t)g(y)dy + \int_0^t\int_{\mathbb{R}^n}\Phi(x-y,t-s)f(y,x)dyds\right).\]
 
-\subsection*{Problem 13} Given $g:[0,\infty)\rightarrow\mathbb{R}$, with $g(0)=0$, derive the formula
+\subsection*{Problem 15} Given $g:[0,\infty)\rightarrow\mathbb{R}$, with $g(0)=0$, derive the formula
 \[u(x,t) = \frac{x}{\sqrt{4\pi}}\int_0^t\frac{1}{(t-s)^{3/2}}e^{\frac{-x^2}{4(t-s)}}g(s)ds\]
 for a solution of the initial/boundary-value problem
 \[\begin{aligned}
@@ -240,37 +359,294 @@ u_t - u_{xx}&=0 \quad \text{in }\mathbb{R}_+\times(0,\infty)\\
 u&=0 \quad \text{on }\mathbb{R}_+\times \left\{t=0\right\},\\
 u&=g\quad \text{on }
 \left\{x=0\right\}\times[0,\infty).\end{aligned}\]
-(Hint)
+(Hint: Let $v(x,t):=u(x,t)-g(t)$ and extend $v$ to $\left\{x<0\right\}$ by odd reflection.)\newpar
+Let 
+\[v(x,t):=\begin{cases}
+u(x,t)-g(t) & x\geq 0;\\
+g(t)-u(x,t) &x<0.
+\end{cases}\]
+Then,
+\[\begin{aligned}
+v_t - v_{xx}&=-g'(t) \quad \text{in }\mathbb{R}_+\times(0,\infty)\\
+v_t - v_{xx}&=g'(t) \quad \text{in }\mathbb{R}_-\times(0,\infty)\\
+v&=0 \quad \text{on }\mathbb{R}\times \left\{t=0\right\}.\end{aligned}\]
+However, using equation 13, we have then that
+\[\begin{aligned}
+v(x,t) &= \int_0^t\frac{1}{(4\pi(t-s))^\frac{1}{2}}\int_{0}^\infty e^{-\frac{\vert x-y\vert^2}{4(t-s)}}(-g'(s))dyds+\int_0^t\frac{1}{(4\pi(t-s))^\frac{1}{2}}\int_{-\infty}^0e^{-\frac{\vert x-y\vert^2}{4(t-s)}}g'(s)dyds\\
+&=\int_0^t\frac{1}{(4\pi(t-s))^\frac{1}{2}}g'(s)\left(\int_{-\infty}^0 e^{-\frac{\vert x-y\vert^2}{4(t-s)}}dy-\int_{0}^\infty e^{-\frac{\vert x-y\vert^2}{4(t-s)}}dy\right)ds\\
+&=\int_0^t\frac{1}{(4\pi(t-s))^\frac{1}{2}}g'(s)\left(2\int_{-\infty}^0 e^{-\frac{\vert x-y\vert^2}{4(t-s)}}dy-\int_{-\infty}^\infty e^{-\frac{\vert x-y\vert^2}{4(t-s)}}dy\right)ds\\
+&=\int_0^tg'(s)\left(\frac{2}{(4\pi(t-s))^\frac{1}{2}}\int_{-\infty}^0 e^{-\frac{\vert x-y\vert^2}{4(t-s)}}dy-\frac{1}{(4\pi(t-s))^\frac{1}{2}}\int_{-\infty}^\infty e^{-\frac{\vert x-y\vert^2}{4(t-s)}}dy\right)ds\\
+&=\int_{0}^{t}\frac{2g'(s)}{(4\pi(t-s))^\frac{1}{2}}\int_{-\infty}^{0}e^{-\frac{\vert x-y\vert^2}{4(t-s)}}dyds-\int_0^tg'(s)ds
+\end{aligned}\]
+Therefore, $u(x,t) = \int_{0}^{t}\frac{2g'(s)}{(4\pi(t-s))^\frac{1}{2}}\int_{-\infty}^{0}e^{-\frac{\vert x-y\vert^2}{4(t-s)}}dyds$. To finish the derivation, we must employ integration by parts. Therefore consider
+\[\begin{aligned}f(s) &= \int_{-\infty}^0 \frac{2}{(4\pi(t-s))^\frac{1}{2}}e^\frac{-\vert x-y\vert^2}{4(t-s)}dy = \frac{2}{\sqrt{\pi}}\int_{\frac{x}{\sqrt{4(t-s)}}}^\infty e^{-z^2}dz\\
+f'(s) &= \frac{2}{\sqrt{\pi}}e^{-\frac{x^2}{4(t-s)}}\frac{d}{ds}\left(\frac{x}{\sqrt{4(t-s)}}\right) = -\frac{2x}{4\sqrt{\pi}(t-s)^\frac{3}{2}}e^{-\frac{x^2}{4(t-s)}}.
+\end{aligned}\]
+Finally,
+\[\begin{aligned}u(x,t) &= \int_0^tg'(s)f(s)ds = \left[g(s)f(s)\right]_0^t - \int_0^tg(s)f'(s)ds\\
+&=g(t)f(t)-g(0)f(0) - \int_0^t\frac{-2x}{4\sqrt{\pi}(t-s)^\frac{3}{2}}e^{-\frac{x^2}{4(t-s)}}g(s)ds\\
+&=\int_0^t\frac{2x}{4\sqrt{\pi}(t-s)^\frac{3}{2}}e^{-\frac{x^2}{4(t-s)}}g(s)ds
+\end{aligned}\]
+as desired.
 
-
-\subsection*{Problem 14} We say $v\in C^2_1(U_T)$ is a subsolution of the heat equation if
+\subsection*{Problem 16} Give a direct proof that if $U$ is bounded and $u\in C_1^2(U_T)\cap C(\overline{U}_T)$ solves the heat equation, then $\max_{\overline{U}_T}u = \max_{\overline{\Gamma_T}}u$. (Hint: Define $u_\epsilon:=u-\epsilon t$ for $\epsilon>0$, and show $u_\epsilon$ cannot attain its maximum over $\overline{U}_T$ at a point in $U_T$.)\newpar
+Let $\epsilon>0$ and define $u_\epsilon:=u-\epsilon t$. Then $\Delta u_\epsilon -(u_\epsilon)_t = \Delta u - (u_t-\epsilon) = \epsilon$ since $u$ was assumed to solve the heat equation. Therefore $\Delta u_\epsilon>(u_\epsilon)_t$ at every point. Now assume there exists some point $p\in U_T$ for which $u_\epsilon$ attains a critical point. Then $(u_\epsilon)_t(p) = 0$ and therefore $\Delta u_\epsilon(p) >0$. Therefore the Hessian matrix $H = D_{ij}(u_\epsilon(p))$ has positive trace and cannot be negative definite. Therefore $p$ cannot be a local maximum.
+\newpage
+\subsection*{Problem 17} We say $v\in C^2_1(U_T)$ is a subsolution of the heat equation if
 \[v_t-\Delta v\leq 0 \quad\text{in }U_T.\]
 \begin{enumerate}[(a)]
 \item Prove for a subsolution $v$ that
 \[v(x,t)\leq\frac{1}{4r^n}\int\int_{E(x,t;r)}v(y,s)\frac{\vert x-y\vert^2}{(t-s)^2}dyds\]
 for all $E(x,t;r)\subset U_T.$
-\item Prove that therefore $\max_{\bar{U_T}}v = \max_{\Gamma_T}v.$
+\item Prove that therefore $\max_{\overline{U}_T}v = \max_{\Gamma_T}v.$
 \item Let $\phi:\mathbb{R}\rightarrow \mathbb{R}$ be smooth and convex. Assume $u$ solves the heat equation and $v:=\phi(u).$ Prove $v$ is a subsolution.
 \item Prove $v:=\vert Du\vert^2 + u_t^2$ is a subsolution, whenever $u$ solves the heat equation.
 \end{enumerate}
-
-
-\subsection*{Problem 15}
 \begin{enumerate}[(a)]
-\item Show the general soultion of the PDE $u_xy=0$ is
-\[u(x,y) = F(x)+G(y)\]
-for arbitrary functions $F,G$.
-\item Using the change of variables $\zeta = x+t,\quad \eta = x-t,$ show $u_{tt}-u_{xx}=0$ if and only if $u_{\zeta\eta}=0.$
-\item Use (a) and (b) to rederive d'Alembert's formula.
+	\item We follow the proof of Theorem 3 nearly exactly: First, we shift the sapce so that $x=0$ and $t=0$. Then, $E(r) = E(0,0;r)$ and
+	\[\phi(r) :=\frac{1}{r^n}\iint_{E(r)}v(y,s)\frac{\vert y\vert^2}{s^2}dyds\]
+	Then,
+	\[\phi'(r) = \frac{1}{r^{n+1}}\iint_{E(r)}\sum_{i=1}^nv_{y_i}y_i\frac{\vert y\vert^2}{s^2}+2v_s\frac{\vert y\vert^2}{s}dyds.\]
+	We also introduce
+	\[\psi:=-\frac{n}{2}\log(-4\pi s)+\frac{\vert y\vert^2}{4s}+n\log r\]
+	and note that $\psi = 0$ on $\partial E(r)$ since $\Phi(y,-s) = r^{-n}$ on $\partial E(r)$. Using this, we calculate $\psi_{y_i} = \frac{y_i}{2s}$ and get
+	\[\begin{aligned}
+	\frac{1}{r^{n+1}}\iint_{E(r)}2v_s\frac{\vert y\vert^2}{s}dyds&=\frac{1}{r^{n+1}}\iint_{E(r)}4v_s\sum_{i=1}^n y_i\psi_{y_i}dyds\\
+	&=-\frac{1}{r^{n+1}}\iint_{E(r)}4nv_s\psi + 4\sum_{i=1}^n v_{sy_i}y_i\psi dyds
+	\end{aligned}\]
+	where the second line comes from integrating by parts for each $y_i$ noting that since $\psi=0$ on $\partial E(r)$, we obtain no boundary term. Finally, we integrate by parts wrt s to get
+	\[\begin{aligned}\frac{1}{r^{n+1}}\iint_{E(r)}2v_s\frac{\vert y\vert^2}{s}dyds&=-\frac{1}{r^{n+1}}\iint_{E(r)}4nv_s\psi + 4\sum_{i=1}^n v_{sy_i}y_i\psi dyds\\
+	&=\frac{1}{r^{n+1}}\iint_{E(r)}-4nv_s\psi + 4\sum_{i=1}^n v_{y_i}y_i\psi_sdyds\\
+	&=\frac{1}{r^{n+1}}\iint_{E(r)}-4nv_s\psi + 4\sum_{i=1}^n v_{y_i}y_i\left(-\frac{n}{2s}-\frac{\vert y\vert^2}{4s^2}\right)dyds\\
+	\phi'(r)&=-\frac{1}{r^{n+1}}\iint_{E(r)}4nv_s\psi + 4\sum_{i=1}^n v_{y_i}y_i\left(\frac{n}{2s}\right)dyds.
+	\end{aligned}\]
+	Now, since $v$ is a subsolution and $v_t\leq \Delta v$, we have
+	\[\begin{aligned}
+	\phi'(r)&\geq-\frac{1}{r^{n+1}}\iint_{E(r)}4n\Delta v\psi + 4\sum_{i=1}^n v_{y_i}y_i\left(\frac{n}{2s}\right)dyds\\
+	&=-\frac{1}{r^{n+1}}\sum_{i=1}^n \iint_{E(r)}4nv_{y_iy_i}\psi + 4v_{y_i}y_i\left(\frac{n}{2s}\right)dyds\\
+	&=\frac{1}{r^{n+1}}\sum_{i=1}^n \iint_{E(r)}4nv_{y_i}\psi_{y_i} - 4v_{y_i}y_i\left(\frac{n}{2s}\right)dyds\\
+	&=\frac{1}{r^{n+1}}\sum_{i=1}^n \iint_{E(r)}4nv_{y_i}\left(\psi_{y_i} - \frac{y_i}{2s}\right)dyds\\
+	&=0.
+	\end{aligned}\]
+	Therefore $\phi(r)$ is non-decreasing and we must have
+	\[\phi(r)\geq\lim_{t\rightarrow 0} \phi(t) = 4v(0,0)\]
+	as desired.
+	\item We follow the proof of Theorem 4 for this part. Suppose there exists a point $(x_0,t_0)\in U_T$ with $v(x_0,t_0)=M:=\max_{\overline{U}_T}u.$ Then for all sufficiently small $r>0$, such that $E(x_0,t_0;r)\subset U_T$ and we may employ the mean-value theorem to get
+	\[M = v(x_0,t_0)\leq \frac{1}{4r^n}\iint_{E(x_0,t_0;r)} v(y,s)\frac{\vert x_0-y\vert^2}{(t_0-s)^2}dyds\leq M.\]
+	Therefore all inequalities must be equalities and $v$ is identically equal to $M$ within $E(x_0,t_0;r)$. Now consider a line segment $L$ in $U_T$ connecting $(x_0,t_0)$ to some other point $(y_0,s_0)\in U_T$ with $s_0<t_0$. Consider
+	\[r_0:=min\left\{s\geq s_0\vert v(x,t)=M \text{ for all points }(x,t)\in L, s\leq t\leq t_0\right\}.\]
+	Since $v$ is continuous, the minimum is attained. Assume $r_0>s_0$. Then there exists some point $z_0$ such that $(z_0,r_0)$ is on $L$ and we may find a sufficiently small $r$ so that $v\equiv M$ on $E(z_0,r_0;r)$. Since $E(z_0,r_0;r)$ must contain points on $L$ with $t<r_0$, we have a contradiction. Thus $r_0=s_0$ and we have $v(y_0,s_0) = M$. Therefore $V$ is constant on all of $\overline{U}_T$ and therefore $\max_{\overline{U}_T} v = \max_{\Gamma_T} v$.
+	\item First, note that
+	\[\begin{aligned}
+	\frac{\partial}{\partial t}\phi(u) &= \phi'(u)u_t\\
+	\frac{\partial^2}{\partial x_i^2} \phi(u) &= \phi''(u)u_{x_i}u_{x_i} + \phi'(u)u_{x_ix_i}. 
+	\end{aligned}\]
+	Therefore
+	\[\phi(u)_t - \Delta \phi(u) = \phi'(u)(u_t-\Delta u) - \phi''(u)(Du)^TDu \leq 0\]
+	since $\phi$ is convex and therefore $\phi''(u)\geq0$.
+	\item First, note that
+	\[\begin{aligned}
+	v_t &= 2\sum_ju_{x_j}u_{x_jt}+2u_tu_{tt}\\
+	v_{x_i}&=2\sum_ju_{x_j}u_{x_jx_i}+2u_tu_{tx_i}\\
+	v_{x_ix_i}&=2\sum_j\left(u_{x_jx_i}^2+u_{x_j}u_{x_jx_ix_i}\right)+2\left(u_{tx_i}^2+u_tu_{tx_ix_i}\right)\\
+	\end{aligned}\]
+	Thus,
+	\[\begin{aligned}
+	v_t-\Delta v &= 2\sum_ju_{x_j}u_{x_jt}+2u_tu_{tt} - \sum_{i}\left(2\sum_j\left(u_{x_jx_i}^2+u_{x_j}u_{x_jx_ix_i}\right)+2\left(u_{tx_i}^2+u_tu_{tx_ix_i}\right)\right)\\
+	&=2\sum_ju_{x_j}\frac{\partial}{\partial x_j}\left(u_{t}-\Delta u\right) + 2u_t\frac{\partial}{\partial t}\left(u_t-\Delta u\right) - \sum_{i}\left(2\sum_j\left(u_{x_jx_i}^2\right)+2u_{tx_i}^2\right)\\
+	&=-2\left(\sum_{i,j}u_{x_jx_i}^2+\sum_{i}u_{tx_i}^2\right)\\
+	&\leq 0.
+	\end{aligned}\]
 \end{enumerate}
 
-
-\subsection*{Problem 16} Assume $\textbf{E} = (E^1,E^2,E^3)$ and $\textbf{B} = (B^1,B^2,B^3)$ solve Maxwell's equations (1.2.2). Show
+\subsection*{Problem 18} Assume $u$ solves the initial value problem
+\[\begin{cases} u_{tt} - \Delta u = 0 \text{ in }\mathbb{R}^n\times (0,\infty)\\ u=0,u_t=h\text{ on }\mathbb{R}^n\times\left\{t=0\right\}\end{cases}\]
+Show that $v:=u_t$ solves
+\[\begin{cases}
+v_{tt} - \Delta v = 0\text{ in }\mathbb{R}^n\times(0,\infty)\\
+v=h,v_t=0 \text{ on }\mathbb{R}^n\times\left\{t=0\right\}.
+\end{cases}\]\newpar
+Assume $u$ solves the wave equation as prescribed and let $v=u_t$. Then
 \[u_{tt} - \Delta u = 0\]
-where $u = E^i$ or $B^i$ ($i=1,2,3).$
+and we may take the derivative wrt $t$ on both sides to get,
+\[\begin{aligned}u_{ttt} - \Delta u_t &= 0\\
+v_{tt} - \Delta v &= 0.\end{aligned}\]
+Since $u_t=h$ on $\mathbb{R}^n\times\left\{t=0\right\}$, we know $v=h$ on the same domain. Further since $u=0$ on $\mathbb{R}^n\times\left\{t=0\right\}$, $\Delta u=0$ as well. But then $u_{tt}=0$ as $u$ satisfies the wave equation. Therefore $v_t=0$, giving us
+\[\begin{aligned}
+v_{tt} - \Delta v = 0\text{ in }\mathbb{R}^n\times(0,\infty)\\
+v=h,v_t=0 \text{ on }\mathbb{R}^n\times\left\{t=0\right\}.
+\end{aligned}\]
 
 
-\subsection*{Problem 17}(Equipartition of energy). Let $u\in C^2(\mathbb{R}\times [0,\infty))$ solve the initial value problem for the wave equation in one dimension:
+\subsection*{Problem 19}
+\begin{enumerate}[(a)]
+\item Show the general soultion of the PDE $u_{xy}=0$ is
+\[u(x,y) = F(x)+G(y)\]
+for arbitrary functions $F,G$.
+\item Using the change of variables $\xi = x+t,\quad \eta = x-t,$ show $u_{tt}-u_{xx}=0$ if and only if $u_{\xi\eta}=0.$
+\item Use (a) and (b) to derive d'Alembert's formula.
+\item Under what conditions on the initial data $g,h$ is the solution $u$ a right-moving wave? A left-moving wave?
+\end{enumerate}\newpar
+\begin{enumerate}[(a)]
+	\item Let $u_{xy} = 0$. Then, integrating by $y$ first, we get $u_x = C(x)$. Now integrating wrt $x$, we get $u = \int_0^xC(z)dz + G(y)$. Since the first term cannot have a $y$ in it, we call it $F(x)$. Thus the general solution is $u = F(x)+G(y)$.
+	\item Assume $u$ is given so that $u_{tt}-u_{xx}= 0$. Then, using the chain rule:
+	\[\begin{aligned}
+	u_\xi &= u_t\frac{\partial\xi}{\partial t} +u_x\frac{\partial\xi}{\partial x}\\
+	&=u_t+u_x\\
+	u_{\xi\eta}&=u_{tt}\frac{\partial \eta}{\partial t}+u_{tx}\frac{\partial \eta}{\partial x}+u_{xt}\frac{\partial \eta}{\partial t}+u_{xx}\frac{\partial \eta}{\partial x}\\
+	&=u_{tt}-u_{xx}.
+	\end{aligned}\]
+	Therefore $u_{\xi\eta} = 0$ if and only if $u_{tt}-u_{xx}=0$.
+	\item From $(a)$, $u_{\xi\eta} = 0 $ if and only if $u(\xi,\eta) = F(\xi) + G(\eta)$. Thus, using (b), $u_{tt}-u_{xx}=0$ if and only if $u(x,t) = F(x+t) + G(x-t).$ If we then assume that $u(x,0) = g$ and $u_t(x,0) = h$, then we have $F(x) + G(x) = g(x)$ and $F'(x) - G'(x) = h(x)$. This gives
+	\[\begin{aligned}
+	F(x) - G(x) &= \int_{0}^xh(z)dz\\
+	2F(x) &= g(x)+\int_{0}^xh(z)dz\\
+	2G(x) &= g(x)-\int_{0}^xh(z)dz.
+	\end{aligned}\]
+	Therefore the solution must be 
+	\[\begin{aligned}u(x,t) &= \frac{1}{2}\left(g(x+t) +g(x-t)\right) +\frac{1}{2}\int_0^{x+t} h(z)dz - \frac{1}{2}\int_0^{x-t} h(z)dz\\
+	&= \frac{1}{2}\left(g(x+t) +g(x-t)\right) +\frac{1}{2}\int_{x-t}^{x+t} h(z)dz
+	\end{aligned}\]
+	\item Since $F(x+t)$ denotes a left-moving wave, anytime $g(x)-\int_{0}^xh(z)dz=0$ ($G(x)=0$), we will have a left-moving wave. Likewise if $g(x)+\int_{0}^xh(z)dz=0$ then we will have a right-moving wave.
+\end{enumerate}
+
+\subsection*{Problem 20} Assume that for some attenuation function $\alpha = \alpha(r)$ and delay function $\beta = \beta(r)\geq 0$, there exist for all profiles $\phi$ solutions of the wave equation in $\left(\mathbb{R}^n-\left\{0\right\}\right)\times \mathbb{R}$ having the form
+\[u(x,t)=\alpha(r)\phi(t-\beta(r)).\]
+Here $r=\vert x\vert$ and we assume $\beta(0)=0$. Show that this is possible only if $n=1$ or $3$, and compute the form of the functions $\alpha,\beta$.\newpar
+First, note that since $r^2 = \sum_i x_i^2$, then $\frac{\partial r}{\partial x_i} = \frac{x_i}{r}$ and therefore $\sum_i \left(\frac{\partial r}{\partial x_i}\right)^2 = 1$. Further, we have 
+\[2\left(\frac{\partial r}{\partial x_i}\right)^2 + 2r\frac{\partial^2r}{\partial x_i^2} = 2\]
+and thus
+\[\sum_i \frac{\partial^2r}{\partial x_i^2} = \frac{n-1}{r}.\]
+Using these, we set $u(x,t)=v(r,t)$ and take derivatives of $u$ in terms of $t$ and $x_i$,
+\[\begin{aligned}
+u_{tt} &= v_{tt}\\
+u_{x_i} &= \frac{\partial r}{\partial x_i}v_r\\
+u_{x_ix_i}&=\frac{\partial^2 r}{\partial x_i^2}v_r + \left(\frac{\partial r}{\partial x_i}\right)^2v_{rr}\\
+\Delta u &= \frac{n-1}{r}v_r + v_{rr}.
+\end{aligned}\]
+Since $u$ solves the wave equation, this means that
+\[v_{tt} = \frac{n-1}{r}v_r + v_{rr}.\]
+Now taking derivatives of $v$, we find
+\[\begin{aligned}
+v_{tt} &= \alpha\phi''\\
+v_{r} &= \alpha'\phi - \alpha\phi'\beta'\\
+v_{rr} &= \alpha''\phi - 2\alpha'\phi'\beta' - \alpha\left(\phi'\beta''-\phi''(\beta')^2\right) \\
+\end{aligned}\]
+This gives us the final differential equation
+\[\alpha\phi'' = \left(\frac{n-1}{r}\right)\left(\alpha'\phi - \alpha\phi'\beta'\right) +  \alpha''\phi - 2\alpha'\phi'\beta' - \alpha\left(\phi'\beta''-\phi''(\beta')^2\right).\]
+Since this must be true for all profiles $\phi$, this must be independent of $\phi,\phi',$ and $\phi''$, meaning each of their coefficients must equate between sides of the equation. Therefore we have three resulting equations:
+\[\begin{aligned}
+\left(\frac{n-1}{r}\right)\alpha' + \alpha'' &= 0\qquad &(\phi)\\
+ -\left(\frac{n-1}{r}\right)\alpha\beta' - 2\alpha'\beta'-\alpha\beta''&=0 \qquad &(\phi')\\
+ \alpha(\beta')^2 &=\alpha \qquad &(\phi'').
+\end{aligned}\]
+Using the last equation first, we find that $\beta' = 1$ and thus $\beta'' = 0$ resulting in
+\[\begin{aligned}
+\left(\frac{n-1}{r}\right)\alpha' + \alpha'' &= 0\\
+\left(\frac{n-1}{r}\right)\alpha + 2\alpha'&=0
+\end{aligned}\]
+The second equation yields $\alpha = cr^{\frac{1-n}{2}}$. Plugging this into the first equation, we see that
+\[\left(\frac{n-1}{r}\right)\left(\frac{1-n}{2}\right)cr^{\frac{-n-1}{2}} = -\frac{(1-n)(-n-1)}{4}cr^{\frac{-n-3}{2}}\]
+resulting in
+\[\begin{aligned}-2(n-1)^2&=-(n-1)(n+1)\\
+(n-3)(n-1)&=0.
+\end{aligned}\]
+Thus we must have $n=1$ or $n=3$ for both equations to be fulfilled. If $n=1$, then $\alpha = c$ and if $n=3$ then $\alpha = cr^{-1}$. In both cases $\beta = r$.
+
+\subsection*{Problem 21}\begin{enumerate}[a]
+\item Assume $\textbf{E} = (E^1,E^2,E^3)$ and $\textbf{B} = (B^1,B^2,B^3)$ solve Maxwell's equations (1.2.2). Show
+\[E_{tt} - \Delta E = 0,\quad B_{tt}-\Delta B=0.\]
+\item Assume that $u=(u^1,u^2,u^3)$ solves the evolution equations of linear elasticity \[u_{tt}-\mu\Delta u - (\lambda + \mu)D(\text{div}u)=0\text{ in }\mathbb{R}^3\times(0,\infty).\] Show $w:=\text{div}u$ and $w:=\text{curl}u$ each solve the wave equations but with differing speeds of propagation.
+\end{enumerate}\newpar
+\begin{enumerate}[(a)]
+	\item For notational ease, we will denote $\frac{\partial V^i}{\partial x_j}$ as $V^i_j$ for vector field $V = (V^1,V^2,V^3)$ and $1\leq j\leq 3$. Recall that Maxwell's equations are
+	\[\begin{aligned}
+	E_t &= \text{curl} B\\
+	B_t &= -\text{curl} E\\
+	\text{div} B &= \text{div} E = 0.
+	\end{aligned}\]
+	Further recall that for vector field $V = (V^1,V^2,V^3)$, $\text{curl} V = \left(E^3_2 - E^2_3,E^1_3 - E^3_1,E^2_1 -E^1_2\right)$ and $\text{div} V=\sum_i V^i_i$. Therefore, the third of Maxwell's equations gives
+	\[\sum_i B^i_{i}=\sum_i E^i_{i}=0.\]
+	Now, since the curl operator is linear, we have
+	\[\begin{aligned}
+	E_{tt} &= \text{curl }B_t\\
+	&= -\text{curl}\left(\text{curl} E\right)\\
+	&=-\text{curl}\left(E^3_2 - E^2_3,E^1_3 - E^3_1,E^2_1 -E^1_2\right)\\
+	&=-\left(E^2_{12}-E^1_{22} - E^1_{33}+E^3_{13},E^3_{23} - E^2_{33}-E^2_{11} +E^1_{21},E^1_{31} - E^3_{11}-E^3_{22}+ E^2_{32}\right)\\
+	&=\left((-E^2_2-E^3_3)_1+E^1_{22} + E^1_{33},(-E^1_1-E^3_3)_2+E^2_{11} + E^2_{33},(-E^2_2-E^1_1)_3+E^3_{11} + E^3_{22}\right)\\
+	&=\left(E^1_{11}+E^1_{22} + E^1_{33},E^2_{22}+E^2_{11} + E^2_{33},E^3_{33}+E^3_{11} + E^3_{22}\right)\\
+	&=\Delta E.
+	\end{aligned}\]
+	Likewise $B_{tt} = -\text{curl }E_t=-\text{curl}\left(\text{curl }B\right)=\Delta B$.
+	\item First let $w:=\text{div} u$. Then
+	\[\begin{aligned}
+	w_{tt} &= \sum_i (u^i_{tt})_i = \text{div}u_{tt}\\
+	w_{jj} &= \sum_i (u^i_{jj})_i\\
+	\Delta w &= \sum_i \left(\Delta u^i\right)_i = \text{div} \Delta u.
+	\end{aligned}\]
+	However, from the initial equation, we have
+	\[\begin{aligned}
+	\text{div }\left(u_{tt}-\mu\Delta u - (\lambda + \mu)D(\text{div}u)\right)&=0\\
+	w_tt -\mu \Delta w - (\lambda+\mu)\Delta(w)&=0\\
+	w_tt -(\lambda+2\mu)\Delta w &=0
+	\end{aligned}\]
+	as desired.\newpar
+	Now let $w:=\text{curl} u$. Then, similar to before,
+	\[\begin{aligned}
+	w_{tt} &= \text{curl}u_{tt}\\
+	\Delta w &=\text{curl} \Delta u.
+	\end{aligned}\]
+	However, by equating mixed partials, we know that $\text{curl } \text{div }(v) = 0$ for any vector field $v$. Thus $\text{curl }D\text{div }u = \text{curl }\text{div }Du = 0$. Therefore
+	\[\begin{aligned}
+	\text{curl }\left(u_{tt}-\mu\Delta u - (\lambda + \mu)D(\text{div}u)\right)&=0\\
+	w_tt -\mu \Delta w&=0.\\
+	\end{aligned}\]
+	Thus both $\text{div }u$ and $\text{curl }u$ solve the wave equation however $\text{div }u$ has a propagation constant of $\lambda+2\mu$. while $\text{curl }u$ has propagation constant $\mu$.
+\end{enumerate}
+
+\subsection*{Problem 22} Let $u$ denote the density of particles moving to the right with speed one along the real line and let $v$ denote the density of particles moving to the left with speed one. If at rate $d>0$ right-moving particles randomly become left-moving, and vice versa, we have the system of PDE \[\begin{cases} u_t + u_x = d(v-u)\\
+v_t-v_x = d(u-v).
+\end{cases}\]
+Show that both $w:=u$ and $w:=v$ solve the telegraph equation $w_{tt} + 2dw_t - w_{xx}=0$.\newpar
+We begin by differentiating the equations by $t$ and $x$ to get the four equations: 
+\[\begin{aligned}
+u_{tt}+u_{xt} &= d(v_t-u_t)\\
+u_{tx}+u_{xx} &= d(v_x-u_x)\\
+v_{tt}-v_{xt} &= d(u_t-v_t)\\
+v_{tx}-v_{xx} &= d(u_x-v_x)\\
+\end{aligned}\]
+Subtracting the first two while adding the latter two equations give:
+\[\begin{aligned}
+u_{tt}-u_{xx}&=d(v_t-v_x)+d(u_x-u_t)&\qquad v_{tt}-v_{xx}=d(u_t+u_x)-d(v_t+v_x)\\
+u_{tt}-u_{xx}&=d(v_t-v_x)+d(u_x+u_t)-2du_t&\qquad v_{tt}-v_{xx}=d(u_t+u_x)+d(v_t-v_x)-2dv_t\\
+u_{tt}-u_{xx}&=d^2(u-v)+d^2(v-u)-2du_t&\qquad v_{tt}-v_{xx}=d^2(u-v)+d^2(v-u)-2dv_t\\
+u_{tt}-u_{xx}&=-2du_t&\qquad v_{tt}-v_{xx}=-2dv_t.
+\end{aligned}\]
+Thus both $u$ and $v$ satisfy the telegraph equations.
+
+\subsection*{Problem 23} Let $S$ denote the square lying in $\mathbb{R}\times(0,\infty)$ with corners at the points $(0,1), (1,2),(0,3),(-1,2)$. Define 
+\[f(x,t):=\begin{cases}
+-1 \text{ for } (x,t)\in S\cap \left\{t>x+2\right\}\\
+1 \text{ for } (x,t)\in S\cap \left\{t<x+2\right\}\\
+0 \text{ otherwise.}\\
+\end{cases}\]
+Assume $u$ solves 
+\[\begin{cases}
+	u_{tt}-u_{xx} = f\text{ in }\mathbb{R}\times (0,\infty)\\
+	u=0,u_t=0\text{ on }\mathbb{R}\times\left\{t=0\right\}.
+\end{cases}\]
+
+Describe the shape of $u$ for $t>3$.\newpar
+We may use d'Alembert's formula to compute this directly, giving
+\[u(x,t)=\frac{1}{2}\int_0^t\int_{x-s}^{x+s}f(y,t-s)dyds.\]
+If $t<x+1$ or $t>x+3$ then $\frac{1}{2}\int_0^t\int_{x-s}^{x+s}f(y,t-s)dyds = 0$ as this integrates over the entire non-zero region giving $1-1 = 0$. Therefore the only time $u(x,t)$ will be nonzero is when $x+1<t<x+3$. In this region, we have the following
+\[u(x,t)=\begin{cases}
+(t-x)\sqrt{2}-\sqrt{2} & \qquad x+1<t\leq x+2\\
+(1-2\sqrt{2}) +(x-t)\sqrt{2} &\qquad x+2<t\leq x+3\\
+\end{cases}\]
+
+
+\subsection*{Problem 24}(Equipartition of energy). Let $u\in C^2(\mathbb{R}\times [0,\infty))$ solve the initial value problem for the wave equation in one dimension:
 \[\begin{aligned} u_{tt}-u_{xx}&=0\quad\text{in }\mathbb{R}\times(0,\infty)\\
 u =g, u_t&=h\quad \text{on }\mathbb{R}\times\left\{t=0\right\}
 \end{aligned}\]
@@ -279,59 +655,345 @@ Suppose $g,h$ have compact support. The kinetic energy is
 and the potential energy is
 \[p(t):=\frac{1}{2}\int_{-\infty}^{\infty}u_x^2(x,t)dx.\]
 Prove
-\begin{enumerate}[(i)]
+\begin{enumerate}[(a)]
 \item $k(t)+p(t)$ is constant in $t$,
 \item $k(t) = p(t)$ for all large enough times $t$.
+\end{enumerate}\newpar
+\begin{enumerate}[(a)]
+\item First consider that
+\[\begin{aligned}k_t(t) &= \int_{-\infty}^\infty u_tu_{tt}dx\\
+p_t(t) &= \int_{-\infty}^\infty u_xu_{xt}dx\\
+\end{aligned}\]
+Integration by parts on the second equation gives
+\[p_t(t)= u_{x}u_{t}\big\vert_{-\infty}^\infty-\int_{-\infty}^\infty u_{xx}u_{t}dx\]
+However $u_t(-\infty,t) = u_t(\infty,t) = 0$ since $h$ has compact support. Thus
+\[\begin{aligned}
+k_t(x,t)+p_t(x,t) &= \int_{-\infty}^\infty u_tu_{tt}dx - \int_{-\infty}^\infty u_{xx}u_{t}dx\\
+&=\int_{-\infty}^\infty u_t(u_{tt}-u_{xx})dx\\
+&=0.
+\end{aligned}\]
+\item d'Alembert's formula tells us that
+\[u(x,t) = \frac{1}{2}\left(g(x+t)+g(x-t)\right) + \frac{1}{2}\int_{x-t}^{x+t}h(y)dy.\]
+Taking derivatives gives us:
+\[\begin{aligned}
+u_t &= \frac{1}{2}\left(g'(x+t)-g'(x-t)\right) + \frac{1}{2}\left(h(x+t) - h(x-t)\right)\\
+u_x &= \frac{1}{2}\left(g'(x+t)+g'(x-t)\right) + \frac{1}{2}\left(h(x+t) + h(x-t)\right).\\
+\end{aligned}\]
+Therefore
+\[u_x^2-u_t^2=g'(x+t)g'(x-t) +h(x+t)h(x-t) + g'(x-t)h(x+t) + g'(x+t)h(x-t).\]
+Since $g$ and $h$ both have compact support, every term will be $0$ for large enough $t$. More precisely, let $M_g$ be defined so that $\vert s\vert \geq M_g$ implies $g(s)=0$ and define $M_h$ similarly for $h(t)$. Let $M = \max\left\{M_g,M_h\right\}$. Then for $t>M$, either $g(x+t)=0$ or $f(x-t)$ for every $x\in \mathbb{R}$. Using the same $M$, we may show the other terms equal $0$. Thus
+\[p(t)-k(t) = \int_{-\infty}^{\infty} u_x^2-u_t^2dx = 0.\]
 \end{enumerate}
 
 
-\subsection*{Problem 18} Let $u$ solve
-\[\begin{aligned}
-u_{tt} - \Delta u &= 0\quad \text{in }\mathbb{R^3}\times (0,\infty)\\
-u=g,u_t&=h\quad\text{on }\mathbb{R}^3\times\left\{t=0\right\},
-\end{aligned}\]
-where $g,h$ are smooth and have compact support. Show there exists a constant $C$ such that
-\[\vert u(x,t)\vert\leq C/t\quad (x\in \mathbb{R}^3,t>0).\]
-
-
+\newpage
 \section*{Chapter 3}
 \subsection*{Problem 1} Prove
-\[u(x,t,a,b) = a*x-tH(a)+b\quad (a\in\mathbb{R}^n,b\in\mathbb{R})\]
+\[u(x,t,a,b) = a\cdot x-tH(a)+b\quad (a\in\mathbb{R}^n,b\in\mathbb{R})\]
 is a complete integral of the Hamilton-Jacobi equation
-\[u_t+H(Du)=0.\]
-\subsection*{Problem 2}
+\[u_t+H(Du)=0.\]\newpar
+We first must show that for any choice of $a\in\mathbb{R}^n$ and $b\in\mathbb{R}$, $u(x,t,a,b)$ satisfies the differential equation $u_t + H(Du) = 0$. To do this, consider that
+\[\begin{aligned}
+u_t &= -H(a)\\
+Du&= a.\end{aligned}\]
+Thus, $u_t+H(Du) = (-H(a))+H(a) = 0$ as desired.\\We must also check that $(D_au,D_{xa}^2u)$ has rank $n+1$. However, note that,
+\[\begin{aligned}
+u_{x_ia_j} &= \delta_{ij}
+u_{b} &= 1.
+\end{aligned}\]
+Therefore,
+\[(D_au,D_{xa}^2u) = \left[\begin{array}{cccccc}
+D_aH(a) & I_n & \vec{0}\\
+1 & \vec{0} & 0
+\end{array}\right].\]
+Therefore, the first $n+1$ columns are linearly independent regardless of $H(a)$, telling us this matrix has rank $n+1$.
+\subsection*{Problem 2} Compute the envelopes of the family of lines
+\[x_1 + a^2x_2-2a= 0\quad(a\in\mathbb{R})\]
+in $\mathbb{R}^2$ and of the family of planes
+\[2a_1x_1+2a_2x_2-x_3+a_1^2+a_2^2=0\quad (a_1,a_2\in\mathbb{R})\]
+in $\mathbb{R}^3$. Draw pictures illustrating the geometric meaning of the envelopes.\newpar
+In each case, we seek to find $\phi(x)$ by solving $D_au(x;a)=0$ for $a$. In the first example,
+\[D_au = 2ax_2-2.\]
+This results in $\phi(x) = \frac{1}{x_2}$ giving the envelope
+\[v(x) = x_1-\frac{1}{x_2}.\]
+In the second example,
+\[D_au = \left[\begin{array}{c}
+2x_1+2a_1\\
+2x_2+2a_2
+\end{array}\right].\]
+Therefore $\phi(x) = \left[\begin{array}{c}
+-x_1\\
+-x_2\\
+\end{array}\right]$ giving us the envelope
+\[v(x) = -x_1^2+-x_2^2-x_3.\]
+\begin{figure}
+	\begin{center}\includegraphics[scale=.5]{2-2-p1.png}\end{center}
+	\caption{Part 1: $u(x;a)=0$ is plotted with values of $a$ ranging from -4 to 4 all in red. $v(x,\phi(x))=0$ is also plotted in blue. We can see that $v(x,\phi(x))$ bounds the region where the lines $u(x;a)$ appear.}
+\end{figure}
+\begin{figure}
+	\begin{center}\includegraphics[scale=.5]{2-2-p2.png}\end{center}
+	\caption{Part 2: $u(x;a)=0$ is plotted with values of $a$ ranging from -2 to 2 all in red. $v(x,\phi(x))=0$ is also plotted in blue. We can see that $v(x,\phi(x))$ bounds the region where the planes $u(x;a)$ appear.}
+\end{figure}
+
+\subsection*{Problem 3} Suppose that the formula $G(x,z,a)=0$ implicitly defines the function $z=u(x,a)$, where $x,a\in\mathbb{R}^n$. Assume further that we can eliminate the variables $a$ from the identities
+\[\begin{cases}
+G(x,u,a)=0\\
+G_{x_i}(x,u,a)+G_z(x,u,a)u_{x_i}=0\quad (i=1,\dots,n),
+\end{cases}\]
+to solve for $u=u(x)$.
+\begin{enumerate}[(a)]
+	\item Find a PDE that $u$ solves if $G = \sum_{i=1}^n a_ix_i^2 + z^3$.
+	\item What is the PDE characterizing all spheres in $\mathbb{R}^{n+1}$ with unit radius and center in $\mathbb{R}
+^n\times\left\{z=0\right\}$
+\end{enumerate}\newpar
+\begin{enumerate}[(a)]
+	\item Assume $u$ is defined by $G(x,u,a)=0$ where $G(x,z,a) = \sum_{i=1}^n a_ix_i^2+z^3$. We may differentiate $G(x,u,a)=0$ with respect to $x_i$ to get $2a_ix_i + 3u^2u_{x_i}=0$. Thus we may write $\sum_{i=1}^n a_ix_i^2 = -\frac{3}{2}u^2x\cdot Du$. Therefore $u$ must satisfy the PDE
+	\[-\frac{3}{2}u^2x\cdot Du + u^3 = 0.\]
+	\item Using the same idea as part $a$, all spheres with unit radius and center in $\mathbb{R}^n\times\left\{z=0\right\}$ satisfy the formula $\sum_{i=1}^n (x_i-a_i)^2+u(x)^2 -1 = 0$. Differentiating this formula with respect to $x_i$, we get $2(x_i-a_i) + 2uu_{x_i} = 0$. Therefore $\sum_{i=1}^n (x_i-a_i)^2 = u^2\vert Du\vert^2$. Thus $u$ must satisfy the differential equation \[u(x)^2\left(\vert Du\vert^2 + 1\right) -1 = 0.\]
+\end{enumerate}
+\subsection*{Problem 4}
 \begin{enumerate}[(a)]
 	\item Write down the characteristic equations for the PDE
-	\[(*)\qquad\qquad u_t+b*Du=f\quad\text{ in }\mathbb{R}^n\times(0,\infty)\]
-	where $b\in\mathbb{R}^n,f=f(x,t)$.
+	\[(*)\qquad\qquad u_t+b\cdot Du=f\quad\text{ in }\mathbb{R}^n\times(0,\infty)\]
+where $b\in\mathbb{R}^n,f=f(x,t)$.
 	\item Use the characteristic ODE to solve $(*)$ subject to the initial condition
 	\[u=g\qquad\text{ on }\mathbb{R}^n\times\left\{t=0\right\}.\]
 	Make sure your answer agrees with formula $(5)$ in 2.1.2.
 \end{enumerate}
-\subsection*{Problem 3} Solve using characteristics:
-\begin{enumerate}
+\begin{enumerate}[(a)]
+	\item First we set $z := u(x_1(s),\dots,x_n(s),t(s))$. Then,
+	\[\begin{aligned}
+	\dot{z}(s) &= u_{t}(x(s),t(s))\dot{t}(s) + \sum_{j=1}^nu_{x_j}(x(s),t(s))\dot{x}_j(s).
+	\end{aligned}\]
+	We then set $\dot{t}(s)=1$ and $\dot{x}_j(s) = b_j$ so that the right hand side of the above equation matches the left hand side of our PDE, giving us:
+	\[\dot{z}(s) = f\qquad
+	\dot{t}(s) = 1\qquad
+	\dot{x}(s) = b.\]
+	\item The initial conditions of our characteristic equations are
+	\[t(0) = 0\qquad x(0) = x_0\qquad z(0) = g(x_0).\]
+	Using these initial conditions, the latter two equations are solved easily giving:
+	\[t(s) = s \qquad x(s) = bs+x_0.\]
+	Therefore we have $x(t) = bt+x_0$ and
+	\[z(x,t) = g(x_0)+ \int_{0}^{t}f(x(s),s)ds.\]
+	Substituting out our arbitrary constants, we have $x_0 = x-bt$ and $x(s) = bs+x_0 = bs+x-bt$, thus
+	\[z(x,t) = g(x-bt)+ \int_{0}^{t}f(x+b(s-t),s)ds\]
+	as seen in formula $(5)$ of 2.1.2.
+\end{enumerate}
+\subsection*{Problem 5} Solve using characteristics:
+\begin{enumerate}[(a)]
 	\item \[x_1u_{x_1}+x_2u_{x_2}=2u,\quad u(x_1,1) = g(x_1).\]
+	\item \[x_1u_{x_1}+2x_2u_{x_2}+u_{x_3}=3u,\quad u(x_1,x_2,0) = g(x_1,x_2).\]
 	\item \[uu_{x_1}+u_{x_2}=1,\quad u(x_1,x_1)=\frac{1}{2}x_1.\]
-	\item \[x_1u_{x_1}+2x_2u_{x_2}=2u,\quad u(x_1,x_2,0) = g(x_1,x_2).\]
+\end{enumerate}\newpar
+\begin{enumerate}[(a)]
+	\item Let $z(s) = u(x(s))$. Then $\dot{z}(s) = u_{x_1}\dot{x}_1(s) + u_{x_2}\dot{x}_2(s)$. Setting $\dot{x}_i(s) = x_i(s)$ for both $i=1,2$ gives us the system
+	\[\begin{aligned}\dot{x}_1 &= x_1\qquad\dot{x}_2 = x_2\qquad \dot{z} = 2z\\
+	x_1(0) &= a\qquad x_2(0) = 1\qquad z(0) = g(a)\end{aligned}\]
+	for some constant $a\in\mathbb{R}$.	Solving the first two gives the path $x_1(s) = ae^{s};x_2(s) = e^s$
+	resulting in the equation $a = \frac{x_1}{x_2}$ since $x_2(s)>0$ for all $s$. Therefore
+	\[z = g(a)e^{2s} = g\left(\frac{x_1}{x_2}\right)x_2^2\]
+	giving $u(x) = g\left(\frac{x_1}{x_2}\right)x_2^2$.
+	
+	\item Let $z(s) = u(x(s))$. Then $\dot{z}(s) = \sum_i u_{x_i}\dot{x}_i(s)$. Using our PDE as before, we arrive at the system
+	\[\begin{aligned}&\dot{x}_1 =x_1 \qquad &\dot{x}_2 =2x_2\qquad &\dot{x}_3 = 1\qquad &\dot{z} = 3z&\\
+	&x_1(0) = a\qquad &x_2(0) =b \qquad &x_3(0)=0\qquad &z(0) = g(a,b).&
+	\end{aligned}\]
+	The first three result in the equations $ x_1=ae^{s};x_2 = be^{2s};x_3 = s$	giving the relations $x_1 = ae^{x_3};x_2 = be^{2x_3}$.
+	Therefore 
+	\[z = g(a,b)e^{3s} = g(x_1e^{-x_3},x_2e^{-x_3})e^{3x_3}\]
+	giving $u(x) = g(x_1e^{-x_3},x_2e^{-x_3})e^{3x_3}$
+	
+	\item Let $z(s) = u(x(s))$. Then $\dot{z}(s) = \sum_i u_{x_i}\dot{x}_i(s)$. Using our PDE as before, we arrive at the system
+	\[\begin{aligned}
+	&\dot{x}_1 = z \qquad &\dot{x}_2 = 1\qquad &\dot{z} = 1\\
+	&x_1(0) = a\qquad &x_2(0) = a \qquad &z(0) = \frac{1}{2}a.
+	\end{aligned}\]
+	Solving first for $x_2$ and $z$ we have $z = s+\frac{1}{2}a$ and $x_2 = s+a$. Thus $x_1 = \frac{1}{2}s^2 + \frac{1}{2}as + a$. We may solve the second equation for $a$ and get $a = x_2-s$ giving the equation
+	\[x_1 = \frac{1}{2}s^2+\frac{1}{2}(x_2s - s^2)+x_2 - s = \left(\frac{x_2}{2}-1\right)s + x_2.\]
+	We may then solve for $s$ giving $s = \frac{2x_1-2x_2}{x_2-2}$. Plugging this in to the equation for $z$, we get
+	\[z = \frac{x_2}{2} + \frac{s}{2} = \frac{x_2}{2} + \frac{x_1-x_2}{x_2-2}\]
+	resulting in $u(x) = \frac{x_2}{2} + \frac{x_1-x_2}{x_2-2}$.
 \end{enumerate}
-\subsection*{Problem 4} Verify that formula $(61)$ in 3.2.5 provides an implicit solution of the scalar conservation law.
-\subsection*{Problem 5} Write $L=H^*$, if $H:\mathbb{R}^n\rightarrow \mathbb{R}$ is convex.
-\begin{enumerate}
+
+
+\subsection*{Problem 6} Given a smooth vector field $b$ on $\mathbb{R}^n$, let $x(s)=x(s,x,t)$ solve the ODE
+\[\begin{cases}
+\dot{x} = b(x)\quad (s\in\mathbb{R})\\
+x(t)=x.
+\end{cases}\]
+\begin{enumerate}[(a)]
+	\item Define the Jacobian
+	\[J(s,x,t):=\text{det}D_xx(s,x,t)\]
+	and derive \textit{Euler's formula}:
+	\[J_s = \text{div}b(x)J.\]
+	\item Assume that $u$ is the solution of the PDE
+	\[\begin{cases}
+	u_t + \text{div}(ub) = 0\text{ in }\mathbb{R}^n\times (0,\infty)\\
+	u=g\text{ on }\mathbb{R}^n\times\left\{t=0\right\}.
+	\end{cases}\]
+	Derive the representation formula
+	\[u(x,t) = g(x(0,x,t))J(0,x,t).\]
+\end{enumerate}
+\begin{enumerate}[(a)]
+	\item Using Jacobi's formula for derivatives of determinants, we have that 
+	\[\frac{d}{ds}det(A(s)) = \text{tr}\left(\text{adj}(A)\frac{dA}{ds}\right)\]
+	where $\text{adj}(A)$ is the adjugate of $A$ with the property that $(A) \text{adj}(A) = \text{det}(A)I$. Let $A = D_xx$ and consider that 
+	\[\frac{d}{ds}x^i_j = \frac{d}{dx_j}b^i = \sum_kb^i_kx^k_j.\]
+	Thus, $\frac{dA}{ds} = (D_xb)A$. Plugging this into the above equation gives
+	\[\frac{d}{ds}det(A(s)) = \text{tr}\left(\text{adj}(A)(D_xb)A\right) = \text{tr}\left((A)\text{adj}(A)(D_xb)\right) = \text{tr}\left(\text{det}(A)D_xb\right) = \text{div}bJ.\]
+	Therefore $J_s = \text{div}b(x)J$ as desired.
+	\item Using characteristic equations we find that 
+	\[\dot{t}(s) \qquad \dot{\textbf{x}}(s)= b\qquad \dot{z}(s) = -\text{div}(b)z \]
+	with initial conditions
+	\[t(0) = 0\qquad \textbf{x}(0) = a\qquad z(0) = g(a).\]
+	Then $\textbf{x}(s) = bs+a$. We wish for $\textbf{x}(t) = x$ so $a=x-bt$. Then, we know $\textbf{x}(s)=\textbf{x}(s,x,t)$ solves the ODE
+	\[\begin{aligned}
+	\dot{\textbf{x}} &= b\\
+	\textbf{x}(t) &= x
+	\end{aligned}\]
+	Then $\frac{d}{ds}J(s,x,t) = \text{div}(b)J$ and further we may use chain rule to show that $\frac{d}{ds}J(-s,x,t) = -\text{div}(b)J(-s,x,t)$. Thus $z=g(a)J(-t,x,0)$ must solve the remaining differential equation.
+	???
+\end{enumerate}
+\subsection*{Problem 7} Verify assertion (36) in 3.2.3, that when $\Gamma$ is not flat near $x^0$, the noncharacteristic condition is
+\[D_pF(p^0,z^0,x^0)\cdot\nu(x^0)\neq 0.\]\newpar
+To verify this we assume $\Gamma$ is not flat near $x^0$ and we build functions $\Phi$ and $\Psi$ so that $\Phi(\Gamma)$ is flat near $x^0$. Specifically
+\[\begin{cases}
+\Phi^i(x) &= x_i\\
+\Phi^n(x) &= x_n-\gamma(x_1,\dots,x_{n-1})
+\end{cases}\]
+where $\gamma$ is a curve locally tangent to $\Gamma$. Using this formula we have that our new differential equation is
+\[\begin{aligned}G(Dv,v(y),y) = F(Dv(y)D\Phi(\Psi(u)),v(y),\Psi(y)) &= 0\text{ in }V\\
+v&=h\text{ on }\Delta.
+\end{aligned}\]
+Since this is now a flat boundary, we say $\Gamma$ is noncharacteristic if
+\[G_{p_n}(p^0,x^0,y^0) \neq 0.\]
+In terms of $F$,
+\[\begin{aligned}G_{p_n} &= F_p\cdot\frac{\partial (Dv(y)D\Phi(\Psi(y)))}{\partial p_n}\\
+\end{aligned}\]
+But,
+\[Dv(y)D\Phi(\Psi(y)) = \left[\sum_{k=1}^n p_k\Phi_{x_i}^k(x)\right]_{i=1,\dots,n}.\]
+so,
+\[\frac{\partial Dv(y)D\Phi(\Phi(y))}{p_n} = \left[\Phi_{x_i}^n(x)\right]_{i=1,\dots,n} = D\Phi^n.\]
+By definition however, $\Phi^n$ is the boundary $\gamma$ and thus $D\Phi^n$ will be the outward pointing normal.
+
+\subsection*{Problem 8} Confirm that the formula $u=g(x-tF'(u))$ from $3.2.5$ provides an implicit solution for the conservation law
+\[u_t + \text{div } F(u)= 0.\]\newpar
+First we take derivatives to find
+\[\begin{aligned}
+u_t &= g'(x-tF'(u))\left(-F'(u)-tF''(u)u_t\right)\\
+u_t(1+g'(x-tF'(u))tF''(u)&=-g'(x-tF'(u))F'(u)\\
+u_t &=-\frac{g'(x-tF'(u))F'(u)}{1+g'(x-tF'(u))tF''(u)}\\
+\text{div }F(u) &= F'(u)\cdot Du\\
+&=F'(u)\cdot\left(g'(x-tF'(u))(1-tF''(u)Du)\right)\\
+&=g'(x-tF'(u))F'(u)-g'(x-tF'(u))tF''(u)\text{div} F(u)\\
+\text{div }F(u) &= \frac{g'(x-tF'(u))F'(u)}{1+g'(x-tF'(u))tF''(u)}
+\end{aligned}\]
+Therefore $u_t = -\text{div }F(u)$ as desired.
+\subsection*{Problem 9}
+Consider the problem of minimizing the action $\int_0^t L(\dot{\textbf{w}}(s),\textbf{w}(s))ds$ over the new admissible class
+\[\mathcal{A}:=\left\{\textbf{w}(\cdot)\in C^2([0,t];\mathbb{R}^n)\vert \textbf{w}(t)=x\right\},\]
+where we do not require that $\textbf{w}(0)=y.$.
+\begin{enumerate}[(a)]
+	\item Show that a minimizer $\textbf{x}(\cdot)\in\mathcal{A}$ solves the Euler-Lagrange equations
+	\[-\frac{d}{ds}\left(D_vL(\dot{\textbf{x}}(s),\textbf{x}(s))\right)+D_xL(\dot{\textbf{x}}(s),\textbf{x}(s))=0\quad(0\leq s\leq t).\]
+	\item Prove that
+	\[D_vL(\dot{\textbf{x}}(0),\textbf{x}(0))=0.\]
+	\item Suppose now that $\textbf{x}(\cdot)\in\mathcal{A}$ minimizes the modified action
+	\[\int_0^t L(\dot{\textbf{w}}(s),\textbf{w}(s))ds+g(\textbf{w}(0)).\]
+	Show that $\textbf{x}(\cdot)$ solves the usual Euler-Lagrange equations and determine the boundary condition at $s=0$.
+\end{enumerate}
+\begin{enumerate}[(a)]
+	\item TODO?
+	
+\end{enumerate}
+
+\newpage
+\subsection*{Problem 10} If $H:\mathbb{R}^n\rightarrow \mathbb{R}$ is convex, we write $L=H^*$.
+\begin{enumerate}[(a)]
 	\item Let $H(p) = \frac{1}{r}\vert p\vert ^r$, for $1<r<\infty$. Show
-	\[L(q) = \frac{1}{s}\vert q\vert^s, \text{ where }
+	\[L(v) = \frac{1}{s}\vert v\vert^s, \text{ where }
 	\frac{1}{r}+\frac{1}{s} = 1.\]
-	\item Let $H(p) = \frac{1}{2}\sum_{i,j=1}^{n}a_{ij}p_ip_j + \sum_{i=1}^{n}b_ip_i$, where $A = ((a_{ij}))$ is a symmetric, positive definite matrix, $b\in\mathbb{R}^n$. Compute $L(q)$.
+	\item Let $H(p) = \frac{1}{2}\sum_{i,j=1}^{n}a_{ij}p_ip_j + \sum_{i=1}^{n}b_ip_i$, where $A = ((a_{ij}))$ is a symmetric, positive definite matrix, $b\in\mathbb{R}^n$. Compute $L(v)$.
+\end{enumerate}\newpar
+\begin{enumerate}[(a)]
+	\item Using the Legendre transform, $L(v) = \text{sup}_{p\in\mathbb{R}^n}\left\{v\cdot p - H(p)\right\}$. Since $H$ is convex, any critical point of $v\cdot p - H(p)$ will be a maximum. Taking derivatives, we have that 
+	\[ D(v\cdot p-H(p)) = v-\vert p\vert^{r-2}p.\]
+	Thus $p\vert p\vert^{r-2}= v$ and we have $\vert p\vert^{r-1} = \vert v\vert$. Using this, we find that $p = v\left(\vert v \vert^{\frac{2-r}{r-1}}\right)$ and $\vert p\vert^r = \vert v\vert^{\frac{r}{r-1}}$. Let $s = \frac{r}{r-1}$ (or equivalently $\frac{1}{s} = 1-\frac{1}{r}$) and this gives
+	\[\begin{aligned}
+	L(v) &= \left(\vert v \vert^{\frac{2-r}{r-1}}\right)v\cdot v - \frac{1}{r}\vert v\vert^{\frac{r}{r-1}}\\
+	&=\vert v\vert^{s} - \frac{1}{r}\vert v\vert^{s}\\
+	&=\frac{1}{s}\vert v\vert^s\end{aligned}\]
+	\item Again we must compute the sup of $v\cdot p - H(p)$. Using $H$, this gives
+	\[\begin{aligned}v\cdot p - H(p) &= v\cdot p - \frac{1}{2}p^TAp - b^Tp\\
+	D_p(v\cdot p - H(p)) &= v - Ap - b.\end{aligned}\]
+	Therefore we have $v-b=Ap$. Since $A$ is symmetric and positive definite, it must be invertible. Therefore there is a unique solution for $p$ giving, $p = A^{-1}(v-b)$.
+	\[\begin{aligned}L(v) &= v^T\cdot A^{-1}(v-b) - \frac{1}{2}(v-b)^TA^{-1}AA^{-1}(v-b)-b^T\cdot A^{-1}(v-b)\\
+	&=(v-b)^T\cdot A^{-1}(v-b) - \frac{1}{2}(v-b)^TA^{-1}(v-b)\\
+	&=\frac{1}{2}(v-b)^T\cdot A^{-1}(v-b)\\
+	\end{aligned}\]
+	
 \end{enumerate}
-\subsection*{Problem 6} Let $H:\mathbb{R}^n\rightarrow \mathbb{R}$ be convex. We say $q$ belongs to the subdifferential of $H$ at $p$, written
-\[q\in\partial H(p),\]
+
+\subsection*{Problem 11} Let $H:\mathbb{R}^n\rightarrow \mathbb{R}$ be convex. We say $v$ belongs to the subdifferential of $H$ at $p$, written
+\[v\in\partial H(p),\]
 if
-\[H(r)\geq H(p)+q*(r-p)\qquad \text{for all }r\in\mathbb{R}^n.\]
-Prove that $q\in\partial H(p)$ if and only if $p\in \partial L(q)$ if and only if $p*q=H(p)+L(q)$, where $L = H^*$.
-\subsection*{Problem 7} Prove that the Hopf-Lax formula reads
+\[H(r)\geq H(p)+v\cdot(r-p)\qquad \text{for all }r\in\mathbb{R}^n.\]
+Prove that $v\in\partial H(p)$ if and only if $p\in \partial L(v)$ if and only if $p\cdot v=H(p)+L(v)$, where $L = H^*$.\newpar
+First note that by definition of $L(v)$, $L(v)\geq v\cdot r - H(r)$ for any $r\in\mathbb{R}^n$. Thus $L(v) + H(p) \geq v\cdot p$ in dependent of if $v\in\partial H(p)$ or not. Therefore the condition of $p\cdot v = H(p)+L(v)$ reduces to showing that $p\cdot v\geq H(p) + L(v)$.\newpar
+First assume that $p\in \partial L(v)$ and consider that, for any $r\in\mathbb{R}^n$,
+\[\begin{aligned}
+H(p) + v\cdot(r-p) &= \text{sup}_s\left\{p\cdot s - L(s) + v\cdot(r-p)\right\}\\
+&\leq \text{sup}_s\left\{p\cdot s - \left(L(v)+p\cdot (s-v)\right) + v\cdot(r-p)\right\}\\
+&=v\cdot r - L(v)\\
+&\leq H(r).
+\end{aligned}\]
+Therefore $v\in \partial H(p)$.\newpar
+Next assume $v\in\partial H(p)$. Then $H(r)\geq H(p) +v\cdot (r-p)$ for all $r\in\mathbb{R}^n$. Therefore, $v\cdot p \geq H(p) - H(r) + v\cdot r$ for all $r\in\mathbb{R}^n$. Taking the supremum over all $r$ gives
+\[\begin{aligned}
+v\cdot p &\geq H(p) +\text{sup}_r\left\{v\cdot r - H(r)\right\}\\
+v\cdot p &\geq H(p) +L(v).
+\end{aligned}\]
+Thus $p\cdot v = H(p) + L(v)$.\newpar
+Finally, assume $p\cdot v = H(p) + L(v)$. Then $\text{sup}_r\left\{r\cdot p - L(r)\right\} = H(p) = p\cdot v - L(v)$ and therefore for any $r\in\mathbb{R}^n$ we have
+\[\begin{aligned}
+r\cdot p - L(r) \leq p\cdot v - L(v)\\
+p\cdot(r-v) + L(v)\leq L(r).
+\end{aligned}\]
+Therefore $p\in \partial L(v)$. Since $p\in\partial L(v)\implies v\in\partial H(p)\implies p\cdot v = H(p)+L(v)\implies p\in\partial L(v)$, we have our desired result.
+\subsection*{Problem 12} Assume $L_1,L_2:\mathbb{R}^n\rightarrow\mathbb{R}$ are convex, smooth and superlinear. Show that
+\[\min_{v\in\mathbb{R}^n}(L_1(v)+L_2(v)) = \max_{p\in\mathbb{R}^n}(-H_1(p)-H_2(-p)),\]
+where $H_1=L_1^*$, $H_2=L_2^*$.\newpar
+Let $v,p\in\mathbb{R}^n$. Then
+\[\begin{aligned}
+L_1(v) + L_2(v) &\geq \left(p\cdot v - H_1(p)\right) + \left((-p)\cdot v - H_2(-p)\right)\\
+&=\left(-H_1(p) - H_2(-p)\right).
+\end{aligned}\]
+Since this is true independent of our choice of $v$ and $p$, we must have
+\[\min_{v\in\mathbb{R}^n}(L_1(v)+L_2(v)) \geq \max_{p\in\mathbb{R}^n}(-H_1(p)-H_2(-p)).\]
+\subsection*{Problem 13} Prove that the Hopf-Lax formula reads
 \[\begin{aligned}u(x,t) &= \min_{y\in\mathbb{R}^n}\left\{tL\left(\frac{x-y}{t}\right)+g(y)\right\}\\
 &=\min_{y\in B(x,Rt)}\left\{tL\left(\frac{x-y}{t}\right)+g(y)\right\}\end{aligned}\]
-for $R = \sup_{\mathbb{R}^n}\left\vert DH(Dg)\right\vert$, $H = L^*$. (This proves finite propagation speed for a Hamilton-Jacobi PDE with convex Hamiltonian and Lipschitz continuous initial function $g$. Hint: Use the previous problem.)
-\subsection*{Problem 8} Let $E$ be a closed subset of $\mathbb{R}^n$. Show that if the Hopf-Lax formula could be applied to the initial-value problem
+for $R = \sup_{\mathbb{R}^n}\left\vert DH(Dg)\right\vert$, $H = L^*$. (This proves finite propagation speed for a Hamilton-Jacobi PDE with convex Hamiltonian and Lipschitz continuous initial function $g$. Hint: Use the previous problem.)\newpar
+Since $g$ was assumed to be Lipschitz continuous, we know that there exists some $C$ so that
+\[\sup_{y\in\mathbb{R}^n}\left\{\frac{\vert g(x)-g(y)\vert}{\vert x-y\vert}\right\} = C<\infty.\]
+Then, $g(y)\geq - g(x) -C\vert x-y\vert$ and thus
+\[tL\left(\frac{x-y}{t}\right) + g(y)\geq tL\left(\frac{x-y}{t}\right) - g(x)-C\vert x-y\vert.\]
+Now, since $\lim_{\vert z\vert\rightarrow \infty}\frac{L(z)}{\vert z\vert}\rightarrow \infty$ ($L$ is superlinear), we know that
+\[\lim_{\vert\frac{x-y}{t}\vert\rightarrow \infty}tL\left(\frac{x-y}{t}\right) - g(x)-C\vert x-y\vert = \vert x-y\vert\left(\frac{L\left(\frac{x-y}{t}\right)}{\left\vert\frac{x-y}{t}\right\vert} - \left(\frac{g(x)}{\vert x-y\vert}+C\right)\right)\rightarrow \infty\]
+again since $\lim\frac{g(x)}{\vert x-y\vert}\leq\lim\frac{\vert g(x)}{\vert x-y\vert}<\infty$. Therefore $\lim_{\vert y\vert\rightarrow\infty}tL\left(\frac{x-y}{t}\right) + g(y)\rightarrow\infty$ and we must have some constant $S\in\mathbb{R}^+$ such that $\vert y\vert\geq S$ implies $ tL\left(\frac{x-y}{t}\right) + g(y)\geq tL\left(\frac{x}{t}\right) + g(0)$. Therefore
+\[\min_{y\in\mathbb{R}^n}\left\{tL\left(\frac{x-y}{t}\right)+g(y)\right\}=\min_{y\in B(x,S)}\left\{tL\left(\frac{x-y}{t}\right)+g(y)\right\}.\]
+What is left to show is that $S\leq t\sup_{\mathbb{R}^n}\vert DH(Dg)\vert$. Note, however, that our min is now over a compact space. Thus since $f(y):=tL\left(\frac{x-y}{t}\right) + g(y)$ is continuous, we must have some point, say $p\in\mathbb{R}^n$ where $f(p) = \min_{y\in B(x,S)}f(y)$. Let $q\in\mathbb{R}^n$ be the point such that $L\left(\frac{x-p}{t}\right) = q\cdot\left(\frac{x-p}{t}\right) - H(q)$. Taking derivatives, we find that $0 = \frac{x-p}{t} - DH(q)$ and thus $\vert x-p\vert=\vert tDH(q)\vert$. Therefore the minimizer of $f(y)$ is within $\vert t DH(q)\vert$ of $x$ and thus it is sufficient to choose $S=\vert t DH(q)\vert$ in the Hopf-Lax formula. We must now find how $q$ depends on the other known parameters.\newpar
+Since $L\left(\frac{x-p}{t}\right) = q\cdot\left(\frac{x-p}{t}\right) - H(q)$, we must have $\frac{x-p}{t}\in \partial H(q)$ and $q\in\partial H\left(\frac{x-p}{t}\right)$ and therefore, using problem 11, we have that
+\[tL\left(\frac{x-p}{t}\right)\leq q\cdot\left(x-p\right) - q\cdot\left(x-y\right) + tL\left(\frac{x-y}{t}\right) = q\cdot\left(y-p\right)+ tL\left(\frac{x-y}{t}\right).\]
+Returning to our function $f$, this tells us that
+\[f(y) \geq tL\left(\frac{x-p}{t}\right)+q\cdot(p-y)+g(y).\]
+Recall that, by definition, $p$ was a minimizer of $f(y)$, thus $Df(p) = 0$. We wish to show that $p$ is still a minimizer of the right hand side. To this end, define $h(y)$ to be the right hand side of the above inequality and assume there exists some direction $\gamma$ such that $D_\gamma h(p) = a\neq 0$. Then there must be some $\epsilon>0$ such that $D_\gamma h(y)>\frac{a}{2}$ and $D_\gamma f(y)<\frac{a}{2}$ for all $\vert y-p\vert<\epsilon$. Then define $e = \frac{a}{\vert a\vert}\epsilon$ and we have
+\[h(p+e\gamma)>h(p) + \frac{a}{2}e = f(p) + \frac{a}{2}e>f(p+e\gamma).\]
+Since this cannot happen, we must have $Dh(p) = 0$. Finally, note that since $h(y) = tL\left(\frac{x-p}{t}\right)+q\cdot(p-y)+g(y)$, we have that $Dh(y) =  -q+Dg(y)$. Therefore $0 = -q+Dg(p)$ and thus $q = Dg(p)$. This tells us that we may set $S:= \sup_{\mathbb{R}^n}\vert DH(Dg)\vert$ and we then have
+\[\begin{aligned}u(x,t) &= \min_{y\in\mathbb{R}^n}\left\{tL\left(\frac{x-y}{t}\right)+g(y)\right\}\\
+&=\min_{y\in B(x,Rt)}\left\{tL\left(\frac{x-y}{t}\right)+g(y)\right\}\end{aligned}\]
+as desired.
+\subsection*{Problem 14} Let $E$ be a closed subset of $\mathbb{R}^n$. Show that if the Hopf-Lax formula could be applied to the initial-value problem
 \[\begin{cases}
 u_t+\left\vert Du\right\vert^2=0&\text{ in }\mathbb{R}^n\times (0,\infty)\\
 u = \begin{cases}
@@ -340,32 +1002,117 @@ u = \begin{cases}
 \end{cases} &\text{ on }\mathbb{R}^n\times\left\{t=0\right\},
 \end{cases}\]
 it would give the solution
-\[u(x,t) = \frac{1}{4t}\text{dist}(x,E)^2.\]
-\subsection*{Problem 9} Fill in all details for the proof of Lemma 4 in 3.3.3.
-\subsection*{Problem 10} Assume $u^1,u^2$ are two weak solutions of the initial-value problems
+\[u(x,t) = \frac{1}{4t}\text{dist}(x,E)^2.\]\newpar
+Let $H = \vert x\vert^2$. First note that this is convex, smooth, and superlinear so all of our analysis on $H$ holds. Then we must compute $L$ for the Hopf-Lax formula. Then $L(v) = \text{sup}_p\left\{p\cdot v - \vert p\vert ^2\right\}$. Taking derivatives we see that $D_p(p\cdot v - \vert p\vert^2) = v-2p$ and thus $\frac{1}{2}v = p$ will give us a critical point, meaning that $L(v) = \frac{1}{2}v\cdot v - \frac{1}{4}\vert v\vert^2 = \frac{1}{4}\vert v\vert^2$. Then the Hopf-Lax formula gives
+\[\begin{aligned}u(x,t) &= \text{min}_{y\in\mathbb{R}^n}\left\{\frac{t}{4}\left\vert\frac{x-y}{t}\right\vert^2+ g(y)\right\}\\
+&= \frac{1}{4t}\text{min}_{y\in E}\left\{\left\vert x-y\right\vert^2\right\}\\
+&=\frac{1}{4t}\text{dist}(x,E)^2
+\end{aligned}\]
+\subsection*{Problem 15} Provide all details for the proof of Lemma 4 in 3.3.3.\newpar
+First we must show that
+\[H\left(\frac{p_1+p_2}{2}\right)\leq\frac{1}{2}H(p_1) + \frac{1}{2}H(p_2) - \frac{\theta}{9}\vert p_1 - p_2\vert^2.\]
+To do this, we begin by noting that using Taylor's formula gives
+\[\begin{aligned}H(x+\eta) &\approx H(x) + \sum_{i} H_{p_i}(x)\eta_i + 2\sum_{i,j} \frac{H_{p_i,p_j}(x+t\eta)}{2}\eta^i\eta^j \\
+&\geq H(x) + \sum_{i} H_{p_i}(x)\eta_i + \frac{\theta}{2}\vert\eta\vert^2.\\
+\end{aligned}\]
+Choosing first $x = \frac{p_1+p_2}{2}$ and $\eta = \frac{p_1-p_2}{2}$ gives
+\[H(p_1)\geq H\left(\frac{p_1+p_2}{2}\right) + \triangledown H\left(\frac{p_1+p_2}{2}\right)\cdot\frac{p_1-p_2}{2} + \frac{\theta}{8}\vert p_1-p_2\vert^2.\]
+Similarly, choosing $x=\frac{p_1+p_2}{2}$ and $\eta = \frac{p_2-p_1}{2}$ gives
+\[H(p_2)\geq H\left(\frac{p_1+p_2}{2}\right) + \triangledown H\left(\frac{p_1+p_2}{2}\right)\cdot\frac{p_2-p_1}{2} + \frac{\theta}{8}\vert p_1-p_2\vert^2.\]
+Therefore
+\[H(p_1)+H(p_2) \geq 2H\left(\frac{p_1+p_2}{2}\right)+\frac{\theta}{4}\vert p_1-p_2\vert^2\]
+and we have
+\[H\left(\frac{p_1+p_2}{2}\right)\leq \frac{1}{2}H(p_1)+\frac{1}{2}H(p_2) -\frac{\theta}{8}\vert p_1-p_2\vert^2\]
+as desired.\newpar
+The next claim is that
+\[\frac{1}{2}L(v_1) + \frac{1}{2}\L(v_2)\leq L\left(\frac{v_1+v_2}{2}\right)+ \frac{1}{8\theta}\vert v_1-v_2\vert^2.\]
+For this, we follow the same idea noting instead that
+\[D^2L = D^2H^{-1}\leq\frac{1}{\theta} I.\]
+This gives
+\[\begin{aligned}L(x+\eta) &\approx L(x) + \sum_{i} L_{p_i}(x)\eta_i + 2\sum_{i,j} \frac{L_{p_i,p_j}(x+t\eta)}{2}\eta^i\eta^j\\
+&\leq\geq L(x) + \sum_{i} L_{p_i}(x)\eta_i + \frac{1}{2\theta}\vert\eta\vert^2.
+\end{aligned}\]
+Choosing the same $x$ and $\eta$ points as before results in 
+
+\[\begin{aligned}L(p_1)&\leq L\left(\frac{p_1+p_2}{2}\right) + \triangledown L\left(\frac{p_1+p_2}{2}\right)\cdot\frac{p_1-p_2}{2} + \frac{1}{8\theta}\vert p_1-p_2\vert^2\\
+L(p_1)&\leq L\left(\frac{p_1+p_2}{2}\right) + \triangledown L\left(\frac{p_1+p_2}{2}\right)\cdot\frac{p_2-p_1}{2} + \frac{1}{8\theta}\vert p_1-p_2\vert^2.\end{aligned}\]
+Therefore
+\[L(p_1)+L(p_2) \leq 2L\left(\frac{p_1+p_2}{2}\right)+\frac{1}{4\theta}\vert p_1-p_2\vert^2\]
+resulting in 
+\[\frac{1}{2}L(v_1) + \frac{1}{2}\L(v_2)\leq L\left(\frac{v_1+v_2}{2}\right)+ \frac{1}{8\theta}\vert v_1-v_2\vert^2.\]
+as desired. Finally, the Hopf-Lax formula gives
+\[u(x,t) = \min_{v\in\mathbb{R}^n}\left\{tL\left(\frac{x-y}{t}\right)+g(y)\right\}\]
+and thus
+\[\begin{aligned}
+u(x+z,t)+u(x-z,t) &=\min_{v\in\mathbb{R}^n}\left\{tL\left(\frac{x+z-y}{t}\right)+g(y)\right\}+\min_{v\in\mathbb{R}^n}\left\{tL\left(\frac{x-z-y}{t}\right)+g(y)\right\}\\
+&\leq \min_{y\in\mathbb{R}^n}\left\{2t\left(\frac{1}{2}L\left(\frac{x+z-y}{t}\right)+\frac{1}{2}L\left(\frac{x-z-y}{t}\right)\right)+2g(y)\right\}\\
+&\leq \min_{y\in\mathbb{R}^n}\left\{2tL\left(\frac{x-y}{t}\right)+\frac{t}{\theta}\vert z\vert^2+2g(y)\right\}\\
+&=2\min_{y\in\mathbb{R}^n}\left\{tL\left(\frac{x-y}{t}\right)+g(y)\right\}+\frac{t}{\theta}\vert z\vert^2\\
+&=2u(x,t) +\frac{t}{\theta}\vert z\vert^2.
+\end{aligned}\]
+thus
+\[u(x+z,t)-2u(x,t) +u(x-z,t)=\frac{t}{\theta}\vert z\vert^2\]
+as desired.
+\subsection*{Problem 16} Assume $u^1,u^2$ are two solutions of the initial-value problems
 \[\begin{cases}
 u_t^i+H(Du^i)=0 & \text{ in } \mathbb{R}^n\times(0,\infty)\\
 u^i=g^i & \text{ on }\mathbb{R}^n\times\left\{t=0\right\}(i=1,2),
 \end{cases}\]
-for $H$ as in 3.3. Prove the $L^\infty$-contraction inequality
-\[\sup_\mathbb{R}\left\vert u^1(*,t) - u^2(*,t)\right\vert\leq\sup_\mathbb{R}\left\vert g^1-g^2\right\vert\qquad (t>0). \]
-\subsection*{Problem 11} Show that
-\[u(x,t) = \begin{cases}
--\frac{2}{3}\left(t+\sqrt{2x+t^2}\right)&\text{ if } 4x+t^2>0\\
+given by the Hopf-Lax formula. Prove the $L^\infty$-contraction inequality
+\[\sup_\mathbb{R}\left\vert u^1(\cdot,t) - u^2(\cdot,t)\right\vert\leq\sup_\mathbb{R}\left\vert g^1-g^2\right\vert\qquad (t>0). \]\newpar
+By assumption
+\[u^1 = \text{min}_{y\in\mathbb{R}^n}\left\{tL\left(\frac{x-y}{t}\right)+ g^1(y)\right\},\qquad u^2 = \text{min}_{y\in\mathbb{R}^n}\left\{tL\left(\frac{x-y}{t}\right)+ g^2(y)\right\}.\]
+Define $y_1,y_2\in\mathbb{R}^n$ as the points which achieve the minimum for $u^1$ and $u^2$ respectivly, so that
+\[u^1 = tL\left(\frac{x-y_1}{t}\right)+ g^1(y_1),\qquad u^2 =tL\left(\frac{x-y_2}{t}\right)+ g^2(y_2).\]
+Then
+\[\begin{aligned}u^1 - u^2 &= t\left(L\left(\frac{x-y_1}{t}\right) -L\left(\frac{x-y_2}{t}\right)\right) + g^1(y_1)-g^2(y_2)\\
+&\leq t\left(L\left(\frac{x-y_2}{t}\right) -L\left(\frac{x-y_2}{t}\right)\right) + g^1(y_2)-g^2(y_2)\\
+&=g^1(y_2)-g^2(y_2)\\
+&\leq \sup_\mathbb{R}\vert g^1-g^2\vert.
+ \end{aligned}\]
+Likewise,
+\[\begin{aligned}u^2 - u^1 &= t\left(L\left(\frac{x-y_2}{t}\right) -L\left(\frac{x-y_1}{t}\right)\right) + g^2(y_2)-g^1(y_1)\\
+&\leq t\left(L\left(\frac{x-y_1}{t}\right) -L\left(\frac{x-y_1}{t}\right)\right) + g^2(y_1)-g^1(y_1)\\
+&=g^2(y_1)-g^1(y_1)\\
+&\leq \sup_\mathbb{R}\vert g^1-g^2\vert.
+\end{aligned}\]
+Therefore we know that for any $x$, $\vert u^2(x,t)-u^1(x,t)\vert\leq \sup_\mathbb{R}\vert g^1-g^2\vert$. Since this is true for all $x\in\mathbb{R}^n$, we may take the supremum on the left hand side to get:  $\sup_\mathbb{R}\vert u^2(\cdot,t)-u^1(\cdot,t)\vert\leq \sup_\mathbb{R}\vert g^1-g^2\vert$
+\subsection*{Problem 17} Show that
+\[u(x,t) := \begin{cases}
+-\frac{2}{3}\left(t+\sqrt{3x+t^2}\right)&\text{ if } 4x+t^2>0\\
 0 & \text{ if } 4x+t^2<0
 \end{cases}\]
-is an (unbounded) entropy solution of $u_t + \left(\frac{u^2}{2}\right)_x = 0.$
-\subsection*{Problem 12} Assume $u(x+z) - u(x)\leq Ez$ for all $z>0$. Let $u^\epsilon = \eta_\epsilon*u$, and show
-\[u_x^\epsilon\leq E.\]
-\subsection*{Problem 13}Assume $F(0) = 0$, $u$ is a continuous integral solution of the conservation law
+is an (unbounded) entropy solution of $u_t + \left(\frac{u^2}{2}\right)_x = 0.$\newpar
+First note that $\left(\frac{u^2}{2}\right)_x = uu_x$. Taking derivatives we have
+\[u_t = -\frac{2}{3}\left(1+\frac{t}{\sqrt{3x+t^2}}\right),\qquad u_x = \frac{-1}{\sqrt{3x+t^2}}.\]
+Therefore
+\[u_t + \left(\frac{u^2}{2}\right)_x =  -\frac{2}{3}\left(1+\frac{t}{\sqrt{3x+t^2}}\right) + \frac{2}{3\sqrt{3x+t^2}}\left(t+\sqrt{3x+t^2}\right)=0\]
+\subsection*{Problem 18} Assume $u(x+z) - u(x)\leq Ez$ for all $z>0$. Let $u^\epsilon = \eta_\epsilon*u$, and show
+\[u_x^\epsilon\leq E.\]\newpar
+First note that
+\[u^\epsilon = \int_{-\infty}^\infty \eta_\epsilon(y)u(x-y)dy.\]
+Then,
+\[u^\epsilon_x = \int_{-\infty}^\infty \eta_\epsilon(y)u_x(x-y)dy.\]
+Using the definition of the derivative, we have
+\[u^\epsilon_x = \lim_{\vert z\vert \rightarrow 0}\int_{-\infty}^\infty \eta_\epsilon(y)\left(\frac{u(x-y+z) - u(x-y)}{z}\right)dy.\]
+From our assumption however, we know that $\frac{u(x+z) - u(x)}{z}\leq E$ for all $z$. Therefore
+\[u^\epsilon_x \leq \lim_{\vert z\vert \rightarrow 0}\int_{-\infty}^\infty \eta_\epsilon(y)\left(E\right)dy = E\int_{-\infty}^\infty \eta_\epsilon(y) = E.\]
+\subsection*{Problem 19}Assume $F(0) = 0$, $u$ is a continuous integral solution of the conservation law
 \[\begin{cases}
 u_t + F(u)_x = 0 & \text{ in }\mathbb{R}\times\left(0,\infty\right)\\
 u=g & \text{ on }\mathbb{R}\times \left\{t=0\right\},
 \end{cases}\]
 and $u$ has compact support in $\mathbb{R}\times[0,\infty].$ Prove
-\[\int_{-\infty}^{\infty}u(*,t)dx = \int_{-\infty}^{\infty}gdx\]
+\[\int_{-\infty}^{\infty}u(\cdot,t)dx = \int_{-\infty}^{\infty}gdx\]
+for all $t>0$.\newpar
+First note the following
+\[\frac{d}{dt}\int_{-\infty}^\infty u(x,t)dx = \int_{-\infty}^\infty u_t(x,t)dx = -\int_{-\infty}^\infty F(u)_xdx = F(u)\big\vert_{-\infty}^\infty.\]
+However, since $u$ is compactly supported for all $t>0$, $u(\infty,t) = u(-\infty,t) = 0$. Thus,
+\[\frac{d}{dt}\int_{-\infty}^\infty u(x,t)dx = F(0) - F(0) = 0.\]
+Thus $\int_{-\infty}^\infty u(x,t)dx$ is constant in time and we find that
+\[\int_{-\infty}^\infty u(x,t)dx = \int_{-\infty}^\infty u(x,0)dx = \int_{-\infty}^\infty gdx\]
 for all $t>0$.
-\subsection*{Problem 14} Compute explicitly the unique entropy solution of
+\subsection*{Problem 20} Compute explicitly the unique entropy solution of
 \[\begin{cases}
 u_t+\left(\frac{u^2}{2}\right)_x = 0 & \text{ in }\mathbb{R}\times (0,\infty)\\
 u=g & \text{ on }\mathbb{R}\times\left\{t=0\right\},
@@ -377,7 +1124,60 @@ for
 2 & \text{if } 0<x<1\\
 0 & \text{if } x>1\\
 \end{cases}\]
-Draw a picture documenting your answer, being sure to illustrate what happens for all times $t>0$.
+Draw a picture documenting your answer, being sure to illustrate what happens for all times $t>0$.\newpar
+Recall that a shock arises anytime $g(x+\epsilon)<g(x)$ for small $\epsilon >0$. Thus there are two shocks in this problem, one at point $x=-1$ and another at the point $x=1$. The final transition at $x=0$ is then a rarefaction wave. Noting that $F(u) = \frac{u^2}{2}$, $F'(u) = u$, and $G(u) = F'(u)^{-1} = u$. Using our initial values for $g$, we then have that the projected characteristic lines from our shocks will have slopes $F(1)-F(0) = \frac{1}{2}$, and $\frac{F(2)-F(0)}{2} = 1$ at points $(-1,0)$ and $(1,0)$ respectively. Likewise, our rarefaction wave has slopes $F'(0) = 0$ and $F'(2) = 2$ on the left and right side respectively. Therefore, for $0<t<1$, we have
+\[u = \begin{cases}
+1 & x<\frac{1}{2}t-1\\
+0 & \frac{1}{2}t-1<x<0\\
+\frac{x}{t} & 0<x <2t\\
+2 & 2t<x<t+1\\
+1 & t+1<x
+\end{cases}\]
+However, when $t>1$, we find that some of the characteristics intersect and we must find the resulting curves. Let $s_1(t)$ denote the intersection of the curve $\frac{1}{2}x-1$ and $x=0$ while $s_2(t)$ denotes the intersection of the curve $x=2t$ and $x=t+1$. Then, from the Rankine-Hugoniot condition, we know that $[[F(u)]] = \sigma[[u]]$ for both cases. Starting with $s_1$ we find that
+\[\begin{aligned}
+\dot{s}_1(t)\left(1-\frac{s_1(t)}{t}\right) &= \frac{1}{2}\left(1 - \left(\frac{s_1(t)}{t}\right)^2\right)\\
+\dot{s}_1(t) &= \frac{1}{2}\left(1+\frac{s_1(t)}{t}\right)\\
+\dot{s}_1(t) -\frac{1}{2t}s_1(t) &= \frac{1}{2}\\
+\left(\frac{s_1(t)}{\sqrt{t}}\right)&= \sqrt{t}+C\\
+s_1(t) &= t + C\sqrt{t}
+\end{aligned}\]
+Noting that $s_1(2) = 0$, we have that $C = -\sqrt{2}$ and thus $s_1(t) = t-\sqrt{2t}$. Similarly for $s_2$ we find that
+\[\begin{aligned}
+\dot{s}_2(t)\left(\frac{s_2(t)}{t}\right)&= \frac{1}{2}\frac{s_2(t)^2}{t^2}\\
+\dot{s}_2(t) &= \frac{s_2(t)}{2t}\\
+s_2(t) &= C\sqrt{t}.
+\end{aligned}\]
+Noting that $s_2(1) = 2$ we have $C = 2$ and thus $s_2(t) = 2\sqrt{t}$. Finally we must check when (if at all) these two shocks meet and we find that $s_1(t) = s_2(t)$ when
+\[\begin{aligned}
+t -\sqrt{2}\sqrt{t} &=2\sqrt{t} \\
+ \sqrt{t} &=(2+\sqrt{2})\\
+t &=6+4\sqrt{2}.
+\end{aligned}\]
+Thus, after this time, there will be only one shock with $u=1$ to the left and $u=0$ to the right. The speed of this shock must then be $F(1)-F(0) = \frac{1}{2}$. Below is an illustration of the resulting function
+\[\begin{tikzpicture}
+	\def\tmax{13}
+	\def\tmin{-1}
+	\def\xmax{8}
+	\def\xmin{-2}
+	\def\inter{6+4*sqrt(2)}
+	\draw[->,draw opacity=.4] (\xmin,0) -- (\xmax,0) node[right] {$x$};
+	\draw[->,draw opacity=.4] (0,\tmin) -- (0,\tmax) node[above] {$t$};
+	\draw[scale=1,domain=0:2,smooth,variable=\t,red,thick] plot ({\t/2-1},{\t});
+	\draw[scale=1,domain=0:2,smooth,variable=\t,red,thick] plot ({0},{\t});
+	\draw[scale=1,domain=2:\inter,smooth,variable=\t,red,thick] plot ({\t - sqrt(2*\t)},{\t});
+	
+	\draw[scale=1,domain=0:1,smooth,variable=\t,red,thick] plot ({2*\t},{\t});
+	\draw[scale=1,domain=0:1,smooth,variable=\t,red,thick] plot ({\t+1},{\t});
+	\draw[scale=1,domain=1:\inter,smooth,variable=\t,red,thick] plot ({2*sqrt(\t)},{\t});
+	
+	\draw[scale=1,domain=\inter:\tmax,smooth,variable=\t,red,thick] plot ({\t/2+1},{\t});
+	
+	\node at (2,\tmax/2) {$1$};
+	\node at (-.3,.5) {$0$};
+	\node at (.9,.2) {$2$};
+	\node at (\xmax/2+3,\tmax/2) {$0$};
+	\node at (\xmax/2-1,\tmax/3) {\LARGE $\frac{x}{t}$};
+\end{tikzpicture}\]
 
 
 \end{document}
