@@ -17,9 +17,10 @@ Q_5(t)=\frac{(m+6)(m+4)t^5-10(m+4)t^3+15t}{m^2-1}\\
 \end{aligned}\]
 \begin{figure}[h]
 	\begin{center}
-		\vspace{4cm}%\includegraphics[scale=.4]{gegenbauer_polynomials.PNG}
+		\includegraphics[scale=.4]{gegenbauer_polynomials.PNG}
 		\caption{Gegenbauer polynomials with degree 1 through degree 5 with $m=10$.}\label{gegpic}
 	\end{center}
+\end{figure}
 \section{Sch\"{o}nberg's Theorem}\label{schoenberg}
 Let $m$ be a fixed positive integer and $X\subset S^{m-1}$ be a finite set of unit vectors. Let $G_X$ denote the Gram matrix of $X$, then $G_X$ is positive semi-definite ($G_X\succeq 0$). A function $f:[-1,1]\rightarrow\mathbb{R}$ is \textit{positive definite} if, for every such finite subset $X$, $f\circ(G_X)\succeq 0$.
 \begin{thm}[Sch\"{o}nberg \cite{Schoenberg1942}]
@@ -33,13 +34,3 @@ In particular, this means that $Q_k^m(t)$ is a positive definite function for an
 \begin{proof}
 	Recall that the Bose-Mesner algebra given by $\BMA =\text{span}\left\{E_0,\dots,E_d\right\}$ is closed under entrywise products. Therefore we know that any entrywise polynomial of $E_i$ must be contained within the algebra. Therefore $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right)\in \BMA$ and we may write $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right) = \sum_j c_j E_j$ where each $c_j$ is the eigenvalue of the matrix in the eigenspace given by the idempotent $E_j$. Now, since  $E_i$ is an idempotent matrix with main diagonal given by $\frac{1}{\vert X\vert}Q_{11} = \frac{m_i}{\vert X\vert}$, we know that $\frac{\vert X\vert}{m_i}E_i$ is the Gram matrix of a set of unit vectors in $\mathbb{R}^{m_i}$. Therefore, Theorem \ref{schoenberg} tells us that $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right)$ must be positive semidefinite, telling us that all eigenvalues must be non-negative.
 \end{proof}
-
-
-
-
-\section{Gegenbauer Polynomials}\label{gegdef}
-
-
-
-
-\end{figure}
