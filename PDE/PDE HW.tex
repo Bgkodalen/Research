@@ -833,6 +833,7 @@ x(t)=x.
 	\end{cases}\]
 	Derive the representation formula
 	\[u(x,t) = g(x(0,x,t))J(0,x,t).\]
+	(Hint: Show $\frac{\partial}{\partial x}(u(x,s)J)=0$.)
 \end{enumerate}
 \begin{enumerate}[(a)]
 	\item Using Jacobi's formula for derivatives of determinants, we have that 
@@ -842,17 +843,13 @@ x(t)=x.
 	Thus, $\frac{dA}{ds} = (D_xb)A$. Plugging this into the above equation gives
 	\[\frac{d}{ds}det(A(s)) = \text{tr}\left(\text{adj}(A)(D_xb)A\right) = \text{tr}\left((A)\text{adj}(A)(D_xb)\right) = \text{tr}\left(\text{det}(A)D_xb\right) = \text{div}bJ.\]
 	Therefore $J_s = \text{div}b(x)J$ as desired.
-	\item Using characteristic equations we find that 
-	\[\dot{t}(s) \qquad \dot{\textbf{x}}(s)= b\qquad \dot{z}(s) = -\text{div}(b)z \]
-	with initial conditions
-	\[t(0) = 0\qquad \textbf{x}(0) = a\qquad z(0) = g(a).\]
-	Then $\textbf{x}(s) = bs+a$. We wish for $\textbf{x}(t) = x$ so $a=x-bt$. Then, we know $\textbf{x}(s)=\textbf{x}(s,x,t)$ solves the ODE
+	\item Following the hint, consider that
 	\[\begin{aligned}
-	\dot{\textbf{x}} &= b\\
-	\textbf{x}(t) &= x
+	\frac{\partial}{\partial s}(u(x,t)J) &= t_su_tJ + \sum_i u_{x^i}x^i_sJ + uJ_s\\
+	&= t_su_tJ + \sum_i u_{x^i}b^iJ + u\text{div}(b)J\\
+	&= \left(t_su_t + \text{div}(ub)\right)J.\\
 	\end{aligned}\]
-	Then $\frac{d}{ds}J(s,x,t) = \text{div}(b)J$ and further we may use chain rule to show that $\frac{d}{ds}J(-s,x,t) = -\text{div}(b)J(-s,x,t)$. Thus $z=g(a)J(-t,x,0)$ must solve the remaining differential equation.
-	???
+	Therefore, as long as $t_s=1$, we have that $\frac{\partial}{\partial s}(u(x,t)J) = (u_t+\text{div}(ub))J = 0$. Therefore let $t=s+t_0$ and we have $u(x,s)J(s,x,s) = u(x,0)J(0,x,0) = g(x(0,x,0))$.
 \end{enumerate}
 \subsection*{Problem 7} Verify assertion (36) in 3.2.3, that when $\Gamma$ is not flat near $x^0$, the noncharacteristic condition is
 \[D_pF(p^0,z^0,x^0)\cdot\nu(x^0)\neq 0.\]\newpar
@@ -903,11 +900,27 @@ where we do not require that $\textbf{w}(0)=y.$.
 	Show that $\textbf{x}(\cdot)$ solves the usual Euler-Lagrange equations and determine the boundary condition at $s=0$.
 \end{enumerate}
 \begin{enumerate}[(a)]
-	\item TODO?
-	
+	\item Assume that $u\in\mathcal{A}$ minimizes the action $\int_0^t L(\dot{\textbf{w}}(s),\textbf{w}(s))ds$. Let $\phi\in C^\infty(0,t)$ be given such that $\phi(t)=0$. Then we have
+	\[\begin{aligned}
+	0&=\left(\frac{d}{d\tau}\int_0^t L(\dot{u}(s) + \tau\dot{\phi}(s),u(s)+\tau\phi(s))ds\right)_{\tau=0}\\
+	&=\int_0^t\dot{\phi}(s)\cdot D_vL(\dot{u},u) + \phi(s)\cdot D_xL(\dot{u},u)ds\\
+	&=\phi(s)\cdot D_vL(\dot{u}(s),u(s))\big\vert_0^t +\int_0^t\phi(s)\cdot \left(-\frac{d}{ds}D_vL(\dot{u},u) + D_xL(\dot{u},u)\right)ds\\
+	&=-\phi(0)\cdot D_vL(\dot{u}(0),u(0))+\int_0^t\phi(s)\cdot \left(-\frac{d}{ds}D_vL(\dot{u},u) + D_xL(\dot{u},u)\right)ds\\
+	\end{aligned}\]
+	Since $\phi$ may be chosen to be any function in $C^\infty(0,t)$ with $\phi(t)=0$, we begin by considering all $\phi$ with $\phi(0)=0$. By the fundamental theorem of calculus of variations, we must have $-\frac{d}{ds}D_vL(\dot{u},u) + D_xL(\dot{u},u) = 0$.
+	\item Returning to the previous part, since we didn't require $\phi(0)=0$ (since $\mathcal{A}$ does not require $x(0)=y$ for fixed $y$, we must still have 
+	\[0=-\phi(0)\cdot D_vL(\dot{u}(0),u(0))+\int_0^t\phi(s)\cdot \left(-\frac{d}{ds}D_vL(\dot{u},u) + D_xL(\dot{u},u)\right)ds\]
+	even when $\phi(0)\neq 0$. However since we already know that the integrand is equivalently $0$, consider any function with $\phi(0)=-1$ and we have
+	\[0 = D_vL(\dot{u}(0),u(0)).\]
+	\item Repeating the process from above we find that
+	\[\begin{aligned}
+	0&=\left(\frac{d}{d\tau}\int_0^t \left(L(\dot{u}(s) + \tau\dot{\phi}(s),u(s)+\tau\phi(s))\right)ds+\phi(0)\cdot  D_xg(u(0)+\tau\phi(0))\right)_{\tau=0}\\
+	&=\int_0^t\left(\dot{\phi}(s)\cdot D_vL(\dot{u},u) + \phi(s)\cdot D_xL(\dot{u},u)\right)ds+\phi(0)\cdot D_xg(u(0))\\
+	&=\phi(0)\cdot \left(D_xg(u(0)) - D_vL(\dot{u}(0),u(0))\right)+\int_0^t\phi(s)\cdot \left(-\frac{d}{ds}D_vL(\dot{u},u) + D_xL(\dot{u},u)\right)ds\\
+	\end{aligned}\]
+	We again consider first functions $\phi$ with $\phi(0)=0$ to find that $-\frac{d}{ds}D_vL(\dot{u},u) + D_xL(\dot{u},u)$ and then considering a function $\phi$ with $\phi(0)=1$ we find that
+	\[D_vL(\dot{u}(0),u(0))=D_xg(u(0)).\]
 \end{enumerate}
-
-\newpage
 \subsection*{Problem 10} If $H:\mathbb{R}^n\rightarrow \mathbb{R}$ is convex, we write $L=H^*$.
 \begin{enumerate}[(a)]
 	\item Let $H(p) = \frac{1}{r}\vert p\vert ^r$, for $1<r<\infty$. Show
@@ -970,6 +983,14 @@ L_1(v) + L_2(v) &\geq \left(p\cdot v - H_1(p)\right) + \left((-p)\cdot v - H_2(-
 \end{aligned}\]
 Since this is true independent of our choice of $v$ and $p$, we must have
 \[\min_{v\in\mathbb{R}^n}(L_1(v)+L_2(v)) \geq \max_{p\in\mathbb{R}^n}(-H_1(p)-H_2(-p)).\]
+For the other direction, consider that since $H_1$ and $H_2$ are both superlinear, the maximum on the right hand side exists. Thus there must be some point $p$ where the function $f(p):=-H_1(p)-H_2(-p)$ reaches a critical point. Thus
+\[0=Df(p^*)= -DH_1(p^*)+DH_2(-p^*) = -v_1(p^*)+v_2(-p^*)\]
+where $v_i(x)$ is defined as the point where $L_i(v_i) +H_i(x) = x\cdot v$. Therefore $v_1(p^*) = v_2(-p^*) = v$. Therefore we must have
+\[L_1(v)+L_2(v) = (p^*\cdot v - H_1(p^*)) + (-p^*\cdot v - H_2(-p^*)) = -H_1(p^*) - H_2(-p^*).\]
+Since there exists points $v$ and $p$ where we achieve equality, we know that
+\[\min_{v\in\mathbb{R}^n}(L_1(v)+L_2(v)) \leq \max_{p\in\mathbb{R}^n}(-H_1(p)-H_2(-p))\]
+and thus
+\[\min_{v\in\mathbb{R}^n}(L_1(v)+L_2(v)) = \max_{p\in\mathbb{R}^n}(-H_1(p)-H_2(-p)).\]
 \subsection*{Problem 13} Prove that the Hopf-Lax formula reads
 \[\begin{aligned}u(x,t) &= \min_{y\in\mathbb{R}^n}\left\{tL\left(\frac{x-y}{t}\right)+g(y)\right\}\\
 &=\min_{y\in B(x,Rt)}\left\{tL\left(\frac{x-y}{t}\right)+g(y)\right\}\end{aligned}\]
