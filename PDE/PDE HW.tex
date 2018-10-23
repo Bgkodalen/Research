@@ -57,33 +57,22 @@ and note the derivative gives
 &=-cu(x+bs,t+s)\\
 &=-cz(s).
 \end{aligned}\]
-We can solve this differential equation, giving
-\[z(s) = a_1e^{-cs}\]
-where $a_1\in\mathbb{R}$. Now consider when $s = -t$,
+We can solve this differential equation, giving $z(s) = a_1e^{-cs}$ where $a_1\in\mathbb{R}$. Now consider when $s = -t$,
 \[\begin{aligned}
 z(-t) &= u(x-bt,t-t)\\
 a_1e^{ct}&=u(x-bt,0)\\
 a_1&=g(x-bt)e^{-ct}.
 \end{aligned}\]
-Therefore
-\[z(s) = g(x-bt)e^{-c(s+t)}\]
-for all possible $s$. If we not choose $s=0$ we get
+Therefore $z(s) = g(x-bt)e^{-c(s+t)}$ for all possible $s$. If we now choose $s=0$ we get
 \[u(x,t) = z(0) = g(x-bt)e^{-ct}.\]
-Therefore the solution of our differential equation is
-\[u(x,t) = g(x-bt)e^{-ct}.\]
-\newpage
 \subsection*{Problem 2} Prove that Laplace's equation $\Delta u= 0$ is rotation invariant; that is, if $O$ is an orthogonal $n\times n$ matrix and we define
 \[v(x):=u(Ox)\quad (x\in\mathbb{R}^n),\]
 then $\Delta v=0.$\newpar
 First we can write $Ox$ as $\sum_{i=1}^{n}\left(\sum_{j=1}^{n}o_{ji}\right)x_i$ where $O = [o_{ji}]$. Using this, we can take a first derivative in the direction of $x_i$ to get
-\[\begin{aligned}D_iv(x) &= D_i(u(Ox))\\
-&=\sum_{j=1}^{n}D_ju(Ox)o_{ji}.\end{aligned}\]
+\[\begin{aligned}D_iv(x) &= D_i(u(Ox))=\sum_{j=1}^{n}D_ju(Ox)o_{ji}.\end{aligned}\]
 Likewise,
-\[\begin{aligned}D_{ii}v(x) &= D_i(u(Ox))\\
-&=\sum_{k=1}^n\sum_{j=1}^{n}D_{jk}u(Ox)o_{ji}o_{ki}.\end{aligned}\]
-Note however that $O$ is orthogonal, so
-\[\sum_{i=1}^{n}o_{ji}o_{ki} = \delta_{jk}.\]
-Therefore
+\[\begin{aligned}D_{ii}v(x) &= D_i(u(Ox))=\sum_{k=1}^n\sum_{j=1}^{n}D_{jk}u(Ox)o_{ji}o_{ki}.\end{aligned}\]
+Note however that $O$ is orthogonal, so $\sum_{i=1}^{n}o_{ji}o_{ki} = \delta_{jk}$ and we then have
 \[\begin{aligned}
 \Delta v(x) &= \sum_{i=1}^{n}D_{ii}v(x)\\
 &=\sum_{i=1}^n\left(\sum_{k=1}^n\sum_{j=1}^{n}D_{jk}u(Ox)o_{ji}o_{ki}\right)\\
@@ -93,7 +82,6 @@ Therefore
 &=\Delta u\\
 &=0.
 \end{aligned}\]
-\newpage
 \subsection*{Problem 3} Modify the proof of the mean value formulas to show for $n\geq 3$ that
 \[u(0) = \dashint_{\partial B(0,r)}gdS+\frac{1}{n(n-2)\alpha(n)}\int_{B(0,r)}\left(\frac{1}{\vert x\vert^{n-2}}-\frac{1}{r^{n-2}}\right)fdx,\]
 provided
@@ -103,12 +91,11 @@ u=g& \text{on }\partial B(0,r).
 Just as in Evans, let
 \[\phi(r) = \dashint_{\partial B(0,r)}u(y)dS(y) = \dashint_{\partial B(0,1)}u(rz)dS(z).\]
 Where $z = \frac{y}{r}$. Taking the derivative we get
-\[\begin{aligned}\phi^\prime(r) &= \dashint_{\partial B(0,1)}Du(rz)*zdS(z)\\
-&=\dashint_{\partial B(0,r)}Du(y)*\frac{y}{r}dS(y)\\
-&=\frac{1}{n\alpha(n)r^{n-1}}\int_{\partial B(0,r)}Du(y)*\frac{y}{r}dS(y)\\
+\[\begin{aligned}\phi^\prime(r) &= \dashint_{\partial B(0,1)}Du(rz)\cdot zdS(z)\\
+&=\dashint_{\partial B(0,r)}Du(y)\cdot \frac{y}{r}dS(y)\\
+&=\frac{1}{n\alpha(n)r^{n-1}}\int_{\partial B(0,r)}Du(y)\cdot \frac{y}{r}dS(y)\\
 &=\frac{1}{n\alpha(n)r^{n-1}}\int_{B(0,r)}\Delta u(y)dy\\
-&=-\frac{1}{n\alpha(n)r^{n-1}}\int_{B(0,r)}fdy\\
-.\end{aligned}\]
+&=-\frac{1}{n\alpha(n)r^{n-1}}\int_{B(0,r)}fdy.\end{aligned}\]
 Now note that
 \[\begin{aligned}\phi(r)-\phi(0) &= \int_{0}^{r}\phi^\prime(s)ds\\
 &=\int_{0}^{r}\left(-\frac{1}{n\alpha(n)s^{n-1}}\int_{B(0,s)}fdy\right)ds\\
@@ -124,51 +111,54 @@ Therefore
 \[\begin{aligned}\phi(0) &= \phi(r)+\left(\frac{1}{n\alpha(n)(n-2)}\right)\int_{B(0,r)}\left(\frac{1}{\vert x\vert^{n-2}}-\frac{1}{r^{n-2}}\right)fdx\\
 \lim_{r\rightarrow 0}\left(\dashint_{\partial B(0,r)}u(y)dS(y)\right) &= \dashint_{\partial B(0,r)}u(y)dS(y)+\left(\frac{1}{n\alpha(n)(n-2)}\right)\int_{B(0,r)}\left(\frac{1}{\vert x\vert^{n-2}}-\frac{1}{r^{n-2}}\right)fdx\\
 u(0) &= \dashint_{\partial B(0,r)}gdS+\left(\frac{1}{n\alpha(n)(n-2)}\right)\int_{B(0,r)}\left(\frac{1}{\vert x\vert^{n-2}}-\frac{1}{r^{n-2}}\right)fdx\\
-\end{aligned}\]\newpage
+\end{aligned}\]
 
 \subsection*{Problem 4}
 Give a direct proof that if $u\in C^2(U)\cap C(\overline{U})$ is harmonic within a bounded open set $U$, then $\max_{\overline{U}}u = \max_{\partial U} u$.\newpar
 Let $u\in C^2(U)\cap C(\overline{U})$ be harmonic within a bounded open set $U$. Now, let $\epsilon>0$ and define $u_\epsilon = u+\epsilon\vert x\vert^2$. Let $p\in U$ be a point in the interior of $\overline{U}$ such that $D(u_\epsilon(p)) = 0$. Then $u_\epsilon$ achieves a local maximum at $p$ if and only if the second derivative of $u_\epsilon$ is non-positive in every direction. Let $H = D_{ij}(u_\epsilon(p))$ and note that $\text{trace}(H) =\sum_{i} D_{ii}(u_\epsilon(x_0)) = \Delta u_\epsilon = 2n\epsilon>0$. Thus $H$ has a positive eigenvalue and therefore $u_\epsilon$ cannot achieve a local maximum at $p$. As this must be true for all $\epsilon>0$, we may let $\epsilon\rightarrow 0$ and since $u\in C^2(U)$, we know the same must hold for $u$.
-
+\newpage
 \subsection*{Problem 5}
 We say $v\in C^2(\conj{U})$ is \textit{subharmonic} if
 \[-\Delta v\leq 0 \quad\text{in } U\]
 \begin{enumerate}[(a)]
 \item Prove for subharmonic $v$ that
 \[v(x) \leq \dashint_{B(x,r)}vdy\quad \text{ for all }B(x,r)\subset U\]
-\newpar
-Just as before let 
-\[\phi(r) = \dashint_{\partial B(x,r)} v(y)dS(y) = \dashint_{\partial B(0,1)}v(x+rz)dS(z).\]
-where $z = \frac{y-x}{r}$. We can now take a derivative and get
-\[\begin{aligned}\phi^\prime(r) &= \dashint_{\partial B(0,1)}Dv(x+rz)zdS(z)\\
-&=\dashint_{\partial B(0,1)}Dv*\left(\frac{y-x}{r}\right)dS(y)\\
-&=\dashint_{\partial B(0,1)}\frac{\partial v}{\partial y}dS(y)\\
-&=\frac{r}{n}\dashint_{\partial B(0,1)}\Delta v(y)dy\geq 0.\end{aligned}\]
-The last follows since $-\Delta v\leq 0\rightarrow \Delta v\geq 0$. Therefore since $\phi'(r)\geq 0$ for all $r$ and we know $\phi(\epsilon)=v(x)$ (since it is essentially averaging over a point) this gives us that $\phi(r)$ is increasing with $r$. This means the center will always have a value less than any point in a sphere around it. Since the value of $v(x)$ is less than any surrounding point, we know it will be less than the average value of any sphere surrounding it. Therefore
-\[v(x) \leq \dashint_{B(x,r)}vdy\quad \text{ for all }B(x,r)\subset U.\]
-\item Prove that therefore $\max_{\conj{U}}v = \max_{\partial U}v.$\newpar
-Assume there exists a point $x_0$ such that $v(x_0) = M = \max_{\conj{U}}v$. Then the subharmonic property of $v$ guarantees that if there exists $r>0$ such that $r<\text{dist}(x,\partial U)$ then
-\[v(x_0) \leq\dashint_{B(x_0,r)}vdy\]
-But if $v(x_0)$ is less than or equal to the average of the ball, either there must be a point $x_1\in B(x_0,r)$ such that $M<v(x_1)$ or $v(x) = M$ for all points $x\in B(x_0,r)$. The first cannot happen since we said $M$ was the maximum over $\conj{U}$. Therefore $v(x) = M\quad \forall x\in \conj{U}$. We then know $v$ must be the constant function $v = M$ so
-\[\max_{\conj{U}}v = \max_{\partial U}v = M.\]
-The other possibility is that no such $r>0$ exists, meaning $x_0\in \partial U$. In this case we have $x_0\in \partial U$ so we know that $v(x)$ attains the value $M$ on the boundary. Therefore
-\[\max_{\partial U}v \geq M = \max_{\conj{U}}v.\] 
-Since $\partial U\subseteq \conj{U}$ we know that 
-\[\max_{\partial U}v = \max_{\conj{U}}v.\] 
+\item Prove that therefore $\max_{\conj{U}}v = \max_{\partial U}v.$\\
 \item Let $\phi:\mathbb{R}\rightarrow \mathbb{R}$ be smooth and convex. Assume $u$ is harmonic and $v:=\phi(u)$. Prove $v$ is subharmonic.\\
-Using the chain rule, we note that:
-\[\frac{d^2}{dx^2}\phi(u) = \frac{d}{dx}\left(\phi'(u)u_x\right) = \left(\phi''(u)(u_x)^2 + \phi'(u)u_{xx}\right).\]
-Therefore,
-\[\begin{aligned}\Delta\phi(u) &= \sum_{i} \left(\phi''(u)(u_{x_i})^2 + \phi'(u)u_{x_ix_i}\right)\\
-&= \sum_{i} \left(\phi''(u)(u_{x_i})^2\right) + \phi'(u)\Delta u.\\
-\end{aligned}\]
-Since $\Delta u = 0$ (harmonic), $\phi''(u)\geq 0$ (convex), and $u_{x_i}^2\geq 0$, this means that $\Delta\phi(u)\geq 0$. Therefore $-\Delta\phi(u)\leq 0$ and $v=\phi(u)$ must be subharmonic.
 \item Prove $v:=\vert Du\vert^2$ is subharmonic, whenever $u$ is harmonic.\\
-For any directional derivative $\frac{d}{dx_i}$ we have that $\Delta u_{x_i} = \left(\Delta u\right)_{x_i}$. Thus $\Delta(Du) = D(\Delta u) = 0$. Therefore $Du$ is also a harmonic function. However $\phi:\mathbb{R}\rightarrow\mathbb{R}$ via $\phi(x) = \vert x\vert ^2$ is both smooth and convex. Therefore, by part (c), we have that $v:=\vert Du\vert^2$ is subharmonic since it is representable as a smooth convex function from $\mathbb{R}$ to $\mathbb{R}$ of a harmonic function $Du$.
+
 
 
 \end{enumerate}
-
+\begin{enumerate}[(a)]
+	\item Just as before let 
+	\[\phi(r) = \dashint_{\partial B(x,r)} v(y)dS(y) = \dashint_{\partial B(0,1)}v(x+rz)dS(z).\]
+	where $z = \frac{y-x}{r}$. We can now take a derivative and get
+	\[\begin{aligned}\phi^\prime(r) &= \dashint_{\partial B(0,1)}Dv(x+rz)zdS(z)\\
+	&=\dashint_{\partial B(0,1)}Dv*\left(\frac{y-x}{r}\right)dS(y)\\
+	&=\dashint_{\partial B(0,1)}\frac{\partial v}{\partial y}dS(y)\\
+	&=\frac{r}{n}\dashint_{\partial B(0,1)}\Delta v(y)dy\geq 0.\end{aligned}\]
+	The last follows since $-\Delta v\leq 0\rightarrow \Delta v\geq 0$. Therefore since $\phi'(r)\geq 0$ for all $r$ and we know $\phi(\epsilon)=v(x)$ (since it is essentially averaging over a point) this gives us that $\phi(r)$ is increasing with $r$. This means the center will always have a value less than any point in a sphere around it. Since the value of $v(x)$ is less than any surrounding point, we know it will be less than the average value of any sphere surrounding it. Therefore
+	\[v(x) \leq \dashint_{B(x,r)}vdy\quad \text{ for all }B(x,r)\subset U.\]
+	\item Assume there exists a point $x_0$ such that $v(x_0) = M = \max_{\conj{U}}v$. Then the subharmonic property of $v$ guarantees that if there exists $r>0$ such that $r<\text{dist}(x,\partial U)$ then
+	\[v(x_0) \leq\dashint_{B(x_0,r)}vdy\]
+	But if $v(x_0)$ is less than or equal to the average of the ball, either there must be a point $x_1\in B(x_0,r)$ such that $M<v(x_1)$ or $v(x) = M$ for all points $x\in B(x_0,r)$. The first cannot happen since we said $M$ was the maximum over $\conj{U}$. Therefore $v(x) = M\quad \forall x\in \conj{U}$. We then know $v$ must be the constant function $v = M$ so
+	\[\max_{\conj{U}}v = \max_{\partial U}v = M.\]
+	The other possibility is that no such $r>0$ exists, meaning $x_0\in \partial U$. In this case we have $x_0\in \partial U$ so we know that $v(x)$ attains the value $M$ on the boundary. Therefore
+	\[\max_{\partial U}v \geq M = \max_{\conj{U}}v.\] 
+	Since $\partial U\subseteq \conj{U}$ we know that 
+	\[\max_{\partial U}v = \max_{\conj{U}}v.\] 
+	\item Using the chain rule, we note that:
+	\[\frac{d^2}{dx^2}\phi(u) = \frac{d}{dx}\left(\phi'(u)u_x\right) = \left(\phi''(u)(u_x)^2 + \phi'(u)u_{xx}\right).\]
+	Therefore,
+	\[\begin{aligned}\Delta\phi(u) &= \sum_{i} \left(\phi''(u)(u_{x_i})^2 + \phi'(u)u_{x_ix_i}\right)\\
+	&= \sum_{i} \left(\phi''(u)(u_{x_i})^2\right) + \phi'(u)\Delta u.\\
+	\end{aligned}\]
+	Since $\Delta u = 0$ (harmonic), $\phi''(u)\geq 0$ (convex), and $u_{x_i}^2\geq 0$, this means that $\Delta\phi(u)\geq 0$. Therefore $-\Delta\phi(u)\leq 0$ and $v=\phi(u)$ must be subharmonic.
+	\item For any directional derivative $\frac{d}{dx_i}$ we have that $\Delta u_{x_i} = \left(\Delta u\right)_{x_i}$. Thus $\Delta(Du) = D(\Delta u) = 0$. Therefore $Du$ is also a harmonic function. However $\phi:\mathbb{R}\rightarrow\mathbb{R}$ via $\phi(x) = \vert x\vert ^2$ is both smooth and convex. Therefore, by part (c), we have that $v:=\vert Du\vert^2$ is subharmonic since it is representable as a smooth convex function from $\mathbb{R}$ to $\mathbb{R}$ of a harmonic function $Du$.
+	
+	
+\end{enumerate}
 
 \subsection*{Problem 6}
 Let $U$ be a bounded open subset of $\mathbb{R}^n$. Prove that there exists a constant $C$, depending only on $U$, such that
@@ -220,7 +210,7 @@ After dividing by $\lambda$, consider the integral on the right hand side restri
 \end{aligned}\]
 where $C$ is a constant based solely on $n$. In the limit of $\lambda\rightarrow 0$, this integral will diverge. Therefore $\lim_{\lambda\rightarrow 0}\frac{u(\lambda e_n)}{\lambda}$ must also diverge and $Du$ must be unbounded in the direction of $e_n$ at $0$.
 \subsection*{Problem 10}
-\begin{enumerate}[a]
+\begin{enumerate}[(a)]
 	\item Let $U^+$ denote the open half-ball $\left\{x\in\mathbb{R}^n \vert \quad \vert x\vert<1,x_n>0\right\}.$ Assume $u\in C(\bar{U}^+)$ is harmonic in $U^+$, with $u=0$ on $\partial U^+\cap \left\{x_n=0\right\}.$ Set
 \[v(x):=\begin{cases}
 u(x) & \text{if } x_n\geq 0\\
@@ -230,7 +220,7 @@ for $x\in U=B^0(0,1)$. Prove $v\in C^2(U)$ and thus $v$ is harmonic in $U$.
 \item Now assume only that $u\in C^2(U^+)\cap C(\overline{U})$. Show that $v$ is harmonic within $U$. (Hint: Use Poisson's formula for the ball.)
 \end{enumerate}
 
-\begin{enumerate}[a]
+\begin{enumerate}[(a)]
 	\item First, $v$ must be $C^2$ anywhere $x_n\neq 0$ since $u$ is harmonic in $U^+$. Therefore we must check that $\lim_{x_n\rightarrow 0}\partial_{x_ix_j} v(x_1,x_2,\dots,x_n)$ is well defined for all $0\leq i,j\leq n$. Since $u = 0$ on $\partial U^+\cap\left\{x_n =0\right\}$, $\partial_{x_ix_j} v(x_1,x_2,\dots,0)=0$ whenever $i\neq n$ and $j\neq n$. Further, since $u$ is harmonic, this implies that $\partial_{x_nx_n} u(x_1,\dots,0) = -\sum_{i=1}^{n-1}\partial_{x_{i}x_{i}} = 0$ and thus $\partial_{x_nx_n} v = 0$. All that is left to check is the partial derivatives when $i=n$ and $j\neq n$. In this case,
 	\[\begin{aligned}
 	\lim_{x_n\rightarrow 0^-}\frac{\partial^2}{\partial x_ix_n}v(x_1,\dots,x_n) &= \lim_{x_n\rightarrow 0^-}\frac{\partial^2}{\partial x_ix_n}\left(-u(x_1,\dots,-x_n)\right)\\
@@ -289,11 +279,11 @@ Finally,
 \end{aligned}\]
 giving us $\Delta\left(u(\overline{x})\vert x\vert^{2-n}\right) = 0$ as desired.
 \subsection*{Problem 12} Suppose $u$ is smooth and solves $u_t - \Delta u = 0$ in $\mathbb{R}^n\times (0,\infty)$.
-\begin{enumerate}[(i)]
+\begin{enumerate}[(a)]
 \item Show $u_\lambda(x,t):=u(\lambda x,\lambda^2 t)$ also solves the heat equation for each $\lambda\in \mathbb{R}$.
 \item Use (i) to show $v(x,t):=x\cdot Du(x,t)+2tu_t(x,t)$ solves the heat equation as well.
 \end{enumerate}
-\begin{enumerate}[(i)]
+\begin{enumerate}[(a)]
 	\item Taking derivatives, we have $\frac{\partial}{\partial t}u_\lambda = \lambda^2u_t(\lambda x,\lambda^2t)$ and $\frac{\partial^2}{\partial x^2}u_\lambda = \lambda^2u_{xx}(\lambda x,\lambda^2 t)$. Therefore
 	\[\frac{\partial}{\partial t} u_\lambda -\Delta u_\lambda = \lambda^2(u_t-\Delta u) = 0.\]
 	\item First consider $\frac{\partial }{\partial \lambda}u_\lambda = xDu(\lambda x,\lambda^2t) + 2t\lambda u_t(\lambda x,\lambda^2t)$. When $\lambda=1$, this gives $\frac{\partial }{\partial \lambda}u_\lambda\vert_{\lambda=1} = xDu(x,t) + 2t u_t( x,t) = v(x,t)$. However, $u$ is smooth, so we may take partials in any order we wish. Therefore
@@ -553,7 +543,7 @@ resulting in
 \end{aligned}\]
 Thus we must have $n=1$ or $n=3$ for both equations to be fulfilled. If $n=1$, then $\alpha = c$ and if $n=3$ then $\alpha = cr^{-1}$. In both cases $\beta = r$.
 
-\subsection*{Problem 21}\begin{enumerate}[a]
+\subsection*{Problem 21}\begin{enumerate}[(a)]
 \item Assume $\textbf{E} = (E^1,E^2,E^3)$ and $\textbf{B} = (B^1,B^2,B^3)$ solve Maxwell's equations (1.2.2). Show
 \[E_{tt} - \Delta E = 0,\quad B_{tt}-\Delta B=0.\]
 \item Assume that $u=(u^1,u^2,u^3)$ solves the evolution equations of linear elasticity \[u_{tt}-\mu\Delta u - (\lambda + \mu)D(\text{div}u)=0\text{ in }\mathbb{R}^3\times(0,\infty).\] Show $w:=\text{div}u$ and $w:=\text{curl}u$ each solve the wave equations but with differing speeds of propagation.
@@ -843,13 +833,19 @@ x(t)=x.
 	Thus, $\frac{dA}{ds} = (D_xb)A$. Plugging this into the above equation gives
 	\[\frac{d}{ds}det(A(s)) = \text{tr}\left(\text{adj}(A)(D_xb)A\right) = \text{tr}\left((A)\text{adj}(A)(D_xb)\right) = \text{tr}\left(\text{det}(A)D_xb\right) = \text{div}bJ.\]
 	Therefore $J_s = \text{div}b(x)J$ as desired.
-	\item Following the hint, consider that
+	\item Following the hint, consider the function $f(s,x,t):=u(x,s)J(s,x,t)$. We have that
 	\[\begin{aligned}
-	\frac{\partial}{\partial s}(u(x,t)J) &= t_su_tJ + \sum_i u_{x^i}x^i_sJ + uJ_s\\
-	&= t_su_tJ + \sum_i u_{x^i}b^iJ + u\text{div}(b)J\\
-	&= \left(t_su_t + \text{div}(ub)\right)J.\\
+	\frac{\partial}{\partial s}(u(x,s)J(s,x,t)) &= u_tJ + \sum_i u_{x^i}x^i_sJ + uJ_s\\
+	&= u_tJ + \sum_i u_{x^i}b^iJ + u\text{div}(b)J\\
+	&= \left(u_t + \text{div}(ub)\right)J.\\
 	\end{aligned}\]
-	Therefore, as long as $t_s=1$, we have that $\frac{\partial}{\partial s}(u(x,t)J) = (u_t+\text{div}(ub))J = 0$. Therefore let $t=s+t_0$ and we have $u(x,s)J(s,x,s) = u(x,0)J(0,x,0) = g(x(0,x,0))$.
+	Therefore, $f(s,x,t)$ is constant with respect to $s$ and we must have
+	\[\begin{aligned}
+	f(t,x,t) &= f(0,x,t)\\
+	u(x,t)J(t,x,t) &= u(x,0)J(0,x,t)\\
+	u(x,t) &= g(x(0,x,t))J(0,x,t)\\
+	\end{aligned}\]
+	as desired since $J(t,x,t) = \text{det }D_x(x) = 1$. 
 \end{enumerate}
 \subsection*{Problem 7} Verify assertion (36) in 3.2.3, that when $\Gamma$ is not flat near $x^0$, the noncharacteristic condition is
 \[D_pF(p^0,z^0,x^0)\cdot\nu(x^0)\neq 0.\]\newpar
