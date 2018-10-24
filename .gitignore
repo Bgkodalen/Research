@@ -7,10 +7,8 @@ __pycache__*
 # Latex documents (sans .tex)
 *.aux
 *.pdf
-*.PNG
 *.bbl
 *.blg
-*Makefile
 
 # Compiled source #
 ###################

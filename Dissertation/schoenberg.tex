@@ -3,7 +3,7 @@ Chapter $\ref{psdcone}$ examined a particular set of matrices in the Bose-Mesner
 In this chapter, we will define the Gegenbauer polynomials and review relevant definitions and theorems. We will then use Sch\"{o}nberg's theorem to provide a general constraint on the krein parameters of any association scheme. We will then examine these conditions more closely in the setting of $Q$-polynomial association schemes where we find three non-trivial constraints. Finally, we will give examples of new parameter sets which are ruled out by these constraints and consider the case of $4$-class $Q$-bipartite association schemes where one constraint in particular greatly restricts the feasible parameter sets. We conclude this section by defining the Gegenbauer polynomials for fixed dimension $m$.\par
 Let $m$ be a fixed positive integer. The Gegenbauer polynomials in dimension $m$ are defined using the three-term recurrence:
 \[\begin{aligned}
-Q_k^m(t) &= \frac{(2k+m-4)tQ_{k-1}(t) - (k-1)Q_{k-2}(t)}{k+m_3} \qquad k\geq 2,\\
+Q_k^m(t) &= \frac{(2k+m-4)tQ_{k-1}(t) - (k-1)Q_{k-2}(t)}{k+m-3} \qquad k\geq 2,\\
 Q^m_0(t) &= 1\qquad Q^m_1(t) = t.
 \end{aligned}\]
 We use these initial polynomials so that $Q^m_i(1) = 1$ for all $i\geq 0$. We will suppress the superscript of $m$ anytime this is clear in the context. The first six Gegenbauer polynomials are as follows,
@@ -18,19 +18,51 @@ Q_5(t)=\frac{(m+6)(m+4)t^5-10(m+4)t^3+15t}{m^2-1}\\
 \begin{figure}[!h]
 	\begin{center}
 		\includegraphics[scale=.4]{gegenbauer_polynomials.PNG}
-		\caption{Gegenbauer polynomials with degree 1 through degree 5 with $m=10$.}\label{gegpic}
+		\caption[Gegenbauer polynomials]{Gegenbauer polynomials with degree 1 through degree 5 with $m=10$.}\label{gegpic}
 	\end{center}
 \end{figure}
+\begin{figure}[!h]
+	\begin{center}
+		\includegraphics[scale=.4]{roots.PNG}
+		\caption[Roots of Gegenbauer polynomials]{Roots of the five Gegenbauer polynomials plotted in Figure \ref{gegpic}.}\label{rootpic}
+	\end{center}
+\end{figure}\par
+These polynomials arise in the context of polynomials on the sphere. To begin, consider the ring $R = \bbR[x_1,\dots,x_m]$ and the following definitions. We say a polynomial $f\in R$ is \emph{homogeneous} if every monomial in $f$ has the same degree. We say $f$ is \emph{harmonic} if $\Delta f = \sum_{i=1}^m\frac{\partial^2 f}{\partial x_i^2} = 0$ where derivatives are defined in the formal sense. Finally, $f$ is \emph{zonal} if there exists some vector $a\in\bbR^m$ and polynomial $g\in\bbR[t]$ such that $f = g\left(\left<a,x\right>\right)$ where $\left<\cdot,\cdot\right>$ is the standard inner product and $x$ is the vector $(x_1,\dots,x_m)$. Now consider the ring homomorphism $\phi:\bbR[x_i,\dots,x_m]\rightarrow\nicefrac{\bbR[x_1,\dots,x_m]}{(x_1^2+\dots+x_m^2-1)}\cong \text{Pol}(S^{m-1})$ via the obvious mapping. We say $f,g\in R$ are equivalent in $\text{Pol}(S^{m-1})$, denoted $f\cong g$, if $\phi(f)=\phi(g)$. We say $f\in R$ is \emph{homogeneous in $\text{Pol}(S^{m-1})$} if there exists some homogeneous polynomial $g\in R$ for which $f\cong g$; we define \emph{harmonic in $\text{Pol}(S^{m-1})$} and \emph{zonal in $\text{Pol}(S^{m-1})$} similarly. 
+\begin{thm}
+	For each $m,i\in\bbZ^+$ and $a\in\bbR^m$, the Gegenbauer polynomial $Q_i^m\left(\left<a,x\right>\right)$ is harmonic, zonal, and homogeneous in $\text{Pol}(S^{m-1})$.
+\end{thm}
+\begin{proof}
+	The zonal condition is satisfied trivially. The other two conditions follow from 
+	\[F(x) \cong \left<x,x\right>^{\lfloor\frac{k+1}{2}\rfloor}Q_k\left(\frac{\left<a,x\right>}{\left<x,x\right>}\right).\]
+\end{proof}
+While we will not prove it here, we note that up to scaling and rotation of the sphere, $Q_i^m$ is the unique degree $i$ polynomial with all three of these properties. We now consider a theorem using these Gegenbauer polynomials which will be of use to us.
 \section{Sch\"{o}nberg's Theorem}\label{schoenberg}
 Let $m$ be a fixed positive integer and $X\subset S^{m-1}$ be a finite set of unit vectors. Let $G_X$ denote the Gram matrix of $X$, then $G_X$ is positive semi-definite ($G_X\succeq 0$). A function $f:[-1,1]\rightarrow\mathbb{R}$ is \textit{positive definite} if, for every such finite subset $X$, $f\circ(G_X)\succeq 0$.
-\begin{thm}[Sch\"{o}nberg \cite{Schoenberg1942}]
-	Let $m\in\mathbb{Z}^+$. A function $f:[-1,1]\rightarrow\mathbb{R}$ is positive definite if and only if $f(t) = \sum_{i} c_iQ_k^m(t)$ for non-negative constants $c_i$.
+\begin{thm}[Sch\"{o}nberg \cite{Schoenberg1942}]\label{schoen}
+	Fix $m\in\mathbb{Z}^+$. A function $f:[-1,1]\rightarrow\mathbb{R}$ is positive definite if and only if $f(t) = \sum_{i} c_iQ_k^m(t)$ for non-negative constants $c_i$.\qed
 \end{thm}
 In particular, this means that $Q_k^m(t)$ is a positive definite function for any choice of $m$ and $k$. This leads to the following corollary,
-\begin{cor}
+\begin{cor}\label{schoen-as}
 	Let $(X,\mathcal{R})$ be an association scheme with minimal idempotents $E_0,\dots,E_d$. Let $0\leq i\leq d$ be given and define $m_i:=\text{rank}\left(E_i\right)$. Then for any choice of $k>0$, there exists non-negative constants $c_j$ for $0\leq j\leq d$ so that
 	\[Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right) = \sum_j c_j E_j.\]
+	Further $c_j$ is an eigenvalue of $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right)$ with multiplicity (at least) $m_j$ and is nonzero only if $E_j$ is contained in the subalgebra generated by $E_i$ using entrywise products.
 \end{cor}
 \begin{proof}
-	Recall that the Bose-Mesner algebra given by $\BMA =\text{span}\left\{E_0,\dots,E_d\right\}$ is closed under entrywise products. Therefore we know that any entrywise polynomial of $E_i$ must be contained within the algebra. Therefore $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right)\in \BMA$ and we may write $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right) = \sum_j c_j E_j$ where each $c_j$ is the eigenvalue of the matrix in the eigenspace given by the idempotent $E_j$. Now, since  $E_i$ is an idempotent matrix with main diagonal given by $\frac{1}{\vert X\vert}Q_{11} = \frac{m_i}{\vert X\vert}$, we know that $\frac{\vert X\vert}{m_i}E_i$ is the Gram matrix of a set of unit vectors in $\mathbb{R}^{m_i}$. Therefore, Theorem \ref{schoenberg} tells us that $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right)$ must be positive semidefinite, telling us that all eigenvalues must be non-negative.
+	Recall that the Bose-Mesner algebra given by $\BMA =\text{span}\left\{E_0,\dots,E_d\right\}$ is closed under entrywise products. Therefore we know that any entrywise polynomial of $E_i$ must be contained within the algebra. Therefore $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right)\in \BMA$ and we may write $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right) = \sum_j c_j E_j$ where each $c_j$ is the eigenvalue of the matrix in the eigenspace given by the idempotent $E_j$. Now, since  $E_i$ is an idempotent matrix with main diagonal given by $\frac{1}{\vert X\vert}Q_{11} = \frac{m_i}{\vert X\vert}$, we know that $\frac{\vert X\vert}{m_i}E_i$ is the Gram matrix of a set of unit vectors in $\mathbb{R}^{m_i}$. Therefore, Theorem \ref{schoenberg} tells us that $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right)$ must be positive semidefinite.
 \end{proof}
+Recall in Chapter \ref{association}, we found matrices $L_0^*,\dots,L_d^*$ with the homomorphism $\phi^*:\BMA\rightarrow\bbL = \left<L_0^*,\dots,L_d^*\right>$ which mapped entrywise products in $\BMA$ to matrix products in $\bbL$. Thus, for any polynomial $f\in\bbR[t]$ we have
+\[\phi^*(f\circ(E_i)) = f(\phi^*(E_i)).\]
+Using this homomorphism, we prove the following theorem.
+\begin{thm}
+	Let $(X,\mathcal{R})$ be an association scheme with krein parameters $\left\{q_{ij}^l\right\}_{0\leq i,j,l\leq d}$. For $0\leq i\leq d$, define $L_i = [q^l_{ij}]_{l,j}$. Let $0\leq i\leq d$ be given and define $m_i:=[L_0]_{i,i}$. Then for any choice of $k>0$, $Q_k^{m_i}\left(\frac{1}{m_i}L_i\right)$ must have only nonnegative entries.
+\end{thm}
+\begin{proof}
+	Apply $\phi^*$ to both sides of the equation \[Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right) = \sum_j c_j E_j\]
+	noting that $q_{ij}^k\geq 0$ for all $0\leq i,j,k\leq d$ and thus each $L_i^*$ is nonnegative.
+\end{proof}
+
+\section{Cometric case}
+In this section, we restrict to the case of cometric association schemes and determine the consequences of Corollary \ref{schoen-as}. Let $(X,\mathcal{R})$ be given and assume there exists a $Q$-polynomial ordering 
+
+
+
