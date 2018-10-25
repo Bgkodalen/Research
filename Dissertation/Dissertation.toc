@@ -2,8 +2,8 @@
 \contentsline {chapter}{\numberline {2}Association schemes}{6}
 \contentsline {chapter}{\numberline {3}PSD cone}{7}
 \contentsline {chapter}{\numberline {4}Polynomial ring of Association schemes}{8}
-\contentsline {section}{\numberline {4.1}Gegenbauer Polynomials}{9}
-\contentsline {section}{\numberline {4.2}Sch\"{o}nberg's Theorem}{11}
+\contentsline {section}{\numberline {4.1}Gegenbauer Polynomials}{10}
+\contentsline {section}{\numberline {4.2}Sch\"{o}nberg's Theorem}{12}
 \contentsline {section}{\numberline {4.3}Cometric case}{13}
 \contentsline {chapter}{\numberline {5}3-class $Q$-antipodal: LSSDs}{14}
 \contentsline {chapter}{\numberline {6}4-class $Q$-bipartite: Double covers of SRGs}{15}
