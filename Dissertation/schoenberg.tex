@@ -7,10 +7,12 @@ Let $f\in\scR$ be given and define the ideal of $f$ as $(f) = \left\{gf:g\in\scR
 \[\text{Pol}(S^{m-1}):= \nicefrac{\scR}{\left(1-\sum_ix_i^2\right)}.\]
 We say a polynomial $f\in\scR$ is \emph{harmonic on the sphere} if there exists a harmonic polynomial $g\in[f]$. Similarly, a polynomial is \emph{homogeneous on the sphere} if there exists a homogeneous polynomial $g\in[f]$. Finally, we say a polynomial $f\in\bbR$ is \emph{zonal} if there exists a vector $a\in \bbR^m$ and a single-variable polynomial $g(t)\in\bbR[t]$ such that $f(x) = g(\left<a,x\right>)$ for all $x\in S^{m-1}$. Note that since $h\in \left(1-\sum_ix_i^2\right)$ implies $h(x) = 0$ for all $x\in S^{m-1}$, this requirement is independent of the representative chosen from the equivalence class.\par
 We now introduce a particular set of polynomials arising from the context of spherical harmonics polynomials. The Gegenbauer polynomials in dimension $m$ are defined using the three-term recurrence:
-\[\begin{aligned}
-Q_k^m(t) &= \frac{(2k+m-4)tQ_{k-1}(t) - (k-1)Q_{k-2}(t)}{k+m-3} \qquad k\geq 2,\\
-Q^m_0(t) &= 1\qquad Q^m_1(t) = t.
-\end{aligned}\]
+\begin{equation}\label{recurrence}
+Q_k^m(t) = \frac{(2k+m-4)tQ_{k-1}(t) - (k-1)Q_{k-2}(t)}{k+m-3} \qquad k\geq 2,
+\end{equation}
+\begin{equation*}
+Q^m_0(t) = 1\qquad Q^m_1(t) = t.
+\end{equation*}
 We use these initial polynomials so that $Q^m_k(1) = 1$ for all $k\geq 0$. We will suppress the superscript $m$ anytime this is clear in the context. The first six Gegenbauer polynomials are as follows,
 \[\begin{aligned}
 &Q_0(t)=1,\qquad
@@ -63,7 +65,12 @@ In particular, this means that $Q_k^m(t)$ is a positive definite function for an
 \begin{proof}
 	Recall that the Bose-Mesner algebra given by $\BMA =\text{span}\left\{E_0,\dots,E_d\right\}$ is closed under entrywise products. Then $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right)\in \BMA$ and we may write $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right) = \sum_j c_j E_j$ where each $c_j$ is the eigenvalue of $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right)$ in the eigenspace given by the idempotent $E_j$. Now recall there exists an algebra isomorphism $\phi^*:\BMA\rightarrow\bbL$ via $\phi^*\left(E_i\right)=\frac{1}{\vert X\vert}L_i^*$ extended linearly with the property that $\phi^*(E_i\circ E_j) = \phi^*(E_i)\phi^*(E_j)$. Applying $\phi^*$ to both sides of equation \ref{entrywiseGeg} gives equation \ref{LGeg}. Now, since $Ann_i$ is defined so that $Ann_i\circ\left(\frac{\vert X\vert}{m_i}E_i\right) = 0$, we again use $\phi^*$ to find that $Ann_i\left(\frac{1}{m_i}L_i^*\right) = 0$. Thus any polynomial $f_k^{m_i}$ for which $f_k^{m_i}(x) - Q_k^{m_i}(x)\in\left(Ann_i\right)$ will satisfy $f_k^{m_i}\left(\frac{1}{m_i}L_i^*\right) = Q_k^{m_i}\left(\frac{1}{m_i}L_i^*\right)$, giving equation \ref{redGeg}. Finally, since $E_i$ is an idempotent matrix with constant main diagonal entries given by $\frac{1}{\vert X\vert}Q_{0i} = \frac{m_i}{\vert X\vert}$, we know that $\frac{\vert X\vert}{m_i}E_i$ is the Gram matrix of a set of points in $S^{m_i-1}$. Therefore, Theorem~\ref{schoenthm} tells us that $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right)$ must be positive semidefinite.
 \end{proof}
-
+While each of these equations are important for different reasons, we will focus first on equation \ref{LGeg}. From \ref{kreinidentities} we know that for each $0\leq i\leq d$, $[L_i^*]_{j,0} = \delta_{i,j}$. Therefore let $C_k$ be column 0 of $Q_k^{m_i}\left(\frac{1}{m_i}L_i^*\right)$. Then from the RHS of equation \ref{LGeg}, we have $C_k = \frac{1}{\vert X\vert}[c_0,c_1,\dots,c_d]^T$. Using the recurrence relation defined in equation \ref{recurrence}, we find that:
+\[C_k = \frac{\frac{(2k+m-4)}{m}L_i^*C_{k-1} - (k-1)C_{k-2}}{k+m-3}\]
+\[mr_k = \frac{(2k+m-4)r_{k-1}L_i^* - (k-1)mr_{k-2}}{k+m-3}\]
+\[mr_k = r_{k-1}L_i^*- (k-1)r_{k-2} + \frac{(k-1)r_{k-1}L_i^*+(k-1)(k-3)r_{k-2}}{k+m-3}\]
+\[m\vec{c}_k = \vec{c}_{k-1}L_i^* + \frac{(k-1)(\vec{c}_{k-1}L_i^* - m\vec{c}_{k-2})}{k+m-3}\]
+\[m\vec{c}_k = \vec{c}_{k-1}L_i^* + \frac{(k-1)(\vec{c}_{k-1}L_i^* - m\vec{c}_{k-2})}{k+m-3}\]
 
 \section{Cometric case}
 In this section, we restrict to the case of cometric association schemes and determine the consequences of Theorem \ref{schoen-as}. Let $(X,\mathcal{R})$ be given and assume there exists a $Q$-polynomial ordering 
