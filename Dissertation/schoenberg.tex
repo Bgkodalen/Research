@@ -152,16 +152,30 @@ Using our definition of $\mu$, we then have
 k &= \frac{\lambda^2(m-2)}{2\left(\pm\sqrt{1-\lambda^2}-(1-\lambda^2)\right)}+m-1
 \end{aligned}\]
 Since $k$ must be an integer, we do not expect this to happen. This leads to the following lemma. We do need to be careful here, but I expect a proof of this to come relatively easily (or perhaps a statement that it doesnt matter).[TODO]\par
+%%% Claims
+\begin{lem}
+	Let $P$ be the first eigenmatrix of an association scheme with multiplicities $1,m_1,m_2,\dots,m_d$. Define \[\Delta^{\frac{1}{2}} = \left[\begin{array}{cccc}
+	1 & 0 & \dots & 0\\
+	0 & \sqrt{m_1}  & \dots & 0\\
+	\vdots & \vdots  & \ddots & \vdots\\
+	0 & 0 & \dots & \sqrt{m_d}\\
+	\end{array}\right].\]
+	Then for distinct columns $p_i$ and $p_j$ of $P$,
+	\[\left<\Delta^{\frac{1}{2}}p_i,\Delta^{\frac{1}{2}}p_j\right>= 0\]
+\end{lem}
+\begin{lem}
+	Let 
+	\[\delta = \left[\begin{array}{>{\centering\arraybackslash}p{3cm};{2pt/2pt}>{\centering\arraybackslash}p{3cm}}
+	$\Delta^\frac{1}{2}$ & $0$\\\hdashline[2pt/2pt]
+	$0$ & $\Delta^\frac{1}{2}$
+	\end{array}\right].\]
+	Then for eigenvectors $v_{\lambda}$, $v_{\eta}$ with $\lambda\neq \eta$ we have 
+	\[\left<\delta v_\lambda,\delta v_\eta\right> = 0.\]
+\end{lem}
 
-Therefore, as shown in the above cases, as long as $(1+\mu_k)^2\lambda^2-4\mu_k\neq0$, then every eigenvalue $\phi\neq 1$ of $B_k$ is bounded above by the second largest eigenvalue of $\frac{1}{m_i}L_i^*$ in absolute value. Further, the eigenvalue $1$ has multiplicity $1$ with eigenvector $\ones$. Now recall that the eigenvectors of $\frac{1}{m_i}L_i^*$ are the columns of $P$, the first eigenmatrix of our association scheme. Further, we have the property that for any $1\leq i\leq d$, the $i^\text{th}$ column of $P$ is orthogonal to the vector $\vec{m} = [1,m_1,\dots,m_d]$. Define 
-\[\Delta^{\frac{1}{2}} = \left[\begin{array}{cccc}
-1 & 0 & \dots & 0\\
-0 & \sqrt{m_1}  & \dots & 0\\
-\vdots & \vdots  & \ddots & \vdots\\
-0 & 0 & \dots & \sqrt{m_d}\\
-\end{array}\right] \]
-Then we have
-\[\left(\Delta^\frac{1}{2}y_k\right) = \Delta^\frac{1}{2}B_k\left(\Delta^\frac{1}{2}\right)^{-1}\left(\Delta^\frac{1}{2}y_{k-1}\right)\]
+\begin{thm}
+	We may bound the degree of Gegenbauer polynomials which give us nontrivial constraints using Rayleigh quotients.
+\end{thm}
 
 \section{Cometric case}
 In this section, we restrict to the case of cometric association schemes and determine the consequences of Theorem \ref{schoen-as}. Let $(X,\mathcal{R})$ be given and assume there exists a $Q$-polynomial ordering 
