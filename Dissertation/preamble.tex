@@ -12,6 +12,11 @@
 \usepackage{bbm}
 
 \usepackage{showlabels}
+\usepackage{thmtools}
+\usepackage{thm-restate}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{comment}
 
 
 
@@ -52,6 +57,8 @@
 
 \newcommand{\dash}{\hdashline[2pt/2pt]}
 
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
 \graphicspath{{Figures/}}
 
 \DeclareMathOperator{\tr}{tr}
@@ -68,6 +75,8 @@
 }
 
 
+
+\newtheorem*{thm*}{Theorem}
 \newtheorem{thm}{Theorem}[chapter]
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{prop}[thm]{Proposition}
