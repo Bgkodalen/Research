@@ -93,23 +93,46 @@ Recall from \ref{kreinidentities} that for each $0\leq i\leq d$, $q^j_{j0} = \de
 \end{equation}
 where the entries of $\vert X\vert \vec{c}_k$ are the eigenvalues of $Q_{k}^{m_i}\left(\frac{\vert X\vert}{m_i}E_i\right)$. Since $Q_0^m\left(\frac{\vert X\vert}{m_i}E_i\right) = J$ and $Q_1^m\left(\frac{\vert X\vert}{m_i}E_i\right) = \frac{\vert X\vert}{m_i}E_i$, we know that
 \begin{equation*}
-\vec{c}_0(t) = \vec{e}_0\qquad \vec{c}_1(t) = \frac{1}{m_i}\vec{e}_i
+\vec{c}_0 = \vec{e}_0\qquad \vec{c}_1 = \frac{1}{m_i}\vec{e}_i
 \end{equation*}
-where $\vec{e}_i$ is the $i^\text{th}$ standard basis vector. We now define new vectors for which the recurrence relation becomes linear. Let 
+where $\vec{e}_i$ is the $i^\text{th}$ standard basis vector. While these vectors have a convenient relation with the matrices in equation \eqref{LGeg}, we will find it convenient to instead consider the vectors $\vec{b}_k = \sqrt{\Delta_m}\vec{c}_k$ where $\sqrt{\Delta_m}$ is the diagonal matrix with $i^\text{th}$ diagonal entry $\sqrt{m_i}$. This transformation turns our recurrence relation into:
+\begin{equation}\label{brec}
+\vec{b}_k = \frac{(2k+m_i-4)M\vec{b}_{k-1} - (k-1)\vec{b}_{k-2}}{k+m-3} \qquad k\geq 2,
+\end{equation}
+where $M = \frac{1}{m_i}\sqrt{\Delta_m}L_i^*\left(\sqrt{\Delta_m}\right)^{-1}$. We also have the initial conditions
+\begin{equation*}
+\vec{b}_0 = \vec{e}_0\qquad \vec{b}_1 = \frac{1}{\sqrt{m_i}}\vec{e}_i.
+\end{equation*}
+Before moving on, we prove a lemma concerning $M$ which was the motivation for making this transformation.
+\begin{lem}\label{Mmat}
+	Let $M = \frac{1}{m_i}\sqrt{\Delta_m}L_i^*\left(\sqrt{\Delta_m}\right)^{-1}$. Then the vectors $\left\{\vec{p}_0,\vec{p}_1,\dots,\vec{p}_d\right\}$ with
+	\[p_j = \left[\begin{array}{c}
+	P_{0j}\\
+	\sqrt{m_1}P_{1j}\\
+	\vdots\\
+	\sqrt{m_d}P_{dj}\\
+	\end{array}\right]\]
+	serve as an orthogonal set of eigenvectors for $M$ with corresponding eigenvalues $\frac{Q_{0i}}{m_i},\frac{Q_{1i}}{m_i},\dots,\frac{Q_{di}}{m_i}$.
+\end{lem}
+\begin{proof}
+First recall that the eigenvectors of $L_i^*$ are the columns of $P$ with eigenvalues $Q_{0i},Q_{1i},\dots,Q_{di}$. Since we are conjugating by an invertible matrix, we have the eigenvectors of $M$ are the columns of $\sqrt{\Delta_m}P$ with the eigenvalues scaled by our constant $\frac{1}{m_i}$. Now, using our orthogonality relations, we have that $\Delta_m P = Q^T \Delta_v$ and $PQ = \vert X\vert I$. Therefore
+\[\left(\sqrt{\Delta_m}P\right)^T\left(\sqrt{\Delta_m}P\right) = P^T\Delta_mP = P^TQ^T\Delta_v = \vert X\vert\Delta_v.\]
+\end{proof}
+Now that we have an orthogonal set of eigenvectors, we define a final set of vectors for which the recurrence relation becomes linear. Let 
 \begin{equation}\label{tkdef}\mu_k = \frac{k-1}{k+m-3};\qquad \vec{y}_k = \left[\begin{array}{c}
-\vec{c}_{k}\\\hdashline[2pt/2pt]
-\vec{c}_{k-1}
+\vec{b}_{k}\\\hdashline[2pt/2pt]
+\vec{b}_{k-1}
 \end{array}\right];\qquad T_k = \left[\begin{array}{>{\centering\arraybackslash}p{3cm};{2pt/2pt}>{\centering\arraybackslash}p{3cm}}
- $(1+\mu_k)\frac{1}{m}L_i^*$ & $-\mu_k I$\\\hdashline[2pt/2pt]
+ $(1+\mu_k)M$ & $-\mu_k I$\\\hdashline[2pt/2pt]
 $I$ & $0$
 \end{array}\right].\end{equation}
 Then we have
 \begin{equation}\label{yrec}
 	\vec{y}_k = T_k\vec{y}_{k-1}.
 \end{equation}
-While $T_k$ will change as we iterate through $k$, we may find some common properties amoung the eigenvalues and eigenvectors of $T_k$ for all values of $k$. We will prove a few lemmas which work towards Theorem \ref{degreebound}.
+While $T_k$ will change as we iterate through $k$, we find some common properties among the eigenvalues and eigenvectors of $T_k$ for all values of $k$. We will prove a few lemmas which work towards Theorem \ref{degreebound}.
 \begin{lem}\label{Tkeig}
-	Let $(\lambda,\vec{v})$ be an eigenpair of $\frac{1}{m_i}L_i^*$. Define $\left\{\eta_\lambda^+,\eta_\lambda^-\right\}$ be the two roots of the quadratic equation $\eta^2-(1+\mu_k)\lambda\eta +\mu_k=0$. If $\eta_\lambda^+\neq\eta_\lambda^-$ then both
+	Let $(\lambda,\vec{v})$ be an eigenpair of $M$. Define $\left\{\eta_\lambda^+,\eta_\lambda^-\right\}$ be the two roots of the quadratic equation $\eta^2-(1+\mu_k)\lambda\eta +\mu_k=0$. If $\eta_\lambda^+\neq\eta_\lambda^-$ then both
 	$\left(\eta_\lambda^+,\left[\begin{array}{c}
 	\eta_\lambda^+\vec{v}\\\hdashline[2pt/2pt]
 	\vec{v}
@@ -126,12 +149,12 @@ While $T_k$ will change as we iterate through $k$, we may find some common prope
 	\end{array}\right]\right)$
 \end{lem}
 \begin{proof}
-	Let $\frac{1}{m}L_i^* \vec{v} = \lambda\vec{v}$. Let $\eta$ be given so that $\eta^2-(1+\mu_k)\lambda\eta +\mu_k=0$. Then,
+	Let $M \vec{v} = \lambda\vec{v}$ and let $\eta$ be given so that $\eta^2-(1+\mu_k)\lambda\eta +\mu_k=0$. Then,
 	\[T_k\left[\begin{array}{c}
 	\eta \vec{v}\\\hdashline[2pt/2pt]
 	\vec{v}
 	\end{array}\right] = \left[\begin{array}{c}
-	(1+\mu_k)\frac{1}{m_i}L_i^*(\eta \vec{v}) - \mu \vec{v}\\\hdashline[2pt/2pt]
+	(1+\mu_k)M(\eta \vec{v}) - \mu \vec{v}\\\hdashline[2pt/2pt]
 	\eta \vec{v}
 	\end{array}\right] = \left[\begin{array}{c}
 	\left((1+\mu_k)\lambda\eta - \mu_k\right) \vec{v}\\\hdashline[2pt/2pt]
@@ -180,7 +203,42 @@ While $T_k$ will change as we iterate through $k$, we may find some common prope
 	\vec{0}
 	\end{array}\right]$ is a generalized eigenvector. Note that the restriction $(1+\mu_k)\lambda^2-4\mu_k=0$ is quite strong and requires that $k = \frac{\lambda^2(m-2)}{2\left(\pm\sqrt{1-\lambda^2}-(1-\lambda^2)\right)}+m-1$. Since $k$ is a positive integer, this means that $\frac{\lambda^2(m-2)}{2\left(\pm\sqrt{1-\lambda^2}-(1-\lambda^2)\right)}\in\bbZ$. Thus we can check ahead of time if this case will ever arise.
 \end{proof}
-Lemma \ref{Tkeig} gives a complete description of the eigenspaces of our transition matrix $T_k$ since we know $\frac{1}{m_i}L_i^*$ is diagonalizable using the columns of $P$, the first eigenmatrix of our association scheme as eigenvectors. This allows us to understand much better how $T_k$ will change our vectors $y_k$. Our next lemma bounds the spectrum of $T_k$ and describes where key eigenvalues arise.
+Lemma \ref{Tkeig} gives a complete description of the eigenspaces of our transition matrix $T_k$ since we know $M$ is diagonalizable with orthogonal eigenvectors and thus the eigenvectors of $T_k$ may be split into pairs where vectors from distinct pairs are orthogonal to each other. Our next lemma examines one pair and bounds the action of $T_k$ on that subspace.
+\begin{lem}
+	Let $\left(\lambda,\vec{p}\right)$ be an eigenpair of $M$ and assume that $(1+\mu_k)^2\lambda^2-4\mu_k>0$ and thus $\eta^2-(1+\mu_k)\lambda\eta + \mu_k$ has two distinct real roots. Then, let $\left(\eta^+, \vec{v}^+\right)$ and $\left(\eta^-,v^-\right)$ be the two eigenpairs of $T_k$ arising from $\lambda$ as described in Lemma \ref{Tkeig}. Let $v = \left[\begin{array}{c}
+	a\vec{p}\\\hdashline[2pt/2pt]
+	b\vec{p}
+	\end{array}\right]$. Then $\vert\frac{(1+\mu)\lambda}{2}\vert\leq \vert\frac{a}{b}\vert\leq\vert\lambda\vert$ implies $\vert\vert T_k v\vert\vert_2\leq \vert \lambda\vert\cdot\vert\vert v\vert\vert_2$.
+\end{lem}
+\begin{proof}
+	We begin by noting that since our operator $T_k$ is linear, we may assume without loss of generality that $b=1$ and $\vert\vert\vec{p}\vert\vert_2 = 1$. Next, we know from Lemma \ref{Tkeig} that 
+	\[v^+ = \left[\begin{array}{c}
+	\eta^+ \vec{p}\\\hdashline[2pt/2pt]
+	\vec{p}
+	\end{array}\right];\qquad v^-=\left[\begin{array}{c}
+	\eta^- \vec{p}\\\hdashline[2pt/2pt]
+	\vec{p}
+	\end{array}\right]\]
+	and therefore $v = \left(\frac{\eta^--a}{\eta^--\eta^+}\right)v^+ + \left(\frac{a-\eta^+}{\eta^--\eta^+}\right)v^-$. We may then calculate $T_k v$ explicitly giving
+	\[T_k v = \left(\frac{\eta^--a}{\eta^--\eta^+}\right)\eta^+v^+ + \left(\frac{a-\eta^+}{\eta^--\eta^+}\right)\eta^-v^- = \left[\begin{array}{c}
+	\beta \vec{p}\\\hdashline[2pt/2pt]
+	a\vec{p}
+	\end{array}\right]\]
+	where $\beta = \left(\frac{\eta^--a}{\eta^--\eta^+}\right)\left(\eta^+\right)^2 + \left(\frac{a-\eta^+}{\eta^--\eta^+}\right)\left(\eta^-\right)^2$. Thus,
+	\[\begin{aligned}\vert\vert T_k v\vert\vert^2_2 &= \beta^2+a^2\\
+	&=\frac{\left(\eta^--a\right)^2\left(\eta^+\right)^4 + \left(\eta^+\eta^-\right)^2\left(\eta^--a\right)\left(a-\eta^+\right) +\left(a-\eta^+\right)^2\left(\eta^-\right)^4}{\left(\eta^--\eta^+\right)^2}\\
+	&=\left(\left(\eta^-+\eta^+\right)^2+1\right)a^2 - 2\eta^-\eta^+\left(\eta^-+\eta^+\right)a + \left(\eta^-\eta^+\right)^2\\
+	&=\left((1+\mu)^2\lambda^2+1\right)a^2 - 2\mu(1+\mu)\lambda a + \mu^2\\
+	&=\left(\left(\mu(2+\mu)\lambda^2+1\right)a^2 - 2\mu(1+\mu)\lambda a + (\mu^2-\lambda^2)\right)+\lambda^2(a^2+1)\end{aligned}\]
+	Note however that we assumed $(1+\mu_k)^2\lambda^2-4\mu_k>0$ and thus
+	\[\begin{aligned}\left(\mu(2+\mu)\lambda^2+1\right)a^2 - 2\mu(1+\mu)\lambda a + (\mu^2-\lambda^2)&\leq \left(\mu(2+\mu)\lambda^2\right)a^2 - 2\mu(1+\mu)\lambda a + \mu^2+(a^2-\lambda^2)\\
+	&<0
+	\end{aligned}\]
+	for $0<\vert a\vert<\vert \lambda\vert$. (This is HW; pretty sure its true).\par
+	One may show that
+\end{proof}
+
+Our next lemma bounds the spectrum of $T_k$ and describes where key eigenvalues arise.
 \begin{lem}\ref{Tkspec} Let $k>0$ be given. Let $\lambda$ be an eigenvalue of $\frac{1}{m_i}L_i^*$ and assume $\eta$ solves the equation $\eta^2-(1+\mu_k)\lambda\eta +\mu_k=0$. If $\mu_k\leq\frac{2(1-\lambda^2)}{\lambda^2}$, then $\vert \eta\vert\leq \max\left\{\vert\lambda\vert,\mu_k\right\}$.
 \end{lem}
 \begin{proof}
