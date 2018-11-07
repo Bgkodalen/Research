@@ -180,7 +180,7 @@ While $T_k$ will change as we iterate through $k$, we find some common propertie
 	\vec{v}\\\hdashline[2pt/2pt]
 	\vec{0}
 	\end{array}\right] = \left[\begin{array}{c}
-	(1+\mu_k)\frac{1}{m_i}L_i^*( \vec{v})\\\hdashline[2pt/2pt]
+	(1+\mu_k)M(\vec{v})\\\hdashline[2pt/2pt]
 	\vec{v}
 	\end{array}\right]= \left[\begin{array}{c}
 	(1+\mu_k)\lambda\vec{v}\\\hdashline[2pt/2pt]
@@ -204,39 +204,89 @@ While $T_k$ will change as we iterate through $k$, we find some common propertie
 	\end{array}\right]$ is a generalized eigenvector. Note that the restriction $(1+\mu_k)\lambda^2-4\mu_k=0$ is quite strong and requires that $k = \frac{\lambda^2(m-2)}{2\left(\pm\sqrt{1-\lambda^2}-(1-\lambda^2)\right)}+m-1$. Since $k$ is a positive integer, this means that $\frac{\lambda^2(m-2)}{2\left(\pm\sqrt{1-\lambda^2}-(1-\lambda^2)\right)}\in\bbZ$. Thus we can check ahead of time if this case will ever arise.
 \end{proof}
 Lemma \ref{Tkeig} gives a complete description of the eigenspaces of our transition matrix $T_k$ since we know $M$ is diagonalizable with orthogonal eigenvectors and thus the eigenvectors of $T_k$ may be split into pairs where vectors from distinct pairs are orthogonal to each other. Our next lemma examines one pair and bounds the action of $T_k$ on that subspace.
-\begin{lem}
-	Let $\left(\lambda,\vec{p}\right)$ be an eigenpair of $M$ and assume that $(1+\mu_k)^2\lambda^2-4\mu_k>0$ and thus $\eta^2-(1+\mu_k)\lambda\eta + \mu_k$ has two distinct real roots. Then, let $\left(\eta^+, \vec{v}^+\right)$ and $\left(\eta^-,v^-\right)$ be the two eigenpairs of $T_k$ arising from $\lambda$ as described in Lemma \ref{Tkeig}. Let $v = \left[\begin{array}{c}
+\newpage
+\begin{lem}\label{singleroot}
+	Let $\left(\lambda,\vec{p}\right)$ be an eigenpair of $M$ and assume that $(1+\mu_k)^2\lambda^2-4\mu_k>0$ and thus $x^2-(1+\mu_k)\lambda x + \mu_k$ has two distinct real roots. Let $\vec{v} = \left[\begin{array}{c}
 	a\vec{p}\\\hdashline[2pt/2pt]
 	b\vec{p}
-	\end{array}\right]$. Then $\vert\frac{(1+\mu)\lambda}{2}\vert\leq \vert\frac{a}{b}\vert\leq\vert\lambda\vert$ implies $\vert\vert T_k v\vert\vert_2\leq \vert \lambda\vert\cdot\vert\vert v\vert\vert_2$.
+	\end{array}\right]$ for $b>0$. Then $\lambda a\geq0$ and $\vert\frac{a}{b}\vert\leq\vert\lambda\vert\leq 1$ together imply $\vert\vert T_k \vec{v}\vert\vert_2\leq \vert \lambda\vert\cdot\vert\vert \vec{v}\vert\vert_2$.
 \end{lem}
 \begin{proof}
-	We begin by noting that since our operator $T_k$ is linear, we may assume without loss of generality that $b=1$ and $\vert\vert\vec{p}\vert\vert_2 = 1$. Next, we know from Lemma \ref{Tkeig} that 
-	\[v^+ = \left[\begin{array}{c}
+	We begin by noting that since our operator $T_k$ is linear, we may assume without loss of generality that $b=1$ and $\vert\vert\vec{p}\vert\vert_2 = 1$. Next, as in Lemma \ref{Tkeig}, define $\eta^+$ and $\eta^-$ to be the two roots of the polynomial $x^2-(1+\mu_k)\lambda x + \mu_k$, giving corresponding eigenvectors 
+	\[\vec{v}^+ = \left[\begin{array}{c}
 	\eta^+ \vec{p}\\\hdashline[2pt/2pt]
 	\vec{p}
-	\end{array}\right];\qquad v^-=\left[\begin{array}{c}
+	\end{array}\right];\qquad \vec{v}^-=\left[\begin{array}{c}
 	\eta^- \vec{p}\\\hdashline[2pt/2pt]
 	\vec{p}
-	\end{array}\right]\]
-	and therefore $v = \left(\frac{\eta^--a}{\eta^--\eta^+}\right)v^+ + \left(\frac{a-\eta^+}{\eta^--\eta^+}\right)v^-$. We may then calculate $T_k v$ explicitly giving
-	\[T_k v = \left(\frac{\eta^--a}{\eta^--\eta^+}\right)\eta^+v^+ + \left(\frac{a-\eta^+}{\eta^--\eta^+}\right)\eta^-v^- = \left[\begin{array}{c}
+	\end{array}\right].\]
+	Note as well that this implies $\eta^++\eta^-=(1+\mu_k)\lambda$ and $\eta^+\eta^- = \mu_k$. Using these definitions for $\vec{v}^+$ and $\vec{v}^-$, we find $\vec{v} = \left(\frac{\eta^--a}{\eta^--\eta^+}\right)\vec{v}^+ + \left(\frac{a-\eta^+}{\eta^--\eta^+}\right)\vec{v}^-$. We may then calculate $T_k v$ explicitly giving
+	\[T_k \vec{v} = \left(\frac{\eta^--a}{\eta^--\eta^+}\right)\eta^+\vec{v}^+ + \left(\frac{a-\eta^+}{\eta^--\eta^+}\right)\eta^-\vec{v}^- = \left[\begin{array}{c}
 	\beta \vec{p}\\\hdashline[2pt/2pt]
 	a\vec{p}
 	\end{array}\right]\]
 	where $\beta = \left(\frac{\eta^--a}{\eta^--\eta^+}\right)\left(\eta^+\right)^2 + \left(\frac{a-\eta^+}{\eta^--\eta^+}\right)\left(\eta^-\right)^2$. Thus,
-	\[\begin{aligned}\vert\vert T_k v\vert\vert^2_2 &= \beta^2+a^2\\
-	&=\frac{\left(\eta^--a\right)^2\left(\eta^+\right)^4 + \left(\eta^+\eta^-\right)^2\left(\eta^--a\right)\left(a-\eta^+\right) +\left(a-\eta^+\right)^2\left(\eta^-\right)^4}{\left(\eta^--\eta^+\right)^2}\\
+	\[\begin{aligned}\vert\vert T_k \vec{v}\vert\vert^2_2 &= \beta^2+a^2\\
+	&=\frac{\left(\eta^--a\right)^2\left(\eta^+\right)^4 + \left(\eta^+\eta^-\right)^2\left(\eta^--a\right)\left(a-\eta^+\right) +\left(a-\eta^+\right)^2\left(\eta^-\right)^4}{\left(\eta^--\eta^+\right)^2}+a^2\\
 	&=\left(\left(\eta^-+\eta^+\right)^2+1\right)a^2 - 2\eta^-\eta^+\left(\eta^-+\eta^+\right)a + \left(\eta^-\eta^+\right)^2\\
-	&=\left((1+\mu)^2\lambda^2+1\right)a^2 - 2\mu(1+\mu)\lambda a + \mu^2\\
-	&=\left(\left(\mu(2+\mu)\lambda^2+1\right)a^2 - 2\mu(1+\mu)\lambda a + (\mu^2-\lambda^2)\right)+\lambda^2(a^2+1)\end{aligned}\]
-	Note however that we assumed $(1+\mu_k)^2\lambda^2-4\mu_k>0$ and thus
-	\[\begin{aligned}\left(\mu(2+\mu)\lambda^2+1\right)a^2 - 2\mu(1+\mu)\lambda a + (\mu^2-\lambda^2)&\leq \left(\mu(2+\mu)\lambda^2\right)a^2 - 2\mu(1+\mu)\lambda a + \mu^2+(a^2-\lambda^2)\\
-	&<0
-	\end{aligned}\]
-	for $0<\vert a\vert<\vert \lambda\vert$. (This is HW; pretty sure its true).\par
-	One may show that
+	&=\left((1+\mu_k)^2\lambda^2+1\right)a^2 - 2\mu_k(1+\mu_k)\lambda a + \mu_k^2\\
+	&=\left[(\lambda a-1)^2\mu_k^2 + 2\lambda a(\lambda a-1)\mu+a^2-\lambda^2\right]+\lambda^2(a^2+1)\end{aligned}\]
+	The roots of the bracketed polynomial are
+	\[\mu_k = \frac{\lambda a \pm \sqrt{a^2(\lambda^2-1)+\lambda^2}}{1-\lambda a}.\]
+	Note however that we assumed $(1+\mu_k)^2\lambda^2-4\mu_k>0$ and thus we know
+	\[\mu_k\leq \frac{2(1-\sqrt{1-\lambda^2})-\lambda^2 }{\lambda^2}\qquad\text{ or }\qquad\mu_k\geq \frac{2(1+\sqrt{1-\lambda^2})-\lambda^2 }{\lambda^2}.\]
+	The condition on the right is impossible since $0<\mu_k<1$ and therefore all that remains to show is the right most inequality of 
+	\[\frac{\lambda a -\sqrt{\lambda^2 a^2-a^2+\lambda^2}}{1-\lambda a}\leq 0\leq\mu_k\leq \frac{2(1-\sqrt{1-\lambda^2})-\lambda^2 }{\lambda^2}\leq\frac{\lambda a + \sqrt{a^2(\lambda^2-1)+\lambda^2}}{1-\lambda a}\]
+	whenever $\vert a\vert<\vert \lambda\vert$. To show this, note that
+	\[\frac{2(1-\sqrt{1-\lambda^2})-\lambda^2}{\lambda^2}\leq\lambda^2\leq\sqrt{a^2(\lambda^2-1)+\lambda^2}\leq\frac{\lambda a+\sqrt{a^2(\lambda^2-1)+\lambda^2}}{1-\lambda a}\]
+	when $\vert \lambda\vert\leq 1$. Since $\mu_k$ is bounded between the roots of $(\lambda a-1)^2\mu_k^2 + 2\lambda a(\lambda a-1)\mu_k+a^2-\lambda^2$, we know that $(\lambda a-1)^2\mu_k^2 + 2\lambda a(\lambda a-1)\mu_k+a^2-\lambda^2\leq 0$ giving
+	\[\vert\vert T_k \vec{v}\vert\vert^2_2\leq \lambda^2(a^2+1) = \lambda^2\vert\vert \vec{v}\vert\vert^2_2\]
+	as desired.
 \end{proof}
+\begin{lem}\label{doubleroot}
+	Let $\left(\lambda,\vec{p}\right)$ be an eigenpair of $M$ and assume that $(1+\mu_k)^2\lambda^2-4\mu_k=0$ and thus $x^2-(1+\mu_k)\lambda x + \mu_k$ has a double root. Let $\vec{v} = \left[\begin{array}{c}
+	a\vec{p}\\\hdashline[2pt/2pt]
+	b\vec{p}
+	\end{array}\right]$ for $b>0$. Then $\lambda a\geq0$ and $\vert\frac{a}{b}\vert\leq\vert\lambda\vert\leq 1$ together imply $\vert\vert T_k \vec{v}\vert\vert_2\leq \vert \lambda\vert\cdot\vert\vert \vec{v}\vert\vert_2$.
+\end{lem}
+\begin{proof}
+	As with our previous lemma, we assume without loss of generality that $b=1$ and $\vert\vert\vec{p}\vert\vert_2 = 1$. Next, as in Lemma \ref{Tkeig}, define $\eta = \frac{(1+\mu_k)\lambda}{2}$ to be the double root of $x^2-(1+\mu_k)\lambda x + \mu_k$, giving eigenvector and generalized eigenvector
+	\[\vec{w} = \left[\begin{array}{c}
+	\eta \vec{p}\\\hdashline[2pt/2pt]
+	\vec{p}
+	\end{array}\right];\qquad \vec{w}^*=\left[\begin{array}{c}
+	\vec{p}\\\hdashline[2pt/2pt]
+	\vec{0}
+	\end{array}\right].\]
+	Then $\vec{v} = \vec{w} + \left(a-\eta\right)\vec{w}^*$ and thus $T_k\vec{v} =  a\vec{w} + \eta\left(a-\eta\right)\vec{w}^* = \left[\begin{array}{c}
+	(2a-\eta)\eta\vec{p}\\\hdashline[2pt/2pt]
+	a\vec{p}
+	\end{array}\right].$
+	Therefore
+	\[\begin{aligned}\vert\vert T_k\vec{v}\vert\vert_2^2 &= (2a-\eta)^2\eta^2 + a^2\\
+	&=(4a^2-2a(1+\mu_k)\lambda + \mu_k)\mu_k+a^2\\
+	&=(1+\mu_k)^2\lambda^2a^2-2a(1+\mu_k)\lambda\mu_k+\mu_k^2+a^2\\
+	&=\left[(\lambda a-1)^2\mu^2 + 2\lambda a(\lambda a-1)\mu+ a^2-\lambda^2\right] + \lambda^2(1+a^2)
+	\end{aligned}\]
+	giving $\vert \vert T_k \vec{v}\vert\vert_2^2\leq \vert\lambda\vert^2\vert\vert\vec{v}\vert\vert_2^2$ as before.
+\end{proof}
+\begin{lem}\label{complexroot}
+	Let $\left(\lambda,\vec{p}\right)$ be an eigenpair of $M$ and assume that $(1+\mu_k)^2\lambda^2-4\mu_k<0$ and thus $x^2-(1+\mu_k)\lambda x + \mu_k$ has complex roots. Let $\vec{v} = \left[\begin{array}{c}
+	a\vec{p}\\\hdashline[2pt/2pt]
+	b\vec{p}
+	\end{array}\right]$ for $b>0$. $\vert\vert T_k \vec{v}\vert\vert_2=\sqrt{\mu_k}\cdot\vert\vert \vec{v}\vert\vert_2$.
+\end{lem}
+\begin{proof}
+	Let $\eta^+$ and $\eta^-$ be the two complex roots of $x^2-(1+\mu_k)\lambda x + \mu_k$. Then $\vert\eta^+\vert = \vert\eta^-\vert = \sqrt{\eta^+\eta^-} = \sqrt{\mu_k}$. Therefore every vector in this eigenspace is rotated and scaled down by a factor of $\sqrt{\mu_k}$.
+\end{proof}
+\begin{thm}
+	Let $(X,\mathcal{R})$ be an association scheme with first and second eigenmatrices $P$ and $Q$. Let $0\leq i\leq d$ be given and let $1 = \lambda_0,\lambda_1,\dots,\lambda_d\geq -1$ be the values so that $E_i = \frac{m_i}{\vert X\vert}\sum_j\lambda_jA_j$. Let $v_j$ be the valency of the $j^\text{th}$ relation. Define $k^*$ to be the smallest integer such that
+	\[\sum_{i=j}^d \vert\lambda_j\vert^{2k^*}\left(\frac{v_j}{\vert X\vert}\right)(1+\lambda_j^2)\leq\frac{1}{\vert X\vert^2}.\]
+	Then the conditions described in Theorem \ref{LGeg} are vacuous for degrees $k>k^*$.
+\end{thm}
+
+
+
 
 Our next lemma bounds the spectrum of $T_k$ and describes where key eigenvalues arise.
 \begin{lem}\ref{Tkspec} Let $k>0$ be given. Let $\lambda$ be an eigenvalue of $\frac{1}{m_i}L_i^*$ and assume $\eta$ solves the equation $\eta^2-(1+\mu_k)\lambda\eta +\mu_k=0$. If $\mu_k\leq\frac{2(1-\lambda^2)}{\lambda^2}$, then $\vert \eta\vert\leq \max\left\{\vert\lambda\vert,\mu_k\right\}$.
