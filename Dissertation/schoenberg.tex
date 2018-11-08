@@ -20,6 +20,13 @@ In this chapter, we will define the Gegenbauer polynomials and review relevant d
 	\[\sum_{j=1}^d \vert\lambda_j\vert^{2k^*}v_j(1+\lambda_j^2)\leq\frac{1}{\vert X\vert}.\]
 	Then the conditions described in Theorem \ref{LGeg} are vacuous for degrees $k\geq k^*$.
 \end{restatable*}
+\begin{restatable*}{thm}{antbnd}
+	Let $(X,\mathcal{R})$ be a 3-class $Q$-antipodal association scheme. Then every bound arising from using $\frac{\vert X\vert}{m_1}E_1$ as the Gram matrix in \ref{schoen-as} is vacuous.
+\end{restatable*}
+\begin{restatable*}{thm}{dclassbnd}
+	Let $(X,\mathcal{R})$ be a d-class cometric association scheme. Then $k>\alpha d$ implies the degree $k$ bound arising from using $\frac{\vert X\vert}{m_1}E_1$ as the Gram matrix in \ref{schoen-as} is vacuous.
+\end{restatable*}
+
 \section{Gegenbauer Polynomials}
 In this section we will use polynomial rings and quotient rings, thus we begin this section with a brief review of the topic, referring to \cite{Gallian}(TODO: Bad reference here) for a more complete introduction. In all that follows let $m$ be a fixed positive integer and define $\scR:=\bbR[x_1,\dots,x_m]$. A \emph{monomial} is defined as a (possibly empty) product of the variables $x_1,\dots,x_m$ and given a monomial $t =\prod_{i=1}^{m}x_i^{d_i}$ ($d_i\in \bbZ^+$), the \emph{degree} of $t$ is defined as $\text{deg}(t) = \sum_i d_i$. A polynomial $f\in\scR$ may be represented uniquely as a (finite) linear combination of distinct monomials $f =\sum_i\alpha_it_i$ and $\text{deg}(f) = \max\left\{\text{deg}(t_i)\right\}$. For each variable $x_j$, we define the \emph{derivative with respect to $x_j$} of a monomial as $\frac{\partial}{\partial x_j}t = d_jx_j^{d_j-1}\prod_{i\neq j}x_i^{d_i}$ and extend the definition linearly for any polynomial in $\scR$. For $f\in \scR$, $f$ is \emph{homogeneous} if there exists some constant $d\in\bbZ^+$ such that $\text{deg}(t)=d$ for every monomial $t$ in $f$. Further, $f$ is \emph{harmonic} if $\Delta f = \sum_i \left(\frac{\partial}{\partial x_i}\circ\frac{\partial}{\partial x_i}\right)\left(f\right) = 0$.\par
 Let $f\in\scR$ be given and define the ideal of $f$ as $(f) = \left\{gf:g\in\scR\right\}$. We then define equivalence classes $[g]_f = \left\{h\in\scR: g-h\in(f)\right\}$. The quotient ring $\nicefrac{\scR}{(f)}$ is given as the set of equivalence classes $\left\{[g]_f:g\in\scR\right\}$. We will often suppress the subscript if it is clear from the context. Let $S^{m-1}\subset \bbR^m$ be the $m-1$ dimensional sphere, we define the set of polynomials on the sphere as
@@ -265,14 +272,9 @@ Lemma \ref{Tkeig} gives a complete description of the eigenspaces of our transit
 \begin{proof}
 	Let $\eta^+$ and $\eta^-$ be the two complex roots of $x^2-(1+\mu_k)\lambda x + \mu_k$. Then $\vert\eta^+\vert = \vert\eta^-\vert = \sqrt{\eta^+\eta^-} = \sqrt{\mu_k}$. Therefore every vector in this eigenspace is rotated and scaled down by a factor of $\sqrt{\mu_k}$.
 \end{proof}
-\begin{thm}\label{degbnd}
-	Let $(X,\mathcal{R})$ be an association scheme with first and second eigenmatrices $P$ and $Q$. Let $0\leq i\leq d$ be given and define $\lambda_j:=\frac{Q_{j,i}}{m_j}$, $v_j = P_{0j}$. Define $k^*$ to be the smallest integer such that
-	\[\sum_{j=1}^d \vert\lambda_j\vert^{2k^*}v_j(1+\lambda_j^2)\leq\frac{1}{\vert X\vert}.\]
-	Then the conditions described in Theorem \ref{LGeg} are vacuous for degrees $k\geq k^*$.
-\end{thm}
 \degbnd
 \begin{proof}
-	Theorem \ref{ycequiv} gives us that the condition given in equation \eqref{LGeg} for fixed $k>0$ is equivalent to the condition that $y_k\geq 0$ for the $y_k$ given by the recurrence relation equation \eqref{yrecrec}. Since the initial condition $y_1$ is given by 
+	Theorem \ref{ycequiv} gives us that the condition given in equation \eqref{LGeg} for fixed $k>0$ is equivalent to the condition that $y_k\geq 0$ for the $y_k$ given by the recurrence relation equation \eqref{yrec}. Since the initial condition $y_1$ is given by 
 	\[y_1 = \left[\begin{array}{c}
 	\vec{b}_{1}\\\hdashline[2pt/2pt]
 	\vec{b}_{0}
@@ -353,7 +355,7 @@ Lemma \ref{Tkeig} gives a complete description of the eigenspaces of our transit
 \end{proof}
 
 \section{Cometric case}
-In this section, we restrict to the case of cometric association schemes and determine the consequences of Theorem \ref{schoen-as}. Let $(X,\mathcal{R})$ be given and assume there exists a $Q$-polynomial ordering 
+In this section, we restrict to the case of cometric association schemes and determine the consequences of Theorem \ref{schoen-as}, especially as they apply to imprimitive schemes. Let $(X,\mathcal{R})$ be given and assume there exists a $Q$-polynomial ordering $E_0,E_1,\dots, E_d$. We will most commonly use the matrix $\frac{\vert X\vert}{m_1}E_1$ as the Gram matrix, using the tri-diagonal property of $L_1^*$ to reduce the complexity of equation \eqref{LGeg}. Recall that $E_1$ must have $d+1$ distinct entries and therefore we may order the relations so that $m_1 = Q_{01}>Q_{11}>\dots>Q_{d1}\geq -m$. Therefore we define $\lambda_i = \frac{Q_{i1}}{m_1}$ and note that $1 = \lambda_0>\lambda_1>\dots>\lambda_d\geq -1$.
 
 
 
