@@ -345,24 +345,16 @@ Lemma \ref{Tkeig} gives a complete description of the eigenspaces of our transit
 \end{proof}
 
 \section{Cometric case}
-In this section, we restrict to the case of cometric association schemes and explicitly compute the first few bounds given in Theorem \ref{schoen-as}. We will also apply these bounds specifically in the imprimitive case. Let $(X,\mathcal{R})$ be given and assume there exists a $Q$-polynomial ordering $E_0,E_1,\dots, E_d$ with natural ordering $A_0,A_1,\dots,A_d$. Let $\left\{1,b^*_1,\dots,b^*_{d-1};c^*_1,c_2^*\dots,c^*_{d-1}\right\}$ be the Krein array of $(X,\mathcal{R})$ and define $m:=\text{rank}(E_1)$. As before, let $\theta_{ki}$ denote the eigenvalue of $Q_k^m\circ\left(\frac{\vert X\vert}{m}E_1\right)$ on the eigenspace $V_i$ for $k>0$ and $0\leq i\leq d$. Then we know
+In this section, we restrict to the case of cometric association schemes and explicitly compute the first few bounds given in Theorem \ref{schoen-as}. We will also apply these bounds specifically in the imprimitive case. Let $(X,\mathcal{R})$ be given and assume there exists a $Q$-polynomial ordering $E_0,E_1,\dots, E_d$ with natural ordering $A_0,A_1,\dots,A_d$. Let $\left\{1,b^*_1,\dots,b^*_{d-1};c^*_1,c_2^*\dots,c^*_{d-1}\right\}$ be the Krein array of $(X,\mathcal{R})$ and define $m:=\text{rank}(E_1)$. As before, let $\theta_{k,i}$ denote the eigenvalue of $Q_k^m\circ\left(\frac{\vert X\vert}{m}E_1\right)$ on the eigenspace $V_i$ for $k>0$ and $0\leq i\leq d$, allowing ourselves to omit the comma when the meaning is clear. From our initial two Gegenbauer polynomials, we know
 \[\theta_{00} = 1;\qquad \theta_{11} =\frac{1}{m}.\]
 Using equation \eqref{gegprop} and our Krein array, we have
  \begin{equation}
- \theta_{ki}= \frac{(2k+m-4)(b_{i}^*\theta_{(k-1)(i+1)} +a_i^*\theta_{(k-1)(i)}+c_{i}^*\theta_{(k-1)(i-1)}) - (k-1)m\theta_{(k-2)(i)}}{m(k+m-4)}.
+ \theta_{ki}= \frac{(2k+m-4)(b_{i}^*\theta_{k-1,i+1} +a_i^*\theta_{k-1,i}+c_{i}^*\theta_{k-1,i-1}) - (k-1)m\theta_{k-2,i}}{m(k+m-4)}.
  \end{equation}
- We compute each eigenvalue below for the $2\leq k\leq 6$, noting that $\theta_{ki} \equiv 0$ for $i>k$.
+ Below we give the eigenvalues for degrees $2\leq k\leq 6$ omitting $\theta_{ki}$ for $i>k$ as these eigenvalues must be $0$ due the $Q$-polynomial property. For convenience we define the parameters $a_i^*,b_i^*,$ and $c_i^*$ for $i\in\mathbb{Z}^+$ noting that $c_{j-1}^* = b_j^*=a_j^*=0$ for $j>d$.
 \subsection*{Degree 2 constraint}
-\[\begin{aligned}
-\theta_{20} &= \frac{m(\frac{1}{m}) - m(1)}{m(m-1)} = 0.
-\end{aligned}\]
-\[\begin{aligned}
-\theta_{21} &= \frac{m(\frac{a_1^*}{m}) }{m(m-1)} = \frac{a_1^*}{m(m-1)}.
-\end{aligned}\]
-\[\begin{aligned}
-\theta_{22} &= \frac{m(\frac{c_2^*}{m})}{m(m-1)} = \frac{c_2^*}{m(m-1)}.
-\end{aligned}\]
-Since the condition that $\theta_{2i}\geq 0$ is implied by Krein conditions for each $0\leq i\leq d$, we consider these constraints.
+\[\theta_{20}  = 0;\qquad\theta_{21}  = \frac{a_1^*}{m(m-1)};\qquad\theta_{22} = \frac{c_2^*}{m(m-1)}.\]
+Since the condition that $\theta_{2i}\geq 0$ is implied by Krein conditions for each $0\leq i\leq d$, we consider these constraints vacuous.
 \subsection*{Degree 3 constraint}
 \[\begin{aligned}
 F_3 &= \frac{(m+2)\frac{\vert X\vert}{m}E_1\circ F_{2} - (2)F_{1}}{m}\\

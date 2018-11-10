@@ -217,6 +217,13 @@ def examine():
     
     Label(Details, text = Qpoly.Equiangular(Q)[0]).grid(row = 6, column = 2)
 
+    l = Q[:,1]/Q[0,1]
+    l[(abs(abs(l)-1))<10**-5]=0
+    s = abs(l).max()
+    X = sum(Q[0,:])
+
+    Label(Details, text= "Max degree "+str(math.ceil(math.log((1+s**2)*X*(X-1))/(-2*math.log(s)))-1)).grid(row=7,column = 4)
+
     exclose = Button(Details,text = "Close",command = lambda: quit(Details))
     exclose.grid(column = 99, row = 99)
 
