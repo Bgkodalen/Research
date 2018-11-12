@@ -345,37 +345,36 @@ Lemma \ref{Tkeig} gives a complete description of the eigenspaces of our transit
 \end{proof}
 
 \section{Cometric case}
-In this section, we restrict to the case of cometric association schemes and explicitly compute the first few bounds given in Theorem \ref{schoen-as}. We will also apply these bounds specifically in the imprimitive case. Let $(X,\mathcal{R})$ be given and assume there exists a $Q$-polynomial ordering $E_0,E_1,\dots, E_d$ with natural ordering $A_0,A_1,\dots,A_d$. Let $\left\{1,b^*_1,\dots,b^*_{d-1};c^*_1,c_2^*\dots,c^*_{d-1}\right\}$ be the Krein array of $(X,\mathcal{R})$ and define $m:=\text{rank}(E_1)$. As before, let $\theta_{k,i}$ denote the eigenvalue of $Q_k^m\circ\left(\frac{\vert X\vert}{m}E_1\right)$ on the eigenspace $V_i$ for $k>0$ and $0\leq i\leq d$, allowing ourselves to omit the comma when the meaning is clear. From our initial two Gegenbauer polynomials, we know
-\[\theta_{00} = 1;\qquad \theta_{11} =\frac{1}{m}.\]
+In this section, we restrict to the case of cometric association schemes and explicitly compute the first few bounds given in Theorem \ref{schoen-as}. We will also apply these bounds specifically in the imprimitive case. Let $(X,\mathcal{R})$ be given and assume there exists a $Q$-polynomial ordering $E_0,E_1,\dots, E_d$ with natural ordering $A_0,A_1,\dots,A_d$. Let $\left\{1,b^*_1,\dots,b^*_{d-1};c^*_1,c_2^*\dots,c^*_{d}\right\}$ be the Krein array of $(X,\mathcal{R})$ and define $m:=\text{rank}(E_1)$. As before, let $\theta_{k,i}$ denote the eigenvalue of $Q_k^m\circ\left(\frac{\vert X\vert}{m}E_1\right)$ on the eigenspace $V_i$ for $k>0$ and $0\leq i\leq d$, allowing ourselves to omit the comma when the meaning is clear. From our initial two Gegenbauer polynomials, we know
+\[\theta_{0i} = \delta_{0i};\qquad \theta_{1i} =\frac{1}{m}\delta_{1i}.\]
 Using equation \eqref{gegprop} and our Krein array, we have
  \begin{equation}
- \theta_{ki}= \frac{(2k+m-4)(b_{i}^*\theta_{k-1,i+1} +a_i^*\theta_{k-1,i}+c_{i}^*\theta_{k-1,i-1}) - (k-1)m\theta_{k-2,i}}{m(k+m-4)}.
+ \theta_{ki}= \frac{(2k+m-4)(c_{i}^*\theta_{k-1,i-1} +a_i^*\theta_{k-1,i}+b_{i}^*\theta_{k-1,i+1}) - (k-1)m\theta_{k-2,i}}{m(k+m-4)}.
  \end{equation}
- Below we give the eigenvalues for degrees $2\leq k\leq 6$ omitting $\theta_{ki}$ for $i>k$ as these eigenvalues must be $0$ due the $Q$-polynomial property. For convenience we define the parameters $a_i^*,b_i^*,$ and $c_i^*$ for $i\in\mathbb{Z}^+$ noting that $c_{j-1}^* = b_j^*=a_j^*=0$ for $j>d$.
+ Below we give the eigenvalues for degrees $2\leq k\leq 6$ omitting $\theta_{ki}$ for $i>k$ as these eigenvalues must be $0$ due the $Q$-polynomial property. For convenience we define the parameters $a_i^*,c_i^*,$ and $b_i^*$ for $i\in\mathbb{Z}^+$ noting that $c_{j-1}^* = b_j^*=a_j^*=0$ for $j>d$.
 \subsection*{Degree 2 constraint}
 \[\theta_{20}  = 0;\qquad\theta_{21}  = \frac{a_1^*}{m(m-1)};\qquad\theta_{22} = \frac{c_2^*}{m(m-1)}.\]
 Since the condition that $\theta_{2i}\geq 0$ is implied by Krein conditions for each $0\leq i\leq d$, we consider these constraints vacuous.
 \subsection*{Degree 3 constraint}
-\[\theta_{30} = \frac{(m+2)a_1^*}{(m-1)(m-2)m};\qquad
-\theta_{31} = \frac{-2m(m-2)+(m+2)((a_1^*)^2+b_1^*c_2^*)}{m(m-1)};\]
-\[\theta_{32} = \frac{(m+2)c_2^*(a_1^*+a_2^*)}{m^2(m-1)(m-2)};\qquad
-\theta_{33} = \frac{(m+2)c_2^*c_3^*}{m^2(m-1)(m-2)}.\]
+\[\theta_{30} = \frac{\left(m+2\right)a_1^*}{m^2\left(m-1\right)};\qquad
+\theta_{31} = \frac{-2m\left(m-1\right)+\left(m+2\right)\left(\left(a_1^*\right)^2+b_1^*c_2^*\right)}{m^3\left(m-1\right)};\]
+\[\theta_{32} = \frac{\left(m+2\right)c_2^*\left(a_1^*+a_2^*\right)}{m^3\left(m-1\right)};\qquad
+\theta_{33} = \frac{\left(m+2\right)c_2^*c_3^*}{m^3\left(m-1\right)}.\]
+In this case, $\theta_{31}>0$ gives us a condition which is not implied by Krein conditions. Therefore we have
+\[\left(a_1^*\right)^2 + b_1^*c_2^* \geq\frac{m(m-1)}{m+2}\]
 \subsection*{Degree 4 constraint}
-\[\theta_{40} = \frac{2(m+4)(-m(m-2)+\frac{m+2}{2}(a_0^*a_1^*-(a_1^*)^2+b_1^*c_2^*)}{(m-2)(m-1)m^3}\]
-\[\theta_{41} = \frac{-a_1^*(m+3)(m-8)m + ((a_1^*)^3+(2b_1^*c_2^*)a_1^*+a_2^*b_1^*c_2^*)(m+4)(m+2)}{(m-1)(m-2)m^4}\]
-\[\theta_{42}\]
-\[\theta_{43} = \frac{(m+4)(m+2)c_3^*c_2^*(a_1^*+a_2^*+a_3^*)}{(m-1)(m-2)m^4}\]
-\[\theta_{44} = \frac{(m+4)c_4^*(m+2)c_3^*c_2^*}{(m-1)(m-2)m^4}\]
-
-
-
-
-Here, the only constraint not implied by Krein conditions is the eigenvalue in the $V_1$ eigenspace. Therefore, we must have
-\begin{equation}
-	(a_1^*)^2 + b_1^*c_2^*\geq 2m
-\end{equation}
-
-
+\[\theta_{40} = \frac{\left(-2m\left(m-1\right)+\left(m+2\right)\left(\left(a_1^*\right)^2+b_1^*c_2^*\right)\right)\left(m+4\right)}{\left(m^2-1\right)m^3}\]
+\[\theta_{41} = \frac{\left(-4a_1^*m + \left(\left(a_1^*\right)^3+\left(2b_1^*c_2^*\right)a_1^*+a_2^*b_1^*c_2^*\right)\left(m+4\right)\right)\left(m+2\right)}{\left(m^2-1\right)m^4}\]
+\[\theta_{42} = \frac{\left(-m\left(5m-4\right)+\left(\left(a_1^*\right)^2+a_1^*a_2^*+b_1^*c_2^*+\left(a_2^*\right)^2 + \left(b_2^*c_3^*\right)\right)\left(m+4\right)\right)c_2^*\left(m+2\right)}{\left(m^2-1\right)m^4}\]
+\[\theta_{43} = \frac{\left(m+4\right)\left(m+2\right)c_3^*c_2^*\left(a_1^*+a_2^*+a_3^*\right)}{\left(m^2-1\right)m^4}\]
+\[\theta_{44} = \frac{\left(m+4\right)\left(m+2\right)c_4^*c_3^*c_2^*}{\left(m^2-1\right)m^4}\]
+\subsection*{Degree 5 constraint}
+\[\theta_{50} = \frac{\left(-4a_1^*m\left(2m-3\right) + \left(\left(a_1^*\right)^3+\left(2a_1^*+a_2^*\right)b_1^*c_2^*\right)\left(m+6\right)\right)\left(m+4\right)}{m^4\left(m^2-1\right)}\]
+\[\theta_{51} = \frac{\left(-\left(\right)+\left(\right)\right)}{m^5\left(m^2-1\right)}\]
+\[\theta_{52} = \frac{\left(-\left(\right)+\left(\right)\right)\left(m+4\right)}{m^5\left(m^2-1\right)}\]
+\[\theta_{53} = \frac{\left(-3\left(3m-2\right)+\left(\sum_{i=1}^3\left(b_i^*c_{i+1}^*+a_i\sum_{j=i}^3a_j\right)\right)\left(m+6\right)\right)\left(m+4\right)c_2^*c_3^*}{m^5\left(m^2-1\right)}\]
+\[\theta_{54} = \frac{\left(a_1^*+a_2^*+a_3^*+a_4^*\right)c_2^*c_3^*c_4^*\left(m+4\right)\left(m+6\right)}{m^5\left(m^2-1\right)}\]
+\[\theta_{55} = \frac{c_2^*c_3^*c_4^*c_5^*\left(m+4\right)\left(m+6\right)}{m^5\left(m^2-1\right)}\]
 
 
 
