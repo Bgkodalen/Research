@@ -345,57 +345,95 @@ Lemma \ref{Tkeig} gives a complete description of the eigenspaces of our transit
 \end{proof}
 
 \section{Cometric case}\label{cometricGeg}
-In this section, we restrict to the case of cometric association schemes and explicitly compute the first few bounds given in Theorem \ref{schoen-as}. We will also apply these bounds specifically in the imprimitive case. Let $(X,\mathcal{R})$ be given and assume there exists a $Q$-polynomial ordering $E_0,E_1,\dots, E_d$ with natural ordering $A_0,A_1,\dots,A_d$. Let $\left\{1,b^*_1,\dots,b^*_{d-1};c^*_1,c_2^*\dots,c^*_{d}\right\}$ be the Krein array of $(X,\mathcal{R})$ and define $m:=\text{rank}(E_1)$. As before, let $\theta_{k,i}$ denote the eigenvalue of $Q_k^m\circ\left(\frac{\vert X\vert}{m}E_1\right)$ on the eigenspace $V_i$ for $k>0$ and $0\leq i\leq d$, allowing ourselves to omit the comma when the meaning is clear. From our initial two Gegenbauer polynomials, we know
+In this section, we restrict to the case of cometric association schemes and explicitly compute the eigenvalues $\theta_{k,i}$ for $2\leq k\leq 5$ as well as $\theta_{6,0}$ as defined in Theorem \ref{schoen-as}. Using the fact that each eigenvalues must be non-negative, we will derive bounds for the parameters of our association scheme. Let $(X,\mathcal{R})$ be given and assume there exists a $Q$-polynomial ordering $E_0,E_1,\dots, E_d$ with natural ordering $A_0,A_1,\dots,A_d$. Let $\left\{m,b^*_1,\dots,b^*_{d-1};1,c_2^*\dots,c^*_{d}\right\}$ be the Krein array of $(X,\mathcal{R})$ and define $m:=\text{rank}(E_1)$. As before, let $\theta_{k,i}$ denote the eigenvalue of $Q_k^m\circ\left(\frac{\vert X\vert}{m}E_1\right)$ on the eigenspace $V_i$ for $k\geq0$ and $0\leq i\leq d$, allowing ourselves to suppress the comma when the meaning is clear. From our initial two Gegenbauer polynomials, we know
 \[\theta_{0i} = \delta_{0i};\qquad \theta_{1i} =\frac{1}{m}\delta_{1i}.\]
 Using equation \eqref{gegprop} and our Krein array, we have
- \begin{equation}
+ \begin{equation}\label{thetarec}
  \theta_{ki}= \frac{(2k+m-4)(c_{i}^*\theta_{k-1,i-1} +a_i^*\theta_{k-1,i}+b_{i}^*\theta_{k-1,i+1}) - (k-1)m\theta_{k-2,i}}{m(k+m-3)}.
  \end{equation}
- Below we give the eigenvalues for degrees $2\leq k\leq 6$ omitting $\theta_{ki}$ for $i>k$ as these eigenvalues must be $0$ due the $Q$-polynomial property. For convenience we define the parameters $a_i^*,c_i^*,$ and $b_i^*$ for $i\in\mathbb{Z}^+$ noting that $c_{j-1}^* = b_j^*=a_j^*=0$ for $j>d$.
+ Before listing the eigenvalues, we note that many of the conditions $\theta_{ki}\geq 0$ will be vacuous. Consider the following lemma:
+ \begin{lem}
+ 	Let $k\geq 0$ be given. Then $\theta_{k,i} = 0$ for $i>k$ and $\theta_{k,i}\geq 0$ for $i\in\left\{k-1,k\right\}$ are implied by the Krein conditions.
+ \end{lem}
+\begin{proof}
+	We will prove this by induction, showing first that $\theta_{k,i}=0$ for $i>k$, $k\in\bbZ^+$ and then that the remaining two condition are implied by our Krein conditions. First note from our initial conditions that $\theta_{1i} = \frac{1}{m}\delta_{1i}$ and therefore we have $\theta_{1i} = 0$ for $i>1$. Now, let $k\geq 1$ be given and assume that $\theta_{k,i}= 0$ for $i>k$. Then choose $i>k+1$ and from equation \eqref{thetarec},
+	\[\theta_{k+1,i}= \frac{(2k+m)(c_{i}^*\theta_{k,i-1} +a_i^*\theta_{k,i}+b_{i}^*\theta_{k,i+1}) - km\theta_{k-1,i}}{m(k+m-2)}.\]
+	However if $i>k+1$ then by our induction hypothesis, $\theta_{k,i-1} = \theta_{k,i} = \theta_{k,i+1} = \theta_{k-1,i} = 0$, thus $\theta_{k+1,i} = 0$. For the remaining two conditions, note that $\theta_{10}\geq 0$ and $\theta_{11}\geq 0$ are both vacuously true. We again let $k\geq 1$ be given and assume that the conditions $\theta_{k,k-1}\geq 0$ and $\theta_{k,k}\geq 0$ are implied by Krein conditions. Then
+	\[\begin{aligned}\theta_{k+1,k+1}&= \frac{(2k+m)(c_{k+1}^*\theta_{k,k} +a_{k+1}^*\theta_{k,k+1}+b_{k+1}^*\theta_{k,k+2}) - km\theta_{k-1,k+1}}{m(k+m-2)} = \frac{(2k+m)c_{k+1}^*\theta_{k,k}}{m(k+m-2)}\\
+	\theta_{k+1,k}&= \frac{(2k+m)(c_{k}^*\theta_{k,k-1} +a_{k}^*\theta_{k,k}+b_{k-1}^*\theta_{k,k+1}) - km\theta_{k-1,k}}{m(k+m-2)} = \frac{(2k+m)\left(c_k^*\theta_{k,k-1}+a_k^*\theta_{k,k}\right)}{m(k+m-2)}.\end{aligned}\]
+	Therefore as long as $a_k^*,c_k^*,c_{k+1}^*\geq 0$, then $\theta_{k+1,k+1}\geq 0$ and $\theta_{k+1,k}\geq 0$.
+\end{proof}
+Due to this lemma, we will display only $\theta_{k,i}$ for $i\leq k$ noting however that the final two eigenvalues will never give us a nontrivial condition. For convenience we define the parameters $a_i^*,c_i^*,$ and $b_i^*$ for all $i\in\mathbb{Z}^+$ noting that $c_{j-1}^* = b_j^*=a_j^*=0$ for $j>d$. We will use \eqref{kreinidentity} when convenient, so we will recall here that
+\[\sum_{l=0}^d q_{ij}^lq_{lk}^m = \sum_{l=0}^dq_{il}^mq_{jk}^l.\]
 \subsection*{Degree 2 constraint}
 \[\theta_{20}  = 0;\qquad\theta_{21}  = \frac{a_1^*}{m(m-1)};\qquad\theta_{22} = \frac{c_2^*}{m(m-1)}.\]
-Since the condition that $\theta_{2i}\geq 0$ is implied by Krein conditions for each $0\leq i\leq d$, we consider these constraints vacuous.
+Each condition $\theta_{2i}\geq 0$ is implied by Krein conditions and thus we have no new restrictions from this case.
 \subsection*{Degree 3 constraint}
 \[\theta_{30} = \frac{\left(m+2\right)a_1^*}{m^2\left(m-1\right)};\qquad
 \theta_{31} = \frac{-2m\left(m-1\right)+\left(m+2\right)\left(\left(a_1^*\right)^2+b_1^*c_2^*\right)}{m^3\left(m-1\right)};\]
 \[\theta_{32} = \frac{\left(m+2\right)c_2^*\left(a_1^*+a_2^*\right)}{m^3\left(m-1\right)};\qquad
 \theta_{33} = \frac{\left(m+2\right)c_2^*c_3^*}{m^3\left(m-1\right)}.\]
-In this case, $\theta_{31}\geq0$ gives us a condition which is not implied by Krein conditions. Therefore we have
+Here, $\theta_{31}\geq0$ gives us a condition which is not implied by Krein conditions. Therefore we have the constraint
+\begin{equation}\label{Co31}\left(a_1^*\right)^2 + b_1^*c_2^* \geq\frac{2m(m-1)}{m+2}\end{equation}
 
-\begin{equation}\left(a_1^*\right)^2 + b_1^*c_2^* \geq\frac{2m(m-1)}{m+2}\end{equation}
 \subsection*{Degree 4 constraint}
 \[\theta_{40} = \frac{\left(-2m\left(m-1\right)+\left(m+2\right)\left(\left(a_1^*\right)^2+b_1^*c_2^*\right)\right)\left(m+4\right)}{\left(m^2-1\right)m^3}\]
-\[\theta_{41} = \frac{\left(-4a_1^*m + \left(\left(a_1^*\right)^3+\left(2b_1^*c_2^*\right)a_1^*+a_2^*b_1^*c_2^*\right)\left(m+4\right)\right)\left(m+2\right)}{\left(m^2-1\right)m^4}\]
-\[\theta_{42} = \frac{\left(-m\left(5m-4\right)+\left(\left(a_1^*\right)^2+a_1^*a_2^*+b_1^*c_2^*+\left(a_2^*\right)^2 + \left(b_2^*c_3^*\right)\right)\left(m+4\right)\right)c_2^*\left(m+2\right)}{\left(m^2-1\right)m^4}\]
+\[\theta_{41} = \frac{\left(-4a_1^*m + \left(\left(a_1^*\right)^3+\left(2a_1^*+a_2^*\right)b_1^*c_2^*\right)\left(m+4\right)\right)\left(m+2\right)}{\left(m^2-1\right)m^4}\]
+\[\theta_{42} = \frac{\left(-4m\left(m-2\right)+\left(\left(a_1^*\right)^2+2a_1^*a_2^*+c_2^*q_{22}^2\right)\left(m+4\right)\right)c_2^*\left(m+2\right)}{\left(m^2-1\right)m^4}\]
 \[\theta_{43} = \frac{\left(m+4\right)\left(m+2\right)c_3^*c_2^*\left(a_1^*+a_2^*+a_3^*\right)}{\left(m^2-1\right)m^4}\]
 \[\theta_{44} = \frac{\left(m+4\right)\left(m+2\right)c_4^*c_3^*c_2^*}{\left(m^2-1\right)m^4}\]
-First, we note that since $\theta_{20} = 0$, $\theta_{40} = \frac{(m+4)\theta_{31}}{m+1}$ and thus $\theta_{40}\geq 0$ is equivalent to $\theta_{31}\geq 0$. Therefore we find only two new conditions: $\theta_{41}\geq 0$ and $\theta_{42}\geq 0$. These give
-\begin{equation}
-\left(a_1^*\right)^2 + b_1^*c_2^*\left(2+\frac{a_2^*}{a_1^*}\right)\geq \frac{4m}{m+4}\qquad \text{whenever }a_1^*>0
+First, we note that since $\theta_{20} = 0$, $\theta_{40} = \frac{(m+4)\theta_{31}}{m+1}$ and thus $\theta_{40}\geq 0$ is equivalent to $\theta_{31}\geq 0$. Second, note that we used \eqref{kreinidentity} with $j=k=1$ and $i=m=2$ to reduce $\theta_{42}$. We find only two new conditions: $\theta_{41}\geq 0$ and $\theta_{42}\geq 0$, giving
+\begin{equation}\label{Co41}
+\left(a_1^*\right)^2 + b_1^*c_2^*\left(2+\frac{a_2^*}{a_1^*}\right)\geq \frac{4m}{m+4}\qquad \text{whenever }a_1^*>0;
 \end{equation}
-\begin{equation}
-\left(a_1^*\right)^2+a_1^*a_2^*+b_1^*c_2^*+\left(a_2^*\right)^2+b_2^*c_3^*\geq \frac{m(5m-4)}{m+4}
-\end{equation}
-\begin{equation}
-\left(a_1^*\right)^2+2a_1^*a_2^*+c_2q^2_{22}\geq \frac{4m(m-2)}{m+4}
+\begin{equation}\label{Co42}
+\left(a_1^*\right)^2+2a_1^*a_2^*+c_2q^2_{22}\geq \frac{4m(m-2)}{m+4}.
 \end{equation}
 \subsection*{Degree 5 constraint}
 \[\theta_{50} = \frac{\left(-4a_1^*m\left(2m-3\right) + \left(\left(a_1^*\right)^3+\left(2a_1^*+a_2^*\right)b_1^*c_2^*\right)\left(m+6\right)\right)\left(m+4\right)}{m^4\left(m^2-1\right)}\]
 \[\theta_{51} = \frac{\left(-\left(\right)+\left(\right)\right)}{m^5\left(m^2-1\right)}\]
 \[\theta_{52} = \frac{\left(-\left(\right)+\left(\right)\right)\left(m+4\right)}{m^5\left(m^2-1\right)}\]
-\[\theta_{53} = \frac{\left(-3\left(3m-2\right)+\left(\sum_{i=1}^3\left(b_i^*c_{i+1}^*+a_i\sum_{j=i}^3a_j\right)\right)\left(m+6\right)\right)\left(m+4\right)c_2^*c_3^*}{m^5\left(m^2-1\right)}\]
+\[\theta_{53} = \frac{\left(-3\left(3m-2\right)+\left(\sum_{i=1}^3\left(b_i^*c_{i+1}^*+a_i^*\sum_{j=i}^3a_j^*\right)\right)\left(m+6\right)\right)\left(m+4\right)c_2^*c_3^*}{m^5\left(m^2-1\right)}\]
 \[\theta_{54} = \frac{\left(a_1^*+a_2^*+a_3^*+a_4^*\right)c_2^*c_3^*c_4^*\left(m+4\right)\left(m+6\right)}{m^5\left(m^2-1\right)}\]
 \[\theta_{55} = \frac{c_2^*c_3^*c_4^*c_5^*\left(m+4\right)\left(m+6\right)}{m^5\left(m^2-1\right)}\]
+In this case we find four new conditions arising from $\theta_{5i}\geq 0$ for $0\leq i\leq 4$. They are,
+\begin{equation}\label{Co50}
+	\left(a_1^*\right)^2 + b_1^*c_2^*\left(2 + \frac{a_2^*}{a_1^*}\right)\geq \frac{4m(2m-3)}{m+6}.
+\end{equation}
+\begin{equation}\label{Co51}
+content...
+\end{equation}
+\begin{equation}\label{Co52}
+content...
+\end{equation}
+\begin{equation}\label{Co53}
+\sum_{i=1}^3\left(b_i^*c_{i+1}^* + a_i^*\sum_{j=i}^3 a_j^*\right)\leq \frac{3(3m-2)}{m+6}.
+\end{equation}
+Note that equation $\eqref{Co41}$ is implied by equation $\eqref{Co50}$ for $m>2$.
 \subsection*{Degree 6 constraint}
 \[\begin{aligned}\frac{\theta_{60}}{m+6} = &\frac{\left(16m^2(m-2)(m-1) + \left(\left(a_1^*\right)^4 + \left(3a_1^*\left(a_1^*+a_2^*\right)+c_2^*q_{22}^2\right)b_1^*c_2^*\right)(m+8)(m+4)\right)}{m^5(m^2-1)(m+3)}\\
 &-\frac{12\left(\left(a_1^*\right)^2+b_1^*c_2^*\right)(m-2)(m+4)m}{m^5(m^2-1)(m+3)}
 \end{aligned}\]
-Note that this result appeals to the known identity
-\[\sum_l q_{ij}^lq_{lk}^m = \sum_l q_{il}^mq_{jk}^l\]
-giving $b_1^*c_2^* + \left(a_2^*\right)^2 + b_2^*c_3^* = m+a_1^*a_2^*+c_2^*q_{22}^2$ when we choose $j=k=1$ and $i=m=2$.
+This results in the final condition that
+\begin{equation}\label{Co60}
+\frac{16m(m-1)}{(m+4)(m+8)} + \frac{\left(a_1^*\right)^4 + \left(3a_1^*\left(a_1^*+a_2^*\right)+c_2^*q_{22}^2\right)b_1^*c_2^*}{(m-2)m}\geq \frac{12\left(\left(a_1^*\right)^2+b_1^*c_2^*\right)}{m+8}.
+\end{equation}
+In summary, we have the following results assuming $m>2$,
+\[\begin{tabular}{c|c|c}\label{cometrictable}
+	Eigenvalue & Condition & Assumptions\\\hline
+	$\theta_{31}$ & $\left(a_1^*\right)^2 + b_1^*c_2^* \geq\frac{2m(m-1)}{m+2}$ & none\\
+	$\theta_{42}$ & $\left(a_1^*\right)^2+2a_1^*a_2^*+c_2q^2_{22}\geq \frac{4m(m-2)}{m+4}$ & none\\
+	$\theta_{50}$ & $\left(a_1^*\right)^2 + b_1^*c_2^*\left(2 + \frac{a_2^*}{a_1^*}\right)\geq \frac{4m(2m-3)}{m+6}$ & $a_1^*> 0$\\
+	$\theta_{51}$ & TBD& none\\
+	$\theta_{52}$ & TBD&$a_1^*>0$\\
+	$\theta_{53}$ & $\sum_{i=1}^3\left(b_i^*c_{i+1}^* + a_i^*\sum_{j=i}^3 a_j^*\right)\leq \frac{3(3m-2)}{m+6}$ & none\\
+	$\theta_{60}$ & $\frac{16m(m-1)}{(m+4)(m+8)} + \frac{\left(a_1^*\right)^4 + \left(3a_1^*\left(a_1^*+a_2^*\right)+c_2^*q_{22}^2\right)b_1^*c_2^*}{(m-2)m}\geq \frac{12\left(\left(a_1^*\right)^2+b_1^*c_2^*\right)}{m+8}$ & none
+\end{tabular}\]
+
+
 \section{Application: 4-class $Q$-bipartite schemes}
 
-Let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme with $Q$-polynomial ordering $E_0,E_1,\dots,E_4$ and natural ordering $A_0,A_1,\dots A_4$. We know from Theorem \ref{suzuki} that the quotient of $(X,\mathcal{R})$ has exactly two non-trivial relations and thus must be strongly regular. Let $(v,k,\lambda,\mu)$ be the parameters of the strongly regular graph in the quotient scheme where $k$ is the valency of the $\tilde{1}$ relation. Further let $k>r>s$ be the eigenvalues of this SRG with corresponding multiplicities $1$, $f$, and $g$. The $Q$ matrix of this SRG will be
+Let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme with $Q$-polynomial ordering $E_0,E_1,\dots,E_4$ and natural ordering $A_0,A_1,\dots A_4$. We know from Theorem \ref{suzuki} that the quotient of $(X,\mathcal{R})$ has exactly two non-trivial relations and thus must be strongly regular. We further assume that $(X,\mathcal{R})$ is not $Q$-antipodal and therefore the quotient SRG is neither the complete multipartite graph nor a union of cliques. Let $(v,k,\lambda,\mu)$ be the parameters of the strongly regular graph in the quotient scheme where $k$ is the valency of the $\tilde{1}$ relation. Further let $k>r>s$ be the eigenvalues of this SRG with corresponding multiplicities $1$, $f$, and $g$. Note that since $(X,\mathcal{R})$ is not $Q$-antipodal, we must have $k>r$ and $s>-k$. The $Q$ matrix of this SRG will be
 \[\tilde{Q} = \left[\begin{array}{ccc}
 1 & f & g\\
 1 & \frac{fr}{k} & \frac{gs}{k}\\
@@ -418,7 +456,7 @@ We may use this information to build the first and second eigenmatrices of our $
 	1 & -\frac{m}{n} & \frac{fr}{k} & \frac{m}{n} & \frac{gs}{k}\\
 	1 & -m & f & \frac{mk}{n^2} & g\\
 	\end{array}\right]\]
-	where $s = -n^2$ for $n\in \mathbb{Z}$.
+	where $s = -n^2$.
 \end{thm}
 \begin{proof}
 	We begin by building all of $Q$ and then employ the use of our orthogonality properties. Note that column 0 of $Q$ comes by definition. From Theorem [\cite{BGKW},\cite{MMW}], $Q_{1,1} = -Q_{3,1}\neq 0 = Q_{2,1}$, so we define $n = \frac{m}{Q_{1,1}} = -\frac{m}{Q_{3,1}}$ and column 1 of $Q$ is given. The first three entries of columns $2$ and $4$ of $Q$ follow from the parameters of our quotient scheme while the remaining two entries of these columns follow from Corollary \ref{evenpoly}. Column 3 of $Q$ can then be found using the first orthogonality condition (specifically that $\sum_j Q_{ij} = \vert X\vert\delta_{i0}$). From here we have that 
@@ -439,7 +477,7 @@ We may use this information to build the first and second eigenmatrices of our $
 	1 & -n & 0 & n & -1\\
 	1 & s & -2(s+1) & s & 1\\
 	\end{array}\right].\]
-	Finally, we again use our equation for krein parameters to find that $0=q_{11}^4 = \frac{mg(n^2+s)}{n^2v}$, giving us that $s = -n^2$.
+	Finally, we again use our equation for krein parameters to find $0=q_{11}^4 = \frac{mg(n^2+s)}{n^2v}$, giving us that $s = -n^2$.
 \end{proof}
 \begin{cor}
 	A 4-class $Q$-bipartite scheme is uniquely determined by the eigenvalues of the quotient SRG.
@@ -450,7 +488,7 @@ We may use this information to build the first and second eigenmatrices of our $
 Now that we have the parameters of our $4$-class $Q$-bipartite scheme determined completely by the parameters of the SRG, we note a few bounds on the parameters of the SRG which will be required for the $Q$-bipartite double to exist.
 \begin{thm}
 	\label{bounds}
-	Let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme and let $k^1,r^f,s^g$ be the spectrum of the quotient strongly regular graph with parameters $(v,k,\lambda,\mu)$. The following must hold with $n:=\sqrt{-s}$:
+	Let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme which is not also $Q$-antipodal. Further let $k^1,r^f,s^g$ be the spectrum of the quotient strongly regular graph with parameters $(v,k,\lambda,\mu)$. The following must hold with $n:=\sqrt{-s}$:
 	\begin{enumerate}[label=(\roman*)]
 		\item $\mu\geq n(r+n)$,
 		\item $n\vert \mu$ and $n\vert k$,
@@ -458,12 +496,10 @@ Now that we have the parameters of our $4$-class $Q$-bipartite scheme determined
 		\item $r\geq \frac{2k}{3n^2}-\frac{n^2}{3}$,
 		\item $kn^2(n^2-1)\geq \mu(n^2+r)$
 	\end{enumerate}
-	Further, either $n$ is an integer or $(X,\mathcal{R})$ is also $Q$-antipodal (the strongly regular graph is complete multipartite).
+	Further, $n$ is an integer greater than 1.
 \end{thm}
 \begin{proof}
-	For $(i)$ and $(ii)$, we note that	$p_{13}^1 = \frac{(n-1)(\mu-n(r+n))}{2n}$. Since this must be a non-negative integer and $s\geq n$, we must either have $-s = n = 1$ or $\mu-n(r+n)>0$. As $s=-1$ implies our SRG is a union of cliques, we may ignore this case and $(i)$ follows. Since $n\not\vert (n-1)$, we have that $n\vert (\mu-n(r+n))$ forcing $n\vert \mu$. Since $k=\mu+rn^2$, $(ii)$ follows. Next, $(iii)$ follows from the absolute bound $1+f \leq \frac{m(m+1)}{2}$ giving us $n^4+3n^2r-2k\geq 0$. Using another absolute bound, $(iv)$ follows from $\frac{v}{m}\leq f$. Finally, since $n = \sqrt{-s}$, if $n$ is not an integer, then columns one and three of $Q$ must be irrational. However Galois conjugation is an automorphism of our Bose-Mesner algebra and thus $E_0$, $E_3$, $E_2$, $E_1$, $E_4$ must be a second $Q$ polynomial ordering in this case, implying $q_{3,3}^4=0$. Using our $P$ and $Q$ matrices, we find that $q_{3,3}^4 = \frac{(k-r)(k+s)}{\mu}$. As $r<k$, this means that $s = -k$ whenever $n$ is irrational, giving us that our strongly regular graph is complete multipartite.\\
-	%Note that $q_{22}^2 = \frac{(kn^2+r^2)(n^2-1)(n^2+k)}{(n^2+r)^2\mu}-\frac{(n^2+k)}{(n^2+r)}$, so that we must have $(kn^2+r^2)(n^2-1)\geq (n^2+r)\mu$. However since $n^2>1$, this is weaker than $r^2(n^2-1)>rk-n^4r-n^2r^2$ and since $k\leq (3rn^2+n^4)/2$ we must have 
-	%\[rk\leq\frac{r}{2}\left(rn^2-n^4\right)<r^2(n^2-1).\]
+	For $(i)$ and $(ii)$, we note that	$p_{13}^1 = \frac{(n-1)(\mu-n(r+n))}{2n}$. Since this must be a non-negative integer, we must either have $-s = n = 1$ or $\mu-n(r+n)>0$. As $s=-1$ implies our SRG is a union of cliques (and thus $(X,\mathcal{R})$ is $Q$-antipodal), we may ignore this case and $(i)$ follows. Since $n\not\vert (n-1)$, we have that $n\vert (\mu-n(r+n))$ forcing $n\vert \mu$. Since $k=\mu+rn^2$, $(ii)$ follows. Next, $(iii)$ follows from the absolute bound $1+f \leq \frac{m(m+1)}{2}$ giving us $n^4+3n^2r-2k\geq 0$. Using another absolute bound, $(iv)$ follows from $\frac{v}{m}\leq f$. Finally, since $n = \sqrt{-s}$, if $n$ is not an integer, then columns one and three of $Q$ must be irrational. However Galois conjugation is an automorphism of our Bose-Mesner algebra and thus $E_0$, $E_3$, $E_2$, $E_1$, $E_4$ must be a second $Q$ polynomial ordering in this case, implying $q_{3,3}^4=0$. Using our $P$ and $Q$ matrices, we find that $q_{3,3}^4 = \frac{(k-r)(k+s)}{\mu}$. This means that whenever $n$ is irrational, either $r=k$ or $s = -k$, both of which imply $(X,\mathcal{R})$ is $Q$-antipodal.
 \end{proof}
 
 \begin{cor}
@@ -485,23 +521,15 @@ We now examine the bounds arising from Theorem \ref{ELGeg} as applied to our $Q$
 \begin{proof}
 	Since our scheme is $Q$-bipartite, we know $a_i^*=0$ for $0\leq i\leq d$ and thus only $\theta_{31}$, $\theta_{42}$, $\theta_{51}$, $\theta_{53}$ and $\theta_{60}$ have a chance of being non-trivial. Using $k$, $r$, and $s$ for our SRG, we find that $\theta_{42}\geq 0$ and $\theta_{53}\geq 0$ result in $k\geq \frac{-rn^2}{n^2-2}$ and $k\geq \frac{(3n^2-7)rn^2}{n^4-3n^2+6}$ respectively, both of which are vaccuous. 
 \end{proof}
-We now will apply the bounds from Theorem \ref{ELGeg} using the first six degree constraints listed in Section \ref{cometricGeg}.  First note that for $Q$-bipartite schemes, 
-$a_i^* = 0$ and thus our non-trivial constraints become
-\begin{enumerate}[label = \roman*]
-\item \[\theta_{31}\geq 0 \rightarrow b_1^*c_2^*\geq\frac{2m(m-1)}{m+2}\]
-\item \[\theta_{42}\geq 0 \rightarrow c_2^*q_{22}^2\geq \frac{4m(m-2)}{m+4}\]
-\item \[\theta_{51} = \frac{\left(-\left(\right)+\left(\right)\right)}{m^5\left(m^2-1\right)}\]
-\item \[\theta_{53} \geq 0 \rightarrow b_3^*c_{4}^*+c_2^*q_{22}^2\geq \frac{4m(2m-3)}{m+6}\]
-\item \[\theta_{60}\geq 0\rightarrow \frac{16m^2(m-1)}{(m+4)b_1^*c_2^*} + \frac{c_2^*q_{22}^2(m+8)}{m-2}\geq12m\]
-\end{enumerate}
-In terms of our strongly regular graph parameters, these correspond to
-\begin{enumerate}[label = \roman*]
-	\item \[r\geq \frac{2k}{3n^2}-\frac{n^2}{3}\]
-	\item \[k\geq-\frac{rn^2}{n^2-2}\]
-	\item \[\theta_{51}\]
-	\item \[k\geq-\frac{(3n^2-7)rn^2}{n^4-3n^2+6}\]
-	%\item \[15\mu(2n^2-3)+\frac{k(k+n^6)(n^2-1)}{\mu}\geq15k(n^2-1)+k+n^6\]
-	\item \[15n^4(2n^2-3)r^2 + (n^6-45kn^2+76k)n^2r+k(16k+n^6)(n^2-2)\geq 0\]
-\end{enumerate}
+We now review the conditions found in Section \ref{cometricGeg} and simplify them, first using our bipartite condition that $a_i^* = 0$ for $0\leq i\leq d$ and then substituting in our parameters $k,r,$ and $s$.
+\[\begin{tabular}{c|c|c}\label{bipartite table}
+Eigenvalue & $Q$-bipartite condition & 4-class $Q$-bipartite condition\\\hline
+$\theta_{31}$ & $b_1^*c_2^* \geq\frac{2m(m-1)}{m+2}$ & $r\geq \frac{2k}{3n^2}-\frac{n^2}{3}$\\
+$\theta_{42}$ & $c_2q^2_{22}\geq \frac{4m(m-2)}{m+4}$ & $k\geq-\frac{rn^2}{n^2-2}$\\
+\multirow{2}{*}{$\theta_{51}$} & \multirow{2}{*}{$\frac{6m(m-1)(m-4)}{(m+4)(m+6)} + \frac{b_1^*c_2^*c_2^*q_{22}^2}{m}\geq \frac{b_1^*c_2^*(7m-18)}{m+6}$}&$5n^4(3n^2-7)r^2-2n^2(n^6+10kn^2-29k)r$\\& & $+n^6k(n^2+1)+6k^2(n^2-4)\geq 0$\\
+$\theta_{53}$ & $\sum_{i=1}^3\left(b_i^*c_{i+1}^*\right)\geq \frac{3(3m-2)}{m+6}$ &$k\geq-\frac{(3n^2-7)rn^2}{n^4-3n^2+6}$ \\
+\multirow{2}{*}{$\theta_{60}$} & \multirow{2}{*}{$\frac{16m(m-1)}{(m+4)(m+8)} + \frac{c_2^*q_{22}^2b_1^*c_2^*}{(m-2)m}\geq \frac{12b_1^*c_2^*}{m+8}$} & $15n^4(2n^2-3)r^2 + (n^6-45kn^2+76k)n^2r$\\& & $+k(16k+n^6)(n^2-2)\geq 0$
+\end{tabular}\]
+We note that, when applied to $4$-class $Q$-bipartite schemes, $\theta_{31}\geq 0$ is equivalent to the absolute bound $1+f\leq \frac{m(m+1)}{2}$ and both $\theta_{42}\geq 0$ and $\theta_{53}\geq 0$ are vacuous. Finally, while $\theta_{60}\geq 0$ and $\theta_{31}\geq 0$ together imply $\theta_{51}\geq 0$ meaning that in the context of $4$-class $Q$ bipartite schemes, the only new condition arising from these eigenvalues is given by $\theta_{60}\geq 0$.
 
 
