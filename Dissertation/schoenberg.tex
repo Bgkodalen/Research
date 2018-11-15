@@ -530,6 +530,24 @@ $\theta_{42}$ & $c_2q^2_{22}\geq \frac{4m(m-2)}{m+4}$ & $k\geq-\frac{rn^2}{n^2-2
 $\theta_{53}$ & $\sum_{i=1}^3\left(b_i^*c_{i+1}^*\right)\geq \frac{3(3m-2)}{m+6}$ &$k\geq-\frac{(3n^2-7)rn^2}{n^4-3n^2+6}$ \\
 \multirow{2}{*}{$\theta_{60}$} & \multirow{2}{*}{$\frac{16m(m-1)}{(m+4)(m+8)} + \frac{c_2^*q_{22}^2b_1^*c_2^*}{(m-2)m}\geq \frac{12b_1^*c_2^*}{m+8}$} & $15n^4(2n^2-3)r^2 + (n^6-45kn^2+76k)n^2r$\\& & $+k(16k+n^6)(n^2-2)\geq 0$
 \end{tabular}\]
-We note that, when applied to $4$-class $Q$-bipartite schemes, $\theta_{31}\geq 0$ is equivalent to the absolute bound $1+f\leq \frac{m(m+1)}{2}$ and both $\theta_{42}\geq 0$ and $\theta_{53}\geq 0$ are vacuous. Finally, while $\theta_{60}\geq 0$ and $\theta_{31}\geq 0$ together imply $\theta_{51}\geq 0$ meaning that in the context of $4$-class $Q$ bipartite schemes, the only new condition arising from these eigenvalues is given by $\theta_{60}\geq 0$.
+We note that, when applied to $4$-class $Q$-bipartite schemes, $\theta_{31}\geq 0$ is equivalent to the absolute bound $1+f\leq \frac{m(m+1)}{2}$ and both $\theta_{42}\geq 0$ and $\theta_{53}\geq 0$ are vacuous. Finally, while $\theta_{60}\geq 0$ and $\theta_{31}\geq 0$ together imply $\theta_{51}\geq 0$ meaning that in the context of $4$-class $Q$ bipartite schemes, the only new condition arising from these eigenvalues is given by $\theta_{60}\geq 0$. This leads to the following theorem
+\begin{thm}\label{thm60}
+	Let $(X,\mathcal{R})$ be a $4$-class $Q$-bipartite association scheme which is not also $Q$-antipodal. Let $k$, $r$, and $s = -n^2$ be the spectrum of the quotient strongly regular graph. Then,
+	\[15n^4(2n^2-3)r^2 + (n^6-45kn^2+76k)n^2r+k(16k+n^6)(n^2-2)\geq 0.\]\qed
+\end{thm}
+We may pair this Theorem with Theorem \ref{bounds} to get the following corollary.
+\begin{cor}
+	Let $(X,\mathcal{R})$ be a $4$-class $Q$-bipartite association scheme which is not also $Q$-antipodal. Let $k$, $r$, and $s = -n^2$ be the spectrum of the quotient strongly regular graph. If $1<n<12$ then either
+	\begin{enumerate}[label=(\roman*)]
+	\item\[\begin{aligned}	\frac{k}{n^3(n^2-1)}&\leq \frac{n^7+2n^6-3n^4-17n^3+45n^2+14n-76}{-2(n^4-13n^3+15n^2+12n-32)(n^2-1)}\\
+	&\qquad+\frac{\sqrt{n^{10}+4n^9+6n^8+2n^7-35n^6+22n^5+145n^4-72n^2+32n+16}}{-2(n^4-13n^3+15n^2+12n-32)}\end{aligned}\]
+	or
+	\item\[\frac{k}{n^4}\leq \frac{3n^2-5}{2}\]
+	\end{enumerate}
+\end{cor}
+\begin{proof}
+	Let $r_1\geq r_2$ be the two roots of $15n^4(2n^2-3)r^2 + (n^6-45kn^2+76k)n^2r+k(16k+n^6)(n^2-2)$. Then Theorem \ref{thm60} tells us that either $r\geq r_1$ or $r\leq r_2$. Pairing this with Theorem $\ref{bounds}$ we find that $r\geq r_1$ and $\mu\geq n(r+n)$ together restrict $k$ via $(i)$. Secondly, $r\leq r_2$ with $r\geq\frac{2k}{3n^2}-\frac{n^2}{3}$ implies that $(ii)$, namely that $k\leq \frac{3n^6-5n^4}{2}$.
+\end{proof}
+In particular, this bound on $k$ improves our previous bound found in Theorem \ref{kbnds} for $1<n<11$.
 
 
