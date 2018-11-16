@@ -1,0 +1,106 @@
+%   This is a sample bibliography file, with examples of references
+% to books, articles, articles in books and unpublished works.
+%
+%   Each entry is of the form -at sign-XXXXX{....} (do not forget the closing brace), 
+% where AAA is the code used in the \cite{AAA} command to refer to this entry.
+%   Note that each element must be included within quotation marks "..." or
+% braces {...}, and that a comma must follow.
+%   If you wish to capitalize letters in titles, put them into braces (this is
+% not necessary for the first letter of the first word).
+
+
+% Example of book protect TeX command with braces
+
+@BOOK{KNU,
+  AUTHOR =	 "Knuth, Donald E.",
+  TITLE =	 "The {\TeX}book",
+  PUBLISHER =	 {Addison Wesley Professional},
+  ADDRESS =	 {Massachusetts},
+  YEAR =	 1984
+}
+
+% Example of article protect TeX accents with braces, or use latin1 encoding when applicable
+% Use \url for URLs, protect uppercase letters with braces only when necessary
+
+@ARTICLE{LL,
+  AUTHOR =	 "J. Leray and J-L. Lions",
+  TITLE =	 "Quelques r{\'e}sultats de {V}i{\v{s}}ik sur les
+                  probl{\`e}mes elliptiques nonlin{\'e}aires par les
+                  m{\'e}thodes de {M}inty-{B}rowder",
+  JOURNAL =	 {Bull. Soc. Math. France},
+  VOLUME =	 93,
+  YEAR =	 1965,
+  PAGES =	 {97-107},
+ note = {\url{http://www.numdam.org/item?id=BSMF_1965__93__97_0}}
+}
+
+@book {EisWrong,
+    AUTHOR = {Eisenbud, David},
+     TITLE = {Commutative algebra},
+    SERIES = {Graduate Texts in Mathematics},
+    VOLUME = {150},
+      NOTE = {With a view toward algebraic geometry},
+ PUBLISHER = {Springer-Verlag, New York},
+      YEAR = {1995},
+     PAGES = {xvi+785},
+      ISBN = {0-387-94268-8; 0-387-94269-6},
+   MRCLASS = {13-01 (14A05)},
+  MRNUMBER = {1322960},
+MRREVIEWER = {Matthew Miller},
+}
+
+@book {EisRight,
+    AUTHOR = {Eisenbud, David},
+     TITLE = {Commutative algebra. {W}ith a view toward algebraic geometry},
+    SERIES = {Graduate Texts in Mathematics},
+    VOLUME = {150},
+ PUBLISHER = {Springer-Verlag, New York},
+      YEAR = {1995},
+     PAGES = {xvi+785},
+  MRNUMBER = {1322960},
+}
+
+% Example of article in a book
+@INCOLLECTION{KT,
+  AUTHOR =	 "King, C. and Terng, C.-L.",
+  TITLE =	 "Submanifolds in path space",
+  BOOKTITLE =	 "Global Analysis in Modern Mathematics",
+  PUBLISHER =	 {Publish or Perish, Inc., Houston},
+  YEAR =	 1993,
+  EDITOR =	 {K. Uhlenbeck},
+  PAGES =	 {253-282}
+}
+
+
+% Example of Ph. D. Thesis
+@phdthesis{V,
+  AUTHOR =	 "M. Vajiac",
+  TITLE =	 "Gauge theory techniques in quantum cohomology",
+  school =	 {Boston University},
+  YEAR =	 2000
+}     
+
+
+% Example of unpublished work
+@Unpublished{Per02,
+  author =	 {Perelman, Grisha },
+  title =	 {The entropy formula for the {R}icci flow and its geometric applications},
+  note =     {\arXiv{math/0211159}},
+  year =	 2002
+}
+
+
+
+% example of a journal article with unique ID
+@article{infrank,
+  author =	 {Steven V Sam and Andrew Snowden},
+  journal =	 {Forum Math. Sigma},
+  eid =		 {e11},
+  pagetotal =	 108,
+  title =	 {Stability patterns in representation theory},
+  volume =	 3,
+  year =	 2015,
+  doi =		 {10.1017/fms.2015.10},
+  mrnumber =	 3376738,
+  zbl =		 {1319.05146},
+}

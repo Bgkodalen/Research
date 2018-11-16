@@ -1,0 +1,150 @@
+
+@Article{Bey2008,
+author="Bey, Christian
+and Kyureghyan, Gohar M.",
+title="On Boolean functions with the sum of every two of them being bent",
+journal="Designs, Codes and Cryptography",
+year="2008",
+month="Dec",
+day="01",
+volume="49",
+number="1",
+pages="341--346",
+issn="1573-7586",
+doi="10.1007/s10623-008-9196-4",
+url="https://doi.org/10.1007/s10623-008-9196-4"
+}
+
+@masterthesis{Bommel,
+  AUTHOR =	 "van Bommel, Christopher",
+  TITLE =	 "An Asymptotic Existence Theory on Incomplete Mutually Orthogonal
+	Latin Squares.",
+  school =	 {University of Victoria},
+  YEAR =	 2015
+}  
+
+@article{article,
+author = {Oscar Boykin, P and Sitharam, Meera and Tarifi, Mohamad and Wocjan, Pawel},
+year = {2005},
+month = {03},
+pages = {},
+title = {Real Mutually Unbiased Bases}
+}
+	
+	\bibitem{Boykin}
+	P.~O. {Boykin}, M.~{Sitharam}, M.~{Tarifi}, and P.~{Wocjan}.
+	\newblock {Real Mutually Unbiased Bases}.
+	\newblock {\em eprint arXiv:quant-ph/0502024}, Feb. 2005.
+	
+	\bibitem{BCN}
+	A.~Brouwer, A.~Cohen, and A.~Neumaier.
+	\newblock {\em Distance-Regular Graphs}.
+	\newblock Springer-Verlag Berlin, 1989.
+	
+	\bibitem{deCaen}
+	D.~{\swap{Caen}{de }}.
+	\newblock Large Equiangular Sets of Lines in Euclidean Space.
+	\newblock {\em The Electronic Journal of Combinatorics}, 7:R55, 2000.
+	
+	\bibitem{Quadforms}
+	P.~Cameron and J.~Seidel.
+	\newblock Quadratic forms over {GF}(2).
+	\newblock {\em Indagationes Mathematicae (Proceedings)}, 76(1):1 -- 8, 1973.
+	
+	\bibitem{Cameron}
+	P.~J. Cameron.
+	\newblock On Groups with Several Doubly-Transitive Permutation Representations.
+	\newblock {\em Mathematische Zeitschrift}, 128(1):1--14, 1972.
+	
+	\bibitem{Colbourn}
+	C.~J. Colbourn and J.~H. Dinitz.
+	\newblock {\em Handbook of Combinatorial Designs, Second Edition (Discrete
+		Mathematics and Its Applications)}.
+	\newblock Chapman \& Hall/CRC, 2006.
+	
+	\bibitem{VanDam}
+	E.~R.~{\swap{Dam}{van }}.
+	\newblock Three-class Association Schemes.
+	\newblock {\em Journal of Algebraic Combinatorics}, 10:69--107, 1999.
+	
+	\bibitem{DMM}
+	E.~R.~{\swap{Dam}{van }}, W.~Martin, and M.~Muzychuk.
+	\newblock Uniformity in Association Schemes and Coherent Configurations:
+	Cometric $Q$-Antipodal Schemes and Linked Systems.
+	\newblock {\em Journal of Combinatorial Theory, Series A}, 120:1401--1439,
+	2013.
+	
+	\bibitem{DMP}
+	J.~Davis, W.~Martin, and J.~Polhill.
+	\newblock Linking Systems in Nonelementary Abelian Groups.
+	\newblock {\em Journal of Combinatorial Theory Series A}, 123:92--103, 2014.
+	
+	\bibitem{GOETHALS197643}
+	J.-M. Goethals.
+	\newblock Nonlinear Codes Defined by Quadratic Forms over {GF}(2).
+	\newblock {\em Information and Control}, 31(1):43 -- 74, 1976.
+	
+	\bibitem{Goyeneche}
+	D.~Goyeneche and S.~G\'{o}mez.
+	\newblock Mutually Unbiased Bases with Free Parameters.
+	\newblock {\em Physical Review A}, 92, 2015.
+	
+	\bibitem{Kharaghani}
+	W.~Holzmann, H.~Kharaghani, and W.~Orrick.
+	\newblock On the Real Unbiased Hadamard Matrices.
+	\newblock {\em Contemporary Mathematics, Combinatorics and Graphs},
+	531:243--250, 2010.
+	
+	\bibitem{Jasper}
+	J.~Jasper, D.~Mixon, and M.~Fickus.
+	\newblock Kirkman Equiangular Tight Frames and Codes.
+	\newblock {\em IEEE Transactions on Information Theory}, 60:170--181, 2014.
+	
+	\bibitem{LDS}
+	J.~{Jedwab}, S.~{Li}, and S.~{Simon}.
+	\newblock {Linking Systems of Difference Sets}.
+	\newblock {\em ArXiv e-print https://arxiv.org/abs/1708.04405}, Aug. 2017.
+	
+	\bibitem{vanLint}
+	J.~H.~{\swap{Lint}{van }}.
+	\newblock Introduction to Coding Theory.
+	\newblock {\em Springer-Verlag}, 1998.
+	
+	\bibitem{Macneish}
+	H.~F. MacNeish.
+	\newblock Euler Squares.
+	\newblock {\em Annals of Mathematics}, 23(3):221--227, 1922.
+	
+	\bibitem{MMW}
+	W.~J. Martin, M.~Muzychuk, and J.~Williford.
+	\newblock Imprimitive Cometric Association Schemes: Constructions and Analysis.
+	\newblock {\em Journal of Algebraic Combinatorics}, 25(4):399--415, Jun 2007.
+	
+	\bibitem{Mathon}
+	R.~Mathon.
+	\newblock The Systems of Linked 2-(16,6,2) Designs.
+	\newblock {\em Ars Comb}, 11:131 -- 148, 1981.
+	
+	\bibitem{Xiang}
+	M.~Muzychuk and Q.~Xiang.
+	\newblock Symmetric Bush-type Hadamard Matrices of Order $4m^4$ Exist for All
+	Odd $m$.
+	\newblock {\em Proceedings of the American Mathematical Society},
+	134:2197--2204, 2006.
+	
+	\bibitem{Noda}
+	R.~Noda.
+	\newblock On Homogeneous Systems of Linked Symmetric Designs.
+	\newblock {\em Mathematische Zeitschrift}, 138(1):15--20, 1974.
+	
+	\bibitem{Suda}
+	S.~Suda.
+	\newblock Coherent configurations and triply regular association schemes obtained from spherical designs.
+	\newblock {JCTA}, 117 (2010), 1178-1194.
+	
+	\bibitem{Wocjan}
+	P.~Wocjan and T.~Beth.
+	\newblock New Construction of Mutually Unbiased Bases in Square Dimensions.
+	\newblock {\em Quantum Info. Comput.}, 5(2):93--101, Mar 2005.
+	
+\end{thebibliography}

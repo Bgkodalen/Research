@@ -1,0 +1,520 @@
+%% The class cedram-ALCO is just a wrapper around amsart.cls (version 2)
+%% implementing the layout of the journal, and some additionnal
+%% administrative commands. 
+%% You can place one option:
+%% * "Unicode" if the file is UTF-8 encoded.
+\documentclass{cedram-alco}
+%% Here you might want to add some standard packages if those
+%% functionnalities are required.
+%\usepackage[matrix,arrow,tips,curve]{xy}
+% ...
+%% The production will anyway use amsmath (all ams utilities except
+%% amscd for commutative diagrams which you need to load explicilty if
+%% required), hyperref, graphicx, mathtools, enumitem...
+
+%% User definitions if necessary...  Such definitions are forbidden
+%% inside titles, abstracts or the bibliography.
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} %Something useful only for this sample's sake: you can erase this line in your file (or find it useful...)
+
+%% The title of the paper: amsart's syntax. 
+\title
+%% The optionnal argument is the short version for headings.
+[A \textup{(}useful?\textup{)} guide for authors]
+%% The mandatory argument is for the title page, summaries, headings
+%% if optionnal void.
+{A guide for authors preparing their accepted manuscript for AlCo}
+
+%% Authors according to amsart's syntax + distinction between Given
+%% and Proper names:
+\author[\initial{M.} \middlename{X.} Mersenne]{\firstname{Marin} \middlename{X.} \lastname{Mersenne}}
+
+%% Do not include any other information inside \author's argument!
+%% Other author data have special commands for them:
+\address{University of Paris\\ 
+Dept. of pure and applied mathematics\\
+2400 Clarksville st.\\
+Paris\\
+TX 75460 (USA)}
+
+%% Current address, if different from institutionnal address
+\curraddr{Coll\`ege Royal Henri-Le-Grand\\
+Prytan\'e National Militaire\\
+72000 La Fl\`eche, Sarthe (France)}
+
+%% e-mail address
+\email{m.mersenne@u-paris.tx.edu}
+
+%% possibly home page URL (not encouraged by journal's style)
+\urladdr{https://en.wikipedia.org/wiki/Marin\_Mersenne}
+
+%% Acknowledgements are not a footnote in
+%% \author, but are given apart:
+\thanks{The author was partially supported by a special grant for Junior Woodchucks.}
+
+
+%% If co-authors exist, add them the same way, in alaphabetical order
+%\author{\firstname{Joseph}  \lastname{Fourier}}
+%\address{Universit\'e de  Grenoble\\
+% Institut Moi-m\^eme\\
+% BP74, 38402 SMH Cedex (France)}
+%\email{fourier@fourier.edu.fr}
+
+% Key words and phrases:
+\keywords{isotriviality, log-selfishness, Gau\ss{} law}
+  
+
+%% Mathematical classification (2010)
+%% This will not be printed but can be useful for database search
+\subjclass{10X99, 14A12, 11L05}
+
+\begin{document}
+%% Abstracts must be placed before \maketitle
+\begin{abstract}
+  Here is the abstract, which is short but nevertheless useful.
+\end{abstract}
+
+
+\maketitle
+
+% First paragraph after a section is not indented. If there is text
+% below the title before the first section, it should be unindented
+% like this.
+\noindent
+The aim of this document is to be at the same time a manual and a
+sample of a \verb|.tex| file prepared in the class
+\verb|cedram-alco.cls| for submissions accepted for publication. The
+class \verb|cedram-ALCO| is just a wrapper around \verb|amsart.cls|
+(version 2) implementing the layout of the journal, therefore all
+authors already at ease with the classes of the AMS should find it
+easy to adapt their source to \verb|cedram-alco.cls|. As a
+corollary, all packages whose name starts with \verb|ams| (like
+\verb|amsmath| or \verb|amsfonts|) are already automatically loaded
+and you don't need to call them explicitly in the
+preamble\footnote{There is one exception: the package \texttt{amscd}
+  is not loaded by default.}.
+
+\section{The beginning}
+
+\subsection{Metadata}
+
+As you can see in the source file of this document, all ``metadata''
+like keywords, subject numbers, authors, affiliations, email (and url)
+should be in the relevant field separated by comma--space if
+needed. Beware the special r\^ole played by \verb|\\| in the
+\verb|address| field: it is rendered as a comma, so you should not
+separate, \eg your institution and the city by a comma, but by
+\verb|\\|: have a look at this document's \verb|address| field for
+more details.
+
+A special treatement is reserved to acknowledgement and thanks. The
+class provides a field \verb|\thanks|, whose use you can see at the
+bottom of this page (in a footnote). It is intended for a short
+acknowledgement of funding, hospitality, grants, etc. If you have
+longer and more wordy thanks that you wish to address to someone,
+there is a command \verb|\longthanks| which creates a non-numbered
+subsection in which you can enter your wordy thanks. It is \emph{not}
+like \verb|\thanks|, so it will appear where you type it (unlike the
+other command, which needs to be filled before
+\verb|\begin{document}|). The journal style requires that you insert
+it right before the bibliography, as it is in this very same file.
+
+
+Concerning the title, apart from being of course in the field
+\verb|\title{}|, all English common nouns should be lower-case, and
+upper-case letters should be used only for proper names (but see the
+\S \ref{en-dashes_capitals} for a discussion about capitalization of
+adjectives). There is an optional field, to be entered in square
+brackets, for a shorter version of the title to be used in running
+headers; this, again, you see by looking at the source code of this
+very document and at the top of every odd page but the first. The same
+applies for authors.
+
+\section{Pre-loaded commands}
+
+In order to maintain uniformity about labelling and numbering of
+theorems and theorem-like environments, many environments are already
+defined by the class. This means that, unlike what you might be used
+to doing, you \emph{should not} insert a list of commands like
+\begin{verbatim}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\end{verbatim}
+\texttt{\dots}
+
+\noindent\texttt{\dots}
+\begin{verbatim}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\end{verbatim}
+at the beginning of the file. But most probably in your document you have already a bunch of occurrences of
+\begin{verbatim}
+\begin{thm}
+If $xyz=0$ and $x\neq 0$ and $y\neq 0$ then $z=0$.
+\end{thm}
+\end{verbatim}
+and we are going to discuss how you can adapt your source file. The list of all environments which are defined in the class is in the appendix.
+\begin{enumerate}[label=(\arabic*)]
+\item \label{equal} If in the class the kind of environment (say, Theorem) already exists and has the same name as in your file (as in the above example, since this is the case for \verb|thm|), then you don't have to do anything.
+\item \label{equalenv} If, for instance, you called your Theorem environment \verb|satz|, so that a typical command in your source file is
+\begin{verbatim}
+\begin{satz}
+  This template will prove useful.
+\end{satz}
+\end{verbatim}
+  then you will receive an error. In this case you should replace the
+  line in your preamble which reads
+\begin{verbatim}
+\newtheorem{satz}{Theorem}
+or
+\newtheorem{satz}{Theorem}[section]
+or
+\newtheorem{satz}[lemma]{Theorem}
+\end{verbatim}
+simply by the line
+\begin{verbatim}
+\equalenv{satz}{thm}
+\end{verbatim}
+where the first argument is the name \emph{you} gave to the
+environment, and the second is the name of the environment in the
+class (see next subsection).
+\item \label{cdrthm} Finally, if you want to use an environment which
+  does not belong to the list below (say, for instance, that you want
+  an environment \verb|Subsublemma|, called by the command
+  \verb|\begin{sslmma}|) you need to modify the definition so that it
+    reads
+\begin{verbatim}
+\newtheorem{sslmma}[cdrthm]{Subsublemma}
+\end{verbatim}
+  \end{enumerate}
+  and place it \emph{after} \verb|\begin{document}|.
+
+    Finally, of course, it is necessary that you either delete or at
+    least comment out all of your definitions which fall into categories
+    \ref{equal} and \ref{equalenv}.
+
+\subsection{Two useful packages}
+
+\subsubsection{enumitem}\label{subsubsec:enumitem}
+The \verb|enumitem| package is already loaded and its main point is to
+enhance the original capacities of \LaTeX\ for creating lists. It
+mainly allows you to take care of labels properly (and, in the
+background, offers a better layout when things get hard). If you want
+to create a list like
+\begin{enumerate}
+\item $3=2^2-1$ is a prime number;
+\item $7=2^3-1$ is a prime number;
+\item $31=2^5-1$ is a prime number.
+\end{enumerate}
+you can simply use \verb|\begin{enumerate}| and then let each line
+  start with \verb|\item|, finishing with
+  \verb|\end{enumerate}|. Please avoid using the \verb|itemize|
+environment if you want increasing labels (as above). \verb|enumitem|
+allows for great flexibility in the choice of labels; it suffices to
+add the command \verb|[label=...]| right after the
+\verb|\begin{enumerate}| command (beware, it is \verb|label| and not
+  \verb|\label|). The three dots can be basically whatever you want:
+  the important thing is that you add a \emph{counter} at a certain
+  point, namely either of the six\footnote{A bit more is allowed; see
+    the package's website.}
+\begin{verbatim}
+\roman*	\Roman*			\alph* \Alph* \arabic*		
+\end{verbatim}
+which offer, respectively, small/capital roman numbering, then small/capital (latin) alphabetic numbering, or numbering in Arabic numerals $1,2,3,\dots$ For instance, we can modify the above list to the following
+\begin{enumerate}[label=Mers \textbf{Prim} \arabic*)]
+\item $3=2^2-1$ is a prime number;
+\item $7=2^3-1$ is a prime number;
+\item $31=2^5-1$ is a prime number.
+\end{enumerate}
+\subsubsection{mathtools}
+Another very useful package which is automatically loaded is \verb|mathtools|. It provides many commands, among others extensible arrows, fine-tuned matrices and very nice treatments of \emph{paired delimiters}, for instance in order to define a \verb|abs| command such that
+\[
+\verb|\abs\frac{a}{b}|\qquad\text{gives}\qquad\abs{\frac{a}{b}}
+\]
+but
+\[
+\verb|\abs*\frac{a}{b}|\qquad\text{gives}\qquad\abs*{\frac{a}{b}}.
+\]
+We refer to the well-written documentation available at
+\begin{quote}
+\url{http://mirrors.ircam.fr/pub/CTAN/macros/latex/contrib/mathtools/mathtools.pdf}
+\end{quote}
+for all instructions for this package.
+
+\subsection{Abbreviations}
+
+A list of common abbreviations which are a typical source of
+misunderstanding or typos is provided: for instance, there is a
+command \resp, a command \ie and a command \eg (which are,
+respectively, \verb|\resp|, \verb|\ie| and \verb|\eg|). The full list
+is in the appendix, but what is important is that you notice that they
+already contain a period at the end, so you need not (and should not!)
+insert it again.
+
+\section{The bibliography}
+
+The bibliography style used for AlCo is \verb|amsplain-ac| and it is
+to \verb|amsplain| what the class \verb|cedram-alco.cls| is to
+\verb|amsart|, namely a minor modification of the AMS ``plain
+bibliographical style''. All authors are asked to prepare their
+bibliography in a \emph{separate} \verb|.bib| file. If your file is called
+\verb|mynicebibliography.bib| then you should put this file in the same
+folder as the \verb|.tex| file and finish your document with the lines
+\begin{verbatim}
+\bibliographystyle{amsplain-ac}
+\bibliography{mynicebibliography}
+\end{document}
+\end{verbatim}
+which is precisely the way this very sample file finishes. Of course,
+you will need to upload the \verb|.bib| file along with the
+\verb|.tex| for our production. Please try to keep your \verb|.bib| file as
+simple as possible. You can clean it using programs such as bibtool in
+order to remove unused entries, e.g.
+
+Creating the \verb|.bib| file is quite standard; one easy way of doing
+so is by choosing your favourite database (MathSciNet or Zentralblatt
+or GoogleScholar) and find the \verb|bibtex| string corresponding to
+the work you want to quote: then, copy-paste it. Here, some remarks
+are in order. First of all, the \verb|\note{}| field is sometimes
+abusively used by these databases. For instance, the \verb|bibtex|
+entry for Eisenbud's \emph{Commutative algebra} reads
+\begin{verbatim}
+@book {EisWrong,
+    AUTHOR = {Eisenbud, David},
+     TITLE = {Commutative algebra},
+    SERIES = {Graduate Texts in Mathematics},
+    VOLUME = {150},
+      NOTE = {With a view toward algebraic geometry},
+ PUBLISHER = {Springer-Verlag, New York},
+      YEAR = {1995},
+     PAGES = {xvi+785},
+      ISBN = {0-387-94268-8; 0-387-94269-6},
+   MRCLASS = {13-01 (14A05)},
+  MRNUMBER = {1322960},
+MRREVIEWER = {Matthew Miller},
+}
+\end{verbatim}
+and you can easily find what went wrong by looking at the entry
+\cite{EisWrong} in the bibliography of this file. The entry
+\cite{EisRight} is correct, and it is typeset from
+\begin{verbatim}
+@book {EisRight,
+    AUTHOR = {Eisenbud, David},
+     TITLE = {Commutative algebra. {W}ith a view toward algebraic 
+              geometry},
+    SERIES = {Graduate Texts in Mathematics},
+    VOLUME = {150},
+ PUBLISHER = {Springer-Verlag, New York},
+      YEAR = {1995},
+     PAGES = {xvi+785},
+  MRNUMBER = {1322960},
+}
+\end{verbatim}
+Speaking about bibliography, you could look at how the entry \cite{LL}
+is typeset in the \verb|sample.bib| file; it gives instruction on how
+to obtain upper-case and accents, because if you simply write in a
+bibliographical entry
+\begin{verbatim}
+title={On a theorem by Atiyah, Patodi and Singer},
+\end{verbatim}
+the result will be 
+\begin{quote}
+On a theorem by atiyah, patodi and singer.
+\end{quote}
+We stress here that our policy is that, as in the title, we prefer all
+common English nouns to be lower-case even if in the original title
+the publisher followed a different style (but see \S
+\ref{en-dashes_capitals} for a discussion about capitalization of
+adjectives).
+
+Another useful command is the field \verb|\arXiv|: you can see it in action in reference \cite{Per02}. The entry, which is ``only'' an \texttt{arXiv} submission, was typeset (in the \texttt{.bib} file, as usual!) as
+\begin{verbatim}
+@Unpublished{Per02,
+  author =	 {Perelman, Grisha },
+  title =	 {The entropy formula for the {R}icci flow and its geometric
+applications},
+  note =     {\arXiv{math/0211159}},
+  year =	 2002
+}
+\end{verbatim}
+(you can check it by yourself in the \texttt{sample-ac.bib} file) so
+that you see what \verb|\arXiv| does. On a one hand, it prepends
+\texttt{arXiv:} to the reference number (which was the only typeset
+argument) and, on the other, it creates a clickable link. It is
+important, in unpublished works, that this piece of information is in
+the \verb|\note{}| field.
+
+Finally, there is a trend in electronic publishing to endow papers
+with a unique ID rather than conitnuous page numbering to precisely
+locate papers within a journal. This is handled in amsplain-ac through
+the field \verb|eid|, which you can complete with an optionnal
+\verb|pagetotal| field. The field \verb|pages| should not be used for
+these papers. See entry \verb|infrank| in \texttt{sample-ac.bib} and
+\cite{infrank}.
+
+\section{En-dashes and capitals}\label{en-dashes_capitals}
+
+We have already discussed that all nouns should be lower-case, like in
+the title, and upper-case should be used only for proper
+names. Accordingly, we insist that all adjectives coming from a proper
+name be spelt with a capital letter except from extremely common
+ones. Therefore we expect to find Riemannian, Euclidean,
+non-Archimedean, Gaussian but abelian instead of Abelian.
+
+Another typographical remark which often leads to difficulties is the
+difference between a hyphen (typeset \verb|-|) and a en-dash (typeset
+\verb|--|) or em-dash (typeset \verb|---|). In particular, it is a
+en-dash and not a hyphen that needs to be used to separate proper
+names (as in Gau\ss--Bonnet, instead of *Gau\ss-Bonnet) and in
+intervals, so pp.~123--125 instead of *pp.~123-125.  On the other
+hand, a proper name like Swinnerton-Dyer is correctly written with a
+hyphen.
+
+\subsection{\TeX\ hints}
+
+We gather here some hints which might be useful when preparing your
+source file.
+\begin{itemize}
+\item the package \verb|amsmath|, which is automatically loaded,
+  provides the command \verb|\eqref{}| which has the advantage of
+  automatically inserting parenthesis around the number generated by
+  \verb|\ref{}|. So, don't use \verb|(\ref{navier.stokes})| but rather
+  \verb|\eqref{navier.stokes}|
+\item In general, parenthesis in italicized text look \emph{odd (not
+    to say: bad)}. Since statements of theorems, propositions,
+  etc. are automatically italicized, you can use the command
+  \verb|\textup{}| to repair the problem, as in
+
+\medskip
+
+\begin{minipage}{0.85\textwidth}
+{\verb|Let $V$ be a finite-dimensional $\mathbb{C}$-vector space of| \verb|\textup{(}even\textup{)} real dimension $n$.|}
+
+\medskip
+
+{\textit{Let $V$ be a finite-dimensional $\mathbb{C}$-vector space of \textup{(}even\textup{)} real dimension $n$.}}
+
+\end{minipage}
+\medskip
+
+\noindent This holds in particular for lists: if you have a list of conditions in a theorem and (wisely!) take full benefit of the \verb|enumitem| package described in Section \ref{subsubsec:enumitem}, you want to begin your list by \verb|\begin{enumerate}[label=\alph*)]| so that your conditions will look like
+\begin{enumerate}[label=\textit{\alph*)}]
+\item The first,
+\item the second,
+\item and the last.
+\end{enumerate}
+which is bad! Indeed, parenthesis are again in italics. Rather, start
+with \verb|\begin{enumerate}[label=\alph*\textup{)}]|
+\item As a last hint, let us stress once more that \TeX~does an
+  excellent job in placing spaces and organizing layout, so each time
+  you use a spacing-command like \verb|\;| or \verb|\!| please
+  double-check that this is a good idea. This applies in particular to
+  figures, \cf Section \ref{sec:figures}. On the other hand, since it
+  is allowed to go at the line when it considers it useful, it is good
+  practice to use \verb|~| before a digit or a single mathematical
+  symbol, in order to avoid having the symbol go on a line all alone:
+  so, write \verb|we let~$k$ be the unique even prime number|.
+\end{itemize}
+
+\section{Final remarks}
+
+\subsection{Avoid overwriting}
+
+Since many commands are defined in our class file, and since it is
+important that the result of compiling each article is uniform, we ask
+all authors to refrain from using \verb|\let| and \verb|\renewcommand|
+in the preamble. Likewise, every command which might modify the
+general layout, like \verb|\setlength| or \verb|\leftmargin| or the
+like should be avoided. Analogously, we ask authors \emph{not to load}
+the package \verb|geometry| which normally alters the layout of pages.
+
+
+\subsection{Figures}\label{sec:figures}
+
+If you want to insert figures, you should resize them in a way that
+they don't creep into the margins (and this, after having checked that
+\verb|geometry| is disabled and that you are not using a smaller font
+or larger margins, otherwise they won't creep into \emph{your} margins
+but will in AlCo's). If this is not possible, you should rotate them
+so that they appear in landscape mode. It is important to insert
+figures in a figure environment, by using \verb|\begin{figure}| and
+  \verb|\end{figure}|. This allows you, on a one hand, to add a
+caption and to get the figure numbers, so that you can insert a
+\verb|\label{fig:mynicefigure}| and refer to it. What is more
+important, it allows the figure to \emph{float}, so to move around for
+best typographical results. It is not a good practice, in general, to
+force \LaTeX{} to insert figures \emph{precisely} where you want, so
+please refrain from adding the option \verb|[H]| which forces \LaTeX{}
+to do so: some fine-tuning of figures placement can be discussed at a
+later stage of production.
+
+\appendix
+
+\section{List of pre-loaded commands}
+
+Here we list all pre-loaded commands. Since it is an appendix, we also
+recall here how to create an appendix: you should first add a line
+\verb|\appendix|, which instructs \LaTeX\ to switch from Arabic
+numbering to alphabetic (plus other minor changes), and then you can
+keep on using the usual \verb|\section,\subsection| pattern you are
+used to.
+
+\subsection{Abbreviations} The abbreviations that are preloaded are
+
+\begin{itemize}
+\item \loccit \emph{produced by} \verb|\loccit| %
+\item \cf \emph{produced by} \verb|\cf| %\def{\cf}{cf.\kern.3em}
+\item \eg\emph{produced by} \verb|\eg| %\def{\eg}{e.g.\kern.3em}
+\item \ie\emph{produced by} \verb|\ie| %\def\ie{i.e.,\ }
+\item \resp\emph{produced by} \verb|\resp| %\def\resp{\text{resp.}\kern.3em} 
+\item \etc\emph{produced by} \verb|\etc| or by \verb|\ecc|%\def\etc{etc.} %\def\ecc{etc.}
+\end{itemize}
+It is a typographical choice to \emph{avoid all double punctuation},
+so we don't expect to find commas or other punctuation after these
+abbreviations, including in particular \ie instead of *\ie\kern-.3em,
+
+\subsection{Theorem-like environments}
+
+All theorems share a single counter, which is relative to the section
+number (so that the first theorem of \S~5 would be Theorem~5.1). The
+rationale of the naming scheme is to use the 4 first letters of the
+English label.
+
+\begin{description}
+\item[Theorem] \texttt{theo}, \emph{aliases:} \texttt{thm}, \texttt{theorem},
+  \emph{unnumbered version:} \texttt{theo*}, \emph{alias:} \texttt{thm*}
+\item[Conjecture] \texttt{conj}, \emph{alias:} \texttt{conjecture}
+\item[Proposition] \texttt{prop},
+  \emph{unnumbered version:} \texttt{prop*}
+\item[Lemma] \texttt{lemm}, \emph{alias:} \texttt{lemma},
+  \emph{unnumbered version:} \texttt{lemm*}
+\item[Question] \texttt{ques}
+\item[Corollary] \texttt{coro},
+  \emph{unnumbered version:} \texttt{coro*}
+\item[Definition] \texttt{defi} 
+\item[Notation] \texttt{nota},
+  \emph{unnumbered version:} \texttt{nota*}
+\item[Notations] \texttt{notas},
+  \emph{unnumbered version:} \texttt{notas*}
+\item[Remark] \texttt{rema},
+  \emph{unnumbered version:} \texttt{rema*}
+\item[Remarks] \texttt{remas},
+  \emph{unnumbered version:} \texttt{remas*}
+\item[Example] \texttt{exam},
+  \emph{unnumbered version:} \texttt{exam*}
+\item[Examples] \texttt{exams},
+  \emph{unnumbered version:} \texttt{exams*}
+\end{description}
+
+
+ 
+\longthanks{I wish to thank the whole community for their tremendous
+  support in writing this pamphlet, as well as the entire department
+  of the Interstellar Mathematical Department for providing freezing
+  but panoramic work conditions.}
+
+
+\nocite{*}
+\bibliographystyle{amsplain-ac}
+\bibliography{sample-ALCO}
+\end{document}
