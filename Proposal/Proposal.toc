@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{Association schemes}{3}{0}{1}
+\beamer@sectionintoc {2}{Connectivity}{19}{0}{2}
+\beamer@sectionintoc {3}{Linked simplices}{23}{0}{3}
+\beamer@sectionintoc {4}{Sch\"{o}nberg's theorem}{35}{0}{4}
