@@ -419,8 +419,8 @@ This results in the final condition that
 \begin{equation}\label{Co60}
 \frac{16m(m-1)}{(m+4)(m+8)} + \frac{\left(a_1^*\right)^4 + \left(3a_1^*\left(a_1^*+a_2^*\right)+c_2^*q_{22}^2\right)b_1^*c_2^*}{(m-2)m}\geq \frac{12\left(\left(a_1^*\right)^2+b_1^*c_2^*\right)}{m+8}.
 \end{equation}
-In summary, we have the following theorems where in each case we assume the Krein parameters fulfill the condition FC1.
-\begin{thm}
+In summary, we have the following theorems where in each case we assume the Krein parameters fulfill the condition FC1. We omit the inequality coming from $\theta_{41}$ as we may assume $m>2$ for all cases we are interested in.
+\begin{thm}\label{cometricbnds}
 	Let $(X,\mathcal{R})$ be a cometric association scheme with Krein array $\left\{m,b^*_1,\dots,b^*_{d-1};1,c_2^*\dots,c^*_{d}\right\}$. Then in addition to $q_{ij}^l\geq 0$, we must also have
 	\begin{enumerate}[label=(\roman*)]
 		\item $\left(a_1^*\right)^2 + b_1^*c_2^* \geq\frac{2m(m-1)}{m+2},$
@@ -438,7 +438,7 @@ Additionally, if $a_1^*>0$ then,
 \end{thm}
 \section{Application: 4-class $Q$-bipartite schemes}
 \label{4classbip}
-Let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme with $Q$-polynomial ordering $E_0,E_1,\dots,E_4$ and natural ordering $A_0,A_1,\dots A_4$. We know from Theorem \ref{suzuki} that the quotient of $(X,\mathcal{R})$ has exactly two non-trivial relations and thus must be strongly regular. We further assume that $(X,\mathcal{R})$ is not $Q$-antipodal and therefore the quotient SRG is neither the complete multipartite graph nor a union of cliques. Let $(v,k,\lambda,\mu)$ be the parameters of the strongly regular graph in the quotient scheme where $k$ is the valency of the $\tilde{1}$ relation. Further let $k>r>s$ be the eigenvalues of this SRG with corresponding multiplicities $1$, $f$, and $g$. Note that since $(X,\mathcal{R})$ is not $Q$-antipodal, we must have $k>r$ and $s>-k$. The $Q$ matrix of this SRG will be
+In this section we investigate the specific case of $4$-class $Q$-bipartite schemes which are not also $Q$-antipodal. We will begin by showing that the parameters of any such scheme are determined completely by three integral parameters and then recast Theorem \ref{cometricbnds} in terms of these three parameters. Let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme with $Q$-polynomial ordering $E_0,E_1,\dots,E_4$ and natural ordering $A_0,A_1,\dots A_4$. We know from Theorem \ref{suzuki} that the quotient of $(X,\mathcal{R})$ has exactly two non-trivial relations and thus must be strongly regular. We further assume that $(X,\mathcal{R})$ is not $Q$-antipodal and therefore the quotient SRG is neither the complete multipartite graph nor a union of cliques. Let $(v,k,\lambda,\mu)$ be the parameters of the strongly regular graph in the quotient scheme where $k$ is the valency of the $\tilde{1}$ relation. Further let $k>r>s$ be the eigenvalues of this SRG with corresponding multiplicities $1$, $f$, and $g$. Note that since $(X,\mathcal{R})$ is not $Q$-antipodal, we must have $k>r$ and $s>-k$. The $Q$ matrix of this SRG will be
 \[\tilde{Q} = \left[\begin{array}{ccc}
 1 & f & g\\
 1 & \frac{fr}{k} & \frac{gs}{k}\\

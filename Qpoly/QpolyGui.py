@@ -121,10 +121,6 @@ def parameterlist():
     else:
         #+selectedschemes[scheme]['exists']
         schemelist = sortedlist([scheme for scheme in schemelist])
-    ### Delete this after youre done
-    if imprim.get()=="bipartite" and numclasses.get() == 4:
-        schemelist = [scheme+"("+str(selectedschemes[scheme]['P'][0,1])+","+str(selectedschemes[scheme]['P'][2,1])+","+str(selectedschemes[scheme]['P'][3,3])+")" for scheme in schemelist if selectedschemes[scheme]['P'][3,3]==4]
-    ###
     return tuple(schemelist)
 
 
