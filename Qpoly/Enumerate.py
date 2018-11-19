@@ -111,16 +111,19 @@ def generatelist(n,k0,k1):
     #maxk = geg1(n)
     maxk = oldk(n)
     possible = {}
+    newpossible = {}
     for k in range(maxk):
         if k%n == 0:
             possible[k] = {}
+            newpossible[k] = {}
     print(maxk)
-    for kn in range(k0,k1):
+    #for kn in range(k0,k1):
+    for kn in range(1,maxk//n):
         k = kn*n
         if k%1000 == 0:
             print(k)
         if k<(9*n**2*(1/4)-13/4+3*math.sqrt(9*n**4-26*n**2+17)*(1/4))*n**4:
-            lowbnd = max(2*k/(3*n**2)-n**2/3,0)
+            lowbnd = max(2*k/(3*n**2)-n**2/3,1)
         else:
             lowbnd = (-n**4+math.sqrt(n**8-4*k*n**6+6*k*n**4+k**2)+k)/(2*n**2)
         upbnd = (k-n**2)/(n**2+n)
@@ -128,12 +131,17 @@ def generatelist(n,k0,k1):
             mu=int(r*s+k)
             v = int((k-r)*(k-s)/(k+r*s))
             f = int((n**2-1)*k*(k-s)/(mu*(r-s)))
-            if ((k-r)*(k-s)) % (k+r*s) == 0:
-                if ((k-r)*(n**2)) % mu == 0:
-                    if ((n**2-1)*k*(k-s)) % (mu*(r-s))==0:
-                        if (k+f*r) % n**2 == 0:
-                            if (k-r*n**2) %2 == 0:
-                                if 2*(r+1)*k*(n**2-1) % mu == 0:
-                                    possible[k][r] = 1
+            m = int((k-r)*(-s)/mu)
+            if ((k-r)*(k-s)) % (k+r*s) == 0: #Integral v
+                if ((k-r)*(n**2)) % mu == 0: #Integral m
+                    if ((n**2-1)*k*(k-s)) % (mu*(r-s))==0: #Integral f
+                        if (k+f*r) % n**2 == 0: #Integral g
+                            if (k-r*n**2) %2 == 0: #p^1_21 is integral
+                                if (mu+n*(r-n))*(n+1) % (2*n) == 0: #p^1_11 is integral
+                                    if 1+f<=m*(m+1)/2: #absolute bound
+                                        possible[k][r] = 1
+                                        if 15*n**4*(2*n**2-3)*r**2+(n**6-45*k*n**2+76*k)*n**2*r+k*(16*k+n**6)*(n**2-2)>=0:# New bound
+                                            newpossible[k][r]=1
     posslist = [[k,r] for k in possible for r in possible[k]]
-    return posslist
+    newposslist = [[k,r] for k in newpossible for r in newpossible[k]]
+    return posslist,newposslist
