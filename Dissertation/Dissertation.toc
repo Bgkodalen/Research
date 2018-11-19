@@ -1,10 +1,15 @@
-\contentsline {chapter}{\numberline {1}Introduction}{5}
-\contentsline {chapter}{\numberline {2}Association schemes}{6}
-\contentsline {chapter}{\numberline {3}PSD cone}{7}
-\contentsline {chapter}{\numberline {4}Polynomial ring of Association schemes}{8}
-\contentsline {section}{\numberline {4.1}Gegenbauer Polynomials}{9}
-\contentsline {section}{\numberline {4.2}Sch\"{o}nberg's theorem}{11}
-\contentsline {section}{\numberline {4.3}Cometric case}{12}
-\contentsline {chapter}{\numberline {5}3-class $Q$-antipodal: LSSDs}{13}
-\contentsline {chapter}{\numberline {6}4-class $Q$-bipartite: Double covers of SRGs}{14}
-\contentsline {chapter}{\numberline {7}Connectivity of basis relations}{15}
+\contentsline {chapter}{\numberline {1}Introduction}{5}{chapter.1}
+\contentsline {chapter}{\numberline {2}Association schemes}{6}{chapter.2}
+\contentsline {section}{\numberline {2.1}Strongly regular graphs--2-class association schemes}{7}{section.2.1}
+\contentsline {section}{\numberline {2.2}Cometric Association Schemes}{8}{section.2.2}
+\contentsline {chapter}{\numberline {3}PSD cone}{11}{chapter.3}
+\contentsline {chapter}{\numberline {4}Polynomial ring of Association schemes}{12}{chapter.4}
+\contentsline {section}{\numberline {4.1}Gegenbauer Polynomials}{13}{section.4.1}
+\contentsline {section}{\numberline {4.2}Sch\"{o}nberg's theorem}{15}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Proof of Theorem \ref {degreebound}}{16}{subsection.4.2.1}
+\contentsline {section}{\numberline {4.3}Cometric Association Schemes}{22}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}$Q$-bipartite Association Schemes}{26}{subsection.4.3.1}
+\contentsline {section}{\numberline {4.4}Application: 4-class $Q$-bipartite schemes}{28}{section.4.4}
+\contentsline {chapter}{\numberline {5}3-class $Q$-antipodal: LSSDs}{35}{chapter.5}
+\contentsline {chapter}{\numberline {6}4-class $Q$-bipartite: Double covers of SRGs}{36}{chapter.6}
+\contentsline {chapter}{\numberline {7}Connectivity of basis relations}{37}{chapter.7}

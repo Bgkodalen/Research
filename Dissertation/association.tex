@@ -1,1 +1,99 @@
 \chapter{Association schemes}\label{association}
+\begin{remark}
+	This is only a temporary placeholder so that I can reference a few key theorems. This will be completely rewritten.
+\end{remark}
+Let $X$ be a finite set of vertices. A \textit{symmetric d-class association scheme} (see \cite{BCN}) on $X$ is a pair $\mathcal{L} = (X,\mathcal{R})$ where $\mathcal{R} =\left\{R_0,R_1,\dots,R_d\right\}$ is a set of $d+1$ relations on $X$ satisfying the following properties:
+\begin{itemize}
+	\item $R_0$ is the identity relation;
+	\item $\left\{R_0,R_1,\dots, R_d\right\}$ forms a partition of $X\times X$;
+	\item $(x,y)\in R_i$ implies $(y,x)\in R_i$;
+	\item for $0\leq i,j,k\leq d$ there exist \textit{intersection numbers} $p_{i,j}^k$ such that for any $(x,y)\in R_k$, the number of vertices $z$ for which $(x,z)\in R_i$ and $(z,y)\in R_j$ is equal to $p_{i,j}^k$ independent of our original choice of $x$ and $y$.
+\end{itemize}
+Often it becomes useful to order the vertices in $X$ and then represent each $R_i$ as a 01-matrix $A_i$ where the $(x,y)$ entry of $A_i$ is 1 if and only if $(x,y)\in R_i$. With this setting in mind, the defining properties above are encoded as:
+\begin{itemize}
+	\item $A_0 = I$;
+	\item $\sum_i A_i = J$;
+	\item for all $0\leq i\leq d$, $A_i^T = A_i$;
+	\item for all $0\leq i,j,k\leq d$, $A_iA_j = \sum p_{i,j}^k A_k$.
+\end{itemize}
+The final condition tells us that $\mathbb{A} = \text{span}\left\{A_0,A_1,\dots A_d\right\}$ forms a matrix algebra under standard matrix multiplication. As our matrices are 01-matrices with disjoint support, this \emph{Bose-Mesner algebra} is also closed under Schur (element-wise) products. Using our symmetric property, we note that $p_{i,j}^k = p_{j,i}^k$ telling us that $A_iA_j = A_jA_i$ and our algebra is commutative. Therefore our adjacency matrices are simultaneously diagonalizable giving us $d+1$ orthogonal eigenspaces with projection operators $E_0,\dots,E_d$. As both $\left\{A_0,\dots,A_d\right\}$ and $\left\{E_0,\dots,E_d\right\}$ form bases for the Bose-Mesner algebra, there exists unique matrices $P$ and $Q$ so that
+\begin{equation}
+\label{PQmat}
+A_i = \sum_{j} P_{ji} E_j,\qquad E_j = \frac{1}{\vert X\vert} \sum_{i} Q_{ij}A_i.
+\end{equation}
+
+We call $P$ and $Q$ the first and second eigenmatrices, respectively, and note here that $P_{0i}$ is the valency of relation $R_i$ and $Q_{0j}$ is the rank of $E_j$. Finally, as our matrix algebra is closed under Schur products, we find that there exist structure constants $q_{i,j}^k$ such that for all $0\leq i,j,k\leq d$:
+\[E_i\circ E_j = \frac{1}{\vert X\vert}\sum_k q_{i,j}^k E_k.\]
+We call these parameters the Krein parameters of the association scheme. We conclude this section by examining the Krein parameters of our scheme, and defining an algebra isomorphism from our Bose-Mesner algebra to a new matrix algebra. Defining $L_i^*$ such that
+\[L_i^* = [q^k_{i,j}]_{k,j},\]
+we may define the vector space $\mathbb{L}^* = \text{span}\left\{L_0^*,L_1^*,\dots,L_d^*\right\}$. From \cite[Lemma.~2.3.1(vi)]{BCN}, we have:
+\begin{align}
+L_i^*L_j^* = \sum_k q^m_{i,k}q^k_{j,l}&=\sum_k q^k_{i,j}q^m_{k,l}=\sum_{k}q^k_{i,j}L_k^*,\label{dblsum}\end{align}
+showing that $\mathbb{L}^*$ is closed under matrix multiplication. Therefore we define a homomorphism $\phi^* : \mathbb{A}\rightarrow \mathbb{L}^*$ via taking $\phi^*(E_i) = \frac{1}{\vert X\vert}L_i^*$ for each $0\leq i\leq d$ and extending linearly. From \eqref{dblsum}, we see that
+\[\phi^*(E_i\circ E_j) = \frac{1}{\vert X\vert}\sum_{k=0}^{d}q^k_{i,j}\phi^*\left(E_k\right) = \frac{1}{\vert X\vert^2}\sum_{k=0}^dq^k_{i,j}L_k^* = \left(\frac{1}{\vert X\vert}L_i^*\right)\left(\frac{1}{\vert X\vert}L_j^*\right) = \phi^*(E_i)\phi^*(E_j).\]
+Therefore $\phi^*$ is an algebra isomorphism preserving the Schur product structure of $\mathbb{A}$.
+\section{Strongly regular graphs--2-class association schemes}
+A strongly regular graph with parameters $(v,k,\lambda,\mu)$ is a $k$-regular graph with $v$ points where every pair of adjacent (non-adjacent) vertices have exactly $\lambda$ ($\mu$) neighbors in common. Thus, a strongly regular graph $\Gamma$ corresponds to $2$-class association scheme where $\Gamma$ and $\overline{\Gamma}$ are the two non-trivial relations. Thus a 2-class association scheme has the following first and second eigenmatrices:
+\begin{equation}\label{PQsrg}P = \left[\begin{array}{ccc}
+1 & k & v-k-1\\
+1 & r & -(r+1)\\
+1 & s & -(s+1)
+\end{array}\right]\qquad Q = \left[\begin{array}{ccc}
+1 & f & g\\
+1 & \frac{fr}{k} & \frac{gs}{k}\\
+1 & \frac{f(1+r)}{k+1-v} & \frac{g(1+s)}{k+1-v}
+\end{array}\right]\end{equation}
+where $\Gamma$ has spectrum $k^1,r^f,s^g$. The following are two theorems which will prove useful later.
+\begin{thm}\cite[Theorem.~1.3.1.(iii)]{BCN} Whenever $\mu>0$, the parameters of a strongly regular graph may be expressed in terms of $r$, $s$, and $\mu$ as
+	\[k = \mu-rs, \qquad v = \frac{(k-r)(k-s)}{\mu},\qquad \lambda = \mu+r+s.\]
+\end{thm}
+\begin{thm}\cite{delsarte} 
+	Let $\Gamma$ be a strongly regular graph with $v$ vertices, valency $k$, and smallest eigenvalue $-m$. If $C$ is a coclique of $\Gamma$, then
+	\[\vert C\vert\leq v\left(1+\frac{k}{m}\right))^{-1}, \]
+	with equality if and only if every vertex $\gamma\notin C$ has the same number of neighbors (namely $m$) in $C$.
+\end{thm}
+\section{Cometric Association Schemes}
+Let $(X,\mathcal{R})$ be an $d$-class symmetric association scheme. We say $(X,\mathcal{R})$ is $Q$-polynomial, or \textit{cometric}, if there exists an ordering of the eigenspaces, say $E_0$, $E_1$,\dots, $E_d$, such that the Krein parameters satisfy the following conditions:
+\begin{enumerate}
+	\item $q^k_{i,j} = 0$ whenever $i+j<k$, and
+	\item $q^{i+j}_{i,j}>0$ whenever $i+j\leq d$.
+\end{enumerate}
+Under these conditions, we see that for a given $0\leq j\leq d$, at most three possible choices for $k$ will allow $q_{1,k}^j>0$. Therefore let $c_j^* = q_{1,j-1}^j$, $a_j^* = q_{1,j}^j$ and $b_j^* = q_{1,j+1}^j$ for $0\leq j\leq d$ with the restriction that $b_d^*=c_0^*=0$. Given a cometric scheme, we define the Krein array as $\left\{b_0^*,b_1^*,\dots,b_{d-1}^*;c_1^*,c_2^*,\dots,c_d^*\right\}$ noting that for any $0\leq j\leq d$, $c_j^* + a_j^* + b_j^* = q^0_{1,1}$. We say a cometric scheme is $Q$-\emph{bipartite} if $a_j^*=0$ for all $0\leq j\leq d$. This is equivalent to the condition that $q_{i,j}^k=0$ whenever $i+j+k$ is odd. A cometric scheme is $Q$-\emph{antipodal} if $b_j^* = c_{d-j}^*$ for all $j$ except possibly $j = \lfloor \frac{d}{2}\rfloor$.\par
+We may define orthogonal polynomials $q_j(t)$, $j=0,1,\dots,d$ by $q_0(t) = 1$, $q_1(t) = t$ and the three-term recurrence $tq_j(t) = c_{j+1}^*q_{j+1}(t) + a_j^*q_j(t) + b_{j-1}^*q_{j-1}(t)$. It follows that $\vert X\vert E_j = q_j(\vert X\vert E_1)$, for $j=0,1,\dots,d$ where matrix multiplication is computed entrywise. Since $\frac{1}{\vert X\vert}Q_{i,j}$ for $0\leq i\leq j$ are the entries of $E_j$, this also means that $q_j(Q_{i,1}) = Q_{j,1}$. Finally note that in the $Q$-bipartite case, $q_j(t)$ is an even polynomial if and only if $j$ is even.\par
+The following two theorems will help us describe the quotient object we find in the $Q$-bipartite case where $I_r$ and $J_r$ denote the $r\times r$ identity and all ones matrix respectively:
+\begin{thm}[\cite{MMW}] \label{mmw}The following are equivalent:
+	\begin{enumerate}[label=(\roman*)]
+		\item $(X,\mathbb{R})$ is imprimitive;
+		\item for some $j>0$, $E_j$ has repeated columns;
+		\item for some subset $\mathcal{I} = \left\{i_0=0,i_1,\dots,i_s\right\}$ of $\left\{0,1,\dots,d\right\}$ and some ordering of the vertices $\sum_{h=0}^s A_{i_h} = I_w\otimes J_r$ for integers $w$ and $r$ with $\vert X\vert=wr$, $1<w,r<\vert X\vert$;
+		\item for some subset $\mathcal{J} = \left\{j_0=0,j_1,\dots,j_s\right\}$ of $\left\{0,1,\dots,d\right\}$ and some ordering of the vertices $\sum_{h=0}^s E_{j_h} = \frac{1}{r}\left(I_w\otimes J_r\right)$ for integers $w$ and $r$ with $\vert X\vert=wr$, $1<w,r<\vert X\vert$.
+	\end{enumerate}
+\end{thm}
+Whenever $(iii)$ occurs, say with subset $\mathcal{I}$ as given in the theorem, we may partition our vertices into equivalence classes so that $x\sim y$ whenever $(x,y)\in R_i$ for some $i\in \mathcal{I}$. Let $X_1,\dots,X_w$ be the corresponding equivalence classes and define $\mathcal{R}' = \left\{R_i\in \mathcal{R} : i\in \mathcal{I}\right\}$. Then there exists \emph{subschemes} $(X_i,\mathcal{R}')$ for each equivalence class $X_i$. Further, we may define a \emph{quotient scheme} $(\tilde{X},\tilde{\mathcal{R}})$ of our original scheme with respect to $\mathcal{I}$ whose point set is the set of equivalence classes and whose relations are $R_{\tilde{i}} = \cup_{i\in \tilde{i}} R_i$ where each $\tilde{i} = \left\{0\leq j\leq d : p^x_{i,j} \text{ for }x\in \mathcal{I}\right\}$. Note that $\vert \tilde{\mathcal{R}}\vert = \vert \mathcal{J}\vert$ where $\mathcal{J}$ is the subset from Theorem $3.1(iv)$.
+\begin{thm}[\cite{Suzuki}] \label{suzuki}Suppose $(X,\mathcal{R})$ is an imprimitive cometric association scheme. Then one of the following holds:
+	\begin{enumerate}[label=(\roman*)]
+		\item $(X,\mathcal{R})$ is $Q$-bipartite and $\mathcal{J} = \left\{0,2,4,\dots\right\}$
+		\item $(X,\mathcal{R})$ is $Q$-antipodal and $\mathcal{J} = \left\{0,d\right\}$
+		\item $(X,\mathcal{R})$ is a $4$-class scheme with Krein array $\left\{m,m-1,1,b_3^*;1,c_2^*,m-b_3^*,1\right\}$ and $\mathcal{J} = \left\{0,3\right\}$;
+		\item $(X,\mathcal{R})$ is a $6$-class scheme with Krein array $\left\{m,m-1,1,b_3^*,b_4^*,1;1,c_2^*,m-b_3^*,1,c_5^*,m\right\}$ and $\mathcal{J} = \left\{0,3,6\right\}$.
+	\end{enumerate}
+\end{thm}
+Cerzo and Suzuki \cite{cerzo} have shown that no association schemes of the third type exist.
+\begin{cor}
+	\label{SRG}
+	The quotient scheme of a 4-class $Q$-bipartite association scheme is a strongly regular graph.
+\end{cor}
+\begin{proof}
+	From Theorem \ref{suzuki}, we know $\mathcal{J} = \left\{0,2,4\right\}$ and therefore the quotient scheme has two nontrivial relations, forcing it to be strongly regular.
+\end{proof}
+\begin{thm}[\cite{BGKW},\cite{MMW}]
+	\label{sym}
+	If $(X,\mathcal{R})$ is $Q$-bipartite with $w$ dual bipartite classes of size $r$ each, then $r=2$. Under the natural ordering of relations, $\mathcal{I} = \left\{0,d\right\}$ and the sequence $m = Q_{01}>Q_{11}>\dots>Q_{d1}$ is symmetric about the origin. In particular, $Q_{\frac{d}{2},1} = 0$ whenever $d$ is even.
+\end{thm}
+\begin{cor}
+	\label{evenpoly}
+	If $(X,\mathcal{R})$ is $Q$-bipartite, then $Q_{i,j} = Q_{d-i,j}$ $(-Q_{d-i,j}$, resp.) whenever $j$ is even (odd).
+\end{cor}
+\begin{proof}
+	$q_j(t)$ is even (odd) whenever $j$ is even (odd). Since $Q_{i,1} = -Q_{d-i,1}$ and $Q_{i,j} = q_j(Q_{i,1})$, the result follows.
+\end{proof}
