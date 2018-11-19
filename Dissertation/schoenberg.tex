@@ -412,7 +412,7 @@ This results in the final condition that
 \end{equation}
 In summary, we have the following theorems where in each case we assume the Krein parameters fulfill the condition FC1. We omit the inequality coming from $\theta_{41}$ as we may assume $m>2$ for all cases we are interested in.
 \begin{thm}\label{cometricbnds}
-	Let $(X,\mathcal{R})$ be a cometric association scheme with Krein array $\left\{m,b^*_1,\dots,b^*_{d-1};1,c_2^*\dots,c^*_{d}\right\}$. Then in addition to $q_{ij}^l\geq 0$, we must also have
+	Let $\left\{q_{ij}^k\right\}$ be a feasible set of Krein parameters for a cometric association scheme. Let $\left\{m,b^*_1,\dots,b^*_{d-1};1,c_2^*\dots,c^*_{d}\right\}$ be the corresponding Krein array. Then the following conditions are required for a cometric scheme to exist with these parameters.
 	\begin{enumerate}[label=(\roman*)]
 		\item $\left(a_1^*\right)^2 + b_1^*c_2^* \geq\frac{2m(m-1)}{m+2},$
 		\item $\left(a_1^*\right)^2+2a_1^*a_2^*+c_2q^2_{22}\geq \frac{4m(m-2)}{m+4},$
@@ -428,27 +428,40 @@ Additionally, if $a_1^*>0$ then,
 	\end{enumerate}\qed
 \end{thm}
 \subsection{$Q$-bipartite Association Schemes}
-We conclude this section by proving $Q$-bipartite analogues of Theorem \ref{degreebound}, Corollary \ref{maxlambda}, and Theorem \ref{cometricbnds}.
-
-\begin{thm}\label{Qbipdegbnd}
-	Let $(X,\cR)$ be a $Q$-bipartite association scheme with $Q$-polynomial ordering $E_0,\dots,E_d$ and natural ordering $A_0,\dots,A_d$. Define $\lambda_j:=\frac{Q_{j,1}}{m_1}$ for $0\leq j\leq d$. Define $k^*$ to be the smallest integer such that
-	\[\sum_{j=1}^d\vert \lambda_j\vert^{2k^*}v_j(1+\lambda_j)^2\leq\frac{4}{\vert X\vert}.\]
-	Then the conditions described in Theorem \ref{schoen-as} are vacuous for degrees $k\geq k^*$. [TODO: Restate this, this isn't worded right.]
+We conclude this section by proving $Q$-bipartite analogues of Theorem \ref{degreebound}, Corollary \ref{maxlambda}, and Theorem \ref{cometricbnds}. We begin by proving an important theorem concerning the eigenvalues $\theta_{ki}$ as described in Theorem \ref{schoen-as}.
+\begin{thm}\label{Qbipeig}
+	Let $(X,\cR)$ be a $Q$-bipartite association scheme with cometric ordering $E_0,E_1,\dots,E_d$. Define $\theta_{\kappa,j}$ for $0\leq j\leq d$ and $\kappa\geq 0$ so that
+	\[G_\kappa^m\circ\left(\frac{\vert X\vert}{m}E_1\right) = \sum_{j=0}^d\theta_{\kappa,j}E_j.\]
+	Then $\theta_{\kappa,j} = 0$ whenever $\kappa+j\notin2\bbZ$.
 \end{thm}
 \begin{proof}
-	Let $P$ be the first eigenmatrix of $(X,\cR)$, $L_1 = [q_{1j}^i]_{ij}$, and $M = \sqrt{\Delta}_mP$. As with in the proof of Theorem \ref{degreebound}, let
+	We prove this by induction. First note that $\theta_{0,j} = \vert X\vert\delta_{0j}$ and thus $\theta_{0,j} = 0$ whenever $j\notin2\bbZ$. Now let $\kappa\in\mathbb{Z}$ be given so that $\theta_{\kappa,j} = 0$ whenever $\kappa+j\notin 2\bbZ$ and consider
+	\[\theta_{\kappa+1,j}= \frac{(2\kappa+m)(c_{j}^*\theta_{\kappa,j-1} +a_i^*\theta_{\kappa,j}+b_{j}^*\theta_{\kappa,j+1}) - (\kappa)m\theta_{\kappa-2,j}}{m(\kappa+m-2)}.\]
+	If $(\kappa+1)+j\notin2\bbZ$ then $\kappa+(j-1),\kappa+(j+1),(\kappa-1)+j\notin2\bbZ$ and thus by our induction hypothesis,
+	\[\theta_{\kappa+1,j}= \frac{(2\kappa+m)(a_i^*\theta_{\kappa,j})}{m(\kappa+m-2)}.\]
+	However since $a_1^*=0$ for $Q$-bipartite schemes, we have $\theta_{\kappa+1,j} = 0$.
+\end{proof}
+This theorem tells us that approximately half of the eigenvalues $\theta_{\kappa,j}$ will be zero for a $Q$-bipartite scheme. This information allows us to recast many of the previous theorems seen in this section for this case.  We first consider Theorem $\ref{degreebound}$, following much of the same proof to prove the following theorem.
+
+\begin{thm}\label{Qbipdegbnd}
+	Let $P$ and $Q$ be a pair of feasible first and second eigenmatrices for a $Q$-bipartite association scheme with relations ordered naturally. Define $\lambda_j:=\frac{Q_{j,1}}{m_1}$ and $k_j = P_{0,j}$ for $0\leq j\leq d$. Define $\kappa^*$ to be the smallest integer such that
+	\[\sum_{j=1}^d\vert \lambda_j\vert^{2\kappa^*}k_j(1+\lambda_j^2)\leq\frac{4}{\vert X\vert}.\]
+	Then the requirements $\theta_{\kappa,i}\geq 0$ for $0\leq i\leq d$ as defined in Theorem \ref{schoen-as} are vacuous for degrees $\kappa\geq \kappa^*$.
+\end{thm}
+\begin{proof}
+	Using equation \eqref{kreingen}, define $q_{1j}^i$ for $0\leq i,j\leq d$ and let $L_1$ be the matrix whose $i,j$ entry is $q^i_{1j}$. Define $M = \frac{1}{m}\sqrt{\Delta_m}L_1\sqrt{\Delta_m}^{-1}$. As with in the proof of Theorem \ref{degreebound}, let
 	\begin{equation*}
-	\vec{y}_k = T_ky_{k-1} \qquad k\geq 2
+	\vec{y}_\kappa = T_\kappa\vec{y}_{\kappa-1} \qquad \kappa\geq 2
 	\end{equation*}
 	with
-	\begin{equation*}\mu_k = \frac{k-1}{k+m-3};\qquad \vec{y}_1 = \left[\begin{array}{c}
+	\begin{equation*}\mu_\kappa = \frac{\kappa-1}{\kappa+m-3};\qquad \vec{y}_1 = \left[\begin{array}{c}
 	\frac{1}{\sqrt{m}}\vec{e}_1\\\hdashline[2pt/2pt]
 	\vec{e}_0
-	\end{array}\right];\qquad T_k = \left[\begin{array}{>{\centering\arraybackslash}p{3cm};{2pt/2pt}>{\centering\arraybackslash}p{3cm}}
-	$(1+\mu_k)M$ & $-\mu_k I$\\\hdashline[2pt/2pt]
+	\end{array}\right];\qquad T_\kappa = \left[\begin{array}{>{\centering\arraybackslash}p{3cm};{2pt/2pt}>{\centering\arraybackslash}p{3cm}}
+	$(1+\mu_\kappa)M$ & $-\mu_\kappa I$\\\hdashline[2pt/2pt]
 	$I$ & $0$
 	\end{array}\right].\end{equation*}
-	We define 
+	We then define 
 	\[B_j = \text{span}\left(\left[\begin{array}{c}
 	\vec{p}_j\\\hdashline[2pt/2pt]
 	\vec{0}
@@ -456,28 +469,30 @@ We conclude this section by proving $Q$-bipartite analogues of Theorem \ref{degr
 	\vec{0}\\\hdashline[2pt/2pt]
 	\vec{p}_j
 	\end{array}\right]\right)\]
-	for $0\leq j\leq d$ where $\vec{p}_j$ is the $j^\text{th}$ column of $M$ and recall that each $B_j$ is $T_k$ invariant and $v\in B_j$ implies that $\vert\vert T_kv\vert\vert_2^2\leq\vert \lambda_j\vert^2\vert \vert v\vert\vert_2^2$. Finally, recall that 
+	for $0\leq j\leq d$ where $\vec{p}_j$ is the $j^\text{th}$ column of $\sqrt{\Delta_m}P$. Finally, recall that 
 	\[\text{proj}_{B_j}(\vec{y}_1) = \frac{1}{\vert X\vert}\left[\begin{array}{c}
 	\lambda_j\vec{p}_j\\\hdashline[2pt/2pt]
 	\vec{p}_j
 	\end{array}\right].\]
-	For a $Q$-bipartite scheme, we know that $\vec{p}_0 = \left[1,\sqrt{m},\dots,\sqrt{m_d}\right]^T$ and $\vec{p}_d = \left[1,-\sqrt{m},\dots,(-1)^d\sqrt{m_d}\right]^T$ with $\lambda_0 = -\lambda_d = 1$. Therefore define vectors $\chi_k$ so that $[\chi_k]_i = \begin{cases}
-	\sqrt{m_i} & \text{if } i+k\in2\bbZ\\
-	0 & \text{if } i+k\not\in2\bbZ
+	Then Lemmas \ref{Mmat}-\ref{complexroot} give us that 
+	\[\left\vert\left\vert \prod_{\kappa=2}^{\kappa^*} T_\kappa \text{proj}_{B_j}(\vec{y}_1)\right\vert\right\vert_2^2\leq \vert\lambda_j\vert^{2\kappa^*-2}\left\vert\left\vert\text{proj}_{B_j}(\vec{y}_1)\right\vert\right\vert_2^2.\]
+	For a $Q$-bipartite scheme, we know that $\vec{p}_0 = \left[1,\sqrt{m},\dots,\sqrt{m_d}\right]^T$ and $\vec{p}_d = \left[1,-\sqrt{m},\dots,(-1)^d\sqrt{m_d}\right]^T$ with $\lambda_0 = -\lambda_d = 1$. Therefore define vectors $\chi_\kappa$ ($\kappa\geq 1$) so that $[\chi_\kappa]_i = \begin{cases}
+	\sqrt{m_i} & \text{if } i+\kappa\in2\bbZ\\
+	0 & \text{if } i+\kappa\not\in2\bbZ
 	\end{cases}$ for $0\leq i\leq d$. Then we have
-	\[\text{proj}_{B_0}(\vec{y}_k) + \text{proj}_{B_d}(\vec{y}_k) = \frac{2}{\vert X\vert}\left[\begin{array}{c}
-	\chi_k\\\hdashline[2pt/2pt]
-	\chi_{k+1}
+	\[\text{proj}_{B_0}(\vec{y}_\kappa) + \text{proj}_{B_d}(\vec{y}_\kappa) = \frac{2}{\vert X\vert}\left[\begin{array}{c}
+	\chi_\kappa\\\hdashline[2pt/2pt]
+	\chi_{\kappa+1}
 	\end{array}\right].\]
-	Since either $[\chi_k]_0 = 1$ or $[\chi_{k+1}]_0 = 1$, the smallest non-zero element of $\vec{y}_k$ is always $\frac{2}{\vert X\vert}$. Now, Theorem \ref{notsureyet} tells us that $\theta_{ki} = 0$ whenever $k+i\notin 2\bbZ$. Therefore $[\vec{y}_k]_i = 0$ whenever either $0\leq i\leq d$ and $i+k\notin 2\bbZ$ or $0\leq i-(d+1)\leq d$ and $i-(d+1)+k\notin 2\bbZ$. Since $\text{proj}_{B_0}(\vec{y}_k) + \text{proj}_{B_d}(\vec{y}_k)$ is $0$ in exactly the same points, this implies the sum of the remaining projections must follow the same pattern, i.e.
-	\[\left[\sum_{1}^{d-1}\text{proj}_{B_j}(\vec{y}_k)\right]_i = 0 \text{ whenever }\begin{cases} 0\leq i\leq d \text{ and } i+k\notin 2\bbZ\\ 0\leq i-(d+1)\leq d \text{ and }i-(d+1)+k\notin\bbZ.\end{cases}\]
-	Therefore once $\vert\vert \sum_{1}^{d-1}\text{proj}_{B_j}(\vec{y}_k)\vert\vert_2^2\leq\frac{4}{\vert X\vert^2}$, we are guaranteed $y_k$ has no negative values. Noting that 
-	\[\left\vert\left\vert \sum_{1}^{d-1}\text{proj}_{B_j}(\vec{y}_k)\right\vert\right\vert_2\leq\frac{1}{\vert X\vert}\sum_{j=1}^{d-1}\vert \lambda_j\vert^{2k^*}v_j(1+\lambda_j^2),\]
-	we have our result.	
+	Since either $[\chi_\kappa]_0 = 1$ or $[\chi_{\kappa+1}]_0 = 1$, the smallest non-zero element of $\text{proj}_{B_0}(\vec{y}_\kappa) + \text{proj}_{B_d}(\vec{y}_\kappa)$ is always $\frac{2}{\vert X\vert}$. Now, Theorem \ref{Qbipeig} tells us that $\theta_{\kappa i} = 0$ whenever $\kappa+i\notin 2\bbZ$. Therefore $[\vec{y}_\kappa]_i = 0$ whenever either $0\leq i\leq d$ and $i+\kappa\notin 2\bbZ$ or $0\leq i-(d+1)\leq d$ and $i-(d+1)+\kappa\notin 2\bbZ$. Since $\text{proj}_{B_0}(\vec{y}_\kappa) + \text{proj}_{B_d}(\vec{y}_\kappa)$ is $0$ in exactly the same points, this implies the sum of the remaining projections must follow the same pattern, i.e.
+	\[\left[\sum_{1}^{d-1}\text{proj}_{B_j}(\vec{y}_\kappa)\right]_i = 0 \text{ whenever }\begin{cases} 0\leq i\leq d \text{ and } i+\kappa\notin 2\bbZ\\ 0\leq i-(d+1)\leq d \text{ and }i-(d+1)+\kappa\notin\bbZ.\end{cases}\]
+	Therefore once $\vert\vert \sum_{1}^{d-1}\text{proj}_{B_j}(\vec{y}_\kappa)\vert\vert_2^2\leq\frac{4}{\vert X\vert^2}$, we are guaranteed $y_\kappa$ has no negative values. Noting that 
+	\[\left\vert\left\vert \sum_{1}^{d-1}\text{proj}_{B_j}(\vec{y}_{\kappa^*+1})\right\vert\right\vert_2\leq\frac{1}{\vert X\vert}\sum_{j=1}^{d-1}\vert \lambda_j\vert^{2\kappa^*}v_j(1+\lambda_j^2),\]
+	We have that $\sum_{j=1}^{d-1}\vert \lambda_j\vert^{2\kappa^*}v_j(1+\lambda_j^2)\leq \frac{4}{\vert X\vert}$ implies $y_{\kappa^*+1}$ has no negative entries. Following the reasoning from before, we note that if $y_{\kappa^*}$ has a negative value, it must appear in the bottom half, thus $y_{\kappa^*-1}$ must have a negative value and it is sufficient to check the first $\kappa^*-1$ degrees.	
 \end{proof}
 \begin{cor}\label{Qbipuppbnd}
-	Let $(X,\cR)$ be a $Q$-bipartite association scheme with relations ordered naturally. Then $k^*$ as defined in Theorem \ref{Qbipdegbnd} follows
-	\[k^*\leq\left\lceil\frac{\ln\left[(1+\left(Q_{11}\right)^2)\vert X\vert\left(\vert X\vert-2\right)\right]-\ln(4)}{-2\ln\left(Q_{11}\right)}\right\rceil\]
+	Let $(X,\cR)$ be a $Q$-bipartite association scheme with relations ordered naturally. Then $\kappa^*$ as defined in Theorem \ref{Qbipdegbnd} follows
+	\[\kappa^*\leq\left\lceil\frac{\ln\left[(1+\left(Q_{11}\right)^2)\vert X\vert\left(\vert X\vert-2\right)\right]-\ln(4)}{-2\ln\left(Q_{11}\right)}\right\rceil\]
 \end{cor}
 \begin{proof}
 	\[\sum_{j=1}^{d-1} v_j\lambda_j^{2x}(1+\lambda_j^2)\leq(Q_{11})^{2x}(1+(Q_{11})^2)\sum_{j=1}^{d-1} v_j =(Q_{11})^{2x}(1+(Q_{11})^2)(\vert X\vert -2). \]
@@ -485,11 +500,11 @@ We conclude this section by proving $Q$-bipartite analogues of Theorem \ref{degr
 	\[(Q_{11})^{2x}(1+(Q_{11})^2)(\vert X\vert -2)\leq\frac{4}{\vert X\vert}\]
 	for $x$ gives
 	\[x\geq\frac{\ln\left[(1+(Q_{11})^2)\vert X\vert(\vert X\vert-2)\right]-\ln(4)}{-2\ln(Q_{11})}.\]
-	Thus $\left\lceil\frac{\ln\left[(1+(Q_{11})^2)\vert X\vert(\vert X\vert-2)\right]-\ln(4)}{-2\ln(\lambda^*)}\right\rceil$ is the smallest integer for which our relaxed inequality holds, giving $k^*\leq \left\lceil\frac{\ln\left[(1+(Q_{11})^2)\vert X\vert(\vert X\vert-2)\right]-\ln(4)}{-2\ln(Q_{11})}\right\rceil$.
+	Thus $\left\lceil\frac{\ln\left[(1+(Q_{11})^2)\vert X\vert(\vert X\vert-2)\right]-\ln(4)}{-2\ln(\lambda^*)}\right\rceil$ is the smallest integer for which our relaxed inequality holds, giving $\kappa^*\leq \left\lceil\frac{\ln\left[(1+(Q_{11})^2)\vert X\vert(\vert X\vert-2)\right]-\ln(4)}{-2\ln(Q_{11})}\right\rceil$.
 \end{proof}
 Finally we use our $Q$-bipartite property to simplify the expressions in Theorem \ref{cometricbnds}.
  \begin{thm}\label{Qbipbnds}
- 	Let $(X,\mathcal{R})$ be a $Q$-bipartite association scheme with Krein array $\left\{m,b^*_1,\dots,b^*_{d-1};1,c_2^*\dots,c^*_{d}\right\}$. Then in addition to $q_{ij}^l\geq 0$, we must also have
+ 	Let $\left\{q_{ij}^k\right\}$ be a feasible set of Krein parameters for a $Q$-bipartite association scheme. Let $\left\{m,b^*_1,\dots,b^*_{d-1};1,c_2^*\dots,c^*_{d}\right\}$ be the corresponding Krein array. Then the following are additional conditions required for a $Q$-bipartite association scheme to exist with these Krein parameters.
  	\begin{enumerate}[label=(\roman*)]
  		\item $b_1^*c_2^* \geq\frac{2m(m-1)}{m+2},$
  		\item $c_2q^2_{22}\geq \frac{4m(m-2)}{m+4},$
@@ -600,19 +615,34 @@ We now review the conditions found in Section \ref{cometricGeg} and simplify the
 	Apply the parameters $k,r,$ and $s$ to Theorem \ref{Qbipbnds} $(v)$.
 \end{proof}
 We may pair this Theorem with Theorem \ref{bounds} to get the following corollary.
-\begin{cor}
-	Let $(X,\mathcal{R})$ be a $4$-class $Q$-bipartite association scheme which is not also $Q$-antipodal. Let $k$, $r$, and $s = -n^2$ be the spectrum of the quotient strongly regular graph. If $1<n<12$ then either
-	\begin{enumerate}[label=(\roman*)]
-	\item\[\begin{aligned}	\frac{k}{n^3(n^2-1)}&\leq \frac{n^7+2n^6-3n^4-17n^3+45n^2+14n-76}{-2(n^4-13n^3+15n^2+12n-32)(n^2-1)}\\
-	&\qquad+\frac{\sqrt{n^{10}+4n^9+6n^8+2n^7-35n^6+22n^5+145n^4-72n^2+32n+16}}{-2(n^4-13n^3+15n^2+12n-32)}\end{aligned}\]
-	or
-	\item\[\frac{k}{n^4}\leq \frac{3n^2-5}{2}\]
-	\end{enumerate}
+\begin{cor}\label{newkbnds}
+	Let $(X,\mathcal{R})$ be a $4$-class $Q$-bipartite association scheme which is not also $Q$-antipodal. Let $k$, $r$, and $s = -n^2$ be the spectrum of the quotient strongly regular graph. The following table gives an upper bound on the largest eigenvalue $k$ based on the smallest $s$ for $-4\leq s\leq 121$:
+	\[\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c}
+		$n$ & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11\\\hline
+		$k\leq$  & 56 & 891 & 5504 & 22297 & 85128 & 282828 & 867787 & 2609805 & 8468529 & 40926495\\
+	\end{tabular}\]
 \end{cor}
 \begin{proof}
-	Let $r_1\geq r_2$ be the two roots of $15n^4(2n^2-3)r^2 + (n^6-45kn^2+76k)n^2r+k(16k+n^6)(n^2-2)$. Then Theorem \ref{thm60} tells us that either $r\geq r_1$ or $r\leq r_2$. Pairing this with Theorem $\ref{bounds}$ we find that $r\geq r_1$ and $\mu\geq n(r+n)$ together restrict $k$ via $(i)$. Secondly, $r\leq r_2$ with $r\geq\frac{2k}{3n^2}-\frac{n^2}{3}$ implies that $(ii)$, namely that $k\leq \frac{3n^6-5n^4}{2}$.
+	Let $r_1\geq r_2$ be the two roots of $15n^4(2n^2-3)r^2 + (n^6-45kn^2+76k)n^2r+k(16k+n^6)(n^2-2)$. Then Theorem \ref{thm60} tells us that either $r\geq r_1$ or $r\leq r_2$. Pairing this with Theorem $\ref{bounds}$ we find that $r\geq r_1$ and $\mu\geq n(r+n)$ together restrict $k$ via
+	\[\begin{aligned}	\frac{k}{n^3(n^2-1)}&\leq \frac{n^7+2n^6-3n^4-17n^3+45n^2+14n-76}{-2(n^4-13n^3+15n^2+12n-32)(n^2-1)}\\
+	&\qquad+\frac{\sqrt{n^{10}+4n^9+6n^8+2n^7-35n^6+22n^5+145n^4-72n^2+32n+16}}{-2(n^4-13n^3+15n^2+12n-32)}.\end{aligned}\]
+	Secondly, $r\leq r_2$ with $r\geq\frac{2k}{3n^2}-\frac{n^2}{3}$ implies that $k\leq \frac{3n^6-5n^4}{2}$. Taking the maximum of these two bounds for each $2\leq n\leq 11$ results in the values given in the table. In each case apart from $n=11$, this is a reduction from the bound given in Theorem \ref{kbnds}
 \end{proof}
-In particular, this bound on $k$ improves our previous bound found in Theorem \ref{kbnds} for $1<n<11$.
+We conclude this chapter by noting the impact of Theorem \ref{thm60} on the feasible parameter space of 4-class $Q$-bipartite association schemes. In the table below we list the number of feasible schemes for a given $n>0$ when only considering conditions FC1, FC2, and FC3. We also list the number of feasible schemes when we include Theorem \ref{thm60} as a feasibility condition.
+\[\begin{tabular}{c|c|c}\label{feasible4class}
+	$n$ & \# of feasible parameter sets & \# of feasible parameter sets satisfying Theorem \ref{thm60}\\\hline
+	2 & 7 & 6\\
+	3 & 62 & 46\\
+	4 & 223 & 140\\
+	5 & 476 & 337\\
+	6 & 1017& 703\\
+	7 & 1257& 953\\
+	8 & 2259& 1662\\
+	9 & & \\
+	10 & & \\
+	11 & & \\
+	12 & & \\
+\end{tabular}\]
 \begin{figure}[h]
 \includegraphics[scale=.5]{bounds7py.png}
 \includegraphics[scale=.5]{geg7.png}
