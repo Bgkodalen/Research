@@ -10,6 +10,7 @@ import Qpoly
 ### Load in all the current information.
 schemes = pickle.load(open('alldata2.p','rb'))
 #schemes = pickle.load(open('alldata.p','rb'))
+#schemes = pickle.load(open('bigfile','rb'))
 
 ### There is an annoying issue with the keys here where the lettered schemes dont have a trailing >.
 # Below is a temporary patch to this so that I don't have to redo the data compilation.
@@ -121,6 +122,12 @@ def parameterlist():
     else:
         #+selectedschemes[scheme]['exists']
         schemelist = sortedlist([scheme for scheme in schemelist])
+    
+    def sortThird(val):
+        return val[2]
+    if numclasses.get()==4 and imprim.get() == 'bipartite':
+        schemelist = [[selectedschemes[scheme]['P'][0,1],selectedschemes[scheme]['P'][2,1]] for scheme in schemelist if selectedschemes[scheme]['P'][3,1] == -3]
+        schemelist.sort()
     return tuple(schemelist)
 
 
