@@ -1,0 +1,14 @@
+Page 3 Line 1, I suggest changing "Relabel the symbols of the OA" to "Relabel the symbols of each column of the OA" 
+	only to draw attention that the relabeling will (likely) be different for each column.
+Page 4 Proof of Thm2.2, First reorder the rows so that the last m rows are repeated, else the relabeling is not possible.
+Page 5 Between Example 1 and Example 2, I suggest aligning the verbage "that is repeated more than ____" and "that is repeated ___ times" for consistency.
+Page 7 Equation (3), I suggest swapping the order on the left or using parenthesis so that the reader knows to not sum multiple copies of lambda G_j.
+	i.e. Make it clear that the equation does NOT state Sum_{i:x\in B_i}(B_i+\lambda G_j)=...
+Page 9 Section 3.4 "defined on the symbols set Zn" -> "defined on the symbol set Zn"
+
+
+Comment:
+Page 9 End of Section 3.4 If you assume the first m rows of each vector are the same (without loss of generality all came from the symbol 0) then it is clear
+	that you may subtract m-1 from the RHS of 1+k(n-1)<=N to get the inequality m+k(n-1)<=N as you found in section 3.2. I find it interesting that these
+	two techniques give you the same obvious bound in the case of m-repeated rows, though I agree that the extension to get Theorem 2.2 as a result is not obvious.
+	It might be worth mentioning this small extension only because you mention the same in 3.2, though I am happy either way.

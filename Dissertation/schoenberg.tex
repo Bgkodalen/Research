@@ -2,7 +2,7 @@
 Chapter $\ref{psdcone}$ examined a particular set of matrices in the Bose-Mesner algebra of an association scheme which gave us Gram matrices of finite sets $X\subset \mathbb{S}^{m-1}$ for some fixed positive integer $m$. In particular, we found that the existence of any association scheme implies the existence of sets of vectors with very few possible inner products. While we may use this correlation to create new spherical $t$-distance sets anytime we have an association scheme, we may also use this implication to rule out possible parameter sets based on the properties of the resultant vector sets. For instance, Delsarte et al.\ \cite{Delsarte1975} found bounds on the size of any $t$-distance set based solely on the dimension of the ambient space and the inner products allowed between vectors. In a later paper \cite{Delsarte1977}, they were also able to prove a $t$-distance set is a spherical design if and only if the first $s$ Gegenbauer polynomials summed over the inner products give zero as a result. This characterization of spherical designs allowed Suda \cite{Suda2011} to characterize when a the first idempotent in a $Q$-polynomial ordering would result in a spherical design. Many of these results are based around a family of single-variable polynomials known as the Gegenbauer polynomials, and a result of Sch\"{o}nberg \cite{Schoenberg1942} which implies that each Gegenbauer polynomial will result in a positive semi-definite matrix when applied to a Gram matrix elementwise.\par
 In this chapter, we will define the Gegenbauer polynomials and review relevant definitions and theorems. We will then appeal to a theorem of Sch\"{o}nberg's concerning positive definite functions to derive new constraints on the Krein parameters of an association scheme. We examine these restrictions closely in the setting of $Q$-polynomial association schemes where we give five non-trivial constraints. Finally, we will consider 4-class $Q$-bipartite schemes, giving examples of parameter sets which are ruled out by these constraints. Below is a list of main theorems which will appear in this chapter.
 \begin{restatable*}{thm}{schAS}\label{schoen-as}
-	Let $(X,\mathcal{R})$ be an association scheme with minimal idempotents $E_0,\dots,E_d$ and matrices of Krein parameters $I,\dots,L_d^*$. Let $0\leq i\leq d$ be given and define $m_i:=\text{rank}\left(E_i\right)$. Then for any choice of $\ell>0$, there exist non-negative constants $\theta_{\ell j}$ for $0\leq j\leq d$ so that
+	Let $(X,\mathcal{R})$ be an association scheme with minimal idempotents $E_0,\dots,E_d$ and matrices of Krein parameters $I,\dots,L_d^*$. For $0\leq i\leq d$, define $m_i:=\text{rank}\left(E_i\right)$. Then for any choice of $\ell>0$, there exist non-negative constants $\theta_{\ell j}$ for $0\leq j\leq d$ so that
 	\begin{equation}\label{ELGeg}
 	Q_\ell^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right) = \sum_j \theta_{\ell j} E_j;\qquad	Q_\ell^{m_i}\left(\frac{1}{m_i}L_i^*\right) = \frac{1}{\vert X\vert}\sum_j \theta_{\ell j} L_j^*.
 	\end{equation}
@@ -10,24 +10,26 @@ In this chapter, we will define the Gegenbauer polynomials and review relevant d
 \end{restatable*}
 \begin{restatable*}{thm}{degbnd}
 	\label{degreebound}
-	Let $S$ be a feasible parameter set for an association scheme with first and second eigenmatrices $P$ and $Q$. Let $0\leq i\leq d$ be given and define $\lambda_j:=\nicefrac{Q_{j,i}}{m_j}$, $k_j = P_{0j}$. Define $\ell^*$ to be the smallest integer such that
-	\[\sum_{j=1}^d \vert\lambda_j\vert^{2\ell^*}k_j(1+\lambda_j^2)\leq\frac{1}{\vert X\vert}.\]
-	Then for any $0\leq j\leq d$, the requirement that $\theta_{\ell j}\geq 0$ is implied by FC1 for degrees $\ell\geq \ell^*$.
+	Let $S$ be a feasible parameter set for an association scheme with first and second eigenmatrices $P$ and $Q$. Fix $0\leq i\leq d$, then for $0\leq j\leq d$ define $\lambda_j:=\nicefrac{Q_{j,i}}{Q_{0,i}}$ and $k_j = P_{0j}$. For $\ell\geq2$ define $\gamma_\ell = \begin{cases}
+	\lambda_j^2 & \text{ if }(1+\mu_\ell)^2\lambda_j^2\geq 4\mu_\ell\\
+	\mu_\ell & \text{ if }(1+\mu_\ell)^2\lambda_j^2< 4\mu_\ell
+	\end{cases}$ where $\mu_\ell = \frac{\ell-1}{\ell+Q_{0,i}-3}$. Then let $\ell^*$ to be the smallest integer such that
+	\[\sum_{j=1}^d \left(\prod_{\ell=2}^{\ell^*}\gamma_\ell\right)k_j(1+\lambda_j^2)\leq\frac{1}{\vert X\vert}.\]
+	For any $0\leq j\leq d$, the requirement that $\theta_{\ell j}\geq 0$ is implied by FC1 for integers $\ell\geq \ell^*$.
 \end{restatable*}
 
 \section{Gegenbauer Polynomials}
-In this section we will use polynomial rings and quotient rings, thus we begin this section with a brief review of the topic, referring to \cite{Gallian}(TODO: Bad reference here) for a more complete introduction. In all that follows let $m$ be a fixed positive integer and define $\scR:=\bbR[x_1,\dots,x_m]$. A \emph{monomial} is defined as a (possibly empty) product of the variables $x_1,\dots,x_m$ and given a monomial $t =\prod_{i=1}^{m}x_i^{d_i}$ ($d_i\in \bbZ^+$), the \emph{degree} of $t$ is defined as $\text{deg}(t) = \sum_i d_i$. A polynomial $f\in\scR$ may be represented uniquely as a (finite) linear combination of distinct monomials $f =\sum_i\alpha_it_i$ and $\text{deg}(f) = \max\left\{\text{deg}(t_i)\right\}$. For each variable $x_j$, we define the \emph{derivative with respect to $x_j$} of a monomial as $\frac{\partial}{\partial x_j}t = d_jx_j^{d_j-1}\prod_{i\neq j}x_i^{d_i}$ and extend the definition linearly for any polynomial in $\scR$. For $f\in \scR$, $f$ is \emph{homogeneous} if there exists some constant $d\in\bbZ^+$ such that $\text{deg}(t)=d$ for every monomial $t$ in $f$. Further, $f$ is \emph{harmonic} if $\Delta f = \sum_i \left(\frac{\partial}{\partial x_i}\circ\frac{\partial}{\partial x_i}\right)\left(f\right) = 0$.\par
-Let $f\in\scR$ be given and define the ideal of $f$ as $(f) = \left\{gf:g\in\scR\right\}$. We then define equivalence classes $[g]_f = \left\{h\in\scR: g-h\in(f)\right\}$ where we may suppress the subscript if it is clear from the context. The quotient ring $\nicefrac{\scR}{(f)}$ is given as the set of equivalence classes $\left\{[g]_f:g\in\scR\right\}$. Let $S^{m-1}\subset \bbR^m$ be the $m-1$ dimensional sphere, we define the set of polynomials on the sphere as
+In this section we will use polynomial rings and quotient rings, thus we begin this section with a brief review of the topic, referring to \cite{Gallian}(TODO: Bad reference here) for a more complete introduction. In all that follows let $m$ be a fixed positive integer and define $\scR:=\bbR[x_1,\dots,x_m]$. A \emph{monomial} is defined as a (possibly empty) product of the variables $x_1,\dots,x_m$ and given a monomial $t =\prod_{i=1}^{m}x_i^{d_i}$ ($d_i\in \bbZ^+$), the \emph{degree} of $t$ is defined as $\text{deg}(t) = \sum_i d_i$. A polynomial $f\in\scR$ may be represented uniquely as a (finite) linear combination of distinct monomials $f =\sum_i\alpha_it_i$ and $\text{deg}(f) = \max\left\{\text{deg}(t_i)\right\}$. For each variable $x_j$, we define the \emph{derivative with respect to $x_j$} of a monomial as $\frac{\partial}{\partial x_j}t = d_jx_j^{d_j-1}\prod_{i\neq j}x_i^{d_i}$ and extend the definition linearly for any polynomial in $\scR$. For $f\in \scR$, $f$ is \emph{homogeneous} if there exists some constant $d\in\bbZ^+$ such that $\text{deg}(t)=d$ for every monomial $t$ in $f$. Further, $f$ is \emph{harmonic} if $\Delta f = \sum_i \left(\frac{\partial}{\partial x_i}\circ\frac{\partial}{\partial x_i}\right)\left(f\right) = 0$. For $f\in\scR$ the ideal of $f$ is $(f) = \left\{gf:g\in\scR\right\}$. We may then define equivalence classes $[g]_f = \left\{h\in\scR: g-h\in(f)\right\}$ where we may suppress the subscript if it is clear from the context. The quotient ring $\nicefrac{\scR}{(f)}$ is given as the set of equivalence classes $\left\{[g]_f:g\in\scR\right\}$. Let $S^{m-1}\subset \bbR^m$ be the $m-1$ dimensional sphere, we define the set of polynomials on the sphere as
 \[\text{Pol}(S^{m-1}):= \nicefrac{\scR}{\left(1-\sum_ix_i^2\right)}.\]
 We say a polynomial $f\in\scR$ is \emph{harmonic on the sphere} if there exists a harmonic polynomial $g\in[f]$. Similarly, a polynomial is \emph{homogeneous on the sphere} if there exists a homogeneous polynomial $g\in[f]$. Finally, we say a polynomial $f\in\scR$ is \emph{zonal} if there exists a vector $a\in \bbR^m$ and a single-variable polynomial $g(t)\in\bbR[t]$ such that $f(x) = g(\left<a,x\right>)$ for all $x\in S^{m-1}$. Note that since $h\in \left(1-\sum_ix_i^2\right)$ implies $h(x) = 0$ for all $x\in S^{m-1}$, this requirement is independent of the representative chosen from the equivalence class.\par
-We now introduce a particular set of polynomials arising from the context of spherical harmonics polynomials. The Gegenbauer polynomials in dimension $m$ are defined using the three-term recurrence:
+We now introduce a set of orthogonal polynomials arising from the context of spherical harmonics. The Gegenbauer polynomials in dimension $m$ are defined using the three-term recurrence:
 \begin{equation}\label{recurrence}
 Q_\ell^m(t) = \frac{(2\ell+m-4)tQ_{\ell-1}(t) - (\ell-1)Q_{\ell-2}(t)}{\ell+m-3} \qquad \ell\geq 2,
 \end{equation}
 \begin{equation*}
 Q^m_0(t) = 1\qquad Q^m_1(t) = t.
 \end{equation*}
-Note that $Q^m_\ell(1) = 1$ for all $k\geq 0$. We will suppress the superscript $m$ anytime this is clear in the context. The first six Gegenbauer polynomials are as follows,
+Note that $Q^m_\ell(1) = 1$ for all $k\geq 0$. We will allow ourselves to suppress the superscript $m$ if it is clear in the context. Below we list the first six Gegenbauer polynomials and plot $Q_1(t)-Q_5(t)$ along with their roots.
 \[\begin{aligned}
 &Q_0(t)=1,\qquad
 Q_1(t)=t,\qquad
@@ -45,7 +47,7 @@ Q_5(t)=\frac{(m+6)(m+4)t^5-10(m+4)t^3+15t}{m^2-1}\\
 \begin{figure}[!h]
 	\begin{center}
 		\includegraphics[scale=.35]{roots.PNG}
-		\caption[Roots of Gegenbauer polynomials]{Roots of the five Gegenbauer polynomials plotted in Figure \ref{gegpic}.}\label{rootpic}
+		\caption[Roots of Gegenbauer polynomials]{Roots of the five Gegenbauer polynomials with degrees $1$ to $5$.}\label{rootpic}
 	\end{center}
 \end{figure}
 \begin{thm}\label{gegprop}
@@ -67,27 +69,27 @@ In particular, this implies that $Q_\ell^m(t)$ is a positive definite function f
 \begin{proof}
 Since $\BMA =\text{span}\left\{E_0,\dots,E_d\right\}$ is closed under entrywise products, we must have $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right)\in \BMA$ and we may write $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right) = \sum_j \theta_{kj} E_j$ where each $\theta_{kj}$ is the eigenvalue of $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right)$ in the eigenspace $V_j$. Now recall the algebra isomorphism $\phi^*:\BMA\rightarrow\bbL$ mapping entrywise products to standard matrix products for which $\phi^*\left(E_j\right)=\frac{1}{\vert X\vert}L_j^*$. Applying $\phi^*$ to both sides of the first equation results in the second. Finally, since $E_i$ is an idempotent matrix with constant main diagonal entries given by $\frac{1}{\vert X\vert}Q_{0i} = \frac{m_i}{\vert X\vert}$, we know that $\frac{\vert X\vert}{m_i}E_i$ is the Gram matrix of a set of points in $S^{m_i-1}$. Therefore, Theorem~\ref{schoenthm} tells us that $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right)$ must be positive semidefinite.
 \end{proof}
-\subsection{Proof of Theorem \ref{degreebound}}
-Let $\vec{c}_\ell$ be the first column of the matrix $Q_{\ell}^{m_i}\left(\frac{1}{m_i}L_i^*\right)$. Using our recurrence relation \eqref{recurrence} we have,
+\subsection{Proof of Theorem \ref{degreebound}}\label{proof}
+In this section we seek to derive a bound on the highest degree Gegenbauer for which $Q_\ell\left(\frac{1}{m_i}L_i^*\right)$ may contain negative entries assuming that $L_i^*$ is a matric of Krein parameters which satisfy our feasibility conditions, specifically FC1. We will do this by first simplifying equation \eqref{ELGeg} into a vector equation and deriving a three term vector recurrence of non-negative vectors. We then transform our vector space in two ways, first using an invertible transformation which changes our transition matrix from $\frac{1}{m}L_i^*$ to one which has orthogonal eigenvectors. We then map our vector space to one with twice the dimension where our three-term recurrence may be represented as a linear recurrence. Using this new recurrence we split our initial vector into a steady state vector and transient vectors and find a bound on how quickly the transient vectors must decrease in norm. In all that follows let $S$ be a feasible parameter set with first and second eigenmatrix $P$ and $Q$. For fixed $0\leq i\leq d$, let $L_i^*$ be the $i^\text{th}$ matrix of Krein parameters. Let $\ell\geq0$ be an integer and assume $m_i:=q_{0i}^i>2$. Let $\vec{c}_\ell$ be the first column of the matrix $Q_{\ell}^{m_i}\left(\frac{1}{m_i}L_i^*\right)$. Using our recurrence relation \eqref{recurrence} we have,
 \begin{equation}\label{crec}
 \vec{c}_\ell = \frac{(2\ell+m_i-4)\frac{1}{m_i}L_i^*\vec{c}_{\ell-1} - (\ell-1)\vec{c}_{\ell-2}}{\ell+m-3} \qquad \ell\geq 2.
 \end{equation}
-However Theorem \ref{kreinidentities} tells us that $q^j_{i0} = \delta_{i,j}$ for $0\leq i\leq d$. Therefore equation $\eqref{ELGeg}$ gives us that the entries of $\vert X\vert \vec{c}_k$ are the eigenvalues of $Q_{k}^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right)$ and thus Sch\"{o}nberg's positive semi-definite requirement translates to $c_\ell$ having only non-negative entries for all $\ell\geq 0$. Since $Q_0^m\circ\left(\frac{\vert X\vert}{m_i}E_i\right) = J$ and $Q_1^m\circ\left(\frac{\vert X\vert}{m_i}E_i\right) = \frac{\vert X\vert}{m_i}E_i$, we have
+However Theorem \ref{kreinidentities} tells us that $q^j_{i0} = \delta_{i,j}$ for $0\leq i\leq d$. Therefore equation $\eqref{ELGeg}$ gives us that the entries of $\vert X\vert \vec{c}_k$ are the eigenvalues of $Q_{k}^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right)$ and thus Sch\"{o}nberg's positive semi-definite requirement is equivalent to $c_\ell$ having only non-negative entries for all $\ell\geq 0$. Since $Q_0^m\circ\left(\frac{\vert X\vert}{m_i}E_i\right) = J$ and $Q_1^m\circ\left(\frac{\vert X\vert}{m_i}E_i\right) = \frac{\vert X\vert}{m_i}E_i$, we have
 \begin{equation*}
 \vec{c}_0 = \vec{e}_0\qquad \vec{c}_1 = \frac{1}{m_i}\vec{e}_i.
 \end{equation*}
-To understand this requirement, we will find it useful to instead consider the vectors $\vec{b}_k = \sqrt{\Delta_m}\vec{c}_k$ where $\sqrt{\Delta_m}$ is the diagonal matrix with $i^\text{th}$ diagonal entry $\sqrt{m_i}$. This transformation turns our recurrence relation into:
+We now make our first transformation via $\vec{b}_\ell = \sqrt{\Delta_m}\vec{c}_\ell$ where $\sqrt{\Delta_m}$ is the diagonal matrix with $i^\text{th}$ diagonal entry $\sqrt{m_i}$. This transformation turns our recurrence relation into:
 \begin{equation}\label{brec}
-\vec{b}_k = \frac{(2k+m_i-4)M\vec{b}_{k-1} - (k-1)\vec{b}_{k-2}}{k+m-3} \qquad k\geq 2,
+\vec{b}_\ell = \frac{(2\ell+m_i-4)M\vec{b}_{\ell-1} - (\ell-1)\vec{b}_{\ell-2}}{\ell+m-3} \qquad \ell\geq 2,
 \end{equation}
 where $M = \frac{1}{m_i}\sqrt{\Delta_m}L_i^*\left(\sqrt{\Delta_m}\right)^{-1}$. Further our initial vectors are:
 \begin{equation*}
 \vec{b}_0 = \vec{e}_0\qquad \vec{b}_1 = \frac{1}{\sqrt{m_i}}\vec{e}_i.
 \end{equation*}
-Before moving on, we prove a lemma concerning $M$ which is the main motivation for making this transformation.
+Consider the following lemma concerning our new transition matrix $M$.
 \begin{lem}\label{Mmat}
 	Let $M = \frac{1}{m_i}\sqrt{\Delta_m}L_i^*\left(\sqrt{\Delta_m}\right)^{-1}$. Then the set $\left\{\vec{p}_0,\vec{p}_1,\dots,\vec{p}_d\right\}$ with
-	\[p_j = \left[\begin{array}{c}
+	\[\vec{p}_j = \left[\begin{array}{c}
 	P_{0j}\\
 	\sqrt{m_1}P_{1j}\\
 	\vdots\\
@@ -99,7 +101,7 @@ Before moving on, we prove a lemma concerning $M$ which is the main motivation f
 Recall that the eigenvectors of $L_i^*$ are the columns of $P$ with eigenvalues $Q_{0i},Q_{1i},\dots,Q_{di}$. Conjugating $L_i^*$ by $\sqrt{\Delta_m}$ therefore results in a matrix with eigenvectors given by the columns of $\sqrt{\Delta_m}P$ with the same eigenvalues. Finally scaling by $\frac{1}{m_i}$ leaves the eigenvectors unchanged but scales the eigenvalues by $\frac{1}{m_i}$. Finally, using our orthogonality relations, we have that $\Delta_m P = Q^T \Delta_k$ and $PQ = \vert X\vert I$. Therefore
 \[\left(\sqrt{\Delta_m}P\right)^T\left(\sqrt{\Delta_m}P\right) = P^T\Delta_mP = P^TQ^T\Delta_k = \vert X\vert\Delta_k.\]
 \end{proof}
-Now that we have an orthogonal set of eigenvectors, we define a final set of vectors for which the recurrence relation becomes linear. Let 
+Now that our transition matrix has an orthogonal set of eigenvectors, we double the dimension of our vector space in order to make our recurrence relation linear. For $\ell\geq 1$, let 
 \begin{equation}\label{tkdef}\mu_\ell = \frac{\ell-1}{\ell+m-3};\qquad \vec{y}_\ell = \left[\begin{array}{c}
 \vec{b}_{\ell}\\\hdashline[2pt/2pt]
 \vec{b}_{\ell-1}
@@ -114,31 +116,31 @@ Then we have
 	\vec{e}_{0}
 	\end{array}\right].
 \end{equation}
-While $T_\ell$ depends on $\ell$, we identify some common properties among the eigenvalues and eigenvectors of $T_\ell$ for all values of $\ell>0$. We will now prove four lemmas which describe how $T_\ell$ acts on $\mathbb{R}^{2d+2}$.
+While $T_\ell$ depends on $\ell$, we may identify some common properties among the eigenvalues and eigenvectors of $T_\ell$ for all values of $\ell>0$. The next few lemmas describe the eigenspaces of $T_\ell$ as well as the action of $T_\ell$ on portions of our vector space which contain our initial vector.
 \begin{lem}\label{Tkeig}
-	Let $(\lambda,\vec{v})$ be an eigenpair of $M$. Define $\left\{\eta_\lambda^+,\eta_\lambda^-\right\}$ be the two roots of the quadratic equation $\eta^2-(1+\mu_\ell)\lambda\eta +\mu_\ell=0$. If $\eta_\lambda^+\neq\eta_\lambda^-$ then both
-	$\left(\eta_\lambda^+,\left[\begin{array}{c}
-	\eta_\lambda^+\vec{v}\\\hdashline[2pt/2pt]
+	Let $(\lambda,\vec{v})$ be an eigenpair of $M$. Define $\left\{\eta^+,\eta^-\right\}$ be the two roots of the quadratic polynomial $x^2-(1+\mu_\ell)\lambda x +\mu_\ell$. If $\eta^+\neq\eta^-$ then both
+	$\left(\eta^+,\left[\begin{array}{c}
+	\eta^+\vec{v}\\\hdashline[2pt/2pt]
 	\vec{v}
-	\end{array}\right]\right)$ and $ \left(\eta_\lambda^+,\left[\begin{array}{c}
-	\eta_\lambda^+\vec{v}\\\hdashline[2pt/2pt]
+	\end{array}\right]\right)$ and $ \left(\eta^-,\left[\begin{array}{c}
+	\eta^-\vec{v}\\\hdashline[2pt/2pt]
 	\vec{v}
 	\end{array}\right]\right)$
 	are eigenpairs of $T_\ell$. If instead $\eta_\lambda^+=\eta_\lambda^-$ then $\left(\eta_\lambda^+,\left[\begin{array}{c}
 	\eta_\lambda^+\vec{v}\\\hdashline[2pt/2pt]
 	\vec{v}
-	\end{array}\right]\right)$ is an eigenpair with a generalized eigenvector $\left[\begin{array}{c}
-		\vec{v}\\\hdashline[2pt/2pt]
-		\vec{0}
-	\end{array}\right].$
+	\end{array}\right]\right)$ is an eigenpair and $\left[\begin{array}{c}
+	\vec{v}\\\hdashline[2pt/2pt]
+	\vec{0}
+	\end{array}\right]$ is a generalized eigenvector of order two with eigenvalue $\eta$.
 \end{lem}
 \begin{proof}
-	Let $M \vec{v} = \lambda\vec{v}$ and let $\eta$ be given so that $\eta^2-(1+\mu_\ell)\lambda\eta +\mu_\ell=0$. Then,
+	Let $M \vec{v} = \lambda\vec{v}$ and let $\eta$ be given so that $\eta^2-(1+\mu_\ell)\lambda\eta +\mu_\ell=0$. Then
 	\[T_\ell\left[\begin{array}{c}
 	\eta \vec{v}\\\hdashline[2pt/2pt]
 	\vec{v}
 	\end{array}\right] = \left[\begin{array}{c}
-	(1+\mu_\ell)M(\eta \vec{v}) - \mu \vec{v}\\\hdashline[2pt/2pt]
+	(1+\mu_\ell)M(\eta \vec{v}) - \mu_\ell \vec{v}\\\hdashline[2pt/2pt]
 	\eta \vec{v}
 	\end{array}\right] = \left[\begin{array}{c}
 	\left((1+\mu_\ell)\lambda\eta - \mu_\ell\right) \vec{v}\\\hdashline[2pt/2pt]
@@ -147,19 +149,13 @@ While $T_\ell$ depends on $\ell$, we identify some common properties among the e
 	\eta^2 \vec{v}\\\hdashline[2pt/2pt]
 	\eta \vec{v}
 	\end{array}\right].\]
-	Since our only requirement on $\eta$ was that it satisfied our quadratic equation, both roots will result in $T_k\left[\begin{array}{c}
-	\eta \vec{v}\\\hdashline[2pt/2pt]
-	\vec{v}
-	\end{array}\right] =  \eta\left[\begin{array}{c}
-	\eta \vec{v}\\\hdashline[2pt/2pt]
-	 \vec{v}
-	\end{array}\right].$ If we have two distinct roots $(\eta_\lambda^+\neq \eta_\lambda^-)$ then the vectors $\left[\begin{array}{c}
-	\eta_\lambda^+ \vec{v}\\\hdashline[2pt/2pt]
+	If we have two distinct roots $(\eta^+\neq \eta^-)$ then the vectors $\left[\begin{array}{c}
+	\eta^+ \vec{v}\\\hdashline[2pt/2pt]
 	\vec{v}
 	\end{array}\right]$ and $\left[\begin{array}{c}
-		\eta_\lambda^- \vec{v}\\\hdashline[2pt/2pt]
+		\eta^- \vec{v}\\\hdashline[2pt/2pt]
 		\vec{v}
-	\end{array}\right]$ result in two distinct eigenvectors. If instead we find that $\eta^2-(1+\mu_\ell)\lambda\eta +\mu_\ell=0$ has a double root, then $(1+\mu_\ell)^2\lambda^2-4\mu_\ell=0$ and thus $\eta = \frac{(1+\mu_\ell)\lambda}{2}$. In this case,
+	\end{array}\right]$ result in two distinct eigenvectors. If instead we find that $\eta^+=\eta^-=\eta$, then $(1+\mu_\ell)^2\lambda^2-4\mu_\ell=0$ and thus $\eta = \frac{(1+\mu_\ell)\lambda}{2}$. In this case,
 	\[T_\ell\left[\begin{array}{c}
 	\vec{v}\\\hdashline[2pt/2pt]
 	\vec{0}
@@ -185,20 +181,23 @@ While $T_\ell$ depends on $\ell$, we identify some common properties among the e
 	\end{array}\right]$ giving us that $\left[\begin{array}{c}
 	\vec{v}\\\hdashline[2pt/2pt]
 	\vec{0}
-	\end{array}\right]$ is a generalized eigenvector. Note that the restriction $(1+\mu_\ell)\lambda^2-4\mu_\ell=0$ requires that $\ell = \frac{\lambda^2(m-2)}{2\left(\pm\sqrt{1-\lambda^2}-(1-\lambda^2)\right)}+m-1$. Since $\ell$ is a positive integer, this means that $\frac{\lambda^2(m-2)}{2\left(\pm\sqrt{1-\lambda^2}-(1-\lambda^2)\right)}\in\bbZ$.
+	\end{array}\right]$ is a generalized eigenvector of order two; that is, $\left[\begin{array}{c}
+		\vec{v}\\\hdashline[2pt/2pt]
+		\vec{0}
+	\end{array}\right]$ is in the kernel of $\left(T_\ell-\eta I\right)^2$ but not $\left(T_\ell-\eta I\right)$.
 \end{proof}
-Lemma \ref{Tkeig} gives a complete description of the eigenspaces of our transition matrix $T_\ell$ since we know $M$ is diagonalizable with orthogonal eigenvectors, the eigenvectors of $T_\ell$ may be split into pairs where vectors from distinct pairs are orthogonal to each other. Our next lemma examines one pair and bounds the action of $T_\ell$ on the subspace spanned by this pair.
-\begin{lem}\label{singleroot}
-	Let $\left(\lambda,\vec{p}\right)$ be an eigenpair of $M$ and assume that $(1+\mu_\ell)^2\lambda^2-4\mu_\ell>0$ and thus $x^2-(1+\mu_\ell)\lambda x + \mu_k$ has two distinct real roots, $\eta^+>\eta^-$. Let $\vec{v} = \left[\begin{array}{c}
+Lemma \ref{Tkeig} gives a complete description of the eigenspaces of our transition matrix $T_\ell$ since we know $M$ is diagonalizable and therefore has a full set of eigenvectors. Further, since the eigenvectors of $M$ are orthogonal, the eigenvectors of $T_\ell$ may be split into pairs where eigenvectors from distinct pairs are orthogonal to each other. The next two lemmas examine these pairs and bound the action of $T_\ell$ on a portion of the subspace spanned by each pair, based solely on the corresponding eigenvalue of $M$.
+\begin{lem}\label{realroot}
+	Let $\left(\lambda,\vec{p}\right)$ be an eigenpair of $M$ and assume that $(1+\mu_\ell)^2\lambda^2-4\mu_\ell\geq0$ and thus $x^2-(1+\mu_\ell)\lambda x + \mu_\ell$ has only real roots, $\vert\eta^-\vert\leq\vert\eta^+\vert$. Let $\vec{v} = \left[\begin{array}{c}
 	a\vec{p}\\\hdashline[2pt/2pt]
 	b\vec{p}
-	\end{array}\right]$ with $b>0$. Then there exists a constant $\beta\in\mathbb{R}$ so that $T_\ell \vec{v} = \left[\begin{array}{c}
+	\end{array}\right]$ with $b\neq 0$. There exists a constant $\beta\in\mathbb{R}$ so that $T_\ell \vec{v} = \left[\begin{array}{c}
 		\beta\vec{p}\\\hdashline[2pt/2pt]
 		a\vec{p}
-	\end{array}\right]$. Further, $\lambda a\geq0$ and $\vert\eta^+\vert\leq \vert\frac{a}{b}\vert\leq\vert\lambda\vert$ together imply $\vert\vert T_\ell \vec{v}\vert\vert_2\leq \vert \lambda\vert\cdot\vert\vert \vec{v}\vert\vert_2$ and $\vert\eta^+\vert\leq \vert\frac{\beta}{a}\vert\leq\vert\lambda\vert$.
+	\end{array}\right]$. Further, $\lambda \left(\frac{a}{b}\right)\geq0$ and $\vert\eta^+\vert\leq \vert\frac{a}{b}\vert\leq\vert\lambda\vert$ imply $\lambda\left(\frac{\beta}{a}\right)\geq 0$ and $\vert\eta^+\vert\leq \vert\frac{\beta}{a}\vert\leq\vert\lambda\vert$ giving $\vert\vert T_\ell \vec{v}\vert\vert_2\leq \vert \lambda\vert\cdot\vert\vert \vec{v}\vert\vert_2$.
 \end{lem}
 \begin{proof}
-	We begin by noting that since our operator $T_\ell$ is linear, we may assume without loss of generality that $b=1$ and $\vert\vert\vec{p}\vert\vert_2 = 1$. Since $\eta^+$ and $\eta^-$ are the two roots of the polynomial $x^2-(1+\mu_\ell)\lambda x + \mu_k$, we know that $(x-\eta^-)(x-\eta^+) = x^2-(1+\mu_\ell)\lambda x + \mu_k$ and therefore $\eta^++\eta^-=(1+\mu_\ell)\lambda$ and $\eta^+\eta^- = \mu_\ell$. Next, Lemma \ref{Tkeig} tells us that $\eta^+$ and $\eta^-$ are eigenvalues of $T_\ell$ with eigenvectors
+	We begin by noting that since our operator $T_\ell$ is linear, we may assume without loss of generality that $b=1$ and $\vert\vert\vec{p}\vert\vert_2 = 1$ giving as well that $a$ and $\lambda$ must share signs. Since $\eta^+$ and $\eta^-$ are the two (not necessarily distinct) roots of the polynomial $x^2-(1+\mu_\ell)\lambda x + \mu_k$, we know that $(x-\eta^-)(x-\eta^+) = x^2-(1+\mu_\ell)\lambda x + \mu_k$ and therefore $\eta^++\eta^-=(1+\mu_\ell)\lambda$ and $\eta^+\eta^- = \mu_\ell$. Therefore our two roots $\eta^-$ and $\eta^+$ also share signs with $\lambda$. We first consider the case when $\eta^-\neq \eta^+$. In this case, Lemma \ref{Tkeig} tells us that $\eta^+$ and $\eta^-$ are eigenvalues of $T_\ell$ with eigenvectors
 	\[\vec{v}^+ = \left[\begin{array}{c}
 	\eta^+ \vec{p}\\\hdashline[2pt/2pt]
 	\vec{p}
@@ -211,35 +210,10 @@ Lemma \ref{Tkeig} gives a complete description of the eigenspaces of our transit
 	\beta \vec{p}\\\hdashline[2pt/2pt]
 	a\vec{p}
 	\end{array}\right]\]
-	where $\beta = \left(\frac{\eta^--a}{\eta^--\eta^+}\right)\left(\eta^+\right)^2 + \left(\frac{a-\eta^+}{\eta^--\eta^+}\right)\left(\eta^-\right)^2$. Thus,
-	\[\begin{aligned}\vert\vert T_\ell \vec{v}\vert\vert^2_2 &= \beta^2+a^2\\
-	&=\frac{\left(\eta^--a\right)^2\left(\eta^+\right)^4 + \left(\eta^+\eta^-\right)^2\left(\eta^--a\right)\left(a-\eta^+\right) +\left(a-\eta^+\right)^2\left(\eta^-\right)^4}{\left(\eta^--\eta^+\right)^2}+a^2\\
-	&=\left(\left(\eta^-+\eta^+\right)^2+1\right)a^2 - 2\eta^-\eta^+\left(\eta^-+\eta^+\right)a + \left(\eta^-\eta^+\right)^2\\
-	&=\left((1+\mu_\ell)^2\lambda^2+1\right)a^2 - 2\mu_\ell(1+\mu_\ell)\lambda a + \mu_\ell^2\\
-	&=\left[(\lambda a-1)^2\mu_\ell^2 + 2\lambda a(\lambda a-1)\mu+a^2-\lambda^2\right]+\lambda^2(a^2+1)\end{aligned}\]
-	We may view the bracketed polynomial as a quadratic polynomial in $\mu_k$ with roots
-	\[\mu_\ell = \frac{\lambda a \pm \sqrt{a^2(\lambda^2-1)+\lambda^2}}{1-\lambda a}.\]
-	Note however that we assumed $(1+\mu_\ell)^2\lambda^2-4\mu_\ell>0$ and thus we know
-	\[\mu_\ell\leq \frac{2(1-\sqrt{1-\lambda^2})-\lambda^2 }{\lambda^2}\qquad\text{ or }\qquad\mu_\ell\geq \frac{2(1+\sqrt{1-\lambda^2})-\lambda^2 }{\lambda^2}.\]
-	The condition on the right is impossible since $0<\mu_\ell<1$ and further we find that
-	\[\frac{2(1-\sqrt{1-\lambda^2})-\lambda^2}{\lambda^2}\leq\lambda^2\leq\sqrt{a^2(\lambda^2-1)+\lambda^2}\leq\frac{\lambda a+\sqrt{a^2(\lambda^2-1)+\lambda^2}}{1-\lambda a}\]
-	as long as $\vert \lambda\vert\leq1$ and $\vert a\vert\leq \vert \lambda\vert$.	Therefore we find that 
-	\[\frac{\lambda a -\sqrt{\lambda^2 a^2-a^2+\lambda^2}}{1-\lambda a}\leq 0\leq\mu_\ell\leq \frac{2(1-\sqrt{1-\lambda^2})-\lambda^2 }{\lambda^2}\leq\frac{\lambda a + \sqrt{a^2(\lambda^2-1)+\lambda^2}}{1-\lambda a}.\]
-	Since $\mu_\ell$ is bounded between the roots of $(\lambda a-1)^2\mu_\ell^2 + 2\lambda a(\lambda a-1)\mu_\ell+a^2-\lambda^2$, we know that $(\lambda a-1)^2\mu_\ell^2 + 2\lambda a(\lambda a-1)\mu_\ell+a^2-\lambda^2\leq 0$ giving
-	\[\vert\vert T_\ell \vec{v}\vert\vert^2_2\leq \lambda^2(a^2+1) = \lambda^2\vert\vert \vec{v}\vert\vert^2_2\]
-	as desired. To show that $\left\vert \eta^+\right\vert\leq \left\vert\frac{\beta}{a}\right\vert\leq \left\vert\lambda\right\vert$, consider that
-	\[\frac{\beta}{a} = \eta^+ + \frac{\eta^-}{a}\left(a-\eta^+\right).\]
-	Since $\eta^-,\eta^+,$ and $a$ all share the same sign, $\frac{\eta^-\left(a-\eta^+\right)}{a}$ must also share the same sign as $\eta^+$. Thus
+	where $\beta = \left(\frac{\eta^--a}{\eta^--\eta^+}\right)\left(\eta^+\right)^2 + \left(\frac{a-\eta^+}{\eta^--\eta^+}\right)\left(\eta^-\right)^2 = a\left(\eta^++\eta^-\right)-\eta^-\eta^+$. Thus $\frac{\beta}{a} = \eta^+ + \frac{\eta^-}{a}\left(a-\eta^+\right).$
+	Since $\eta^-,\eta^+,$ and $a$ all share the same sign and $\vert\eta^+\vert\leq\vert a\vert$, $\frac{\eta^-}{a}\left(a-\eta^+\right)$ must also share the same sign as $\eta^+$. Thus
 	\[\left\vert\eta^+\right\vert\leq  \left\vert\eta^+ + \frac{\eta^-}{a}\left(a-\eta^+\right) \right\vert\leq\left\vert\eta^+ + \left(a-\eta^+\right) \right\vert = \vert a\vert\leq \vert\lambda\vert\]
-\end{proof}
-\begin{lem}\label{doubleroot}
-	Let $\left(\lambda,\vec{p}\right)$ be an eigenpair of $M$ and assume that $(1+\mu_\ell)^2\lambda^2-4\mu_\ell=0$ and thus $x^2-(1+\mu_\ell)\lambda x + \mu_\ell$ has a double root. Let $\vec{v} = \left[\begin{array}{c}
-	a\vec{p}\\\hdashline[2pt/2pt]
-	b\vec{p}
-	\end{array}\right]$ for $b>0$. Then $\lambda a\geq0$ and $\vert\frac{a}{b}\vert\leq\vert\lambda\vert\leq 1$ together imply $\vert\vert T_\ell \vec{v}\vert\vert_2\leq \vert \lambda\vert\cdot\vert\vert \vec{v}\vert\vert_2$.
-\end{lem}
-\begin{proof}
-	As with our previous lemma, we assume without loss of generality that $b=1$ and $\vert\vert\vec{p}\vert\vert_2 = 1$. Next, as in Lemma \ref{Tkeig}, define $\eta = \frac{(1+\mu_\ell)\lambda}{2}$ to be the double root of $x^2-(1+\mu_\ell)\lambda x + \mu_\ell$, giving eigenvector and generalized eigenvector
+	Similarly, consider the case when $\eta^- = \eta^+ = \eta = \frac{(1+\mu_\ell)\lambda}{2}$. Here, Lemma \ref{Tkeig} gives the eigenvector and generalized eigenvector
 	\[\vec{w} = \left[\begin{array}{c}
 	\eta \vec{p}\\\hdashline[2pt/2pt]
 	\vec{p}
@@ -251,23 +225,85 @@ Lemma \ref{Tkeig} gives a complete description of the eigenspaces of our transit
 	(2a-\eta)\eta\vec{p}\\\hdashline[2pt/2pt]
 	a\vec{p}
 	\end{array}\right].$
-	Therefore
-	\[\begin{aligned}\vert\vert T_\ell\vec{v}\vert\vert_2^2 &= (2a-\eta)^2\eta^2 + a^2\\
-	&=(4a^2-2a(1+\mu_\ell)\lambda + \mu_\ell)\mu_\ell+a^2\\
-	&=(1+\mu_\ell)^2\lambda^2a^2-2a(1+\mu_\ell)\lambda\mu_\ell+\mu_\ell^2+a^2\\
-	&=\left[(\lambda a-1)^2\mu^2 + 2\lambda a(\lambda a-1)\mu+ a^2-\lambda^2\right] + \lambda^2(1+a^2)
-	\end{aligned}\]
-	giving $\vert \vert T_\ell \vec{v}\vert\vert_2^2\leq \vert\lambda\vert^2\vert\vert\vec{v}\vert\vert_2^2$ as before.
+	Therefore $\frac{\beta}{a} = \eta+ \frac{\eta}{a}(a-\eta)$ and as before we find that $\frac{\eta}{a}(a-\eta)$ and $\eta$ share the same sign giving
+	\[\vert \eta\vert\leq \left\vert \eta+ \frac{\eta}{a}(a-\eta)\right\vert\leq \left\vert \eta+ (a-\eta)\right\vert\leq\left\vert a\right\vert=\left\vert\lambda\right\vert.\]
+	Therefore in both cases we find that $\vert\eta\vert\leq \left\vert\frac{\beta}{a}\right\vert\leq\vert \lambda\vert$, giving
+	\[\vert\vert T_\ell \vec{v}\vert\vert^2_2 =\beta^2 + a^2 = \frac{\beta^2}{a^2}a^2 + a^2\leq \lambda^2a^2+\lambda^2 = \lambda^2\vert\vert \vec{v}\vert\vert_2^2.\] 
+	Finally, since $\eta^+$ and $\frac{\eta^-}{a}\left(a-\eta^+\right)$ had the same sign in both cases, we must also have $\frac{\beta}{a}$ share the same sign. Thus $\lambda\left(\frac{\beta}{a}\right)\geq 0$.
 \end{proof}
 \begin{lem}\label{complexroot}
-	Let $\left(\lambda,\vec{p}\right)$ be an eigenpair of $M$ and assume that $(1+\mu_\ell)^2\lambda^2-4\mu_\ell<0$ and thus $x^2-(1+\mu_\ell)\lambda x + \mu_\ell$ has no real roots. Let $\vec{v} = \left[\begin{array}{c}
+	Let $\left(\lambda,\vec{p}\right)$ be an eigenpair of $M$ and assume that $(1+\mu_\ell)^2\lambda^2-4\mu_\ell<0$ and thus $x^2-(1+\mu_\ell)\lambda x + \mu_\ell$ has no real roots. For any vector $\vec{v} = \left[\begin{array}{c}
 	a\vec{p}\\\hdashline[2pt/2pt]
 	b\vec{p}
-	\end{array}\right]$ for $b>0$. $\vert\vert T_\ell \vec{v}\vert\vert_2=\sqrt{\mu_\ell}\cdot\vert\vert \vec{v}\vert\vert_2$.
+	\end{array}\right]$, we have $\vert\vert T_\ell \vec{v}\vert\vert_2=\sqrt{\mu_\ell}\cdot\vert\vert \vec{v}\vert\vert_2$.
 \end{lem}
 \begin{proof}
 	Let $\eta^+$ and $\eta^-$ be the two roots of $x^2-(1+\mu_\ell)\lambda x + \mu_\ell$. Since $\eta^+$ and $\eta^-$ are not real, $\vert\eta^+\vert = \vert\eta^-\vert = \sqrt{\eta^+\eta^-} = \sqrt{\mu_\ell}$. Therefore every vector in this subspace is rotated and scaled down by a factor of $\sqrt{\mu_\ell}$.
 \end{proof}
+Now that we have $T_\ell$-invariant subspaces and are able to control the squared norm of the image of certain vectors in these subspaces, we must consider how the the portion of the subspaces described in Lemma \ref{realroot} changes as we iterate $\ell$. This equates to determining how the roots of the polynomial $x^2-(1+\mu_\ell)\lambda + \mu_\ell$ change as we increase $\mu_\ell$ for fixed $\lambda$.
+\begin{lem}\label{rootshift}
+	Let $\ell\in\bbZ^+$ and $-1<\lambda< 1$ be given. Assume that $x^2-(1+\mu_{\ell+1})\lambda x+\mu_{\ell+1}$ has real roots $x_{\ell+1}^-\leq x_{\ell+1}^+$. Then $x^2-(1+\mu_{\ell})\lambda x+\mu_{\ell}$ also has real roots $x_{\ell}^-$ and $x_{\ell}^+$ with $x_{\ell}^-<x_{\ell+1}^-\leq x_{\ell+1}^+< x_{\ell}^+$.
+\end{lem}
+\begin{proof}
+	Fix $-1<\lambda<1$ and define the multivariate polynomial $p(x,\mu) = x^2-(1+\mu)\lambda x+\mu$ with domain $-1\leq x,\mu\leq 1$. Fix $m>2$ and define $\mu_{\ell} = \frac{\ell -1}{\ell+m-3}$. If $(1+\mu_\ell)^2\lambda^2-4\mu_\ell\geq 0$ we have that $p(x,\mu_\ell)=0$ has real solutions $x^-\leq x^+$. Further, since the leading term of $p(x,\mu_\ell)$ is positive, $p(x,\mu_\ell)<0$ only on the interval $x\in\left(x^-,x^+\right)$. Now consider that $\frac{\partial p(x,\mu)}{\partial \mu} = 1-\lambda x>0$ for all values in our domain. Therefore since $\mu_{\ell+1}>\mu_{\ell}$, we must have that $p(x,\mu_{\ell+1})>p(x,\mu_{\ell})$. Therefore any real solutions of $p(x,\mu_{\ell+1})=0$ must lie strictly between $x^-$ and $x^+$. Finally our requirement $(1+\mu_\ell)^2\lambda^2-4\mu_\ell\geq 0$ reduces to $\mu_{\ell}\leq2-\lambda\pm2\sqrt{1-\lambda}$ since $\mu_{\ell}<1$ for all values of $\ell\in\bbZ^+$. Therefore, since $\mu_{\ell+1}>\mu_{l}$ we find that $p(x,\mu_{\ell+1})$ has real roots only if $p(x,\mu_\ell)$ has real roots.
+\end{proof}
+With this lemma, we know that the largest absolute value of the roots of $x^2-(1+\mu_\ell)\lambda_j + \mu_\ell$ decreases as $\mu_\ell$ so long as the roots are real. Further, this lemma also implies that if the roots of $x^2-(1+\mu_\ell)\lambda_j + \mu_\ell$ are complex, then $x^2-(1+\mu_{\ell+1})\lambda_j + \mu_{\ell+1}$ must also have complex roots. We will use these two facts as well as the proceeding lemmas to prove our next lemma.
+\begin{lem}\label{normbound}
+	Let $S$ be a feasible parameter set for an association scheme with first and second eigenmatrices $P$ and $Q$. For $0\leq i,j\leq d$ define $\lambda_j = \nicefrac{Q_{j,i}}{m_i}$ and $B_j =\left\{\left[\begin{array}{c}
+	a\vec{p}_j\\\hdashline[2pt/2pt]
+	b\vec{p}_j
+	\end{array}\right]\vert a,b\in\bbR\right\}$ where $\vec{p}_j$ is the $j^\text{th}$ column of $\sqrt{\Delta_m}P$. For $\ell\geq 1$ define $\mu_\ell$, $\vec{y}_\ell$, and $T_\ell$ via equations \eqref{tkdef} and \eqref{yrec}. Then \[\text{proj}_{B_j}(\vec{y}_1) =\frac{1}{\vert X\vert}\left[\begin{array}{c}
+	\lambda_j\vec{p}_j\\\hdashline[2pt/2pt]
+	\vec{p}_j
+	\end{array}\right];\qquad\left\vert\left\vert \left(\prod_{\ell=2}^{\ell^*} T_\ell\right) \text{proj}_{B_j}(\vec{y}_1)\right\vert\right\vert^2_2\leq(1+\lambda_j^2)\frac{k_j}{\vert X\vert}\left(\prod_{\ell=2}^{\ell^*}\gamma_\ell\right)\]
+	where
+	\[\gamma_\ell = \begin{cases}
+	\lambda_j^2 & (1+\mu_\ell)^2\lambda_j^2\geq 4\mu_\ell\\
+	\mu_\ell & (1+\mu_\ell)^2\lambda_j^2< 4\mu_\ell.
+	\end{cases}\]
+\end{lem}
+\begin{proof}
+	Let $\vec{y}_\ell$ given by the recurrence relation \eqref{yrec} for $\ell>1$ with $\vec{y}_1= \left[\begin{array}{c}
+	\frac{1}{\sqrt{m_i}}\vec{e}_{i}\\\hdashline[2pt/2pt]
+	\vec{e}_{0}
+	\end{array}\right]$. We may find an orthogonal basis for $B_j$ via $B_j = \text{span}\left(\left[\begin{array}{c}
+	\vec{p}_j\\\hdashline[2pt/2pt]
+	\vec{0}
+	\end{array}\right],\left[\begin{array}{c}
+	\vec{0}\\\hdashline[2pt/2pt]
+	\vec{p}_j
+	\end{array}\right]\right)$. Noting that $\left(\sqrt{\Delta_m}P\right)^T\left(\sqrt{\Delta_m}P\right) = \vert X\vert\Delta_k$ and thus $\vert\vert \vec{p}_j\vert\vert_2^2 = \vert X\vert k_j$, this gives 
+	\[\text{proj}_{B_j}(\vec{y}_1) = \frac{1}{k_j\vert X\vert}\left[\begin{array}{c}
+	P_{i,j}\vec{p}_j\\\hdashline[2pt/2pt]
+	P_{0,j}\vec{p}_j
+	\end{array}\right] =\frac{1}{\vert X\vert}\left[\begin{array}{c}
+	\frac{P_{i,j}}{k_j}\vec{p}_j\\\hdashline[2pt/2pt]
+	\vec{p}_j
+	\end{array}\right] = \frac{1}{\vert X\vert}\left[\begin{array}{c}
+	\lambda_j\vec{p}_j\\\hdashline[2pt/2pt]
+	\vec{p}_j
+	\end{array}\right].\]
+	Next Lemma \ref{rootshift} implies that the polynomial $x^2-(1+\mu_\ell)\lambda_j+\mu_\ell$ has complex roots if and only if $x^2-(1+\mu_{\ell'})\lambda_j+\mu_{\ell'}$ has complex roots for all $\ell'>\ell$. Therefore let $h$ be the largest integer less than or equal to $l^*$ for which $x^2-(1+\mu_h)\lambda_j+\mu_h$ has real roots. Let $2\leq \ell\leq h$ and let $\eta_\ell$ be the largest root (in absolute value) of $x^2-(1+\mu_\ell)\lambda_j+\mu_\ell$. Further assume that there exists constants $a_\ell$ and $b_\ell$ such that $\text{proj}_{B_j}\left(\vec{y}_{\ell-1}\right) = \left[\begin{array}{c}
+	a_\ell\vec{p}_j\\\hdashline[2pt/2pt]
+	b_\ell\vec{p}_j
+	\end{array}\right]$ where $\lambda_j\left(\frac{a_\ell}{b_\ell}\right) \geq 0$ and $\vert \eta_\ell\vert\leq\vert \frac{a_\ell}{b_\ell}\vert\leq\vert\lambda_j\vert$. Then Lemma \ref{realroot} tells us that there exists a $\beta\in\mathbb{R}$ such that $\text{proj}_{B_j}\left(\vec{y}_\ell\right) = T_\ell\left(\text{proj}_{B_j}\left(\vec{y}_{\ell-1}\right)\right) =\left[\begin{array}{c}
+	\beta\vec{p}_j\\\hdashline[2pt/2pt]
+	a\vec{p}_j
+	\end{array}\right]$ where
+	$\lambda\left(\frac{\beta}{a}\right)\geq 0$, $\vert\eta_\ell\vert\leq \vert\frac{\beta}{a}\vert\leq\vert\lambda\vert$, and
+	\[\left\vert\left\vert \text{proj}_{B_j}\left(\vec{y}_\ell\right)\right\vert\right\vert_2^2\leq \vert \lambda\vert^2\cdot\left\vert\left\vert \text{proj}_{B_j}\left(\vec{y}_{\ell-1}\right)\right\vert\right\vert_2^2.\]
+	Lemma also $\ref{rootshift}$ tells us that if $\ell<h$ then $\vert\eta_{\ell+1}\vert<\vert\eta_{\ell}\vert$ where $\eta_{\ell+1}$ is the largest root in absolute value of the polynomial $x^2-(1+\mu_{\ell+1})\lambda_j+\mu_{\ell+1}$. Therefore, either $\ell=h$ or there exists constants $a_{\ell+1}$ and $b_{\ell+1}$ so that $\text{proj}_{B_j}\left(\vec{y}_{\ell}\right) = \left[\begin{array}{c}
+	a_{\ell+1}\vec{p}_j\\\hdashline[2pt/2pt]
+	b_{\ell+1}\vec{p}_j
+	\end{array}\right]$ where $\lambda_j\left(\frac{a_{\ell+1}}{b_{\ell+1}}\right) \geq 0$ and $\vert \eta_\ell\vert\leq\vert \frac{a_{\ell+1}}{b_{\ell+1}}\vert\leq\vert\lambda_j\vert$. Finally note that $\text{proj}_{B_j}\left(\vec{y}_{1}\right) = \left[\begin{array}{c}
+	\lambda_j\vec{p}_j\\\hdashline[2pt/2pt]
+	\vec{p}_j
+	\end{array}\right]$ and therefore $a_2 = \lambda_j$ and $b_2=1$, satisfying $\lambda_j\left(\frac{a_{2}}{b_{2}}\right) \geq 0$ and $\vert \eta_\ell\vert\leq\vert \frac{a_{2}}{b_{2}}\vert\leq\vert\lambda_j\vert$. Therefore, by induction, we have that
+	\[\left\vert\left\vert \left(\prod_{\ell=2}^{h} T_\ell\right) \text{proj}_{B_j}(\vec{y}_1)\right\vert\right\vert^2_2\leq \left\vert\left\vert \text{proj}_{B_j}\left(\vec{y}_1\right)\right\vert\right\vert^2_2\left(\prod_{\ell=2}^{h}\lambda_j^2\right)= (1+\lambda_j^2)\frac{k_j}{\vert X\vert}\left(\prod_{\ell=2}^{h}\lambda_j^2\right)\]
+	Now let $h<\ell\leq \ell^*$, and define $\vec{v} = \left(\prod_{\ell=2}^{h} T_\ell\right) \text{proj}_{B_j}(\vec{y}_1)$. Then Lemma \ref{complexroot} gives us that
+	\[\left\vert\left\vert \left(\prod_{\ell=h+1}^{\ell^*} T_\ell\right) \vec{v}\right\vert\right\vert^2_2\leq \left\vert\left\vert \vec{v}\right\vert\right\vert^2_2\left(\prod_{\ell=h+1}^{\ell^*}\mu_\ell\right)\leq (1+\lambda_j^2)\frac{k_j}{\vert X\vert}\left(\prod_{\ell=2}^{h}\lambda_j^2\right)\left(\prod_{\ell=h+1}^{\ell^*}\mu_\ell\right).\]
+\end{proof}
+We are now ready to prove the main theorem of this section, using Lemma \ref{normbound} to control the norm of the transient vectors at each iteration.
 \degbnd
 \begin{proof}
 	Let $\vec{y}_\ell$ given by the recurrence relation \eqref{yrec} for $\ell>1$ with $\vec{y}_1= \left[\begin{array}{c}
@@ -330,55 +366,83 @@ Lemma \ref{Tkeig} gives a complete description of the eigenspaces of our transit
 	then we guarantee $y_{\ell^*+1}$ has no negative entry. Finally since the bottom half of $y_{\ell^*+1}$ equals the top half of $y_{\ell^*}$, we may assume that any negative entry of $y_{\ell^*}$ appears in the bottom half, implying that $y_{\ell^*-1}$ has a negative entry in the top half. Thus checking  the first $\ell^*-1$ conditions is sufficient.
 \end{proof}
 \begin{cor}\label{maxlambda}
-	Let $P$ and $Q$ be a pair of feasible first and second eigenmatrices for an association scheme. Let $0\leq i\leq d$ be given and define $\lambda_j:=\frac{Q_{j,i}}{m_j}$. Further assume $1=\lambda_0>\vert\lambda^*\vert\geq\vert\lambda_j\vert$ for $0<j<d$. Then $\ell^*$ as defined in Theorem \ref{degreebound} follows
-	\[\ell^*\leq\left\lceil\frac{\ln\left[(1+(\lambda^*)^2)\vert X\vert(\vert X\vert-1)\right]}{-2\ln(\lambda^*)}\right\rceil.\]
+	Let $S$ be a feasible parameter set for an association scheme with first and second eigenmatrices $P$ and $Q$. Let $0\leq i\leq d$ be given and define $\lambda_j:=\frac{Q_{j,i}}{m_i}$. Further assume $1=\lambda_0>\vert\lambda^*\vert\geq\vert\lambda_j\vert$ for $0<j\leq d$. Then define
+	\[\ell^*=\left\lceil\frac{\ln\left[(1+(\lambda^*)^2)\vert X\vert(\vert X\vert-1)\right]}{-2\ln(\lambda^*)}\right\rceil.\]
+	If $\vert\lambda^*\vert^2\geq \frac{\ell^*-1}{\ell^*+m_i-3}$ then $\theta_{\ell,j}\geq 0$ is implied by FC1 for $\ell\geq \ell^*$ and $0\leq j\leq d$.
 \end{cor}
 \begin{proof}
-	\[\sum_{j=1}^d v_j\lambda_j^{2x}(1+\lambda_j^2)\leq(\lambda^*)^{2x}(1+(\lambda^*)^2)\sum_{j=1}^d v_j =(\lambda^*)^{2x}(1+(\lambda^*)^2)(\vert X\vert -1). \]
+	As long as $\vert\lambda^*\vert^2\geq\vert\lambda_j\vert^2,\mu_{\ell}$ for $2\leq\ell\leq x$,
+	\[\sum_{j=1}^d k_j\left(1+\lambda_j^2\right)\left(\prod_{\ell=2}^x \gamma_x\right)\leq(\lambda^*)^{2x}(1+(\lambda^*)^2)\sum_{j=1}^d v_j =(\lambda^*)^{2x}(1+(\lambda^*)^2)(\vert X\vert -1). \]
 	Solving 
-	\[(\lambda^*)^{2x}(1+(\lambda^*)^2)(\vert X\vert -1)\leq\frac{1}{\vert X\vert}\]
+	\[\left((\lambda^*)^{2x}\right)(1+(\lambda^*)^2)(\vert X\vert -1)\leq\frac{1}{\vert X\vert}\]
 	for $x$ gives
 	\[x\geq\frac{\ln\left[(1+(\lambda^*)^2)\vert X\vert(\vert X\vert-1)\right]}{-2\ln(\lambda^*)}.\]
-	Thus $\left\lceil\frac{\ln\left[(1+(\lambda^*)^2)\vert X\vert(\vert X\vert-1)\right]}{-2\ln(\lambda^*)}\right\rceil$ is the smallest integer for which our relaxed inequality holds, giving $\ell^*\leq \left\lceil\frac{\ln\left[(1+(\lambda^*)^2)\vert X\vert(\vert X\vert-1)\right]}{-2\ln(\lambda^*)}\right\rceil$.
+	Thus $\ell^*=\left\lceil\frac{\ln\left[(1+(\lambda^*)^2)\vert X\vert(\vert X\vert-1)\right]}{-2\ln(\lambda^*)}\right\rceil$ is the smallest integer for which our relaxed inequality holds. Therefore, as long as $\vert\lambda^*\vert^2\geq\mu_{x}$, Theorem \ref{degreebound} gives our result.
 \end{proof}
+\subsection{Example}
+Consider the feasible parameter set with first and second eigenmatrices
+\[P = \left[\begin{array}{cccc}
+1 & 100 & 240 & 100\\
+1 & 37 & -12 & -26\\
+1 & 2 & -12 & 9\\
+1 & -5 & 9 & -5
+\end{array}\right],\qquad Q = \left[\begin{array}{cccc}
+1 & 20 & 180 & 240\\
+1 & \nicefrac{37}{5} & \nicefrac{18}{5} & -12\\
+1 & -1 & -9 & 9\\
+1 & \nicefrac{-26}{5} & \nicefrac{91}{5} & -12
+\end{array}\right].\]
+If realizable, the association scheme with this parameter set would be a 3-class primitive $Q$-polynomial association scheme. Using the first eigenspace for our Gram matrix, that is $i=1$ in Theorem \ref{schoen-as}, we find $\lambda_0 = 1$, $\lambda_1 = \frac{37}{100}$, $\lambda_2 = -\frac{1}{20}$, and $\lambda_3 = -\frac{26}{100}$ where $\lambda_j = \nicefrac{Q_{j1}}{Q_{01}}$. Noting that $(1+\mu_\ell)^2\lambda^2-4\mu_\ell<0$ if and only if $\mu_\ell = \frac{\ell-1}{\ell+m-3}>2-\vert\lambda\vert-2\sqrt{1-\vert\lambda\vert}$. For $1\leq j\leq d$ define $\ell_j$ as the largest integer for which $\frac{\ell-1}{\ell+m-3}\leq2-\lambda-2\sqrt{1-\lambda}$. Then we find $\ell_1=\ell_2=\ell_3=1$ giving
+\[\begin{aligned}\sum_{j=1}^3k_j\left(1+\lambda_j^2\right)\left(\prod_{\ell=2}^x\gamma_x\right) &= \left(\prod_{\ell=2}^x\mu_x\right)\left(440+100\left(\frac{37}{100}\right)^2+240\left(\frac{1}{20}\right)^2+100\left(\frac{26}{100}\right)^2\right)\\
+&=\left(\prod_{\ell=2}^x\mu_x\right)\frac{18843}{40}\end{aligned}\]
+Noting that
+\[\left(\prod_{\ell=2}^8\mu_x\right)\frac{18843}{40}\approx 0.00098<\frac{1}{441},\]
+we have that the conditions $\theta_{\ell j}\geq 0$ are vacuous for this parameter set whenever $\ell\geq 8$. Below we list $\theta_{\ell j}$ for $0\leq \ell\leq 7$ and $0\leq j\leq 3$, listing only the first two decimal places for readability:
+\[\left[\begin{array}{cccccccc}
+441 & 0 & 0 & 4.95 & 0.43 & -0.11 & 0.93 & 1.24\\
+0 & 22.05 & 4.5 & 0.38 & 0.67 & 0.84 & 0.97 & 1.06\\
+0 & 0 & 1.95 & 1.09 & 0.81 & 1 & 1.04 & 0.99\\
+0 & 0 & 0 & 0.97 & 1.17 & 1.02 & 0.98 & 1
+\end{array}\right].\]
+Note that $\theta_{50} = -0.11<0$ and therefore this parameter set is not realizable.
 
 \section{Cometric Association Schemes}\label{cometricGeg}
-In this section, we restrict to the case of cometric association schemes and explicitly compute eigenvalues of the form $\theta_{\ell,i}$ as defined in Theorem \ref{schoen-as}. We will compute $\theta_{\ell,i}$ for $2\leq \ell\leq 5$ and $0\leq i\leq d$ as well as $\theta_{6,0}$. Theorem \ref{schoen-as} tells us that each eigenvalue must be non-negative, and thus we derive more feasibility conditions on the parameters of a cometric association scheme. Many of these feasibility conditions will be implied by our previous conditions FC1, FC2, and FC3, however there are some which are independent of these three conditions, leading to new results. We will examine one such example closely in the section that follows. Let $(X,\mathcal{R})$ be given and assume there exists a $Q$-polynomial ordering $E_0,E_1,\dots, E_d$ with natural ordering $A_0,A_1,\dots,A_d$. Let $\left\{m,b^*_1,\dots,b^*_{d-1};1,c_2^*\dots,c^*_{d}\right\}$ be the Krein array of $(X,\mathcal{R})$ and define $m:=\text{rank}(E_1)$. As before, let $\theta_{\ell,i}$ denote the eigenvalue of $Q_\ell^m\circ\left(\frac{\vert X\vert}{m}E_1\right)$ on the eigenspace $V_i$ for $\ell\geq0$ and $0\leq i\leq d$, allowing ourselves to suppress the comma when the meaning is clear. From our initial two Gegenbauer polynomials, we know
-\[\theta_{0i} = \delta_{0i};\qquad \theta_{1i} =\frac{1}{m}\delta_{1i}.\]
+In this section, we restrict to the case of cometric association schemes and explicitly compute eigenvalues of the form $\theta_{\ell,j}$ as defined in Theorem \ref{schoen-as}. We will compute $\theta_{\ell,j}$ for $2\leq \ell\leq 5$ and $0\leq j\leq d$ as well as $\theta_{6,0}$. Theorem \ref{schoen-as} tells us that each eigenvalue must be non-negative, and thus we derive more feasibility conditions on the parameters of a cometric association scheme. Many of these feasibility conditions will be implied by our previous conditions FC1, FC2, and FC3, however there are some which are independent of these three conditions. We will examine one such example closely in the section that follows. Let $S$ be a feasible parameter set for a $Q$-polynomial association scheme with Krein array $\left\{m,b^*_1,\dots,b^*_{d-1};1,c_2^*\dots,c^*_{d}\right\}$. As before, let $\theta_{\ell,j}$ denote the eigenvalue of $Q_\ell^m\circ\left(\frac{\vert X\vert}{m}E_1\right)$ on the eigenspace $V_j$ for $\ell\geq0$ and $0\leq j\leq d$, allowing ourselves to suppress the comma when the meaning is clear. From our initial two Gegenbauer polynomials, we know
+\[\theta_{0i}= \vert X\vert\delta_{0i};\qquad \theta_{1i} =\frac{\vert X\vert}{m}\delta_{1i}.\]
 Using equation \eqref{gegprop} and our Krein array, we have
  \begin{equation}\label{thetarec}
  \theta_{\ell i}= \frac{(2\ell+m-4)(c_{i}^*\theta_{\ell-1,i-1} +a_i^*\theta_{\ell-1,i}+b_{i}^*\theta_{\ell-1,i+1}) - (\ell-1)m\theta_{\ell-2,i}}{m(\ell+m-3)}.
  \end{equation}
  Before listing the eigenvalues, we note that many of the conditions $\theta_{\ell i}\geq 0$ will be implied by either the Krein conditions FC1 or the cometric requirement on our parameters. Consider the following lemma:
  \begin{lem}
- 	Let $\left\{m,b^*_1,\dots,b^*_{d-1};1,c_2^*\dots,c^*_{d}\right\}$ be a feasible Krein array for a cometric association scheme. For $k\geq 0$, define $\theta_{k,j}$ via equation \eqref{thetarec} with $\theta_{0i}=\delta_{0i}$ and $\theta_{1i}= \frac{1}{m}\delta_{1i}$. Then $\theta_{k,i} = 0$ for $i>k$ and $\theta_{k,i}\geq 0$ for $i\in\left\{k-1,k\right\}$.
+ 	Let $S$ be a feasible parameter set for a $Q$-polynomial association scheme with Krein array $\left\{m,b^*_1,\dots,b^*_{d-1};1,c_2^*\dots,c^*_{d}\right\}$. For $\ell\geq 0$, define $\theta_{\ell,j}$ via equation \eqref{thetarec} with $\theta_{0i}=\vert X\vert\delta_{0i}$ and $\theta_{1i}= \frac{\vert X\vert}{m}\delta_{1i}$. Then $\theta_{\ell,i} = 0$ for $i>\ell$ and FC1 implies $\theta_{\ell,i}\geq 0$ for $i\in\left\{\ell-1,\ell\right\}$.
  \end{lem}
 \begin{proof}
-	We will prove this by induction, showing first that our cometric requirement implies $\theta_{k,i}=0$ for $i>k$, $k\geq 0$ and then the conditions FC1 imply $\theta_{k,k}$ and $\theta_{k,k-1}$ are both non-negative. First note from our initial conditions that $\theta_{0i} = \delta_{0i}$ and therefore we have $\theta_{0i} = 0$ for $i>0$. Now, let $k\geq 1$ be given and assume that $\theta_{k,i}= 0$ for $i>k$. Then choose $i>k+1$ and from equation \eqref{thetarec},
-	\[\theta_{k+1,i}= \frac{(2k+m)(c_{i}^*\theta_{k,i-1} +a_i^*\theta_{k,i}+b_{i}^*\theta_{k,i+1}) - km\theta_{k-1,i}}{m(k+m-2)}.\]
-	However if $i>k+1$ then by our induction hypothesis, $\theta_{k,i-1} = \theta_{k,i} = \theta_{k,i+1} = \theta_{k-1,i} = 0$, thus $\theta_{k+1,i} = 0$. For the remaining two conditions, note that $\theta_{10}\geq 0$ and $\theta_{11}\geq 0$ are both vacuously true. Now let $k\geq 1$ be given and assume $\theta_{k,k-1}\geq 0$ and $\theta_{k,k}\geq 0$. Then
-	\[\begin{aligned}\theta_{k+1,k+1}&= \frac{(2k+m)(c_{k+1}^*\theta_{k,k} +a_{k+1}^*\theta_{k,k+1}+b_{k+1}^*\theta_{k,k+2}) - km\theta_{k-1,k+1}}{m(k+m-2)} = \frac{(2k+m)c_{k+1}^*\theta_{k,k}}{m(k+m-2)}\\
-	\theta_{k+1,k}&= \frac{(2k+m)(c_{k}^*\theta_{k,k-1} +a_{k}^*\theta_{k,k}+b_{k-1}^*\theta_{k,k+1}) - km\theta_{k-1,k}}{m(k+m-2)} = \frac{(2k+m)\left(c_k^*\theta_{k,k-1}+a_k^*\theta_{k,k}\right)}{m(k+m-2)}.\end{aligned}\]
-	Therefore as long as $a_k^*,c_k^*,c_{k+1}^*\geq 0$ (FC1), then $\theta_{k+1,k+1}\geq 0$ and $\theta_{k+1,k}\geq 0$.
+	We prove this by induction, showing first that our cometric requirement implies $\theta_{\ell,i}=0$ for $i>\ell$, $\ell\geq 0$ and then the conditions FC1 imply $\theta_{\ell,\ell}$ and $\theta_{\ell,\ell-1}$ are both non-negative. First note from our initial conditions that $\theta_{0i} = 0$ for $i>0$. Now, let $\ell\geq 1$ be given and assume that $\theta_{\ell,i}= 0$ for $i>\ell$. Then choose $i>\ell+1$ and from equation \eqref{thetarec},
+	\[\theta_{\ell+1,i}= \frac{(2\ell+m)(c_{i}^*\theta_{\ell,i-1} +a_i^*\theta_{\ell,i}+b_{i}^*\theta_{\ell,i+1}) - \ell m\theta_{\ell-1,i}}{m(\ell+m-2)}.\]
+	However if $i>\ell+1$ then by our induction hypothesis, $\theta_{\ell,i-1} = \theta_{\ell,i} = \theta_{\ell,i+1} = \theta_{\ell-1,i} = 0$, thus $\theta_{\ell+1,i} = 0$. For the remaining two conditions, note that $\theta_{10}\geq 0$ and $\theta_{11}\geq 0$ are both vacuously true. Now let $\ell\geq 1$ be given and assume $\theta_{\ell,\ell-1}\geq 0$ and $\theta_{\ell,\ell}\geq 0$. Then
+	\[\begin{aligned}\theta_{\ell+1,\ell+1}&= \frac{(2\ell+m)(c_{\ell+1}^*\theta_{\ell,\ell} +a_{\ell+1}^*\theta_{\ell,\ell+1}+b_{\ell+1}^*\theta_{\ell,\ell+2}) - \ell m\theta_{\ell-1,\ell+1}}{m(\ell+m-2)} = \frac{(2\ell+m)c_{\ell+1}^*\theta_{\ell,\ell}}{m(\ell+m-2)}\\
+	\theta_{\ell+1,\ell}&= \frac{(2\ell+m)(c_{\ell}^*\theta_{\ell,\ell-1} +a_{\ell}^*\theta_{\ell,\ell}+b_{\ell-1}^*\theta_{\ell,\ell+1}) - \ell m\theta_{\ell-1,\ell}}{m(\ell+m-2)} = \frac{(2\ell+m)\left(c_\ell^*\theta_{\ell,\ell-1}+a_\ell^*\theta_{\ell,\ell}\right)}{m(\ell+m-2)}.\end{aligned}\]
+	Therefore as long as $a_\ell^*,c_\ell^*,c_{\ell+1}^*\geq 0$ (FC1), then $\theta_{\ell+1,\ell+1}\geq 0$ and $\theta_{\ell+1,\ell}\geq 0$.
 \end{proof}
-Due to this lemma, we know that for any cometric association scheme and any choice of $k\geq 0$, the condition $\theta_{k,i}\geq 0$ will be implied by FC1 or the cometric property for $i\geq k-1$. Therefore we will omit $\theta_{k,i}$ for $i>k$ in the discussion that follows, listing $\theta_{k,k}$ and $\theta_{k,k-1}$ only to assist in calculating eigenvalues from higher degree polynomials. In each case, we will use our Krein parameters (primarily those from the Krein array) to calculate the eigenvalues and note when our feasibility condition FC1 is sufficient to imply $\theta_{k,i}\geq 0$. At the end of the section, we will summarize any of the conditions which are not implied by FC1, noting that these are our (potentially) new constraints on the parameters of a cometric scheme. For convenience we extend our Krein array to include $a_i^*,c_i^*,$ and $b_i^*$ for all $i\in\mathbb{Z}^+$ noting that $b_{j-1}^* = c_j^*=a_j^*=0$ for $j>d$. We will also use Lemma \eqref{kreinidentity} when convenient, so we further assume that our Krein parameters satisfy the condition
+Due to this lemma, we know that for feasible parameter set for a cometric association scheme and any choice of $\ell\geq 0$, the condition $\theta_{\ell,i}\geq 0$ will be implied by FC1 or the cometric property for $i\geq \ell-1$. Therefore we will omit $\theta_{\ell,i}$ for $i>\ell$ in the discussion that follows, listing $\theta_{\ell,\ell}$ and $\theta_{\ell,\ell-1}$ only to assist in calculating eigenvalues from higher degree polynomials. In each case, we will use our Krein parameters (primarily those from the Krein array) to calculate the eigenvalues and note when our feasibility condition FC1 is sufficient to imply $\theta_{\ell,i}\geq 0$. At the end of the section, we will summarize any of the conditions which are not implied by FC1, noting that these are our (potentially) new constraints on the parameters of a cometric scheme. For convenience we extend our Krein array to include $a_i^*,c_i^*,$ and $b_i^*$ for all $i\in\mathbb{Z}^+$ noting that $b_{j-1}^* = c_j^*=a_j^*=0$ for $j>d$. We will also use Lemma \eqref{kreinidentity} when convenient, so we assume that our Krein parameters satisfy the condition
 \begin{equation}\label{kreinid}\sum_{l=0}^d q_{ij}^lq_{lk}^m = \sum_{l=0}^dq_{il}^mq_{jk}^l.\end{equation}
 \subsection*{Degree 2 constraint}
-\[\theta_{20}  = 0;\qquad\theta_{21}  = \frac{a_1^*}{m(m-1)};\qquad\theta_{22} = \frac{c_2^*}{m(m-1)}.\]
+\[\frac{\theta_{20}}{\vert X\vert}  = 0;\qquad\frac{\theta_{21}}{\vert X\vert}  = \frac{a_1^*}{m(m-1)};\qquad\frac{\theta_{22}}{\vert X\vert} = \frac{c_2^*}{m(m-1)}.\]
 Each condition $\theta_{2i}\geq 0$ is implied by FC1 and thus we have no new restrictions from this case.
 \subsection*{Degree 3 constraint}
-\[\theta_{30} = \frac{\left(m+2\right)a_1^*}{m^2\left(m-1\right)};\qquad
-\theta_{31} = \frac{-2m\left(m-1\right)+\left(m+2\right)\left(\left(a_1^*\right)^2+b_1^*c_2^*\right)}{m^3\left(m-1\right)};\]
-\[\theta_{32} = \frac{\left(m+2\right)c_2^*\left(a_1^*+a_2^*\right)}{m^3\left(m-1\right)};\qquad
-\theta_{33} = \frac{\left(m+2\right)c_2^*c_3^*}{m^3\left(m-1\right)}.\]
+\[\frac{\theta_{30}}{\vert X\vert} = \frac{\left(m+2\right)a_1^*}{m^2\left(m-1\right)};\qquad
+\frac{\theta_{31}}{\vert X\vert} = \frac{-2m\left(m-1\right)+\left(m+2\right)\left(\left(a_1^*\right)^2+b_1^*c_2^*\right)}{m^3\left(m-1\right)};\]
+\[\frac{\theta_{32}}{\vert X\vert} = \frac{\left(m+2\right)c_2^*\left(a_1^*+a_2^*\right)}{m^3\left(m-1\right)};\qquad
+\frac{\theta_{33}}{\vert X\vert}= \frac{\left(m+2\right)c_2^*c_3^*}{m^3\left(m-1\right)}.\]
 Here, $\theta_{31}\geq0$ is not implied by FC1. Therefore we have the additional constraint
 \begin{equation}\label{Co31}\left(a_1^*\right)^2 + b_1^*c_2^* \geq\frac{2m(m-1)}{m+2}\end{equation}
 \subsection*{Degree 4 constraint}
-\[\theta_{40} = \frac{\left(-2m\left(m-1\right)+\left(m+2\right)\left(\left(a_1^*\right)^2+b_1^*c_2^*\right)\right)\left(m+4\right)}{\left(m^2-1\right)m^3}\]
-\[\theta_{41} = \frac{\left(-4a_1^*m + \left(\left(a_1^*\right)^3+\left(2a_1^*+a_2^*\right)b_1^*c_2^*\right)\left(m+4\right)\right)\left(m+2\right)}{\left(m^2-1\right)m^4}\]
-\[\theta_{42} = \frac{\left(-4m\left(m-2\right)+\left(\left(a_1^*\right)^2+2a_1^*a_2^*+c_2^*q_{22}^2\right)\left(m+4\right)\right)c_2^*\left(m+2\right)}{\left(m^2-1\right)m^4}\]
-\[\theta_{43} = \frac{\left(m+4\right)\left(m+2\right)c_3^*c_2^*\left(a_1^*+a_2^*+a_3^*\right)}{\left(m^2-1\right)m^4}\]
-\[\theta_{44} = \frac{\left(m+4\right)\left(m+2\right)c_4^*c_3^*c_2^*}{\left(m^2-1\right)m^4}\]
+\[\frac{\theta_{40}}{\vert X\vert} = \frac{\left(-2m\left(m-1\right)+\left(m+2\right)\left(\left(a_1^*\right)^2+b_1^*c_2^*\right)\right)\left(m+4\right)}{\left(m^2-1\right)m^3}\]
+\[\frac{\theta_{41}}{\vert X\vert} = \frac{\left(-4a_1^*m + \left(\left(a_1^*\right)^3+\left(2a_1^*+a_2^*\right)b_1^*c_2^*\right)\left(m+4\right)\right)\left(m+2\right)}{\left(m^2-1\right)m^4}\]
+\[\frac{\theta_{42}}{\vert X\vert} = \frac{\left(-4m\left(m-2\right)+\left(\left(a_1^*\right)^2+2a_1^*a_2^*+c_2^*q_{22}^2\right)\left(m+4\right)\right)c_2^*\left(m+2\right)}{\left(m^2-1\right)m^4}\]
+\[\frac{\theta_{43}}{\vert X\vert} = \frac{\left(m+4\right)\left(m+2\right)c_3^*c_2^*\left(a_1^*+a_2^*+a_3^*\right)}{\left(m^2-1\right)m^4}\]
+\[\frac{\theta_{44}}{\vert X\vert} = \frac{\left(m+4\right)\left(m+2\right)c_4^*c_3^*c_2^*}{\left(m^2-1\right)m^4}\]
 First, note that we used equation \eqref{kreinid} with $j=k=1$ and $i=m=2$ to reduce $\theta_{42}$. Now, since $\theta_{20} = 0$, $\theta_{40} = \frac{(m+4)\theta_{31}}{m+1}$ and thus $\theta_{40}\geq 0$ is equivalent to $\theta_{31}\geq 0$ and we will omit this constraint. We therefore find only two new conditions: $\theta_{41}\geq 0$ and $\theta_{42}\geq 0$, both of which are not implied by FC1.
 \begin{equation}\label{Co41}
 \left(a_1^*\right)^2 + b_1^*c_2^*\left(2+\frac{a_2^*}{a_1^*}\right)\geq \frac{4m}{m+4}\qquad \text{whenever }a_1^*>0;
@@ -387,12 +451,12 @@ First, note that we used equation \eqref{kreinid} with $j=k=1$ and $i=m=2$ to re
 \left(a_1^*\right)^2+2a_1^*a_2^*+c_2q^2_{22}\geq \frac{4m(m-2)}{m+4}.
 \end{equation}
 \subsection*{Degree 5 constraint}
-\[\theta_{50} = \frac{\left(-4a_1^*m\left(2m-3\right) + \left(\left(a_1^*\right)^3+\left(2a_1^*+a_2^*\right)b_1^*c_2^*\right)\left(m+6\right)\right)\left(m+4\right)}{m^4\left(m^2-1\right)}\]
-\[\theta_{51} = \frac{\left(-\left(\right)+\left(\right)\right)}{m^5\left(m^2-1\right)}\]
-\[\theta_{52} = \frac{\left(-\left(\right)+\left(\right)\right)\left(m+4\right)}{m^5\left(m^2-1\right)}\]
-\[\theta_{53} = \frac{\left(-3\left(3m-2\right)+\left(\sum_{i=1}^3\left(b_i^*c_{i+1}^*+a_i^*\sum_{j=i}^3a_j^*\right)\right)\left(m+6\right)\right)\left(m+4\right)c_2^*c_3^*}{m^5\left(m^2-1\right)}\]
-\[\theta_{54} = \frac{\left(a_1^*+a_2^*+a_3^*+a_4^*\right)c_2^*c_3^*c_4^*\left(m+4\right)\left(m+6\right)}{m^5\left(m^2-1\right)}\]
-\[\theta_{55} = \frac{c_2^*c_3^*c_4^*c_5^*\left(m+4\right)\left(m+6\right)}{m^5\left(m^2-1\right)}\]
+\[\frac{\theta_{50}}{\vert X\vert} = \frac{\left(-4a_1^*m\left(2m-3\right) + \left(\left(a_1^*\right)^3+\left(2a_1^*+a_2^*\right)b_1^*c_2^*\right)\left(m+6\right)\right)\left(m+4\right)}{m^4\left(m^2-1\right)}\]
+\[\frac{\theta_{51}}{\vert X\vert} = \frac{\left(-\left(\right)+\left(\right)\right)}{m^5\left(m^2-1\right)}\]
+\[\frac{\theta_{52}}{\vert X\vert} = \frac{\left(-\left(\right)+\left(\right)\right)\left(m+4\right)}{m^5\left(m^2-1\right)}\]
+\[\frac{\theta_{53}}{\vert X\vert} = \frac{\left(-3\left(3m-2\right)+\left(\sum_{i=1}^3\left(b_i^*c_{i+1}^*+a_i^*\sum_{j=i}^3a_j^*\right)\right)\left(m+6\right)\right)\left(m+4\right)c_2^*c_3^*}{m^5\left(m^2-1\right)}\]
+\[\frac{\theta_{54}}{\vert X\vert} = \frac{\left(a_1^*+a_2^*+a_3^*+a_4^*\right)c_2^*c_3^*c_4^*\left(m+4\right)\left(m+6\right)}{m^5\left(m^2-1\right)}\]
+\[\frac{\theta_{55}}{\vert X\vert} = \frac{c_2^*c_3^*c_4^*c_5^*\left(m+4\right)\left(m+6\right)}{m^5\left(m^2-1\right)}\]
 In this case we find four new conditions arising from $\theta_{5i}\geq 0$ for $0\leq i\leq 3$. They are,
 \begin{equation}\label{Co50}
 	\left(a_1^*\right)^2 + b_1^*c_2^*\left(2 + \frac{a_2^*}{a_1^*}\right)\geq \frac{4m(2m-3)}{m+6}.
@@ -408,8 +472,8 @@ content...
 \end{equation}
 Note that the inequality $\eqref{Co41}$ is implied by the inequality $\eqref{Co50}$ for $m>2$.
 \subsection*{Degree 6 constraint}
-Here, we list only $\theta_{60}$, scaled by $m+6$ for convenience, as we will use this bound in section \ref{4classbip}.
-\[\begin{aligned}\frac{\theta_{60}}{m+6} = &\frac{\left(16m^2(m-2)(m-1) + \left(\left(a_1^*\right)^4 + \left(3a_1^*\left(a_1^*+a_2^*\right)+c_2^*q_{22}^2\right)b_1^*c_2^*\right)(m+8)(m+4)\right)}{m^5(m^2-1)(m+3)}\\
+Here, we list only $\theta_{60}$ as we will use this bound in section \ref{4classbip}.
+\[\begin{aligned}\frac{\theta_{60}}{\vert X\vert( m+6)} = &\frac{\left(16m^2(m-2)(m-1) + \left(\left(a_1^*\right)^4 + \left(3a_1^*\left(a_1^*+a_2^*\right)+c_2^*q_{22}^2\right)b_1^*c_2^*\right)(m+8)(m+4)\right)}{m^5(m^2-1)(m+3)}\\
 &-\frac{12\left(\left(a_1^*\right)^2+b_1^*c_2^*\right)(m-2)(m+4)m}{m^5(m^2-1)(m+3)}
 \end{aligned}\]
 This results in the final condition that
@@ -418,7 +482,7 @@ This results in the final condition that
 \end{equation}
 In summary, we have the following theorems where in each case we assume the Krein parameters fulfill the condition FC1. We omit the inequality coming from $\theta_{41}$ as we may assume $m>2$ for all cases we are interested in.
 \begin{thm}\label{cometricbnds}
-	Let $\left\{q_{ij}^k\right\}$ be a feasible set of Krein parameters for a cometric association scheme. Let $\left\{m,b^*_1,\dots,b^*_{d-1};1,c_2^*\dots,c^*_{d}\right\}$ be the corresponding Krein array. Then the following conditions are required for a cometric scheme to exist with these parameters.
+	Let $S$ be a feasible parameter set for a cometric association scheme with Krein array $\left\{m,b^*_1,\dots,b^*_{d-1};1,c_2^*\dots,c^*_{d}\right\}$. Then the scheme is realizable only if
 	\begin{enumerate}[label=(\roman*)]
 		\item $\left(a_1^*\right)^2 + b_1^*c_2^* \geq\frac{2m(m-1)}{m+2},$
 		\item $\left(a_1^*\right)^2+2a_1^*a_2^*+c_2q^2_{22}\geq \frac{4m(m-2)}{m+4},$
@@ -434,7 +498,7 @@ Additionally, if $a_1^*>0$ then,
 	\end{enumerate}\qed
 \end{thm}
 \subsection{$Q$-bipartite Association Schemes}
-We conclude this section by proving $Q$-bipartite analogues of Theorem \ref{degreebound}, Corollary \ref{maxlambda}, and Theorem \ref{cometricbnds}. We begin by proving an important theorem concerning the eigenvalues $\theta_{ki}$ as described in Theorem \ref{schoen-as}.
+We conclude this section by proving $Q$-bipartite analogues of Theorem \ref{degreebound}, Corollary \ref{maxlambda}, and Theorem \ref{cometricbnds}. We begin by proving an important theorem concerning the eigenvalues $\theta_{\ell i}$ as described in Theorem \ref{schoen-as}.
 \begin{thm}\label{Qbipeig}
 	Let $(X,\cR)$ be a $Q$-bipartite association scheme with cometric ordering $E_0,E_1,\dots,E_d$. Define $\theta_{\ell,j}$ for $0\leq j\leq d$ and $\ell\geq 0$ so that
 	\[G_\ell^m\circ\left(\frac{\vert X\vert}{m}E_1\right) = \sum_{j=0}^d\theta_{\ell,j}E_j.\]
@@ -450,12 +514,15 @@ We conclude this section by proving $Q$-bipartite analogues of Theorem \ref{degr
 This theorem tells us that approximately half of the eigenvalues $\theta_{\ell,j}$ will be zero for a $Q$-bipartite scheme. This information allows us to recast many of the previous theorems seen in this section for this case.  We first consider Theorem $\ref{degreebound}$, following much of the same proof to prove the following theorem.
 
 \begin{thm}\label{Qbipdegbnd}
-	Let $P$ and $Q$ be a pair of feasible first and second eigenmatrices for a $Q$-bipartite association scheme with relations ordered naturally. Define $\lambda_j:=\frac{Q_{j,1}}{m_1}$ and $k_j = P_{0,j}$ for $0\leq j\leq d$. Define $\ell^*$ to be the smallest integer such that
-	\[\sum_{j=1}^d\vert \lambda_j\vert^{2\ell^*}k_j(1+\lambda_j^2)\leq\frac{4}{\vert X\vert}.\]
-	Then the requirements $\theta_{\ell,i}\geq 0$ for $0\leq i\leq d$ as defined in Theorem \ref{schoen-as} are vacuous for degrees $\ell\geq \ell^*$.
+	Let $S$ be a feasible parameter set for a $Q$-bipartite association scheme with first and second eigenmatrices $P$ and $Q$ where the relations are ordered naturally. Define $\lambda_j:=\frac{Q_{j,1}}{m_1}$ and $k_j = P_{0,j}$ for $0\leq j\leq d$. Define $\gamma_\ell = \begin{cases}
+	\lambda_j^2 & \text{ if }(1+\mu_\ell)^2\lambda_j^2\geq 4\mu_\ell\\
+	\mu_\ell & \text{ if }(1+\mu_\ell)^2\lambda_j^2< 4\mu_\ell
+	\end{cases}$ where $\mu_\ell = \frac{\ell-1}{\ell+Q_{0,i}-3}$. Let $\ell^*$ to be the smallest integer such that
+	\[\sum_{j=1}^d \left(\prod_{\ell=2}^{\ell^*}\gamma_\ell\right)k_j(1+\lambda_j^2)\leq\frac{4}{\vert X\vert}.\]
+	Then the requirements $\theta_{\ell,i}\geq 0$ for $0\leq i\leq d$ as defined in Theorem \ref{schoen-as} are implied by FC1 for degrees $\ell\geq \ell^*$.
 \end{thm}
 \begin{proof}
-	Using equation \eqref{kreingen}, define $q_{1j}^i$ for $0\leq i,j\leq d$ and let $L_1$ be the matrix whose $i,j$ entry is $q^i_{1j}$. Define $M = \frac{1}{m}\sqrt{\Delta_m}L_1\sqrt{\Delta_m}^{-1}$. As with in the proof of Theorem \ref{degreebound}, let
+	Let $L_1^*$ be the Krein matrix of our parameter set. Define $M = \frac{1}{m_1}\sqrt{\Delta_m}L_1^*\sqrt{\Delta_m}^{-1}$. As with in Section \ref{proof}, let
 	\begin{equation*}
 	\vec{y}_\ell = T_\ell\vec{y}_{\ell-1} \qquad \ell\geq 2
 	\end{equation*}
@@ -467,49 +534,66 @@ This theorem tells us that approximately half of the eigenvalues $\theta_{\ell,j
 	$(1+\mu_\ell)M$ & $-\mu_\ell I$\\\hdashline[2pt/2pt]
 	$I$ & $0$
 	\end{array}\right].\end{equation*}
-	We then define 
-	\[B_j = \text{span}\left(\left[\begin{array}{c}
+	Further define $B_j = \text{span}\left(\left[\begin{array}{c}
 	\vec{p}_j\\\hdashline[2pt/2pt]
 	\vec{0}
 	\end{array}\right],\left[\begin{array}{c}
 	\vec{0}\\\hdashline[2pt/2pt]
 	\vec{p}_j
-	\end{array}\right]\right)\]
-	for $0\leq j\leq d$ where $\vec{p}_j$ is the $j^\text{th}$ column of $\sqrt{\Delta_m}P$. Finally, recall that 
+	\end{array}\right]\right)$ for $0\leq j\leq d$ where $\vec{p}_j$ is the $j^\text{th}$ column of $\sqrt{\Delta_m}P$.
+	Then Lemma \ref{normbound} tells us that 
 	\[\text{proj}_{B_j}(\vec{y}_1) = \frac{1}{\vert X\vert}\left[\begin{array}{c}
 	\lambda_j\vec{p}_j\\\hdashline[2pt/2pt]
 	\vec{p}_j
-	\end{array}\right].\]
-	Then Lemmas \ref{Mmat}-\ref{complexroot} give us that 
-	\[\left\vert\left\vert \prod_{\ell=2}^{\ell^*} T_\ell \text{proj}_{B_j}(\vec{y}_1)\right\vert\right\vert_2^2\leq \vert\lambda_j\vert^{2\ell^*-2}\left\vert\left\vert\text{proj}_{B_j}(\vec{y}_1)\right\vert\right\vert_2^2.\]
-	For a $Q$-bipartite scheme, we know that $\vec{p}_0 = \left[1,\sqrt{m},\dots,\sqrt{m_d}\right]^T$ and $\vec{p}_d = \left[1,-\sqrt{m},\dots,(-1)^d\sqrt{m_d}\right]^T$ with $\lambda_0 = -\lambda_d = 1$. Therefore define vectors $\chi_\ell$ ($\ell\geq 1$) so that $[\chi_\ell]_i = \begin{cases}
-	\sqrt{m_i} & \text{if } i+\ell\in2\bbZ\\
-	0 & \text{if } i+\ell\not\in2\bbZ
-	\end{cases}$ for $0\leq i\leq d$. Then we have
-	\[\text{proj}_{B_0}(\vec{y}_\ell) + \text{proj}_{B_d}(\vec{y}_\ell) = \frac{2}{\vert X\vert}\left[\begin{array}{c}
-	\chi_\ell\\\hdashline[2pt/2pt]
-	\chi_{\ell+1}
-	\end{array}\right].\]
-	Since either $[\chi_\ell]_0 = 1$ or $[\chi_{\ell+1}]_0 = 1$, the smallest non-zero element of $\text{proj}_{B_0}(\vec{y}_\ell) + \text{proj}_{B_d}(\vec{y}_\ell)$ is always $\frac{2}{\vert X\vert}$. Now, Theorem \ref{Qbipeig} tells us that $\theta_{\ell i} = 0$ whenever $\ell+i\notin 2\bbZ$. Therefore $[\vec{y}_\ell]_i = 0$ whenever either $0\leq i\leq d$ and $i+\ell\notin 2\bbZ$ or $0\leq i-(d+1)\leq d$ and $i-(d+1)+\ell\notin 2\bbZ$. Since $\text{proj}_{B_0}(\vec{y}_\ell) + \text{proj}_{B_d}(\vec{y}_\ell)$ is $0$ in exactly the same points, this implies the sum of the remaining projections must follow the same pattern, i.e.
-	\[\left[\sum_{1}^{d-1}\text{proj}_{B_j}(\vec{y}_\ell)\right]_i = 0 \text{ whenever }\begin{cases} 0\leq i\leq d \text{ and } i+\ell\notin 2\bbZ\\ 0\leq i-(d+1)\leq d \text{ and }i-(d+1)+\ell\notin\bbZ.\end{cases}\]
-	Therefore once $\vert\vert \sum_{1}^{d-1}\text{proj}_{B_j}(\vec{y}_\ell)\vert\vert_2^2\leq\frac{4}{\vert X\vert^2}$, we are guaranteed $y_\ell$ has no negative values. Noting that 
-	\[\left\vert\left\vert \sum_{1}^{d-1}\text{proj}_{B_j}(\vec{y}_{\ell^*+1})\right\vert\right\vert_2\leq\frac{1}{\vert X\vert}\sum_{j=1}^{d-1}\vert \lambda_j\vert^{2\ell^*}v_j(1+\lambda_j^2),\]
-	We have that $\sum_{j=1}^{d-1}\vert \lambda_j\vert^{2\ell^*}v_j(1+\lambda_j^2)\leq \frac{4}{\vert X\vert}$ implies $y_{\ell^*+1}$ has no negative entries. Following the reasoning from before, we note that if $y_{\ell^*}$ has a negative value, it must appear in the bottom half, thus $y_{\ell^*-1}$ must have a negative value and it is sufficient to check the first $\ell^*-1$ degrees.	
+	\end{array}\right];\qquad\left\vert\left\vert \left(\prod_{\ell=2}^{\ell^*} T_\ell\right) \text{proj}_{B_j}(\vec{y}_1)\right\vert\right\vert_2^2\leq \left(\prod_{\ell=2}^{\ell^*}\gamma_\ell\right)\left\vert\left\vert\text{proj}_{B_j}(\vec{y}_1)\right\vert\right\vert_2^2.\]
+	For a $Q$-bipartite scheme, we know that $\vec{p}_0 = \left[1,\sqrt{m},\dots,\sqrt{m_d}\right]^T$ and $\vec{p}_d = \left[1,-\sqrt{m},\dots,(-1)^d\sqrt{m_d}\right]^T$ with $\lambda_0 = -\lambda_d = 1$. Noting that the roots of the polynomial $x^2-(1+\mu_\ell)(\pm 1)x + \mu_\ell$ are $\pm1$ and $\mu_\ell$, we find that both $\text{proj}_{B_0}(\vec{y}_1)$ and $\text{proj}_{B_d}(\vec{y}_1)$ are eigenvectors of $T_\ell$ for all $\ell\geq 2$. Therefore
+	\[ \text{proj}_{B_0}(\vec{y}_{\ell^*}) = \text{proj}_{B_0}(\vec{y}_1);\qquad \text{proj}_{B_d}(\vec{y}_{\ell^*}) = \left(-1\right)^{\ell^*-1}\text{proj}_{B_0}(\vec{y}_1).\]
+	For a vector $\vec{v}$ of length $d+1$, we refer to the entries $v_0,v_2,v_4,\dots,v_{2\left\lfloor\frac{d}{2}\right\rfloor}$ as the \textit{even part of} $\vec{v}$ and likewise the entries $v_1,v_3,\dots,v_{2\left\lceil\frac{d}{2}\right\rceil-1}$ as the \textit{odd part of} $\vec{v}$. Further for a vector $\vec{y}$ of length $2d+2$, define the \textit{top half of} $\vec{y}$ to be the first $d+1$ entries and the \textit{bottom half of} $\vec{y}$ to be the last $d+1$ entries. Then we have the following four statements
+	\begin{itemize}
+		\item For even $\ell$,
+		\begin{itemize}
+			\item all entries in the odd part of the top half of $\text{proj}_{B_0}(\vec{y}_\ell) + \text{proj}_{B_d}(\vec{y}_\ell)$ are 0;
+			\item all entries in the even part of the bottom half of $\text{proj}_{B_0}(\vec{y}_\ell) + \text{proj}_{B_d}(\vec{y}_\ell)$ are 0.
+		\end{itemize}
+	\item For odd $\ell$,
+	\begin{itemize}
+		\item all entries in the even part of the top half of $\text{proj}_{B_0}(\vec{y}_\ell) + \text{proj}_{B_d}(\vec{y}_\ell)$ are 0;
+		\item all entries in the odd part of the bottom half of $\text{proj}_{B_0}(\vec{y}_\ell) + \text{proj}_{B_d}(\vec{y}_\ell)$ are 0.
+	\end{itemize}
+	\end{itemize}
+	Similarly Theorem \ref{Qbipeig} shows that the same is true for $y_\ell$, that is
+	\begin{itemize}
+		\item For even $\ell$,
+		\begin{itemize}
+			\item all entries in the odd part of the top half of $y_\ell$ are 0;
+			\item all entries in the even part of the bottom half of $y_\ell$ are 0.
+		\end{itemize}
+		\item For odd $\ell$,
+		\begin{itemize}
+			\item all entries in the even part of the top half of $y_\ell$ are 0;
+			\item all entries in the odd part of the bottom half of $y_\ell$ are 0.
+		\end{itemize}
+	\end{itemize}
+	We also find that $\text{proj}_{B_0}(\vec{y}_\ell) + \text{proj}_{B_d}(\vec{y}_\ell)$ is non-zero except in the entries listed above. This implies the sum of the remaining projections must follow the same pattern, permitting non-zero values only when $\text{proj}_{B_0}\left(y_\ell\right)+\text{proj}_{B_d}\left(y_\ell\right)$ is also non-zero. Since the smallest remaining entry of $\text{proj}_{B_0}(\vec{y}_\ell) + \text{proj}_{B_d}(\vec{y}_\ell)$ is $\frac{2}{\vert X\vert}$, we have that
+	\[\left\vert\left\vert \sum_{j=1}^{d-1}\left(\prod_{\ell=2}^{\ell^*}T_\ell\right)\text{proj}_{B_j}(\vec{y_1})\right\vert\right\vert^2_2\leq\frac{4}{\vert X\vert^2}\]
+	implies $y_{\ell^*+1}$ has no negative entries. Following the reasoning from before, we note that if $y_{\ell^*}$ has a negative value, it must appear in the bottom half, thus $y_{\ell^*-1}$ must have a negative value and it is sufficient to check the first $\ell^*-1$ degrees.	
 \end{proof}
 \begin{cor}\label{Qbipuppbnd}
-	Let $(X,\cR)$ be a $Q$-bipartite association scheme with relations ordered naturally. Then $\ell^*$ as defined in Theorem \ref{Qbipdegbnd} follows
-	\[\ell^*\leq\left\lceil\frac{\ln\left[(1+\left(Q_{11}\right)^2)\vert X\vert\left(\vert X\vert-2\right)\right]-\ln(4)}{-2\ln\left(Q_{11}\right)}\right\rceil\]
+	Let $S$ be a feasible parameter set for a $Q$-bipartite association scheme with relations ordered naturally. Define
+	\[\ell^*=\left\lceil\frac{\ln\left[\left(1+\left(\frac{Q_{11}}{m_1}\right)^2\right)\vert X\vert\left(\vert X\vert-2\right)\right]-\ln(4)}{-2\ln\left(\frac{Q_{11}}{m_1}\right)}\right\rceil\]
+	If $\left\vert \frac{Q_{11}}{m_1}\right\vert^2\geq \frac{\ell^*-1}{\ell^*+m_1-3}$ then $\theta_{\ell,j}\geq 0$ is implied by FC1 for $\ell\geq \ell^*$ and $0\leq j\leq d$.
 \end{cor}
 \begin{proof}
-	\[\sum_{j=1}^{d-1} v_j\lambda_j^{2x}(1+\lambda_j^2)\leq(Q_{11})^{2x}(1+(Q_{11})^2)\sum_{j=1}^{d-1} v_j =(Q_{11})^{2x}(1+(Q_{11})^2)(\vert X\vert -2). \]
+	Define $\lambda_j = \frac{Q_{j1}}{m_1}$. As long as $\left\vert \lambda_1\right\vert^2\geq\mu_{\ell}$ for $2\leq\ell\leq x$,
+	\[\sum_{j=1}^{d-1} v_j(1+\lambda_j^2)\left(\prod_{\ell=2}^x \gamma_x\right)\leq(\lambda_1)^{2x}(1+(\lambda_1)^2)\sum_{j=1}^{d-1} v_j =(\lambda_1)^{2x}(1+(\lambda_1)^2)(\vert X\vert -2). \]
 	Solving 
-	\[(Q_{11})^{2x}(1+(Q_{11})^2)(\vert X\vert -2)\leq\frac{4}{\vert X\vert}\]
+	\[(\lambda_1)^{2x}(1+(\lambda_1)^2)(\vert X\vert -2)\leq\frac{4}{\vert X\vert}\]
 	for $x$ gives
-	\[x\geq\frac{\ln\left[(1+(Q_{11})^2)\vert X\vert(\vert X\vert-2)\right]-\ln(4)}{-2\ln(Q_{11})}.\]
-	Thus $\left\lceil\frac{\ln\left[(1+(Q_{11})^2)\vert X\vert(\vert X\vert-2)\right]-\ln(4)}{-2\ln(\lambda^*)}\right\rceil$ is the smallest integer for which our relaxed inequality holds, giving $\ell^*\leq \left\lceil\frac{\ln\left[(1+(Q_{11})^2)\vert X\vert(\vert X\vert-2)\right]-\ln(4)}{-2\ln(Q_{11})}\right\rceil$.
+	\[x\geq\frac{\ln\left[(1+(\lambda_1)^2)\vert X\vert(\vert X\vert-2)\right]-\ln(4)}{-2\ln(\lambda_1)}.\]
+	Thus $\left\lceil\frac{\ln\left[(1+(\lambda_1)^2)\vert X\vert(\vert X\vert-2)\right]-\ln(4)}{-2\ln(\lambda_1)}\right\rceil$ is the smallest integer for which our inequality holds.
 \end{proof}
 Finally we use our $Q$-bipartite property to simplify the expressions in Theorem \ref{cometricbnds}.
- \begin{thm}\label{Qbipbnds}
+ \begin{cor}\label{Qbipbnds}
  	Let $\left\{q_{ij}^k\right\}$ be a feasible set of Krein parameters for a $Q$-bipartite association scheme. Let $\left\{m,b^*_1,\dots,b^*_{d-1};1,c_2^*\dots,c^*_{d}\right\}$ be the corresponding Krein array. Then the following are additional conditions required for a $Q$-bipartite association scheme to exist with these Krein parameters.
  	\begin{enumerate}[label=(\roman*)]
  		\item $b_1^*c_2^* \geq\frac{2m(m-1)}{m+2},$
@@ -518,13 +602,39 @@ Finally we use our $Q$-bipartite property to simplify the expressions in Theorem
  		\item $\sum_{i=1}^3b_i^*c_{i+1}^*\leq \frac{3(3m-2)}{m+6},$
  		\item $\frac{16m(m-1)}{(m+4)b_1^*c_2^*} + \frac{c_2^*q_{22}^2(m+8)}{(m-2)m}\geq 12.$
  	\end{enumerate}
- \end{thm}
+ \end{cor}
 \begin{proof}
-	In each case, consider Theorem \ref{cometricbnds} with the added constraint that $a_i^* = 0$ for $0\leq i\leq d$.
+	Consider Theorem \ref{cometricbnds} with the added constraint that $a_i^* = 0$ for $0\leq i\leq d$.
 \end{proof}
+\subsection{Example}
+Consider the feasible parameter set with first and second eigenmatrices 
+\[P = \left[\begin{array}{ccccc}
+1 & 1116 & 7750 &1116 &1\\
+1 &186& 0 &-186& -1\\
+1 &24& -50& 24& 1\\
+1 &-6& 0 &6 &-1\\
+1 &-36& 70 &-36& 1\\
+\end{array}\right],\qquad Q = \left[\begin{array}{ccccc}
+1 &156& 2976& 4836 &2015\\
+1 &26& 64 &-26& -65\\
+1 &0 &\nicefrac{-96}{5} &0 &\nicefrac{91}{5}\\
+1 &-26& 64 &26& -65\\
+1 &-156& 2976& -4836& 2015
+\end{array}\right].\]
+If realizable, the association scheme with this parameter set would be a 4-class $Q$-bipartite scheme. Defining $\lambda_1 = \frac{Q_{11}}{m}$, note that
+\[\left\lceil\frac{\ln\left[\left(1+\left(\lambda_1\right)^2\right)\vert X\vert\left(\vert X\vert-2\right)\right]-\ln(4)}{-2\ln\left(\lambda_1\right)}\right\rceil = 5.\]
+Since $\left\vert \lambda_1\right\vert^2 = \frac{1}{36}>\frac{4}{158} = \mu_5$, we may use Corollary \ref{Qbipuppbnd} to show that $\theta_{\ell,j}\geq 0$ is vacuous for this parameter set for $\ell\geq 5$. We list the remaining eigenvalues below
+\[\left[\begin{array}{ccccc}
+9984 & 0 & 0 & 0 & 2.61\\
+0 & 64 & 0 & 2.56 & 0\\
+0 & 0 & 3.36 & 0 & 1.99\\
+0 & 0 & 0 & 1.98& 0\\
+0 & 0 & 0 & 0 & 2.02
+\end{array}\right]\]
+Since all eigenvalues are non-negative, this parameter set is still feasible.
 \section{Application: 4-class $Q$-bipartite Schemes}
 \label{4classbip}
-In this section we investigate the specific case of $4$-class $Q$-bipartite schemes which are not also $Q$-antipodal. We will begin by showing that the parameters of any such scheme are determined completely by three integral parameters and then recast Theorem \ref{cometricbnds} in terms of these three parameters. Let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme with $Q$-polynomial ordering $E_0,E_1,\dots,E_4$ and natural ordering $A_0,A_1,\dots A_4$. We know from Theorem \ref{suzuki} that the quotient of $(X,\mathcal{R})$ has exactly two non-trivial relations and thus must be strongly regular. We further assume that $(X,\mathcal{R})$ is not $Q$-antipodal and therefore the quotient SRG is neither the complete multipartite graph nor a union of cliques. Let $(v,k,\lambda,\mu)$ be the parameters of the strongly regular graph in the quotient scheme where $k$ is the valency of the $\tilde{1}$ relation. Further let $k>r>s$ be the eigenvalues of this SRG with corresponding multiplicities $1$, $f$, and $g$. Note that since $(X,\mathcal{R})$ is not $Q$-antipodal, we must have $k>r$ and $s>-k$. The $Q$ matrix of this SRG will be
+In this section we investigate the specific case of $4$-class $Q$-bipartite schemes. LeCompte et al.\ \cite{LeCompte2010} proved that real mutually unbiased bases are equivalent to 4-class $Q$-bipartite schemes which are also $Q$-antipodal. This extra system of imprimitivity arises as one of the quotient graphs is a union of cliques, the other being complete multipartite. Here, we will instead restrict ourselves to the case where our association schemes are not $Q$-antipodal thus assuming that both quotient graphs are connected. We will begin by showing that the parameters of any such scheme are determined completely by three integral parameters and then recast Theorem \ref{cometricbnds} in terms of these three parameters. Let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme with $Q$-polynomial ordering $E_0,E_1,\dots,E_4$ and natural ordering $A_0,A_1,\dots A_4$. We know from Theorem \ref{suzuki} that the quotient of $(X,\mathcal{R})$ has exactly two non-trivial relations and thus must be strongly regular. Let $(v,k,\lambda,\mu)$ be the parameters of the quotient strongly regular graph which contains $R_1$ as a subgraph. Let $k>r>s$ be the eigenvalues of this SRG with corresponding multiplicities $1$, $f$, and $g$. Since $(X,\mathcal{R})$ is not $Q$-antipodal, we must have $k>r$ and $s>-k$. The $Q$ matrix of this SRG will be
 \[\tilde{Q} = \left[\begin{array}{ccc}
 1 & f & g\\
 1 & \frac{fr}{k} & \frac{gs}{k}\\
@@ -533,7 +643,7 @@ In this section we investigate the specific case of $4$-class $Q$-bipartite sche
 We may use this information to build the first and second eigenmatrices of our $4$-class $Q$-bipartite scheme as follows.
 \begin{thm}
 	\label{Pmat}
-	Let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme with relations ordered naturally. Let the quotient SRG have parameters $(v,k,\lambda,\mu)$ and spectrum $k^1,r^f,s^g$ with $k>r>s$. Then the first and second eigenmatrices are as follows:
+	Let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme with relations ordered naturally. Let the quotient SRG have $v$ vertices and spectrum $k^1,r^f,s^g$ with $k>r>s$. Then the first and second eigenmatrices are as follows:
 	\[P = \left[\begin{array}{ccccc}
 	1 & k & 2(v-1-k) & k & 1\\
 	1 & \frac{k}{n} & 0 & -\frac{k}{n} & -1\\
@@ -550,17 +660,17 @@ We may use this information to build the first and second eigenmatrices of our $
 	where $s = -n^2$.
 \end{thm}
 \begin{proof}
-	We begin by building all of $Q$ and then employ the use of our orthogonality properties. Note that column 0 of $Q$ comes by definition. From Theorem [\cite{BGKW},\cite{MMW}], $Q_{1,1} = -Q_{3,1}\neq 0 = Q_{2,1}$, so we define $n = \frac{m}{Q_{1,1}} = -\frac{m}{Q_{3,1}}$ and column 1 of $Q$ is given. The first three entries of columns $2$ and $4$ of $Q$ follow from the parameters of our quotient scheme while the remaining two entries of these columns follow from Corollary \ref{evenpoly}. Column 3 of $Q$ can then be found using the first orthogonality condition (specifically that $\sum_j Q_{ij} = \vert X\vert\delta_{i0}$). From here we have that 
+	We begin by building all of $Q$ and then employ the use of our orthogonality properties. Note that column 0 of $Q$ comes by definition. From Theorem [\cite{BGKW},\cite{MMW}], $Q_{1,1} = -Q_{3,1}\neq 0 = Q_{2,1}$, so we define $n = \frac{m}{Q_{1,1}} = -\frac{m}{Q_{3,1}}$ and column 1 is given. The first three entries of columns $2$ and $4$ follow from the parameters of our quotient scheme while the remaining two entries of each columns follow from Corollary \ref{evenpoly}. Finally column 3 may be found using the first orthogonality condition (specifically that $\displaystyle{\sum_j Q_{ij} = \vert X\vert\delta_{i0}}$). From here we have that 
 	\[Q = \left[\begin{array}{ccccc}
 	1 & m & f & v-m & g\\
 	1 & \frac{m}{n} & \frac{fr}{k}  & -\frac{m}{n} & \frac{gs}{k}\\
 	1 & 0 & \frac{f(r+1)}{k+1-v}  & 0& \frac{g(1+s)}{k+1-v}\\
 	1 & -\frac{m}{n} & \frac{fr}{k} & \frac{m}{n} & \frac{gs}{k}\\
 	1 & -m & f & m-v & g\\
-	\end{array}\right]\]
-	Since we have ordered the relations using the natural ordering, the valencies of our relations are given by $[1,k,2(v-1-k),k,1]$. This extra information allows us to derive an expression for $q_{01}^1$ using \cite[Theorem.~2.3.2.]{BCN} which gives
+	\end{array}\right],\]
+	matching our theorem in all but two places.	Since we have ordered the relations using the natural ordering, the valencies of our relations are given by $[1,k,2(v-1-k),k,1]$. This allows us to derive an expression for $q_{01}^1$ using \cite[Theorem.~2.3.2.]{BCN} which gives
 	\[q_{ij}^k = \frac{1}{\vert X\vert m_k}\sum_{l=0}^d\left(v_lQ_{li}Q_{lj}Q_{lk}\right)\]
-	where $m_k$ and $v_l$ are the multiplicities and valencies of the $k^\text{th}$ and $l^\text{th}$ relations respectively. Using this, we find that $1=q_{01}^1 = \frac{1}{2vm}\left(2m^2+\frac{2km^2}{n^2}\right)$ giving $\frac{km}{n^2} = v-m$, completing our proof for the second eigenmatrix. Using the second orthogonality condition and noting that the first row of $P$ is the valencies of our relations, we have:
+	where $m_k$ and $v_l$ are the multiplicities and valencies of the $k^\text{th}$ and $l^\text{th}$ relations respectively. We find that $q_{01}^1 = \frac{1}{2vm}\left(2m^2+\frac{2km^2}{n^2}\right)$, however we know from Theorem \ref{kreinidentities} that $q_{01}^1=1$, resulting in $\frac{km}{n^2} = v-m$. This completes our proof for the second eigenmatrix and we may use the second orthogonality condition to find $P$ noting that the first row of $P$ is the valencies of our relations. Thus
 	\[P = \left[\begin{array}{ccccc}
 	1 & k & 2(v-1-k) & k & 1\\
 	1 & \frac{k}{n} & 0 & -\frac{k}{n} & -1\\
@@ -568,7 +678,7 @@ We may use this information to build the first and second eigenmatrices of our $
 	1 & -n & 0 & n & -1\\
 	1 & s & -2(s+1) & s & 1\\
 	\end{array}\right].\]
-	Finally, we again use our equation for krein parameters to find $0=q_{11}^4 = \frac{mg(n^2+s)}{n^2v}$, giving us that $s = -n^2$.
+	We again use our equation for Krein parameters one more time to find $q_{11}^4 = \frac{mg(n^2+s)}{n^2v}$. Since $q_{11}^4=0$ due to our cometric property, we have that $s = -n^2$.
 \end{proof}
 \begin{cor}
 	A 4-class $Q$-bipartite scheme is uniquely determined by the eigenvalues of the quotient SRG.
@@ -576,10 +686,10 @@ We may use this information to build the first and second eigenmatrices of our $
 \begin{proof}
 	Our first eigenmatrix only requires $v,k,r,s,$ and $n$. However since $n>0$ (from the natural ordering of relations), $n = \sqrt{-s}$. Further \cite{BCN} states that  $v = \frac{(k-r)(k-s)}{k+rs}$. 
 \end{proof}
-Now that we have the parameters of our $4$-class $Q$-bipartite scheme determined completely by the parameters of the SRG, we note a few bounds on the parameters of the SRG which will be required for the $Q$-bipartite double to exist.
+Before moving to examine the effect of Sch\"{o}nberg's theorem on 4-class $Q$-bipartite schemes, we mention a few parameter bounds arising from the feasibility conditions FC1-FC3 and show how they restrict the space of feasible parameters.
 \begin{thm}
 	\label{bounds}
-	Let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme which is not also $Q$-antipodal. Further let $k^1,r^f,s^g$ be the spectrum of the quotient strongly regular graph with parameters $(v,k,\lambda,\mu)$. The following must hold with $n:=\sqrt{-s}$:
+	Let $S$ be a feasible parameter set for a $4$-class association scheme which is $Q$-bipartite but not $Q$-antipodal. Let $k=P_{01}$, $r=P_{21}$, and $s=P_{41}$ where $P$ is the first eigenmatrix using the natural ordering. The following must hold with $n:=\sqrt{-s}$ and $\mu=k+rs$:
 	\begin{enumerate}[label=(\roman*)]
 		\item $\mu\geq n(r+n)$,
 		\item $n\vert \mu$ and $n\vert k$,
@@ -590,7 +700,7 @@ Now that we have the parameters of our $4$-class $Q$-bipartite scheme determined
 	Further, $n$ is an integer greater than 1.
 \end{thm}
 \begin{proof}
-	For $(i)$ and $(ii)$, we note that	$p_{13}^1 = \frac{(n-1)(\mu-n(r+n))}{2n}$. Since this must be a non-negative integer, we must either have $-s = n = 1$ or $\mu-n(r+n)>0$. As $s=-1$ implies our SRG is a union of cliques (and thus $(X,\mathcal{R})$ is $Q$-antipodal), we may ignore this case and $(i)$ follows. Since $n\not\vert (n-1)$, we have that $n\vert (\mu-n(r+n))$ forcing $n\vert \mu$. Since $k=\mu+rn^2$, $(ii)$ follows. Next, $(iii)$ follows from the absolute bound $1+f \leq \frac{m(m+1)}{2}$ giving us $n^4+3n^2r-2k\geq 0$. Using another absolute bound, $(iv)$ follows from $\frac{v}{m}\leq f$. Finally, since $n = \sqrt{-s}$, if $n$ is not an integer, then columns one and three of $Q$ must be irrational. However Galois conjugation is an automorphism of our Bose-Mesner algebra and thus $E_0$, $E_3$, $E_2$, $E_1$, $E_4$ must be a second $Q$ polynomial ordering in this case, implying $q_{3,3}^4=0$. Using our $P$ and $Q$ matrices, we find that $q_{3,3}^4 = \frac{(k-r)(k+s)}{\mu}$. This means that whenever $n$ is irrational, either $r=k$ or $s = -k$, both of which imply $(X,\mathcal{R})$ is $Q$-antipodal.
+	First note that $k$, $r$, and $s$ are the eigenvalues of a strongly regular graph and thus integral (we assume here that the SRG is not a conference graph). For $(i)$ and $(ii)$, note that	$p_{13}^1 = \frac{(n-1)(\mu-n(r+n))}{2n}$. FC2 tells us that this must be a non-negative integer, and therefore we must either have $-s = n = 1$ or $\mu-n(r+n)\geq0$. As $s=-1$ implies our SRG is a union of cliques (and thus $(X,\mathcal{R})$ is $Q$-antipodal), we may ignore this case and $(i)$ follows. Since $\gcd(n,n-1)=1$, we have that $n\vert (\mu-n(r+n))$ forcing $n\vert \mu$ and since $k=\mu+rn^2$, $(ii)$ follows. Next, $(iii)$ follows from the absolute bound $1+f \leq \frac{m(m+1)}{2}$ giving us $n^4+3n^2r-2k\geq 0$. Using another absolute bound, $(iv)$ follows from $\frac{v}{m}\leq f$. Finally, since $n = \sqrt{-s}$, if $n$ is not an integer, then columns one and three of $Q$ must be irrational. However Galois conjugation is an automorphism of our Bose-Mesner algebra and thus $E_0$, $E_3$, $E_2$, $E_1$, $E_4$ must be a second $Q$ polynomial ordering in this case, implying $q_{3,3}^4=0$. Using our $P$ and $Q$ matrices, we find that $q_{3,3}^4 = \frac{(k-r)(k+s)}{\mu}$. This means that whenever $n$ is irrational, either $r=k$ or $s = -k$, both of which imply $(X,\mathcal{R})$ is $Q$-antipodal.
 \end{proof}
 
 \begin{cor}
@@ -603,7 +713,7 @@ Now that we have the parameters of our $4$-class $Q$-bipartite scheme determined
 	\[\frac{k-n^4+\sqrt{n^8-2n^4k(2n^2+3)+k^2}}{2n^2}\leq r\leq \frac{k-n^2}{n(n+1)}.\]
 	This implies that 
 	\[k^2-n^2(n^5+2n^4-3n^2-3n+1)k+n^5(n^2+n-1)\leq0.\]
-	When $k=1$ and $n>1$, the left hand side will be negative. Therefore this requires that $k$ is less than the second root of this quadratic, giving us our bound.
+	When $k=1$ and $n>1$, the left hand side will be negative. Therefore this requires that $k$ is less than the positive root of this quadratic, giving us our bound.
 \end{proof}
 We now examine the bounds arising from Theorem \ref{ELGeg} as applied to our $Q$-bipartite association scheme, restricting ourselves to the first 6 degrees as listed in Section \ref{cometricGeg}.
 \begin{thm}
