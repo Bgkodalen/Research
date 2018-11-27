@@ -6,35 +6,102 @@
 \input{preamble}
 
 
-\title{\textbf{Cometric Association Schemes}}
+%\title{\textbf{Cometric Association Schemes}}
 \author{Brian G. Kodalen}
 \date{}
 \begin{document}
-	\singlespacing
-	\maketitle
-	\vspace{3cm}
-	\begin{center} A dissertation for the degree of\\Doctor of Philosophy.\\
-		\vspace{1cm}
-		Mathematical Sciences Department\\Worcester Polytechnic Institute\\\today\end{center}
-	\vspace{3cm}
-	\textbf{PhD Committee Members:}
-	\begin{itemize}[label={}]
-		\itemsep-.5em
-		\item Dr. Peter J. Cameron, Queen Mary, University of London
-		\item Dr. Padraig \'{O} Cath\'{a}in, WPI
-		\item Dr. Peter R. Christopher, WPI
-		\item Dr. William M. Kantor, University of Oregon
-		\item Dr. William J. Martin, WPI (Advisor)
-		\item Dr. G\'{a}bor N. S\'{a}rk\"{o}zy, WPI
-	\end{itemize}
-	\newpage
+	\thispagestyle{empty}
+	\begin{center}
+		\brk
+		{\large\textbf{Cometric Association Schemes}}
+		\brk
+		by
+		\brk
+		Brian G.\ Kodalen
+		\brk\brk
+		A Thesis
+		
+		\brk
+		Submitted to the Faculty
+		
+		\brk
+		of the 
+		
+		\brk
+		WORCESTER POLYTECHNIC INSTITUTE
+		
+		\brk
+		In partial fulfillment of the requirements for the
+		
+		\brk
+		Degree of Doctor of Philosophy
+		
+		\brk
+		in
+		
+		\brk
+		Mathematical Science
+		
+		\brk
+		by
+		
+		\brk\brk
+		\rule{3in}{1.2pt}
+		
+		\brk
+		March 2018
+	\end{center}
+\vfill
+APPROVED:
+
+\vspace{0.5in}
+\rule{3in}{0.8pt}
+
+% Change this to your favorite CS professor.
+Professor William Martin, Major Thesis Advisor
+
+\vspace{0.5in}
+\rule{3in}{0.8pt}
+
+% This is also constant :)
+Professor Luca Capogna, Head of Department	
+
+
+% end of titlepage
+\newpage
+
+%\doublespacing
+
+\begin{abstract}
+	Abstract goes here.
+\end{abstract}
+%	\begin{itemize}[label={}]
+%		\itemsep-.5em
+%		\item Dr. Peter J. Cameron, Queen Mary, University of London
+%		\item Dr. Padraig \'{O} Cath\'{a}in, WPI
+%		\item Dr. Peter R. Christopher, WPI
+%		\item Dr. William M. Kantor, University of Oregon
+%		\item Dr. William J. Martin, WPI (Advisor)
+%		\item Dr. G\'{a}bor N. S\'{a}rk\"{o}zy, WPI
+%	\end{itemize}
+
+\pagenumbering{roman}
+
+\begin{center}
+	\textbf{Acknowledgements}
+\end{center}
+ Acknowledgements go here.
+ 
+ \clearpage
+
 	\tableofcontents
-	\newpage
 	\listoffigures
-	\newpage
-	\input{symbols}
-	\newpage
-%	\doublespacing
+	\listoftables
+	\clearpage
+	
+	
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
 	
 	\input{Introduction}
 	\input{association}
@@ -44,6 +111,10 @@
 	\input{4-class}
 	\input{connectivity}
 	
+	\appendix
+	\input{appendix}
+	
+	\singlespacing %For the bibliography
 	\bibliographystyle{abbrv}
 	\bibliography{Dissertation}
 \end{document}

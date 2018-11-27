@@ -514,22 +514,22 @@ Additionally, if $a_1^*>0$ then,
 \end{comment}
 \begin{proof}
 	The table below gives the eigenvalue requirements corresponding to each statement.
-	\begin{tabular}{c|c|c|c|c|c|c|c}
+\[	\begin{tabular}{c|c|c|c|c|c|c|c}
 		Constraint & $(i)$ & $(ii)$ & $(iii)$ & $(iv)$ & $(v)$ &$(vi)$ & $(vii)$\\\hline
 		Eigenvalue restriction & $\theta_{30}\geq 0$ & $\theta_{42}\geq 0$ & $\theta_{51}\geq 0$&$\theta_{53}\geq 0$&$\theta_{60}\geq 0$	&$\theta_{50}\geq 0$ &$\theta_{52}\geq 0$\\	
-	\end{tabular}
+	\end{tabular}\]
 \end{proof}
-Dr. Williford maintains a list of small ($\vert X\vert<10000$) feasible parameter sets for cometric schemes with 3, 4, and 5 classes. Using these lists, we find nine $3$-class primitive cometric schemes which are ruled out by Theorem \ref{cometricbnds} $(vi)$ and ten $4$-class $Q$-bipartite schemes which are ruled out by Theorem \ref{cometricbnds} $(v)$. They are as follows, listed as tuples of the form $\left(\vert X\vert,m_1\right)$:
+Dr. Williford maintains a list of small ($\vert X\vert<10000$) feasible parameter sets for cometric schemes including primitive cometric schemes with 3 classes and $Q$-bipartite schemes with 4 classes. Using these lists, we find nine $3$-class primitive cometric schemes which are ruled out by Theorem \ref{cometricbnds} $(vi)$ and 11 $4$-class $Q$-bipartite schemes which are ruled out by Theorem \ref{cometricbnds} $(v)$. They are as follows, listed as tuples of the form $\left(\vert X\vert,m_1\right)$:
 \begin{itemize}
-	\item $3$-class primitive schemes ruled out by $(vi)$
+	\item $3$-class primitive schemes ruled out by Theorem \ref{cometricbnds} $(vi)$
 	\[\begin{aligned}\left\{(441,20),(576,23),(729,26),(1015,28),(1240,30),(1548,35),(1836,35),(1944,29),(1976,25)\right\}.\end{aligned}\]
 	\item $4$-class $Q$-bipartite schemes
 	\begin{itemize}
-		\item Schemes ruled out by $(v)$,
-	\[\left\{(4968,27),(5280,30),(5436,27),(6148,29)\right\}\]
-		\item Schemes ruled out by $(v)$ and $(iii)$,
-	\[\left\{(4464,24),(8432,31),(9984,32)\right\}\]
-		\item Schemes ruled out by $(v)$, $(iii)$, and $(ii)$
+		\item ruled out by Theorem \ref{cometricbnds} $(v)$,
+	\[\left\{(4464,24),(4968,27),(5280,30),(5436,27),(6148,29)\right\}\]
+		\item ruled out by Theorem \ref{cometricbnds} $(v)$ and $(iii)$,
+	\[\left\{(8432,31),(9984,32)\right\}\]
+		\item ruled out by Theorem \ref{cometricbnds} $(v)$, $(iii)$, and $(ii)$
 	\[\left\{(594,9),(7776,27),(8478,27),(9984,24)\right\}\]
 	
 	\end{itemize}
@@ -583,19 +583,20 @@ This theorem tells us that approximately half of the eigenvalues $\theta_{\ell,j
 	\lambda_j\vec{p}_j\\\hdashline[2pt/2pt]
 	\vec{p}_j
 	\end{array}\right];\qquad\left\vert\left\vert \left(\prod_{\ell=2}^{\ell^*} T_\ell\right) \text{proj}_{B_j}(\vec{y}_1)\right\vert\right\vert_2^2\leq \left(\prod_{\ell=2}^{\ell^*}\gamma_{\ell,j}\right)\left\vert\left\vert\text{proj}_{B_j}(\vec{y}_1)\right\vert\right\vert_2^2.\]
-	For a $Q$-bipartite scheme, we know that $\vec{p}_0 = \left[1,\sqrt{m},\dots,\sqrt{m_d}\right]^T$ and $\vec{p}_d = \left[1,-\sqrt{m},\dots,(-1)^d\sqrt{m_d}\right]^T$ with $\lambda_0 = -\lambda_d = 1$. Noting that the roots of the polynomial $x^2-(1+\mu_\ell)(\pm 1)x + \mu_\ell$ are $\pm1$ and $\mu_\ell$, we find that both $\text{proj}_{B_0}(\vec{y}_1)$ and $\text{proj}_{B_d}(\vec{y}_1)$ are eigenvectors of $T_\ell$ for all $\ell\geq 2$. Therefore
+	For a $Q$-bipartite scheme, the first and last column of $\sqrt{\Delta}P$ are given by 
+	\[\vec{p}_0 = \left[1,\sqrt{m},\dots,\sqrt{m_{d-1}},1\right]^T,\qquad \vec{p}_d = \left[1,-\sqrt{m},\dots,(-1)^{d-1}\sqrt{m_{d-1}},(-1)^d\right]^T\] with $\lambda_0 = -\lambda_d = 1$. Noting that the roots of the polynomial $x^2-(1+\mu_\ell)(\pm 1)x + \mu_\ell$ are $\pm1$ and $\mu_\ell$, we find that both $\text{proj}_{B_0}(\vec{y}_1)$ and $\text{proj}_{B_d}(\vec{y}_1)$ are eigenvectors of $T_\ell$ for all $\ell\geq 2$. Therefore
 	\[ \text{proj}_{B_0}(\vec{y}_{\ell^*}) = \text{proj}_{B_0}(\vec{y}_1);\qquad \text{proj}_{B_d}(\vec{y}_{\ell^*}) = \left(-1\right)^{\ell^*-1}\text{proj}_{B_0}(\vec{y}_1).\]
 	For a vector $\vec{v}$ of length $d+1$, we refer to the entries $v_0,v_2,v_4,\dots,v_{2\left\lfloor\frac{d}{2}\right\rfloor}$ as the \textit{even part of} $\vec{v}$ and likewise the entries $v_1,v_3,\dots,v_{2\left\lceil\frac{d}{2}\right\rceil-1}$ as the \textit{odd part of} $\vec{v}$. Further, for a vector $\vec{y}$ of length $2d+2$, define the \textit{top half of} $\vec{y}$ to be the first $d+1$ entries and the \textit{bottom half of} $\vec{y}$ to be the last $d+1$ entries. Then we have the following four statements
 	\begin{itemize}
 		\item For even $\ell$,
 		\begin{itemize}
-			\item all entries in the odd part of the top half of $\text{proj}_{B_0}(\vec{y}_\ell) + \text{proj}_{B_d}(\vec{y}_\ell)$ are 0;
-			\item all entries in the even part of the bottom half of $\text{proj}_{B_0}(\vec{y}_\ell) + \text{proj}_{B_d}(\vec{y}_\ell)$ are 0.
+			\item all entries in the odd part of the top half of $\text{proj}_{B_0\cup B_d}(\vec{y}_\ell)$ are 0;
+			\item all entries in the even part of the bottom half of $\text{proj}_{B_0\cup B_d}(\vec{y}_\ell)$ are 0.
 		\end{itemize}
 	\item For odd $\ell$,
 	\begin{itemize}
-		\item all entries in the even part of the top half of $\text{proj}_{B_0}(\vec{y}_\ell) + \text{proj}_{B_d}(\vec{y}_\ell)$ are 0;
-		\item all entries in the odd part of the bottom half of $\text{proj}_{B_0}(\vec{y}_\ell) + \text{proj}_{B_d}(\vec{y}_\ell)$ are 0.
+		\item all entries in the even part of the top half of $\text{proj}_{B_0\cup B_d}(\vec{y}_\ell)$ are 0;
+		\item all entries in the odd part of the bottom half of $\text{proj}_{B_0\cup B_d}(\vec{y}_\ell)$ are 0.
 	\end{itemize}
 	\end{itemize}
 	Similarly Theorem \ref{Qbipeig} shows that the same is true for $y_\ell$, that is
@@ -697,7 +698,7 @@ We may use this information to build the first and second eigenmatrices of our $
 	where $s = -n^2$.
 \end{thm}
 \begin{proof}
-	We begin by building all of $Q$ and then employ the use of our orthogonality properties. Note that column 0 of $Q$ comes by definition. From Theorem [\cite{BGKW},\cite{MMW}], $Q_{1,1} = -Q_{3,1}\neq 0 = Q_{2,1}$, so we define $n = \frac{m}{Q_{1,1}} = -\frac{m}{Q_{3,1}}$ and column 1 is given. The first three entries of columns $2$ and $4$ follow from the parameters of our quotient scheme while the remaining two entries of each columns follow from Corollary \ref{evenpoly}. Finally column 3 may be found using the first orthogonality condition (specifically that $\displaystyle{\sum_j Q_{ij} = \vert X\vert\delta_{i0}}$). From here we have that 
+	We begin by building all of $Q$ and then employ the use of our orthogonality properties. Note that column 0 of $Q$ comes by definition. From Theorem [\cite{BGKW},\cite{Martin2007}], $Q_{1,1} = -Q_{3,1}\neq 0 = Q_{2,1}$, so we define $n = \frac{m}{Q_{1,1}} = -\frac{m}{Q_{3,1}}$ and column 1 is given. The first three entries of columns $2$ and $4$ follow from the parameters of our quotient scheme while the remaining two entries of each columns follow from Corollary \ref{evenpoly}. Finally column 3 may be found using the first orthogonality condition (specifically that $\displaystyle{\sum_j Q_{ij} = \vert X\vert\delta_{i0}}$). From here we have that 
 	\[Q = \left[\begin{array}{ccccc}
 	1 & m & f & v-m & g\\
 	1 & \frac{m}{n} & \frac{fr}{k}  & -\frac{m}{n} & \frac{gs}{k}\\
@@ -705,7 +706,7 @@ We may use this information to build the first and second eigenmatrices of our $
 	1 & -\frac{m}{n} & \frac{fr}{k} & \frac{m}{n} & \frac{gs}{k}\\
 	1 & -m & f & m-v & g\\
 	\end{array}\right],\]
-	matching our theorem in all but two places.	Since we have ordered the relations using the natural ordering, the valencies of our relations are given by $[1,k,2(v-1-k),k,1]$. This allows us to derive an expression for $q_{01}^1$ using \cite[Theorem.~2.3.2.]{BCN} which gives
+	matching our theorem in all but two places.	Since we have ordered the relations using the natural ordering, the valencies of our relations are given by $[1,k,2(v-1-k),k,1]$. This allows us to derive an expression for $q_{01}^1$ using \cite[Theorem.~2.3.2.]{Brouwer1989} which gives
 	\[q_{ij}^k = \frac{1}{\vert X\vert m_k}\sum_{l=0}^d\left(v_lQ_{li}Q_{lj}Q_{lk}\right)\]
 	where $m_k$ and $v_l$ are the multiplicities and valencies of the $k^\text{th}$ and $l^\text{th}$ relations respectively. We find that $q_{01}^1 = \frac{1}{2vm}\left(2m^2+\frac{2km^2}{n^2}\right)$, however we know from Theorem \ref{kreinidentities} that $q_{01}^1=1$, resulting in $\frac{km}{n^2} = v-m$. This completes our proof for the second eigenmatrix and we may use the second orthogonality condition to find $P$ noting that the first row of $P$ is the valencies of our relations. Thus
 	\[P = \left[\begin{array}{ccccc}
@@ -721,7 +722,7 @@ We may use this information to build the first and second eigenmatrices of our $
 	The parameters of a 4-class $Q$-bipartite scheme are uniquely determined by the eigenvalues of the quotient SRG.
 \end{cor}
 \begin{proof}
-	Our first eigenmatrix only requires $v,k,r,s,$ and $n$. However since $n>0$ (from the natural ordering of relations), $n = \sqrt{-s}$. Further \cite{BCN} states that  $v = \frac{(k-r)(k-s)}{k+rs}$. 
+	Our first eigenmatrix only requires $v,k,r,s,$ and $n$. However since $n>0$ (from the natural ordering of relations), $n = \sqrt{-s}$. Further \cite{Brouwer1989} states that  $v = \frac{(k-r)(k-s)}{k+rs}$. 
 \end{proof}
 Before moving to examine the effect of Sch\"{o}nberg's theorem on 4-class $Q$-bipartite schemes, we mention a few parameter bounds arising from the feasibility conditions FC1-FC3 and show how they restrict the space of feasible parameters.
 \begin{thm}
@@ -785,7 +786,7 @@ We conclude this chapter by noting the impact of Theorem \ref{thm60} on the feas
 	5 & 473 & 334\\
 	6 & 1015& 701\\
 	7 & 1256& 952\\
-	8 & 2259& 1662\\
+	8 & 2256& 1659\\
 \end{tabular}\]
 The following figures display the original feasibility conditions and the new bound due to $\theta_{60}\geq 0$. We display the graphs for $n=7$, noting that similar graphs may be generated for any $n>1$.
 \begin{figure}[h]

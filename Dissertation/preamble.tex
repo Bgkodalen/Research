@@ -13,6 +13,10 @@
 \usepackage{bbm}
 \usepackage{enumitem}
 \usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{scalefnt}
+\usepackage{setspace}
+\usepackage{bbm}
 
 %\usepackage{showlabels}
 \usepackage{thmtools}
@@ -21,8 +25,60 @@
 \usepackage{cleveref}
 \usepackage{comment}
 
+\newcommand{\vnorm}[1]{\left\|#1\right\|}
+\newcommand*{\swap}[2]{#2#1}
 
 
+%%% CS Template
+
+\setlength{\textheight}{8.63in}
+\setlength{\textwidth}{5.9in}
+\setlength{\topmargin}{-0.2in}
+\setlength{\oddsidemargin}{0.3in}
+\setlength{\evensidemargin}{0.3in}
+\setlength{\headsep}{0.0in}
+\newcommand{\brk}{\vspace*{0.18in}}
+
+%%% End template
+
+
+%%% Connectivity commands
+\newcommand{\m}{{{24}}}  % Special for this paper, subscripts and superscripts {24}
+\newcommand{\IP}{{\rm IP}}
+\newcommand{\re}{{\mathbb R}}
+\newcommand{\ints}{{\mathbb Z}}
+\newcommand{\A}{{\bf A}}
+\newcommand{\B}{{\bf B}}
+\newcommand{\E}{{\mathsf E}}
+\newcommand{\cE}{{\mathcal E}}  % Euclidean space
+\newcommand{\F}{{\mathcal F}}
+\newcommand{\G}{{\mathcal G}}
+\newcommand{\I}{{\mathsf I}}
+\newcommand{\tI}{\tilde{I}}
+\newcommand{\J}{{\mathsf J}}
+\renewcommand{\L}{\boldsymbol{\wedge}}  % Leech lattice in \sf font
+\newcommand{\Z}{{\mathsf Z}}
+\newcommand{\cI}{{\mathcal I}}
+\newcommand{\cJ}{{\mathcal J}}
+\renewcommand{\S}{{\mathsf S}}
+\newcommand{\cT}{{\mathcal T}}
+\newcommand{\tU}{\tilde{U}}
+\newcommand{\bv}{{\mathbf v}}
+\newcommand{\tW}{\tilde{W}}
+\newcommand{\X}{{\mathcal X}}
+\newcommand{\cZ}{{\mathcal Z}}
+\newcommand{\QI}{{\mathcal Q}{\mathcal I}}
+\newcommand{\Nm}{{\sf Nm}}
+\newcommand{\cP}{{\mathcal P}}
+\newcommand{\one}{{\mathbf 1}}
+\newcommand{\dis}{\displaystyle}
+
+\DeclareMathOperator\Rad{Rad}
+\DeclareMathOperator\colsp{colsp}
+\DeclareMathOperator\nullsp{nullsp}
+\DeclareMathOperator\diam{diam}
+\DeclareMathOperator\mult{mult}
+%%% End connectivity
 
 
 \newcommand{\bb}{\mathbf{b}}
@@ -85,6 +141,6 @@
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem{cor}[thm]{Corollary}
 \newtheorem{example}{Example}[chapter]
-\newtheorem*{remark}{Remakr}
+\newtheorem{remark}[thm]{Remark}
 
 %\doublespacing
