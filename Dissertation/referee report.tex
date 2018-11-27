@@ -1,0 +1,18 @@
+\documentclass[12pt]{report}
+\usepackage{amssymb}
+\begin{document}
+	\section*{Corrections}
+	\begin{itemize}
+		\item Page 4 proof of Theorem 2.2: First reorder the rows so that the last $m$ rows are repeated, else the relabeling is not possible. (or make a statement saying WLOG we may assume the last $m$ rows are repeated)
+		\item Page 9 Section 3.4: ``Defined on the symbols set $\mathbb{Z}_n$" should be ``Defined on the symbol set $\mathbb{Z}_n$".
+	\end{itemize}
+	\section*{Suggestions}
+	\begin{itemize}
+		\item Page 3 line 1: I suggest changing ``Relabel the symbols of the OA" to ``Relabel the symbols of each column of the OA" as the relabeling will (likely) be different for each column.
+		\item Page 5 between Example 1 and Example 2: I suggest aligning the wording ``that is repeated more than $n$" and ``that is repeated $n$ times" for consistency.
+		\item Page 7 equation $(3)$: I suggest swapping the order on the left or using parenthesis so that the reader knows to not sum multiple copies of $\lambda G_j$. i.e. make it clear that the equation is not stating
+		\[\sum_{i:x\in B_i}\left(B_i+\lambda G_j\right) = \dots\]
+		\end{itemize}
+	\section*{Comments}
+	On page 9 at the end of Section 3.4, if you assume the first $m$ rows of each vector are the same (and without loss of generality every entry came from the symbol $0$), it is clear that you may subtract $m-1$ from the maximum dimension giving $m+k(n-1)\leq N$ as you find in section 3.2. I find it interesting that these two techniques give you the same obvious bound in the case of $m$-repeated rows, though I agree that any extension to get Theorem 2.2 as a result is not obvious. It might be worth mentioning this small extension only because you mention the same in 3.2, though either is fine since it is not a proof of Theorem 2.2.
+\end{document}
