@@ -1,14 +1,15 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Graphs of the 3-cube.}}{4}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Gegenbauer polynomials}}{12}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Roots of Gegenbauer polynomials}}{12}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces 4-class $Q$-bipartite bounds}}{36}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Gegenbauer polynomials}}{17}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Roots of Gegenbauer polynomials}}{17}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces 4-class $Q$-bipartite bounds}}{41}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Graph $H$. Upon deletion of $0$ and $1$, the isolated vertices in $\mathaccentV {tilde}07E{I}$ are those subconstituents which contain all twins of the basepoint while $\mathaccentV {tilde}07E{U}$ is vertex set of a component outside $\mathaccentV {tilde}07E{I}$ which minimizes $\DOTSB \sum@ \slimits@ _{i\in \mathaccentV {tilde}07E{U}} v_i$. \relax }}{69}
-\contentsline {figure}{\numberline {7.2}{\ignorespaces This diagram depicts $\Gamma $ as decomposed relative to basepoint $a$. In $\Gamma _b$, vertex $a$ belongs to component $\Delta $, whose vertex set is indicated by the shaded region. The set $W_a$ splits into $Z_a$ and $Y_a$ according to membership in $V\Delta $. \relax }}{71}
-\contentsline {figure}{\numberline {7.3}{\ignorespaces Since $\Gamma $ has diameter two, all common neighbors of $x$ and $y$ are contained in $\Gamma (a)$. \relax }}{72}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Graph $H$. Upon deletion of $0$ and $1$, the isolated vertices in $\mathaccentV {tilde}07E{I}$ are those subconstituents which contain all twins of the basepoint while $\mathaccentV {tilde}07E{U}$ is vertex set of a component outside $\mathaccentV {tilde}07E{I}$ which minimizes $\DOTSB \sum@ \slimits@ _{i\in \mathaccentV {tilde}07E{U}} v_i$. \relax }}{74}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces This diagram depicts $\Gamma $ as decomposed relative to basepoint $a$. In $\Gamma _b$, vertex $a$ belongs to component $\Delta $, whose vertex set is indicated by the shaded region. The set $W_a$ splits into $Z_a$ and $Y_a$ according to membership in $V\Delta $. \relax }}{76}
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Since $\Gamma $ has diameter two, all common neighbors of $x$ and $y$ are contained in $\Gamma (a)$. \relax }}{77}
 \addvspace {10\p@ }
