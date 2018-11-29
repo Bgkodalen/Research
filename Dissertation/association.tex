@@ -223,11 +223,22 @@ The final feasibility condition we will list here is known as the \emph{absolute
 	\end{itemize}
 \end{definition}
 \section{Parameter arrays}
-
-
+For a matrix $A$, we denote the entry in row $i$ and column $j$ as $\left[A\right]_{ij}$. We then define the \emph{arrays of intersection numbers} $L_0,\dots,L_d$ as $(d+1)\times(d+1)$ matrices where $\left[L_i\right]_{k,j} = p^k_{ij}$. We then define the vector space $\bbL = \text{span}\left\{L_0,\dots,L_d\right\}$ and note that Lemma \ref{intrels} $(vi)$ gives us that
+\[
+	\left[L_iL_j\right]_{m,k} = \sum_lp^m_{il}p^l_{jk} = \sum_{l}p^l_{ij}p^m_{lk} = \sum_l p^l_{ij}\left[L_l\right]_{m,k}
+\]
+for $0\leq m,k\leq d$. Therefore we find that this vector space forms a matrix algebra under matrix multiplication via
+\begin{equation}\label{Lprod}
+	L_iL_j = \sum_l p^l_{ij}L_l
+\end{equation}
+extended linearly. We therefore may define an algebra isomorphism $\phi:\BMA\rightarrow\bbL$ via the basis mapping $\phi(A_i) = L_i$. Note that this isomorphism preserves standard matrix multiplication, however entrywise multiplication need not be preserved. Likewise we define the \emph{arrays of Krein parameters} as $L_0^*,\dots,L_d^*$ with $\left[L_i^*\right]_{k,j} = q^k_{ij}$. This provides a dual vector space $\bbL^* = \text{span}\left\{L_0^*,\dots,L_d^*\right\}$ with Lemma \ref{kreinrels} $(vi)$ giving
+\begin{equation}\label{Lstarprod}
+	L_i^*L_j^* = \sum_{l}q^l_{ij}L_l^*.
+\end{equation}
+We then define a second algebra isomorphism, this time mapping entrywise products to matrix multiplication, $\phi^*:\BMA\rightarrow\bbL^*$ via the basis mapping $\phi^*(E_i) = \frac{1}{\vert X\vert}L_i^*$. We call $L_1$ the \emph{intersection matrix} and $L_1^*$ the \emph{Krein matrix} as these two matrices will become especially important for polynomial schemes (see Section \ref{ppoly} and \ref{qpoly}).
 \section{Imprimitivity}
-\section{Metric schemes}
-\section{Cometric schemes}
+\section{Metric schemes}\label{ppoly}
+\section{Cometric schemes}\label{qpoly}
 A \textit{$Q$-polynomial} (\textit{cometric}) association scheme is one in which the set $\left\{E_0,E_1,\dots,E_d\right\}$ may be ordered so that $q^{k}_{i,j} = 0$ whenever $k>i+j$ or $k<\vert i- j\vert$ and $q^{k}_{i,j}>0$ whenever $k = i+j$. Finally, we say an association scheme with $Q$-polynomial ordering $E_0,\dots,E_d$ is \textit{$Q$-antipodal} if $q^{k}_{d,d} >0$ when $k = 0$ but $q^{k}_{d,d} = 0$ for $0<k<d$. Given a $Q$-polynomial ordering $E_0,\dots,E_d$ we find it convenient to order relations so that $Q_{01}>Q_{11}>\dots>Q_{d1}$; we call this the natural ordering. We call these parameters the Krein parameters of the association scheme. We conclude this section by examining the Krein parameters of our scheme, and defining an algebra isomorphism from our Bose-Mesner algebra to a new matrix algebra. Defining $L_i^*$ such that
 \[L_i^* = [q^k_{i,j}]_{k,j},\]
 we may define the vector space $\mathbb{L}^* = \text{span}\left\{L_0^*,L_1^*,\dots,L_d^*\right\}$. From \cite[Lemma.~2.3.1(vi)]{Brouwer1989}, we have:
