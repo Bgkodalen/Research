@@ -20,7 +20,7 @@ Let $X$ be a finite set of vertices. A \textit{symmetric d-class association sch
 The constants $p_{i,j}^k$ are known as the \emph{intersection numbers} of our association scheme and we allow ourselves to suppress the comma whenever $i$ and $j$ are given by single digits, thus $p_{0,7}^6$ and $p_{07}^6$ synonymous but we will never write $p_{102}^2$, instead using $p_{10,2}^2$. Property $(iii)$ and $(iv)$ together imply that $p_{ij}^k = p_{ji}^k$ for all $i,j,k$, thus any symmetric association schemes will be \textit{commutative}. There is a broader definition for an association scheme where we replace $(iii)$ with the requirement that for every $i$, there exists some $j$ such that $R_j = R_i^T$; that is $(x,y)\in R_i$ if and only if $(y,x)\in R_j$. In this case however, we add the additional requirement $p_{ij}^k = p_{ji}^k$ so that our scheme remains commutative. Throughout this text, all association schemes will be symmetric and therefore commutative, but we will add remarks at times when the theorems may be extended to the non-symmetric case.
 
 For each $0\leq i\leq d$ we define the (undirected) graph $\Gamma_i = \Gamma(X,R_i)$ on $X$ with $\Gamma_1,\dots,\Gamma_d$ all simple. For each $a\in X$ we define the $i^\text{th}$ \emph{neighborhood} of $a$ $R_i(a) = \left\{b\in X\vert (a,b)\in R_i\right\}$; i.e. $R_i(a)$ is the neighborhood of $a$ in the graph $\Gamma_i$. Then for any $a\in X$, the set $X$ is partitioned into the \emph{subconstituents} $R_i(a)$ for $0\leq i\leq d$. Consider the following example on $8$ vertices:
-\begin{example} Consider the association scheme called the \emph{3-cube} on vertex set $X = \left\{1,\dots,8\right\}$ with relations corresponding to the graphs $\Gamma_0,\dots,\Gamma_3$ given below in figure \ref{3cube}.\\
+\begin{example} Consider the association scheme called the \emph{3-cube} on vertex set $X = \left\{1,\dots,8\right\}$ with relations corresponding to the graphs $\Gamma_0,\dots,\Gamma_3$ given below.
 	\begin{figure}[H]\begin{center}\scalebox{.7}{$\begin{aligned}
 	\begin{tikzpicture}[shorten >=1pt,auto,node distance=2cm,
 	thin,main node/.style = {circle,draw, inner sep = 0pt, minimum size = 15pt}]
@@ -58,7 +58,7 @@ For each $0\leq i\leq d$ we define the (undirected) graph $\Gamma_i = \Gamma(X,R
 	
 	\draw[-] (3)--(1)--(2)--(4)--(3)--(7)--(8)--(6)--(5)--(7);
 	\draw[-] (1)--(5)--(6)--(2)--(4)--(8);
-	\end{tikzpicture}\\\\
+	\end{tikzpicture}\qquad\qquad
 	\begin{tikzpicture}[shorten >=1pt,auto,node distance=2cm,
 	thin,main node/.style = {circle,draw, inner sep = 0pt, minimum size = 15pt}]
 	\node[main node,fill=white] (1) {1};
@@ -106,7 +106,29 @@ For each $0\leq i\leq d$ we define the (undirected) graph $\Gamma_i = \Gamma(X,R
 	\end{aligned}$}\end{center}
 	\caption[Graphs of the 3-cube.]{The four graphs of the 3-cube. The four subconstituents of the vertex $1$ are colored white, red, blue, and green respectively.}\label{3cube}
 	\end{figure}
-	The intersection numbers of this association scheme are as follows, noting that $p^k_{ij} = p^k_{ji}$
+	The intersection numbers of this association scheme are as follows where the $i^\text{th}$ matrix list $p^k_{ij}$ with rows indexed by $k$ and columns indexed by $j$:
+	\[\left[\begin{array}{cccc}
+	1&0&0&0\\
+	0&1&0&0\\
+	0&0&1&0\\
+	0&0&0&1\\
+	\end{array}\right],\left[\begin{array}{cccc}
+	0&3&0&0\\
+	1&0&2&0\\
+	0&2&0&1\\
+	0&0&3&0\\
+	\end{array}\right],\left[\begin{array}{cccc}
+	0&0&3&0\\
+	0&2&0&1\\
+	1&0&2&0\\
+	0&3&0&0\\
+	\end{array}\right],\left[\begin{array}{cccc}
+	0&0&0&1\\
+	0&0&1&0\\
+	0&1&0&0\\
+	1&0&0&0\\
+	\end{array}\right].\]
+	Since $p^k_{ij} = p^k_{ji}$ we note that many of the columns listed above are repeated, thus we may instead give a more brief list of the intersection numbers as follows:
 	\[\begin{array}{c|cccc|ccc|cc|c}
 	j & p^{j}_{0,0}	&p^{j}_{0,1}& p^{j}_{0,2} 	& p^{j}_{0,3}   & p^{j}_{1,1}	&p^{j}_{1,2}& p^{j}_{1,3} 	& p^{j}_{2,2} 	& p^{j}_{2,3} 	& p^{j}_{3,3}\\\hline
 	0 & 1			& 0			& 0 			& 0				& 3				& 0			& 0 			& 3				& 0   			& 1\\
@@ -114,26 +136,11 @@ For each $0\leq i\leq d$ we define the (undirected) graph $\Gamma_i = \Gamma(X,R
 	2 & 0			& 0			& 1 			& 0				& 2				& 0 		& 1				& 2 			& 0 			& 0\\
 	3 & 0			& 0			& 0 			& 1				& 0 			& 3			& 0 			& 0   			& 0 			& 0\\
 	\end{array}\]
+	We will often find this brief description useful and will further reduce our description of the parameters in many of the examples we give where possible.
 \end{example}
 For any $0\leq i\leq d$ and any vertex $x\in X$,
 \[p^{0}_{ii} = \left\vert\left\{y:(y,x)\in R_i\right\}\right\vert = \left\vert R_i(x)\right\vert.\]
-Thus we define $k_i:=p^0_{ii}$ as the \emph{valency} of the $i^\text{th}$ relation.
-\begin{lem}{\cite[Lemma 2.1.1]{Brouwer1989}}\label{intrels}
-	The parameters $k_i$, $p_{ij}^h$ of an association scheme with $d$ classes satisfy the following relations:
-	\begin{enumerate}[label=(\roman*)]
-		\item $p_{0j}^h = \delta_{jh}$,
-		\item $p^0_{ij} = \delta_{ij}k_i$,
-		\item $p^h_{ij} = p^h_{ji}$,
-		\item $p^h_{ij}k_h = p^j_{ih}k_j$,
-		\item $\sum_jp^h_{ij} = k_j$,
-		\item $\sum_l p^l_{ij}p^m_{lh} = \sum_l p^m_{il}p^l_{jh}$.
-	\end{enumerate}
-\end{lem}
-\begin{proof}
-	Statements $(i)$ and $(ii)$ follow from our definition of the intersection numbers and the requirement that $R_0$ is the identity relation. We have already shown that $(iii)$ follows from the symmetric property. To show $(iv)$, consider a fixed point $x$ and the subconstituents $R_k(x)$ and $R_j(x)$. Counting the number of edges in $\Gamma_i$ between $R_k(x)$ and $R_j(x)$ in two different ways gives our result. For $(v)$ consider that for $(x,y)\in R_k$,
-	\[\sum_{j}p_{ij}^k = \left\vert R_i(x)\cap\left(\bigcup_{j=0}^dR_j(y)\right)\right\vert = \left\vert R_j(y)\right\vert.\]
-	Finally $(vi)$ may be shown by counting quadruples $(x,y,z,w)$ with $(x,y)\in R_i$, $(y,z)\in R_j$, and $(z,w)\in R_k$ for a fixed pair $(x,w)\in R_m$.
-\end{proof}
+Thus we define $k_i:=p^0_{ii}$ as the \emph{valency} of the $i^\text{th}$ relation. Many other restrictions on our intersection numbers follows immediately from our definition, for instance $p^0_{12} = 0$; we will summarize these in a latter lemma.
 \section{Bose-Mesner algebra}
 Often it becomes useful to order the vertices in $X$ and then represent each $R_i$ as a 01-matrix $A_i$ where the $(x,y)$ entry of $A_i$ is 1 if and only if $(x,y)\in R_i$, thus $A_i$ is the adjacency matrix of $\Gamma_i$. The defining properties of an association scheme are then encoded as:
 \begin{enumerate}[label=(\roman*)]
@@ -144,49 +151,74 @@ Often it becomes useful to order the vertices in $X$ and then represent each $R_
 \end{enumerate}
 The fourth condition tells us that $\BMA = \text{span}\left\{A_0,A_1,\dots A_d\right\}$ forms a matrix algebra under standard matrix multiplication. We call this algebra the \emph{Bose-Mesner algebra} and note that the remaining conditions ensure it is a $(d+1)$-dimensional algebra of symmetric matrices containing the identity. Further, as our basis matrices are 01-matrices with disjoint support, this algebra is also closed under Schur (element-wise) products. Since $p^k_{ij} = p^k_{ji}$ for all $i,j,k$, we must have $A_iA_j = A_jA_i$, that is our algebra is also commutative. Therefore we may simultaneously diagonalize the matrices $\left\{A_0,\dots,A_d\right\}$ using the maximal common orthogonal eigenspaces $V_0,\dots,V_{d'}$ with corresponding idempotents $E_0,\dots,E_{d'}$. Since, for every $i$, there exists eigenvalues $\theta_{ij}$ such that $A_i = \sum_{j=0}^{d'}\theta_{ij}E_j$ we find that $\BMA \subseteq \text{span}\left\{E_0,E_1,\dots, E_{d'}\right\}$ thus $d\leq d'$. Further since the eigenspaces $V_j$ are maximal for each $0\leq j\leq d$ and pairwise orthogonal,
 \[E_j = \frac{1}{c_j}\prod_{i=0}^d\left(\prod_{\theta_{ik}\neq\theta_{ij}}\left(A_i-\theta_{ik}I\right)\right)\]
-for some normalization constant $c_j$. Thus $E_j\in \BMA$ giving $\text{span}\left\{E_0,E_1,\dots, E_{d'}\right\}\subseteq\BMA$ and therefore $d=d'$. Then, for any $d$-class association scheme there is a basis of exactly $d+1$ idempotents $E_0,\dots,E_d$ which are unique up to reordering and diagonalize every matrix in $\BMA$. Since $J\in\BMA$, the rank 1 idempotent $\frac{1}{\vert X\vert}J$ must be contained within this basis; by convention we assume $E_0= \frac{1}{\vert X\vert}J$. For each $0\leq j\leq d$ we denote the rank of $E_j$ as $m_j$ and note that $E_iE_j = \delta_{ij}$. As both $\left\{A_0,\dots,A_d\right\}$ and $\left\{E_0,\dots,E_d\right\}$ form bases for the Bose-Mesner algebra, there exists unique matrices $P$ and $Q$ so that
+for some normalization constant $c_j$. Thus $E_j\in \BMA$ giving $\text{span}\left\{E_0,E_1,\dots, E_{d'}\right\}\subseteq\BMA$ and therefore $d=d'$. Then, for any $d$-class association scheme there is a basis of exactly $d+1$ idempotents $E_0,\dots,E_d$ which are unique up to reordering and diagonalize every matrix in $\BMA$. Since $J\in\BMA$, the rank 1 idempotent $\frac{1}{\vert X\vert}J$ must be contained within this basis; by convention we assume $E_0= \frac{1}{\vert X\vert}J$. We take a moment here to remark on the notion of duality in our matrix algebra. We have already mentioned that $\BMA$ is closed under two distinct products: standard matrix multiplication and Schur multiplication. While it is clear these are distinct products, consider an abstract vector space with basis vectors $\left\{b_i\right\}$. For any pair of vectors $v = \sum_i v_ib_i$ and $w = \sum_i w_ib_i$, we may define the \emph{product with respect to basis $\left\{b_i\right\}$} as $v\star w = \sum_i (v_iw_i)b_i$. In this light, our two distinct products become very similar; for $F,F'\in\BMA$ with $F = \sum_if_iE_i = \sum_i g_iA_i$ and $F' = \sum_if_i'E_i = \sum_i g_i'A_i$, we have
+\[\begin{aligned}
+FF' & =\sum_i\sum_jf_if_j'E_iE_j = \sum_i f_if_i'E_i,\\
+F\circ F' &=\sum_i\sum_jg_ig_i'A_i\circ A_j= \sum_i g_ig_i'A_i.
+\end{aligned}\]
+Therefore our distinct products may be described as the product with respect to the basis $\left\{E_i\right\}$ (standard matrix multiplication) and the product with respect to the basis $\left\{A_i\right\}$ (elementise multiplication). Thus we consider our two products similar and will often refer to them as dual operations on our algebra. Further, we consider the basis matrices $A_0,\dots,A_d$ and $E_0,\dots,E_d$ ``dual" in a sense. Throughout this work, we will often be interested in investigating this duality and pointing out when there are differences and/or gaps in our understanding of the landscape. Our first consideration regarding these two bases for our algebra is the change of basis matrices between the two. Since both $\left\{A_0,\dots,A_d\right\}$ and $\left\{E_0,\dots,E_d\right\}$ form bases $\BMA$, there exists unique matrices $P$ and $Q$ so that
 \begin{equation}
 \label{PQmat}
 A_i = \sum_{j} P_{ji} E_j,\qquad E_j = \frac{1}{\vert X\vert} \sum_{i} Q_{ij}A_i.
 \end{equation}
-We call $P$ and $Q$ the first and second eigenmatrices, noting that the eigenvalues of $A_i$ are given by column $i$ of $P$ and the entries of $\vert X\vert E_j$ are given by column $j$ of $Q$. We again refer to \cite{Brouwer1989} for the following lemma concerning the first and second eigenmatrices
-\begin{lem}{\cite[Lemma 2.2.1]{Brouwer1989}}\label{PQrels} The matrices $P$ and $Q$ of an association scheme satisfy:
-	\begin{enumerate}[label=(\roman*)]
-		\item $P_{j0} = 1$, $Q_{i0} = 1$,
-		\item $P_{0i} = k_i$, $Q_{0j} = m_j$,
-		\item $P_{ij}P_{jh} = \sum_lp^l_{jh}P_{il}$,
-		\item $m_jP_{ji} = k_iQ_{ij},\qquad\sum_j m_jP_{ji}P_{jh} = \vert X\vert k_i\delta_{jh},\qquad\sum_j k_iQ_{ij}Q_{ih} = \vert X\vert m_j\delta_{jh}$,
-		\item $P_{ji}Q_{hj} = \sum_lp_{il}^hQ_{lj}$,
-		\item $\vert P_{ji}\vert\leq k_i,\qquad\vert Q_{ij}\vert\leq m_j$,
-		\item $\sum_{j}P_{ji} = \sum_{h}p^h_{hi}$.\qed
-	\end{enumerate}
-\end{lem}
-In particular let $\Delta_m=\text{diag}(m_0,m_1,\dots,m_d)$ and $\Delta_k=\text{diag}(k_0,k_1,\dots,k_d)$ and the following two relations hold for our eigenmatrices:
+We call $P$ and $Q$ the first and second eigenmatrices, noting that the eigenvalues of $A_i$ are given by column $i$ of $P$ and the ``dual eigenvalues" of $\vert X\vert E_j$, that is eigenvalues with respect to the Schur product, are given by column $j$ of $Q$. Let $\Delta_m=\text{diag}(m_0,m_1,\dots,m_d)$ and $\Delta_k=\text{diag}(k_0,k_1,\dots,k_d)$ and the following two relations hold for our eigenmatrices:
 \begin{lem}[\cite{Brouwer1989}, First and second orthogonality relations] The matrices $P$ and $Q$ of an association scheme satisfy:
 	\begin{equation}
-		PQ = \vert X\vert I, \qquad \Delta_mP = Q^T\Delta_k
+	PQ = \vert X\vert I, \qquad \Delta_mP = Q^T\Delta_k
 	\end{equation}
 \end{lem}
-\begin{proof}
-	First consider that for all $0\leq j\leq d$,
-	\[E_j = \frac{1}{\vert X\vert}\sum_i Q_{ij}A_i = \frac{1}{\vert X\vert}\sum_i \sum_{j} Q_{ij}P_{ji} E_j\]
-	Thus $\frac{1}{\vert X\vert}\sum_i \sum_{j} Q_{ij}P_{ji} = \delta_{ij}$. The second orthogonality relation is given by Lemma \ref{PQrels} $(iv)$.
-\end{proof}
-As $\BMA$ is closed under Schur products, we find that there exist structure constants $q_{i,j}^k$ such that for all $0\leq i,j\leq d$:
+A second consideration for our dual bases is that while we used the existence of structure constants $p^k_{ij}$ to show that $\BMA$ was closed under matrix multiplication, closure under Schur products came from the fact that each $A_i$ was idempotent under this product. This additional closure implies the existence of structure constants for our second basis. That is, for $0\leq i,j,k\leq d$ there exists constants $q^k_{ij}$ so that
 \begin{equation}E_i\circ E_j = \frac{1}{\vert X\vert}\sum_k q_{i,j}^k E_k.\label{Emult}\end{equation}
-We call these parameters the \emph{Krein parameters} of the association scheme. We quickly find properties analogous to those of the intersection numbers listed in Lemma \ref{intrels}.
-\begin{lem}{\cite[Lemma 2.3.1]{Brouwer1989}}\label{kreinrels} The parameters $m_j$, $q_{ij}^k$ of an association scheme with $d$ classes satisfy the following relations:
-	\begin{enumerate}[label=(\roman*)]
-		\item $q^k_{0j} = \delta_{jk}$,
-		\item $q^0_{ij} = \delta_{ij}m_j$,
-		\item $q^{k}_{ij} = q^k_{ji}$,
-		\item $q^k_{ij}m_k = q^j_{ik}m_j$,
-		\item $\sum_j q^k_{ij} = m_i$,
-		\item $\sum_l q^l_{ij}q^{m}_{lk} = \sum_lq^m_{il}q^l_{jk}$,
-		\item $Q_{ij}Q_{ik} = \sum_{l}q^l_{jk}Q_{il}$,
-		\item $P_{ki}Q_{ij} = \sum_l q^k_{jl}P_{li}$.\qed
+We call these constants the \emph{Krein paramters} of the association scheme. Here we list many of the properties of both the intersection numbers and the Krein parameters, including our first and second eigenmatrices as well. See lemmas 2.1.1, 2.2.1, and 2.3.1 for proofs of the following lemma.
+\begin{lem}[{\cite{Brouwer1989}}]\label{kitchensink} The parameters $p^\ell_{ij}$, $q^\ell_{ij}$, $k_i = p^0_{ii}$, $m_j = q^0_{jj}$, and the eigenmatrices $P$ and $Q$ satisfy:
+	\begin{multicols}{2}
+	\begin{enumerate}
+		\item[(i)] $p_{0j}^\ell = \delta_{j\ell}$,
+		\item[(ii)] $p^0_{ij} = \delta_{ij}k_i$,
+		\item[(iii)] $p^\ell_{ij} = p^\ell_{ji}$,
+		\item[(iv)] $p^\ell_{ij}k_\ell= p^j_{i\ell}k_j$,
+		\item[(v)] $\sum_jp^\ell_{ij} = k_j$,
+		\item[(vi)] $\sum_\ell p^\ell_{ij}p^m_{\ell h} = \sum_\ell p^m_{i\ell}p^\ell_{jh}$.
+		\item[(vii)] $P_{ij}P_{ih} = \sum_\ell p^\ell_{jh}P_{i\ell}$,
+		\item[(viii)] $P_{ji}Q_{hj} = \sum_\ell p_{i\ell}^hQ_{\ell j}$,
+		\item[(ix)] $\sum_{j}P_{ji} = \sum_{h}p^h_{hi}$,
+		\item[(x)] $P_{j0} = 1$,
+		\item[(xi)] $P_{0i} = k_i$,
+		\item[(xii)] $\sum_j m_jP_{ji}P_{jh} = \vert X\vert k_i\delta_{ih}$,
+			
+		\item[($i^\prime$)] $q^\ell_{0j} = \delta_{j\ell}$,
+		\item[($ii^\prime$)] $q^0_{ij} = \delta_{ij}m_j$,
+		\item[($iii^\prime$)] $q^{\ell}_{ij} = q^\ell_{ji}$,
+		\item[($iv^\prime$)] $q^\ell_{ij}m_\ell = q^j_{i\ell}m_j$,
+		\item[($v^\prime$)] $\sum_j q^\ell_{ij} = m_i$,
+		\item[($vi^\prime$)] $\sum_\ell q^\ell_{ij}q^{m}_{\ell k} = \sum_\ell q^m_{i\ell}q^\ell_{jk}$,
+		\item[($vii^\prime$)] $Q_{ij}Q_{ih} = \sum_{\ell}q^\ell_{jh}Q_{i\ell}$,
+		\item[($viii^\prime$)] $P_{ij}Q_{jh} = \sum_\ell q^i_{h\ell}P_{\ell j}$,
+		\item[($ix^\prime$)] $\sum_{j}Q_{ji} = \sum_{h}q^h_{hi}$,
+		\item[($x^\prime$)] $Q_{i0} = 1$,
+		\item[($xi^\prime$)] $Q_{0j} = m_j$,
+		\item[($xii^\prime$)] $\sum_j k_iQ_{ij}Q_{ih} = \vert X\vert m_j\delta_{jh}$,
 	\end{enumerate}
+	\end{multicols}
 \end{lem}
+\section{Parameter arrays}
+For a matrix $A$, we denote the entry in row $i$ and column $j$ as $\left[A\right]_{ij}$. We define the \emph{arrays of intersection numbers} $L_0,\dots,L_d$ as $(d+1)\times(d+1)$ matrices where $\left[L_i\right]_{k,j} = p^k_{ij}$. We then define the vector space $\bbL = \text{span}\left\{L_0,\dots,L_d\right\}$ and note that Lemma \ref{kitchensink} $(vi)$ gives us that
+\[
+\left[L_iL_j\right]_{m,k} = \sum_lp^m_{il}p^l_{jk} = \sum_{l}p^l_{ij}p^m_{lk} = \sum_l p^l_{ij}\left[L_l\right]_{m,k}
+\]
+for $0\leq m,k\leq d$. Therefore we find that this vector space forms a matrix algebra under matrix multiplication via
+\begin{equation}\label{Lprod}
+L_iL_j = \sum_l p^l_{ij}L_l.
+\end{equation}
+Likewise we define the \emph{arrays of Krein parameters} as $L_0^*,\dots,L_d^*$ with $\left[L_i^*\right]_{k,j} = q^k_{ij}$. This provides a dual matrix algebra $\bbL^* = \text{span}\left\{L_0^*,\dots,L_d^*\right\}$ as Lemma \ref{kitchensink} $(vi^\prime)$ gives
+\begin{equation}\label{Lstarprod}
+L_i^*L_j^* = \sum_{l}q^l_{ij}L_l^*.
+\end{equation}
+In both cases, we may define an algebra isomorphism $\phi:\BMA\rightarrow\bbL$ or $\phi^*:\BMA\rightarrow\bbL^*$ via the basis mappings
+\begin{equation}
+	\phi(A_i) = L_i\qquad \phi^*(E_i) = L_i^*.
+\end{equation}
+Note that the first isomorphism preserves standard matrix multiplication while the second preserves Schur products. We will refer to $L_1$ as the \emph{intersection matrix} and $L_1^*$ as the \emph{Krein matrix}. These these two matrices will become especially important for polynomial schemes (see Section \ref{ppoly} and \ref{qpoly}) where they are tridiagonal. We end this section by noting that the matrices given in Example \ref{3cube} were exactly the arrays of intersection numbers for that association scheme.
 \section{Feasibility conditions}
 We are often interested in determining whether an association scheme exists given a parameter set. While we often cannot guarantee existence without finding the entire scheme, there are many times where we may rule out a parameter set due to its intersection numbers or Krein parameters. In this section we examine three main conditions which we will use throughout this text. We first begin with the intersection numbers:
 \begin{lem}[\cite{Brouwer1989}]\label{intfeas}
@@ -194,14 +226,14 @@ We are often interested in determining whether an association scheme exists give
 \end{lem}
 This condition is easy to verify since, by definition, each $p^k_{ij}$ must be the cardinality of a set.
 \begin{example}
-	There is no strongly regular graph (association scheme with two non-trivial relations) on 10 vertices with $k_1 = 5$ and $p^1_{12}=3$. Since $k_0+k_1+k_2 =\vert X\vert =10$ we must have $k_2=4$ in this case, but then $p^2_{12} = \frac{k_1}{k_2}p^1_{12} = \nicefrac{15}{4}\notin\bbZ$ and feasibility condition 1 is violated.
+	There is no strongly regular graph (association scheme with two non-trivial relations) on 10 vertices with $k_1 = 5$ and $p^1_{12}=3$. Since $k_0+k_1+k_2 =\vert X\vert =10$ we must have $k_2=4$ in this case, but then $p^2_{12} = \frac{k_1}{k_2}p^1_{12} = \nicefrac{15}{4}\notin\bbZ$ and Lemma \ref{intfeas} is violated.
 \end{example}
 Now consider the Krein parameters of our association scheme.
 \begin{lem}[\cite{Scott1973},Krein conditions]\label{kreinfeas}
 	The Krein parameters of an association scheme must be non-negative real numbers.
 \end{lem}
 \begin{proof}
-	From equation \eqref{Emult}, we find that $\frac{q_{ij}^0}{\vert X\vert},\dots,\frac{q_{ij}^d}{\vert X\vert}$ are the eigenvalues of $E_i\circ E_j$. However $E_i\circ E_j\in BMA$ and thus it must be symmetric and therefore all eigenvalues are real. Further, $E_i\circ E_j$ is a principle submatrix of $E_i\otimes E_j$, which has two distinct eigenvalues: $1$ and $0$. Therefore $E_i\otimes E_j$ is positive semi-definite and any principle submatrix must share the same property, forcing the eigenvalues of $E_i\circ E_j$ to be non-negative.
+	From equation \eqref{Emult}, we find that $\nicefrac{q_{ij}^0}{\vert X\vert},\dots,\nicefrac{q_{ij}^d}{\vert X\vert}$ are the eigenvalues of $E_i\circ E_j$. However $E_i\circ E_j\in BMA$ and thus it must be symmetric and therefore all eigenvalues are real. Further, $E_i\circ E_j$ is a principle submatrix of $E_i\otimes E_j$, which has two distinct eigenvalues: $1$ and $0$. Therefore $E_i\otimes E_j$ is positive semi-definite and any principle submatrix must share the same property, forcing the eigenvalues of $E_i\circ E_j$ to be non-negative.
 \end{proof}
 The final feasibility condition we will list here is known as the \emph{absolute bound}.
 \begin{lem}[\cite{Neumaier1981},Absolute bound]\label{absolute}
@@ -212,7 +244,7 @@ The final feasibility condition we will list here is known as the \emph{absolute
 	\end{cases}\]
 \end{lem}
 \begin{proof}
-	The sum on the left is the rank of $E_i\circ E_j$, a principle submatrix of $E_i\otimes E_j$ which has rank $m_im_j$. If $i=j$, $E_i\circ E_i$ is the entrywise square of $E_i$. Assume $\text{col}(E_i) = \text{span}(v_1,\dots,v_{m_i})$, then the columns of $E_i\circ E_i$ must be linear combinations of the vectors $v_j\circ v_k$ for $1\leq j\leq k\leq d$, a total of $\binom{m_i+1}{2}$ vectors.
+	The sum on the left is the rank of $E_i\circ E_j$, a principle submatrix of $E_i\otimes E_j$ which has rank $m_im_j$. If $i=j$, $E_i\circ E_j$ is the entrywise square of $E_i$. Assume $\text{col}(E_i) = \text{span}(v_1,\dots,v_{m_i})$, then the columns of $E_i\circ E_i$ must be linear combinations of the vectors $v_j\circ v_k$ for $1\leq j\leq k\leq d$, a total of $\binom{m_i+1}{2}$ vectors.
 \end{proof}
 \begin{definition}
 	A \emph{feasible parameter set} is a set of Krein parameters and intersection numbers such that:
@@ -222,20 +254,6 @@ The final feasibility condition we will list here is known as the \emph{absolute
 		\item[FC3:] For $m_j = q^0_{jj}$, the integers $0\leq m_j\leq d$ satisfy Lemma \ref{absolute}.
 	\end{itemize}
 \end{definition}
-\section{Parameter arrays}
-For a matrix $A$, we denote the entry in row $i$ and column $j$ as $\left[A\right]_{ij}$. We then define the \emph{arrays of intersection numbers} $L_0,\dots,L_d$ as $(d+1)\times(d+1)$ matrices where $\left[L_i\right]_{k,j} = p^k_{ij}$. We then define the vector space $\bbL = \text{span}\left\{L_0,\dots,L_d\right\}$ and note that Lemma \ref{intrels} $(vi)$ gives us that
-\[
-	\left[L_iL_j\right]_{m,k} = \sum_lp^m_{il}p^l_{jk} = \sum_{l}p^l_{ij}p^m_{lk} = \sum_l p^l_{ij}\left[L_l\right]_{m,k}
-\]
-for $0\leq m,k\leq d$. Therefore we find that this vector space forms a matrix algebra under matrix multiplication via
-\begin{equation}\label{Lprod}
-	L_iL_j = \sum_l p^l_{ij}L_l
-\end{equation}
-extended linearly. We therefore may define an algebra isomorphism $\phi:\BMA\rightarrow\bbL$ via the basis mapping $\phi(A_i) = L_i$. Note that this isomorphism preserves standard matrix multiplication, however entrywise multiplication need not be preserved. Likewise we define the \emph{arrays of Krein parameters} as $L_0^*,\dots,L_d^*$ with $\left[L_i^*\right]_{k,j} = q^k_{ij}$. This provides a dual vector space $\bbL^* = \text{span}\left\{L_0^*,\dots,L_d^*\right\}$ with Lemma \ref{kreinrels} $(vi)$ giving
-\begin{equation}\label{Lstarprod}
-	L_i^*L_j^* = \sum_{l}q^l_{ij}L_l^*.
-\end{equation}
-We then define a second algebra isomorphism, this time mapping entrywise products to matrix multiplication, $\phi^*:\BMA\rightarrow\bbL^*$ via the basis mapping $\phi^*(E_i) = \frac{1}{\vert X\vert}L_i^*$. We call $L_1$ the \emph{intersection matrix} and $L_1^*$ the \emph{Krein matrix} as these two matrices will become especially important for polynomial schemes (see Section \ref{ppoly} and \ref{qpoly}).
 \section{Imprimitivity}
 \section{Metric schemes}\label{ppoly}
 \section{Cometric schemes}\label{qpoly}
