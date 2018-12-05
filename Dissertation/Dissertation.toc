@@ -5,10 +5,8 @@
 \contentsline {section}{\numberline {2.3}Example Duality}{8}
 \contentsline {section}{\numberline {2.4}Feasibility and Realizability}{10}
 \contentsline {section}{\numberline {2.5}Imprimitivity}{12}
-\contentsline {section}{\numberline {2.6}Metric schemes}{15}
-\contentsline {section}{\numberline {2.7}Cometric schemes}{15}
-\contentsline {section}{\numberline {2.8}Strongly regular graphs--2-class association schemes}{16}
-\contentsline {section}{\numberline {2.9}Cometric Association Schemes}{17}
+\contentsline {section}{\numberline {2.6}Polynomial schemes}{15}
+\contentsline {section}{\numberline {2.7}Further background for cometric schemes}{18}
 \contentsline {chapter}{\numberline {3}PSD cone}{20}
 \contentsline {chapter}{\numberline {4}Sch\"{o}nberg's Theorem for Association Schemes}{21}
 \contentsline {section}{\numberline {4.1}Gegenbauer Polynomials}{23}
