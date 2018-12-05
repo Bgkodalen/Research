@@ -123,11 +123,11 @@ def parameterlist():
         #+selectedschemes[scheme]['exists']
         schemelist = sortedlist([scheme for scheme in schemelist])
     
-    def sortThird(val):
-        return val[2]
-    if numclasses.get()==4 and imprim.get() == 'bipartite':
-        schemelist = [[selectedschemes[scheme]['P'][0,1],selectedschemes[scheme]['P'][2,1]] for scheme in schemelist if selectedschemes[scheme]['P'][3,1] == -3]
-        schemelist.sort()
+    #def sortThird(val):
+    #    return val[2]
+    #if numclasses.get()==4 and imprim.get() == 'bipartite':
+    #    schemelist = [[selectedschemes[scheme]['P'][0,1],selectedschemes[scheme]['P'][2,1]] for scheme in schemelist if selectedschemes[scheme]['P'][3,1] == -3]
+    #    schemelist.sort()
     return tuple(schemelist)
 
 

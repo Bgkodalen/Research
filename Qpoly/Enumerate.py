@@ -128,10 +128,11 @@ def generatelist(n,k0,k1):
             lowbnd = (-n**4+math.sqrt(n**8-4*k*n**6+6*k*n**4+k**2)+k)/(2*n**2)
         upbnd = (k-n**2)/(n**2+n)
         for r in range(int(lowbnd),int(upbnd)+1):
-            mu=int(r*s+k)
+            mu = int(r*s+k)
             v = int((k-r)*(k-s)/(k+r*s))
             f = int((n**2-1)*k*(k-s)/(mu*(r-s)))
             m = int((k-r)*(-s)/mu)
+            g = int((k+f*r)/(n**2))
             if ((k-r)*(k-s)) % (k+r*s) == 0: #Integral v
                 if ((k-r)*(n**2)) % mu == 0: #Integral m
                     if ((n**2-1)*k*(k-s)) % (mu*(r-s))==0: #Integral f
@@ -139,9 +140,12 @@ def generatelist(n,k0,k1):
                             if (k-r*n**2) %2 == 0: #p^1_21 is integral
                                 if (mu+n*(r-n))*(n+1) % (2*n) == 0: #p^1_11 is integral
                                     if 1+f<=m*(m+1)/2: #absolute bound
-                                        possible[k][r] = 1
-                                        if 15*n**4*(2*n**2-3)*r**2+(n**6-45*k*n**2+76*k)*n**2*r+k*(16*k+n**6)*(n**2-2)>=0:# New bound
-                                            newpossible[k][r]=1
+                                        if (1+f+g<g*(g+1)/2) or ((k+s)*r**2+2*r*(k-s**2)-s*(k+s)==0 and 1+f<g*(g+1)/2): #absolute bound
+                                            if v<=m*f: #absolute bound
+                                                if mu>=n*(r+n): #positive p^1_31
+                                                    possible[k][r] = 1
+                                                    if 15*n**4*(2*n**2-3)*r**2+(n**6-45*k*n**2+76*k)*n**2*r+k*(16*k+n**6)*(n**2-2)>=0:# New bound
+                                                        newpossible[k][r]=1
     posslist = [[k,r] for k in possible for r in possible[k]]
     newposslist = [[k,r] for k in newpossible for r in newpossible[k]]
     return posslist,newposslist

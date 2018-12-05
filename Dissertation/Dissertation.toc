@@ -7,7 +7,7 @@
 \contentsline {section}{\numberline {2.5}Imprimitivity}{12}
 \contentsline {section}{\numberline {2.6}Polynomial schemes}{15}
 \contentsline {section}{\numberline {2.7}Further background for cometric schemes}{18}
-\contentsline {chapter}{\numberline {3}PSD cone}{20}
+\contentsline {chapter}{\numberline {3}Positive semi-definite cone of an association scheme}{20}
 \contentsline {chapter}{\numberline {4}Sch\"{o}nberg's Theorem for Association Schemes}{21}
 \contentsline {section}{\numberline {4.1}Gegenbauer Polynomials}{23}
 \contentsline {section}{\numberline {4.2}Sch\"{o}nberg's Theorem}{25}
@@ -15,35 +15,34 @@
 \contentsline {section}{\numberline {4.3}Cometric Association Schemes}{34}
 \contentsline {subsection}{\numberline {4.3.1}$Q$-bipartite Association Schemes}{39}
 \contentsline {subsection}{\numberline {4.3.2}Example}{43}
-\contentsline {section}{\numberline {4.4}Application: 4-class $Q$-bipartite Schemes}{43}
-\contentsline {chapter}{\numberline {5}3-class $Q$-antipodal: LSSDs}{49}
-\contentsline {section}{\numberline {5.1}Introduction}{49}
-\contentsline {section}{\numberline {5.2}Homogeneous linked systems of symmetric designs}{50}
-\contentsline {subsection}{\numberline {5.2.1}Bounds for $w$}{54}
-\contentsline {section}{\numberline {5.3}Linked Simplices}{55}
-\contentsline {subsection}{\numberline {5.3.1}A geometric classification}{60}
-\contentsline {section}{\numberline {5.4}Connections to Other Structures in Euclidean Space}{61}
-\contentsline {subsection}{\numberline {5.4.1}Equiangular Lines}{61}
-\contentsline {subsection}{\numberline {5.4.2}Real Mutually Unbiased Bases}{63}
-\contentsline {section}{\numberline {5.5}Two Families}{63}
-\contentsline {subsection}{\numberline {5.5.1}Degenerate case}{63}
-\contentsline {subsection}{\numberline {5.5.2}Cameron-Seidel Scheme}{64}
-\contentsline {section}{\numberline {5.6}New examples with $v\not =2^m$}{67}
-\contentsline {subsection}{\numberline {5.6.1}Restrictions on the Parameters}{68}
-\contentsline {subsection}{\numberline {5.6.2}Hadamard Matrix Equivalence}{69}
-\contentsline {subsection}{\numberline {5.6.3}Constructing LSSDs from certain Real MUBs}{71}
-\contentsline {subsubsection}{Wocjan and Beth construction}{71}
-\contentsline {chapter}{\numberline {6}4-class $Q$-bipartite: Double covers of SRGs}{76}
-\contentsline {chapter}{\numberline {7}Connectivity of basis relations}{77}
-\contentsline {section}{\numberline {7.1}Overview}{77}
-\contentsline {section}{\numberline {7.2}Preliminary results}{78}
-\contentsline {subsection}{\numberline {7.2.1}Twins}{79}
-\contentsline {subsection}{\numberline {7.2.2}The graph homomorphism $\varphi _a$}{80}
-\contentsline {subsection}{\numberline {7.2.3}The decomposition $\{ I_a, U_a, W_a\}$ with respect to a basepoint $a$}{81}
-\contentsline {subsection}{\numberline {7.2.4}Comparing the view from multiple basepoints}{82}
-\contentsline {section}{\numberline {7.3}Proofs of the main theorem and its corollaries}{84}
-\contentsline {section}{\numberline {7.4}Further results on connectivity}{86}
-\contentsline {subsection}{\numberline {7.4.1}A spectral lemma}{87}
-\contentsline {subsection}{\numberline {7.4.2}Intervals and metric properties of $\Gamma $}{88}
-\contentsline {subsection}{\numberline {7.4.3}Small disconnecting sets}{89}
-\contentsline {chapter}{\numberline {A}Feasible parameter sets}{93}
+\contentsline {chapter}{\numberline {5}3-class $Q$-antipodal: LSSDs}{44}
+\contentsline {section}{\numberline {5.1}Introduction}{44}
+\contentsline {section}{\numberline {5.2}Homogeneous linked systems of symmetric designs}{45}
+\contentsline {subsection}{\numberline {5.2.1}Bounds for $w$}{49}
+\contentsline {section}{\numberline {5.3}Linked Simplices}{50}
+\contentsline {subsection}{\numberline {5.3.1}A geometric classification}{55}
+\contentsline {section}{\numberline {5.4}Connections to Other Structures in Euclidean Space}{56}
+\contentsline {subsection}{\numberline {5.4.1}Equiangular Lines}{56}
+\contentsline {subsection}{\numberline {5.4.2}Real Mutually Unbiased Bases}{58}
+\contentsline {section}{\numberline {5.5}Two Families}{58}
+\contentsline {subsection}{\numberline {5.5.1}Degenerate case}{58}
+\contentsline {subsection}{\numberline {5.5.2}Cameron-Seidel Scheme}{59}
+\contentsline {section}{\numberline {5.6}New examples with $v\not =2^m$}{62}
+\contentsline {subsection}{\numberline {5.6.1}Restrictions on the Parameters}{63}
+\contentsline {subsection}{\numberline {5.6.2}Hadamard Matrix Equivalence}{64}
+\contentsline {subsection}{\numberline {5.6.3}Constructing LSSDs from certain Real MUBs}{66}
+\contentsline {subsubsection}{Wocjan and Beth construction}{66}
+\contentsline {chapter}{\numberline {6}4-class $Q$-bipartite: Double covers of SRGs}{71}
+\contentsline {chapter}{\numberline {7}Connectivity of basis relations}{76}
+\contentsline {section}{\numberline {7.1}Overview}{76}
+\contentsline {section}{\numberline {7.2}Preliminary results}{77}
+\contentsline {subsection}{\numberline {7.2.1}Twins}{78}
+\contentsline {subsection}{\numberline {7.2.2}The graph homomorphism $\varphi _a$}{79}
+\contentsline {subsection}{\numberline {7.2.3}The decomposition $\{ I_a, U_a, W_a\}$ with respect to a basepoint $a$}{80}
+\contentsline {subsection}{\numberline {7.2.4}Comparing the view from multiple basepoints}{81}
+\contentsline {section}{\numberline {7.3}Proofs of the main theorem and its corollaries}{83}
+\contentsline {section}{\numberline {7.4}Further results on connectivity}{85}
+\contentsline {subsection}{\numberline {7.4.1}A spectral lemma}{86}
+\contentsline {subsection}{\numberline {7.4.2}Intervals and metric properties of $\Gamma $}{87}
+\contentsline {subsection}{\numberline {7.4.3}Small disconnecting sets}{88}
+\contentsline {chapter}{\numberline {A}Feasible parameter sets}{92}
