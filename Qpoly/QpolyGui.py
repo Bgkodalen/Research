@@ -116,7 +116,40 @@ def parameterlist():
     if SD.get():
         schemelist = [scheme for scheme in schemelist if sum(np.absolute(Qpoly.Gegproj(Qpoly.Lsm(selectedschemes[scheme]['P']))[0,1:(int(numdesign.get())+1)]))<tol]
     if equi.get():
-        schemelist = [scheme for scheme in schemelist if sum(Qpoly.Qm(selectedschemes[scheme]['P'])[0,:])-Qpoly.Qm(selectedschemes[scheme]['P']).max()<140]
+        newlist = []
+        tableexamples = []
+        optim = []
+        nearop = []
+        for scheme in schemelist:
+            use = 0
+            [a,success,examples] = Qpoly.Equiangular(Qpoly.Qm(selectedschemes[scheme]['P']))
+            if success:
+                for example in examples:
+                    if example[1]<example[2]**2 and example[0] > round(example[1]*(1-1/(example[2]**2))/(1-example[1]/(example[2]**2)))-2:
+                        use=1
+                        tableexamples.append([scheme, example[0],example[1],example[2],round(example[1]*(1-1/(example[2]**2))/(1-example[1]/(example[2]**2))-example[0])])
+                        if abs(round(example[1]*(1-1/(example[2]**2))/(1-example[1]/(example[2]**2))-example[0]))<1:
+                            optim.append([scheme, example[0],example[1],example[2]])
+                        else:
+                            nearop.append([scheme, example[0],example[1],example[2]])
+            if use:
+                newlist.append(scheme)
+        schemelist = [scheme for scheme in newlist]
+        f = open('schemetableop.txt','w')
+        g = open('schemetablenearop.txt','w')
+        halfop = len(optim)//2
+        for i in range(halfop):
+            f.write('$\\left<%s\\right>$ & %0.f & %0.f & %0.f & \qquad &$\\left<%s\\right>$ & %0.f & %0.f & %0.f \\\\\n' % (optim[i][0][1:-1],optim[i][1],optim[i][2],optim[i][3],optim[i+halfop][0][1:-1],optim[i+halfop][1],optim[i+halfop][2],optim[i+halfop][3]))
+        halfnear = len(nearop)//2
+        for i in range(halfnear):
+            g.write('$\\left<%s\\right>$ & %0.f & %0.f & %0.f & \qquad &$\\left<%s\\right>$ & %0.f & %0.f & %0.f \\\\\n' % (nearop[i][0][1:-1],nearop[i][1],nearop[i][2],nearop[i][3],nearop[i+halfnear][0][1:-1],nearop[i+halfnear][1],nearop[i+halfnear][2],nearop[i+halfnear][3]))
+        if len(optim) > halfop * 2:
+            f.write('$\\left<%s\\right>$ & %0.f & %0.f & %0.f \\\\\n' % (optim[-1][0][1:-1],optim[-1][1],optim[-1][2],optim[-1][3]))
+        if len(nearop)> halfnear *2:
+            g.write('$\\left<%s\\right>$ & %0.f & %0.f & %0.f \\\\\n' % (nearop[-1][0][1:-1],nearop[-1][1],nearop[-1][2],nearop[-1][3]))
+        f.close()
+        g.close()
+    #    schemelist = [scheme for scheme in schemelist if sum(Qpoly.Qm(selectedschemes[scheme]['P'])[0,:])-Qpoly.Qm(selectedschemes[scheme]['P']).max()<140]
     if len(schemelist) == 0:
         schemelist = ['None']
     else:

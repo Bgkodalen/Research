@@ -1,5 +1,121 @@
 \chapter{Positive semi-definite cone of an association scheme}\label{psdcone}
-Consider the following classic unsolved problem in Euclidean geometry (\cite{Haantjes1948},\cite{vanLint1966},\cite{Lemmens1973}): Given a fixed positive integer $n$, what is the maximum number of lines through the origin one may find in $\mathbb{R}^n$ such that the angle between any pair of distinct lines is $\theta$. Much progress has been made on this topic, (I know this is a major skip... I'll come back to this if we decide to keep it) including bounds arising from linear programming semi-definite programming (\cite{Barg2014}). An equivalent question is as follows: for a fixed positive integer $n$, what is the largest positive semi-definite matrix with rank $n$ which contains only the entries $1,\pm\cos(\theta)$.
+Consider the following classic unsolved problem in discrete geometry (\cite{Haantjes1948},\cite{vanLint1966},\cite{Lemmens1973}): Given a fixed positive integer $n$, what is the maximum number of lines through the origin one may find in $\mathbb{R}^n$ such that the angle between any pair of distinct lines is $\theta$. Over the past 70 years, researchers in both math and physics have developed the theory of these ``equiangular lines" (also ``equiangular tight frames"), finding upper bounds on the number of lines in any given dimension coming from tools such as linear programming \cite{Delsarte1975}, number theory \cite{Lemmens1973}, and more recently semi-definite programming \cite{Barg2014}. A related problem asks the question: How many orthonormal basis may we find in $\mathbb{R}^n$ such that the angle between vectors in distinct bases is fixed, called ``mutually unbiased bases" (see \cite{Delsarte1975}, \cite{Calderbank1997},\cite{Boykin2005}). While the complex analogue of both of these questions have had great interest in Quantum computing (\cite{Appleby2005},\cite{Grassl2008},\cite{Ivanovic1981},\cite{Wootters1989}), we restrict ourselves to the real cases in this document as our matrix algebras are all real.
 
-
+Both of the problems mentioned above are restricted versions of the more general question of finding spherical $t$-distance sets: sets of unit vectors in a fixed dimension with only $t$ distinct inner products arising between distinct vectors. In each case we may recast the problem to looking for large positive semi-definite matrices with a low rank, constant diagonal, and few distinct entries off the diagonal. More precisely, let $G$ be a $n\times n$ positive semi-definite matrix with rank $r$. Then we may find a $d\times n$ matrix $U$ such that $G = U^TU$; that is $G$ is the Gram matrix of the columns of $U$. If $G$ has a constant diagonal, then we may scale the columns of $U$ so that each column is a unit vector. Then the set of columns of $U$ gives a spherical $t$-distance set where $t$ is the number of unique entries off the diagonal of $G$. Now recall that a $d$-class association scheme results in a Bose-Mesner algebra which $d+1$ basis idempotents. These idempotents serve as the basis of the cone of positive semi-definite matrices inside our Bose-Mesner algebra. In this chapter we will examine this cone and display how we may build large spherical $t$-distance sets by taking linear combinations of subsets of the idempotents. We will build examples of equiangular lines meeting the maximum possible number of lines in the given dimensions, as well as provide a method for determining which sets of equiangular lines may be derived from a given scheme. Finally, we will introduce a second positive definite cone and use a result of Sch\"{o}nberg to prove this cone must be contained within our original cone. This results in new constraints on general association schemes which we will examine further in the Cometric case.
 \section{Cone of idempotents}
+Let $(X,\cR)$ be an association scheme with basis relations $A_0,\dots,A_d$ and orthogonal idempotents $E_0,\dots,E_d$. Since each $E_i$ is an idempotent matrix, it has spectrum $\left\{0,1\right\}$ and thus is positive semi-definite, denoted $E_i\succeq 0$. Further, let 
+\begin{equation}G = \sum_i\alpha_i E_i.\label{lincomb}\end{equation}
+Then we have $\text{spec}\left(G\right) = \left\{\alpha_0,\dots,\alpha_d\right\}$. Therefore $G\succeq 0$ if and only if $\alpha_i\geq 0$ for all $0\leq i\leq d$. Thus the \emph{positive semi-definite cone} of $(X,\cR)$ is the set of non-negative linear combinations of the idempotents $E_0,\dots,E_d$. Further, equation \eqref{lincomb} gives us that \begin{equation}\text{rank}\left(G\right) = \sum_{\alpha_i\neq 0} m_i.\label{rank}\end{equation}
+Finally, since $G\in\BMA$ we must have $G = \sum_i \beta_i A_i$ and thus there are at most $d$ unique values off the main diagonal, making $\frac{1}{\beta_0}G$ the Gram matrix of a spherical $t$ distance set where $t\leq d$. In Chapter $\ref{3class}$ we examine one type of cometric association scheme where the first idempotent, $E_1$, gives an interesting 3-distance set where, in the optimal case, the number of vectors scales as $\frac{1}{2}v^2$ for dimension $v$. In this same case we show that adding another idempotent, namely $E_0$, allows us to build large sets of real mutually unbiased bases by choosing $\alpha_0$ and $\alpha_1$ carefully so that the non-zero entries off the diagonal of $G$ have a constant modulus. Before moving to two examples coming from $3$-class primitive cometric association schemes, we note the following bound on the maximum number of equiangular lines in a given dimension known as the relative bound.
+\begin{thm}[\cite{vanLint1966}]\label{relbound}
+	Let $v_\alpha(n)$ be the maximum number of equiangular lines with inner products $\pm\alpha$ in $\mathbb{R}^n$. If $n<\alpha^{-2}$ then
+	\[v_\alpha(n)\leq\frac{r(1-\alpha^2)}{1-r\alpha^2}.\]
+\end{thm}
+We now examine two 3-class primitive association schemes to illustrate how we may build equiangular lines from these schemes. We note that in both cases the system of lines is extremal with respect to the given angle, however there are other angles where the upper bound is much higher. The first we will consider comes from the Halved 7-cube while the second corresponds to the Dual Polar space $B_3(2)$.
+\begin{example}
+	Consider the 3-class primitive association scheme given by the Halved 7-cube \cite{Brouwer1989}. This scheme is both metric and cometric with the following eigenmatrices
+	\[P = \left[\begin{array}{cccc}
+	1& 21& 35& 7\\
+	1& 9& -5& -5\\
+	1& 1& -5& 3\\
+	1& -3& 3& -1\\
+	\end{array}\right],\qquad  Q= \left[\begin{array}{cccc}
+	1& 7& 21& 35\\
+	1& 3& 1& -5\\
+	1& -1& -3& 3\\
+	1& -5& 9& -5\\
+	\end{array}\right].\]
+	Recall that $E_j = \frac{1}{\vert X\vert}\sum_{i}Q_{ji}A_i$ and consider
+	\[G = 16\left(E_1 + E_2\right).\]
+	We may then use the entries of $Q$ to replace each idempotent with the corresponding sum of adjacency matrices giving 
+	\[G = 7A_0 + A_1 -A_2+A_3.\]
+	Then $\frac{1}{7}G$ is the Gram matrix of $64$ lines in dimension $m_1+m_2 = 28$ with inner product $\frac{1}{7}$. Using the relative bound, we find that this is the optimal number of equiangular lines possible in dimension $28$ with an inner product of $\frac{1}{7}$.
+\end{example}
+\begin{example}
+	Consider the 3-class primitive cometric (and metric) association scheme known as the dual polar space $B_3(2)$. The first and second eigenmatrices are
+	\[P = \left[\begin{array}{cccc}
+	1& 14& 56& 64\\
+	1& 5& -2& -8\\
+	1& -1& -4& 4\\
+	1& -7& 14& -8\\
+	\end{array}\right],\qquad  Q= \left[\begin{array}{cccc}
+	1& 35& 84& 15\\
+	1& \nicefrac{25}{2}& -6& -\nicefrac{15}{2}\\
+	1& -\nicefrac{5}{4}& -6& \nicefrac{15}{4}\\
+	1& -\nicefrac{35}{8}& \nicefrac{21}{4}& -\nicefrac{15}{8}\\
+	\end{array}\right].\]
+	Consider the matrix
+	\[G = \frac{1}{45}\left(5E_0+8E_1 + 8E_2\right) = 9A_0 + A_1 +A_2-A_3.\]
+	Similar to before, $\frac{1}{9}G$ is the Gram matrix of $135$ lines in dimension $m_0+m_1+m_2 = 51$ with inner product $\frac{1}{9}$. Here, the relative bound tells us that optimal number of lines in dimension 51 with inner product $\frac{1}{9}$ is 136, thus this construction is within one line of being optimal.
+\end{example}
+\begin{comment}
+\begin{example}
+	Consider the 3-class primitive cometric association scheme coming from the Dual Kasami codes \cite{deCaen1999}. The first and second eigenmatrices are:
+	\[P = \left[\begin{array}{cccc}
+	1& 310& 527& 186\\
+	1& 70& -17& -17\\
+	1& 6& -17& 15\\
+	1& -10& 15& -17\\
+	\end{array}\right]\qquad  Q= \left[\begin{array}{cccc}
+	1& 31& 465& 527\\
+	1& 7& 9& -17\\
+	1& -1& -15& 15\\
+	1& -9& 25& -17\\
+	\end{array}\right].\]
+	Consider the matrix
+	\[G = \frac{1024}{496}\left(E_1 + E_2\right) = A_0 + \frac{1}{31}A_1 -\frac{1}{31}A_2+\frac{1}{31}A_3.\]
+	Similar to before, $G$ is the Gram matrix of $1024$ lines in dimension $m_1+m_2 = 496$ with inner product $\frac{1}{31}$. Using the relative bound, we find that this is the optimal number of equiangular lines possible in dimension $496$ with an inner product of $\frac{1}{31}$.
+\end{example}
+\end{comment}
+In both of the examples above, we find linear combinations of the idempotents where the idempotent with largest multiplicity has coefficient 0. While we may allow ourselves to include this idempotent, doing so often results in line-sets which are far from optimal. Let us consider the case in general.
+
+\begin{lem}\label{equilines}
+Let $(X,\cR)$ be a $d$-class association scheme with second eigenmatrix $Q$ and idempotents $E_0,E_1,\dots,E_d$ with multiplicities $m_0,m_1,\dots,m_d$. Let $Q^\prime$ be the $d\times (d+1)$ submatrix of $Q$ given by deleting row $0$. Let $y\in\mathbb{R}^d$ be any of the $2^d$ vectors with each entry given by $\pm 1$ and let $x$ be a solution of $Q^\prime x = y$ (if one exists). If $x$ contains no negative entries then
+\[G = \sum_{j=0}^dx_jE_j\]
+is the Gram matrix of $\vert X\vert$ equiangular lines in dimension $\displaystyle{\sum_{x_j\neq 0} m_j}$ where the inner product between any two vectors has modulus $\left(\displaystyle{\sum x_jm_j}\right)^{-1}$.
+\end{lem}
+\begin{proof}
+	Noting that $Q^\prime x = y$ we have the $d$ equations
+	\[Q_{i1}x_1 + \dots + Q_{id}x_d = c_i\]
+	for $1\leq i\leq d$ where each $c_i$ is either $1$ or $-1$.	Then
+	\[G = \sum_{j\neq i}x_jE_j = \frac{1}{\vert X\vert}\sum_{i=0}^{d}\left(\sum_{j=0}^dQ_{ij}A_i\right) = \frac{1}{\vert X\vert}\sum_{j=0}^d x_jm_jA_0 + \frac{1}{\vert X\vert}\sum_{i=1}^d c_iA_i.\]
+	Since $\vert c_i\vert = 1$ for each $1\leq i\leq d$, each off diagonal entry of $G$ has the same absolute value. Thus we may scale $G$ by its diagonal entry to obtain the Gram matrix of a set of equiangular unit vectors. Then the rank of $G$ is given by the sum of the ranks of each $E_j$ included in the sum and the inner product between pairs of unit vectors is the coefficient of $A_0$.
+\end{proof}
+The following results may be observed applying Lemma \ref{equilines} to the tables in \cite{Willifordtable}.
+\begin{table}
+	\begin{center}
+	Optimal constructions\\
+\begin{tabular}{l|c|c|ccl|c|c|c}
+	Label & $\vert X\vert$ & $n$ & $\nicefrac{1}{\alpha}$&&Label & $\vert X\vert$ & $n$ & $\nicefrac{1}{\alpha}$ \\\cline{1-4}\cline{6-9}
+$\left<64,7\right>^*$ & 64 & 28 & 7 & \qquad &$\left<1200,55\right>$ & 1200 & 110 & 11	\\ 
+$\left<64,9\right>^*$ & 64 & 36 & 9 & \qquad	&$\left<1200,109a\right>$ & 1200 & 110 & 11\\
+$\left<64,21\right>^*$ & 64 & 28 & 7 & \qquad &$\left<1344,79\right>$ & 1344 & 238 & 17 \\
+$\left<120,9\right>^*$ & 120 & 35 & 7 & \qquad &$\left<1456,90a\right>$ & 1456 & 195 & 15 \\
+$\left<120,14\right>^*$ & 120 & 35 & 7 &	\qquad &$\left<1456,97\right>$ & 1456 & 195 & 15 \\
+$\left<120,17a\right>^*$ & 120 & 35 & 7 &\qquad  &$\left<1520,49\right>$ & 1520 & 589 & 31 \\
+$\left<280,27a\right>$ & 280 & 63 & 9 &\qquad   &$\left<1520,56\right>$ & 1520 & 589 & 31 \\
+$\left<324,19a\right>$ & 324 & 171 & 19 &\qquad  &$\left<1596,55\right>$ & 1596 & 551 & 29\\
+$\left<344,42\right>$ & 344 & 43 & 7 & \qquad &$\left<2016,65\right>$ & 2016 & 651 & 31\\
+$\left<460,51\right>$ & 460 & 69 & 9 & \qquad &$\left<2160,119\right>$ & 2160 & 255 & 17\\
+$\left<540,44\right>$ & 540 & 99 & 11 & \qquad &$\left<2500,51\right>$ & 2500 & 1225 & 49\\
+$\left<540,49\right>$ & 540 & 99 & 11 & \qquad &$\left<2500,75\right>$ & 2500 & 1275 & 51 \\
+$\left<936,51\right>$ & 936 & 221 & 17 & \qquad &$\left<2016,62a\right>$ & 2016 & 651 & 31 \\
+$\left<936,51a\right>$ & 936 & 221 & 17 & \qquad &$\left<2160,119a\right>$ & 2160 & 255 & 17 \\
+$\left<1024,31\right>^*$ & 1024 & 496 & 31 & \qquad &$\left<2160,119b\right>$ & 2160 & 255 & 17 \\
+$\left<1024,33\right>$ & 1024 & 528 & 33 & \qquad &$\left<2500,51a\right>$ & 2500 & 1275 & 51 \\
+$\left<1024,66\right>^*$ & 1024 & 528 & 33 & \qquad 
+\end{tabular}\\\vspace{1cm}
+Near Optimal constructions\\
+\begin{tabular}{l|c|c|ccl|c|c|c}
+	Label & $\vert X\vert$ & $n$ &  $\nicefrac{1}{\alpha}$&&Label & $\vert X\vert$ & $n$ & $\nicefrac{1}{\alpha}$\\\cline{1-4}\cline{6-9}
+$\left<35,6\right>^*$ & 35 & 21 & 7 & \qquad &$\left<729,56\right>$ & 729 & 337 & 25\\
+$\left<135,35\right>^*$ & 135 & 51 & 9 & \qquad &$\left<923,70\right>$ & 923 & 143 & 13 \\
+$\left<279,30\right>$ & 279 & 63 & 9 & \qquad &$\left<1035,68\right>$ & 1035 & 185 & 15 \\
+$\left<319,28\right>$ & 319 & 88 & 11 & \qquad &$\left<1349,70\right>$ & 1349 & 285 & 19 \\
+$\left<377,28\right>$ & 377 & 117 & 13 & \qquad &$\left<1975,78\right>$ & 1975 & 475 & 25 \\
+$\left<527,30\right>$ & 527 & 187 & 17 & \qquad &$\left<2159,126\right>$ & 2159 & 255 & 17 \\
+$\left<527,30a\right>$ & 527 & 187 & 17 & \qquad &$\left<2759,88\right>$ & 2759 & 713 & 31 \\
+\end{tabular}
+\caption[Optimal and near-optimal constructions for equiangular lines using 3-class primitive cometric association schemes]{In these tables we give the sets of equiangular lines which may be built if the given parameter sets for 3-class primitive cometric association schemes are realizable. The first table contains the examples where the number of lines is optimal, while the second contains those which are within one line of optimality. Each parameter set is listed in Williford's online tables \cite{Willifordtable} using the designator in the far left column. For each set we list the number of lines $\vert X\vert$, dimension $n$, and the inverse of the inner product $\frac{1}{\alpha}$. The labels with stars correspond to realizable parameter sets.}
+\end{center}
+\end{table}

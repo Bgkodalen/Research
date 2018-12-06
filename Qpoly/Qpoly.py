@@ -121,6 +121,7 @@ def Equiangular(Q):
     numlines = sum(Q[0,:])
     A = np.array(Q[1:,goodindx],dtype='float')
     B = np.linalg.inv(A)
+    examples = []
     for innerprods in list(itertools.product([-1,1],repeat = d)):
         rank = sum(Q[0,goodindx])
         if sum(innerprods) == d:
@@ -134,10 +135,11 @@ def Equiangular(Q):
             if abs((ip-1)/2-np.rint((ip-1)/2))>tol:
                 success = 0
             string = string+ "%0.f lines in %0.f with angle 1/%0.3f using coeffs: %s\n" % (numlines, rank, np.dot(Q[0,goodindx],x),innerprods)
+            examples.append([round(numlines),round(rank),round(np.dot(Q[0,goodindx],x))])
     if len(string) == 0:
-        return ["No possible Equiangular lines",success]
+        return ["No possible Equiangular lines",success,examples]
     else:
-        return[string,success]
+        return [string,success,examples]
 
 
     
