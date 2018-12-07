@@ -31,17 +31,21 @@
 \contentsline {subsection}{\numberline {4.6.2}Hadamard Matrix Equivalence}{67}
 \contentsline {subsection}{\numberline {4.6.3}Constructing LSSDs from certain Real MUBs}{69}
 \contentsline {subsubsection}{Wocjan and Beth construction}{69}
-\contentsline {chapter}{\numberline {5}4-class $Q$-bipartite: Double covers of SRGs}{74}
-\contentsline {chapter}{\numberline {6}Connectivity of basis relations}{80}
-\contentsline {section}{\numberline {6.1}Overview}{80}
-\contentsline {section}{\numberline {6.2}Preliminary results}{81}
-\contentsline {subsection}{\numberline {6.2.1}Twins}{82}
-\contentsline {subsection}{\numberline {6.2.2}The graph homomorphism $\varphi _a$}{83}
-\contentsline {subsection}{\numberline {6.2.3}The decomposition $\{ I_a, U_a, W_a\}$ with respect to a basepoint $a$}{84}
-\contentsline {subsection}{\numberline {6.2.4}Comparing the view from multiple basepoints}{85}
-\contentsline {section}{\numberline {6.3}Proofs of the main theorem and its corollaries}{87}
-\contentsline {section}{\numberline {6.4}Further results on connectivity}{89}
-\contentsline {subsection}{\numberline {6.4.1}A spectral lemma}{90}
-\contentsline {subsection}{\numberline {6.4.2}Intervals and metric properties of $\Gamma $}{91}
-\contentsline {subsection}{\numberline {6.4.3}Small disconnecting sets}{92}
-\contentsline {chapter}{\numberline {A}Feasible parameter sets}{96}
+\contentsline {chapter}{\numberline {5}Antipodal double covers of regular graphs}{74}
+\contentsline {section}{\numberline {5.1}Intro -- Will be removed, only here as a marker}{74}
+\contentsline {section}{\numberline {5.2}Projective doubles of regular graphs}{74}
+\contentsline {section}{\numberline {5.3}Strongly regular graphs--a review}{77}
+\contentsline {section}{\numberline {5.4}4-class $Q$-bipartite association schemes}{78}
+\contentsline {chapter}{\numberline {6}Connectivity of basis relations}{83}
+\contentsline {section}{\numberline {6.1}Overview}{83}
+\contentsline {section}{\numberline {6.2}Preliminary results}{84}
+\contentsline {subsection}{\numberline {6.2.1}Twins}{85}
+\contentsline {subsection}{\numberline {6.2.2}The graph homomorphism $\varphi _a$}{86}
+\contentsline {subsection}{\numberline {6.2.3}The decomposition $\{ I_a, U_a, W_a\}$ with respect to a basepoint $a$}{87}
+\contentsline {subsection}{\numberline {6.2.4}Comparing the view from multiple basepoints}{88}
+\contentsline {section}{\numberline {6.3}Proofs of the main theorem and its corollaries}{90}
+\contentsline {section}{\numberline {6.4}Further results on connectivity}{92}
+\contentsline {subsection}{\numberline {6.4.1}A spectral lemma}{93}
+\contentsline {subsection}{\numberline {6.4.2}Intervals and metric properties of $\Gamma $}{94}
+\contentsline {subsection}{\numberline {6.4.3}Small disconnecting sets}{95}
+\contentsline {chapter}{\numberline {A}Feasible parameter sets}{99}
