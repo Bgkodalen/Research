@@ -165,7 +165,7 @@
 	A_i = \sum_{j} P_{ji} E_j,\qquad E_j = \frac{1}{\vert X\vert} \sum_{i} Q_{ij}A_i.
 	\end{equation}
 	We call $P$ and $Q$ the first and second eigenmatrices, noting that the eigenvalues of $A_i$ are given by column $i$ of $P$ and the ``dual eigenvalues" of $\vert X\vert E_j$, that is eigenvalues with respect to the Schur product, are given by column $j$ of $Q$. Let $\Delta_m=\text{diag}(m_0,m_1,\dots,m_d)$ and $\Delta_k=\text{diag}(k_0,k_1,\dots,k_d)$ and the following two relations hold for our eigenmatrices:
-	\begin{lem}[\cite{Brouwer1989}, First and second orthogonality relations] The matrices $P$ and $Q$ of an association scheme satisfy:
+	\begin{lem}[\cite{Brouwer1989}, First and second orthogonality relations] \label{orthorels}The matrices $P$ and $Q$ of an association scheme satisfy:
 		\begin{equation}
 		PQ = \vert X\vert I, \qquad \Delta_mP = Q^T\Delta_k
 		\end{equation}
@@ -304,11 +304,11 @@
 	0&1&0\\
 	1&0&0\\
 	\end{array}\right];\end{aligned}\]
-	\[P = \left[\begin{array}{cccc}
+	\[P = \left[\begin{array}{rrr}
 	1&3&2\\
 	1&0&-1\\
 	1&-3&2\\
-	\end{array}\right],\qquad Q = \left[\begin{array}{cccc}
+	\end{array}\right],\qquad Q = \left[\begin{array}{rrr}
 	1&4&1\\
 	1&0&-1\\
 	1&-2&1\\
@@ -394,11 +394,11 @@
 	1&0&1\\
 	\end{array}\right];
 	\end{aligned}\]
-	\[P = \left[\begin{array}{cccc}
+	\[P = \left[\begin{array}{rrr}
 	1&4&1\\
 	1&0&-1\\
 	1&-2&1\\
-	\end{array}\right],\qquad Q = \left[\begin{array}{cccc}
+	\end{array}\right],\qquad Q = \left[\begin{array}{rrr}
 	1&3&2\\
 	1&0&-1\\
 	1&-3&2\\
@@ -416,7 +416,7 @@
 		The Krein parameters of an association scheme must be non-negative real numbers.
 	\end{lem}
 	\begin{proof}
-		From equation \eqref{Emult}, we find that $\nicefrac{q_{ij}^0}{\vert X\vert},\dots,\nicefrac{q_{ij}^d}{\vert X\vert}$ are the eigenvalues of $E_i\circ E_j$. However $E_i\circ E_j\in \BMA$ and thus it must be symmetric and therefore all eigenvalues are real. Further, $E_i\circ E_j$ is a principle submatrix of $E_i\otimes E_j$, which has two distinct eigenvalues: $1$ and $0$. Therefore $E_i\otimes E_j$ is positive semi-definite and any principle submatrix must share the same property, forcing the eigenvalues of $E_i\circ E_j$ to be non-negative.
+		From equation \eqref{Emult}, we find that $\nicefrac{q_{ij}^0}{\vert X\vert},\dots,\nicefrac{q_{ij}^d}{\vert X\vert}$ are the eigenvalues of $E_i\circ E_j$. However $E_i\circ E_j\in \BMA$ and thus it must be symmetric and therefore all eigenvalues are real. Further, $E_i\circ E_j$ is a principle submatrix of $E_i\otimes E_j$, which has two distinct eigenvalues: $1$ and $0$. Therefore $E_i\otimes E_j$ is positive semidefinite and any principle submatrix must share the same property, forcing the eigenvalues of $E_i\circ E_j$ to be non-negative.
 	\end{proof}
 	The final feasibility condition we will list here is known as the \emph{absolute bound}.
 	\begin{lem}[\cite{Neumaier1981},Absolute bound]\label{absolute}

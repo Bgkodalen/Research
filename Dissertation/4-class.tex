@@ -1,5 +1,10 @@
 \chapter{4-class $Q$-bipartite: Double covers of SRGs}
 \label{4classbip}
+\begin{restatable*}{thm}{fourclasssixzero}\label{thm60}
+	Suppose we have a feasible parameter set for a $4$-class association scheme which is $Q$-bipartite but not $Q$-antipodal. Let $k=P_{01}$, $r=P_{21}$, and $s=P_{41}$ where $P$ is the first eigenmatrix using the natural ordering. Then the scheme is realizable only if $s=-n^2$ for some integer $n>1$ and
+	\[15n^4(2n^2-3)r^2 + (n^6-45kn^2+76k)n^2r+k(16k+n^6)(n^2-2)\geq 0.\]
+\end{restatable*}
+
 In this chapter we investigate the specific case of $4$-class $Q$-bipartite schemes. LeCompte et al.\ \cite{LeCompte2010} proved that real mutually unbiased bases are equivalent to 4-class $Q$-bipartite schemes which are also $Q$-antipodal. This extra system of imprimitivity arises as one of the quotient graphs is a union of cliques, the other being complete multipartite. Here, we will instead restrict ourselves to the case where our association schemes are not $Q$-antipodal thus assuming that both quotient graphs are connected. We will begin by showing that the parameters of any such scheme are determined completely by three integral parameters and then recast Theorem \ref{cometricbnds} in terms of these three parameters. Let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme with $Q$-polynomial ordering $E_0,E_1,\dots,E_4$ and natural ordering $A_0,A_1,\dots A_4$. We know from Theorem \ref{suzuki} that the quotient of $(X,\mathcal{R})$ has exactly two non-trivial relations and thus must be strongly regular. Let $(v,k,\lambda,\mu)$ be the parameters of the quotient strongly regular graph which contains $R_1$ as a subgraph. Let $k>r>s$ be the eigenvalues of this SRG with corresponding multiplicities $1$, $f$, and $g$. Since $(X,\mathcal{R})$ is not $Q$-antipodal, we must have $k>r$ and $s>-k$. The $Q$ matrix of this SRG will be
 \[\tilde{Q} = \left[\begin{array}{ccc}
 1 & f & g\\
@@ -10,13 +15,13 @@ We may use this information to build the first and second eigenmatrices of our $
 \begin{thm}
 	\label{Pmat}
 	Let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme with relations ordered naturally. Let the quotient SRG have $v$ vertices and spectrum $k^1,r^f,s^g$ with $k>r>s$. Then the first and second eigenmatrices are as follows:
-	\[P = \left[\begin{array}{ccccc}
+	\[P = \left[\begin{array}{crcrr}
 	1 & k & 2(v-1-k) & k & 1\\
 	1 & \frac{k}{n} & 0 & -\frac{k}{n} & -1\\
 	1 & r& -2(1+r) & r & 1\\
 	1 & -n & 0 & n & -1\\
 	1 & s & -2(s+1) & s & 1\\
-	\end{array}\right]\qquad Q = \left[\begin{array}{ccccc}
+	\end{array}\right]\qquad Q = \left[\begin{array}{crcrc}
 	1 & m & f & \frac{mk}{n^2} & g\\
 	1 & \frac{m}{n} & \frac{fr}{k}  & -\frac{m}{n} & \frac{gs}{k}\\
 	1 & 0 & \frac{f(r+1)}{k+1-v}  & 0& \frac{g(1+s)}{k+1-v}\\
@@ -27,7 +32,7 @@ We may use this information to build the first and second eigenmatrices of our $
 \end{thm}
 \begin{proof}
 	We begin by building all of $Q$ and then employ the use of our orthogonality properties. Note that column 0 of $Q$ comes by definition. From Theorem [\cite{Brouwer2003},\cite{Martin2007}], $Q_{1,1} = -Q_{3,1}\neq 0 = Q_{2,1}$, so we define $n = \frac{m}{Q_{1,1}} = -\frac{m}{Q_{3,1}}$ and column 1 is given. The first three entries of columns $2$ and $4$ follow from the parameters of our quotient scheme while the remaining two entries of each columns follow from Corollary \ref{evenpoly}. Finally column 3 may be found using the first orthogonality condition (specifically that $\displaystyle{\sum_j Q_{ij} = \vert X\vert\delta_{i0}}$). From here we have that 
-	\[Q = \left[\begin{array}{ccccc}
+	\[Q = \left[\begin{array}{crccc}
 	1 & m & f & v-m & g\\
 	1 & \frac{m}{n} & \frac{fr}{k}  & -\frac{m}{n} & \frac{gs}{k}\\
 	1 & 0 & \frac{f(r+1)}{k+1-v}  & 0& \frac{g(1+s)}{k+1-v}\\
@@ -37,7 +42,7 @@ We may use this information to build the first and second eigenmatrices of our $
 	matching our theorem in all but two places.	Since we have ordered the relations using the natural ordering, the valencies of our relations are given by $[1,k,2(v-1-k),k,1]$. This allows us to derive an expression for $q_{01}^1$ using \cite[Theorem.~2.3.2.]{Brouwer1989} which gives
 	\[q_{ij}^k = \frac{1}{\vert X\vert m_k}\sum_{l=0}^d\left(v_lQ_{li}Q_{lj}Q_{lk}\right)\]
 	where $m_k$ and $v_l$ are the multiplicities and valencies of the $k^\text{th}$ and $l^\text{th}$ relations respectively. We find that $q_{01}^1 = \frac{1}{2vm}\left(2m^2+\frac{2km^2}{n^2}\right)$, however we know from Theorem \ref{kreinidentities} that $q_{01}^1=1$, resulting in $\frac{km}{n^2} = v-m$. This completes our proof for the second eigenmatrix and we may use the second orthogonality condition to find $P$ noting that the first row of $P$ is the valencies of our relations. Thus
-	\[P = \left[\begin{array}{ccccc}
+	\[P = \left[\begin{array}{crcrr}
 	1 & k & 2(v-1-k) & k & 1\\
 	1 & \frac{k}{n} & 0 & -\frac{k}{n} & -1\\
 	1 & r& -2(1+r) & r & 1\\

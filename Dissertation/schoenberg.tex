@@ -391,12 +391,12 @@ We are now ready to prove the main theorem of this section, using Lemma \ref{nor
 \end{proof}
 \subsection*{Example}
 Consider the feasible parameter set with first and second eigenmatrices
-\[P = \left[\begin{array}{cccc}
+\[P = \left[\begin{array}{rrrr}
 1 & 100 & 240 & 100\\
 1 & 37 & -12 & -26\\
 1 & 2 & -12 & 9\\
 1 & -5 & 9 & -5
-\end{array}\right],\qquad Q = \left[\begin{array}{cccc}
+\end{array}\right],\qquad Q = \left[\begin{array}{rrrr}
 1 & 20 & 180 & 240\\
 1 & \nicefrac{37}{5} & \nicefrac{18}{5} & -12\\
 1 & -1 & -9 & 9\\
@@ -408,7 +408,7 @@ If realizable, the association scheme with this parameter set would be a 3-class
 Noting that
 \[\left(\prod_{\ell=2}^8\mu_\ell\right)\frac{18843}{40}\approx 0.00098<\frac{1}{441},\]
 we have that the conditions $\theta_{\ell j}\geq 0$ are vacuous for this parameter set whenever $\ell\geq 7$. Below we list $\theta_{\ell j}$ for $0\leq \ell\leq 6$ and $0\leq j\leq 3$, listing only the first two decimal places for readability:
-\[\left[\begin{array}{cccccccc}
+\[\left[\begin{array}{cccccrc}
 441 & 0 & 0 & 4.95 & 0.43 & -0.11 & 0.93 \\
 0 & 22.05 & 4.5 & 0.38 & 0.67 & 0.84 & 0.97 \\
 0 & 0 & 1.95 & 1.09 & 0.81 & 1 & 1.04 \\
@@ -646,13 +646,13 @@ Finally, we use our $Q$-bipartite property to simplify the expressions in Theore
 \end{proof}
 \subsection{Example}
 Consider the feasible parameter set with first and second eigenmatrices 
-\[P = \left[\begin{array}{ccccc}
+\[P = \left[\begin{array}{rrrrr}
 1 & 1116 & 7750 &1116 &1\\
 1 &186& 0 &-186& -1\\
 1 &24& -50& 24& 1\\
 1 &-6& 0 &6 &-1\\
 1 &-36& 70 &-36& 1\\
-\end{array}\right],\qquad Q = \left[\begin{array}{ccccc}
+\end{array}\right],\qquad Q = \left[\begin{array}{rrrrr}
 1 &156& 2976& 4836 &2015\\
 1 &26& 64 &-26& -65\\
 1 &0 &\nicefrac{-96}{5} &0 &\nicefrac{91}{5}\\
