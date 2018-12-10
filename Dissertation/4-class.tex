@@ -4,22 +4,22 @@
 
 \section{Projective doubles of regular graphs}
 
-Let $\Gamma$ be an undirected graph on $v$ vertices. A \emph{projective double} of $\Gamma$ is an antipodal (spherical) $4$-distance set, say $L = \left\{\pm \ell_1,\dots,\pm \ell_v\right\}$, such that there exists a mapping $\phi:L\rightarrow V\Gamma$ fulfilling the following properties:
+Let $\Gamma$ be an undirected graph on $v$ vertices. A \emph{projective double} of $\Gamma$ is an antipodal (spherical) $4$-distance set, say $L = \left\{\pm \ell_1,\dots,\pm \ell_v\right\}$ with inner products $A = \left\{\pm\left<\ell_i,\ell_j\right>\right\}$, such that there exists a mapping $\phi:L\rightarrow V\Gamma$ fulfilling the following properties:
 \begin{enumerate}[label=(\roman*)]
 	\item for all $i$, $\phi(\ell_i) = \phi(-\ell_i)$,
 	\item for $i\neq j$, $\phi(\ell_i) \sim \phi(\ell_j)$ implies $\ell_i\not\perp\ell_j$,
 	\item for $i\neq j$, $\phi(\ell_i) \not\sim \phi(\ell_j)$ implies $\ell_i\perp\ell_j$.
 \end{enumerate}
-Note that since $L$ is antipodal, the five possible inner products (including $1$) must be symmetric about $0$. That is, $\alpha$ is a possible distance if and only if $-\alpha$ is as well. Therefore the five possible distances must be $1>\alpha>0>-\alpha>-1$ for some $\alpha\in(0,1)$. Thus $\ell_i\not\perp \ell_j$ for $i\neq j$ implies $\left<\ell_i,\ell_j\right> = \pm\alpha$.
+Note that since $L$ is antipodal, the five possible inner products (including $1$) must be symmetric about $0$; that is, $\alpha\in A$ if and only if $-\alpha\in A$. Therefore the five possible distances must be $1>\alpha>0>-\alpha>-1$ for some $\alpha\in(0,1)$. Thus $\ell_i\not\perp \ell_j$ for $i\neq j$ implies $\left<\ell_i,\ell_j\right> = \pm\alpha$.
 
-We are initially interested in when such a projective double may exist, however this ends up being uninteresting if we allow any angle and any dimension. Consider the following proposition
+We are initially interested in when such a projective double may exist, however this ends up being uninteresting if we allow our dimension to be large enough.
 \begin{prop}\label{dirnaive}
 	For any simple graph $\Gamma$, there exists a projective double in $\mathbb{R}^{m}$ for some $m\leq \vert V\Gamma\vert$.
 \end{prop}
 \begin{proof}
-	Let $\Gamma = (V,E)$ be given. Now orient every edge of $\Gamma$ and define $e_i^+$ and $e_i^-$ so that $e_i = (e_i^-,e_i^+)$. Let $M$ be the matrix with rows indexed by vertices and columns indexed by edges such that
-	\[\left[M\right]_{ij} =\begin{cases} 1 &\text{ if }v_j = e_i^+\\
-	-1 &\text{ if }v_j = e_i^-\\
+	Let $\Gamma = \Gamma(V,E)$ be given. Now orient every edge of $\Gamma$ and define $e_i^+,e_i^-\in V$ so that $e_i = (e_i^-,e_i^+)$, thus $e_i$ points from vertex $e_i^-$ to $e_i^+$. Let $M$ be the matrix with rows indexed by vertices and columns indexed by edges such that
+	\[\left[M\right]_{ij} =\begin{cases} 1 &\text{ if }v_i = e_j^+\\
+	-1 &\text{ if }v_i = e_j^-\\
 	0 &\text{ otherwise. }
 	\end{cases}\]
 	Then we find 
@@ -28,7 +28,7 @@ We are initially interested in when such a projective double may exist, however 
 	1 & \text{ if } i\sim j,\\
 	0 & \text{ otherwise}
 	\end{cases}\]
-	where $k_i$ is the degree of vertex $i$. We therefore have correct interaction between distinct vectors, however unless $k_i$ is constant independent of $i$, these are not unit vectors. To solve this, let $k = \max_{i}(k_i)$ (the max degree of $\Gamma$) and define the diagonal matrix $D$ whose $i^\text{th}$ diagonal entry is $\sqrt{k-k_i}$. Then the matrix $N = \left[\begin{array}{c|c}
+	where $k_i$ is the degree of vertex $i$. Thus two distinct rows are orthogonal if and only if their corresponding vertices are non-adjacent. However unless $k_i$ is constant independent of $i$ (the graph is regular), the rows do not have the same norm. To solve this, let $k = \max_{i}(k_i)$ (the max degree of $\Gamma$) and define the diagonal matrix $D$ whose $i^\text{th}$ diagonal entry is $\sqrt{k-k_i}$. Then the matrix $N = \left[\begin{array}{c|c}
 	M & D
 	\end{array}\right]$ has the property that
 	\[\left[NN^T\right]_{ij} = \left[MM^T\right]_{ij} + (k-k_i)\delta_{ij} = \begin{cases}
@@ -36,42 +36,91 @@ We are initially interested in when such a projective double may exist, however 
 	1 & \text{ if } i\sim j,\\
 	0 & \text{ otherwise.}
 	\end{cases}\]
-	Thus the rows of $N$ along with their negatives result in a \emph{projective double} of $\Gamma$. Further the rank of $N$ is no larger than $\max\left\{\vert V\vert, \vert V\vert+\vert E\vert\right\} = \vert V\vert$.
+	Thus the rows of $N$, along with their negatives, result in a projective double of $\Gamma$. Further the rank of $N$ is no larger than $\max\left\{\vert V\vert, \vert V\vert+\vert E\vert\right\} = \vert V\vert$.
 \end{proof}
 \begin{cor}\label{regnaive}
 	For any regular graph $\Gamma$ with at least one edge, there exists a projective double in $\mathbb{R}^m$ for some $m\leq T$ where $T$ is the number of edges in any spanning forest.
 \end{cor}
 \begin{proof}
-	We follow the same idea as with Proposition \ref{dirnaive} however we note that since our graph is regular, the rows of $M$ with their negatives suffice to serve as our vectors. In this case, $\rank(M) \leq \text{min}\left\{\vert V\vert,\vert E\vert\right\}$. However, we can improve this substantially by noting the following: Consider any cycle $C$ in our graph and assume without loss of generality that $C = \left\{e_1,\dots,e_s\right\}$. Then the the corresponding columns of $M$ are linearly dependent, that is $M_{e_s} = \sum_{i=1}^{s-1}M_{e_{i}}$. Then reorder the columns of $M$ so that the first $T$ edges correspond to the edges of a spanning forest. Then including any column after these $T$ columns results in a linearly dependent set of columns, forcing $\text{rank}(M) \leq \text{min}\left\{\vert V\vert,T\right\}$. Further, since our graph cannot have any isolated vertices, we know $\vert T\vert\leq \vert V\vert$ and therefore $\text{rank}(M) \leq T$
+	We follow the same idea as with Proposition \ref{dirnaive} however we note that since our graph is regular and non-empty, the rows of $M$ with their negatives suffice to serve as our vectors. In this case, $\rank(M) \leq \text{min}\left\{\vert V\vert,\vert E\vert\right\}$. However, we can improve this substantially by noting the following: Consider any cycle $C$ in our graph and assume without loss of generality that $C = \left\{e_1,\dots,e_s\right\}$. Then the the corresponding columns of $M$ are linearly dependent, that is $\displaystyle{M_{e_s} = \sum_{i=1}^{s-1}M_{e_{i}}}$. Then reorder the columns of $M$ so that the first $T$ edges correspond to the edges of a spanning forest. Including any column after these $T$ columns results in a linearly dependent set of columns, forcing $\text{rank}(M) \leq \text{min}\left\{\vert V\vert,T\right\}$. Further, for any simple graph, $\vert T\vert\leq \vert V\vert$ and therefore $\text{rank}(M) \leq T$
 \end{proof}
 Proposition \ref{dirnaive} and corollary \ref{regnaive} provide upper bounds on the dimension necessary for a projective double to exist for a given graph. The following observation gives us a lower bound using the independence number of a graph $\alpha\left(\Gamma\right)$. That is, $\alpha\left(\Gamma\right)$ is the largest set of vertices in $\Gamma$ which are pairwise non-adjacent.
 \begin{prop}\label{cocliquebnd}
 	Let $\Gamma$ be a simple graph and $L$ be a projective double of $\Gamma$ in $\mathbb{R}^m$. Then $m\geq \alpha\left(\Gamma\right)$ where $\alpha\left(\Gamma\right)$ is the independence number of $\Gamma$.
 \end{prop}
 \begin{proof}
-	Assume we have a projective double of $\Gamma$ with $\phi(\ell_i) = i$ for each $1\leq i\leq\vert V\vert$. Let $\alpha = \alpha\left(\Gamma\right)$ and $S = \left\{i_1,\dots,i_\alpha\right\}$ be an independent set of maximal size. Then $\ell_i\perp\ell_j$ for each $i,j\in S$ with $i\neq j$. Thus $\left\{\ell_i,\dots,\ell_{i_\alpha}\right\}$ form a set of orthogonal vectors, forcing the dimension to be at least $\alpha$.
+	Assume we have a projective double of $\Gamma$ in $\mathbb{R}^m$ with $\phi(\pm\ell_i) = v_i$ for $1\leq i\leq\vert V\vert$. Let $\alpha = \alpha\left(\Gamma\right)$ and without loss of generality let $S = \left\{v_1,\dots,v_\alpha\right\}$ be an independent set. Then $\left\{\ell_1,\dots,\ell_\alpha\right\}$ is an orthonormal set, forcing $m\geq\alpha$.
 \end{proof}
-We therefore are interested in when we may achieve this lower bound. For example, consider the graph $C_4$. This is a regular graph and thus we may apply Corollary \ref{regnaive} to find that there exists a projective double in $\mathbb{R}^3$. In fact, the columns of the following matrix serve as one such projective double. 
+We are interested in when we may achieve this lower bound. For example, consider the graph $C_4$. This is a regular graph and thus we may apply Corollary \ref{regnaive} to find that there exists a projective double in $\mathbb{R}^3$. In fact, the columns of $U_1$ serve as one such projective double with $\alpha = \frac{1}{2}$. 
 \[U_1 = \left[\begin{array}{cccccccc}
 1 & -1 & \frac{1}{2} & -\frac{1}{2} & 0 & 0 &\frac{1}{2} &-\frac{1}{2}\\
 0 & 0 & \frac{\sqrt{3}}{2} & -\frac{\sqrt{3}}{2} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{12}}& \frac{1}{\sqrt{12}}\\
 0 & 0 & 0 & 0 & \sqrt{\frac{2}{3}} & -\sqrt{\frac{2}{3}} & \sqrt{\frac{2}{3}} & -\sqrt{\frac{2}{3}} \\			
 \end{array}\right]\]
-However, the maximum independent set in this graph has size $2$. Thus Proposition \ref{cocliquebnd} allows for the possibility of a projective double in $\mathbb{R}^2$. In fact, the columns of the following matrix give us exactly that.
+However, the maximum independent set in this graph has size $2$. Thus Proposition \ref{cocliquebnd} allows for the possibility of a projective double in $\mathbb{R}^2$. In fact, the columns of $U_2$ give us exactly that with $\alpha = \frac{\sqrt{2}}{2}$.
 \[U_2 = \left[\begin{array}{cccccccc}
 1 & -1 & 0 & 0 & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2}\\
 0 & 0 & 1 & -1 & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2}\\				
 \end{array}\right]\]
-Note that the rank of $U_1 = 3$, thus $U_1$ and $U_2$ are non-isomorphic representations. It is important to note here that, as one might expect, there are many graphs for which we cannot find a projective double in the dimension given by the independence number. In other words, Proposition \ref{cocliquebnd} if often not tight. To see an example, consider the following proposition
+To see the difference between $U_1$ and $U_2$, consider the graph $\Gamma_\alpha(L,E)$ where $(\ell_i,\ell_j)\in E$ if and only if $\left<\ell_i,\ell_j\right> = \alpha$. Then using the columns of $U_1$ as our projective double, we find that $\Gamma_{\frac{1}{2}}$ is given below
+\[\begin{tikzpicture}[shorten >=1pt,auto,node distance=2cm,
+thin,main node/.style = {circle,draw, inner sep = 0pt, minimum size = 15pt}]
+
+\node[main node,fill=white] (1) {1};
+\node[main node,fill=white] [right of = 1](2) {3};
+\node[main node,fill=white] [above of = 1](3) {7};
+\node[main node,fill=white] [above of =2](4) {5};
+\node[main node,fill=white] [right of =2](5) {2};
+\node[main node,fill=white] [right of = 5](6) {4};
+\node[main node,fill=white] [above of = 5](7) {8};
+\node[main node,fill=white] [above of =6](8) {6};
+\node at (3.1,2.5) (9) {$\Gamma_{\frac{1}{2}}$};
+
+\path[-]
+(1) edge node {} (2)
+edge node {} (3)
+(4) edge node {} (3)
+edge node {} (2)
+(5) edge node {} (6)
+edge node {} (7)
+(8) edge node {} (7)
+edge node {} (6);
+\end{tikzpicture}\]
+However if we instead consider $U_2$ as our projective design, then $\Gamma_{\frac{\sqrt{2}}{2}}$ is given by
+\[\begin{tikzpicture}[shorten >=1pt,auto,node distance=2cm,
+	thin,main node/.style = {circle,draw, inner sep = 0pt, minimum size = 15pt}]
+	
+	\node[main node,fill=white] (1) {1};
+	\node[main node,fill=white] [right of = 1](2) {5};
+	\node[main node,fill=white] [above of = 1](3) {7};
+	\node[main node,fill=white] [above of =2](4) {4};
+	
+	\node[main node,fill=white] [right of =2](5) {3};
+	\node[main node,fill=white] [right of = 5](6) {8};
+	\node[main node,fill=white] [above of = 5](7) {6};
+	\node[main node,fill=white] [above of =6](8) {2};
+	\node at (3.1,2.5) (9) {$\Gamma_{\frac{\sqrt{2}}{2}}$};
+	
+	\path[-]
+	(1) edge node {} (2)
+	edge node {} (3)
+	(4) edge node {} (3)
+	edge node {} (7)
+	(5) edge node {} (6)
+	edge node {} (2)
+	(8) edge node {} (7)
+	edge node {} (6);
+\end{tikzpicture}\]
+Thus $U_1$ and $U_2$ are non-isomorphic as their corresponding graphs are non-isomorphic double covers of $C_4$. We note here that the Gram matrix of $U_2$ generates a Bose-Mesner algebra, which is both $P$-polynomial and $Q$-polynomial, corresponding to the association scheme $C_8$; in a later section we will examine further when this occurs. As one might expect, there are many graphs for which we cannot find a projective double in the dimension given by the independence number. In other words, Proposition \ref{cocliquebnd} if often not tight. To see an example, consider the following proposition
 
 \begin{prop}
-	Let $\Gamma$ be a complete multipartite graph with $w$ parts of size $v$. Let $U$ be the matrix with columns corresponding to a projective double of $\Gamma$ where $\text{rank}\left(U\right) = \alpha\left(\Gamma\right) = v$. Then the columns of $U$ form a set of $w$ mutually unbiased bases in $\mathbb{R}^v$.\qed
+	Let $\Gamma$ be a complete multipartite graph with $w$ parts of size $v$. Let $U$ be the matrix with columns corresponding to a projective double of $\Gamma$ where $\text{rank}\left(U\right) = \alpha\left(\Gamma\right) = v$. Then a subset of the columns of $U$ form a set of $w$ mutually unbiased bases in $\mathbb{R}^v$.\qed
 \end{prop}
 \begin{proof}
-	Follow the same proof as in Proposition \ref{cocliquebnd}, noting that non orthogonal vectors must have a fixed inner product.
+	Follow the same proof as in Proposition \ref{cocliquebnd}, however only consider one line from each antipodal pair. Noting that non orthogonal vectors must have inner product $\pm\alpha$, the result is immediate.
 \end{proof}
 \begin{cor}
-	Let $\Gamma = K_{2\times t}$ for $t\neq 0\mod 4$. Then $\Gamma$ does not have a projective double in $\mathbb{R}^\alpha$ for $\alpha = \alpha\left(\Gamma\right)$.
+	Let $\Gamma = K_{2\times t}$ for $t\neq 0\mod 4$. $\Gamma$ does not have a projective double in $\mathbb{R}^\alpha$ for $\alpha = \alpha\left(\Gamma\right)$.
 \end{cor}
 \begin{proof}
 	If $K_{2\times t}$ had a bipartite double, then it would be a set of two mutually unbiased bases in $\mathbb{R}^t$. This is only possible when $t$ is a multiple of $4$.

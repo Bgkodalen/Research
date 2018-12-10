@@ -79,11 +79,11 @@ In this section, we refer a system of lines as \emph{optimal} if it achieves the
 	\end{array}\right],\qquad  Q= \left[\begin{array}{rrrr}
 	1& 35& 84& 15\\
 	1& \nicefrac{25}{2}& -6& -\nicefrac{15}{2}\\
-	1& -\nicefrac{5}{4}& -6& \nicefrac{15}{4}\\
+	1& \nicefrac{5}{4}& -6& \nicefrac{15}{4}\\
 	1& -\nicefrac{35}{8}& \nicefrac{21}{4}& -\nicefrac{15}{8}\\
 	\end{array}\right].\]
 	Consider the matrix
-	\[G = \frac{1}{45}\left(5E_0+8E_1 + 8E_2\right) = 9A_0 + A_1 +A_2-A_3.\]
+	\[G = 15E_0+24E_1 + 24E_2 = 9A_0 + A_1 +A_2-A_3.\]
 	Similar to before, $\frac{1}{9}G$ is the Gram matrix of $135$ lines in dimension $m_0+m_1+m_2 = 51$ with inner products $\pm\frac{1}{9}$. Here, the relative bound tells us that optimal number of lines in dimension 51 with these inner products is 136, thus this construction is near optimal.
 \end{example}
 \begin{comment}
@@ -119,9 +119,9 @@ Let $(X,\cR)$ be a $d$-class association scheme with second eigenmatrix $Q$ and 
 	\[Q_{i1}x_1 + \dots + Q_{id}x_d = c_i\]
 	for $1\leq i\leq d$ where each $c_i$ is either $1$ or $-1$.	Then
 	\[G = \sum_{j\neq i}x_jE_j = \frac{1}{\vert X\vert}\sum_{i=0}^{d}\left(\sum_{j=0}^dQ_{ij}A_i\right) = \frac{1}{\vert X\vert}\sum_{j=0}^d x_jm_jA_0 + \frac{1}{\vert X\vert}\sum_{i=1}^d c_iA_i.\]
-	Since $\vert c_i\vert = 1$ for each $1\leq i\leq d$, each off diagonal entry of $G$ has the same absolute value. Thus we may scale $G$ by its diagonal entry to obtain the Gram matrix of a set of equiangular unit vectors. Then the rank of $G$ is given by the sum of the ranks of each $E_j$ included in the sum and the inner product between pairs of unit vectors is the coefficient of $A_0$.
+	Since $\vert c_i\vert = 1$ for each $1\leq i\leq d$, each off diagonal entry of $G$ has the same absolute value. Thus we may scale $G$ by its diagonal entry to obtain the Gram matrix of a set of equiangular unit vectors. The rank of $G$ is the sum of the ranks of each $E_j$ with $x_j\neq 0$ while the inner product between distinct unit vectors is $\pm\left(\sum x_jQ_{0j}\right)^{-1}$.
 \end{proof}
-\begin{table}
+\begin{table}[H]
 We finish this section by applying Lemma \ref{equilines} to the tables in \cite{Willifordtable}.
 	\begin{center}
 	Optimal constructions\\
@@ -156,9 +156,27 @@ $\left<377,28\right>$ & 377 & 117 & 13 & \qquad &$\left<1975,78\right>$ & 1975 &
 $\left<527,30\right>$ & 527 & 187 & 17 & \qquad &$\left<2159,126\right>$ & 2159 & 255 & 17 \\
 $\left<527,30a\right>$ & 527 & 187 & 17 & \qquad &$\left<2759,88\right>$ & 2759 & 713 & 31 \\
 \end{tabular}
-\caption[Optimal and near-optimal constructions for equiangular lines using 3-class primitive cometric association schemes]{In these tables we give the sets of equiangular lines which may be built from the given 3-class primitive cometric scheme. Each parameter set is listed in \cite{Willifordtable} using the label in the far left column. For each set we list the number of lines $\vert X\vert$, dimension $n$, and the inverse of the inner product $\frac{1}{\alpha}$. The labels with stars correspond to realizable parameter sets.}
+\caption[Optimal and near-optimal constructions for equiangular lines using 3-class primitive cometric association schemes]{In these tables we give the sets of equiangular lines which may be built from the given 3-class primitive cometric scheme. Each parameter set is listed in \cite{Willifordtable} using the label in the far left column. For each set we list the number of lines $\vert X\vert$, dimension $n$, and the inverse of the inner product $\frac{1}{\alpha}$. The labels with stars correspond to parameter sets known to be realizable.}\label{optimalconst}
 \end{center}
-\end{table}\clearpage
+\end{table}
+\begin{thm}
+	For each near-optimal case listed in Table \ref{optimalconst} except for $\left<729,56\right>$, if the parameter set is realizable, we may extend the set of vectors by one to make it an optimal set.
+\end{thm}
+\begin{proof}
+	In each case, $G = c_0 E_0 + \sum_{j=1}^{d}c_jE_j$ for orthogonal idempotents $E_0,\dots,E_d$ and $E_0 = \frac{1}{\vert X\vert}J$. Therefore $G\mathbbm{1} = c_0\mathbbm{1}$ and we must have $\text{rank}(\left[\begin{array}{c|c}
+	G & c_0\mathbbm{1}
+	\end{array}\right]) = \text{rank}\left(G\right)$ since the last column is the sum of all previous columns. Similarly, we may augment our new matrix with an extra row by adding all previous rows together giving
+	\[G' = \left[\begin{array}{c|c}
+	G & c_0\mathbbm{1}\\\hline
+	c_0\mathbbm{1} & \vert X\vert c_0
+	\end{array}\right]\]
+	still with $\text{rank}(G') = \text{rank}(G)$. Finally, we may scale the last row and column each by $\sqrt{\vert X\vert c_0}$ without changing the rank, since this equates to multiplying a single vector in the set by a scaler. The resulting matrix is as follows
+	\[H = \left[\begin{array}{c|c}
+	G & \sqrt{\frac{c_0}{\vert X\vert}}\mathbbm{1}\\\hline
+	\sqrt{\frac{c_0}{\vert X\vert}}\mathbbm{1}^T & 1
+	\end{array}\right].\]
+	If $\sqrt{\frac{c_0}{\vert X\vert}} = \alpha$, then this corresponds to the Gram matrix of a set of $\vert X\vert+1$ equiangular vectors in the same dimension. Thus we must check that the coefficient of $E_0$ is $\vert X\vert\alpha^2$. We verify that this hold for every case except $\left<729,56\right>$. Note that this exceptional case is the only listed case where the relative bound is not an integer. That is, $\frac{337(1-\frac{1}{25^2})}{1-\frac{337}{25^2}} = \frac{4381}{6}\approx 730.167$. Since the bound concerns the maximum cardinality of a set, this results in an upper bound of 730. However even a set with 730 vectors in dimension 25 would not make this bound sharp--this is likely why this case fails.  
+\end{proof}
 \section{Gegenbauer Polynomials}
 In all that follows let $m$ be a fixed positive integer and define $\scR:=\bbR[x_1,\dots,x_m]$. A \emph{monomial} is defined as a (possibly empty) product of variables $x_1,\dots,x_m$ and given a monomial $t =\prod_{i=1}^{m}x_i^{d_i}$ ($d_i\in \bbZ^+$), the \emph{degree} of $t$ is defined as $\text{deg}(t) = \sum_i d_i$. A polynomial $f\in\scR$ may be represented uniquely as a (finite) linear combination of distinct monomials $f =\sum_i\alpha_it_i$ and $\text{deg}(f) = \max\left\{\text{deg}(t_i)\right\}$. For each variable $x_j$, we define the \emph{derivative with respect to $x_j$} of a monomial as $\frac{\partial}{\partial x_j}t = \frac{d_j}{x_j}t$ and extend the definition linearly for any polynomial in $\scR$. For $f\in \scR$, $f$ is \emph{homogeneous} if there exists some constant $d\in\bbZ^+$ such that $\text{deg}(t)=d$ for every monomial $t$ in $f$. Further, $f$ is \emph{harmonic} if $\Delta f = \sum_i \left(\frac{\partial}{\partial x_i}\circ\frac{\partial}{\partial x_i}\right)\left(f\right) = 0$. For $f\in\scR$ the principal ideal generated by $f$ $(f) = \left\{gf:g\in\scR\right\}$. We denote the cosets of this ideal by $[g]_f = \left\{h\in\scR: g-h\in(f)\right\}$ where we suppress the subscript if it is clear from the context. The quotient ring $\nicefrac{\scR}{(f)}$ is, of course, the set of equivalence classes $\left\{[g]_f:g\in\scR\right\}$ with the obvious operations. Let $S^{m-1}\subset \bbR^m$ be the $m-1$ dimensional sphere; we define the set of polynomials on the sphere as
 \[\text{Pol}(S^{m-1}):= \nicefrac{\scR}{\left(1-\sum_ix_i^2\right)}.\]
