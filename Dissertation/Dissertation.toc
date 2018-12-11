@@ -1,11 +1,11 @@
 \contentsline {chapter}{\numberline {1}Introduction}{2}
 \contentsline {chapter}{\numberline {2}Association schemes}{3}
 \contentsline {section}{\numberline {2.1}Bose-Mesner algebra}{5}
-\contentsline {section}{\numberline {2.2}Parameter arrays}{7}
+\contentsline {section}{\numberline {2.2}Parameter arrays}{8}
 \contentsline {section}{\numberline {2.3}Example Duality}{8}
-\contentsline {section}{\numberline {2.4}Feasibility and Realizability}{10}
+\contentsline {section}{\numberline {2.4}Feasibility and Realizability}{11}
 \contentsline {section}{\numberline {2.5}Imprimitivity}{12}
-\contentsline {section}{\numberline {2.6}Polynomial schemes}{15}
+\contentsline {section}{\numberline {2.6}Polynomial schemes}{16}
 \contentsline {section}{\numberline {2.7}Further background for cometric schemes}{18}
 \contentsline {chapter}{\numberline {3}Positive semidefinite cone of an association scheme}{20}
 \contentsline {section}{\numberline {3.1}Equiangular lines in $\mathbb {A}$}{23}
@@ -15,37 +15,36 @@
 \contentsline {section}{\numberline {3.4}Cometric Association Schemes}{38}
 \contentsline {subsection}{\numberline {3.4.1}$Q$-bipartite Association Schemes}{43}
 \contentsline {chapter}{\numberline {4}3-class $Q$-antipodal: LSSDs}{48}
-\contentsline {section}{\numberline {4.1}Introduction}{48}
-\contentsline {section}{\numberline {4.2}Homogeneous linked systems of symmetric designs}{49}
-\contentsline {subsection}{\numberline {4.2.1}Bounds for $w$}{53}
-\contentsline {section}{\numberline {4.3}Linked Simplices}{54}
-\contentsline {subsection}{\numberline {4.3.1}A geometric classification}{59}
-\contentsline {section}{\numberline {4.4}Connections to Other Structures in Euclidean Space}{60}
-\contentsline {subsection}{\numberline {4.4.1}Equiangular Lines}{60}
-\contentsline {subsection}{\numberline {4.4.2}Real Mutually Unbiased Bases}{62}
-\contentsline {section}{\numberline {4.5}Two Families}{62}
-\contentsline {subsection}{\numberline {4.5.1}Degenerate case}{62}
-\contentsline {subsection}{\numberline {4.5.2}Cameron-Seidel Scheme}{63}
-\contentsline {section}{\numberline {4.6}New examples with $v\not =2^m$}{66}
-\contentsline {subsection}{\numberline {4.6.1}Restrictions on the Parameters}{67}
-\contentsline {subsection}{\numberline {4.6.2}Hadamard Matrix Equivalence}{68}
-\contentsline {subsection}{\numberline {4.6.3}Constructing LSSDs from certain Real MUBs}{70}
+\contentsline {section}{\numberline {4.1}Homogeneous linked systems of symmetric designs}{49}
+\contentsline {subsection}{\numberline {4.1.1}Bounds for $w$}{53}
+\contentsline {section}{\numberline {4.2}Linked Simplices}{54}
+\contentsline {subsection}{\numberline {4.2.1}A geometric classification}{59}
+\contentsline {section}{\numberline {4.3}Connections to Other Structures in Euclidean Space}{60}
+\contentsline {subsection}{\numberline {4.3.1}Equiangular Lines}{60}
+\contentsline {subsection}{\numberline {4.3.2}Real Mutually Unbiased Bases}{62}
+\contentsline {section}{\numberline {4.4}Two Families}{62}
+\contentsline {subsection}{\numberline {4.4.1}Degenerate case}{62}
+\contentsline {subsection}{\numberline {4.4.2}Cameron-Seidel Scheme}{63}
+\contentsline {section}{\numberline {4.5}New examples with $v\not =2^m$}{66}
+\contentsline {subsection}{\numberline {4.5.1}Restrictions on the Parameters}{67}
+\contentsline {subsection}{\numberline {4.5.2}Hadamard Matrix Equivalence}{68}
+\contentsline {subsection}{\numberline {4.5.3}Constructing LSSDs from certain Real MUBs}{70}
 \contentsline {subsubsection}{Wocjan and Beth construction}{70}
 \contentsline {chapter}{\numberline {5}Antipodal double covers of regular graphs}{75}
 \contentsline {section}{\numberline {5.1}Intro -- Will be removed, only here as a marker}{75}
 \contentsline {section}{\numberline {5.2}Projective doubles of regular graphs}{75}
-\contentsline {section}{\numberline {5.3}Strongly regular graphs--a review}{79}
-\contentsline {section}{\numberline {5.4}4-class $Q$-bipartite association schemes}{79}
-\contentsline {chapter}{\numberline {6}Connectivity of basis relations}{85}
-\contentsline {section}{\numberline {6.1}Overview}{85}
-\contentsline {section}{\numberline {6.2}Preliminary results}{86}
-\contentsline {subsection}{\numberline {6.2.1}Twins}{87}
-\contentsline {subsection}{\numberline {6.2.2}The graph homomorphism $\varphi _a$}{88}
-\contentsline {subsection}{\numberline {6.2.3}The decomposition $\{ I_a, U_a, W_a\}$ with respect to a basepoint $a$}{89}
-\contentsline {subsection}{\numberline {6.2.4}Comparing the view from multiple basepoints}{90}
-\contentsline {section}{\numberline {6.3}Proofs of the main theorem and its corollaries}{92}
-\contentsline {section}{\numberline {6.4}Further results on connectivity}{94}
-\contentsline {subsection}{\numberline {6.4.1}A spectral lemma}{95}
-\contentsline {subsection}{\numberline {6.4.2}Intervals and metric properties of $\Gamma $}{96}
-\contentsline {subsection}{\numberline {6.4.3}Small disconnecting sets}{97}
-\contentsline {chapter}{\numberline {A}Feasible parameter sets}{101}
+\contentsline {section}{\numberline {5.3}Association schemes from projective doubles}{78}
+\contentsline {section}{\numberline {5.4}4-class $Q$-bipartite association schemes}{82}
+\contentsline {chapter}{\numberline {6}Connectivity of basis relations}{87}
+\contentsline {section}{\numberline {6.1}Overview}{87}
+\contentsline {section}{\numberline {6.2}Preliminary results}{88}
+\contentsline {subsection}{\numberline {6.2.1}Twins}{89}
+\contentsline {subsection}{\numberline {6.2.2}The graph homomorphism $\varphi _a$}{90}
+\contentsline {subsection}{\numberline {6.2.3}The decomposition $\{ I_a, U_a, W_a\}$ with respect to a basepoint $a$}{91}
+\contentsline {subsection}{\numberline {6.2.4}Comparing the view from multiple basepoints}{92}
+\contentsline {section}{\numberline {6.3}Proofs of the main theorem and its corollaries}{94}
+\contentsline {section}{\numberline {6.4}Further results on connectivity}{96}
+\contentsline {subsection}{\numberline {6.4.1}A spectral lemma}{97}
+\contentsline {subsection}{\numberline {6.4.2}Intervals and metric properties of $\Gamma $}{98}
+\contentsline {subsection}{\numberline {6.4.3}Small disconnecting sets}{99}
+\contentsline {chapter}{\numberline {A}Feasible parameter sets}{103}

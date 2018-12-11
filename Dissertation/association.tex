@@ -176,34 +176,40 @@
 	\begin{lem}[{\cite{Brouwer1989}}]\label{kitchensink} The parameters $p^\ell_{ij}$, $q^\ell_{ij}$, $k_i = p^0_{ii}$, $m_j = q^0_{jj}$, and the eigenmatrices $P$ and $Q$ satisfy:
 		\begin{multicols}{2}
 		\begin{enumerate}
-			\item[(i)] $p_{0j}^\ell = \delta_{j\ell}$,
-			\item[(ii)] $p^0_{ij} = \delta_{ij}k_i$,
-			\item[(iii)] $p^\ell_{ij} = p^\ell_{ji}$,
-			\item[(iv)] $p^\ell_{ij}k_\ell= p^j_{i\ell}k_j$,
-			\item[(v)] $\sum_jp^\ell_{ij} = k_j$,
-			\item[(vi)] $\sum_\ell p^\ell_{ij}p^m_{\ell h} = \sum_\ell p^m_{i\ell}p^\ell_{jh}$.
-			\item[(vii)] $P_{ij}P_{ih} = \sum_\ell p^\ell_{jh}P_{i\ell}$,
-			\item[(viii)] $P_{ji}Q_{hj} = \sum_\ell p_{i\ell}^hQ_{\ell j}$,
-			\item[(ix)] $\sum_{j}P_{ji} = \sum_{h}p^h_{hi}$,
-			\item[(x)] $P_{j0} = 1$,
-			\item[(xi)] $P_{0i} = k_i$,
-			\item[(xii)] $\sum_j m_jP_{ji}P_{jh} = \vert X\vert k_i\delta_{ih}$,
+			\item[(i)] $\displaystyle{p_{0j}^\ell = \delta_{j\ell}}$,
+			\item[(ii)] $\displaystyle{p^0_{ij} = \delta_{ij}k_i}$,
+			\item[(iii)] $\displaystyle{p^\ell_{ij} = p^\ell_{ji}}$,
+			\item[(iv)] $\displaystyle{p^\ell_{ij}k_\ell= p^j_{i\ell}k_j}$,
+			\item[(v)] $\displaystyle{\sum_jp^\ell_{ij} = k_j}$,
+			\item[(vi)] $\displaystyle{\sum_\ell p^\ell_{ij}p^m_{\ell h} = \sum_\ell p^m_{i\ell}p^\ell_{jh}}$.
+			\item[(vii)] $\displaystyle{P_{ij}P_{ih} = \sum_\ell p^\ell_{jh}P_{i\ell}}$,
+			\item[(viii)] $\displaystyle{P_{ji}Q_{hj} = \sum_\ell p_{i\ell}^hQ_{\ell j}}$,
+			\item[(ix)] $\displaystyle{\sum_{j}P_{ji} = \sum_{h}p^h_{hi}}$,
+			\item[(x)] $\displaystyle{P_{j0} = 1}$,
+			\item[(xi)] $\displaystyle{P_{0i} = k_i}$,
+			\item[(xii)] $\displaystyle{\sum_j m_jP_{ji}P_{jh} = \vert X\vert k_i\delta_{ih}}$,
+			\item[(xiii)] $\displaystyle{p^\ell_{ij} = \frac{1}{\vert X\vert k_\ell}\sum_{h=0}^d m_hP_{hi}P_{\ell j}P_{\ell k}}$
 				
-			\item[($i^\prime$)] $q^\ell_{0j} = \delta_{j\ell}$,
-			\item[($ii^\prime$)] $q^0_{ij} = \delta_{ij}m_j$,
-			\item[($iii^\prime$)] $q^{\ell}_{ij} = q^\ell_{ji}$,
-			\item[($iv^\prime$)] $q^\ell_{ij}m_\ell = q^j_{i\ell}m_j$,
-			\item[($v^\prime$)] $\sum_j q^\ell_{ij} = m_i$,
-			\item[($vi^\prime$)] $\sum_\ell q^\ell_{ij}q^{m}_{\ell k} = \sum_\ell q^m_{i\ell}q^\ell_{jk}$,
-			\item[($vii^\prime$)] $Q_{ij}Q_{ih} = \sum_{\ell}q^\ell_{jh}Q_{i\ell}$,
-			\item[($viii^\prime$)] $P_{ij}Q_{jh} = \sum_\ell q^i_{h\ell}P_{\ell j}$,
-			\item[($ix^\prime$)] $\sum_{j}Q_{ji} = \sum_{h}q^h_{hi}$,
-			\item[($x^\prime$)] $Q_{i0} = 1$,
-			\item[($xi^\prime$)] $Q_{0j} = m_j$,
-			\item[($xii^\prime$)] $\sum_j k_iQ_{ij}Q_{ih} = \vert X\vert m_j\delta_{jh}$,
+			\item[($i^\prime$)] $\displaystyle{q^\ell_{0j} = \delta_{j\ell}}$,
+			\item[($ii^\prime$)] $\displaystyle{q^0_{ij} = \delta_{ij}m_j}$,
+			\item[($iii^\prime$)] $\displaystyle{q^{\ell}_{ij} = q^\ell_{ji}}$,
+			\item[($iv^\prime$)] $\displaystyle{q^\ell_{ij}m_\ell = q^j_{i\ell}m_j}$,
+			\item[($v^\prime$)] $\displaystyle{\sum_j q^\ell_{ij} = m_i}$,
+			\item[($vi^\prime$)] $\displaystyle{\sum_\ell q^\ell_{ij}q^{m}_{\ell k} = \sum_\ell q^m_{i\ell}q^\ell_{jk}}$,
+			\item[($vii^\prime$)] $\displaystyle{Q_{ij}Q_{ih} = \sum_{\ell}q^\ell_{jh}Q_{i\ell}}$,
+			\item[($viii^\prime$)] $\displaystyle{P_{ij}Q_{jh} = \sum_\ell q^i_{h\ell}P_{\ell j}}$,
+			\item[($ix^\prime$)] $\displaystyle{\sum_{j}Q_{ji} = \sum_{h}q^h_{hi}}$,
+			\item[($x^\prime$)] $\displaystyle{Q_{i0} = 1}$,
+			\item[($xi^\prime$)] $\displaystyle{Q_{0j} = m_j}$,
+			\item[($xii^\prime$)] $\displaystyle{\sum_i k_iQ_{ij}Q_{ih} = \vert X\vert m_j\delta_{jh}}$,
+			\item[($xiii^\prime$)] $\displaystyle{q^\ell_{ij} = \frac{1}{\vert X\vert m_\ell}\sum_{h=0}^d k_hQ_{hi}Q_{\ell j}Q_{\ell k}}$
+			
 		\end{enumerate}
 		\end{multicols}
 	\end{lem}
+\begin{proof}
+	For $(i)$, multiply both sides of Lemma \ref{kitchensink} $(vii)$ by $m_iP_h$, sum over $i$, and apply Lemma $\ref{kitchensink}$ $(xii)$; $(i')$ follows similarly.
+\end{proof}
 	\section{Parameter arrays}
 	For a matrix $A$, we denote the entry in row $i$ and column $j$ as $\left[A\right]_{ij}$. We define the \emph{arrays of intersection numbers} $L_0,\dots,L_d$ as $(d+1)\times(d+1)$ matrices where $\left[L_i\right]_{k,j} = p^k_{ij}$. We then define the vector space $\bbL = \text{span}\left\{L_0,\dots,L_d\right\}$ and note that Lemma \ref{kitchensink} $(vi)$ gives us that
 	\[

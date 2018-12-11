@@ -4,17 +4,14 @@
 
 \section{Projective doubles of regular graphs}
 
-Let $\Gamma$ be an undirected graph on $v$ vertices. A \emph{projective double} of $\Gamma$ is an antipodal (spherical) $4$-distance set, say $L = \left\{\pm \ell_1,\dots,\pm \ell_v\right\}$ with inner products $A = \left\{\pm\left<\ell_i,\ell_j\right>\right\}$, such that there exists a mapping $\phi:L\rightarrow V\Gamma$ fulfilling the following properties:
+Let $\Gamma$ be an undirected graph on $v$ vertices. A \emph{projective double} of $\Gamma$ is an antipodal (spherical) $4$-distance set, say $L = \left\{\ell_1,\dots,\ell_{2v}\right\}$ with inner products $A = \left\{1,\alpha,0,-\alpha,-1\right\}$, such that there exists a mapping $\phi:L\rightarrow V\Gamma$ fulfilling
 \begin{enumerate}[label=(\roman*)]
-	\item for all $i$, $\phi(\ell_i) = \phi(-\ell_i)$,
-	\item for $i\neq j$, $\phi(\ell_i) \sim \phi(\ell_j)$ implies $\ell_i\not\perp\ell_j$,
-	\item for $i\neq j$, $\phi(\ell_i) \not\sim \phi(\ell_j)$ implies $\ell_i\perp\ell_j$.
+	\item $\phi(\ell_i) = \phi(\ell_j)$ if and only if $\left\vert\left<\ell_i,\ell_j\right>\right\vert = 1$,
+	\item $\phi(\ell_i) \sim \phi(\ell_j)$ if and only if $\left\vert\left<\ell_i,\ell_j\right>\right\vert = \alpha$
 \end{enumerate}
-Note that since $L$ is antipodal, the five possible inner products (including $1$) must be symmetric about $0$; that is, $\alpha\in A$ if and only if $-\alpha\in A$. Therefore the five possible distances must be $1>\alpha>0>-\alpha>-1$ for some $\alpha\in(0,1)$. Thus $\ell_i\not\perp \ell_j$ for $i\neq j$ implies $\left<\ell_i,\ell_j\right> = \pm\alpha$.
-
-We are initially interested in when such a projective double may exist, however this ends up being uninteresting if we allow our dimension to be large enough.
+for $1\leq i,j\leq 2v$. Since the inner products are determined by a single parameter $\alpha$, we will often say $L$ is a projective double of $\Gamma$ with inner product $\alpha$. Note that $(ii)$ implies that for vertices $v,w\in V\Gamma$, $v\not\sim w$ implies $\phi^{-1}(v)$ and $\phi^{-1}(w)$ are orthogonal sets. We initially consider when such projective doubles may exist, however this ends up being uninteresting if we allow our dimension to be large enough.
 \begin{prop}\label{dirnaive}
-	For any simple graph $\Gamma$, there exists a projective double in $\mathbb{R}^{m}$ for some $m\leq \vert V\Gamma\vert$.
+	For any non-empty simple graph $\Gamma$, there exists a projective double in $\mathbb{R}^{m}$ for some $m\leq \vert V\Gamma\vert$ with $\alpha = d^{-1}$ with $d$ the max degree of $\Gamma$.
 \end{prop}
 \begin{proof}
 	Let $\Gamma = \Gamma(V,E)$ be given. Now orient every edge of $\Gamma$ and define $e_i^+,e_i^-\in V$ so that $e_i = (e_i^-,e_i^+)$, thus $e_i$ points from vertex $e_i^-$ to $e_i^+$. Let $M$ be the matrix with rows indexed by vertices and columns indexed by edges such that
@@ -28,21 +25,21 @@ We are initially interested in when such a projective double may exist, however 
 	1 & \text{ if } i\sim j,\\
 	0 & \text{ otherwise}
 	\end{cases}\]
-	where $k_i$ is the degree of vertex $i$. Thus two distinct rows are orthogonal if and only if their corresponding vertices are non-adjacent. However unless $k_i$ is constant independent of $i$ (the graph is regular), the rows do not have the same norm. To solve this, let $k = \max_{i}(k_i)$ (the max degree of $\Gamma$) and define the diagonal matrix $D$ whose $i^\text{th}$ diagonal entry is $\sqrt{k-k_i}$. Then the matrix $N = \left[\begin{array}{c|c}
+	where $k_i$ is the degree of vertex $i$. Thus two distinct rows are orthogonal if and only if their corresponding vertices are non-adjacent. However unless $k_i$ is constant independent of $i$ (the graph is regular), the rows do not have the same norm. To solve this, let $d = \max_{i}(k_i)$ (the max degree of $\Gamma$) and define the diagonal matrix $D$ whose $i^\text{th}$ diagonal entry is $\sqrt{d-k_i}$. Then the matrix $N = \left[\begin{array}{c|c}
 	M & D
 	\end{array}\right]$ has the property that
 	\[\left[NN^T\right]_{ij} = \left[MM^T\right]_{ij} + (k-k_i)\delta_{ij} = \begin{cases}
-	k & \text{ if }i=j,\\
+	d & \text{ if }i=j,\\
 	1 & \text{ if } i\sim j,\\
 	0 & \text{ otherwise.}
 	\end{cases}\]
-	Thus the rows of $N$, along with their negatives, result in a projective double of $\Gamma$. Further the rank of $N$ is no larger than $\max\left\{\vert V\vert, \vert V\vert+\vert E\vert\right\} = \vert V\vert$.
+	Thus the rows of $\frac{1}{\sqrt{d}}N$, along with their negatives, result in a projective double of $\Gamma$ with inner product $\frac{1}{d}$. Further the rank of $N$ is no larger than $\max\left\{\vert V\vert, \vert V\vert+\vert E\vert\right\} = \vert V\vert$.
 \end{proof}
 \begin{cor}\label{regnaive}
-	For any regular graph $\Gamma$ with at least one edge, there exists a projective double in $\mathbb{R}^m$ for some $m\leq T$ where $T$ is the number of edges in any spanning forest.
+	For any regular graph $\Gamma$ with at least one edge, there exists a projective double in $\mathbb{R}^m$ with inner product $\frac{1}{k}$ for some $m\leq T$ where $k$ is the regularity and $T$ is the number of edges in any spanning forest.
 \end{cor}
 \begin{proof}
-	We follow the same idea as with Proposition \ref{dirnaive} however we note that since our graph is regular and non-empty, the rows of $M$ with their negatives suffice to serve as our vectors. In this case, $\rank(M) \leq \text{min}\left\{\vert V\vert,\vert E\vert\right\}$. However, we can improve this substantially by noting the following: Consider any cycle $C$ in our graph and assume without loss of generality that $C = \left\{e_1,\dots,e_s\right\}$. Then the the corresponding columns of $M$ are linearly dependent, that is $\displaystyle{M_{e_s} = \sum_{i=1}^{s-1}M_{e_{i}}}$. Then reorder the columns of $M$ so that the first $T$ edges correspond to the edges of a spanning forest. Including any column after these $T$ columns results in a linearly dependent set of columns, forcing $\text{rank}(M) \leq \text{min}\left\{\vert V\vert,T\right\}$. Further, for any simple graph, $\vert T\vert\leq \vert V\vert$ and therefore $\text{rank}(M) \leq T$
+	We follow the same proof as with Proposition \ref{dirnaive} however we note that since our graph is regular and non-empty, the rows of $M$ with their negatives all have the same norm. Thus the normalized rows suffice to serve as our projective double with inner product $\frac{1}{k}$. In this case, we have immediately that $\rank(M) \leq \text{min}\left\{\vert V\vert,\vert E\vert\right\}$. However, consider any cycle $C$ in our graph and assume without loss of generality that $C = \left\{e_1,\dots,e_s\right\}$. Then, replacing a column with its negative if necessary, $\displaystyle{M_{e_s} = \sum_{i=1}^{s-1}M_{e_{i}}}$ and thus these columns are linearly dependent. Then reorder the columns of $M$ so that the first $T$ edges correspond to the edges of a spanning forest. Including any column after these $T$ columns results in a linearly dependent set of columns, forcing $\text{rank}(M) \leq \text{min}\left\{\vert V\vert,T\right\}$. Further, for any nonempty regular graph, $\vert T\vert\leq \vert V\vert$ and therefore $\text{rank}(M) \leq T$
 \end{proof}
 Proposition \ref{dirnaive} and corollary \ref{regnaive} provide upper bounds on the dimension necessary for a projective double to exist for a given graph. The following observation gives us a lower bound using the independence number of a graph $\alpha\left(\Gamma\right)$. That is, $\alpha\left(\Gamma\right)$ is the largest set of vertices in $\Gamma$ which are pairwise non-adjacent.
 \begin{prop}\label{cocliquebnd}
@@ -51,29 +48,31 @@ Proposition \ref{dirnaive} and corollary \ref{regnaive} provide upper bounds on 
 \begin{proof}
 	Assume we have a projective double of $\Gamma$ in $\mathbb{R}^m$ with $\phi(\pm\ell_i) = v_i$ for $1\leq i\leq\vert V\vert$. Let $\alpha = \alpha\left(\Gamma\right)$ and without loss of generality let $S = \left\{v_1,\dots,v_\alpha\right\}$ be an independent set. Then $\left\{\ell_1,\dots,\ell_\alpha\right\}$ is an orthonormal set, forcing $m\geq\alpha$.
 \end{proof}
-We are interested in when we may achieve this lower bound. For example, consider the graph $C_4$. This is a regular graph and thus we may apply Corollary \ref{regnaive} to find that there exists a projective double in $\mathbb{R}^3$. In fact, the columns of $U_1$ serve as one such projective double with $\alpha = \frac{1}{2}$. 
-\[U_1 = \left[\begin{array}{cccccccc}
+We are interested in when we may achieve this lower bound.
+\begin{example}\label{doublecoverc4}
+Consider the graph $C_4$. This is a regular graph with 3 edges in any spanning tree, thus Corollary \ref{regnaive} tells us there exists a projective double in $\mathbb{R}^3$ with inner product $\frac{1}{2}$. In fact, the columns of $U_1$ serve as one such projective double with $\alpha = \frac{1}{2}$. 
+\[U_1 = \left[\begin{array}{crcccccc}
 1 & -1 & \frac{1}{2} & -\frac{1}{2} & 0 & 0 &\frac{1}{2} &-\frac{1}{2}\\
 0 & 0 & \frac{\sqrt{3}}{2} & -\frac{\sqrt{3}}{2} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{12}}& \frac{1}{\sqrt{12}}\\
 0 & 0 & 0 & 0 & \sqrt{\frac{2}{3}} & -\sqrt{\frac{2}{3}} & \sqrt{\frac{2}{3}} & -\sqrt{\frac{2}{3}} \\			
 \end{array}\right]\]
-However, the maximum independent set in this graph has size $2$. Thus Proposition \ref{cocliquebnd} allows for the possibility of a projective double in $\mathbb{R}^2$. In fact, the columns of $U_2$ give us exactly that with $\alpha = \frac{\sqrt{2}}{2}$.
-\[U_2 = \left[\begin{array}{cccccccc}
+However, the maximum independent set in this graph has size $2$ and thus Proposition \ref{cocliquebnd} allows for the possibility of a projective double in $\mathbb{R}^2$. While it is not hard to show that we cannot find a projective double in $\mathbb{R}^2$ with inner product $\frac{1}{2}$, we may change the inner product to $\frac{1}{\sqrt{2}}$ and find an example. In fact, the columns of $U_2$ give us exactly that.
+\[U_2 = \left[\begin{array}{crcrcccc}
 1 & -1 & 0 & 0 & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2}\\
 0 & 0 & 1 & -1 & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2}\\				
 \end{array}\right]\]
-To see the difference between $U_1$ and $U_2$, consider the graph $\Gamma_\alpha(L,E)$ where $(\ell_i,\ell_j)\in E$ if and only if $\left<\ell_i,\ell_j\right> = \alpha$. Then using the columns of $U_1$ as our projective double, we find that $\Gamma_{\frac{1}{2}}$ is given below
+To see the difference between $U_1$ and $U_2$, consider the graph $\Gamma_\alpha(L,E)$ with $(\ell_i,\ell_j)\in E$ if and only if $\left<\ell_i,\ell_j\right> = \alpha$. Using the columns of $U_1$ as our projective double, we find that $\Gamma_{\frac{1}{2}}$ is given below where $v_i$ represents the $i^\text{th}$ column of $U_1$.
 \[\begin{tikzpicture}[shorten >=1pt,auto,node distance=2cm,
 thin,main node/.style = {circle,draw, inner sep = 0pt, minimum size = 15pt}]
 
-\node[main node,fill=white] (1) {1};
-\node[main node,fill=white] [right of = 1](2) {3};
-\node[main node,fill=white] [above of = 1](3) {7};
-\node[main node,fill=white] [above of =2](4) {5};
-\node[main node,fill=white] [right of =2](5) {2};
-\node[main node,fill=white] [right of = 5](6) {4};
-\node[main node,fill=white] [above of = 5](7) {8};
-\node[main node,fill=white] [above of =6](8) {6};
+\node[main node,fill=white] (1) {$v_1$};
+\node[main node,fill=white] [right of = 1](2) {$v_3$};
+\node[main node,fill=white] [above of = 1](3) {$v_7$};
+\node[main node,fill=white] [above of =2](4) {$v_5$};
+\node[main node,fill=white] [right of =2](5) {$v_2$};
+\node[main node,fill=white] [right of = 5](6) {$v_4$};
+\node[main node,fill=white] [above of = 5](7) {$v_8$};
+\node[main node,fill=white] [above of =6](8) {$v_6$};
 \node at (3.1,2.5) (9) {$\Gamma_{\frac{1}{2}}$};
 
 \path[-]
@@ -86,19 +85,19 @@ edge node {} (7)
 (8) edge node {} (7)
 edge node {} (6);
 \end{tikzpicture}\]
-However if we instead consider $U_2$ as our projective design, then $\Gamma_{\frac{\sqrt{2}}{2}}$ is given by
+However if we instead consider $U_2$ as our projective design, $\Gamma_{\frac{\sqrt{2}}{2}}$ is given by
 \[\begin{tikzpicture}[shorten >=1pt,auto,node distance=2cm,
 	thin,main node/.style = {circle,draw, inner sep = 0pt, minimum size = 15pt}]
 	
-	\node[main node,fill=white] (1) {1};
-	\node[main node,fill=white] [right of = 1](2) {5};
-	\node[main node,fill=white] [above of = 1](3) {7};
-	\node[main node,fill=white] [above of =2](4) {4};
+	\node[main node,fill=white] (1) {$v_1$};
+	\node[main node,fill=white] [right of = 1](2) {$v_5$};
+	\node[main node,fill=white] [above of = 1](3) {$v_7$};
+	\node[main node,fill=white] [above of =2](4) {$v_4$};
 	
-	\node[main node,fill=white] [right of =2](5) {3};
-	\node[main node,fill=white] [right of = 5](6) {8};
-	\node[main node,fill=white] [above of = 5](7) {6};
-	\node[main node,fill=white] [above of =6](8) {2};
+	\node[main node,fill=white] [right of =2](5) {$v_3$};
+	\node[main node,fill=white] [right of = 5](6) {$v_8$};
+	\node[main node,fill=white] [above of = 5](7) {$v_6$};
+	\node[main node,fill=white] [above of =6](8) {$v_2$};
 	\node at (3.1,2.5) (9) {$\Gamma_{\frac{\sqrt{2}}{2}}$};
 	
 	\path[-]
@@ -111,7 +110,11 @@ However if we instead consider $U_2$ as our projective design, then $\Gamma_{\fr
 	(8) edge node {} (7)
 	edge node {} (6);
 \end{tikzpicture}\]
-Thus $U_1$ and $U_2$ are non-isomorphic as their corresponding graphs are non-isomorphic double covers of $C_4$. We note here that the Gram matrix of $U_2$ generates a Bose-Mesner algebra, which is both $P$-polynomial and $Q$-polynomial, corresponding to the association scheme $C_8$; in a later section we will examine further when this occurs. As one might expect, there are many graphs for which we cannot find a projective double in the dimension given by the independence number. In other words, Proposition \ref{cocliquebnd} if often not tight. To see an example, consider the following proposition
+Thus $U_1$ and $U_2$ are non-isomorphic as their corresponding graphs are non-isomorphic double covers of $C_4$. Even further, define the five relations $R_0,\dots,R_4$ via the inner products $1$, $\alpha$, $0$, $-\alpha$, and $-1$ respectively so that, for instance, $(x,y)\in R_2$ if and only if the corresponding vectors are orthogonal. These four relations satisfy all the requirements of an association scheme except for possibly the existence of intersection numbers. In the case of the projective double $U_1$, we find that $p^2_{11}$ is not well defined;
+\[\left\vert\left\{v_x : (v_x,v_1),(v_5,v_x)\in R_{\alpha}\right\}\right\vert\neq\left\vert\left\{v_x : (v_x,v_1),(v_4,v_x)\in R_{\alpha}\right\}\right\vert\]
+yet $(v_1,v_4),(v_1,v_5)\in R_{2}$. However the projective double $U_2$ has well-defined intersection numbers and we find that the columns of $U_2$, along with the relations $R_0,\dots,R_4$, give the association scheme $C_8$. We will investigate cases such as this in the next section.
+\end{example}
+As one might expect, there are many graphs for which we cannot find a projective double in the dimension given by the independence number. In other words, Proposition \ref{cocliquebnd} is often not tight. To see an example, consider the following proposition
 
 \begin{prop}
 	Let $\Gamma$ be a complete multipartite graph with $w$ parts of size $v$. Let $U$ be the matrix with columns corresponding to a projective double of $\Gamma$ where $\text{rank}\left(U\right) = \alpha\left(\Gamma\right) = v$. Then a subset of the columns of $U$ form a set of $w$ mutually unbiased bases in $\mathbb{R}^v$.\qed
@@ -126,39 +129,76 @@ Thus $U_1$ and $U_2$ are non-isomorphic as their corresponding graphs are non-is
 	If $K_{2\times t}$ had a bipartite double, then it would be a set of two mutually unbiased bases in $\mathbb{R}^t$. This is only possible when $t$ is a multiple of $4$.
 \end{proof}
 
-Both represent projective doubles of the 4-cycle however. In the case of $U_1$, when $\alpha = \frac{1}{\sqrt{2}}$, $G_{\alpha}$ gives the 8-cycle and $\left\{G_1,G_\alpha,G_0,G_{-\alpha},G_{-1}\right\}$ is a 4-class association scheme. However in the case of $U_2$, when $\alpha = \frac{1}{2}$, $G_{\alpha}$ is $C_4\cup C_4$ and $\left\{G_1,G_\alpha,G_0,G_{-\alpha},G_{-1}\right\}$ does not give us an association scheme.
-\begin{thm}
-	Let $\Gamma$ be a strongly regular graph with spectrum $k^1,r^f,s^g$ $(r>s)$. There exists a projective double of $\Gamma$ in $\mathbb{R}^{f+1}$ which does not correspond to an association scheme.
-\end{thm}
+\section{Association schemes from projective doubles}
+Example \ref{doublecoverc4} provides a projective double which naturally gives an association scheme on the vectors. In this section we consider which graphs may produce such an association scheme and some properties of the association scheme which arise. First, a \emph{strongly regular graph} (see \cite{Brouwer1989}) with parameters $(v,k,\lambda,\mu)$ is a $k$-regular graph with $v$ points where every pair of adjacent vertices have exactly $\lambda$ neighbors in common while distinct non-adjacent vertices have $\mu$ neighbors in common. Using the terminology of association schemes, a strongly regular graph is a 2-class association scheme with parameters $k = p^0_{11}$, $\lambda = p^1_{11}$ and $\mu = p^2_{11}$. Now consider the following proposition
+
+\begin{prop}\label{projnec}
+	Let $\Gamma$ be a simple graph with a projective double $L$ with inner product $\alpha$. Define the relations $R_0,\dots,R_4$ on $L$ via the inner products $1$, $\alpha$, $0$, $-\alpha$, and $-1$ respectively. Then $(L,\left\{R_0,\dots,R_4\right\})$ is a $4$-class association scheme only if $\Gamma$ is a strongly regular graph.
+\end{prop}
 \begin{proof}
-	Let $A_0$, $A_1$, and $A_2$, be the adjacency matrices of the identity graph, $\Gamma$, and $\overline{\Gamma}$ respectively. From \eqref{PQsrg} we see that there exists an idempotent $E_1 = \frac{1}{v}\left(fA_0 + \frac{fr}{k}A_1 + \frac{f(1+r)}{k+1-v}A_2\right)$. Then 
-	\[G = \frac{(1+r)}{v-k-1}E_0 + \frac{1}{f}E_1 = \left(\frac{v+r-k}{v(v-k-1)}\right)A_0 +\left(\frac{k+r(v-1)}{v(v-k-1)}\right)A_1\]
-	Then $G$ is a $v\times v$ positive semi-definite matrix with rank $1+f$. Scaled appropriately, $G = U^TU$ where the columns of $U$ are unit vectors in $\mathbb{R}^{1+f}$. Then $L = \left\{\tilde{u}_1,\dots,\tilde{u}_v\right\}$ is a projective double of $\Gamma$ where $\tilde{u}_i$ is the line represented by the $i^\text{th}$ column of $U$, $u_i$. Note however that for $\left<y,z\right> = 0$, $\left\vert\left\{x:\left<x,y\right> = \left<z,x\right>=\cos(\theta)\right\}\right\vert$ 
-	depends on the choice of $y$ and $z$; therefore this will not form an association scheme.
+	Let $L = \left\{\ell_1,\dots,\ell_{2\vert\Gamma\vert}\right\}$ be given with the corresponding mapping $\phi(\ell_i)\rightarrow v_j$ for $0\leq i\leq 2\vert \Gamma\vert$ and $0\leq j\leq \vert \Gamma\vert$. Further let the relations $R_0,\dots,R_4$ be defined as in the statement of the theorem. We will prove our result by showing that $\overline{\Gamma}$, the complement of $\Gamma$, is strongly regular. First note $\phi(\ell)=\phi(\ell^\prime)$ if and only if $\ell=-\ell^\prime$. Thus $v\not\sim w$ for $v\neq w$ if and only if both vectors in $\phi^{-1}(w)$ are orthogonal to both vectors in $\phi^{-1}(v)$. Thus for any vertex $v\in \Gamma$, the number of vertices not adjacent to $v$ equals half the number of vectors orthogonal to either vector in $\phi^{-1}(v)$; this value is therefore $\frac{1}{2}p^0_{22}$. Similarly, assume $v\not\sim w$, the number of vertices adjacent to neither $v$ nor $w$ must be half the number of vectors orthogonal to any pair of vectors, one from $\phi^{-1}(v)$ and the other from $\phi^{-1}(w)$ giving $\frac{1}{2}p^2_{22}$. Finally, assume $v\sim w$ and we find the number of vertices adjacent to neither $v$ nor $w$ must be $\frac{1}{2}p^1_{22} = \frac{1}{2}p^3_{22}$. Thus $\overline{\Gamma}$ is strongly regular with parameters $(\vert\Gamma\vert,\frac{1}{2}p^0_{22},\frac{1}{2}p^{2}_{22},\frac{1}{2}p^1_{22})$.
 \end{proof}
 
+This proposition tells us that if we wish to have any hope of building an association scheme from these relations, we must consider graphs which are not only regular, but strongly regular. Note that the converse of Proposition \ref{projnec} is certainly not true; the first projective double of Example \ref{doublecoverc4} does not result in an association scheme even though $C_4$ is strongly regular. Thus we will look for further necessary conditions, either on $\Gamma$ or on its projective double, for the projective double to result in an association scheme. Before we continue with this investigation, we review a few details of strongly regular graphs which will be useful for us.
 
-\section{Strongly regular graphs--a review}
-A strongly regular graph with parameters $(v,k,\lambda,\mu)$ is a $k$-regular graph with $v$ points where every pair of adjacent (non-adjacent) vertices have exactly $\lambda$ ($\mu$) neighbors in common. Thus, a strongly regular graph $\Gamma$ corresponds to $2$-class association scheme where $\Gamma$ and $\overline{\Gamma}$ are the two non-trivial relations. Thus a 2-class association scheme has the following first and second eigenmatrices:
+Let $\Gamma$ be a strongly regular graph with parameters $(v,k,\lambda,\mu)$. Without loss of generality, let $R_1$ correspond to $\Gamma$ and define $r,s,f,g$ so that the spectrum of $\Gamma$ is $k^1,r^f,s^g$. Using the first and second orthogonality relations (Lemma \ref{orthorels}) we find the first and second eigenmatrices of the association scheme are:
 \begin{equation}\label{PQsrg}P = \left[\begin{array}{ccc}
 1 & k & v-k-1\\
 1 & r & -(r+1)\\
 1 & s & -(s+1)
-\end{array}\right]\qquad Q = \left[\begin{array}{ccc}
+\end{array}\right],\qquad Q = \left[\begin{array}{ccc}
 1 & f & g\\
 1 & \frac{fr}{k} & \frac{gs}{k}\\
 1 & \frac{f(1+r)}{k+1-v} & \frac{g(1+s)}{k+1-v}
-\end{array}\right]\end{equation}
-where $\Gamma$ has spectrum $k^1,r^f,s^g$. The following are two theorems which will prove useful later.
-\begin{thm}\cite[Theorem.~1.3.1.(iii)]{BCN} Whenever $\mu>0$, the parameters of a strongly regular graph may be expressed in terms of $r$, $s$, and $\mu$ as
-	\[k = \mu-rs, \qquad v = \frac{(k-r)(k-s)}{\mu},\qquad \lambda = \mu+r+s.\]
+\end{array}\right].\end{equation}
+From \cite{Brouwer1989}, we find that the parameters $k,r,$ and $s$ are sufficient to define all other variables as long as $k+rs\neq 0$.
+\begin{thm}\cite[Theorem.~1.3.1.(iii,vi)]{Brouwer1989} Define $\mu=k+rs$. Whenever $\mu>0$, the parameters of a strongly regular graph may be expressed in terms of $r$, $s$, and $\mu$ with $g = v-f-1$:
+	\[k = \mu-rs, \qquad v = \frac{(k-r)(k-s)}{\mu},\qquad \lambda = \mu+r+s,\qquad f = \frac{(s+1)k(k-s)}{\mu(s+r)}.\]
 \end{thm}
+The association scheme structure allows us to improve on the naive upper bound given in Corollary \ref{regnaive} by using the techniques discussed in Section \ref{equilines}.
+\begin{thm}
+	Let $\Gamma$ be a strongly regular graph with spectrum $k^1,r^f,s^g$ $(r>s)$. There exists a projective double of $\Gamma$ in $\mathbb{R}^{f+1}$.
+\end{thm}
+\begin{proof}
+	Let $A_0$, $A_1$, and $A_2$, be the adjacency matrices of the identity graph, $\Gamma$, and $\overline{\Gamma}$ respectively. From equation \eqref{PQsrg}, $E_1 = \frac{1}{v}\left(fA_0 + \frac{fr}{k}A_1 + \frac{f(1+r)}{k+1-v}A_2\right)$. Then 
+	\[G = \frac{(1+r)}{v-k-1}E_0 + \frac{1}{f}E_1 = \left(\frac{v+r-k}{v(v-k-1)}\right)A_0 +\left(\frac{k+r(v-1)}{v(v-k-1)}\right)A_1\]
+	is a $v\times v$ positive semi-definite matrix with rank $1+f$ with the innerproducts we seek. We may then find a matrix $U$ such that $\left(\frac{v(v-k-1)}{v+r-k}\right)G = U^TU$, that is, the columns of $U$ are unit vectors in $\mathbb{R}^{1+f}$ such that $u_i\perp u_j$ if and only if the corresponding points in $X$ are related by $R_2$. Then $L = \left\{\pm u_1,\dots,\pm u_v\right\}$ is a projective double of $\Gamma = \Gamma(X,R_1)$ where $u_i$ is the $i^\text{th}$ column of $U$.
+\end{proof}
+Note however that this construction does not result in a 4-class association scheme. We see this by noting that all off diagonal entries in $G$ must be positive. Thus we may split our projective design into two sets $L^+$ and $L^-$ where $L^+$ contains all the columns of $U$ while $L^-$ contains their negatives. Then for vectors $u\perp v$, the number of vectors $w$ such that $\left<v,w\right> = \left<u,w\right>$ could be either $0$ (if $v\in L^+$ and $u\in L^-$) or $p^1_{11}$ (if $v,w\in L^+$). Thus this value is not solely dependent on the inner product $\left<u,v\right>$ and we will find that $p^2_{11}$ is not well defined for our 4-class scheme. While this does not solve our question of which projective doubles are association schemes, it does provide us with a better upper bound for strongly regular graphs than we saw in Corollary \ref{regnaive}. For example, this gives a projective double of the Petersen graph in dimension $5$ while Corollary \ref{regnaive} produces one in dimension $9$. We finish this section with a result of Delsarte concerning cocliques in strongly regular graphs along with a conjecture.
+
 \begin{thm}\cite{delsarte} 
-	Let $\Gamma$ be a strongly regular graph with $v$ vertices, valency $k$, and smallest eigenvalue $-m$. If $C$ is a coclique of $\Gamma$, then
-	\[\vert C\vert\leq v\left(1+\frac{k}{m}\right)^{-1}, \]
-	with equality if and only if every vertex $\gamma\notin C$ has the same number of neighbors (namely $m$) in $C$.
+	Let $\Gamma$ be a strongly regular graph with $v$ vertices, valency $k$, and smallest eigenvalue $s$. If $C$ is a coclique of $\Gamma$, then
+	\[\vert C\vert\leq v\left(1-\frac{k}{s}\right)^{-1}, \]
+	with equality if and only if every vertex $\gamma\notin C$ has the same number of neighbors (namely $-s$) in $C$.
 \end{thm}
 
+\begin{conj}
+	Let $\Gamma$ be a strongly regular graph with $v$ vertices, valency $k$, and smallest eigenvalue $s$. Let $L$ be a projective double of $\Gamma$ in dimension $m$. Then the relations $R_0,\dots,R_4$ defined for $L$ produce an association scheme on $L$ if and only if $m = v\left(1-\frac{k}{s}\right)^{-1}$.
+\end{conj}
+We prove a weaker version of one direction here.
+\begin{thm}
+	Let $\Gamma$ be a strongly regular graph with $v$ vertices, valency $k$, and smallest eigenvalue $s$. Let $L$ be a projective double of $\Gamma$ in dimension $m$ with inner product $\alpha$. If $\alpha = \nicefrac{1}{\sqrt{-s}}$ and $p^1_{13} = \frac{1}{2\alpha}(\lambda\alpha-k\alpha^2+1)$ then the relations $R_0,\dots,R_4$ defined for $L$ produce an association scheme on $L$ only if $m = v\left(1-\frac{k}{s}\right)^{-1}$.
+\end{thm}
+\begin{proof}
+	Assume that the relations $R_0,\dots,R_4$ define an association scheme with $p^1_{13} = \frac{1}{2\alpha}(\lambda\alpha-k\alpha^2+1)$. Then for $(i,j)\in R_k$ we find that
+	\[\left[G^2\right]_{ij} = \sum_\ell \theta_\ell\left(\sum_h p^k_{\ell h} \theta_h\right) = \sum_\ell \theta_\ell\left(p^k_{\ell0}+p^k_{\ell1}\alpha - p^k_{\ell3}\alpha-p^k_{\ell4}\right)\]
+	where $\theta_0,\theta_1,\theta_2,\theta_3,\theta_4$ are the inner products $1,\alpha,0,-\alpha,-1$. Expanding the right hand side further and applying Lemma \ref{kitchensink}, we find
+	\[\left[G^2\right]_{ij} = 2\left(\delta_{k0}-\delta_{k4}\right)+4\alpha\left(\delta_{k1}-\delta_{k3}\right)+\alpha^2\left(p^k_{11}+p^k_{33}-2p^k_{13}\right). \]
+	We then find the following five values noting that $p^2_{11}=p^2_{13} = p^2_{33}$,
+	\[\left[G^2\right]_{ij} = \begin{cases}
+	2+2k\alpha^2 & \text{ if } (i,j)\in R_0\\
+	\alpha\left(4+\alpha(p^1_{11}+p^1_{33}-2p^1_{13})\right) & \text{ if } (i,j)\in R_1\\
+	0 & \text{ if } (i,j)\in R_0\\
+	-\alpha\left(4+\alpha(p^1_{11}+p^1_{33}-2p^1_{13})\right) & \text{ if } (i,j)\in R_3\\
+	-(2+2k\alpha^2) & \text{ if } (i,j)\in R_4.
+	\end{cases}\]
+	However, note that $p^1_{11}+p^1_{33}+2p^1_{13} = 2\lambda$. Thus $\alpha\left(4+\alpha(p^1_{11}+p^1_{33}-2p^1_{13})\right) = \alpha\left(4+\alpha(2\lambda-4p^1_{13})\right).$ Since we assumed $p^1_{13} = \frac{1}{2\alpha}(\lambda\alpha-k\alpha^2+1)$, we must have $\left(4+\alpha(2\lambda-4p^1_{13})\right) = 2+2k\alpha^2$. Thus $\frac{1}{\sqrt{2+2k\alpha^2}}G$ is an idempotent matrix, forcing $G$ to have only two eigenvalues. Since $L$ is an antipodal set whose Gram matrix has only two eigenvalues \cite{Delsarte1977} tells us that $L$ must be a 3-design. However \cite[Theorem 5.5]{Delsarte1977} then tells us that, for any $x\in L$, $\sum_{y\in L} Q_2^m\left(\left<x,y\right>\right) = 0$ where $Q_2^m(t)$ is the degree 2 Gegenbauer (see Section \ref{gegdef}) polynomial. Thus
+	\[\frac{m(2+2k\alpha^2)-2v}{m-1} = 0 \implies m = v(1+k\alpha^2)^{-1}.\]
+	Since $\alpha = \sqrt{-s}$, we have our result.
+\end{proof}
+\begin{remark}
+	We can replace the requirement $\alpha = \frac{1}{\sqrt{-s}}$ with ``there exists a coclique of size $m$ in $\Gamma$" if we desire. The latter requirement, along with the final statement of Delsarte's theorem, imply $\alpha = \frac{1}{\sqrt{-s}}$.
+\end{remark}
 
 \section{4-class $Q$-bipartite association schemes}
 
