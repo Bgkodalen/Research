@@ -1,15 +1,26 @@
 \chapter{Antipodal double covers of regular graphs}
 \label{4classbip}
-\section{Intro -- Will be removed, only here as a marker}
-
-\section{Projective doubles of regular graphs}
-
 Let $\Gamma$ be an undirected graph on $v$ vertices. A \emph{projective double} of $\Gamma$ is an antipodal (spherical) $4$-distance set, say $L = \left\{\ell_1,\dots,\ell_{2v}\right\}$ with inner products $A = \left\{1,\alpha,0,-\alpha,-1\right\}$, such that there exists a mapping $\phi:L\rightarrow V\Gamma$ fulfilling
 \begin{enumerate}[label=(\roman*)]
 	\item $\phi(\ell_i) = \phi(\ell_j)$ if and only if $\left\vert\left<\ell_i,\ell_j\right>\right\vert = 1$,
 	\item $\phi(\ell_i) \sim \phi(\ell_j)$ if and only if $\left\vert\left<\ell_i,\ell_j\right>\right\vert = \alpha$
 \end{enumerate}
-for $1\leq i,j\leq 2v$. Since the inner products are determined by a single parameter $\alpha$, we will often refer to $L$ as a projective double of $\Gamma$ with inner product $\alpha$. For vertices $v,w\in V\Gamma$, $(ii)$ implies $v\not\sim w$ if and only if $\ell_v\perp\ell_w$ for any $\ell_v\in\phi^{-1}(v)$ and $\ell_w\in\phi^{-1}(w)$. We are interested in which graphs permit a projective double however, without any further restrictions on $L$, the result is uninteresting.
+for $1\leq i,j\leq 2v$. Since the inner products are determined by a single parameter $\alpha$, we will often refer to $L$ as a projective double of $\Gamma$ with inner product $\alpha$. For vertices $v,w\in V\Gamma$, $(ii)$ implies $v\not\sim w$ if and only if $\ell_v\perp\ell_w$ for any $\ell_v\in\phi^{-1}(v)$ and $\ell_w\in\phi^{-1}(w)$. In this Chapter, we investigate such projective doubles and ask which dimensions they exist in for any given graph. Noting a small example, we find that the incidence graphs of such doubles induced by each inner product will, at times, correspond to a 4-class association scheme. We investigate further when this may occur, noting as well the structure which any association scheme arising in this way must take. We finish this chapter by examining 4-class $Q$-bipartite schemes, applying the bounds found in Theorem \ref{schoen-as}. Below are the main results of this chapter.
+\begin{restatable*}{prop}{projsrg}\label{projnec}
+	A projective double of a simple graph $\Gamma$ induces an association scheme only if $\Gamma$ is strongly regular.
+\end{restatable*}
+\begin{restatable*}{cor}{cocliquealpha}\label{snegsquare}
+	Let $\Gamma$ be a nonempty strongly regular graph with $v$ vertices, valency $k$ and smallest eigenvalue $s$ which contains a Delsarte coclique $C$. Then any projective double in $\mathbb{R}^{\vert C\vert}$ has inner product $\alpha=\sqrt{-s}$. Further, either $\Gamma$ is complete bipartite or $\alpha^{-1}\in \mathbb{Z}$.
+\end{restatable*}
+\begin{restatable*}{cor}{cocliquetoqbip}\label{cocliqueqbip}
+	Let $\Gamma$ be a strongly regular graph with $v$ vertices, valency $k$, and smallest eigenvalue $s$ which contains a Delsarte coclique. Then the association scheme induced by any projective double of $\Gamma$ in dimension $m<v$ is $Q$-bipartite.
+\end{restatable*}
+\begin{restatable*}{thm}{fourclasssixzero}\label{thm60}
+	Suppose we have a feasible parameter set for a $4$-class association scheme which is $Q$-bipartite but not $Q$-antipodal. Let $k=P_{01}$, $r=P_{21}$, and $s=P_{41}$ where $P$ is the first eigenmatrix using the natural ordering. Then the scheme is realizable only if $s=-n^2$ for some integer $n>1$ and
+	\[15n^4(2n^2-3)r^2 + (n^6-45kn^2+76k)n^2r+k(16k+n^6)(n^2-2)\geq 0.\]
+\end{restatable*}
+\section{Projective doubles of regular graphs}
+We begin this section with two propositions concerning projective doubles, first with simple graphs and then with regular graphs.
 \begin{prop}\label{dirnaive}
 	For any non-empty simple graph $\Gamma$, there exists a projective double in $\mathbb{R}^{m}$ for some $m\leq \vert V\Gamma\vert$ with $\alpha = d^{-1}$ with $d$ the max degree of $\Gamma$.
 \end{prop}
@@ -28,7 +39,7 @@ for $1\leq i,j\leq 2v$. Since the inner products are determined by a single para
 	where $k_i$ is the degree of vertex $i$. Thus two distinct rows are orthogonal if and only if their corresponding vertices are non-adjacent. However unless $k_i$ is constant independent of $i$ (the graph is regular), the rows do not have the same norm. To solve this, let $d = \max_{i}(k_i)$ (the max degree of $\Gamma$) and define the diagonal matrix $D$ whose $i^\text{th}$ diagonal entry is $\sqrt{d-k_i}$. Then the matrix $N = \left[\begin{array}{c|c}
 	M & D
 	\end{array}\right]$ has the property that
-	\[\left[NN^T\right]_{ij} = \left[MM^T\right]_{ij} + (k-k_i)\delta_{ij} = \begin{cases}
+	\[\left[NN^T\right]_{ij} = \left[MM^T\right]_{ij} + (d-k_i)\delta_{ij} = \begin{cases}
 	d & \text{ if }i=j,\\
 	1 & \text{ if } i\sim j,\\
 	0 & \text{ otherwise.}
@@ -122,21 +133,22 @@ As one might expect, there are many graphs for which we cannot find a projective
 \begin{proof}
 	Follow the same proof as in Proposition \ref{cocliquebnd}, however only consider one line from each antipodal pair. Noting that non orthogonal vectors must have inner product $\pm\alpha$, the result is immediate.
 \end{proof}
-\begin{cor}
+\begin{cor}\label{nonexist}
 	Let $\Gamma = K_{2\times t}$ for $t\neq 0\mod 4$. $\Gamma$ does not have a projective double in $\mathbb{R}^\alpha$ for $\alpha = \alpha\left(\Gamma\right)$.
 \end{cor}
 \begin{proof}
 	If $K_{2\times t}$ had a bipartite double, then it would be a set of two mutually unbiased bases in $\mathbb{R}^t$. This is only possible when $t$ is a multiple of $4$.
 \end{proof}
 
-\section{Association schemes from projective doubles}
+\section{Schemes induced by projective doubles}
 Example \ref{doublecoverc4} provides a projective double which naturally gives an association scheme on the vectors. In this section we consider which graphs may produce such an association scheme and some properties of the association scheme which arise. First, let $L$ be a projective double of some graph $\Gamma$ and let $G$ be the Gram matrix of $L$; that is the matrix whose entry in row $i$ and column $j$ is $\left<\ell_i,\ell_j\right>$. We denote by $\left<G\right>_\circ$ the vector space of matrices generated by $G$ using entrywise products. Note that the adjacency matrices of each graph $\Gamma_{\theta}$ for $\theta\in\left\{\pm 1,\pm \alpha,0\right\}$ are all contained in $\left<G\right>_{\circ}$. Thus $\left<G\right>_\circ$ is a Bose-Mesner algebra if and only if it is closed under standard matrix multiplication. If this occurs, we say $L$ induces the corresponding 4-class association scheme. Thus, from example \ref{doublecoverc4}, the association scheme $C_8$ is induced by the columns of $U_2$. We similarly define $\left<A\right>_*$ for any matrix $A$ and note that this algebra is closed under Schur products if and only if it is a Bose-Mesner algebra.
 
 Now, a \emph{strongly regular graph} (see \cite{Brouwer1989}) with parameters $(v,k,\lambda,\mu)$ is a $k$-regular graph with $v$ points where every pair of adjacent vertices have exactly $\lambda$ neighbors in common while distinct non-adjacent vertices have $\mu$ neighbors in common. Using the terminology of association schemes, a strongly regular graph is a 2-class association scheme with parameters $k = p^0_{11}$, $\lambda = p^1_{11}$ and $\mu = p^2_{11}$.
 
-\begin{prop}\label{projnec}
-	A projective double of a simple graph $\Gamma$ induces an association scheme only if $\Gamma$ is strongly regular.
-\end{prop}
+\projsrg
+%\begin{prop}\label{projnec}
+%	A projective double of a simple graph $\Gamma$ induces an association scheme only if $\Gamma$ is strongly regular.
+%\end{prop}
 \begin{proof}
 	We will prove our result by showing that $\overline{\Gamma}$, the complement of $\Gamma$, is strongly regular. Let $v = \vert V\Gamma\vert$ and $L = \left\{\ell_1,\dots,\ell_{2v}\right\}$ with the projective mapping $\phi:L\rightarrow V\Gamma$. First let $R_0,\dots,R_4$ be the relations of the association scheme induced by $L$ where $R_2$ is given by orthogonality, $R_0$ is the identity relation, and the remaining relations are given by the inner products $\alpha,-\alpha,$ and $-1$ respectively. Next, $\phi(\ell)=\phi(\ell^\prime)$ if and only if $\ell=-\ell^\prime$. Thus for distinct vertices $u,w\in V\Gamma$, $u\not\sim w$ if and only if $\phi^{-1}(w)\subset \phi^{-1}(u)^\perp$. Then the number of vertices not adjacent to $u$ is half the number of vectors orthogonal to either vector in $\phi^{-1}(u)$; this value is $\frac{1}{2}p^0_{22}$. Similarly, assuming $u\not\sim w$, the number of vertices adjacent to neither $u$ nor $w$ must be half the number of vectors orthogonal to any pair of vectors, one from $\phi^{-1}(v)$ and the other from $\phi^{-1}(w)$; that is, $\frac{1}{2}p^2_{22}$. Similarly, assume $v\sim w$ and we find the number of vertices adjacent to neither $v$ nor $w$ must be $\frac{1}{2}p^1_{22} = \frac{1}{2}p^3_{22}$. Thus $\overline{\Gamma}$ is strongly regular with parameters $(\vert\Gamma\vert,\frac{1}{2}p^0_{22},\frac{1}{2}p^{2}_{22},\frac{1}{2}p^1_{22})$.
 \end{proof}
@@ -154,9 +166,9 @@ Let $\Gamma$ be a strongly regular graph with parameters $(v,k,\lambda,\mu)$. Le
 1 & \frac{f(1+r)}{k+1-v} & \frac{g(1+s)}{k+1-v}
 \end{array}\right].\end{equation}
 From \cite{Brouwer1989}, we find that the parameters $k,r,$ and $s$ are sufficient to define all other variables as long as $k+rs\neq 0$.
-\begin{thm}\cite[Theorem.~1.3.1.(iii,vi)]{Brouwer1989} Whenever $k+rs>0$, the parameters of a strongly regular graph may be expressed in terms of $r$, $s$, and $k$ with $g = v-f-1$:
+\begin{lem}\cite[Theorem.~1.3.1.(iii,vi)]{Brouwer1989}\label{srgparams} Whenever $k+rs>0$, the parameters of a strongly regular graph may be expressed in terms of $r$, $s$, and $k$ with $g = v-f-1$:
 	\[\mu = k+rs, \qquad v = \frac{(k-r)(k-s)}{\mu},\qquad \lambda = \mu+r+s,\qquad f = \frac{(s+1)k(k-s)}{\mu(s+r)}.\]
-\end{thm}
+\end{lem}
 The association scheme structure allows us to improve on the naive upper bound given in Corollary \ref{regnaive} by using the techniques discussed in Section \ref{equilines}.
 \begin{thm}
 	Let $\Gamma$ be a strongly regular graph with spectrum $k^1,r^f,s^g$ $(r>s)$. There exists a projective double of $\Gamma$ in $\mathbb{R}^{f+1}$.
@@ -174,9 +186,10 @@ Note that this construction does not induce a 4-class association scheme. We see
 	with equality if and only if every vertex $\gamma\notin C$ has the same number of neighbors (namely $-s$) in $C$.\qed
 \end{thm}
 We will refer to a \emph{Delsarte coclique} as a coclique for which this bound is tight. This theorem, along with Proposition \ref{cocliquebnd}, gives a lower bound on the dimension of any projective double in terms of the spectrum whenever $\Gamma$ contains a Delsarte coclique. Further, we may use the final line of Theorem \ref{delsarte} to learn more information about any projective double achieving this bound.
-\begin{cor}\label{snegsquare}
-	Let $\Gamma$ be a nonempty strongly regular graph with $v$ vertices, valency $k$ and smallest eigenvalue $s$ which contains a Delsarte coclique $C$. Then any projective double in $\mathbb{R}^{\vert C\vert}$ has inner product $\alpha=\sqrt{-s}$. Further, either $\Gamma$ is complete bipartite or $\alpha^{-1}\in \mathbb{Z}$.
-\end{cor}
+\cocliquealpha
+%\begin{cor}\label{snegsquare}
+%	Let $\Gamma$ be a nonempty strongly regular graph with $v$ vertices, valency $k$ and smallest eigenvalue $s$ which contains a Delsarte coclique $C$. Then any projective double in $\mathbb{R}^{\vert C\vert}$ has inner product $\alpha=\sqrt{-s}$. Further, either $\Gamma$ is complete bipartite or $\alpha^{-1}\in \mathbb{Z}$.
+%\end{cor}
 \begin{proof}
 	Let $L$ be the projective double of $\Gamma$ in $\mathbb{R}^{\vert C\vert}$ with inner product $\alpha$. Further, let $\ell_1,\dots,\ell_{\vert C\vert}$ be vectors in $L$ such that the set $\left\{\phi(\ell_1),\dots,\phi(\ell_{\vert C\vert})\right\}$ is a Delsarte coclique. Then $\left\{\ell_1,\dots,\ell_t\right\}$ forms an orthonormal basis for $\mathbb{R}^{\vert C\vert} = \text{span}(L)$. Let $a\in L$ be given with $\phi(a)\notin C$. By Theorem \ref{delsarte}, $\phi(a)$ must be adjacent to exactly $-s$ points in $C$ and thus, reordering the vectors and replacing $\ell_i$ with $-\ell_i$ as needed, we may assume $\left<a,\ell_i\right> = \alpha$ for $1\leq i\leq -s$. Therefore $a = \sum_{i=1}^{-s} \alpha\ell_i$ implying that $-s\alpha^2 = 1$ and thus $s = -\alpha^{-2}$. Now, as long as $\Gamma$ is not complete bipartite, there must be another vector $b\in L$ for which $\phi(b)\notin C$ and $\phi(b) \sim\phi(a)$; assume $\left<b,a\right> = \alpha$ taking $-b$ if needed. We again find that $\phi(b)$ is adjacent to exactly $-s$ vertices in $C$; let $h$ be the number of vertices adjacent to both $a$ and $b$. Without loss of generality $b =  \sum_{i=1}^{h} \beta_i\ell_i + \sum_{i=-s+1}^{-2s-h}\alpha\ell_i$ where $\beta_i = \pm\alpha$. Thus $\left<a,b\right> = (p-q)\alpha^2$ where $p$ is the number of vectors in $\left\{\ell_1,\dots,\ell_h\right\}$ with $\left<b,\ell_i\right> = \left<a,\ell_i\right>$ and $q = h-p$. However, since $a$ and $b$ have inner product $\alpha$, this implies $\alpha^{-1} = p-q$.
 \end{proof}
@@ -195,7 +208,7 @@ The following is a conjecture concerning necessary and sufficient conditions for
 	Let $\Gamma$ be a strongly regular graph with $v$ vertices, valency $k$, and smallest eigenvalue $s$. A projective double of $\Gamma$ in dimension $m<v$ induces an association scheme if and only if $m = v\left(1-\frac{k}{s}\right)^{-1}$.
 \end{conj}
 We prove a weaker version of one direction here.
-\begin{thm}
+\begin{thm}\label{genqbip}
 	Let $\Gamma$ be a strongly regular graph with $v$ vertices, valency $k$, and smallest eigenvalue $s$. Let $L$ be a projective double of $\Gamma$ in dimension $m<v$ with inner product $\alpha$. $L$ induces an association scheme only if $m = v\left(1+k\alpha^2\right)^{-1}$. Further, either $\text{rank}\left(G\circ G\right)=v$ or the induced scheme is $Q$-bipartite and $s=-\alpha^{-2}$.
 \end{thm}
 \begin{proof}
@@ -238,22 +251,15 @@ We prove a weaker version of one direction here.
 	\[q^4_{11} = \frac{1}{2v g}\sum_{h=0}^d\left(k_hQ_{h1}Q_{h1}Q_{h4}\right) = \frac{m^2g\left(1+\alpha^2s\right)}{v}.\]
 	Thus $q^4_{11}=0$ if and only if $s = -\alpha^{-2}$. Finally since $q^0_{11},q^2_{11}>0$, we find that $\text{rank}(G\circ G) = 1+f+g=v$ if $q^4_{11}>0$ and $\text{rank}(G\circ G) = 1+f<v$ otherwise.
 \end{proof}
-\begin{cor}
-	Let $\Gamma$ be a strongly regular graph with $v$ vertices, valency $k$, and smallest eigenvalue $s$ which contains a Delsarte coclique. Then the association scheme induced by any projective double of $\Gamma$ in dimension $m<v$ is $Q$-bipartite.
-\end{cor}
+\cocliquetoqbip
+%\begin{cor}\label{cocliqueqbip}
+%	Let $\Gamma$ be a strongly regular graph with $v$ vertices, valency $k$, and smallest eigenvalue $s$ which contains a Delsarte coclique. Then the association scheme induced by any projective double of $\Gamma$ in dimension $m<v$ is $Q$-bipartite.
+%\end{cor}
 \begin{proof}
 	Repeat the previous proof noting that either $q^4_{11}=0$ or $-s\alpha^{2}>1$. The latter implies $(1+k\alpha^{-2})^{-1}<(1-ks)^{-1}$ forcing $m <v(1-ks)^{-1}$, violating Lemma \ref{cocliquebnd}.
 \end{proof}
 \section{4-class $Q$-bipartite association schemes}
-
-
-
-\begin{restatable*}{thm}{fourclasssixzero}\label{thm60}
-	Suppose we have a feasible parameter set for a $4$-class association scheme which is $Q$-bipartite but not $Q$-antipodal. Let $k=P_{01}$, $r=P_{21}$, and $s=P_{41}$ where $P$ is the first eigenmatrix using the natural ordering. Then the scheme is realizable only if $s=-n^2$ for some integer $n>1$ and
-	\[15n^4(2n^2-3)r^2 + (n^6-45kn^2+76k)n^2r+k(16k+n^6)(n^2-2)\geq 0.\]
-\end{restatable*}
-
-In this chapter we investigate the specific case of $4$-class $Q$-bipartite schemes. LeCompte et al.\ \cite{LeCompte2010} proved that real mutually unbiased bases are equivalent to 4-class $Q$-bipartite schemes which are also $Q$-antipodal. This extra system of imprimitivity arises as one of the quotient graphs is a union of cliques, the other being complete multipartite. Here, we will instead restrict ourselves to the case where our association schemes are not $Q$-antipodal thus assuming that both quotient graphs are connected. We will begin by showing that the parameters of any such scheme are determined completely by three integral parameters and then recast Theorem \ref{cometricbnds} in terms of these three parameters. Let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme with $Q$-polynomial ordering $E_0,E_1,\dots,E_4$ and natural ordering $A_0,A_1,\dots A_4$. We know from Theorem \ref{suzuki} that the quotient of $(X,\mathcal{R})$ has exactly two non-trivial relations and thus must be strongly regular. Let $(v,k,\lambda,\mu)$ be the parameters of the quotient strongly regular graph which contains $R_1$ as a subgraph. Let $k>r>s$ be the eigenvalues of this SRG with corresponding multiplicities $1$, $f$, and $g$. Since $(X,\mathcal{R})$ is not $Q$-antipodal, we must have $k>r$ and $s>-k$. The $Q$ matrix of this SRG will be
+Theorem \ref{genqbip} and Corollary \ref{cocliquebnd} indicated that nearly any projective double of a strongly regular graph which induces an association scheme must induce a 4-class $Q$-bipartite scheme. As we saw in Corollary \ref{nonexist}, many complete multipartite graphs will not have any projective doubles in the dimension required to induce an association scheme. In general, the existence of a projective double for $K_{n,m}$ which induces an association scheme is equivalent to the existence of a set of mutually unbiased bases in the same dimension. These are exactly the 4-class $Q$-bipartite schemes which are also $Q$-antipodal (\cite{LeCompte2010}). Thus we will ignore these cases and assume that the underlying strongly regular graph is not complete multipartite. For the remaining 4-class $Q$-bipartite schemes, we examine the eigenmatrices and find that the parameters of such a scheme are completely determined by the spectrum of the quotient strongly regular graph.We will begin by showing that the parameters of any such scheme are determined completely by the spectrum of the quotient SRG. We then recast Theorem \ref{cometricbnds} in terms of these three parameters and derive explicit bounds for this case which are required for the parameter set to be realizable. Let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme, not also $Q$-antipodal, with $Q$-polynomial ordering $E_0,E_1,\dots,E_4$ and natural ordering $A_0,A_1,\dots A_4$. We know from Theorem \ref{suzukiimprim} that the quotient of $(X,\mathcal{R})$ has exactly two non-trivial relations and thus must be strongly regular. Let $(v,k,\lambda,\mu)$ be the parameters of the quotient strongly regular graph corresponding to $A_1+A_3$. Let $k>r>s$ be the eigenvalues of this SRG with corresponding multiplicities $1$, $f$, and $g$. Since $(X,\mathcal{R})$ is not $Q$-antipodal, we must have $k>r$ and $s>-k$. The $Q$ matrix of this SRG will be
 \[\tilde{Q} = \left[\begin{array}{ccc}
 1 & f & g\\
 1 & \frac{fr}{k} & \frac{gs}{k}\\
@@ -303,7 +309,7 @@ We may use this information to build the first and second eigenmatrices of our $
 	The parameters of a 4-class $Q$-bipartite scheme are uniquely determined by the eigenvalues of the quotient SRG.
 \end{cor}
 \begin{proof}
-	Our first eigenmatrix only requires $v,k,r,s,$ and $n$. However since $n>0$ (from the natural ordering of relations), $n = \sqrt{-s}$. Further \cite{Brouwer1989} states that  $v = \frac{(k-r)(k-s)}{k+rs}$. 
+	Our first eigenmatrix only requires $v,k,r,s,$ and $n$. However since $n>0$ due to the natural ordering of relations, $n = \sqrt{-s}$. The remaining parameter is given in Lemma \ref{srgparams}. 
 \end{proof}
 Before moving to examine the effect of Sch\"{o}nberg's theorem on 4-class $Q$-bipartite schemes, we mention a few parameter bounds arising from the feasibility conditions FC1-FC3 and show how they restrict the space of feasible parameters.
 \begin{thm}
@@ -312,7 +318,6 @@ Before moving to examine the effect of Sch\"{o}nberg's theorem on 4-class $Q$-bi
 	\begin{enumerate}[label=(\roman*)]
 		\item $\mu\geq n(r+n)$,
 		\item $n\vert \mu$ and $n\vert k$,
-		%\item $r\leq \frac{k-n^2}{n(n+1)}$,
 		\item $r\geq \frac{2k}{3n^2}-\frac{n^2}{3}$,
 		\item $kn^2(n^2-1)\geq \mu(n^2+r)$
 	\end{enumerate}

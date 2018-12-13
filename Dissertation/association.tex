@@ -471,6 +471,19 @@
 	
 	From the above two derivations we find that both the subscheme and the quotient scheme may be found by finding a subset of idempotents under one product which are closed under the second product. When this occurs we find a smaller matrix algebra which is isomorphic to a Bose-Mesner algebra on fewer vertices. Thus the main difference between a subscheme and a dual scheme is simply which set of idempotents we begin with (or rather, which product we take idempotents for). Throughout this work we will often use $\tilde{i}$ to describe an index of the quotient scheme and $i^\prime$ an index of the subscheme. Further $\cI$ and $\cJ$ will continue to denote the subset of indices for which
 	\[\sum_{i\in\cI} A_i = I_w\otimes J_r = r\sum_{j\in\cJ} E_j.\]
+	In summary, we have the following theorem from \cite{Martin2007}. We also list a theorem from \cite{Brouwer2003} which describes the second eigenmatrix of a $Q$-bipartite association scheme; we will appeal to this theorem in a later chapter.
+	\begin{thm}[\cite{Martin2007}] \label{mmw}The following are equivalent:
+		\begin{enumerate}[label=(\roman*)]
+			\item $(X,\mathbb{R})$ is imprimitive;
+			\item for some $j>0$, $E_j$ has repeated columns;
+			\item for some subset $\mathcal{I} = \left\{i_0=0,i_1,\dots,i_s\right\}$ of $\left\{0,1,\dots,d\right\}$ and some ordering of the vertices $\sum_{h=0}^s A_{i_h} = I_w\otimes J_r$ for integers $w$ and $r$ with $\vert X\vert=wr$, $1<w,r<\vert X\vert$;
+			\item for some subset $\mathcal{J} = \left\{j_0=0,j_1,\dots,j_s\right\}$ of $\left\{0,1,\dots,d\right\}$ and some ordering of the vertices $\sum_{h=0}^s E_{j_h} = \frac{1}{r}\left(I_w\otimes J_r\right)$ for integers $w$ and $r$ with $\vert X\vert=wr$, $1<w,r<\vert X\vert$.
+		\end{enumerate}
+	\end{thm}
+	\begin{thm}[\cite{Brouwer2003},\cite{Martin2007}]
+	\label{sym}
+	If $(X,\mathcal{R})$ is $Q$-bipartite with $w$ dual bipartite classes of size $r$ each, then $r=2$. Under the natural ordering of relations, $\mathcal{I} = \left\{0,d\right\}$ and the sequence $m = Q_{01}>Q_{11}>\dots>Q_{d1}$ is symmetric about the origin. In particular, $Q_{\frac{d}{2},1} = 0$ whenever $d$ is even.
+	\end{thm}
 	We finish this section by providing an illustration of each scheme, returning to the two systems of imprimitivity of the $3$-cube: $\cI_1 = \left\{0, 2\right\}$ and $\cI_2 = \left\{0, 3\right\}$. We begin with $\cI_1 = \left\{0,2\right\}$ and display the components of $\Gamma_2$ below.
 		\begin{center}\scalebox{.7}{$\begin{aligned}
 				\begin{tikzpicture}[shorten >=1pt,auto,node distance=2cm,
@@ -676,44 +689,4 @@
 	\begin{conj*}[Bannai \& Ito] 
 		For $d$ sufficiently large, a primitive association scheme with $d$ classes is metric if and only if it is cometric.
 	\end{conj*}
-	With this conjecture in mind, we expect that as $d$ grows, the fraction of $Q$-polynomial schemes which are not also $P$-polynomial should diminish. However as can be seen by the tables hosted by Williford \cite{Williford} there is still much work to be done for small $d$. Note every $2$-class association scheme (strongly regular graphs) is automatically both metric and cometric, thus we will primarily focus on schemes which are have at least three classes.
-	
-	\section{Further background for cometric schemes}\label{qpolythms}
-	Here we list a few extra results for cometric schemes which will be useful for the later chapters. It is likely that this section will get scrapped and the results will be moved to their respective chapters where they are useful.
-	\begin{thm}\cite[Theorem.~1.3.1.(iii)]{Brouwer1989} Whenever $\mu>0$, the parameters of a strongly regular graph may be expressed in terms of $r$, $s$, and $\mu$ as
-		\[k = \mu-rs, \qquad v = \frac{(k-r)(k-s)}{\mu},\qquad \lambda = \mu+r+s.\]
-	\end{thm}
-	\begin{thm}\cite{Delsarte1973} 
-		Let $\Gamma$ be a strongly regular graph with $v$ vertices, valency $k$, and smallest eigenvalue $-m$. If $C$ is a coclique of $\Gamma$, then
-		\[\vert C\vert\leq v\left(1+\frac{k}{m}\right)^{-1}, \]
-		with equality if and only if every vertex $\gamma\notin C$ has the same number of neighbors (namely $m$) in $C$.
-	\end{thm}
-	\begin{thm}[\cite{Martin2007}] \label{mmw}The following are equivalent:
-		\begin{enumerate}[label=(\roman*)]
-			\item $(X,\mathbb{R})$ is imprimitive;
-			\item for some $j>0$, $E_j$ has repeated columns;
-			\item for some subset $\mathcal{I} = \left\{i_0=0,i_1,\dots,i_s\right\}$ of $\left\{0,1,\dots,d\right\}$ and some ordering of the vertices $\sum_{h=0}^s A_{i_h} = I_w\otimes J_r$ for integers $w$ and $r$ with $\vert X\vert=wr$, $1<w,r<\vert X\vert$;
-			\item for some subset $\mathcal{J} = \left\{j_0=0,j_1,\dots,j_s\right\}$ of $\left\{0,1,\dots,d\right\}$ and some ordering of the vertices $\sum_{h=0}^s E_{j_h} = \frac{1}{r}\left(I_w\otimes J_r\right)$ for integers $w$ and $r$ with $\vert X\vert=wr$, $1<w,r<\vert X\vert$.
-		\end{enumerate}
-	\end{thm}
-	Whenever $(iii)$ occurs, say with subset $\mathcal{I}$ as given in the theorem, we may partition our vertices into equivalence classes so that $x\sim y$ whenever $(x,y)\in R_i$ for some $i\in \mathcal{I}$. Let $X_1,\dots,X_w$ be the corresponding equivalence classes and define $\mathcal{R}' = \left\{R_i\in \mathcal{R} : i\in \mathcal{I}\right\}$. Then there exists \emph{subschemes} $(X_i,\mathcal{R}')$ for each equivalence class $X_i$. Further, we may define a \emph{quotient scheme} $(\tilde{X},\tilde{\mathcal{R}})$ of our original scheme with respect to $\mathcal{I}$ whose point set is the set of equivalence classes and whose relations are $R_{\tilde{i}} = \cup_{i\in \tilde{i}} R_i$ where each $\tilde{i} = \left\{0\leq j\leq d : p^x_{i,j} \text{ for }x\in \mathcal{I}\right\}$. Note that $\vert \tilde{\mathcal{R}}\vert = \vert \mathcal{J}\vert$ where $\mathcal{J}$ is the subset from Theorem $3.1(iv)$.
-
-	\begin{cor}
-		\label{SRG}
-		The quotient scheme of a 4-class $Q$-bipartite association scheme is a strongly regular graph.
-	\end{cor}
-	\begin{proof}
-		From Theorem \ref{suzuki}, we know $\mathcal{J} = \left\{0,2,4\right\}$ and therefore the quotient scheme has two nontrivial relations, forcing it to be strongly regular.
-	\end{proof}
-	\begin{thm}[\cite{Brouwer2003},\cite{Martin2007}]
-		\label{sym}
-		If $(X,\mathcal{R})$ is $Q$-bipartite with $w$ dual bipartite classes of size $r$ each, then $r=2$. Under the natural ordering of relations, $\mathcal{I} = \left\{0,d\right\}$ and the sequence $m = Q_{01}>Q_{11}>\dots>Q_{d1}$ is symmetric about the origin. In particular, $Q_{\frac{d}{2},1} = 0$ whenever $d$ is even.
-	\end{thm}
-	\begin{cor}
-		\label{evenpoly}
-		If $(X,\mathcal{R})$ is $Q$-bipartite, then $Q_{i,j} = Q_{d-i,j}$ $(-Q_{d-i,j}$, resp.) whenever $j$ is even (odd).
-	\end{cor}
-	\begin{proof}
-		$q_j(t)$ is even (odd) whenever $j$ is even (odd). Since $Q_{i,1} = -Q_{d-i,1}$ and $Q_{i,j} = q_j(Q_{i,1})$, the result follows.
-	\end{proof}
-Twins -- Make sure they are somewhere.
+	With this conjecture in mind, we expect that as $d$ grows, the fraction of $Q$-polynomial schemes which are not also $P$-polynomial should diminish. However as can be seen by the tables hosted by Williford \cite{Willifordtable} there is still much work to be done for small $d$. Note every $2$-class association scheme (strongly regular graphs) is automatically both metric and cometric, thus we will primarily focus on schemes which are have at least three classes.
