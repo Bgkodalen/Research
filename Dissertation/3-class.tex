@@ -27,13 +27,13 @@ We begin this chapter with a survey of known results focusing on the connection 
 	There exists an $LSSD(v,k,\lambda;w)$ with $v=36^{2n}$ and $w = 4^n+1$ for all $n\geq 1$.
 \end{restatable*}
 \section{Homogeneous linked systems of symmetric designs}
-We begin by reviewing symmetric designs as these will play a central role in all that follows. A \textit{symmetric 2-design} with parameters $(v,k,\lambda)$ is a set of blocks $\mathcal{B}$ on point set $X$ written as $(X,\mathcal{B})$ satisfying the following three conditions:
+We begin by reviewing symmetric designs as these will play a central role in all that follows. A \textit{symmetric 2-design}\index{block design!2-design} with parameters $(v,k,\lambda)$ is a set of blocks $\mathcal{B}$ on point set $X$ written as $(X,\mathcal{B})$ satisfying the following three conditions:
 \begin{itemize}
 	\item There are $v$ blocks and $v$ points ($\vert\mathcal{B}\vert = \vert X\vert = v$);
 	\item Every block contains $k$ points and every point is contained in $k$ blocks;
 	\item Every pair of points is contained in $\lambda$ blocks and the intersection of any pair of blocks contains $\lambda$ points.
 \end{itemize}
-We form an \textit{incidence} matrix $B$ for the block design, indexing rows by blocks and columns by points, setting $B_{ij} = 1$ if point $j$ is in block $i$ and $B_{ij} = 0$ otherwise. Finally, we note the following two equivalent equations which hold for any symmetric 2-design:
+We form an \textit{incidence}\index{block design!incidence matrix} matrix $B$ for the block design, indexing rows by blocks and columns by points, setting $B_{ij} = 1$ if point $j$ is in block $i$ and $B_{ij} = 0$ otherwise. Finally, we note the following two equivalent equations which hold for any symmetric 2-design:
 \begin{align}
 k(k-1) &= \lambda(v-1)\label{sym:1},\\
 k(v-k) &= (k-\lambda)(v-1).\label{sym:2}
@@ -696,7 +696,7 @@ Therefore $\nu$ (and $\mu$) are integral if and only if $u$ is even, resulting i
 \end{proof}
 The upper bound for $w$ is achieved whenever $u$ is a power of two using the Cameron-Seidel scheme. In light of this family and the requirement that $w=2$ whenever $v/4$ is odd, one might ask if $w$ is bounded as a function of the highest power of $2$ dividing $v$. We will show later that this is not true by constructing examples with $w$ as large as we like and $v/16$ odd.
 \subsection{Hadamard Matrix Equivalence}
-In this section, we establish an equivalence between LSSDs with parameters as in Theorem \ref{MubLssdrestrictions} with sets of regular unbiased Hadamard matrices (see \cite{Kharaghani2010} for more detailed information on unbiased Hadamard matrices). Van Dam et.\ al.\ \cite[p.~1423]{Davis2014} briefly mention this connection citing constructions of unbiased regular Hadamard matrices by Holzmann, Kharaghani, and Orrick \cite{Kharaghani2010} using mutually orthogonal latin squares. In this section, we describe the connection between unbiased regular Hadamard matrices and LSSDs in full using Theorem \ref{twoside}. A real Hadamard matrix of order $v$ is a $v\times v$ matrix $H$ with entries $\pm 1$ such that $HH^T = vI$. $H$ is a \textit{regular Hadamard matrix} if $HJ = cJ$ for some constant $c$. Two Hadamard matrices $H_1$ and $H_2$ are \textit{unbiased} if $\frac{1}{v}H_1H_2^T$ is itself a Hadamard matrix. Finally, a set of Hadamard matrix matrices are unbiased if each pair is unbiased. Using these definitions, consider the following:
+In this section, we establish an equivalence between LSSDs with parameters as in Theorem \ref{MubLssdrestrictions} with sets of regular unbiased Hadamard matrices (see \cite{Kharaghani2010} for more detailed information on unbiased Hadamard matrices). Van Dam et.\ al.\ \cite[p.~1423]{Davis2014} briefly mention this connection citing constructions of unbiased regular Hadamard matrices by Holzmann, Kharaghani, and Orrick \cite{Kharaghani2010} using mutually orthogonal latin squares. In this section, we describe the connection between unbiased regular Hadamard matrices and LSSDs in full using Theorem \ref{twoside}. A real Hadamard matrix of order $v$ is a $v\times v$ matrix $H$ with entries $\pm 1$ such that $HH^T = vI$. $H$ is a \textit{regular Hadamard matrix}\index{Hadamard matrix} if $HJ = cJ$ for some constant $c$. Two Hadamard matrices $H_1$ and $H_2$ are \textit{unbiased}\index{Hadamard matrix!unbiased} if $\frac{1}{v}H_1H_2^T$ is itself a Hadamard matrix. Finally, a set of Hadamard matrix matrices are unbiased if each pair is unbiased. Using these definitions, consider the following:
 \begin{thm}
 	\label{LSSDtoHad}
 	Let $\Gamma$ be an optimistic $LSSD(v,k,\lambda;w)$. If $\vert v-2k\vert = -2\sqrt{k-\lambda}$, then there exists a set of $w-1$ real unbiased regular Hadamard matrices.

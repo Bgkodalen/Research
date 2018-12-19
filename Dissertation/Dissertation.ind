@@ -1,0 +1,117 @@
+\begin{theindex}
+
+  \item $P$-polynomial
+    \subitem antipodal, 18
+    \subitem bipartite, 18
+  \item $Q$-polynomial, 17
+    \subitem $Q$-antipodal, 18
+    \subitem $Q$-bipartite, 18
+    \subitem cometric, 17
+
+  \indexspace
+
+  \item absolute bound, 11
+  \item antipodal, 11
+    \subitem dual-, 11
+  \item association scheme
+    \subitem commutative, 4
+    \subitem symmetric, 3
+  \item association schemes
+    \subitem translation schemes, 10
+
+  \indexspace
+
+  \item bipartite, 11
+    \subitem dual-, 11
+  \item block design
+    \subitem 2-design, 49
+    \subitem incidence matrix, 49
+  \item Bose-Mesner algebra, 94
+
+  \indexspace
+
+  \item Delsarte coclique, 81
+
+  \indexspace
+
+  \item equiangular lines
+    \subitem near optimal, 23
+    \subitem optimal, 23
+
+  \indexspace
+
+  \item feasible parameter set, 12
+  \item formal duality, 11
+
+  \indexspace
+
+  \item Gegenbauer polynomials, 27
+  \item graph
+    \subitem neighborhood, 4
+
+  \indexspace
+
+  \item Hadamard matrix, 68
+    \subitem unbiased, 68
+
+  \indexspace
+
+  \item imprimitivity
+    \subitem imprimitive, 12
+    \subitem primitive, 12
+    \subitem quotient scheme, 13--15
+    \subitem subscheme, 12, 14
+    \subitem systems of -, 13
+
+  \indexspace
+
+  \item Krein conditions, 11
+
+  \indexspace
+
+  \item natural ordering, 18
+
+  \indexspace
+
+  \item parameters
+    \subitem arrays of intersection numbers, 8
+    \subitem arrays of Krein parameters, 8
+    \subitem intersection matrix, 9
+    \subitem intersection numbers, 3
+    \subitem Krein, 7
+    \subitem Krein matrix, 9
+  \item polnomial
+    \subitem homogeneous
+      \subsubitem on the sphere, 27
+  \item polynomial
+    \subitem degree, 26
+    \subitem derivative, 26
+    \subitem harmonic, 26
+      \subsubitem on the sphere, 27
+    \subitem homogeneous, 26
+    \subitem monomial, 26
+    \subitem zonal, 27
+  \item positive definite function, 28
+  \item positive semidefinite cone, 23
+  \item projection map, 95
+  \item projective double, 75
+  \item proximal
+    \subitem only to, 104
+    \subitem points, 104
+
+  \indexspace
+
+  \item realizable parameter set, 12
+  \item relation
+    \subitem symmetrization of -, 93
+
+  \indexspace
+
+  \item strongly regular graph, 79
+  \item subconstituents, 4
+
+  \indexspace
+
+  \item valency, 5
+
+\end{theindex}
