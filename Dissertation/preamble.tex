@@ -28,12 +28,13 @@
 \usepackage{float}
 
 \usepackage{makeidx}
-\usepackage{showidx}
+%\usepackage{showidx}
 \makeindex
 
 \newcommand{\vnorm}[1]{\left\|#1\right\|}
 \newcommand*{\swap}[2]{#2#1}
 \newcommand{\PLH}{{\mkern-2mu\times\mkern-2mu}}
+\newcommand{\bigslant}[2]{{\left.\raisebox{.2em}{$#1$}\middle/\raisebox{-.2em}{$#2$}\right.}}
 
 
 %%% CS Template
@@ -147,7 +148,7 @@
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem{cor}[thm]{Corollary}
-\newtheorem{remark}[thm]{Remark}
+\newtheorem*{remark}{Remark}
 \newtheorem*{conj*}{Conjecture}
 \newtheorem{conj}[thm]{Conjecture}
 \theoremstyle{definition}

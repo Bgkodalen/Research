@@ -1,16 +1,18 @@
 \chapter{Positive semidefinite cone of an association scheme}\label{psdcone}
-Consider the following classic unsolved problem in discrete geometry (\cite{Haantjes1948},\cite{vanLint1966},\cite{Lemmens1973}): Given a fixed positive integer $n$, what is the maximum number of lines through the origin one may find in $\mathbb{R}^n$ such that the angle between any pair of distinct lines is $\theta$. Over the past 70 years, researchers in both math and physics have developed the theory of these ``equiangular lines" (also ``equiangular tight frames"), finding upper bounds on the number of lines in any given dimension coming from tools such as linear programming \cite{Delsarte1975}, number theory \cite{Lemmens1973}, and more recently semidefinite programming \cite{Barg2014}. A related problem asks the question: How many orthonormal basis may we find in $\mathbb{R}^n$ such that the angle between vectors in distinct bases is fixed, called ``mutually unbiased bases" (see \cite{Delsarte1975}, \cite{Calderbank1997},\cite{Boykin2005}). While the complex analogue of both of these questions have had great interest in Quantum computing (\cite{Appleby2005},\cite{Grassl2008},\cite{Ivanovic1981},\cite{Wootters1989}), we restrict ourselves to the real cases in this document as the Bose-Mesner algebra of any symmetric association scheme is real.
+We begin this chapter with a simple problem: How many lines may one draw on a piece of paper which intersect in a single angle? It is clear that we may draw two lines which intersect with any angle $0< \theta< \frac{\pi}{2}$. However, if we fix $\theta = \frac{\pi}{3}$, we may draw a third line disecting the obtuse angle between our pair of lines which results in a angle of $\frac{\pi}{3}$ which both original lines. The same question may be asked in a higher dimension: for instance, how many lines may one construct in $\mathbb{R}^3$ so that any pair of lines intersect in the same angle? For this case, we construct a regular pentagon centered at the origin of the $xy$-plane and draw fives lines connecting the origin to each vertex of the pentagon. The resulting five lines (identified by each vertex) permit two possible angles: $\frac{2\pi}{5}$ between adjacent vertices and $\frac{\pi}{5}$ between non-adjacent vertices. Yet, if we raise the pentagon far enough out of the plane, we eventually find that each pair of lines with adjacent vertices permit a smaller angle than those pairs which are not adjacent. Thus there exists some height for which the angles are all the same---this occurs when the cosine of the angle between pairs is $\frac{1}{\sqrt{5}}$. Further, one finds that this configuration allows for a sixth line to be added, given by the $z$-axis, which is ``equiangular" with each of the other five lines. More commonly, this configuration of lines is given by connecting the center of an icosahedron to the six pairs of antipodal points. In both cases listed above, we find that these configurations are optimal for that dimension---that is, one cannot find a set of four lines in $\mathbb{R}^2$ nor seven lines in $\mathbb{R}^3$ for which any pair of lines intersect in a given angle.
 
-Both of the problems mentioned above are restricted versions of the more general question of finding spherical $t$-distance sets: sets of unit vectors in a fixed dimension with only $t$ distinct inner products arising between pairs of vectors. In each case we may recast the problem to looking for large positive semidefinite matrices with a low rank, constant diagonal, and few distinct entries off the diagonal. More precisely, let $G$ be a $n\times n$ positive semidefinite matrix with rank $r$. Then there exists a $r\times n$ matrix $U$ such that $G = U^TU$; that is $G$ is the Gram matrix of the columns of $U$. If $G$ has a constant diagonal, then we may scale the columns of $U$ so that each column is a unit vector without increasing the number of distinct inner products. The columns of $U$ therefore give a spherical $t$-distance set in $\mathbb{R}^r$ where $t$ is the number of unique entries off the diagonal of $G$. Now recall that a $d$-class association scheme results in a Bose-Mesner algebra with $d+1$ basis idempotents. These idempotents serve as the basis of the cone of positive semidefinite matrices inside our Bose-Mesner algebra. However noting that every matrix in our Bose-Mesner algebra has a constant diagonal and at most $d$ entries off the main diagonal, we often find Gram matrices for large spherical $t$-distance sets within this algebra. Given any association scheme, finding such a matrix not only guarantees the existence of the $t$-distance set but allows us to compute the vectors explicitly. Conversely, any restrictions we find on the existence of such $t$-distance sets allows us to add feasibility conditions on the parameters of association schemes. For instance, Delsarte et al.\ \cite{Delsarte1975} found bounds on the size of any $t$-distance set based solely on the dimension of the ambient space and the inner products allowed between vectors. Such an observation allows us to rule out certain parameter sets if the rank of any matrix in the PSD cone falls too low compared to the number and values of the distinct entries off the diagonal. In a later paper \cite{Delsarte1977}, the same authors proved that a $s$-distance set is a spherical $t$-design if and only if each of the first $t$ Gegenbauer polynomials, summed over the inner products $\left<x,x'\right>$ ($x,x'\in X$) is zero. Further, they showed that if a $t$-design has fewer than $\frac{t+1}{2}$ distinct inner products, then it must correspond to the point set of an association scheme. Even further, Bannai and Bannai \cite{Bannai2008} showed that whenever the number of distinct inner products is within one of this bound, the $t$-design still admits an association scheme as long as the set of vectors is antipodal. This close relation between ``near-tight" $t$-designs and association schemes hints at the types of vector systems we should expect to find within our Bose-Mesner algebra. For instance, Suda \cite{Suda2011} used these results to characterize when the first idempotent of a $Q$-polynomial ordering results in a spherical $t$-design. A central tool in many of these results is a family of single-variable polynomials known as the Gegenbauer polynomials. A key result of Sch\"{o}nberg \cite{Schoenberg1942} concerning this family tells us that each Gegenbauer polynomial, when applied to a Gram matrix elementwise, results in a positive semidefinite matrix.
+This simple problem generalizes to a classic unsolved problem in discrete geometry (\cite{Haantjes1948},\cite{vanLint1966},\cite{Lemmens1973}): Given a fixed positive integer $n$ and angle $0<\theta<\frac{\pi}{2}$, what is the maximum number of lines through the origin one may find in $\mathbb{R}^n$ such that the angle between any pair of distinct lines is $\theta$. Over the past 70 years, researchers in both math and physics have developed the theory of these \emph{equiangular lines}\index{equiangular lines}, finding upper bounds on the number of lines in any given dimension coming from tools such as linear programming \cite{Delsarte1975}, number theory \cite{Lemmens1973}, and more recently semidefinite programming \cite{Barg2014}. A related question is as follows: How many orthonormal bases may we find in $\mathbb{R}^n$ such that the angle between vectors in distinct bases is fixed. Such a set is called a set of \emph{real mutually unbiased bases}\index{mutually unbiased bases} (see \cite{Delsarte1975}, \cite{Calderbank1997},\cite{Boykin2005}). Recently, the complex analogues have attracted interest in quantum computing (\cite{Waldron2018},\cite{Appleby2005},\cite{Grassl2008},\cite{Ivanovic1981},\cite{Wootters1989}), though we will restrict ourselves to the questions in real space as the matrices in the Bose-Mesner algebra of any symmetric association scheme contain only real numbers.
+
+Both of the problems mentioned above are restricted versions of the more general question of finding spherical $t$-distance sets: sets of unit vectors in a fixed dimension with only $t$ distinct inner products arising between pairs of vectors. In each case the question is equivalent to finding large positive semidefinite matrices with a low rank, constant diagonal, and few distinct entries off the diagonal. More precisely, let $G$ be an $n\times n$ positive semidefinite matrix with rank $r$. Then there exists a $r\times n$ matrix $U$ such that $G = U^TU$; that is $G$ is the Gram matrix of the columns of $U$. If $G$ has a constant diagonal, then we may scale the columns of $U$ so that each column is a unit vector without increasing the number of distinct inner products. The columns of $U$ therefore give a spherical $t$-distance set in $\mathbb{R}^r$ where $t$ is the number of distinct entries off the diagonal of $G$. Now recall that a $d$-class association scheme results in a Bose-Mesner algebra with $d+1$ basis idempotents. These idempotents serve as the basis of the cone of positive semidefinite matrices inside our Bose-Mesner algebra. However noting that every matrix in our Bose-Mesner algebra has a constant diagonal and at most $d$ entries off the main diagonal, we often find Gram matrices for large spherical $t$-distance sets within this algebra. Given any association scheme, finding such a matrix not only guarantees the existence of the $t$-distance set but allows us to compute the vectors explicitly. Conversely, any restrictions we find on the existence of such $t$-distance sets allows us to add feasibility conditions on the parameters of association schemes. For instance, Delsarte et al.\ \cite{Delsarte1975} found bounds on the size of any $t$-distance set based solely on the dimension of the ambient space and the inner products allowed between vectors. Such an observation allows us to rule out certain parameter sets if the rank of any matrix in the PSD cone falls too low compared to the number and values of the distinct entries off the diagonal. In a later paper \cite{Delsarte1977}, the same authors proved that a $s$-distance set is a spherical $t$-design if and only if each of the first $t$ Gegenbauer polynomials, summed over the inner products $\left<x,x'\right>$ ($x,x'\in X$) is zero. Further, they showed that if a $t$-design has fewer than $\frac{t+1}{2}$ distinct inner products, then it must correspond to the point set of an association scheme. Even further, Bannai and Bannai \cite{Bannai2008} showed that whenever the number of distinct inner products is within one of this bound, the $t$-design still admits an association scheme as long as the set of vectors is antipodal. This close relation between ``near-tight" $t$-designs and association schemes hints at the types of vector systems we should expect to find within our Bose-Mesner algebra. For instance, Suda \cite{Suda2011} used these results to characterize when the first idempotent of a $Q$-polynomial ordering results in a spherical $t$-design. A central tool in many of these results is a family of single-variable polynomials known as the Gegenbauer polynomials. A key result of Sch\"{o}nberg \cite{Schoenberg1942} concerning this family tells us that each Gegenbauer polynomial, when applied to a Gram matrix elementwise, results in a positive semidefinite matrix.
 	
 In this chapter we will examine the cone of positive semidefinite matrices within our Bose-Mesner algebras. We first display how one may build large spherical $t$-distance sets by taking non-negative linear combinations of the idempotents. Using this, we will build examples of equiangular lines meeting the maximum possible number of lines in given dimensions. We will then introduce the Gegenbauer polynomials as well as Sch\"{o}nberg's theorem. Using this theorem we will derive new constraints on the Krein parameters of any association scheme. We further examine these restrictions in the case of $Q$-polynomial association schemes where we give seven feasibility conditions which are not implied by the previously mentioned feasibility conditions; we believe these results are new. These results will be applied directly to the case of $4$-class $Q$-bipartite association schemes in Chapter \ref{4classbip}. Below we list the main theorems in this chapter.
 
 In both Theorem \ref{schoen-as} and the final line of Theorem \ref{degreebound}, $Q_k^m(t)$ denotes the Gegenbauer polynomial of degree $k$ in dimension $m$.
 \begin{restatable*}{lem}{buildingequi}\label{equilines}
-	Let $(X,\cR)$ be given with second eigenmatrix $Q$. Define $Q^\prime$ to be the submatrix of $Q$ given by deleting row $0$. If there exists a non-negative solution to $Q^\prime x = y$ where each entry in $y$ is one of $\pm1$, then $\BMA$ contains the Gram matrix of $\vert X\vert$ equiangular lines in dimension $\sum_{x_j\neq 0} Q_{0j}$ with inner products $\pm\left(\sum x_jQ_{0j}\right)^{-1}$.
+	Let $(X,\cR)$ be given with second eigenmatrix $Q$ with multiplicities $m_0,\dots,m_d$. Define $Q^\prime$ to be the submatrix of $Q$ given by deleting row $0$. If there exists a non-negative vector $x$ so that $Q^\prime x\in\left\{-1,1\right\}^d$, then $\BMA$ contains the Gram matrix of $\vert X\vert$ equiangular lines in dimension $n=\sum_{x_j\neq 0} m_j$ with angle $\alpha =\left(\sum x_jm_j\right)^{-1}$.
 \end{restatable*}
 \begin{restatable*}{thm}{schAS}\label{schoen-as}
-	Let $(X,\mathcal{R})$ be an association scheme with minimal idempotents $E_0,\dots,E_d$ and matrices of Krein parameters $\displaystyle{L_0^*,\dots,L_d^*}$. For $0\leq i\leq d$, define $m_i:=\text{rank}\left(E_i\right)$. Then for any choice of $\ell>0$, there exist non-negative constants $\theta_{\ell j}$ for $0\leq j\leq d$ such that
+	Let $(X,\mathcal{R})$ be an association scheme with minimal idempotents $E_0,\dots,E_d$ and matrices of Krein parameters $\displaystyle{L_0^*,\dots,L_d^*}$. Fix some $E_i$, $0\leq i\leq d$, and let $m_i:=\text{rank}\left(E_i\right)$. Then for any choice of $\ell>0$, there exist non-negative constants $\theta_{\ell j}$, $0\leq j\leq d$, such that
 	\begin{equation}\label{ELGeg}
 	Q_\ell^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right) = \sum_j \theta_{\ell j} E_j;\qquad	Q_\ell^{m_i}\left(\frac{1}{m_i}L_i^*\right) = \frac{1}{\vert X\vert}\sum_j \theta_{\ell j} L_j^*.
 	\end{equation}
@@ -18,20 +20,19 @@ In both Theorem \ref{schoen-as} and the final line of Theorem \ref{degreebound},
 \end{restatable*}
 
 \begin{restatable*}{thm}{degbnd}\label{degreebound}
-	Suppose we have a feasible parameter set for an association scheme with first and second eigenmatrices $P$ and $Q$. For $\ell>0$ and $0\leq i\leq d$ define $\mu_\ell = \frac{\ell-1}{\ell+Q_{0i}-3}$ and $\lambda_j = \nicefrac{Q_{ji}}{Q_{0i}}$. Let $\ell^*$ be the smallest integer such that
-	\[\sum_{j=1}^d \left(\prod_{\ell=2}^{\ell^*+1}\gamma_{\ell,j}\right)P_{0j}\left(1+\lambda_j^2\right)\leq\frac{1}{\vert X\vert}\]
-	where $\gamma_{l,j}$ is $\lambda_j^2$ if $(1+\mu_\ell)^2\lambda_j^2\geq 4\mu_\ell$ and $\mu_\ell$ otherwise. Then for $\ell\geq \ell^*$, the requirements derived from $Q_\ell^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right)\succeq 0$ are implied by known feasibility conditions.
+	Suppose we have a feasible parameter set for an association scheme with first and second eigenmatrices $P$ and $Q$. Fix $0\leq i\leq d$ and for $\ell>0$ define $\mu_\ell = \frac{\ell-1}{\ell+Q_{0i}-3}$ and $\lambda_j = \nicefrac{Q_{ji}}{Q_{0i}}$. Let $\gamma_{\ell,j}$ equal $\lambda_j^2$ if $(1+\mu_\ell)^2\lambda_j^2\geq 4\mu_\ell$ and $\mu_\ell$ otherwise. Then all entries of $Q_{\ell^*}^{m_i}\left(\frac{1}{m_i}L_i^*\right)$ are non-negative whenever
+	\[\sum_{j=1}^d \left(\prod_{\ell=2}^{\ell^*+1}\gamma_{x,j}\right)P_{0j}\left(1+\lambda_j^2\right)\leq\frac{1}{\vert X\vert}.\]
 \end{restatable*}
 \begin{restatable*}{thm}{cometricbounds}\label{cometricbnds}
-	Suppose we have a feasible parameter set for a cometric association scheme with Krein array $\left\{m,b^*_1,\dots,b^*_{d-1};1,c_2^*\dots,c^*_{d}\right\}$ where $m>2$. Define $b_{j-1}^* = c_j^*=a_j^*=0$ for $j>d$. Then the scheme is realizable only if
+	Suppose we have a feasible parameter set for a cometric association scheme with Krein array $\iota^*(X,\cR) = \left\{m,b^*_1,\dots,b^*_{d-1};1,c_2^*\dots,c^*_{d}\right\}$ where $m>2$. Define $b_{j-1}^* = c_j^*=a_j^*=0$ for $j>d$. Then the scheme is realizable only if
 	\begin{enumerate}[label=(\roman*)]
 		\item $\left(a_1^*\right)^2 + b_1^*c_2^* \geq\frac{2m(m-1)}{m+2},$
-		\item $\left(a_1^*\right)^2+2a_1^*a_2^*+c_2q^2_{22}\geq \frac{4m(m-2)}{m+4},$
-		\item $\frac{6m(m-1)(m-4)}{(m+4)(m+6)}+\frac{\left(3a_1^*\left(a_1^*+a_2^*\right)+c_2q_{22}^2\right)b_1^*c_2^*+\left(a_1^*\right)^4}{m}\geq \frac{(7m-18)\left(\left(a_1^*\right)^2+b_1^*c_2^*\right)}{m+6},$
+		\item $\left(a_1^*\right)^2+2a_1^*a_2^*+c_2^*q^2_{22}\geq \frac{4m(m-2)}{m+4},$
+		\item $\frac{6m(m-1)(m-4)}{(m+4)(m+6)}+\frac{\left(3a_1^*\left(a_1^*+a_2^*\right)+c_2^*q_{22}^2\right)b_1^*c_2^*+\left(a_1^*\right)^4}{m}\geq \frac{(7m-18)\left(\left(a_1^*\right)^2+b_1^*c_2^*\right)}{m+6},$
 		\item $\sum_{i=1}^3\left(b_i^*c_{i+1}^* + a_i^*\sum_{j=i}^3 a_j^*\right)\leq \frac{3(3m-2)}{m+6}.$
 		\item $\frac{16m(m-1)}{(m+4)(m+8)} + \frac{\left(a_1^*\right)^4 + \left(3a_1^*\left(a_1^*+a_2^*\right)+c_2^*q_{22}^2\right)b_1^*c_2^*}{(m-2)m}\geq \frac{12\left(\left(a_1^*\right)^2+b_1^*c_2^*\right)}{m+8},$
 	\end{enumerate}
-	Additionally, if $a_1^*>0$ then,
+	Additionally, if $a_1^*>0$, then
 	\begin{enumerate}[label=(\roman*)]
 		\addtocounter{enumi}{5}
 		\item $\left(a_1^*\right)^2 + b_1^*c_2^*\left(2 + \frac{a_2^*}{a_1^*}\right)\geq \frac{4m(2m-3)}{m+6},$
@@ -40,18 +41,18 @@ In both Theorem \ref{schoen-as} and the final line of Theorem \ref{degreebound},
 \end{restatable*}
 
 
-\section{Equiangular lines in $\BMA$}\label{equilines}
-Let $(X,\cR)$ be an association scheme with basis relations $A_0,\dots,A_d$ and orthogonal idempotents $E_0,\dots,E_d$. Since each $E_i$ is an idempotent matrix, it has spectrum $\left\{0,1\right\}$ and thus is positive semidefinite, denoted $E_i\succeq 0$. Further, let 
-\begin{equation}G = \sum_i\alpha_i E_i.\label{lincomb}\end{equation}
-Then we have $\text{spec}\left(G\right) = \left\{\alpha_0,\dots,\alpha_d\right\}$. Therefore $G\succeq 0$ if and only if $\alpha_i\geq 0$ for all $0\leq i\leq d$. Thus the \emph{positive semidefinite cone}\index{positive semidefinite cone} of $(X,\cR)$ is the set of non-negative linear combinations of the idempotents $E_0,\dots,E_d$. Further, equation \eqref{lincomb} gives us that \begin{equation}\text{rank}\left(G\right) = \sum_{\alpha_i\neq 0} m_i.\label{rank}\end{equation}
-Finally, since $G\in\BMA$ we must have $G = \sum_i \beta_i A_i$ and thus there are at most $d$ unique values off the main diagonal, making $\frac{1}{\beta_0}G$ the Gram matrix of a spherical $t$ distance set where $t\leq d$. In Chapter $\ref{3class}$ we examine one type of cometric association scheme where the first idempotent, $E_1$, gives an interesting 3-distance set where, in the optimal case, the number of vectors scales as $\frac{1}{2}v^2$ for dimension $v$. In this same case we show that adding another idempotent, namely $E_0$, allows us to build large sets of real mutually unbiased bases by choosing $\alpha_0$ and $\alpha_1$ carefully so that the non-zero entries off the diagonal of $G$ have a constant modulus. Before moving to two examples coming from $3$-class primitive cometric association schemes, we note the following bound on the maximum number of equiangular lines in a given dimension known as the relative bound.
+\section{Lines with few angles}\label{equilines}
+Let $(X,\cR)$ be an association scheme with basis relations $A_0,\dots,A_d$, orthogonal idempotents $E_0,\dots,E_d$, and Bose-Mesner algebra $\BMA$. Since each $E_i$ is an idempotent matrix, it has spectrum $\left\{0,1\right\}$ and thus is positive semidefinite, denoted $E_i\succeq 0$. Any $G\in\BMA$ may be uniquely expressed
+\begin{equation}G = \sum_i\alpha_i E_i,\label{lincomb}\end{equation}
+and we have $\text{spec}\left(G\right) = \left\{\alpha_0,\dots,\alpha_d\right\}$. Therefore $G\succeq 0$ if and only if $\alpha_i\geq 0$ for all $0\leq i\leq d$. Thus the \emph{positive semidefinite cone}\index{positive semidefinite cone} of $(X,\cR)$ is the set of non-negative linear combinations of the idempotents $E_0,\dots,E_d$. Further, equation \eqref{lincomb} gives us that \begin{equation}\text{rank}\left(G\right) = \sum_{\alpha_i\neq 0} m_i.\label{rank}\end{equation}
+Finally, since $G\in\BMA$ we must have $G = \sum_i \beta_i A_i$ with $\beta_0>0$ if $G\neq 0$ and thus there are at most $d$ distinct values off the main diagonal. While there are an infinite number of $t$-distance sets arising from any association scheme, we are particularly interested in those corresponding to some of the line systems already discussed. Recall that a set of \emph{equiangular lines}\index{equiangular lines} is a set of vectors for which the angle between any pair is given by some fixed $0<\theta<\frac{\pi}{2}$. By abuse of notation, we say the (common) ``angle" for this set is $\alpha = \cos(\theta)$ and thus we identify a set of equiangular lines in $\mathbb{R}^n$ with angle $0<\alpha<1$ with a rank $n$ positive semi-definite matrix for which each entry on the main diagonal is $1$ and every entry off the diagonal is one of $\pm \alpha$; we call such a matrix the \emph{Gram matrix of a set of equiangular lines with angle $\alpha$}. In some cases we will introduce other $t$ distance sets which are interesting for their own reasons. For instance, in Chapter $\ref{3class}$ we examine one type of cometric association scheme which may be characterized by the 3-distance set produced by viewing $E_1$ as a Gram matrix. We then show that certain linear combinations of $E_0$, $E_1$, and $E_3$ will also produce equiangular lines in this way. We show later in the chapter that a certain family of these association schemes also contains the Gram matrix of real mutually unbiased bases. In the optimal case, we find that the number of vectors in each set scales as $\frac{1}{2}v^2$ for dimension $v$. In this section, we restrict ourselves to building equiangular lines and consider 3-class primitive $Q$-polynomial association schemes. Before moving to examples, we note the following bound on the maximum number of equiangular lines in a given dimension known as the relative bound.
 \begin{thm}[\cite{vanLint1966}]\label{relbound}
-	Let $v_\alpha(n)$ be the maximum number of equiangular lines with inner products $\pm\alpha$ in $\mathbb{R}^n$. If $n<\alpha^{-2}$ then
-	\[v_\alpha(n)\leq\frac{r(1-\alpha^2)}{1-r\alpha^2}.\]
+	For $0<\alpha<1$, let $v_\alpha(n)$ be the maximum number of equiangular lines with angle $\alpha$ in $\mathbb{R}^n$. If $n<\alpha^{-2}$ then
+	\[v_\alpha(n)\leq\frac{n(1-\alpha^2)}{1-n\alpha^2}.\]
 \end{thm}
-In this section, we refer a system of lines as \emph{optimal}\index{equiangular lines!optimal} if it achieves the relative bound for the given dimension and innerproducts and \emph{near optimal}\index{equiangular lines!near optimal} if it is within one line of being optimal. We now examine two 3-class primitive association schemes to illustrate how we may build equiangular lines from these schemes. The first comes from the Halved 7-cube while the second corresponds to the Dual Polar space $B_3(2)$.
+In this section, we refer to a system of equiangular lines as \emph{optimal}\index{equiangular lines!optimal} if it achieves the relative bound for the given dimension and angle; likewise a system of equiangular lines is \emph{near optimal}\index{equiangular lines!near optimal} if it is within one line of being optimal. We now examine two 3-class primitive association schemes to illustrate how we may build equiangular lines from these schemes. The first comes from the halved 7-cube while the second corresponds to the dual polar space $B_3(2)$.
 \begin{example}
-	Consider the 3-class primitive association scheme given by the Halved 7-cube \cite{Brouwer1989}. This scheme is both metric and cometric with the following eigenmatrices
+	Consider the 3-class primitive association scheme given by the halved 7-cube \cite{Brouwer1989}. This scheme is both metric and cometric with the following eigenmatrices
 	\[P = \left[\begin{array}{rrrr}
 	1& 21& 35& 7\\
 	1& 9& -5& -5\\
@@ -64,13 +65,13 @@ In this section, we refer a system of lines as \emph{optimal}\index{equiangular 
 	1& -5& 9& -5\\
 	\end{array}\right].\]
 	Recall that $E_j = \frac{1}{\vert X\vert}\sum_{i}Q_{ji}A_i$ and consider
-	\[G = 16\left(E_1 + E_2\right).\]
+	\[G = \frac{16}{7}\left(E_1 + E_2\right).\]
 	We may then use the entries of $Q$ to replace each idempotent with the corresponding sum of adjacency matrices giving 
-	\[G = 7A_0 + A_1 -A_2+A_3.\]
-	Then $\frac{1}{7}G$ is the Gram matrix of $64$ lines in dimension $m_1+m_2 = 28$ with inner products $\pm\frac{1}{7}$. Using the relative bound, we find that this system is optimal.
+	\[G = A_0 + \frac{1}{7}A_1 -\frac{1}{7}A_2+\frac{1}{7}A_3.\]
+	Then $G$ is the Gram matrix of $64$ lines in dimension $m_1+m_2 = 28$ with angle $\frac{1}{7}$. Using the relative bound, we find that this system is optimal.
 \end{example}
 \begin{example}
-	Consider the 3-class primitive cometric (and metric) association scheme known as the dual polar space $B_3(2)$. The first and second eigenmatrices are
+	Consider the 3-class primitive cometric (and metric) association scheme defined on the dual polar space $B_3(2)$. The first and second eigenmatrices are
 	\[P = \left[\begin{array}{rrrr}
 	1& 14& 56& 64\\
 	1& 5& -2& -8\\
@@ -83,8 +84,8 @@ In this section, we refer a system of lines as \emph{optimal}\index{equiangular 
 	1& -\nicefrac{35}{8}& \nicefrac{21}{4}& -\nicefrac{15}{8}\\
 	\end{array}\right].\]
 	Consider the matrix
-	\[G = 15E_0+24E_1 + 24E_2 = 9A_0 + A_1 +A_2-A_3.\]
-	Similar to before, $\frac{1}{9}G$ is the Gram matrix of $135$ lines in dimension $m_0+m_1+m_2 = 51$ with inner products $\pm\frac{1}{9}$. Here, the relative bound tells us that optimal number of lines in dimension 51 with these inner products is 136, thus this construction is near optimal.
+	\[G = 15E_0+24E_1 + 24E_3 = 9A_0 + A_1 +A_2-A_3.\]
+	Similar to before, $\frac{1}{9}G$ is the Gram matrix of $135$ lines in dimension $m_0+m_1+m_2 = 51$ with angle $\pm\frac{1}{9}$. Here, the relative bound tells us that optimal number of lines in dimension 51 with these inner products is 136, thus this construction is near optimal.
 \end{example}
 \begin{comment}
 \begin{example}
@@ -107,7 +108,6 @@ In this section, we refer a system of lines as \emph{optimal}\index{equiangular 
 \end{comment}
 %In both of the examples above, we find linear combinations of the idempotents where the idempotent with largest multiplicity has coefficient 0. While we may allow ourselves to include this idempotent, doing so often results in line-sets which are far from optimal. 
 We now consider the construction in general.
-
 \buildingequi
 \begin{comment}
 \begin{lem}\label{equilines}
@@ -115,11 +115,11 @@ Let $(X,\cR)$ be a $d$-class association scheme with second eigenmatrix $Q$ and 
 \end{lem}
 \end{comment}
 \begin{proof}
-	Noting that $Q^\prime x = y$ we have the $d$ equations
-	\[Q_{i1}x_1 + \dots + Q_{id}x_d = c_i\]
-	for $1\leq i\leq d$ where each $c_i$ is either $1$ or $-1$.	Then
-	\[G = \sum_{j\neq i}x_jE_j = \frac{1}{\vert X\vert}\sum_{i=0}^{d}\left(\sum_{j=0}^dQ_{ij}A_i\right) = \frac{1}{\vert X\vert}\sum_{j=0}^d x_jm_jA_0 + \frac{1}{\vert X\vert}\sum_{i=1}^d c_iA_i.\]
-	Since $\vert c_i\vert = 1$ for each $1\leq i\leq d$, each off diagonal entry of $G$ has the same absolute value. Thus we may scale $G$ by its diagonal entry to obtain the Gram matrix of a set of equiangular unit vectors. The rank of $G$ is the sum of the ranks of each $E_j$ with $x_j\neq 0$ while the inner product between distinct unit vectors is $\pm\left(\sum x_jQ_{0j}\right)^{-1}$.
+	Let $y = Q^\prime x$. Then we have the $d$ equations
+	\[Q_{i0}x_0 + Q_{i1}x_1 + \dots + Q_{id}x_d = y_i\]
+	for $1\leq i\leq d$ where each $y_i$ is either $1$ or $-1$.	Consider the matrix
+	\[G = \sum x_jE_j = \frac{1}{\vert X\vert}\sum_{i=0}^{d}\left(\sum_{j=0}^dx_jQ_{ij}\right)A_i = \frac{1}{\vert X\vert}\left(\sum_{j=0}^d x_jm_j\right)A_0 + \frac{1}{\vert X\vert}\sum_{i=1}^d y_iA_i.\]
+	Since $\vert y_i\vert = 1$ for each $1\leq i\leq d$, each off-diagonal entry of $G$ has the same absolute value. Thus we may scale $G$ by its diagonal entry to obtain the Gram matrix of a set of equiangular lines with angle $\left(\sum x_j Q_{0j}\right)^{-1}$. The rank of $G$ is the sum of the ranks of those $E_j$ with $x_j\neq 0$.
 \end{proof}
 \begin{table}[H]
 We finish this section by applying Lemma \ref{equilines} to the tables in \cite{Willifordtable}.
@@ -156,31 +156,36 @@ $\left<377,28\right>$ & 377 & 117 & 13 & \qquad &$\left<1975,78\right>$ & 1975 &
 $\left<527,30\right>$ & 527 & 187 & 17 & \qquad &$\left<2159,126\right>$ & 2159 & 255 & 17 \\
 $\left<527,30a\right>$ & 527 & 187 & 17 & \qquad &$\left<2759,88\right>$ & 2759 & 713 & 31 \\
 \end{tabular}
-\caption[Optimal and near-optimal constructions for equiangular lines using 3-class primitive cometric association schemes]{In these tables we give the sets of equiangular lines which may be built from the given 3-class primitive cometric scheme. Each parameter set is listed in \cite{Willifordtable} using the label in the far left column. For each set we list the number of lines $\vert X\vert$, dimension $n$, and the inverse of the inner product $\frac{1}{\alpha}$. The labels with stars correspond to parameter sets known to be realizable.}\label{optimalconst}
+\caption[Optimal and near-optimal constructions for equiangular lines using 3-class primitive cometric association schemes]{In these tables we give the parameters for sets of equiangular lines which arise from the given 3-class primitive cometric scheme. Each parameter set is listed in \cite{Willifordtable} using the label in the far left column. For each set we list the number of lines $\vert X\vert$, dimension $n$, and the inverse of the inner product $\frac{1}{\alpha}$. Labels with stars correspond to parameter sets presently known to be realizable.}\label{optimalconst}
 \end{center}
 \end{table}
+While it seems surprising that each angle is the inverse of an odd integer, the following result of Neumann guarantees this holds for any large set of equiangular lines.
+\begin{thm}[\cite{Lemmens1973}]
+	Let $X$ be a set of $v$ equiangular lines in $\mathbb{R}^n$ with angle $\alpha$. If $v>2n$ then $\frac{1}{\alpha}$ is an odd integer.
+\end{thm}
 \begin{thm}
-	For each near-optimal case listed in Table \ref{optimalconst} except for $\left<729,56\right>$, if the parameter set is realizable, we may extend the set of vectors by one to make it an optimal set.
+	For each near-optimal case listed in Table \ref{optimalconst} except possibly for $\left<729,56\right>$, if the parameter set is realizable, we may extend the set of vectors by one to obtain an optimal set.
 \end{thm}
 \begin{proof}
-	In each case, $G = c_0 E_0 + \sum_{j=1}^{d}c_jE_j$ for orthogonal idempotents $E_0,\dots,E_d$ and $E_0 = \frac{1}{\vert X\vert}J$. Therefore $G\mathbbm{1} = c_0\mathbbm{1}$ and we must have $\text{rank}(\left[\begin{array}{c|c}
-	G & c_0\mathbbm{1}
+	In each case, $G = x_0 E_0 + \sum_{j=1}^{d}x_jE_j$ for orthogonal idempotents $E_0,\dots,E_d$ and $E_0 = \frac{1}{\vert X\vert}J$. Therefore $G\mathbbm{1} = x_0\mathbbm{1}$ and we must have $\text{rank}(\left[\begin{array}{c|c}
+	G & x_0\mathbbm{1}
 	\end{array}\right]) = \text{rank}\left(G\right)$ since the last column is the sum of all previous columns. Similarly, we may augment our new matrix with an extra row by adding all previous rows together giving
 	\[G' = \left[\begin{array}{c|c}
-	G & c_0\mathbbm{1}\\\hline
-	c_0\mathbbm{1} & \vert X\vert c_0
+	G & x_0\mathbbm{1}\\\hline
+	x_0\mathbbm{1} & \vert X\vert c_0
 	\end{array}\right]\]
-	still with $\text{rank}(G') = \text{rank}(G)$. Finally, we may scale the last row and column each by $\sqrt{\vert X\vert c_0}$ without changing the rank, since this equates to multiplying a single vector in the set by a scaler. The resulting matrix is as follows
+	again with $\text{rank}(G') = \text{rank}(G)$. Finally, we may scale the last row and column each by $\sqrt{\vert X\vert x_0}$ without changing the rank, since this equates to multiplying a single vector in the set by a scaler. The resulting matrix is
 	\[H = \left[\begin{array}{c|c}
-	G & \sqrt{\frac{c_0}{\vert X\vert}}\mathbbm{1}\\\hline
-	\sqrt{\frac{c_0}{\vert X\vert}}\mathbbm{1}^T & 1
+	G & \sqrt{\frac{x_0}{\vert X\vert}}\mathbbm{1}\\\hline
+	\sqrt{\frac{x_0}{\vert X\vert}}\mathbbm{1}^T & 1
 	\end{array}\right].\]
-	If $\sqrt{\frac{c_0}{\vert X\vert}} = \alpha$, then this corresponds to the Gram matrix of a set of $\vert X\vert+1$ equiangular vectors in the same dimension. Thus we must check that the coefficient of $E_0$ is $\vert X\vert\alpha^2$. We verify that this hold for every case except $\left<729,56\right>$. Note that this exceptional case is the only listed case where the relative bound is not an integer. That is, $\frac{337(1-\frac{1}{25^2})}{1-\frac{337}{25^2}} = \frac{4381}{6}\approx 730.167$. Since the bound concerns the maximum cardinality of a set, this results in an upper bound of 730. However even a set with 730 vectors in dimension 25 would not make this bound sharp--this is likely why this case fails.  
+	If $\sqrt{\frac{x_0}{\vert X\vert}} = \alpha$, then this is the Gram matrix of a set of $\vert X\vert+1$ equiangular vectors in the same dimension. Thus we must check that the coefficient of $E_0$ is $\vert X\vert\alpha^2$. We verify that this holds for every case except $\left<729,56\right>$.
 \end{proof}
+ Note that this exceptional case is the only listed case where the relative bound is not an integer. That is, \[\frac{337(1-\frac{1}{25^2})}{1-\frac{337}{25^2}} = \frac{4381}{6}\approx 730.167.\] Since the bound concerns the maximum cardinality of a set, this results in an upper bound of 730. However even a set with 730 vectors in dimension 25 would not make this bound sharp---this is likely why this case fails.  
 \section{Gegenbauer Polynomials}\label{gegdef}
-In all that follows let $m$ be a fixed positive integer and define $\scR:=\bbR[x_1,\dots,x_m]$. A \emph{monomial}\index{polynomial!monomial} is defined as a (possibly empty) product of variables $x_1,\dots,x_m$ and given a monomial $t =\prod_{i=1}^{m}x_i^{d_i}$ ($d_i\in \bbZ^+$), the \emph{degree}\index{polynomial!degree} of $t$ is defined as $\text{deg}(t) = \sum_i d_i$. A polynomial $f\in\scR$ may be represented uniquely as a (finite) linear combination of distinct monomials $f =\sum_i\alpha_it_i$ and $\text{deg}(f) = \max\left\{\text{deg}(t_i)\right\}$. For each variable $x_j$, we define the \emph{derivative with respect to $x_j$}\index{polynomial!derivative} of a monomial as $\frac{\partial}{\partial x_j}t = \frac{d_j}{x_j}t$ and extend the definition linearly for any polynomial in $\scR$. For $f\in \scR$, $f$ is \emph{homogeneous}\index{polynomial!homogeneous} if there exists some constant $d\in\bbZ^+$ such that $\text{deg}(t)=d$ for every monomial $t$ in $f$. Further, $f$ is \emph{harmonic}\index{polynomial!harmonic} if $\Delta f = \sum_i \left(\frac{\partial}{\partial x_i}\circ\frac{\partial}{\partial x_i}\right)\left(f\right) = 0$. For $f\in\scR$ the principal ideal generated by $f$ $(f) = \left\{gf:g\in\scR\right\}$. We denote the cosets of this ideal by $[g]_f = \left\{h\in\scR: g-h\in(f)\right\}$ where we suppress the subscript if it is clear from the context. The quotient ring $\nicefrac{\scR}{(f)}$ is, of course, the set of equivalence classes $\left\{[g]_f:g\in\scR\right\}$ with the obvious operations. Let $S^{m-1}\subset \bbR^m$ be the $m-1$ dimensional sphere; we define the set of polynomials on the sphere as
-\[\text{Pol}(S^{m-1}):= \nicefrac{\scR}{\left(1-\sum_ix_i^2\right)}.\]
-We say a polynomial $h\in\scR$ is \emph{harmonic on the sphere}\index{polynomial!harmonic!on the sphere} if there exists a harmonic polynomial $g\in[h]$; we similarly define \emph{homogeneous on the sphere}\index{polnomial!homogeneous!on the sphere}. Finally, we say a polynomial $f\in\scR$ is \emph{zonal}\index{polynomial!zonal} if there exists a vector $a\in \bbR^m$ and a single-variable polynomial $p(t)\in\bbR[t]$ such that $f(x) = p(\left<a,x\right>)$ for all $x\in S^{m-1}$. Note that since $g\in \left(1-\sum_ix_i^2\right)$ implies $g(x) = 0$ for all $x\in S^{m-1}$, this requirement is independent of the representative chosen from the equivalence class.\par
+In all that follows let $m$ be a fixed positive integer and define $\scR:=\bbR[x_1,\dots,x_m]$. A \emph{monomial}\index{polynomial!monomial} is defined as a (possibly empty) product of variables $x_1,\dots,x_m$ and given a monomial $t =\prod_{i=1}^{m}x_i^{d_i}$ ($d_i\in \bbZ^+$), the \emph{degree}\index{polynomial!degree} of $t$ is defined as $\text{deg}(t) = \sum_i d_i$. A polynomial $f\in\scR$ may be represented uniquely as a (finite) linear combination of distinct monomials $f =\sum_i\alpha_it_i$ and $\text{deg}(f) = \max\left\{\text{deg}(t_i)\right\}$. For each variable $x_j$, we define the \emph{derivative with respect to $x_j$}\index{polynomial!derivative} of a monomial as $\frac{\partial}{\partial x_j}t = \frac{d_j}{x_j}t$ and extend the definition linearly for any polynomial in $\scR$. For $f\in \scR$, $f$ is \emph{homogeneous}\index{polynomial!homogeneous} if there exists some constant $d\in\bbZ^+$ such that $\text{deg}(t)=d$ for every monomial $t$ in $f$. Further, $f$ is \emph{harmonic}\index{polynomial!harmonic} if $\Delta f = \sum_i \left(\frac{\partial}{\partial x_i}\circ\frac{\partial}{\partial x_i}\right)\left(f\right) = 0$. For $f\in\scR$ the principal ideal generated by $f$ is $(f) = \left\{gf:g\in\scR\right\}$. We denote the cosets of this ideal by $[g]_f = \left\{h\in\scR: g-h\in(f)\right\}$ where we suppress the subscript if it is clear from the context. The quotient ring $\bigslant{\scR}{(f)}$ is, of course, the set of equivalence classes $\left\{[g]_f:g\in\scR\right\}$ with the obvious operations. Let $S^{m-1}\subset \bbR^m$ be the $(m-1)$-dimensional sphere; we define the set of polynomials on the sphere as
+\[\text{Pol}(S^{m-1}):=\bigslant{\scR}{\displaystyle{\left(1-\sum_ix_i^2\right)}}.\]
+Thus, using $f = 1-\sum_{i}x_i^2$, we say a polynomial $h\in\scR$ is \emph{harmonic on the sphere}\index{polynomial!harmonic!on the sphere} if there exists a harmonic polynomial $g\in[h]_f$; we similarly define \emph{homogeneous on the sphere}\index{polnomial!homogeneous!on the sphere}. Finally, we say a polynomial $h\in\scR$ is \emph{zonal}\index{polynomial!zonal} if there exists a vector $a\in \bbR^m$ and a single-variable polynomial $p(t)\in\bbR[t]$ such that $h(x) = p(\left<a,x\right>)$ for all $x\in S^{m-1}$. Note that since $g\in \left(1-\sum_ix_i^2\right)$ implies $g(x) = 0$ for all $x\in S^{m-1}$, this requirement is independent of the representative chosen from the equivalence class.\par
 We now introduce a set of orthogonal polynomials arising from the context of spherical harmonics. The Gegenbauer polynomials in dimension $m$ are defined using the three-term recurrence:
 \begin{equation}\label{recurrence}
 Q_\ell^m(t) = \frac{(2\ell+m-4)tQ^m_{\ell-1}(t) - (\ell-1)Q^m_{\ell-2}(t)}{\ell+m-3} \qquad \ell\geq 2,
@@ -188,7 +193,7 @@ Q_\ell^m(t) = \frac{(2\ell+m-4)tQ^m_{\ell-1}(t) - (\ell-1)Q^m_{\ell-2}(t)}{\ell+
 \begin{equation*}
 Q^m_0(t) = 1\qquad Q^m_1(t) = t.
 \end{equation*}\index{Gegenbauer polynomials}
-Note that $Q^m_\ell(1) = 1$ for all $k\geq 0$. We will suppress the superscript $m$ if it is clear in the context. Below we list the first six Gegenbauer polynomials and plot $Q_1(t)-Q_5(t)$ along with their roots.
+Note that $Q^m_\ell(1) = 1$ for all $k\geq 0$. We will suppress the superscript $m$ if it is clear in the context. Below we list the first six Gegenbauer polynomials and plot $Q_1(t)$ through $Q_5(t)$ along with their roots for $m=10$.
 \[
 Q_0(t)=1,\qquad
 Q_1(t)=t,\qquad
@@ -209,40 +214,46 @@ Q_5(t)=\frac{(m+6)(m+4)t^5-10(m+4)t^3+15t}{m^2-1}.\]
 	\end{center}
 \end{figure}
 \begin{thm}\label{gegprop}
-	For each $m,\ell\in\bbZ^+$ and $a\in\bbR^m$, the Gegenbauer polynomial $Q_\ell^m\left(\left<a,x\right>\right)$ is zonal and both homogeneous and harmonic on the sphere.
+	For each $m,\ell\in\bbZ^+$ and $a\in\bbR^m$, the polynomial $Q_\ell^m\left(\left<a,x\right>\right)$ is zonal and both homogeneous and harmonic on the sphere.
 \end{thm}
 \begin{proof}
-	The zonal condition is satisfied by construction. The other two conditions follow from considering $F^m_\ell(x)\in\left[Q_\ell^m(\left<a,x\right>)\right]$ where 
-	\[F_\ell^m(x)= \left<x,x\right>^{\lfloor\frac{\ell+1}{2}\rfloor}Q_\ell^m\left(\frac{\left<a,x\right>}{\left<x,x\right>}\right).\]
+	The zonal condition is satisfied by construction. The other two conditions follow from considering $F^m_\ell(x)\in\left[Q_\ell^m(\left<a,x\right>)\right]_{1-\sum x_i^2}$ where 
+	\[F_\ell^m(x)= \vert\vert x\vert\vert^\ell Q_\ell^m\left(\frac{\left<a,x\right>}{\vert\vert x\vert\vert}\right).\]
+	Note that since our ideal is generated by $1-\sum x_i^2$, we find $\vert\vert x\vert\vert^2\equiv 1$.
 \end{proof}
-We note that, up to scaling and rotation of the sphere, $F_\ell^m(x)$ as defined above is the unique degree $\ell$ polynomial with all three of these properties. These polynomials have played an important role in understanding spherical $t$-distance sets as well as $t$-designs (\cite{Delsarte1977},\cite{Suda2011}). Many of these results come from considering a finite set $X\subset\mathbb{S}^m$ and a basis $q_1,\dots, q_M$ of the harmonic polynomial functions on the sphere with fixed degree $k$. We then map $X$ to $\mathbb{R}^M$ by evaluating each point at every basis polynomial. Fixing two points, $\zeta,\xi\in X$, we then use Theorem \ref{gegprop} to show that $\left<\phi(\zeta),\phi(\xi)\right> = c_kQ^m_k\left(\left<\zeta,\phi\right>\right)$ where the constant $c_k$ does not depend on the points choosen. It should not be surprising that these polynomials were of interest before their use in combinatorics \cite{Delsarte1977}. In fact 
-35 years earlier, Sch\"{o}nberg characterized positive definite functions on the sphere using these same polynomials.
+We note that, up to scaling and rotation of the sphere, $F_\ell^m(x)$ as defined above is the unique degree $\ell$ polynomial with all three of these properties. These polynomials have played an important role in understanding spherical $s$-distance sets and $t$-designs (\cite{Delsarte1977},\cite{Suda2011}). Many of these results come from considering a finite set $X\subset\mathbb{S}^m$ and a basis $q_1,\dots, q_M$ of the harmonic polynomial functions on the sphere with fixed degree $k$. We then map $X$ to $\mathbb{R}^M$ by evaluating each basis polynomial at every point. Fixing two points, $\zeta,\xi\in X$, we then use Theorem \ref{gegprop} to show that $\displaystyle{\sum_{\phi}\left<\phi(\zeta),\phi(\xi)\right> = c_kQ^m_k\left(\left<\zeta,\xi\right>\right)}$ where the constant $c_k$ does not depend on the points chosen. It should not be surprising that these polynomials were of interest before their use in combinatorics \cite{Delsarte1977}. In fact, 35 years earlier, Sch\"{o}nberg characterized positive definite functions on the sphere using these same polynomials.
 \section{Sch\"{o}nberg's Theorem}
-Let $m$ be a fixed positive integer and let $X\subset S^{m-1}$ be a finite set of unit vectors. Let $G_X$ denote the Gram matrix of $X$, then $G_X$ is positive semidefinite ($G_X\succeq 0$). A function $f:[-1,1]\rightarrow\mathbb{R}$ is \textit{positive definite}\index{positive definite function} if, for every such finite subset $X$, $f$ applied elementwise to $G_X$ results in a positive semidefinite matrix, i.e.\ $f\circ(G_X)\succeq 0$. Here we present a Sch\"{o}nberg's Theorem \cite{Schoenberg1942} as it applies to polynomials.
+Let $m$ be a fixed positive integer. For any finite set of unit vectors $X\subset S^{m-1}$, let $G_X$ denote the Gram matrix of $X$; then $G_X$ is positive semidefinite ($G_X\succeq 0$). A function $f:[-1,1]\rightarrow\mathbb{R}$ is \textit{positive definite}\index{positive definite function} on $S^{m-1}$ if, for every finite subset $X$, $f$ applied elementwise to $G_X$ results in a positive semidefinite matrix, i.e.\ $f\circ(G_X)\succeq 0$. Here we present Sch\"{o}nberg's Theorem \cite{Schoenberg1942} as it applies to polynomials.
 \begin{thm}[Sch\"{o}nberg \cite{Schoenberg1942}]\label{schoenthm}
 	Fix $m\in\mathbb{Z}^+$. A polynomial $f:[-1,1]\rightarrow\mathbb{R}$ with degree $d$ is positive definite on $S^{m-1}$ if and only if $f(t) = \sum_{\ell=0}^d c_\ell Q_\ell^m(t)$ for non-negative constants $c_\ell$.\qed
 \end{thm}
-In particular, this implies that $Q_\ell^m(t)$ is a positive definite function for any choice of $m$ and $\ell$. This leads to the following theorem:
+In particular, $Q_\ell^m(t)$ is a positive definite function for any choice of $m$ and $\ell$. This leads to the following theorem:
 \schAS
 \begin{proof}
-	Since $\BMA =\text{span}\left\{E_0,\dots,E_d\right\}$ is closed under entrywise products, we must have $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right)\in \BMA$ and we may write $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right) = \sum_j \theta_{kj} E_j$ where each $\theta_{kj}$ is the eigenvalue of $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right)$ in the eigenspace $V_j$. Now recall the algebra isomorphism $\phi^*:\BMA\rightarrow\bbL$ mapping entrywise products to standard matrix products for which $\phi^*\left(E_j\right)=\frac{1}{\vert X\vert}L_j^*$. Applying $\phi^*$ to both sides of the equation on the left in \eqref{ELGeg} results in the equation on the right in \eqref{ELGeg}. Finally, since $E_i$ is an idempotent matrix with constant main diagonal entries given by $\frac{1}{\vert X\vert}Q_{0i} = \frac{m_i}{\vert X\vert}$, we know that $\frac{\vert X\vert}{m_i}E_i$ is the Gram matrix of a set of points in $S^{m_i-1}$. Therefore, Theorem~\ref{schoenthm} tells us that $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right)$ must be positive semidefinite.
+	Since $\BMA =\text{span}\left\{E_0,\dots,E_d\right\}$ is closed under entrywise products, we must have $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right)\in \BMA$ and we may write $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right) = \sum_j \theta_{kj} E_j$ where each $\theta_{kj}$ is an eigenvalue of $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right)$. Now recall the algebra isomorphism $\phi^*:\BMA\rightarrow\bbL^*$ mapping entrywise products to standard matrix products for which $\phi^*\left(E_j\right)=\frac{1}{\vert X\vert}L_j^*$. Applying $\phi^*$ to both sides of the equation on the left in \eqref{ELGeg} gives the equation on the right in \eqref{ELGeg}. Finally, since $E_i$ is an idempotent matrix with constant main diagonal entries given by $\frac{1}{\vert X\vert}Q_{0i} = \frac{m_i}{\vert X\vert}$, we know that $\frac{\vert X\vert}{m_i}E_i$ is the Gram matrix of a set of points in $S^{m_i-1}$. Therefore, Theorem~\ref{schoenthm} tells us that $Q_k^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right)$ must be positive semidefinite.
 \end{proof}
-\subsection{Proof of Theorem \ref{degreebound}}\label{proof}
-Given a feasible parameter set with $i^\text{th}$ matrix of Krein parameters $L_i^*$, we seek to derive a bound on the highest degree Gegenbauer $Q_\ell(t) = Q_\ell^{m_i}(t)$ for which $Q_\ell\left(\frac{1}{m_i}L_i^*\right)$ may contain negative entries. We will do this by first simplifying equation \eqref{ELGeg} into a vector equation and deriving a three term vector recurrence of non-negative vectors. We then transform our vector space in two ways, first using an invertible transformation which changes our transition matrix from $\frac{1}{m}L_i^*$ to one which is orthogonally diagonalizable. We then map our vector space to one with twice the dimension where our three-term recurrence may be represented as a linear recurrence. Using this linear recurrence we express our initial vector as a sum of steady state vectors and transient vectors in order to find a bound on how quickly the transient vectors must decrease in norm. In all that follows suppose we have a feasible parameter set with first and second eigenmatrix $P$ and $Q$. For fixed $0\leq i\leq d$, let $L_i^*$ be the $i^\text{th}$ matrix of Krein parameters. Let $\ell\geq0$ be an integer and assume $m_i:=q_{0i}^i>2$. Let $\vec{c}_\ell$ be the first column of the matrix $Q_{\ell}^{m_i}\left(\frac{1}{m_i}L_i^*\right)$. Using our recurrence relation \eqref{recurrence} we have,
+While Sch\"{o}nberg's condition $\displaystyle{Q^{\text{rank }G}_\ell\circ(G)\succeq 0}$ is a statement about Gram matrices, Theorem \ref{schoen-as} provides us with an equivalent statement about parameters. So we have a new feasibility condition for parameter sets.
+\begin{cor}\label{schoenL}
+	If a parameter set $\left\{q_{ij}^k\right\}_{i,j,k}$ is realizable then, for all $\ell\geq 0$ and all $0\leq i\leq d$, $Q^{m_i}_\ell\left(\frac{1}{m_i}L_i^*\right)\geq 0$.
+\end{cor}
+We note that, Theorem \ref{kitchensink} $(i')$ tells us that $q^j_{i0} = \delta_{i,j}$ for $0\leq i\leq d$ and thus equation $\eqref{ELGeg}$ gives us that the first column of $Q^{m_i}_\ell\left(\frac{1}{m_i}L_i^*\right)$ is \[\frac{1}{\vert X\vert}\sum_j\theta_{\ell j}\vec{e}_j=\left[\begin{array}{c}
+\bigslant{\theta_{\ell0}}{\vert X\vert}\\\vdots\\\bigslant{\theta_{\ell d}}{\vert X\vert}
+\end{array}\right].\]
+Therefore it is sufficient to check that the first column of $Q^{m_i}_\ell\left(\frac{1}{m_i}L_i^*\right)$ is non-negative.
+\subsection{Bound on new feasibility conditions}\label{proof}
+In order to identify where Corollary \ref{schoenL} might have impact, we work in this section to show that, for $\ell$ sufficiently large, a bound we give entirely in terms of the Krein parameters, the condition automatically holds. We will do this by first simplifying equation \eqref{ELGeg} into a vector equation using the observation made after Corollary \ref{schoenL}. From this equation, we derive a three-term recurrence of non-negative vectors and transform our vector space via an invertible transformation which changes our transition matrix from $\frac{1}{m}L_i^*$ to one which is orthogonally diagonalizable. We then map our vector space to one with twice the dimension where our three-term recurrence may be represented as a linear recurrence. Using this linear recurrence we express our initial vector as a sum of steady state vectors and transient vectors in order to find a bound on how quickly the transient vectors must decrease in norm. In all that follows suppose we have a feasible parameter set with first and second eigenmatrix $P$ and $Q$. For fixed $0\leq i\leq d$, let $L_i^*$ be the $i^\text{th}$ matrix of Krein parameters. Let $\ell\geq0$ be an integer and assume $m_i:=q_{0i}^i>2$. Let $\vec{c}_\ell$ be the first column of the matrix $Q_{\ell}^{m_i}\left(\frac{1}{m_i}L_i^*\right)$. Using our recurrence relation \eqref{recurrence} we have,
 \begin{equation}\label{crec}
 \vec{c}_\ell = \frac{(2\ell+m_i-4)\frac{1}{m_i}L_i^*\vec{c}_{\ell-1} - (\ell-1)\vec{c}_{\ell-2}}{\ell+m-3} \qquad \ell\geq 2.
 \end{equation}
-However Theorem \ref{kreinidentities} tells us that $q^j_{i0} = \delta_{i,j}$ for $0\leq i\leq d$. Therefore equation $\eqref{ELGeg}$ gives us that the entries of $\vert X\vert \vec{c}_\ell$ are the eigenvalues of $Q_{k}^{m_i}\circ\left(\frac{\vert X\vert}{m_i}E_i\right)$, that is, \[c_\ell = \left[\begin{array}{c}
-\nicefrac{\theta_{\ell0}}{\vert X\vert}\\\vdots\\\nicefrac{\theta_{\ell d}}{\vert X\vert}
-\end{array}\right]\] and thus Sch\"{o}nberg's Theorem is equivalent to $c_\ell\geq 0$ for all integers $\ell\geq 0$. Since $Q_0^m\circ\left(\frac{\vert X\vert}{m_i}E_i\right) = J$ and $Q_1^m\circ\left(\frac{\vert X\vert}{m_i}E_i\right) = \frac{\vert X\vert}{m_i}E_i$, we have
+Since $Q_0^m\left(\frac{1}{m_i}L_i^*\right) = I$ and $Q_1^m\left(\frac{1}{m_i}L^*_i\right) = \frac{1}{m_i}L_i$, we have
 \begin{equation*}
 \vec{c}_0 = \vec{e}_0\qquad \vec{c}_1 = \frac{1}{m_i}\vec{e}_i.
 \end{equation*}
-We now make our first transformation via $\vec{b}_\ell = \sqrt{\Delta_m}\vec{c}_\ell$ where $\sqrt{\Delta_m}$ is the diagonal matrix with $i^\text{th}$ diagonal entry $\sqrt{m_i}$. This transformation turns our recurrence relation into:
+We now make our first transformation via $\vec{b}_\ell = \sqrt{\Delta_m}\vec{c}_\ell$ where $\sqrt{\Delta_m}$ is the diagonal matrix with $i^\text{th}$ diagonal entry $\sqrt{m_i}$. This transformation turns our recurrence relation into
 \begin{equation}\label{brec}
-\vec{b}_\ell = \frac{(2\ell+m_i-4)M\vec{b}_{\ell-1} - (\ell-1)\vec{b}_{\ell-2}}{\ell+m-3} \qquad \ell\geq 2,
+\vec{b}_\ell = \frac{(2\ell+m_i-4)M\vec{b}_{\ell-1} - (\ell-1)\vec{b}_{\ell-2}}{\ell+m_i-3} \qquad \ell\geq 2,
 \end{equation}
-where $M = \frac{1}{m_i}\sqrt{\Delta_m}L_i^*\left(\sqrt{\Delta_m}\right)^{-1}$. Further our initial vectors are
+where $M = \frac{1}{m_i}\sqrt{\Delta_m}L_i^*\left(\sqrt{\Delta_m}\right)^{-1}$. For this three-term recurrence, our initial vectors are
 \begin{equation*}
 \vec{b}_0 = \vec{e}_0\qquad \vec{b}_1 = \frac{1}{\sqrt{m_i}}\vec{e}_i.
 \end{equation*}
@@ -258,7 +269,7 @@ The following lemma gives us the spectral decomposition of $M$.
 	is an orthogonal set of eigenvectors for $M$ with eigenvalues $m_i^{-1}Q_{ji}$ $(0\leq j\leq d)$.
 \end{lem}
 \begin{proof}
-	Note that Lemma \ref{kitchensink} $(viii')$ tells us that the columns of $P$ are eigenvectors of $L_i^*$ with eigenvalues $Q_{ji}$ ($0\leq j\leq d$). Conjugating $L_i^*$ by $\sqrt{\Delta_m}$ therefore results in a matrix with eigenvectors given by the columns of $\sqrt{\Delta_m}P$ with the same eigenvalues. Further, scaling by $\frac{1}{m_i}$ leaves the eigenvectors unchanged but scales the eigenvalues by $\frac{1}{m_i}$. Finally, our orthogonality relations (Lemma \ref{orthorels}) give us $\Delta_m P = Q^T \Delta_k$ and $PQ = \vert X\vert I$. Therefore
+	Note that Lemma \ref{kitchensink} $(viii')$ tells us that the columns of $P$ are eigenvectors of $L_i^*$ with eigenvalues $Q_{ji}$ ($0\leq j\leq d$). Conjugating $L_i^*$ by $\sqrt{\Delta_m}$ results in a matrix with eigenvectors given by the columns of $\sqrt{\Delta_m}P$ with the same eigenvalues. Further, scaling by $\frac{1}{m_i}$ leaves the eigenvectors unchanged but scales the eigenvalues by $\frac{1}{m_i}$. Finally, recall our orthogonality relations (Lemma \ref{orthorels}): $\Delta_m P = Q^T \Delta_k$ and $PQ = \vert X\vert I$. Therefore
 	\[\left(\sqrt{\Delta_m}P\right)^T\left(\sqrt{\Delta_m}P\right) = P^T\Delta_mP = P^TQ^T\Delta_k = \vert X\vert\Delta_k.\]
 \end{proof}
 Now that our transition matrix has an orthogonal set of eigenvectors, we double the dimension of our vector space in order to make our recurrence relation linear. For $\ell\geq 1$, let 
@@ -276,88 +287,90 @@ Then we have
 \vec{e}_{0}
 \end{array}\right].
 \end{equation}
-Although $T_\ell$ depends on $\ell$, we may identify some common properties among the eigenvalues and eigenvectors of $T_\ell$ for all values of $\ell>0$. The next few lemmas describe the eigenspaces of $T_\ell$ as well as the action of $T_\ell$ on linear subspaces of our vector space containing our initial vector.
+Although $T_\ell$ depends on $\ell$, we may identify some common properties among the eigenvalues and eigenvectors of $T_\ell$ for all values of $\ell>0$. The next few lemmas describe the eigenspaces of $T_\ell$ as well as the action of $T_\ell$ on linear subspaces of our vector space containing our initial vector. Let $\vec{p}_j$ be the $j^\text{th}$ column of $\sqrt{\Delta_m}P$ and define the $d+1$ 2-dim subspaces $B_j = \text{span}\left\{\left[\begin{array}{c}
+\vec{p}\\\hdashline[2pt/2pt]
+0
+\end{array}\right],\left[\begin{array}{c}
+0\\\hdashline[2pt/2pt]
+\vec{p}
+\end{array}\right]\right\}$ which are clearly pairwise orthogonal.
 \begin{lem}\label{Tkeig}
-	Let $(\lambda,\vec{v})$ be an eigenpair of $M$. Define $\left\{\eta^+,\eta^-\right\}$ be the two roots of the quadratic polynomial $x^2-(1+\mu_\ell)\lambda x +\mu_\ell$. If $\eta^+\neq\eta^-$ then both
-	$\left(\eta^+,\left[\begin{array}{c}
-	\eta^+\vec{v}\\\hdashline[2pt/2pt]
-	\vec{v}
-	\end{array}\right]\right)$ and $ \left(\eta^-,\left[\begin{array}{c}
-	\eta^-\vec{v}\\\hdashline[2pt/2pt]
-	\vec{v}
-	\end{array}\right]\right)$
-	are eigenpairs of $T_\ell$. If instead $\eta_\lambda^+=\eta_\lambda^-$ then $\left(\eta_\lambda^+,\left[\begin{array}{c}
-	\eta_\lambda^+\vec{v}\\\hdashline[2pt/2pt]
-	\vec{v}
-	\end{array}\right]\right)$ is an eigenpair and $\left[\begin{array}{c}
-	\vec{v}\\\hdashline[2pt/2pt]
+	Let $(\lambda,\vec{p})$ be an eigenpair of $M$. Let $\left\{\eta^+,\eta^-\right\}$ be the two roots of the quadratic polynomial $x^2-(1+\mu_\ell)\lambda x +\mu_\ell$. Then $\left(\eta^+,\left[\begin{array}{c}
+	\eta^+\vec{p}\\\hdashline[2pt/2pt]
+	\vec{p}
+	\end{array}\right]\right)$ is an eigenpair of $T_\ell$. If $\eta^+\neq \eta^-$ then $ \left(\eta^-,\left[\begin{array}{c}
+	\eta^-\vec{p}\\\hdashline[2pt/2pt]
+	\vec{p}
+	\end{array}\right]\right)$ is also an eigenpair, otherwise $\left[\begin{array}{c}
+	\vec{p}\\\hdashline[2pt/2pt]
 	\vec{0}
-	\end{array}\right]$ is a generalized eigenvector of order two with eigenvalue $\eta$.
+	\end{array}\right]$ is a generalized eigenvector of order two with eigenvalue $\eta^+$.
+
 \end{lem}
 \begin{proof}
-	Let $M \vec{v} = \lambda\vec{v}$ and let $\eta$ be given so that $\eta^2-(1+\mu_\ell)\lambda\eta +\mu_\ell=0$. Then
+	Let $M \vec{p} = \lambda\vec{p}$ and let $\eta$ be given so that $\eta^2-(1+\mu_\ell)\lambda\eta +\mu_\ell=0$. Then
 	\[T_\ell\left[\begin{array}{c}
-	\eta \vec{v}\\\hdashline[2pt/2pt]
-	\vec{v}
+	\eta \vec{p}\\\hdashline[2pt/2pt]
+	\vec{p}
 	\end{array}\right] = \left[\begin{array}{c}
-	(1+\mu_\ell)M(\eta \vec{v}) - \mu_\ell \vec{v}\\\hdashline[2pt/2pt]
-	\eta \vec{v}
+	(1+\mu_\ell)M(\eta \vec{p}) - \mu_\ell \vec{p}\\\hdashline[2pt/2pt]
+	\eta \vec{p}
 	\end{array}\right] = \left[\begin{array}{c}
-	\left((1+\mu_\ell)\lambda\eta - \mu_\ell\right) \vec{v}\\\hdashline[2pt/2pt]
-	\eta \vec{v}
+	\left((1+\mu_\ell)\lambda\eta - \mu_\ell\right) \vec{p}\\\hdashline[2pt/2pt]
+	\eta \vec{p}
 	\end{array}\right] =  \left[\begin{array}{c}
-	\eta^2 \vec{v}\\\hdashline[2pt/2pt]
-	\eta \vec{v}
+	\eta^2 \vec{p}\\\hdashline[2pt/2pt]
+	\eta \vec{p}
 	\end{array}\right].\]
-	If we have two distinct roots $(\eta^+\neq \eta^-)$ then the vectors $\left[\begin{array}{c}
-	\eta^+ \vec{v}\\\hdashline[2pt/2pt]
-	\vec{v}
+	If we have two distinct roots $(\eta^+\neq \eta^-)$ then $\left[\begin{array}{c}
+	\eta^+ \vec{p}\\\hdashline[2pt/2pt]
+	\vec{p}
 	\end{array}\right]$ and $\left[\begin{array}{c}
-	\eta^- \vec{v}\\\hdashline[2pt/2pt]
-	\vec{v}
-	\end{array}\right]$ result in two distinct eigenvectors. If instead we find that $\eta^+=\eta^-=\eta$, then $(1+\mu_\ell)^2\lambda^2-4\mu_\ell=0$ and thus $\eta = \frac{(1+\mu_\ell)\lambda}{2}$. In this case,
+	\eta^- \vec{p}\\\hdashline[2pt/2pt]
+	\vec{p}
+	\end{array}\right]$ are linearly independent eigenvectors. If instead we find that $\eta^+=\eta^-=\eta$, then $\eta = \frac{(1+\mu_\ell)\lambda}{2}$ since $x^2-bx+c = (x-\eta)^2$ implies $\eta = \frac{b}{2}$. In this case,
 	\[T_\ell\left[\begin{array}{c}
-	\vec{v}\\\hdashline[2pt/2pt]
+	\vec{p}\\\hdashline[2pt/2pt]
 	\vec{0}
 	\end{array}\right] = \left[\begin{array}{c}
-	(1+\mu_\ell)M(\vec{v})\\\hdashline[2pt/2pt]
-	\vec{v}
+	(1+\mu_\ell)M\vec{p}\\\hdashline[2pt/2pt]
+	\vec{p}
 	\end{array}\right]= \left[\begin{array}{c}
-	(1+\mu_\ell)\lambda\vec{v}\\\hdashline[2pt/2pt]
-	\vec{v}
+	(1+\mu_\ell)\lambda\vec{p}\\\hdashline[2pt/2pt]
+	\vec{p}
 	\end{array}\right] = \left[\begin{array}{c}
-	\eta \vec{v}\\\hdashline[2pt/2pt]
+	\eta \vec{p}\\\hdashline[2pt/2pt]
 	\vec{0}
 	\end{array}\right]+\left[\begin{array}{c}
-	\eta \vec{v}\\\hdashline[2pt/2pt]
-	\vec{v}
+	\eta \vec{p}\\\hdashline[2pt/2pt]
+	\vec{p}
 	\end{array}\right].\]
 	Thus $(T_\ell-\eta I)\left[\begin{array}{c}
-	\vec{v}\\\hdashline[2pt/2pt]
+	\vec{p}\\\hdashline[2pt/2pt]
 	\vec{0}
 	\end{array}\right] = \left[\begin{array}{c}
-	\eta \vec{v}\\\hdashline[2pt/2pt]
-	\vec{v}
+	\eta \vec{p}\\\hdashline[2pt/2pt]
+	\vec{p}
 	\end{array}\right]$ giving us that $\left[\begin{array}{c}
-	\vec{v}\\\hdashline[2pt/2pt]
+	\vec{p}\\\hdashline[2pt/2pt]
 	\vec{0}
 	\end{array}\right]$ is a generalized eigenvector of order two; that is, $\left[\begin{array}{c}
-	\vec{v}\\\hdashline[2pt/2pt]
+	\vec{p}\\\hdashline[2pt/2pt]
 	\vec{0}
 	\end{array}\right]$ is in the kernel of $\left(T_\ell-\eta I\right)^2$ but not $\left(T_\ell-\eta I\right)$.
 \end{proof}
-Lemma \ref{Tkeig} gives a complete description of the eigenspaces of our transition matrix $T_\ell$ since we know $M$ is diagonalizable and therefore has a full set of eigenvectors. Further, since the eigenvectors of $M$ are orthogonal, the eigenvectors of $T_\ell$ may be split into pairs where eigenvectors from distinct pairs are orthogonal to each other. The next two lemmas examine these pairs and bound the action of $T_\ell$ on a portion of the subspace spanned by each pair, based solely on the corresponding eigenvalue of $M$.
+Lemma \ref{Tkeig} gives a complete description of the eigenspaces of our transition matrix $T_\ell$ since we know $M$ is diagonalizable. Further, since the eigenvectors of $M$ are orthogonal, the pairwise orthogonal $B_j$ are either full generalized eigenspaces or the sum of two one-dimensional eigenspaces. In either case, each $B_j$ is $T_\ell$ invariant for all $\ell\geq 0$. This alone is not sufficient to find our bound as we seek to show that the successive actions of $T_\ell$ on our initial vector maps it close enough to the steady state vector to guarantee all entries are non-negative. So we must determine the action of $T_\ell$ on the projections of our initial vector on each $B_j$. We note however that whenever our eigenvalues are real, the singular values of $T_\ell$ may grow quite large. Thus, instead of determining the worst-case action of $T_\ell$ on each $B_j$, we will bound a region of $B_j$ containing our projections and show that $T_\ell$ acts on that region in a consistent manner.
 \begin{lem}\label{realroot}
-	Let $\left(\lambda,\vec{p}\right)$ be an eigenpair of $M$ and assume that $(1+\mu_\ell)^2\lambda^2-4\mu_\ell\geq0$ and thus $x^2-(1+\mu_\ell)\lambda x + \mu_\ell$ has only real roots, $\vert\eta^-\vert\leq\vert\eta^+\vert$. Let $\vec{v} = \left[\begin{array}{c}
+	Let $\left(\lambda,\vec{p}\right)$ be an eigenpair of $M$ and assume that $(1+\mu_\ell)^2\lambda^2\geq4\mu_\ell$ and thus $x^2-(1+\mu_\ell)\lambda x + \mu_\ell$ has only real roots, $\vert\eta^-\vert\leq\vert\eta^+\vert$. Let $\vec{v} = \left[\begin{array}{c}
 	a\vec{p}\\\hdashline[2pt/2pt]
 	b\vec{p}
 	\end{array}\right]$ with $b\neq 0$. There exists a constant $\beta\in\mathbb{R}$ so that $T_\ell \vec{v} = \left[\begin{array}{c}
 	\beta\vec{p}\\\hdashline[2pt/2pt]
 	a\vec{p}
-	\end{array}\right]$. Further, $\lambda \left(\frac{a}{b}\right)\geq0$ and $\vert\eta^+\vert\leq \vert\frac{a}{b}\vert\leq\vert\lambda\vert$ imply $\lambda\left(\frac{\beta}{a}\right)\geq 0$ and $\vert\eta^+\vert\leq \vert\frac{\beta}{a}\vert\leq\vert\lambda\vert$ giving $\vert\vert T_\ell \vec{v}\vert\vert_2\leq \vert \lambda\vert\cdot\vert\vert \vec{v}\vert\vert_2$.
+	\end{array}\right]$. Further, $ \left(\bigslant{\lambda a}{b}\right)\geq0$ and $\vert\eta^+\vert\leq \vert\frac{a}{b}\vert\leq\vert\lambda\vert$ imply $\left(\bigslant{\lambda\beta}{a}\right)\geq 0$ and $\vert\eta^+\vert\leq \vert\frac{\beta}{a}\vert\leq\vert\lambda\vert$ giving $\vert\vert T_\ell \vec{v}\vert\vert_2\leq \vert \lambda\vert\cdot\vert\vert \vec{v}\vert\vert_2$.
 \end{lem}
 \begin{proof}
-	We begin by noting that since our operator $T_\ell$ is linear, we may assume without loss of generality that $b=1$ and $\vert\vert\vec{p}\vert\vert_2 = 1$ giving as well that $a$ and $\lambda$ must share signs. Since $\eta^+$ and $\eta^-$ are the two (not necessarily distinct) roots of the polynomial $x^2-(1+\mu_\ell)\lambda x + \mu_k$, we know that $(x-\eta^-)(x-\eta^+) = x^2-(1+\mu_\ell)\lambda x + \mu_k$ and therefore $\eta^++\eta^-=(1+\mu_\ell)\lambda$ and $\eta^+\eta^- = \mu_\ell$. Therefore our two roots $\eta^-$ and $\eta^+$ also share signs with $\lambda$. We first consider the case when $\eta^-\neq \eta^+$. In this case, Lemma \ref{Tkeig} tells us that $\eta^+$ and $\eta^-$ are eigenvalues of $T_\ell$ with eigenvectors
+	We begin by noting that since our operator $T_\ell$ is linear, we may assume without loss of generality that $b=1$ and $\vert\vert\vec{p}\vert\vert_2 = 1$. This, paired with our requirement that $\lambda^2\geq\bigslant{4\mu_\ell}{(1+\mu_\ell)^2}$ tells us that $a$ and $\lambda$ must share signs. Since $\eta^+$ and $\eta^-$ are the two (not necessarily distinct) roots of the polynomial $x^2-(1+\mu_\ell)\lambda x + \mu_k$, we know that $(x-\eta^-)(x-\eta^+) = x^2-(1+\mu_\ell)\lambda x + \mu_k$ and thus $\eta^++\eta^-=(1+\mu_\ell)\lambda$ and $\eta^+\eta^- = \mu_\ell$. This further implies our two roots $\eta^-$ and $\eta^+$ also share signs with $\lambda$. We first consider the case when $\eta^-\neq \eta^+$. Here, Lemma \ref{Tkeig} tells us that $\eta^+$ and $\eta^-$ are eigenvalues of $T_\ell$ with eigenvectors
 	\[\vec{v}^+ = \left[\begin{array}{c}
 	\eta^+ \vec{p}\\\hdashline[2pt/2pt]
 	\vec{p}
@@ -365,54 +378,74 @@ Lemma \ref{Tkeig} gives a complete description of the eigenspaces of our transit
 	\eta^- \vec{p}\\\hdashline[2pt/2pt]
 	\vec{p}
 	\end{array}\right].\]
-	Therefore we find $\vec{v} = \left(\frac{\eta^--a}{\eta^--\eta^+}\right)\vec{v}^+ + \left(\frac{a-\eta^+}{\eta^--\eta^+}\right)\vec{v}^-$. We may then calculate $T_\ell \vec{v}$ explicitly giving
+	Noting that $\vec{v} = \left(\frac{\eta^--a}{\eta^--\eta^+}\right)\vec{v}^+ + \left(\frac{a-\eta^+}{\eta^--\eta^+}\right)\vec{v}^-$, we may calculate $T_\ell \vec{v}$ explicitly giving
 	\[T_\ell \vec{v} = \left(\frac{\eta^--a}{\eta^--\eta^+}\right)\eta^+\vec{v}^+ + \left(\frac{a-\eta^+}{\eta^--\eta^+}\right)\eta^-\vec{v}^- = \left[\begin{array}{c}
 	\beta \vec{p}\\\hdashline[2pt/2pt]
 	a\vec{p}
 	\end{array}\right]\]
 	where $\beta = \left(\frac{\eta^--a}{\eta^--\eta^+}\right)\left(\eta^+\right)^2 + \left(\frac{a-\eta^+}{\eta^--\eta^+}\right)\left(\eta^-\right)^2 = a\left(\eta^++\eta^-\right)-\eta^-\eta^+$. Thus $\frac{\beta}{a} = \eta^+ + \frac{\eta^-}{a}\left(a-\eta^+\right).$
-	Since $\eta^-,\eta^+,$ and $a$ all share the same sign and $\vert\eta^+\vert\leq\vert a\vert$, $\frac{\eta^-}{a}\left(a-\eta^+\right)$ must also share the same sign as $\eta^+$. Thus
-	\[\left\vert\eta^+\right\vert\leq  \left\vert\eta^+ + \frac{\eta^-}{a}\left(a-\eta^+\right) \right\vert\leq\left\vert\eta^+ + \left(a-\eta^+\right) \right\vert = \vert a\vert\leq \vert\lambda\vert\]
-	Similarly, consider the case when $\eta^- = \eta^+ = \eta = \frac{(1+\mu_\ell)\lambda}{2}$. Here, Lemma \ref{Tkeig} gives the eigenvector and generalized eigenvector
+	Since $\eta^-$, $\eta^+,$ and $a$ all share the same sign and $\vert\eta^+\vert\leq\vert a\vert$, $\frac{\eta^-}{a}\left(a-\eta^+\right)$ must also share the same sign as $\eta^+$ providing
+	\[\left\vert\eta^+\right\vert\leq  \left\vert\eta^+ + \frac{\eta^-}{a}\left(a-\eta^+\right) \right\vert\leq\left\vert\eta^+ + \left(a-\eta^+\right) \right\vert = \vert a\vert\leq \vert\lambda\vert.\]
+	Similarly, consider the case when $\eta^- = \eta^+ = \eta = \frac{(1+\mu_\ell)\lambda}{2}$. Lemma \ref{Tkeig} gives the eigenvector and generalized eigenvector
 	\[\vec{w} = \left[\begin{array}{c}
 	\eta \vec{p}\\\hdashline[2pt/2pt]
 	\vec{p}
 	\end{array}\right];\qquad \vec{w}^*=\left[\begin{array}{c}
 	\vec{p}\\\hdashline[2pt/2pt]
 	\vec{0}
-	\end{array}\right].\]
-	Then $\vec{v} = \vec{w} + \left(a-\eta\right)\vec{w}^*$ and thus $T_\ell\vec{v} =  a\vec{w} + \eta\left(a-\eta\right)\vec{w}^* = \left[\begin{array}{c}
+	\end{array}\right]\]
+	and we have $\vec{v} = \vec{w} + \left(a-\eta\right)\vec{w}^*$. Then $T_\ell\vec{v} =  a\vec{w} + \eta\left(a-\eta\right)\vec{w}^* = \left[\begin{array}{c}
 	(2a-\eta)\eta\vec{p}\\\hdashline[2pt/2pt]
 	a\vec{p}
 	\end{array}\right].$
-	Therefore $\frac{\beta}{a} = \eta+ \frac{\eta}{a}(a-\eta)$ and as before we find that $\frac{\eta}{a}(a-\eta)$ and $\eta$ share the same sign giving
-	\[\vert \eta\vert\leq \left\vert \eta+ \frac{\eta}{a}(a-\eta)\right\vert\leq \left\vert \eta+ (a-\eta)\right\vert\leq\left\vert a\right\vert=\left\vert\lambda\right\vert.\]
-	Therefore in both cases we find that $\vert\eta\vert\leq \left\vert\frac{\beta}{a}\right\vert\leq\vert \lambda\vert$, giving
+	Again taking $\beta$ to be the top coefficient, we find that $\frac{\beta}{a} = \eta+ \frac{\eta}{a}(a-\eta)$ and as before we find that $\frac{\eta}{a}(a-\eta)$ and $\eta$ share the same sign giving
+	\[\vert \eta\vert\leq \left\vert \eta+ \frac{\eta}{a}(a-\eta)\right\vert\leq \left\vert \eta+ (a-\eta)\right\vert=\left\vert a\right\vert\leq\left\vert\lambda\right\vert.\]
+	Thus in both cases we find that $\vert\eta\vert\leq \left\vert\frac{\beta}{a}\right\vert\leq\vert \lambda\vert$, giving
 	\[\vert\vert T_\ell \vec{v}\vert\vert^2_2 =\beta^2 + a^2 = \frac{\beta^2}{a^2}a^2 + a^2\leq \lambda^2a^2+\lambda^2 = \lambda^2\vert\vert \vec{v}\vert\vert_2^2.\] 
-	Finally, since $\eta^+$ and $\frac{\eta^-}{a}\left(a-\eta^+\right)$ had the same sign in both cases, we must also have $\frac{\beta}{a}$ share the same sign. Thus $\lambda\left(\frac{\beta}{a}\right)\geq 0$.
+	Finally, since $\eta^+$ and $\frac{\eta^-}{a}\left(a-\eta^+\right)$ had the same sign in both cases, we must also have $\frac{\beta}{a}$ share the same sign, forcing $\left(\bigslant{\lambda\beta}{a}\right)\geq 0$.
 \end{proof}
+Controlling the action of $T_\ell$ on any subspace $B_j$ corresponding to complex eigenvalues is much easier.
 \begin{lem}\label{complexroot}
-	Let $\left(\lambda,\vec{p}\right)$ be an eigenpair of $M$ and assume that $(1+\mu_\ell)^2\lambda^2-4\mu_\ell<0$ and thus $x^2-(1+\mu_\ell)\lambda x + \mu_\ell$ has no real roots. For any vector $\vec{v} = \left[\begin{array}{c}
-	a\vec{p}\\\hdashline[2pt/2pt]
-	b\vec{p}
-	\end{array}\right]$, we have $\vert\vert T_\ell \vec{v}\vert\vert_2=\sqrt{\mu_\ell}\cdot\vert\vert \vec{v}\vert\vert_2$.
+	Let $\left(\lambda,\vec{p}\right)$ be an eigenpair of $M$ with corresponding $T_\ell$ invariant subspace $B_j$. Assume that $(1+\mu_\ell)^2\lambda^2<4\mu_\ell$ and thus $x^2-(1+\mu_\ell)\lambda x + \mu_\ell$ has no real roots. For any vector $\vec{v} \in B_j$, we must have $\vert\vert T_\ell \vec{v}\vert\vert_2=\sqrt{\mu_\ell}\cdot\vert\vert \vec{v}\vert\vert_2$.
 \end{lem}
 \begin{proof}
-	Let $\eta^+$ and $\eta^-$ be the two roots of $x^2-(1+\mu_\ell)\lambda x + \mu_\ell$. Since $\eta^+$ and $\eta^-$ are not real, $\vert\eta^+\vert = \vert\eta^-\vert = \sqrt{\eta^+\eta^-} = \sqrt{\mu_\ell}$. Therefore every vector in this subspace is rotated and scaled down by a factor of $\sqrt{\mu_\ell}$.
+	Let $\eta^+$ and $\eta^-$ be the two roots of $x^2-(1+\mu_\ell)\lambda x + \mu_\ell$. Since $\eta^+$ and $\eta^-$ are not real, the action of $T_\ell$ on $B_j$ has no real eigenvalues and must act as a rotation matrix on the two dimensional real subspace. This means that every vector in $B_j$ is scaled by the norm of the two (conjugate) eigenvalues. Since $\vert\eta^+\vert = \vert\eta^-\vert = \sqrt{\eta^+\eta^-} = \sqrt{\mu_\ell}$, our result follows.
 \end{proof}
-Now that we have $T_\ell$-invariant subspaces and are able to control the squared norm of the image of certain vectors in these subspaces, we must consider how the the portion of the subspaces described in Lemma \ref{realroot} changes as we iterate $\ell$. This equates to determining how the roots of the polynomial $x^2-(1+\mu_\ell)\lambda + \mu_\ell$ change as we increase $\mu_\ell$ for fixed $\lambda$.
+
+One can imagine applying these two lemmas iteratively in order to bound the norm of our vector after many applications of $T_\ell$---we will do exactly this. However, applying Lemma \ref{realroot} requires that the vector $y_\ell$ projected onto $B_j$ is contained within the small subset of vectors described in the lemma; a subset which depends on $\ell$. For the purpose of illustration, fix one such subspace $B_j$ and for each $\ell>0$ let $C_\ell\subset B_j$ be the subset of vectors $\left\{\left[\begin{array}{c}
+\vec{ap}\\\hdashline[2pt/2pt]
+\vec{bp}
+\end{array}\right]\right\}$ such that $\left(\bigslant{\lambda a}{b}\right)\geq0$ and $\vert\eta^+_\ell\vert\leq \vert\frac{a}{b}\vert\leq\vert\lambda\vert$ (we subscript $\eta^+$ with $\ell$ here only to emphasize the root depends on our choice of $\ell$). We therefore must show that for any $\ell$, $T_\ell C_\ell\subset C_{\ell+1}$. The two complications that arise are that $C_\ell$ changes with $\ell$ as well as Lemma \ref{complexroot} gives us no control over where $T_\ell$ maps vectors in $C_\ell$. The following lemma resolves both of these issues, first showing that the roots change in a predictable way, allowing for the conditions at the end of Lemma \ref{realroot} to be sufficient to guarantee $T_\ell C_\ell\subset C_{\ell+1}$ whenever $\eta^+_{\ell+1}$ is real and then showing that if we ever need to apply Lemma \ref{complexroot}, we will not have to apply Lemma \ref{realroot} within that subspace again.
 \begin{lem}\label{rootshift}
 	Let $\ell\in\bbZ^+$ and $-1<\lambda< 1$ be given. Assume that $x^2-(1+\mu_{\ell+1})\lambda x+\mu_{\ell+1}$ has real roots $x_{\ell+1}^-\leq x_{\ell+1}^+$. Then $x^2-(1+\mu_{\ell})\lambda x+\mu_{\ell}$ also has real roots $x_{\ell}^-$ and $x_{\ell}^+$ with $x_{\ell}^-<x_{\ell+1}^-\leq x_{\ell+1}^+< x_{\ell}^+$.
 \end{lem}
 \begin{proof}
-	Fix $-1<\lambda<1$ and define the multivariate polynomial $p(x,\mu) = x^2-(1+\mu)\lambda x+\mu$ with domain $-1\leq x,\mu\leq 1$. Fix $m>2$ and define $\mu_{\ell} = \frac{\ell -1}{\ell+m-3}$. If $(1+\mu_\ell)^2\lambda^2-4\mu_\ell\geq 0$ we have that $p(x,\mu_\ell)=0$ has real solutions $x^-\leq x^+$. Further, since the leading term of $p(x,\mu_\ell)$ is positive, $p(x,\mu_\ell)<0$ only on the interval $x\in\left(x^-,x^+\right)$. Now consider that $\frac{\partial p(x,\mu)}{\partial \mu} = 1-\lambda x>0$ for all values in our domain. Therefore since $\mu_{\ell+1}>\mu_{\ell}$, we must have that $p(x,\mu_{\ell+1})>p(x,\mu_{\ell})$. Therefore any real solutions of $p(x,\mu_{\ell+1})=0$ must lie strictly between $x^-$ and $x^+$. Finally our requirement $(1+\mu_\ell)^2\lambda^2-4\mu_\ell\geq 0$ reduces to $\mu_{\ell}\leq2-\lambda\pm2\sqrt{1-\lambda}$ since $\mu_{\ell}<1$ for all values of $\ell\in\bbZ^+$. Therefore, since $\mu_{\ell+1}>\mu_{l}$ we find that $p(x,\mu_{\ell+1})$ has real roots only if $p(x,\mu_\ell)$ has real roots.
+	Fix $-1<\lambda<1$ and define the multivariate polynomial $p(x,\mu) = x^2-(1+\mu)\lambda x+\mu$ with domain $-1\leq x,\mu\leq 1$. Fix $m>2$ and define $\mu_{\ell} = \frac{\ell -1}{\ell+m-3}$. If $(1+\mu_\ell)^2\lambda^2-4\mu_\ell\geq 0$ we have that $p(x,\mu_\ell)=0$ has real solutions $x^-\leq x^+$. Further, since the leading term of $p(x,\mu_\ell)$ is positive, $p(x,\mu_\ell)<0$ only on the interval $x\in\left(x^-,x^+\right)$. Now consider that $\frac{\partial p(x,\mu)}{\partial \mu} = 1-\lambda x>0$ for all values in our domain. Since $\mu_{\ell+1}>\mu_{\ell}$, we must have $p(x,\mu_{\ell+1})>p(x,\mu_{\ell})$ and thus any real solutions of $p(x,\mu_{\ell+1})=0$ must lie strictly between $x^-$ and $x^+$. Finally our requirement $(1+\mu_\ell)^2\lambda^2-4\mu_\ell\geq 0$ reduces to $\mu_{\ell}\leq2-\lambda\pm2\sqrt{1-\lambda}$ since $\mu_{\ell}<1$ for all values of $\ell\in\bbZ^+$. Again using $\mu_{\ell+1}>\mu_{l}$, we find that $p(x,\mu_{\ell+1})$ has real roots only if $p(x,\mu_\ell)$ has real roots.
 \end{proof}
-With this lemma, we know that the largest absolute value of the roots of $x^2-(1+\mu_\ell)\lambda_j + \mu_\ell$ decreases as $\mu_\ell$ so long as the roots are real. Further, this lemma also implies that if the roots of $x^2-(1+\mu_\ell)\lambda_j + \mu_\ell$ are complex, then $x^2-(1+\mu_{\ell+1})\lambda_j + \mu_{\ell+1}$ must also have complex roots. We will use these two facts as well as the proceeding lemmas to prove our next lemma.
+With this lemma, we know that the largest absolute value of the roots of $x^2-(1+\mu_\ell)\lambda_j + \mu_\ell$ decreases as $\mu_\ell$ increases so long as the roots are real. Further, this lemma also implies that if the roots of $x^2-(1+\mu_\ell)\lambda_j + \mu_\ell$ are not real, then $x^2-(1+\mu_{\ell+1})\lambda_j + \mu_{\ell+1}$ cannot have real roots either. We will use these two facts as well as the proceeding lemmas to prove our next lemma. We will use this lemma again in a later section, so we will make it self-contained.
 \begin{lem}\label{normbound}
-	Suppose we have a feasible parameter set for an association scheme with first and second eigenmatrices $P$ and $Q$. For $0\leq i,j\leq d$ define $\lambda_j = \nicefrac{Q_{j,i}}{m_i}$ and $B_j =\left\{\left[\begin{array}{c}
+	Let $P$ and $Q$ be the first and second eigenmatrices of a feasible parameter set for an association scheme. Fix $0\leq i\leq d$. For $0\leq j\leq d$ define $\lambda_j = \bigslant{Q_{j,i}}{m_i}$ and $B_j =\left\{\left[\begin{array}{c}
 	a\vec{p}_j\\\hdashline[2pt/2pt]
 	b\vec{p}_j
-	\end{array}\right]\vert a,b\in\bbR\right\}$ where $\vec{p}_j$ is the $j^\text{th}$ column of $\sqrt{\Delta_m}P$. For $\ell\geq 1$ define $\mu_\ell$, $\vec{y}_\ell$, and $T_\ell$ via equations \eqref{tkdef} and \eqref{yrec}. Then \[\text{proj}_{B_j}(\vec{y}_1) =\frac{1}{\vert X\vert}\left[\begin{array}{c}
+	\end{array}\right]\mid a,b\in\bbR\right\}$ where $\vec{p}_j$ is the $j^\text{th}$ column of $\sqrt{\Delta_m}P$. For $\ell\geq 1$ let $\vec{c}_\ell$ be the first column of $Q^{m_i}_\ell\left(\frac{1}{m_i}L_i^*\right)$ and define
+	\[\mu_\ell = \frac{\ell-1}{\ell+m_i-3};\quad \vec{y}_\ell = \left[\begin{array}{c}
+	\sqrt{\Delta_m}\vec{c}_{\ell}\\\hdashline[2pt/2pt]
+	\sqrt{\Delta_m}\vec{c}_{\ell-1}
+	\end{array}\right];\quad \gamma_{\ell,j} = \begin{cases}
+	\lambda_j^2 & (1+\mu_\ell)^2\lambda_j^2\geq 4\mu_\ell,\\
+	\mu_\ell & (1+\mu_\ell)^2\lambda_j^2< 4\mu_\ell.
+	\end{cases}\]
+	Then for any $0\leq j\leq d$ and $\ell^*>0$, \[\text{proj}_{B_j}(\vec{y}_1) =\frac{1}{\vert X\vert}\left[\begin{array}{c}
+	\lambda_j\vec{p}_j\\\hdashline[2pt/2pt]
+	\vec{p}_j
+	\end{array}\right];\qquad\left\vert\left\vert \text{proj}_{B_j}(\vec{y}_{\ell^*+1})\right\vert\right\vert^2_2\leq(1+\lambda_j^2)\frac{k_j}{\vert X\vert}\left(\prod_{\ell=2}^{\ell^*}\gamma_{\ell,j}\right)\]
+\end{lem}
+\begin{comment}
+	
+	Suppose we have a feasible parameter set for an association scheme with first and second eigenmatrices $P$ and $Q$. For $0\leq i,j\leq d$ define $\lambda_j = \bigslant{Q_{j,i}}{m_i}$ and $B_j =\left\{\left[\begin{array}{c}
+	a\vec{p}_j\\\hdashline[2pt/2pt]
+	b\vec{p}_j
+	\end{array}\right]\mid a,b\in\bbR\right\}$ where $\vec{p}_j$ is the $j^\text{th}$ column of $\sqrt{\Delta_m}P$. For $\ell\geq 1$ define $\mu_\ell$, $\vec{y}_\ell$, and $T_\ell$ via equations \eqref{tkdef} and \eqref{yrec}. Then \[\text{proj}_{B_j}(\vec{y}_1) =\frac{1}{\vert X\vert}\left[\begin{array}{c}
 	\lambda_j\vec{p}_j\\\hdashline[2pt/2pt]
 	\vec{p}_j
 	\end{array}\right];\qquad\left\vert\left\vert \left(\prod_{\ell=2}^{\ell^*} T_\ell\right) \text{proj}_{B_j}(\vec{y}_1)\right\vert\right\vert^2_2\leq(1+\lambda_j^2)\frac{k_j}{\vert X\vert}\left(\prod_{\ell=2}^{\ell^*}\gamma_{\ell,j}\right)\]
@@ -421,19 +454,19 @@ With this lemma, we know that the largest absolute value of the roots of $x^2-(1
 	\lambda_j^2 & (1+\mu_\ell)^2\lambda_j^2\geq 4\mu_\ell\\
 	\mu_\ell & (1+\mu_\ell)^2\lambda_j^2< 4\mu_\ell.
 	\end{cases}\]
-\end{lem}
+\end{comment}
 \begin{proof}
-	Let $\vec{y}_\ell$ given by the recurrence relation \eqref{yrec} for $\ell>1$ with $\vec{y}_1= \left[\begin{array}{c}
+	We have already seen that $\vec{y}_1= \left[\begin{array}{c}
 	\frac{1}{\sqrt{m_i}}\vec{e}_{i}\\\hdashline[2pt/2pt]
 	\vec{e}_{0}
-	\end{array}\right]$. We may find an orthogonal basis for $B_j$ via $B_j = \text{span}\left(\left[\begin{array}{c}
+	\end{array}\right]$. We may use $\left\{\left[\begin{array}{c}
 	\vec{p}_j\\\hdashline[2pt/2pt]
 	\vec{0}
 	\end{array}\right],\left[\begin{array}{c}
 	\vec{0}\\\hdashline[2pt/2pt]
 	\vec{p}_j
-	\end{array}\right]\right)$. Noting that $\left(\sqrt{\Delta_m}P\right)^T\left(\sqrt{\Delta_m}P\right) = \vert X\vert\Delta_k$ and thus $\vert\vert \vec{p}_j\vert\vert_2^2 = \vert X\vert k_j$, this gives 
-	\[\text{proj}_{B_j}(\vec{y}_1) = \frac{1}{k_j\vert X\vert}\left[\begin{array}{c}
+	\end{array}\right]\right\}$ as an orthogonal basis for $B_j$, noting that $\left(\sqrt{\Delta_m}P\right)^T\left(\sqrt{\Delta_m}P\right) = \vert X\vert\Delta_k$ and thus $\vert\vert \vec{p}_j\vert\vert_2^2 = \vert X\vert k_j$, this gives 
+	\[\text{proj}_{B_j}(\vec{y}_1) = \frac{1}{\vert X\vert k_j}\left[\begin{array}{c}
 	P_{i,j}\vec{p}_j\\\hdashline[2pt/2pt]
 	P_{0,j}\vec{p}_j
 	\end{array}\right] =\frac{1}{\vert X\vert}\left[\begin{array}{c}
@@ -443,25 +476,24 @@ With this lemma, we know that the largest absolute value of the roots of $x^2-(1
 	\lambda_j\vec{p}_j\\\hdashline[2pt/2pt]
 	\vec{p}_j
 	\end{array}\right].\]
-	Next Lemma \ref{rootshift} implies that the polynomial $x^2-(1+\mu_\ell)\lambda_j+\mu_\ell$ has complex roots if and only if $x^2-(1+\mu_{\ell'})\lambda_j+\mu_{\ell'}$ has complex roots for all $\ell'>\ell$. Therefore let $h$ be the largest integer less than or equal to $l^*$ for which $x^2-(1+\mu_h)\lambda_j+\mu_h$ has real roots. Let $2\leq \ell\leq h$ and let $\eta_\ell$ be the largest root (in absolute value) of $x^2-(1+\mu_\ell)\lambda_j+\mu_\ell$. Further assume that there exists constants $a_\ell$ and $b_\ell$ such that $\text{proj}_{B_j}\left(\vec{y}_{\ell-1}\right) = \left[\begin{array}{c}
+	We split the remaining part of the proof into two sections, first dealing with the integers $\ell$ for which $x^2-(1+\mu_\ell)\lambda_j+\mu_\ell$ has real roots, and then those integers for which no real roots exist. In both cases we will use induction, though the induction steps are slightly different between the real and imaginary cases. We begin by noting that since each $B_j$ is $T_\ell$ invariant, $\text{proj}_{B_j}(\vec{y}_{\ell+1}) = \left(\prod_{x=2}^{\ell} T_x\right)\text{proj}_{B_j}(\vec{y}_1)$, thus we will use these two expressions interchangeably. Now, Lemma \ref{rootshift} guarantees that the polynomial $x^2-(1+\mu_\ell)\lambda_j+\mu_\ell$ has no real roots only when every polynomial $x^2-(1+\mu_{\ell'})\lambda_j+\mu_{\ell'}$ for each $\ell'>\ell$ also has no real roots. Therefore let $h$ be the largest integer less than or equal to $l^*$ for which $x^2-(1+\mu_h)\lambda_j+\mu_h$ has real roots. We seek to prove that $\text{proj}_{B_j}(y_\ell)$ is within the region for which Lemma \ref{realroot} applies for each $2\leq \ell\leq h$. For the sake of induction, fix $2\leq \ell\leq h$, let $\eta_\ell$ be the largest root (in absolute value) of $x^2-(1+\mu_\ell)\lambda_j+\mu_\ell$, and assume that there exists constants $a_\ell$ and $b_\ell$ such that $\text{proj}_{B_j}\left(\vec{y}_{\ell-1}\right) = \left[\begin{array}{c}
 	a_\ell\vec{p}_j\\\hdashline[2pt/2pt]
 	b_\ell\vec{p}_j
-	\end{array}\right]$ where $\lambda_j\left(\frac{a_\ell}{b_\ell}\right) \geq 0$ and $\vert \eta_\ell\vert\leq\vert \frac{a_\ell}{b_\ell}\vert\leq\vert\lambda_j\vert$. Then Lemma \ref{realroot} tells us that there exists a $\beta\in\mathbb{R}$ such that $\text{proj}_{B_j}\left(\vec{y}_\ell\right) = T_\ell\left(\text{proj}_{B_j}\left(\vec{y}_{\ell-1}\right)\right) =\left[\begin{array}{c}
+	\end{array}\right]$ where $\left(\bigslant{\lambda_ja_\ell}{b_\ell}\right) \geq 0$ and $\vert \eta_\ell\vert\leq\vert \frac{a_\ell}{b_\ell}\vert\leq\vert\lambda_j\vert$. Then Lemma \ref{realroot} tells us that there exists a $\beta\in\mathbb{R}$ such that $\text{proj}_{B_j}\left(\vec{y}_\ell\right) = T_\ell\left(\text{proj}_{B_j}\left(\vec{y}_{\ell-1}\right)\right) =\left[\begin{array}{c}
 	\beta\vec{p}_j\\\hdashline[2pt/2pt]
-	a\vec{p}_j
+	a_\ell\vec{p}_j
 	\end{array}\right]$ where
-	$\lambda\left(\frac{\beta}{a}\right)\geq 0$, $\vert\eta_\ell\vert\leq \vert\frac{\beta}{a}\vert\leq\vert\lambda\vert$, and
-	\[\left\vert\left\vert \text{proj}_{B_j}\left(\vec{y}_\ell\right)\right\vert\right\vert_2^2\leq \vert \lambda\vert^2\cdot\left\vert\left\vert \text{proj}_{B_j}\left(\vec{y}_{\ell-1}\right)\right\vert\right\vert_2^2.\]
-	Lemma also $\ref{rootshift}$ tells us that if $\ell<h$ then $\vert\eta_{\ell+1}\vert<\vert\eta_{\ell}\vert$ where $\eta_{\ell+1}$ is the largest root in absolute value of the polynomial $x^2-(1+\mu_{\ell+1})\lambda_j+\mu_{\ell+1}$. Therefore, either $\ell=h$ or there exists constants $a_{\ell+1}$ and $b_{\ell+1}$ so that $\text{proj}_{B_j}\left(\vec{y}_{\ell}\right) = \left[\begin{array}{c}
-	a_{\ell+1}\vec{p}_j\\\hdashline[2pt/2pt]
-	b_{\ell+1}\vec{p}_j
-	\end{array}\right]$ where $\lambda_j\left(\frac{a_{\ell+1}}{b_{\ell+1}}\right) \geq 0$ and $\vert \eta_\ell\vert\leq\vert \frac{a_{\ell+1}}{b_{\ell+1}}\vert\leq\vert\lambda_j\vert$. Finally note that $\text{proj}_{B_j}\left(\vec{y}_{1}\right) = \left[\begin{array}{c}
+	$\left(\bigslant{\lambda_j\beta}{a}\right)\geq 0$, $\vert\eta_\ell\vert\leq \vert\frac{\beta}{a}\vert\leq\vert\lambda\vert$. Using Lemma $\ref{rootshift}$, we know that as long as $\ell<h$, $\vert\eta_{\ell+1}\vert<\vert\eta_{\ell}\vert$ where $\eta_{\ell+1}$ is the largest root in absolute value of the polynomial $x^2-(1+\mu_{\ell+1})\lambda_j+\mu_{\ell+1}$. Thus, either $\ell=h$ or we may use $a_{\ell+1} = \beta$ and $b_{\ell+1} = a_\ell$ to complete our induction step. Our base case is covered by our earlier observation that 
+	\[\text{proj}_{B_j}(\vec{y}_1) = \frac{1}{\vert X\vert}\left[\begin{array}{c}
 	\lambda_j\vec{p}_j\\\hdashline[2pt/2pt]
 	\vec{p}_j
-	\end{array}\right]$ and therefore $a_2 = \lambda_j$ and $b_2=1$, satisfying $\lambda_j\left(\frac{a_{2}}{b_{2}}\right) \geq 0$ and $\vert \eta_\ell\vert\leq\vert \frac{a_{2}}{b_{2}}\vert\leq\vert\lambda_j\vert$. Therefore, by induction, we have that
-	\[\left\vert\left\vert \left(\prod_{\ell=2}^{h} T_\ell\right) \text{proj}_{B_j}(\vec{y}_1)\right\vert\right\vert^2_2\leq \left\vert\left\vert \text{proj}_{B_j}\left(\vec{y}_1\right)\right\vert\right\vert^2_2\left(\prod_{\ell=2}^{h}\lambda_j^2\right)= (1+\lambda_j^2)\frac{k_j}{\vert X\vert}\left(\prod_{\ell=2}^{h}\lambda_j^2\right)\]
-	Now let $h<\ell\leq \ell^*$, and define $\vec{v} = \left(\prod_{\ell=2}^{h} T_\ell\right) \text{proj}_{B_j}(\vec{y}_1)$. Then Lemma \ref{complexroot} gives us that
-	\[\left\vert\left\vert \left(\prod_{\ell=h+1}^{\ell^*} T_\ell\right) \vec{v}\right\vert\right\vert^2_2\leq \left\vert\left\vert \vec{v}\right\vert\right\vert^2_2\left(\prod_{\ell=h+1}^{\ell^*}\mu_\ell\right)\leq (1+\lambda_j^2)\frac{k_j}{\vert X\vert}\left(\prod_{\ell=2}^{h}\lambda_j^2\right)\left(\prod_{\ell=h+1}^{\ell^*}\mu_\ell\right).\]
+	\end{array}\right].\]
+	Further, Lemma \ref{realroot} also tells us that in each case
+	\[\left\vert\left\vert \text{proj}_{B_j}\left(\vec{y}_\ell\right)\right\vert\right\vert_2^2\leq \vert \lambda\vert^2\cdot\left\vert\left\vert \text{proj}_{B_j}\left(\vec{y}_{\ell-1}\right)\right\vert\right\vert_2^2.\]
+	We therefore find that
+	\[\left\vert\left\vert \text{proj}_{B_j}(\vec{y}_h)\right\vert\right\vert^2_2\leq \left\vert\left\vert \text{proj}_{B_j}\left(\vec{y}_1\right)\right\vert\right\vert^2_2\left(\prod_{\ell=2}^{h}\lambda_j^2\right)= (1+\lambda_j^2)\frac{k_j}{\vert X\vert}\left(\prod_{\ell=2}^{h}\lambda_j^2\right)\]
+	Now let $h<\ell\leq \ell^*$, and define $\vec{v} = \text{proj}_{B_j}(\vec{y}_h)$. Then Lemma \ref{complexroot} gives us
+	\[\left\vert\left\vert \left(\prod_{\ell=h+1}^{\ell^*} T_\ell\right) \vec{v}\right\vert\right\vert^2_2\leq \left\vert\left\vert \vec{v}\right\vert\right\vert^2_2\prod_{\ell=h+1}^{\ell^*}\mu_\ell\leq (1+\lambda_j^2)\frac{k_j}{\vert X\vert}\left(\prod_{\ell=2}^{h}\lambda_j^2\right)\left(\prod_{\ell=h+1}^{\ell^*}\mu_\ell\right).\]
 \end{proof}
 We are now ready to prove the main theorem of this section, using Lemma \ref{normbound} to control the norm of the transient vectors at each iteration.
 \degbnd
@@ -469,56 +501,41 @@ We are now ready to prove the main theorem of this section, using Lemma \ref{nor
 	Let $\vec{y}_\ell$ given by the recurrence relation \eqref{yrec} for $\ell>1$ with $\vec{y}_1= \left[\begin{array}{c}
 	\frac{1}{\sqrt{m_i}}\vec{e}_{i}\\\hdashline[2pt/2pt]
 	\vec{e}_{0}
-	\end{array}\right]$. Consider that the sign of $\left[\vec{y}_\ell\right]_i$ is negative if and only if there is a negative entry in either $\vec{c}_k$ or $\vec{c}_{k-1}$ as defined in equation \eqref{crec}. Therefore the requirements that $\theta_{\ell,j}\geq 0$ as seen in Theorem \ref{schoen-as} are equivalent to the requirement that $\vec{y}_k$ has only non-negative entries for all $k\geq 0$.
-	Define subspaces $B_j = \text{span}\left(\left[\begin{array}{c}
+	\end{array}\right]$. Consider that the sign of $\left[\vec{y}_\ell\right]_i$ is negative if and only if there is a negative entry in either $\vec{c}_\ell$ or $\vec{c}_{\ell-1}$ as defined in equation \eqref{crec} and thus if and only if one of $Q_{\ell}^{m_i}\left(\frac{1}{m_i}L_i^*\right)$ or $Q_{\ell-1}^{m_i}\left(\frac{1}{m_i}L_i^*\right)$ contains a negative value. As before, define subspaces $B_j = \text{span}\left(\left[\begin{array}{c}
 	\vec{p}_j\\\hdashline[2pt/2pt]
 	\vec{0}
 	\end{array}\right],\left[\begin{array}{c}
 	\vec{0}\\\hdashline[2pt/2pt]
 	\vec{p}_j
-	\end{array}\right]\right)$ where $\vec{p}_j$ is the $j^\text{th}$ column of $\sqrt{\Delta_m}P$ where $\bbR^{2d+2} = \bigoplus_{j=0}^d B_j$. Lemma \ref{normbound} then tell us that
+	\end{array}\right]\right)$ where $\vec{p}_j$ is the $j^\text{th}$ column of $\sqrt{\Delta_m}P$. Lemma \ref{normbound} then tell us that
 	\[\text{proj}_{B_j}(\vec{y}_1) = \frac{1}{\vert X\vert}\left[\begin{array}{c}
 	\lambda_j\vec{p}_i\\\hdashline[2pt/2pt]
 	\vec{p}_i
 	\end{array}\right] \]
-	allowing us to split $y_1$ into
-	\[y_1 = \frac{1}{\vert X\vert}\left[\begin{array}{c}
+	allowing us to split $\vec{y}_1$ into
+	\[\vec{y}_1 = \frac{1}{\vert X\vert}\left[\begin{array}{c}
 	\sqrt{\Delta_m}\vec{1}\\\hdashline[2pt/2pt]
 	\sqrt{\Delta_m}\vec{1}
-	\end{array}\right] + \frac{1}{\vert X\vert}\sum_{j=1}^d\left[\begin{array}{c}
-	\lambda_j\vec{p}_j\\\hdashline[2pt/2pt]
-	\vec{p}_j
-	\end{array}\right]\]
-	giving us
+	\end{array}\right] + \sum_{j=1}^d\text{proj}_{B_j}(\vec{y}_1).\]
+	Noting that the first term is an eigenvector for $T_\ell$ with eigenvalue $1$, we then have
 	\[\vec{y}_{\ell^*+1} = \left(\prod_{\ell=2}^{\ell^*+1}T_\ell\right)\vec{y}_1 = \frac{1}{\vert X\vert}\left[\begin{array}{c}
 	\sqrt{\Delta_m}\vec{1}\\\hdashline[2pt/2pt]
 	\sqrt{\Delta_m}\vec{1}
-	\end{array}\right] + \frac{1}{\vert X\vert}\sum_{j=1}^d\left(\prod_{\ell=2}^{\ell^*+1}T_\ell\right)\left[\begin{array}{c}
-	\lambda_j\vec{p}_i\\\hdashline[2pt/2pt]
-	\vec{p}_i
-	\end{array}\right].\]
+	\end{array}\right] + \sum_{j=1}^d\text{proj}_{B_j}(\vec{y}_{\ell^*+1}).\]
 	Note that the smallest element of $\frac{1}{\vert X\vert}\left[\begin{array}{c}
 	\sqrt{\Delta_m}\vec{1}\\\hdashline[2pt/2pt]
 	\sqrt{\Delta_m}\vec{1}
 	\end{array}\right]$ is $\frac{1}{\vert X\vert}$ and thus in order for $\vec{y}_{\ell^*+1}$ to have a negative element, we must have 
-	\[\left\vert\left\vert \frac{1}{\vert X\vert}\sum_{j=1}^d\left(\prod_{\ell=2}^{\ell^*+1}T_\ell\right)\left[\begin{array}{c}
-	\lambda_j\vec{p}_i\\\hdashline[2pt/2pt]
-	\vec{p}_i
-	\end{array}\right]\right\vert\right\vert^2_2>\frac{1}{\vert X\vert^2}.\]
-	Again using Lemma \ref{normbound}, we have
-	\[\begin{aligned}\left\vert\left\vert \frac{1}{\vert X\vert}\sum_{j=1}^d\left(\prod_{\ell=2}^{\ell^*+1}T_\ell\right)\left[\begin{array}{c}
-	\lambda_j\vec{p}_i\\\hdashline[2pt/2pt]
-	\vec{p}_i
-	\end{array}\right]\right\vert\right\vert^2_2 \leq \frac{1}{\vert X\vert}\sum_{j=1}^d v_j(1+\lambda_j^2)\left(\prod_{i=2}^{\ell^*+1}\gamma_{\ell,j}\right)
+	\[\sum_{j=1}^d\left\vert\left\vert \text{proj}_{B_j}(\vec{y}_{\ell^*+1})\right\vert\right\vert^2_2>\frac{1}{\vert X\vert^2}.\]
+	Again using Lemma \ref{normbound}, we find
+	\[\begin{aligned}\sum_{j=1}^d\left\vert\left\vert \text{proj}_{B_j}(\vec{y}_{\ell^*+1})\right\vert\right\vert^2_2 \leq \frac{1}{\vert X\vert}\sum_{j=1}^d v_j(1+\lambda_j^2)\left(\prod_{i=2}^{\ell^*+1}\gamma_{\ell,j}\right).
 	\end{aligned}\]
-	where $\hat{\vec{b}}_j = \frac{\vec{p}_j}{\vert \vert \vec{p}_j\vert\vert_2}$. Therefore, if we have
-	\[\sum_{j=1}^d v_j\lambda_j^{2\ell^*}(1+\lambda_j^2)\leq\frac{1}{\vert X\vert}\]
-	then we guarantee $y_{\ell^*+1}$ has no negative entry. Finally since the bottom half of $y_{\ell^*+1}$ equals the top half of $y_{\ell^*}$, we may assume that any negative entry of $y_{\ell^*}$ appears in the bottom half, implying that $y_{\ell^*-1}$ has a negative entry in the top half. Thus checking  the first $\ell^*-1$ conditions is sufficient.
+	Therefore, as long as $\sum_{j=1}^d v_j\lambda_j^{2\ell^*}(1+\lambda_j^2)\leq\frac{1}{\vert X\vert}$, we guarantee $y_{\ell^*+1}$ has no negative entry. Additionally, since the bottom half of $y_{\ell^*+1}$ equals the top half of $y_{\ell^*}$, we may assume that any negative entry of $y_{\ell^*}$ appears in the bottom half, implying that $y_{\ell^*-1}$ also has a negative entry. Thus checking the first $\ell^*-1$ degrees is sufficient.
 \end{proof}
 \begin{cor}\label{maxlambda}
 	Suppose we have a feasible parameter set for an association scheme with first and second eigenmatrices $P$ and $Q$. Let $0\leq i\leq d$ be given and define $\lambda_j:=\frac{Q_{j,i}}{m_i}$. Further assume $1=\lambda_0>\vert\lambda^*\vert\geq\vert\lambda_j\vert$ for $0<j\leq d$. Then define
 	\[\ell^*=\left\lceil\frac{\ln\left[(1+(\lambda^*)^2)\vert X\vert(\vert X\vert-1)\right]}{-2\ln(\lambda^*)}\right\rceil.\]
-	If $\vert\lambda^*\vert^2\geq \frac{\ell^*}{\ell^*+m_i-2}$ then $\theta_{\ell,j}\geq 0$ is implied by FC1 for $\ell\geq \ell^*$ and $0\leq j\leq d$.
+	If $\vert\lambda^*\vert^2\geq \frac{\ell^*}{\ell^*+m_i-2}$ then $Q^{m_i}_{\ell}\left(\frac{1}{m_i}L_i^*\right)\geq 0$ for any $\ell\geq \ell^*$.
 \end{cor}
 \begin{proof}
 	As long as $\vert\lambda^*\vert^2$ is greater than both $\vert\lambda_j\vert^2$ and $\mu_{\ell}$ for $2\leq\ell\leq x$,
@@ -557,7 +574,7 @@ we have that the conditions $\theta_{\ell j}\geq 0$ are vacuous for this paramet
 Note that $\theta_{50} = -0.11<0$ and therefore this parameter set is not realizable.
 
 \section{Cometric Association Schemes}\label{cometricGeg}
-In this section, we restrict to the case of cometric association schemes and explicitly compute eigenvalues of the form $\theta_{\ell,j}$ as defined in Theorem \ref{schoen-as}. We will compute $\theta_{\ell,j}$ for $2\leq \ell\leq 5$ and $0\leq j\leq d$ as well as $\theta_{6,0}$. Theorem \ref{schoen-as} tells us that each eigenvalue must be non-negative, and thus we derive more feasibility conditions on the parameters of a cometric association scheme. Many of these feasibility conditions will be implied by our previous conditions FC1, FC2, and FC3, however there are some which are independent of these three conditions. We will examine one such example closely in the section that follows. Suppose we have a feasible parameter set for a $Q$-polynomial association scheme with Krein array $\left\{m,b^*_1,\dots,b^*_{d-1};1,c_2^*\dots,c^*_{d}\right\}$. As before, let $\theta_{\ell,j}$ denote the eigenvalue of $Q_\ell^m\circ\left(\frac{\vert X\vert}{m}E_1\right)$ on the eigenspace $V_j$ for $\ell\geq0$ and $0\leq j\leq d$, allowing ourselves to suppress the comma when the meaning is clear. From our initial two Gegenbauer polynomials, we know
+In this section, we restrict to the case of cometric association schemes and explicitly compute the entries in the first column of $Q_\ell^{m_i}\left(\frac{1}{m_i}L_i^*\right)$. If the parameter set is realizable, these values correspond to the eigenvalues of the same Gegenbauer polynomial applied entrywise to $\frac{X}{m_i}E_i$, thus we denote the $j^\text{th}$ entry of the first column of $Q_\ell^{m_i}\left(\frac{1}{m_i}L_i^*\right)$ by $\theta_{\ell,j}$. We will compute $\theta_{\ell,j}$ for $2\leq \ell\leq 5$ and $0\leq j\leq d$ as well as $\theta_{6,0}$. Theorem \ref{schoen-as} tells us that each eigenvalue must be non-negative, and thus we derive more feasibility conditions on the parameters of a cometric association scheme. Many of these feasibility conditions will be implied by our previous conditions FC1, FC2, and FC3, however there are some which are independent of these three conditions. We will examine one such example closely in the section that follows. Suppose we have a feasible parameter set for a $Q$-polynomial association scheme with Krein array $\iota^*=\left\{m,b^*_1,\dots,b^*_{d-1};1,c_2^*\dots,c^*_{d}\right\}$. From our initial two Gegenbauer polynomials, we know
 \[\theta_{0i}= \vert X\vert\delta_{0i};\qquad \theta_{1i} =\frac{\vert X\vert}{m}\delta_{1i}.\]
 Using equation \eqref{gegprop} and our Krein array, we have
 \begin{equation}\label{thetarec}
@@ -565,7 +582,7 @@ Using equation \eqref{gegprop} and our Krein array, we have
 \end{equation}
 Before listing the eigenvalues, we note that many of the conditions $\theta_{\ell i}\geq 0$ will be implied by either the Krein conditions FC1 or the cometric requirement on our parameters. Consider the following lemma:
 \begin{lem}
-	Suppose we have a feasible parameter set for a $Q$-polynomial association scheme with Krein array $\left\{m,b^*_1,\dots,b^*_{d-1};1,c_2^*\dots,c^*_{d}\right\}$. For $\ell\geq 0$, define $\theta_{\ell,j}$ via equation \eqref{thetarec} with $\theta_{0i}=\vert X\vert\delta_{0i}$ and $\theta_{1i}= \frac{\vert X\vert}{m}\delta_{1i}$. Then $\theta_{\ell,i} = 0$ for $i>\ell$ and FC1 implies $\theta_{\ell,i}\geq 0$ for $i\in\left\{\ell-1,\ell\right\}$.
+	Suppose we have a feasible parameter set for a $Q$-polynomial association scheme with Krein array $\left\{m,b^*_1,\dots,b^*_{d-1};1,c_2^*\dots,c^*_{d}\right\}$. For $\ell\geq 0$, define $\theta_{\ell j}$ via equation \eqref{thetarec} with $\theta_{0i}=\vert X\vert\delta_{0i}$ and $\theta_{1i}= \frac{\vert X\vert}{m}\delta_{1i}$. Then $\theta_{\ell i} = 0$ for $i>\ell$ and FC1 implies $\theta_{\ell i}\geq 0$ for $i\in\left\{\ell-1,\ell\right\}$.
 \end{lem}
 \begin{proof}
 	We prove this by induction, showing first that our cometric requirement implies $\theta_{\ell,i}=0$ for $i>\ell$, $\ell\geq 0$ and then the conditions FC1 imply $\theta_{\ell,\ell}$ and $\theta_{\ell,\ell-1}$ are both non-negative. First note from our initial conditions that $\theta_{0i} = 0$ for $i>0$. Now, let $\ell\geq 1$ be given and assume that $\theta_{\ell,i}= 0$ for $i>\ell$. Then choose $i>\ell+1$ and from equation \eqref{thetarec},
@@ -575,7 +592,7 @@ Before listing the eigenvalues, we note that many of the conditions $\theta_{\el
 	\theta_{\ell+1,\ell}&= \frac{(2\ell+m)(c_{\ell}^*\theta_{\ell,\ell-1} +a_{\ell}^*\theta_{\ell,\ell}+b_{\ell-1}^*\theta_{\ell,\ell+1}) - \ell m\theta_{\ell-1,\ell}}{m(\ell+m-2)} = \frac{(2\ell+m)\left(c_\ell^*\theta_{\ell,\ell-1}+a_\ell^*\theta_{\ell,\ell}\right)}{m(\ell+m-2)}.\end{aligned}\]
 	Therefore as long as $a_\ell^*,c_\ell^*,c_{\ell+1}^*\geq 0$ (FC1), then $\theta_{\ell+1,\ell+1}\geq 0$ and $\theta_{\ell+1,\ell}\geq 0$.
 \end{proof}
-Due to this lemma, we know that for feasible parameter set for a cometric association scheme and any choice of $\ell\geq 0$, the condition $\theta_{\ell,i}\geq 0$ will be implied by FC1 or the cometric property for $i\geq \ell-1$. Therefore we will omit $\theta_{\ell,i}$ for $i>\ell$ in the discussion that follows, listing $\theta_{\ell,\ell}$ and $\theta_{\ell,\ell-1}$ only to assist in calculating eigenvalues from higher degree polynomials. In each case, we will use our Krein parameters (primarily those from the Krein array) to calculate the eigenvalues and note when our feasibility condition FC1 is sufficient to imply $\theta_{\ell,i}\geq 0$. At the end of the section, we will summarize any of the conditions which are not implied by FC1, noting that these are our (potentially) new constraints on the parameters of a cometric scheme. For convenience we extend our Krein array to include $a_i^*,c_i^*,$ and $b_i^*$ for all $i\in\mathbb{Z}^+$ noting that $b_{j-1}^* = c_j^*=a_j^*=0$ for $j>d$. We will also use Lemma \eqref{kreinidentity} when convenient, so we assume that our Krein parameters satisfy the condition
+Due to this lemma, we know that any feasible parameter set for a cometric association scheme and any choice of $\ell\geq 0$, the condition $\theta_{\ell,i}\geq 0$ will be implied by FC1 or the cometric property for $i\geq \ell-1$. Therefore we will omit $\theta_{\ell,i}$ for $i>\ell$ in the discussion that follows, listing $\theta_{\ell,\ell}$ and $\theta_{\ell,\ell-1}$ only to assist in calculating eigenvalues from higher degree polynomials. In each case, we will use our Krein parameters (primarily those from the Krein array) to calculate the eigenvalues and note when our feasibility condition FC1 is sufficient to imply $\theta_{\ell,i}\geq 0$. At the end of the section, we will summarize any of the conditions which are not implied by FC1, noting that these are our (potentially) new constraints on the parameters of a cometric scheme. For convenience we extend our Krein array to include $a_i^*,c_i^*,$ and $b_i^*$ for all $i\in\mathbb{Z}^+$ noting that $b_{j-1}^* = c_j^*=a_j^*=0$ for $j>d$. We will also use Lemma \eqref{kitchensink} $(vi')$ when convenient, so we assume that our Krein parameters satisfy the condition
 \begin{equation}\label{kreinid}\sum_{l=0}^d q_{ij}^lq_{lk}^m = \sum_{l=0}^dq_{il}^mq_{jk}^l.\end{equation}
 \subsection*{Degree 2 constraint}
 \[\frac{\theta_{20}}{\vert X\vert}  = 0;\qquad\frac{\theta_{21}}{\vert X\vert}  = \frac{a_1^*}{m(m-1)};\qquad\frac{\theta_{22}}{\vert X\vert} = \frac{c_2^*}{m(m-1)}.\]

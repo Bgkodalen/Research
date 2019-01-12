@@ -54,7 +54,7 @@ We obtain the following corollaries.
 \end{cor}
 
 The graphs considered in these theorems are all undirected graphs, either a symmetric basis relation in our
-association scheme or the symmetrization $(X,R_i  \dot{\cup} R_{i'})$ of some directed basis relation. In both
+association scheme or the \emph{symmetrization}\index{symmetrization of relations} $(X,R_i  \dot{\cup} R_{i'})$ of some directed basis relation. In both
 cases, the edge set of $\Gamma$ is a basis relation of the \emph{symmetrization}\index{relation!symmetrization of -} $(X,\cR')$ of $(X,\cR)$
 where 
 $$ \cR' = \left\{ R \cup R^\top \mid R \in \cR \right\} .$$
@@ -65,27 +65,6 @@ corollaries.
 
 We should remark that these last two results extend naturally to the case where $\Gamma$ is not connected in that the deletion of vertices does not increase the number of components. One verifies this by applying the
 respective corollary to the subscheme induced by vertices in a particular component of $\Gamma$.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Preliminary results}
-\label{Sec:prelim}
-
-Throughout this section, $(X,\cR)$ denotes a commutative association scheme.
-
-In preparation for the proof of our main result, we now prove a few lemmas. We utilize basic terminology and
-notation regarding symmetric association schemes. We refer the reader to Section 2.2 of \cite{Brouwer1989} for 
-basic facts about the Bose-Mesner algebra and Section 2.4 of \cite{Brouwer1989} for information on imprimitivity.
-
-Let $A_i$ denote the $01$-matrix with rows and columns indexed by $X$ and $(a,b)$-entry equal to one
-if $(a,b)\in R_i$ and equal to zero otherwise. Then the \emph{Bose-Mesner algebra}\index{Bose-Mesner algebra} 
-$\spn( A_0,\ldots,A_d)$ is a complex vector space closed under both ordinary and entrywise 
-multiplication. So it admits a basis $E_0 = \frac{1}{|X|}J, \ldots,E_d$ of pairwise orthogonal idempotents ($E_i E_j = \delta_{i,j} E_i$)
-and the change of basis matrices $[P_{ij}]_{i,j=0}^d$ and $[Q_{ij}]_{i,j=0}^d$ given by 
-$$A_j = \sum_{i=0}^d P_{ij}E_i \qquad \text{and} \qquad E_j = \frac{1}{|X|} \sum_{i=0}^d Q_{ij} A_i $$
-satisfy $QP= |X| I$ (in particular, $\sum_{j=0}^d Q_{ij} = 0$ for $i\neq 0$) and
-$A_i E_j = P_{ji} E_j$ \cite[p.~45]{Brouwer1989}, as well as $P_{ji} = \frac{v_i}{m_j} \bar{Q}_{ij}$ where $v_i = P_{0i}$ and $m_j = Q_{0j}$  \cite[Lemma~2.2.1(iv)]{Brouwer1989}.
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \subsection{Twins}
@@ -99,7 +78,7 @@ relation of the association scheme.
 \begin{lem} \label{Ltwins}
 	Let $(X,\cR)$ be a symmetric association scheme and let $\Gamma=(X,R_i)$ for some $i \neq 0$. If $a$ and $b$ 
 	are twins, then $(X,\cR)$ is imprimitive and some  system of imprimitivity exists in which $a$ and $b$ belong
-	to the same fibre.
+	to the same fiber.
 \end{lem}
 
 \begin{proof}
@@ -107,7 +86,7 @@ relation of the association scheme.
 	$a\sim b$ if either $a=b$ or $a$ and $b$ are twins. To see that this is a system of imprimitivity, we verify that $\sim$
 	is the union of basis relations $R_j$ for which $p_{ii}^j = p_{ii}^0$. Since $p_{ii}^i < p_{ii}^0$ and we are assuming
 	at least one pair of twins exists, the equivalence 
-	relation is non-trivial and  $(X,\cR)$ is imprimitive.  $\Box$
+	relation is non-trivial and  $(X,\cR)$ is imprimitive.
 \end{proof}
 
 \begin{remark} We now discuss twins in polynomial association schemes.  We use the well-known fact that
@@ -119,17 +98,17 @@ relation of the association scheme.
 	
 	\begin{enumerate}
 		\item Assume $(X,\cR)$ is the association scheme coming from a distance-regular graph $\Gamma=(X,R_1)$ with  distance-$k$ relation $R_k$ for $0 \le k\le d$
-		and assume $R_i(a)=R_i(b)$ for distinct vertices $a$ and $b$. Suppose $a$ and $b$ do not belong to a common antipodal fibre in an antipodal system of imprimitivity. Then $\Gamma$ must be bipartite, in which case columns $a$ and $b$ of $E_j$ can be identical only for $j\in \{0,d\}$ (where  $E_0,\ldots,E_d$ are ordered so
+		and assume $R_i(a)=R_i(b)$ for distinct vertices $a$ and $b$. Suppose $a$ and $b$ do not belong to a common antipodal fiber in an antipodal system of imprimitivity. Then $\Gamma$ must be bipartite, in which case columns $a$ and $b$ of $E_j$ can be identical only for $j\in \{0,d\}$ (where  $E_0,\ldots,E_d$ are ordered so
 		that $P_{01}>P_{11}>\cdots >P_{d1}=-P_{01}$ \cite[Prop.~4.4.7]{Brouwer1989}). But then, except for $d=2$, there is 
 		some $j \neq 0,d$ for which $P_{ji}\neq 0$; thus $a=b$ for $d>2$. So bipartite systems of imprimitivity only 
-		arise for $d=2$. Viewing complete bipartite graphs as having the antipodal property, we then have that any distinct $a$ and $b$ with  $R_i(a)=R_i(b)$ must belong to the same antipodal fibre, $d$ is even, and $i=d/2$.
+		arise for $d=2$. Viewing complete bipartite graphs as having the antipodal property, we then have that any distinct $a$ and $b$ with  $R_i(a)=R_i(b)$ must belong to the same antipodal fiber, $d$ is even, and $i=d/2$.
 		%
 		\item Assume $(X,\cR)$ is a $Q$-polynomial (or ``cometric'') association scheme  \cite[Section~2.7]{Brouwer1989}, 
 		not a polygon, and $a\neq b$ yet 
 		$R_i(a)=R_i(b)$. Then, by a theorem of Suzuki, et al. \cite{Suzuki1998,Cerzo2009,Tanaka2011}, $(X,\cR)$ is either 
 		$Q$-bipartite or $Q$-antipodal. Let $E_0,\ldots,E_d$ be a $Q$-polynomial ordering of the primitive idempotents
-		and order relations such that $Q_{01}>Q_{11}>\cdots > Q_{d1}$. If $a$ and $b$ belong to the same fibre of a 
-		$Q$-bipartite imprimitivity system, then $d$ must be even and $i=\frac{d}{2}$ by Corollary 4.2 in \cite{Martin2007}. Otherwise, $a$ and $b$ must belong to the same $Q$-antipodal fibre and $u_j(a)=u_j(b)$ only for 
+		and order relations such that $Q_{01}>Q_{11}>\cdots > Q_{d1}$. If $a$ and $b$ belong to the same fiber of a 
+		$Q$-bipartite imprimitivity system, then $d$ must be even and $i=\frac{d}{2}$ by Corollary 4.2 in \cite{Martin2007}. Otherwise, $a$ and $b$ must belong to the same $Q$-antipodal fiber and $u_j(a)=u_j(b)$ only for 
 		$j \in \{0,d \}$.  So $P_{ji}=0$ for $1\le j< d$, forcing $(X,R_i)$ to be an imprimitive strongly regular graph 
 		(as it is regular with three  eigenvalues). Since the scheme is cometric with an imprimitive strongly regular 
 		graph as a basis relation, we must have $d=2$ and $a$ and $b$ are non-adjacent vertices in a complete multipartite graph.
@@ -140,8 +119,7 @@ relation of the association scheme.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The graph homomorphism $\varphi_a$}
 
-For $0< i \le d$, let $\Gamma_i=(X,R_i)$ and let $H_i$ denote the unweighted distribution diagram 
-corresponding to symmetric relation $R_i$. 
+For $0< i \le d$, let $\Gamma_i=(X,R_i)$ and let $H_i$ denote the \emph{unweighted distribution diagram}\index{unweighted distribution diagram} corresponding to symmetric relation $R_i$---that is, $H_i = \Gamma(V,E)$ where $V = \left\{0,\dots,d\right\}$ and $(j,k)\in E$ if and only if $p^k_{ij}>0$. 
 
 \begin{prop}  \label{Pphi}
 	For any $a\in X$, the map $\varphi_{a,i} : \Gamma_i \rightarrow H_i$ sending $b\in X$ to $j$ where $(a,b)\in R_j$
@@ -154,8 +132,8 @@ corresponding to symmetric relation $R_i$.
 We will call $\varphi_{a,i}$ the \emph{projection map}\index{projection map} and will omit the second subscript when 
 it is clear from the context.
 
-For vertices $x$ and $y$ in  an undirected graph $\Delta$, we use $d_\Delta(x,y)$ 
-to denote the path-length distance from $x$ to $y$ in  $\Delta$, setting $d_\Delta(x,y)=\infty$ when no path from
+For vertices $x$ and $y$ in  an undirected graph $\Gamma$, we use $d_\Gamma(x,y)$ 
+to denote the path-length distance from $x$ to $y$ in  $\Gamma$, setting $d_\Gamma(x,y)=\infty$ when no path from
 $x$ to $y$ exists in $\Delta$.
 
 \begin{lem} \label{LdiamGamma}
@@ -170,7 +148,7 @@ $x$ to $y$ exists in $\Delta$.
 	A shortest path in $H$ from $j$ to $0$ lifts via $\varphi_{a,i}^{-1}$ to a walk in $\Gamma$ from $b$ to
 	a vertex in $R_0(a)$ --- i.e., lifts to a walk from $b$ to $a$ --- of length $d_H(j,0)$. 
 	Conversely, each path from $b$ to $a$ in $\Gamma$ projects to a walk of the same length from 
-	$j$ to $0$ in $H$. $\Box$ 
+	$j$ to $0$ in $H$.
 \end{proof}
 
 
@@ -196,7 +174,7 @@ We will compare the graphs $\Gamma_a := \Gamma \setminus a^\bot$ and $H' :=H \se
 	is a path in    $\Gamma_a$. Then
 	$ i = \varphi_a(x_0),  \varphi_a(x_1), \ldots,  \varphi_a(x_\ell) = j$
 	is a walk from $i$ to $j$ in $H$. Since $H'$ is disconnected, $\varphi_a(x_t)\le 1$ for some $t$ which forces
-	$x_t \in a^\bot$, a contradiction. $\Box$
+	$x_t \in a^\bot$, a contradiction.
 \end{proof}
 
 %%%%%%%%%%%%%  First diagram begins  %%%%%%%
@@ -304,7 +282,7 @@ $\tI$ will remain fixed for this connected graph $\Gamma$.
 	$w\in W_x$, we note that $\Gamma$ contains an $xw$-path which does not pass through $u^\bot$.
 	So $x$ and $w$ lie in the same connected component of $\Gamma_u$. But if $(x,u)\in R_h$ then
 	$h\in \tU$ so $x\in U_u$ by symmetry. It follows that $W_x \cup \{x\} \subseteq U_u$. But this contradicts
-	$| \varphi_u^{-1}(\tU ) | \le | \varphi_x^{-1}(\tW ) |$. $\Box$
+	$| \varphi_u^{-1}(\tU ) | \le | \varphi_x^{-1}(\tW ) |$.
 \end{proof}
 
 
@@ -320,7 +298,7 @@ $\tI$ will remain fixed for this connected graph $\Gamma$.
 \begin{proof}
 	If $x$ and $b$ are twins, then $x$ cannot be a twin of $a$ since $b$ is not a twin of $a$. So 
 	$\Gamma(x) = \Gamma(b) \subseteq U_a \cup \Gamma(a)$ gives $\Gamma(x) \cap U_a \neq \emptyset$.
-	So $x\not\in W_a$.  $\Box$
+	So $x\not\in W_a$.
 \end{proof}
 
 
@@ -354,7 +332,7 @@ sets $Y_a$ and $Z_a$ are defined as above relative to this pair of vertices.
 	Since $p_{1j_2}^{1}>0$, there exists $v'_2\in R_{j_2}(a)$ with $v'_2$ adjacenct to  $v'_1$ in $\Gamma$. Continuing in this manner, we
 	may construct a walk $\pi'=(a=v'_0,v'_1,\ldots, v'_\ell)$ in $\Gamma$ with $\varphi_a(v'_s)=j_s$. 
 	Since $\Gamma(b) \subseteq \Gamma(a) \cup U_a$, none of the vertices $v'_s$ lie in 
-	$\Gamma(b)$, so the entire walk $\pi'$ is contained in one component of $\Gamma_b$. By definition of $Z_a$, we then have $v'_\ell \in Z_a \cap R_i(a)$. $\Box$
+	$\Gamma(b)$, so the entire walk $\pi'$ is contained in one component of $\Gamma_b$. By definition of $Z_a$, we then have $v'_\ell \in Z_a \cap R_i(a)$.
 	
 \end{proof}
 
@@ -420,7 +398,7 @@ sets $Y_a$ and $Z_a$ are defined as above relative to this pair of vertices.
 	Next consider $x\in Z_a$. Then $d(x,b)=2$ but $\Gamma(x)\cap \Gamma(b) \subseteq \Gamma(a)$ since 
 	$x$ and $b$ lie in distinct components of $\Gamma_a$ (Proposition \ref{Pxya}). Finally, consider $x\in Y_a$ with $(a,x)\in R_i$.
 	By Lemma \ref{LYZsplit}, there exists $x'\in Z_a \cap R_i(a)$. Since $x'$ has a neighbor in $\Gamma(a)$,
-	$p_{11}^i > 0$ which then implies that some neighbor of $x$ lies in $\Gamma(a)$ as well. $\Box$
+	$p_{11}^i > 0$ which then implies that some neighbor of $x$ lies in $\Gamma(a)$ as well.
 \end{proof}
 
 
@@ -448,7 +426,7 @@ sets $Y_a$ and $Z_a$ are defined as above relative to this pair of vertices.
 	$a'$.  Since $\Gamma_x$ contains a path from $a$ to $y$ and $a\in W_x$, we have $y\in W_x$. So
 	$| \Gamma(x) \cap \Gamma(y) | \ge \omega$.  By Proposition \ref{Pxya}, $\Gamma(x)\cap \Gamma(y) \subseteq \Gamma(a)$. But $a' \in \Gamma(y)\cap \Gamma(a)$. So 
 	$$\mu \ge 1 + | \Gamma(x) \cap \Gamma(y) | > \omega.$$
-	We have $\omega > \mu$ and $\mu > \omega$, producing the desired contradiction. $\Box$
+	We have $\omega > \mu$ and $\mu > \omega$, producing the desired contradiction.
 \end{proof}
 
 
@@ -606,7 +584,7 @@ We finish this section with a simple generalization arising from the proof above
 	
 	(b) Since $H \setminus B_{H,t}(0)$ is connected, for every $j\not\in B_{H,t}(0)$, $R_j(a)$ has non-trivial intersection
 	with every component of $\Gamma'$. So we may select $x,b$ in distinct components of $\Gamma'$ both 
-	satisfying  $ d_\Gamma(a,x) = d_\Gamma(a,b)  = D$ and then apply part (a). $\Box$
+	satisfying  $ d_\Gamma(a,x) = d_\Gamma(a,b)  = D$ and then apply part (a).
 \end{proof}
 
 
@@ -644,7 +622,7 @@ to any connected simple graph $\Gamma$.
 	again a connected graph, it admits a spanning tree $\cT$. Lift the edge set $E_\cT$ of $\cT$ back to $E\Gamma$
 	and note that $E_\cT$ contains no edge from any of the induced subgraphs $\Gamma[B_\delta(y)]$, $y\in T$.
 	So $E_\cT \cup \left( \cup_{y\in T} E_y \right)$ is the edge set of a spanning tree in $\Gamma \setminus T$,
-	which demonstrates that   $\Gamma \setminus T$ is connected. $\Box$
+	which demonstrates that   $\Gamma \setminus T$ is connected.
 \end{proof}
 
 
@@ -689,7 +667,7 @@ together must be locally a disjoint union of cliques of size at most $|T|$.
 	independent eigenvectors for graph $\Xi$ belonging to eigenvalue $\theta$. It follows that
 	$\rho = \theta$ and $\rho$, the spectral radius of $\Xi$, is not a simple eigenvalue. This contradicts
 	the Perron-Frobenius Theorem  (see, e.g., \cite[Theorem~3.1.1]{Brouwer1989}) since $\Xi$ was chosen to
-	be a connected graph.  $\Box$ 
+	be a connected graph. 
 \end{proof}
 
 \begin{remark}
@@ -734,7 +712,7 @@ $$c(i) = \sum_{ j \in I_{h-1} } p_{1j}^i ~.$$
 	$p_{1,\ell_{h-1}}^{\ell_h} > 0$ so that 
 	$$ \{ x\in X \mid (x,b) \in R_1, \ d_\Gamma(x,a') = d_\Gamma(b,a')-1 \} \! \subseteq  \! 
 	\{ x\in X \mid (x,b) \in R_1, \ d_\Gamma(x,a) = d_\Gamma(b,a)-1 \}. $$ 
-	Parts (b) and (c) follow immediately. $\Box$
+	Parts (b) and (c) follow immediately.
 \end{proof}
 
 
@@ -756,7 +734,7 @@ $d_\Gamma(x,y) < d_\Gamma(x,y')$ for all $y'\in T$ distinct from $y$.
 \end{prop}
 
 \begin{proof}
-	Every shortest path joining $x$ to $z$ in $\Gamma$ must pass through $y$. Apply Proposition \ref{Lc(i)}(b).  $\Box$ 
+	Every shortest path joining $x$ to $z$ in $\Gamma$ must pass through $y$. Apply Proposition \ref{Lc(i)}(b).
 \end{proof}
 
 
@@ -777,7 +755,7 @@ guarantees that $\Gamma$ is locally a disjoint union of  cliques.
 \begin{proof}
 	Let $j\in I_2$ and let $x \in R_j(y)$. Let $z \sim y$ be some vertex lying in a different component of 
 	$\Gamma \setminus T$ from that containing $x$. For $(z,x)\in R_i$, we find $c(i)=1$ by Proposition
-	\ref{Pci=1}.  So $c(j)=1$ by Lemma \ref{Lc(i)}. $\Box$ 
+	\ref{Pci=1}.  So $c(j)=1$ by Lemma \ref{Lc(i)}.
 \end{proof}
 
 
@@ -801,7 +779,7 @@ guarantees that $\Gamma$ is locally a disjoint union of  cliques.
 	\subseteq [x,z]$ and $[x,z'] = [x,y] \cup \{z'\}$, 
 	we find $\Gamma(x) \cap [x,z] = \Gamma(x) \cap [x,z']$, a set of size one. 
 	By the same token, $[y,z] \subseteq [x,z]$ and so $\Gamma(z) \cap [y,z] \subseteq 
-	\Gamma(z) \cap [x,z]$ gives $|\Gamma(z) \cap [y,z] |=1$.  $\Box$
+	\Gamma(z) \cap [x,z]$ gives $|\Gamma(z) \cap [y,z] |=1$. 
 \end{proof}
 
 
@@ -833,7 +811,7 @@ guarantees that $\Gamma$ is locally a disjoint union of  cliques.
 	d_\Gamma(x,y)$. By part (a), there are exactly $p_{11}^1$ such vertices. So, for $(x,z)\in R_s$, 
 	$ \sum_{\ell \in I_{h+k}} p_{1\ell}^s = p_{11}^1$. Reversing roles, we see that exactly $p_{11}^1$
 	neighbors of $z$ lie at distance $h+k$ from $x$. But this is precisely the set of vertices adjacent 
-	to $z$ which lie at distance $k$ from $y$.  $\Box$
+	to $z$ which lie at distance $k$ from $y$.
 \end{proof}
 
 
@@ -867,7 +845,7 @@ guarantees that $\Gamma$ is locally a disjoint union of  cliques.
 	vertex. In all, we have $| \Gamma(z) | = 1 + p_{11}^1 + 1$.  But $\Gamma$ is $K_{2,1,1}$-free so the
 	neighborhood of any vertex is partitioned into cliques of size $p_{11}^1+1$. We find that $p_{11}^1+1$ 
 	divides $p_{11}^1+2$. This can only happen if $p_{11}^1=0$; i.e., $\Gamma$ is triangle-free. But then 
-	$z$ has degree two and $\Gamma$ must be a polygon.   $\Box$
+	$z$ has degree two and $\Gamma$ must be a polygon.
 \end{proof}
 
 Our final two results deal with the special case where graph $\Gamma$ has diameter two.
@@ -891,7 +869,7 @@ Our final two results deal with the special case where graph $\Gamma$ has diamet
 	$T$, we find that, for every $y$ in $T$, there is some vertex $x$ (necessarily in $B$) 
 	with $\Gamma(x) \cap T = \{y\}$. But this implies that every 
 	$z \in X \setminus (B\cup T)$ is adjacent to every vertex in $T$,  so $T = \Gamma(z)$
-	for every $z \not\in B \cup T$.  $\Box$
+	for every $z \not\in B \cup T$.
 \end{proof}
 
 \begin{remark}
@@ -935,5 +913,5 @@ Our final two results deal with the special case where graph $\Gamma$ has diamet
 	neighbor $z$ of $y$ where $z\in B$ if $|\Gamma(y) \cap B| \le \frac{v_1}{2}$ and $z \in B'$ if  
 	$|\Gamma(y) \cap B| > \frac{v_1}{2}$. The number of common neighbors of $y$ and $z$ is then at
 	most $\frac{v_1}{2} - 1$. The inequalities $v_1 -2 \le p_{11}^1 \le \frac{v_1}{2} - 1$ then imply that 
-	$\Gamma$ is a polygon, which is impossible as $T$ was chosen to be minimal.  $\Box$
+	$\Gamma$ is a polygon, which is impossible as $T$ was chosen to be minimal.
 \end{proof}

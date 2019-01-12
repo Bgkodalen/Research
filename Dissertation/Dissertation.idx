@@ -8,62 +8,89 @@
 \indexentry{01-basis}{5}
 \indexentry{Bose-Mesner algebra}{5}
 \indexentry{idempotent basis}{6}
-\indexentry{eigenmatrices}{6}
-\indexentry{idempotent basis!dual eigenvalues}{6}
-\indexentry{eigenmatrices!orthogonality relations}{6}
+\indexentry{eigenmatrices}{7}
+\indexentry{idempotent basis!dual eigenvalues}{7}
+\indexentry{eigenmatrices!orthogonality relations}{7}
 \indexentry{parameters!Krein}{7}
 \indexentry{parameters!arrays of intersection numbers}{8}
-\indexentry{parameters!arrays of Krein parameters}{8}
+\indexentry{parameters!arrays of Krein parameters}{9}
 \indexentry{parameters!intersection matrix}{9}
 \indexentry{parameters!Krein matrix}{9}
-\indexentry{association schemes!translation schemes}{10}
+\indexentry{association schemes!translation schemes}{11}
 \indexentry{formal duality}{11}
 \indexentry{bipartite}{11}
 \indexentry{bipartite!dual-}{11}
 \indexentry{antipodal}{11}
-\indexentry{antipodal!dual-}{11}
-\indexentry{Krein conditions}{11}
-\indexentry{absolute bound}{11}
-\indexentry{feasible parameter set}{12}
-\indexentry{realizable parameter set}{12}
-\indexentry{imprimitivity!primitive}{12}
-\indexentry{imprimitivity!imprimitive}{12}
-\indexentry{imprimitivity!subscheme}{12}
+\indexentry{antipodal!dual-}{12}
+\indexentry{Krein conditions}{12}
+\indexentry{absolute bound}{12}
+\indexentry{feasible parameter set}{13}
+\indexentry{realizable parameter set}{13}
+\indexentry{imprimitivity!primitive}{13}
+\indexentry{imprimitivity!imprimitive}{13}
+\indexentry{imprimitivity!subscheme}{13}
 \indexentry{imprimitivity!quotient scheme}{13}
 \indexentry{imprimitivity!systems of -}{13}
 \indexentry{imprimitivity!subscheme}{14}
-\indexentry{imprimitivity!quotient scheme}{14}
 \indexentry{imprimitivity!quotient scheme}{15}
-\indexentry{$Q$-polynomial}{17}
-\indexentry{$Q$-polynomial!cometric}{17}
+\indexentry{imprimitivity!quotient scheme}{16}
+\indexentry{$Q$-polynomial}{18}
+\indexentry{$Q$-polynomial!cometric}{18}
+\indexentry{Krein array}{18}
 \indexentry{natural ordering}{18}
 \indexentry{$Q$-polynomial!$Q$-bipartite}{18}
 \indexentry{$Q$-polynomial!$Q$-antipodal}{18}
-\indexentry{$P$-polynomial}{18}
-\indexentry{$P$-polynomial!metric}{18}
-\indexentry{$P$-polynomial!bipartite}{18}
-\indexentry{$P$-polynomial!antipodal}{18}
-\indexentry{positive semidefinite cone}{23}
-\indexentry{equiangular lines!optimal}{23}
-\indexentry{equiangular lines!near optimal}{23}
-\indexentry{polynomial!monomial}{26}
-\indexentry{polynomial!degree}{26}
-\indexentry{polynomial!derivative}{26}
-\indexentry{polynomial!homogeneous}{26}
-\indexentry{polynomial!harmonic}{26}
-\indexentry{polynomial!harmonic!on the sphere}{27}
-\indexentry{polnomial!homogeneous!on the sphere}{27}
-\indexentry{polynomial!zonal}{27}
-\indexentry{Gegenbauer polynomials}{27}
-\indexentry{positive definite function}{28}
-\indexentry{block design!2-design}{49}
-\indexentry{block design!incidence matrix}{49}
-\indexentry{Hadamard matrix}{68}
-\indexentry{Hadamard matrix!unbiased}{68}
-\indexentry{projective double}{75}
-\indexentry{strongly regular graph}{79}
-\indexentry{Delsarte coclique}{81}
-\indexentry{relation!symmetrization of -}{93}
-\indexentry{Bose-Mesner algebra}{94}
-\indexentry{projection map}{95}
-\indexentry{proximal}{104}
+\indexentry{$P$-polynomial}{19}
+\indexentry{$P$-polynomial!metric}{19}
+\indexentry{$P$-polynomial!bipartite}{19}
+\indexentry{$P$-polynomial!antipodal}{19}
+\indexentry{equiangular lines}{21}
+\indexentry{mutually unbiased bases}{22}
+\indexentry{positive semidefinite cone}{24}
+\indexentry{equiangular lines}{24}
+\indexentry{equiangular lines!optimal}{25}
+\indexentry{equiangular lines!near optimal}{25}
+\indexentry{polynomial!monomial}{28}
+\indexentry{polynomial!degree}{28}
+\indexentry{polynomial!derivative}{28}
+\indexentry{polynomial!homogeneous}{28}
+\indexentry{polynomial!harmonic}{29}
+\indexentry{polynomial!harmonic!on the sphere}{29}
+\indexentry{polnomial!homogeneous!on the sphere}{29}
+\indexentry{polynomial!zonal}{29}
+\indexentry{Gegenbauer polynomials}{29}
+\indexentry{positive definite function}{31}
+\indexentry{block design!2-design}{52}
+\indexentry{block design!incidence matrix}{52}
+\indexentry{linked system of symmetric designs}{53}
+\indexentry{linking system of difference sets}{53}
+\indexentry{$\mu$-heavy}{53}
+\indexentry{$\nu$-heavy}{53}
+\indexentry{linked system of symmetric designs}{56}
+\indexentry{degenerage parameters}{56}
+\indexentry{Noda bound}{56}
+\indexentry{absolute bound}{57}
+\indexentry{regular simplex}{57}
+\indexentry{linked simplices}{58}
+\indexentry{equiangular tight frame}{59}
+\indexentry{nearest neighbor graph}{62}
+\indexentry{optimistic lssd}{62}
+\indexentry{pessimistic lssd}{62}
+\indexentry{equiangular lines}{63}
+\indexentry{real mutually unbiased bases}{65}
+\indexentry{degenerate parameters}{65}
+\indexentry{Cameron-Seidel Scheme}{66}
+\indexentry{Menon parameters}{71}
+\indexentry{Hadamard matrix!real}{71}
+\indexentry{Hadamard matrix!regular}{71}
+\indexentry{Hadamard matrix!unbiased}{71}
+\indexentry{projective double}{78}
+\indexentry{projective double}{79}
+\indexentry{orthogonal projective double}{79}
+\indexentry{strongly regular graph}{83}
+\indexentry{Delsarte coclique}{85}
+\indexentry{symmetrization of relations}{97}
+\indexentry{relation!symmetrization of -}{97}
+\indexentry{unweighted distribution diagram}{99}
+\indexentry{projection map}{99}
+\indexentry{proximal}{107}
