@@ -1,4 +1,4 @@
-\chapter{Orthogonal Projective Double Covers}
+\chapter{Orthogonal projective double covers}
 \label{4classbip}
 Throughout this thesis we have examined many different spherical $t$-distance sets and their close relation to association schemes. In some cases, we may find an equivalence between such $t$-distance sets and certain classes of association schemes; thus is the case discussed in Chapter \ref{3class} where we found 3-class $Q$-antipodal association schemes were equivalent to the 3-distance sets called linked simplices. In other cases we find that equivalence occurs only when we restrict certain aspects of the $t$-distance set, for instance only certain equiangular lines occur within 2-class $Q$-bipartite association schemes. In this chapter, we introduce a line system known as \emph{projective doubles}\index{projective double}($PD_m(\gamma,\delta)$): lines in $\mathbb{R}^m$ with two possible angles. Here, as with equiangular lines, $\gamma$ and $\delta$ represent the cosine of the possible angles between lines; despite this we will abuse notation and refer to them as the ``angles" of our projective double. We find that these systems are closely related to $4$- and $5$-class $Q$-bipartite association schemes. In this chapter, we will focus on the $4$-class case and define a related line system called \emph{orthogonal projective doubles} ($OPD_m(\gamma)$): projective doubles for which $\delta = 0$. We begin by considering the general objects but will add restrictions along the way with the motivation of finding an equivalence between these objects and our association schemes. Below is a list of the main results found in this chapter.
 \begin{restatable*}{prop}{projsrg}\label{projnec}
@@ -16,7 +16,7 @@ Throughout this thesis we have examined many different spherical $t$-distance se
 	\[15n^4(2n^2-3)r^2 + (n^6-45kn^2+76k)n^2r+k(16k+n^6)(n^2-2)\geq 0.\]
 \end{restatable*}
 
-\section{Orthogonal Projective doubles of regular graphs}
+\section{Orthogonal projective doubles of regular graphs}
 As we saw with other examples, it becomes useful to represent a line system by a set of unit vectors, defining the ``angle" between two lines to be the absolute value of the inner product between representative unit vectors. We often chose one representative for each line, resulting in many equivalent representations of any line set. In this chapter, we will instead include both directions; that is, we will represent our line system with an antipodal set of unit vectors with twice as many vectors as there are lines. Further, we will describe a projective double by not only the parameters $m$, $\gamma$, and $\delta$ but also the graph which is induced on the set of lines where two lines are adjacent if they intersect in angle $\gamma$. Let $\Gamma$ be an undirected graph on $v$ vertices. A \emph{projective double}\index{projective double}($PD_m(\gamma,\delta)$) of $\Gamma$ is an antipodal spherical set, say $L = \left\{\ell_1,\dots,\ell_{2v}\right\}\subset \mathbb{R}^m$ with inner products $A = \left\{\pm 1,\pm \gamma,\pm\delta\right\}$ such that there exists a mapping $\phi:L\rightarrow V\Gamma$ with the properties
 \begin{enumerate}[label=(\roman*)]
 	\item $\phi(\ell_i) = \phi(\ell_j)$ if and only if $\left\vert\left<\ell_i,\ell_j\right>\right\vert = 1$,
@@ -461,7 +461,8 @@ We may pair this Theorem with Theorem \ref{bounds} to get the following corollar
 \end{proof}
 We conclude this chapter by noting the impact of Theorem \ref{thm60} on the feasible parameter space of 4-class $Q$-bipartite association schemes. In the table below we list the number of feasible schemes for a given $n>0$ when only considering conditions FC1, FC2, and FC3. We also list the number of feasible schemes when we include Theorem \ref{thm60} as a feasibility condition.
 \[\begin{tabular}{c|c|c}\label{feasible4class}
-$n$ & \# of feasible parameter sets & \# of feasible parameter sets satisfying Theorem \ref{thm60}\\\hline
+\multirow{2}{3mm}{$n$} & \# of feasible & \# of feasible parameter sets\\
+ & parameter sets & satisfying Theorem \ref{thm60} \\\hline
 2 & 6 & 5\\
 3 & 60 & 44\\
 4 & 223 & 140\\

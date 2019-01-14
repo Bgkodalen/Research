@@ -22,10 +22,12 @@
 %\usepackage{showlabels}
 \usepackage{thmtools}
 \usepackage{thm-restate}
-%\usepackage{hyperref}
+\usepackage{hyperref}
 \usepackage{cleveref}
 \usepackage{comment}
 \usepackage{float}
+
+\usepackage{epigraph}
 
 \usepackage{makeidx}
 %\usepackage{showidx}
@@ -37,6 +39,14 @@
 \newcommand{\bigslant}[2]{{\left.\raisebox{.2em}{$#1$}\middle/\raisebox{-.2em}{$#2$}\right.}}
 
 
+\makeatletter
+\newenvironment{chapquote}[2][2em]
+{\setlength{\@tempdima}{#1}%
+	\def\chapquote@author{#2}%
+	\parshape 1 \@tempdima \dimexpr\textwidth-2\@tempdima\relax%
+	\itshape}
+{\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\bigskip}
+\makeatother
 %%% CS Template
 
 \setlength{\textheight}{8.63in}
