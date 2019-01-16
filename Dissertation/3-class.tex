@@ -53,7 +53,7 @@ We say $\Gamma$ is a \emph{linked system of symmetric designs}\index{linked syst
 	\end{cases}
 	\end{equation}
 \end{enumerate}
-where $\sim$ denotes adjacency in $\Gamma$ and $\Gamma(x)$ denotes the neighborhood of vertex $x$. Observe that $\Gamma$ is regular with valency $k(w-1)$. A specific type of LSSD introduced by \cite{Davis2014} called a \text{linking system of difference sets}\index{linking system of difference sets} is a LSSD where the symmetric design induced between any two fibers comes from a difference set. Recently Jedwab et.\ al.\ \cite{Jedwab2017} examined these in more detail, building new examples and proving non-existence results for certain parameters. However, Mathon \cite{Mathon1981} showed there exist three fiber LSSDs which do not come from difference sets and therefore these objects are not always equivalent to LSSDs. We will consider the general case, and therefore do not assume this added structure on our symmetric designs.\par
+where $\sim$ denotes adjacency in $\Gamma$ and $\Gamma(x)$ denotes the neighborhood of vertex $x$. Observe that $\Gamma$ is regular with valency $k(w-1)$. A specific type of LSSD introduced by \cite{Davis2014} called a \text{linking system of difference sets}\index{linking system of difference sets} is a LSSD where the symmetric design induced between any two fibers comes from a difference set. Recently Jedwab et al.\ \cite{Jedwab2017} examined these in more detail, building new examples and proving non-existence results for certain parameters. However, Mathon \cite{Mathon1981} showed there exist three fiber LSSDs which do not come from difference sets and therefore these objects are not always equivalent to LSSDs. We will consider the general case, and thus do not assume this added structure on our symmetric designs.\par
 In \cite[Proposition 0]{Noda1974}, Noda shows that $\mu$ and $\nu$ must take one of two pairs of values given by:
 \begin{equation}
 \nu = \frac{k(k\pm \sqrt{k-\lambda})}{v}, \qquad \mu = \nu\mp \sqrt{k-\lambda}. \label{mu-nu}
@@ -78,7 +78,7 @@ We further find that, given $v$, $k$, and $\lambda$, only one of the outcomes in
 	\[\begin{aligned}
 	\frac{k(k\pm s)}{v} \mp\frac{s(k\pm s)}{v} &= \lambda.
 	\end{aligned}\]
-	The integer $\nu$ in \eqref{mu-nu} appears as the first term in one of these equations. Therefore we must have that either $\frac{s(k+ s)}{v}$ or $\frac{s(k-s)}{v}$ must also be an integer, giving us (iii): $\gcd(s,v)>1$. To show (i), consider that if both $\frac{k(k+ s)}{v}$ and $\frac{k(k- s)}{v}$ are integers, then the same must hold for both $\frac{s(k+s)}{v}$ and $\frac{s(k-s)}{v}$. However, this implies $\frac{2s^2}{v}\in\mathbb{Z}^+$, contradicting $s^2 <k \leq \frac{v}{2}$.
+	The integer $\nu$ in \eqref{mu-nu} appears as the first term in one of these equations. This implies we must have that either $\frac{s(k+ s)}{v}$ or $\frac{s(k-s)}{v}$ must also be an integer, giving us (iii): $\gcd(s,v)>1$. To show (i), consider that if both $\frac{k(k+ s)}{v}$ and $\frac{k(k- s)}{v}$ are integers, then the same must hold for both $\frac{s(k+s)}{v}$ and $\frac{s(k-s)}{v}$. However, this implies $\frac{2s^2}{v}\in\mathbb{Z}^+$, contradicting $s^2 <k \leq \frac{v}{2}$.
 \end{proof}
 \begin{remark}
 	\label{rmk1}
@@ -185,7 +185,7 @@ If instead we have that $q_{1,1}^1 = 0$ then we find $w\leq \frac{v+1}{2}$, so t
 \[w = \frac{(v-2)s}{2k-v}+1\]
 with $2k>v$ ($q_{1,1}^1 = 0$ is not possible unless $2k>v$ since $w\geq 2$). Further, our bound from the eigenspace structure gives
 \[w\leq \frac{m_1+2}{2} = \frac{v+1}{2}.\]
-Therefore we must have $\frac{(v-2)s}{2k-v}+1\leq \frac{v+1}{2}$ giving $2(v-2)s\leq(v-1)(2k-v)$ or $2s\leq (2k-v) + \frac{2s}{v-1}$. Since $2s<k<v-1$, this means that $2s\leq (2k-v)$. We can square both sides and preserve the inequality, giving:
+This means we must have $\frac{(v-2)s}{2k-v}+1\leq \frac{v+1}{2}$ giving $2(v-2)s\leq(v-1)(2k-v)$ or $2s\leq (2k-v) + \frac{2s}{v-1}$. Since $2s<k<v-1$, this means that $2s\leq (2k-v)$. We can square both sides and preserve the inequality, giving:
 $4(k-\lambda)\leq 4k^2-4kv+v^2$. Using \eqref{sym:2} this gives
 \[\begin{aligned}
 4(k-\lambda)\leq v.
@@ -210,9 +210,9 @@ In this section, we will write $\left\{b_j\right\}$ for the set $\left\{b_1,\dot
 	Since $A_2$ corresponds to complete graphs within fibers, our vectors form a set of $w$ linked simplices in $\mathbb{R}^{v-1}$ with $\gamma = \alpha_1$ and $\delta = \alpha_3$ as inner products between simplices.\par
 	Similarly we have
 	\[\begin{aligned}
-	G' = \frac{vw}{v-1}E_2 &= \left(A_0 + \frac{-k}{(v-1)\sqrt{k-\lambda}}A_1 -\frac{1}{v-1}A_2 +\frac{v-k}{(v-1)\sqrt{k-\lambda}}A_3\right).\\
+	G' = \frac{vw}{v-1}E_2 &= \left(A_0 + \frac{-k}{(v-1)\sqrt{k-\lambda}}A_1 -\frac{1}{v-1}A_2 +\frac{v-k}{(v-1)\sqrt{k-\lambda}}A_3\right)\\
 	\end{aligned}\]
-	Therefore $G'$ is also the Gram matrix of a set of vectors coming from $w$ distinct simplices. However, the rank of $E_2$ is $(w-1)(v-1)$ and therefore these simplices are linked only when $w=2$ (we require that each simplex is full-dimensional in the space spanned by vectors in both simplices in order for the simplices to be considered linked). Therefore any pair of fibers from our LSSD will give us another set of linked simplices with inner products $-\alpha_1$ and $-\alpha_3$. This corresponds to choosing one of the two simplices and replacing each $x$ in that simplex by $-x$.
+	forcing $G'$ to also be the Gram matrix of a set of vectors coming from $w$ distinct simplices. However, the rank of $E_2$ is $(w-1)(v-1)$ and thus these simplices are linked only when $w=2$ (we require that each simplex is full-dimensional in the space spanned by vectors in both simplices in order for the simplices to be considered linked). This means any pair of fibers from our LSSD will give us another set of linked simplices with inner products $-\alpha_1$ and $-\alpha_3$. This corresponds to choosing one of the two simplices and replacing each $x$ in that simplex by $-x$.
 \end{proof}
 This tells us that every LSSD gives rise to a set of linked simplices. Before proving the converse, we first prove a lemma arising from the observation that a regular simplex is an equiangular tight frame\index{equiangular tight frame}, that is, a set of vectors $\left\{v_j\right\}_{j\in J}\subset V$ for which there exists a constant $A$ so that $v = \frac{1}{A}\sum_{j\in J} \left<v,v_j\right>v_j$ for every vector $v\in V$. We will instead use the equivalent Plancherel definition $\left<v,w\right> = \frac{1}{A}\sum_{j\in J}\left<v,v_j\right>\left<v_j,w\right>$ for all $v,w\in V$ (see \cite{Jasper2014}).
 \begin{lem}
@@ -227,7 +227,7 @@ This tells us that every LSSD gives rise to a set of linked simplices. Before pr
 	\[\alpha_i = \sqrt{\frac{v-1}{v}}\left[a_i(1),a_i(2),\dots,a_i(v-1),\frac{1}{\sqrt{v-1}}\right].\]
 	For $i\neq i^\prime$,
 	\[\left<\alpha_i,\alpha_{i^\prime}\right> = \frac{v-1}{v}\left(\left<a_i,a_{i^\prime}\right> + \frac{1}{v-1}\right)=0.\]
-	Therefore $\left\{\alpha_i\right\}$ forms an orthonormal basis for $\mathbb{R}^v$. Now define $\chi,\psi\in\mathbb{R}^v$ as:
+	Then $\left\{\alpha_i\right\}$ forms an orthonormal basis for $\mathbb{R}^v$. Now define $\chi,\psi\in\mathbb{R}^v$ as:
 	\[\chi = \left[x(1),x(2),\dots,x(v-1),0\right],\qquad\psi = \left[y(1),y(2),\dots,y(v-1),0\right].\]
 	Then for each $i$,
 	\[\begin{aligned}
@@ -250,7 +250,7 @@ Using this lemma, we now seek to build a LSSD with $w$ fibers from a set of $w$ 
 	\[\left<x_s,x_t\right> = \sum_i \left<a_i,b_s\right>\left<a_i,b_t\right>=\frac{v}{v-1}\left<b_s,b_t\right>=-\frac{v}{(v-1)^2}.\]
 	Equating these two values gives us
 	\[\lambda_{s,t} =\frac{v\delta^2}{(\delta-\gamma)^2}-\frac{v}{(v-1)^2(\gamma-\delta)^2}.\]
-	The quantity on the right is independent of $s$ and $t$ and therefore $\lambda_{s,t}$ does not depend on $s$ and $t$. Therefore our block system forms a $2$-design with the above values for $k$ and $\lambda$.
+	The quantity on the right is independent of $s$ and $t$ and therefore $\lambda_{s,t}$ does not depend on $s$ and $t$. This tells us our block system forms a $2$-design with the above values for $k$ and $\lambda$.
 \end{proof}
 As both $k$ and $\lambda$ are integers, this gives us restrictions on which inner products are allowed. We solve the system
 \[\begin{aligned}
@@ -333,13 +333,13 @@ This is a $vw\times vw$ matrix with rank $v+w-1$. In order to get equiangular li
 \[\begin{aligned}
 \Big| \alpha + \beta\left(\frac{v-k}{\sqrt{k-\lambda}}\right) - \gamma\Big| =\Big| \alpha - \beta +(w-1)\gamma\Big| =\Big| \alpha - \beta\left(\frac{k}{\sqrt{k-\lambda}}\right) - \gamma\Big| = c.
 \end{aligned}\]
-Since $\alpha$, $\beta$, and $\gamma$ must all be positive, we note that $\alpha+\beta\left(\frac{v-k}{\sqrt{k-\lambda}}\right) - \gamma >\alpha - \beta\left(\frac{k}{\sqrt{k-\lambda}}\right)-\gamma$ and therefore we must have
+Since $\alpha$, $\beta$, and $\gamma$ must all be positive, we note that $\alpha+\beta\left(\frac{v-k}{\sqrt{k-\lambda}}\right) - \gamma >\alpha - \beta\left(\frac{k}{\sqrt{k-\lambda}}\right)-\gamma$ and we must have
 \[c=\alpha+\beta\left(\frac{v-k}{\sqrt{k-\lambda}}\right) - \gamma = -\left[\alpha-\beta\left(\frac{k}{\sqrt{k-\lambda}}\right) - \gamma\right] .\]
 This tells us that
 \[\beta = \frac{2c\sqrt{k-\lambda}}{v}\qquad \text{and}\qquad \alpha - \gamma = c\left(\frac{2k-v}{v}\right).\]
 Here we have one final choice (the sign of $\alpha-\beta+(w-1)\gamma$). Substituting in our value for $\beta$, we find that 
 \[\alpha+(w-1)\gamma = c\left(\frac{2\sqrt{k-\lambda}\pm v}{v}\right).\]
-However, since we must have $2\sqrt{k-\lambda}<v$, we know that choosing the minus on the right hand side would make the entire side negative. However $\alpha$, $\gamma$, and $(w-1)$ are all positive and therefore this is not possible. Therefore we must use the $+$, giving
+However, since we must have $2\sqrt{k-\lambda}<v$, we know that choosing the minus on the right hand side would make the entire side negative. However $\alpha$, $\gamma$, and $(w-1)$ are all positive so this is not possible. Therefore we must use the $+$, giving
 \[\gamma=2c\left(\frac{v-k + \sqrt{k-\lambda}}{vw}\right),\qquad
 \alpha = c\left(\frac{v+2\sqrt{k-\lambda} - (w-1)\left(v-2k\right)}{vw}\right).\]
 Our final requirement is that the main diagonal of $G$ is equal to 1. Using the coefficients of $A_0$ in our expression for $G$, we find
@@ -351,7 +351,7 @@ Scaling by $vw$ for convenience, this gives us the final values:
 vw\beta&=\frac{2w\sqrt{k-\lambda}}{2\sqrt{k-\lambda}-1},\\
 vw\gamma&=\frac{2v-2k+2\sqrt{k-\lambda}}{2\sqrt{k-\lambda}-1},\\
 \end{aligned}\]
-with inner product $\frac{1}{2\sqrt{k-\lambda} -1}$. As we require $\alpha\geq 0$ for this construction to give a p.s.d. matrix, we need $w<\frac{2(k+s)}{v-2k}+2$ in the pessimistic LSSD case (no such restriction occurs for the optimistic case). Therefore we have the following generalization of de Caen's construction:
+with inner product $\frac{1}{2\sqrt{k-\lambda} -1}$. As we require $\alpha\geq 0$ for this construction to give a p.s.d. matrix, we need $w<\frac{2(k+s)}{v-2k}+2$ in the pessimistic LSSD case (no such restriction occurs for the optimistic case). This gives the following generalization of de Caen's construction:
 \begin{thm}
 	Let $\mathcal{L}$ be the association scheme arising from a $LSSD(v,k,\lambda;w)$. If either $\mathcal{L}$ is optimistic, or $w\leq2+\frac{2(k+s)}{v-2k}$ then we can build a set of $vt$ lines in $\mathbb{R}^{v+t-1}$ for any $1\leq t\leq w$. In the pessimistic case with $w> 2+\frac{2(k+s)}{v-2k}$, we can achieve the construction for any $t\leq 2+\frac{2(k+s)}{v-2k}$.\qed
 \end{thm}
@@ -657,7 +657,7 @@ thin,main node/.style={circle,fill=black,scale = .5}]
 \end{tikzpicture}\]
 We can easily see that $v-2k = 2 = 2\sqrt{k-\lambda}$. However, the sum of the first two eigenspaces gives
 \[M = 3(E_0 + E_1) =\frac{1}{3}A_0 -\frac{1}{4}A_1\]
-which is not the Gram matrix of a set of MUBs. In fact, any Menon parameter set with $v/4$ odd will satisfy $\vert v-2k\vert = 2\sqrt{k-\lambda}$ yet none of these will produce MUBs. Therefore our restriction to optimistic LSSDs is required and we cannot say that any LSSD satisfying $\vert v-2k\vert = 2\sqrt{k-\lambda}$ will give us MUBs using this construction. Conversely, the existence of $w$ MUBs in $\mathbb{R}^v$ does not guarantee the existence of an optimistic $LSSD(v,k,\lambda;w)$; consider 3 MUBs in $\mathbb{R}^4$.
+which is not the Gram matrix of a set of MUBs. In fact, any Menon parameter set with $v/4$ odd will satisfy $\vert v-2k\vert = 2\sqrt{k-\lambda}$ yet none of these will produce MUBs. Thus our restriction to optimistic LSSDs is required and we cannot say that any LSSD satisfying $\vert v-2k\vert = 2\sqrt{k-\lambda}$ will give us MUBs using this construction. Conversely, the existence of $w$ MUBs in $\mathbb{R}^v$ does not guarantee the existence of an optimistic $LSSD(v,k,\lambda;w)$; consider 3 MUBs in $\mathbb{R}^4$.
 \subsection{Restrictions on the parameters}
 In this section, we show that $\vert v-2k\vert = 2\sqrt{k-\lambda}$ implies $(v,k,\lambda)$ are Menon parameters. In the case of optimistic LSSDs, we also show $v/4$ is even. We now take a closer look at our restriction $v-2k = -2\sqrt{k-\lambda}$. First note we can square both sides to get
 \[\begin{aligned}
@@ -679,7 +679,7 @@ If we restrict to an optimistic LSSD, we must use the second family for our $\mu
 \[\begin{aligned}
 s=\sqrt{k-\lambda}=u,\qquad\nu =\frac{k(k-s)}{v}=u^2+\frac{u}{2},\qquad\mu=\nu+s=u^2+\frac{3}{2}u.
 \end{aligned}\]
-Therefore $\nu$ (and $\mu$) are integral if and only if $u$ is even, resulting in the following theorem
+This forces $\nu$ (and $\mu$) to be integral if and only if $u$ is even, resulting in the following theorem
 \begin{thm}
 	\label{MubLssdrestrictions}
 	Let $\Gamma$ be an optimistic $LSSD(v,k,\lambda;w)$. If $v-2k = -2\sqrt{k-\lambda}$ then the parameters are \emph{Menon parameters}\index{Menon parameters}. That is,
@@ -696,7 +696,7 @@ Therefore $\nu$ (and $\mu$) are integral if and only if $u$ is even, resulting i
 \end{proof}
 The upper bound for $w$ is achieved whenever $u$ is a power of two using the Cameron-Seidel scheme. In light of this family and the requirement that $w=2$ whenever $v/4$ is odd, one might ask if $w$ is bounded as a function of the highest power of $2$ dividing $v$. We will show later that this is not true by constructing examples with $w$ as large as we like and $v/16$ odd.
 \subsection{Hadamard matrix equivalence}
-In this section, we establish an equivalence between LSSDs with parameters as in Theorem \ref{MubLssdrestrictions} with sets of regular unbiased Hadamard matrices (see \cite{Kharaghani2010} for more detailed information on unbiased Hadamard matrices). Van Dam et.\ al.\ \cite[p.~1423]{Davis2014} briefly mention this connection citing constructions of unbiased regular Hadamard matrices by Holzmann, Kharaghani, and Orrick \cite{Kharaghani2010} using mutually orthogonal latin squares. In this section, we describe the connection between unbiased regular Hadamard matrices and LSSDs in full using Theorem \ref{twoside}. A real Hadamard matrix\index{Hadamard matrix!real} of order $v$ is a $v\times v$ matrix $H$ with entries $\pm 1$ such that $HH^T = vI$. $H$ is a \textit{regular Hadamard matrix}\index{Hadamard matrix!regular} if $HJ = cJ$ for some constant $c$. Two Hadamard matrices $H_1$ and $H_2$ are \textit{unbiased}\index{Hadamard matrix!unbiased} if $\frac{1}{v}H_1H_2^T$ is itself a Hadamard matrix. Finally, a set of Hadamard matrix matrices are unbiased if each pair is unbiased. Using these definitions, consider the following:
+In this section, we establish an equivalence between LSSDs with parameters as in Theorem \ref{MubLssdrestrictions} with sets of regular unbiased Hadamard matrices (see \cite{Kharaghani2010} for more detailed information on unbiased Hadamard matrices). Van Dam et al.\ \cite[p.~1423]{Davis2014} briefly mention this connection citing constructions of unbiased regular Hadamard matrices by Holzmann, Kharaghani, and Orrick \cite{Kharaghani2010} using mutually orthogonal latin squares. In this section, we describe the connection between unbiased regular Hadamard matrices and LSSDs in full using Theorem \ref{twoside}. A real Hadamard matrix\index{Hadamard matrix!real} of order $v$ is a $v\times v$ matrix $H$ with entries $\pm 1$ such that $HH^T = vI$. $H$ is a \textit{regular Hadamard matrix}\index{Hadamard matrix!regular} if $HJ = cJ$ for some constant $c$. Two Hadamard matrices $H_1$ and $H_2$ are \textit{unbiased}\index{Hadamard matrix!unbiased} if $\frac{1}{v}H_1H_2^T$ is itself a Hadamard matrix. Finally, a set of Hadamard matrix matrices are unbiased if each pair is unbiased. Using these definitions, consider the following:
 \begin{thm}
 	\label{LSSDtoHad}
 	Let $\Gamma$ be an optimistic $LSSD(v,k,\lambda;w)$. If $\vert v-2k\vert = -2\sqrt{k-\lambda}$, then there exists a set of $w-1$ real unbiased regular Hadamard matrices.
@@ -706,7 +706,7 @@ In this section, we establish an equivalence between LSSDs with parameters as in
 	$\left[\begin{array}{ccccc}
 	I & M_2 & M_3 & \dots & M_{w}\\
 	\end{array}\right].$
-	However from \eqref{MubGram}, we have that the positive (resp., negative) entries of $M_i$ represent adjacency between vertices in the first and $i^\text{th}$ fibers of the $\mu$-heavy (resp., $\nu$-heavy) LSSD. Therefore each $M_i$ must have $k$ positive entries and $v-k$ negative entries giving that $H_i$ must be regular. Now define $\binom{w}{2}$ matrices $M_{i,j}$ where $M_{i,j}$ is the unitary matrix representing basis $j$ when basis $i$ is taken to be the standard basis (so $M_{1,j} = M_j$). Then we repeat all previous arguments to show that $G$ has the block form:
+	However from \eqref{MubGram}, we have that the positive (resp., negative) entries of $M_i$ represent adjacency between vertices in the first and $i^\text{th}$ fibers of the $\mu$-heavy (resp., $\nu$-heavy) LSSD. Then each $M_i$ must have $k$ positive entries and $v-k$ negative entries giving that $H_i$ must be regular. Now define $\binom{w}{2}$ matrices $M_{i,j}$ where $M_{i,j}$ is the unitary matrix representing basis $j$ when basis $i$ is taken to be the standard basis (so $M_{1,j} = M_j$). Then we repeat all previous arguments to show that $G$ has the block form:
 	\[G = \left[\begin{array}{ccccccc}
 	I & M_{1,2} & \dots & M_{1,w}\\
 	M_{2,1} & I & \dots & M_{2,w}\\
@@ -721,7 +721,7 @@ In this section, we establish an equivalence between LSSDs with parameters as in
 	\end{array}\right].\]
 	Noting that $G^2 = wG$, the block in the $(1,2)$ block of $G^2$ gives us that
 	\[2M_{i,j} + M_{i,k}M_{k,j} = 2M_{i,j},\qquad \text{ or equivalently } \qquad M_{i,k}M_{k,j} = M_{i,j}.\]
-	Therefore, if we return to the original $LSSD$ and define $H_{i,j} = \sqrt{v}M_{i,j}$ then we find that $\frac{1}{\sqrt{v}}H_i^TH_j = H_{i,j}$. Therefore the set $\left\{H_2,\dots,H_w\right\}$ is a set of $w-1$ regular unbiased Hadamard matrices.
+	Therefore, if we return to the original $LSSD$ and define $H_{i,j} = \sqrt{v}M_{i,j}$, we find that $\frac{1}{\sqrt{v}}H_i^TH_j = H_{i,j}$. It follows that the set $\left\{H_2,\dots,H_w\right\}$ is a set of $w-1$ regular unbiased Hadamard matrices.
 \end{proof}
 We now show the converse:
 \begin{thm}
@@ -735,7 +735,7 @@ We now show the converse:
 	\label{had:3}\left<\hat{x}_{1,j},\hat{x}_{i,k}\right> &=\frac{\sqrt{v}}{v-1}\left[H_i^T-\frac{1}{\sqrt{v}}J\right]_{j,k},\\
 	\label{had:4}\left<\hat{x}_{i,j},\hat{x}_{i',k}\right> &=\frac{\sqrt{v}}{v-1}\left[\frac{1}{\sqrt{v}}H_iH_{i^\prime}^T -\frac{1}{\sqrt{v}}J\right]_{j,k}.
 	\end{align}
-	\eqref{had:1} and \eqref{had:2} give us the inner products within each $X_i$. Since $\frac{1}{\sqrt{v}}H_iH_{i^\prime}^T$ is a Hadamard matrix, \eqref{had:3} and \eqref{had:4} tell us that inner products between sets $X_i$ and $X_{i^\prime}$ take values of $\frac{\pm\sqrt{v}-1}{v-1}$. Finally note that the all ones vector is orthogonal to all $x_{i,j}$. Therefore $\left\{X_1,\dots,X_w\right\}$ is a set of $w$ simplices in $\mathbb{R}^{v-1}$ such that inner products between simplices can take only two possible values. Finally consider that the possible inner products are $\frac{\sqrt{v}}{v-1}\left(\pm 1 - \frac{1}{\sqrt{v}}\right)$. This tells us that $\vert \gamma\vert <\vert \delta\vert$ where $\gamma$ is the positive inner product and $\delta$ is the negative. Therefore, since the centroid of any simplex is the origin, we must have more positive inner products between simplices than negative, telling us our $LSSD$ is optimistic.
+	\eqref{had:1} and \eqref{had:2} give us the inner products within each $X_i$. Since $\frac{1}{\sqrt{v}}H_iH_{i^\prime}^T$ is a Hadamard matrix, \eqref{had:3} and \eqref{had:4} tell us that inner products between sets $X_i$ and $X_{i^\prime}$ take values of $\frac{\pm\sqrt{v}-1}{v-1}$. Finally note that the all ones vector is orthogonal to all $x_{i,j}$, implying $\left\{X_1,\dots,X_w\right\}$ is a set of $w$ simplices in $\mathbb{R}^{v-1}$ such that inner products between simplices can take only two possible values. Finally consider that the possible inner products are $\frac{\sqrt{v}}{v-1}\left(\pm 1 - \frac{1}{\sqrt{v}}\right)$. This tells us that $\vert \gamma\vert <\vert \delta\vert$ where $\gamma$ is the positive inner product and $\delta$ is the negative. Since the centroid of any simplex is the origin, we must have more positive inner products between simplices than negative, telling us our $LSSD$ is optimistic.
 \end{proof}
 This leaves us with the following theorem
 \lssdhadequiv\vspace{-9mm}\qed
@@ -744,21 +744,21 @@ This leaves us with the following theorem
 %	An optimistic $LSSD(v,k,\lambda;w)$ with $\vert v-2k\vert = 2\sqrt{k-\lambda}$ exists if and only if there exists a set of $w-1$ regular unbiased Hadamard matrices with order $v$.\qed
 %\end{thm}
 \subsection{Constructing LSSDs from certain real MUBs}
-Using the results from the last section and the close relation between MUBs and Hadamard matrices, we wish to build new LSSDs. From theorem \ref{equiv} and theorem \ref{MubLssdrestrictions}, we are only going to find optimistic LSSDs with Menon parameters. Goethals gives a construction in \cite{Cameron1972} for $w = 2u^2$ whenever $u$ is a power of 2 (see \ref{kerdock}). Therefore we skip this case and instead look for constructions where $u$ (and equivalently $v$) is not necessarily a power of 2.
+Using the results from the last section and the close relation between MUBs and Hadamard matrices, we wish to build new LSSDs. From theorem \ref{equiv} and theorem \ref{MubLssdrestrictions}, we are only going to find optimistic LSSDs with Menon parameters. Goethals gives a construction in \cite{Cameron1972} for $w = 2u^2$ whenever $u$ is a power of 2 (see \ref{kerdock}). We skip this case and instead look for constructions where $u$ (and equivalently $v$) is not necessarily a power of 2.
 \subsubsection{Wocjan and Beth construction}
 Wocjan and Beth in \cite{Wocjan2005} detail a way to create MUBs from MOLS. They take a set of $t$ MOLS with side length $d$ and create $t+2$ MUBs in dimension $d^2$. The process is to convert the MOLS into an orthogonal array with $d^2$ rows. They then expand the array by replacing each column with $d$ columns giving by the characteristic vector of each symbol in that column. Finally, they extend this matrix by replacing each 1 in the array with a row from a Hadamard matrix matrix and each 0 by an appropriate length vector of 0s. The result is that the $d$ columns arising from each original column are orthogonal to each other. We will focus on the case where the resultant MUBs produce regular Hadamard matrices using their inner products.\par
 For our purposes, an orthogonal array of size $(n^2\times s)$ has entries from the set $\left\{1,\dots, n\right\}$ and any two columns contain each ordered pair exactly once. Let $O$ be an orthogonal array of size $n^2\times s$, let $C^i$ denote the $i^{th}$ column of $O$ with entries $C^i_k$ ($1\leq k\leq n^2$). We may uniquely express
 \[C^i = \sum_{j=1}^n kB^{i,j} \]
 where each $B^{i,j}$ is a 01-vector of length $n^2$. As each symbol $j$ appears in each column $C^i$ exactly $n$ times, $B^{i,j}$ will have $n$ 1s and $n^2-n$ 0s. Let $H$ be a Hadamard matrix matrix of order $n$. For $1\leq l\leq n$ define a matrix $M^{i,j,l}$ as follows: For $1\leq k\leq n$, we replace the $k^\text{th}$ 1, counting from the top, in $B^{i,j}$ with the $H_{k,l}$. This produces $n^2s$ columns each with $n^2$ entries $M_k^{i,j,l}\in\left\{0,1,-1\right\}$.\par
-The fact that $H^TH = nI$ together with $B^{i,j}\circ B^{i,j^\prime} = 0$ for $j\neq j^\prime$ give us that $\mathcal{B}_i = \left\{M^{i,1,1},\dots,M^{i,n,n}\right\}$ is an orthogonal basis for each $i=1,\dots,s$. Each vector in these bases has squared norm $n$. For $i\neq i'$, $C^i$ and $C^{i'}$ denote distinct columns in our orthogonal array and therefore for any $j$ and $j'$ (not necessarily distinct), $B^{i,j}\circ B^{i',j'}$ has one nonzero entry. Therefore $M^{i,j,l}\circ M^{i',j',l'}$ also has one nonzero entry. Therefore
+The fact that $H^TH = nI$ together with $B^{i,j}\circ B^{i,j^\prime} = 0$ for $j\neq j^\prime$ give us that $\mathcal{B}_i = \left\{M^{i,1,1},\dots,M^{i,n,n}\right\}$ is an orthogonal basis for each $i=1,\dots,s$. Each vector in these bases has squared norm $n$. For $i\neq i'$, $C^i$ and $C^{i'}$ denote distinct columns in our orthogonal array implying, for any $j$ and $j'$ (not necessarily distinct), $B^{i,j}\circ B^{i',j'}$ has one nonzero entry. Then $M^{i,j,l}\circ M^{i',j',l'}$ also has one nonzero entry giving
 \begin{equation}\left<M^{i,j,l},M^{i',j',l'}\right>=M^{i,j,l}_kM^{i',j',l'}_k=\pm 1\\
 \end{equation}
-where $O_{k,i} = j$ and $O_{k,i'} = j'$. Therefore the bases $\mathcal{B}_1,\dots,\mathcal{B}_s$ produced by Wocjan and Beth are unbiased.\par
+where $O_{k,i} = j$ and $O_{k,i'} = j'$. This tells us the bases $\mathcal{B}_1,\dots,\mathcal{B}_s$ produced by Wocjan and Beth are unbiased.\par
 We now show that if $H$ is regular, then the resulting unbiased Hadamard matrices are regular (see proof of Theorem \ref{LSSDtoHad} for the construction of these Hadamard matrices). For each Hadamard matrix, the row sum is the sum of inner products between a column $M^{i,j,l}$ of one basis with the set of $n^2$ columns $M^{i',j',l'}$ ($i\neq i'$, $1\leq j',l'\leq n)$ of the second basis used in its construction. We first sum $\left<M^{i,j,l},M^{i',j',l'}\right>$ over $l'$ to get
 \begin{equation*}
 \sum_{l'} \left<M^{i,j,l},M^{i',j',l'}\right>=M^{i,j,l}_k\left(\sum_{l'}M^{i',j',l'}_k\right)=pM^{i,j,l}_k.
 \end{equation*}
-We then sum this result over $j'$ noting that $k$ was chosen so that $O_{k,i} = j$ and $O_{k,i'} = j'$, and therefore depends on $j'$. As this sum will include every nonzero entry in $M^{i,j,l}$ exactly once, we know
+We then sum this result over $j'$, noting that $k$ was chosen so that $O_{k,i} = j$ and $O_{k,i'} = j'$, meaning it depends on $j'$. As this sum will include every nonzero entry in $M^{i,j,l}$ exactly once, we know
 \begin{equation}
 \label{rowsum}
 \sum_{j'}\sum_{l'}\left<M^{i,j,l},M^{i',j',l'}\right> =\sum_{j'}pM^{i,j,l}_{k}=p\sum_{j'}H_{j',l}=p^2.

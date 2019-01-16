@@ -1,16 +1,16 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Graphs of the 3-cube.}}{3}{figure.caption.5}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Graphs of $K_{3,3}$.}}{9}{figure.caption.6}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Graphs of the octahedron.}}{9}{figure.caption.7}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Graphs of the 3-cube.}}{6}{figure.caption.5}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Graphs of $K_{3,3}$.}}{12}{figure.caption.6}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Graphs of the octahedron.}}{13}{figure.caption.7}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Gegenbauer polynomials}}{29}{figure.caption.9}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Roots of Gegenbauer polynomials}}{29}{figure.caption.10}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Gegenbauer polynomials}}{32}{figure.caption.9}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Roots of Gegenbauer polynomials}}{32}{figure.caption.10}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces 4-class $Q$-bipartite bounds}}{94}{figure.caption.26}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces 4-class $Q$-bipartite bounds}}{97}{figure.caption.26}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Graph $H$. Upon deletion of $0$ and $1$, the isolated vertices in $\mathaccentV {tilde}07E{I}$ are those subconstituents which contain all twins of the basepoint while $\mathaccentV {tilde}07E{U}$ is vertex set of a component outside $\mathaccentV {tilde}07E{I}$ which minimizes $\DOTSB \sum@ \slimits@ _{i\in \mathaccentV {tilde}07E{U}} v_i$. \relax }}{99}{figure.caption.27}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces This diagram depicts $\Gamma $ as decomposed relative to basepoint $a$. In $\Gamma _b$, vertex $a$ belongs to component $\Delta $, whose vertex set is indicated by the shaded region. The set $W_a$ splits into $Z_a$ and $Y_a$ according to membership in $V\Delta $. \relax }}{101}{figure.caption.28}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Since $\Gamma $ has diameter two, all common neighbors of $x$ and $y$ are contained in $\Gamma (a)$. \relax }}{102}{figure.caption.29}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Graph $H$. Upon deletion of $0$ and $1$, the isolated vertices in $\mathaccentV {tilde}07E{I}$ are those subconstituents which contain all twins of the basepoint while $\mathaccentV {tilde}07E{U}$ is vertex set of a component outside $\mathaccentV {tilde}07E{I}$ which minimizes $\DOTSB \sum@ \slimits@ _{i\in \mathaccentV {tilde}07E{U}} v_i$. \relax }}{102}{figure.caption.27}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces This diagram depicts $\Gamma $ as decomposed relative to basepoint $a$. In $\Gamma _b$, vertex $a$ belongs to component $\Delta $, whose vertex set is indicated by the shaded region. The set $W_a$ splits into $Z_a$ and $Y_a$ according to membership in $V\Delta $. \relax }}{104}{figure.caption.28}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Since $\Gamma $ has diameter two, all common neighbors of $x$ and $y$ are contained in $\Gamma (a)$. \relax }}{105}{figure.caption.29}
 \addvspace {10\p@ }

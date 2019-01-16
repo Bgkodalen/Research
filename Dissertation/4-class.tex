@@ -201,18 +201,27 @@ While this theorem only provides information about $OPD$'s of strongly regular g
 \begin{proof}
 	Recall that the Petersen graph has 10 vertices, valency 3, and smallest eigenvalue $-2$. Thus a Delsarte coclique has size $\bigslant{10}{\left(1+\frac{3}{2}\right)} = 4$; we may verify quickly that such a coclique exists. Thus Corollary \ref{snegsquare} tells us a projective double of the Petersen graph in $\mathbb{R}^4$ would require that $\sqrt{-s}$ is an integer, which is false. Similarly the 9-Paley graph has 9 vertices, valency 4, and smallest eigenvalue $-2$. Using the same reasoning, noting that here a Delsarte coclique has size 3, we have our result.
 \end{proof}
+Corollary \ref{snegsquare} hints that OPDs in the smallest possible dimension for a given graph have some extra structure imposed on them. The following lemma and theorem will detail much of this extra structure in the general case.
+\begin{lem}\label{mindim}
+	Let $\Gamma$ be a strongly regular graph with $v$ vertices, valency $k$, and smallest eigenvalues $s$. Let $G$ be the Gram matrix of an $OPD_m(\gamma)$ of $\Gamma$. Then $m\geq v\left(1+k\gamma^2\right)^{-1}$ with equality if and only if $\frac{m}{2v}G$ is idempotent.
+\end{lem}
+\begin{proof}
+	This is an immediate result of a theorem of Delsarte, Goethals, and Seidel. Recall that \cite[Theorem 5.5]{Delsarte1977} tells us that $\sum_{i,j}Q^m_\ell\left(G_{ij}\right)\geq 0$ for all $\ell\geq 0$ with equality for $\ell=1,2$ if and only if $G$ is the Gram matrix of a $2$-design. The antipodal nature of our OPD makes it clear that $\sum_{i,j}Q_1^m\left(G_{ij}\right) = \sum_{i,j}G_{ij} = 0$. Using the second degree Gegenbauer polynomial (see equation \eqref{gegdef}) we find
+	\[\sum_{i,j}Q_2^m\left(G_{ij}\right) = 2v\left(\frac{m\left(2+2k\gamma^2\right)-2v}{m-1}\right).\]
+	Thus we must have $m\left(2+2k\gamma^2\right)\geq2v$ with equality if and only if our OPD admits a $2$-design. Seen later in \cite{Delsarte1977}, we find that this happens exactly when $G$ has two distinct eigenvalues: $0$ and $\frac{2v}{m}$; that is, $\frac{m}{2v}G$ is idempotent.
+\end{proof}
 
 
 \begin{thm}\label{dimtoassociation}
 	Let $\Gamma$ be a strongly regular graph with $v$ vertices, valency $k$, and smallest eigenvalue $s$ with $k+rs>0$. Let $G$ be the Gram matrix of an $OPD_m(\gamma)$ of $\Gamma$ with $m = v\left(1+k\gamma^2\right)^{-1}$. Then $\left<G\right>_\circ$ is the Bose-Mesner algebra of a 4-class association scheme.
 \end{thm}
 \begin{proof}
-	We begin by ordering the vectors in our orthogonal projective double so that $\ell_1,\dots,\ell_v$ are representatives from distinct lines and $\ell_{i+v} = -\ell_{i}$ for $1\leq i\leq v$. Likewise we order the vertices of $\Gamma$ so that $\ell_i$ and $\ell_{v+i}$ are mapped to vertex $i$. Let $G$ be the Gram matrix of our $OPD_m(\gamma)$ of $\Gamma$ with rows and columns ordered in this fashion; that is $G_{ij} = \left<\ell_i,\ell_j\right>$ for $1\leq i,j\leq 2v$. This ordering implies there exists a matrix $\tilde{G}$ such that
+	We begin by ordering the vectors in our orthogonal projective double so that $\ell_1,\dots,\ell_v$ are representatives from distinct lines and $\ell_{i+v} = -\ell_{i}$ for $1\leq i\leq v$. Likewise we order the vertices of $\Gamma$ so that $\ell_i$ and $\ell_{v+i}$ are mapped to vertex $i$. Let $G$ be the Gram matrix of our $OPD_m(\gamma)$ of $\Gamma$ with rows and columns ordered in this fashion; that is, $G_{ij} = \left<\ell_i,\ell_j\right>$ for $1\leq i,j\leq 2v$. This ordering implies there exists a matrix $\tilde{G}$ such that
 	\[G =\def\arraystretch{1.4}\left[\begin{array}{c:c}
 	\tilde{G} & -\tilde{G}\\\hdashline[2pt/2pt]
 	-\tilde{G} & \tilde{G}\\[2pt]
 	\end{array}\right].\]
-	Now let $\tilde{A}_1$ and $\tilde{A}_2$ be the adjacency matrices of $\Gamma$ and $\overline{\Gamma}$ respectively. Let $\tilde{E}_0$, $\tilde{E}_1$, and $\tilde{E}_2$ be the minimal idempotents corresponding to the eigenvalues $k$, $r$, and $s$ respectively; that is, $\tilde{A}_1\tilde{E}_0 = k\tilde{E}_0$, $\tilde{A}_1\tilde{E}_1 = r\tilde{E}_1$, and $\tilde{A}_1\tilde{E}_2 = s\tilde{E}_2$. For both the adjacency matrices and the minimal idempotents, assume the rows and columns are ordered via the ordering defined above. Recall that the second eigenmatrix of this association scheme is
+	Now let $\tilde{A}_1$ and $\tilde{A}_2$ be the adjacency matrices of $\Gamma$ and $\overline{\Gamma}$ respectively. Let $\tilde{E}_0$, $\tilde{E}_1$, and $\tilde{E}_2$ be the minimal idempotents corresponding to the eigenvalues $k$, $r$, and $s$ respectively; that is, $\tilde{A}_1\tilde{E}_0 = k\tilde{E}_0$, $\tilde{A}_1\tilde{E}_1 = r\tilde{E}_1$, and $\tilde{A}_1\tilde{E}_2 = s\tilde{E}_2$. For each matrix, assume the rows and columns are ordered via the ordering defined above. Recall that the second eigenmatrix of this association scheme is
 	\[\tilde{Q} = \left[\begin{array}{ccc}
 	1 & f & g\\
 	1 & \frac{fr}{k} & \frac{gs}{k}\\
@@ -221,15 +230,15 @@ While this theorem only provides information about $OPD$'s of strongly regular g
 	
 	We now define 5 matrices $E_0,\dots,E_4$, which we will show are orthogonal idempotents. For the first two, define $E_0 = \frac{1}{2v}J$ and $E_1 = \frac{m}{2v}G$. We then define $E_2$ and $E_4$ entrywise based on the values of $G$
 	\[2v\left[E_2\right]_{ij} = \begin{cases}
-	f & \text{ if }G_{ij} = \pm1\\
-	\frac{fr}{k} & \text{ if }G_{ij} = \pm\gamma\\
-	\frac{f(r+1)}{k+1-v} & \text{ if }G_{ij} = 0\\
+	f & \text{ if }G_{ij} = \pm1,\\
+	\frac{fr}{k} & \text{ if }G_{ij} = \pm\gamma,\\
+	\frac{f(r+1)}{k+1-v} & \text{ if }G_{ij} = 0,\\
 	\end{cases}\qquad 2v\left[E_4\right]_{ij} = \begin{cases}
-	g & \text{ if }G_{ij} = \pm1\\
-	\frac{gs}{k} & \text{ if }G_{ij} = \pm\gamma\\
-	\frac{g(s+1)}{k+1-v} & \text{ if }G_{ij} = 0\\
-	\end{cases}.\]
-	Our final matrix will be $E_3 = I-E_0-E_1-E_2-E_4$.	First note that our definitions for $E_0$, $E_2$, and $E_4$ imply
+	g & \text{ if }G_{ij} = \pm1,\\
+	\frac{gs}{k} & \text{ if }G_{ij} = \pm\gamma,\\
+	\frac{g(s+1)}{k+1-v} & \text{ if }G_{ij} = 0.\\
+	\end{cases}\]
+	Our final matrix will be $E_3 = I-E_0-E_1-E_2-E_4$.	Note that the definitions for $E_0$, $E_2$, and $E_4$ imply
 	\[E_0 =\frac{1}{2}\def\arraystretch{1.4}\left[\begin{array}{c:c}
 	\tilde{E}_0 & \tilde{E}_0\\\hdashline[2pt/2pt]
 	\tilde{E}_0 & \tilde{E}_0\\[2pt]
@@ -240,11 +249,9 @@ While this theorem only provides information about $OPD$'s of strongly regular g
 	\tilde{E}_2 & \tilde{E}_2\\\hdashline[2pt/2pt]
 	\tilde{E}_2 & \tilde{E}_2\\[2pt]
 	\end{array}\right].\]
-	It follows that the set $\left\{E_0,E_2,E_4\right\}$ is a set of orthogonal idempotents. In order to show $E_1$ is a fourth idempotent, recall that $G = \frac{2v}{m}E_1$ is a Gram matrix and we find $GJ = \left(1+k\gamma-k\gamma-1\right)J = 0$; thus $G$ is the Gram matrix of a $1$-design. We may then use the second degree Gegenbauer polynomial (see equation \eqref{gegdef}) to show that
-	\[\sum_{j}Q_2^m\left(G_{ij}\right) = \frac{m\left(2+2k\gamma^2\right)-2v}{m-1} = \frac{2m\left(1+k\gamma^2\right)-2v}{(m-1)}=0\]
-	for any choice of $1\leq i\leq 2v$. Thus Theorem 5.3 of \cite{Delsarte1977} tells us $G$ is the Gram matrix of a $2$-design and must have eigenvalues $\frac{2v}{m}$ and $0$. This implies the symmetric matrix $E_1$ has eigenvalues $1$ and $0$; therefore $E_1$ is idempotent. Additionally, the block structure of the matrices $E_0$, $E_1$, $E_2$, and $E_4$ imply that $E_1E_0=E_1E_2=E_1E_4 = 0$ telling us that the set $\left\{E_0,E_1,E_2,E_4\right\}$ is a set of orthogonal idempotents. We now consider our fifth matrix and note that, using the fact that the other four matrices are orthogonal idempotents, we find
+	It follows that the set $\left\{E_0,E_2,E_4\right\}$ is a set of orthogonal idempotents. Now, Lemma \ref{mindim} tells us that $E_1$ is a fourth idempotent since $m = v\left(1+k\gamma^2\right)^{-1}$. Additionally, the block structure of the matrices $E_0$, $E_1$, $E_2$, and $E_4$ imply that $E_1E_0=E_1E_2=E_1E_4 = 0$ telling us that $\left\{E_0,E_1,E_2,E_4\right\}$ is a set of orthogonal idempotents. Using this fact, we now consider our fifth matrix and find
 	\[E_3^2 = \left(I-E_0-E_1-E_2-E_4\right)^2 = I-E_0-E_1-E_2-E_4\]
-	and $E_3E_i = 0$ for $i\neq 3$. We therefore have that the matrix algebra spanned by $\left\{E_0,E_1,E_2,E_3,E_4\right\}$ is closed under matrix multiplication and contains both the identity matrix and the all ones matrix. In order to show this algebra is a Bose-Mesner algebra, we must also show it is closed under entrywise products. We do this by listing the corresponding Krein parameters and verifying element-wise that $E_i\circ E_j = \frac{1}{2v}\sum_{k=0}^4q^k_{ij}E_k$. In the matrices that follow, we refer to the parameter definitions in Theorem \ref{srgparams} for the strongly regular graph parameters.
+	and $E_3E_i = 0$ for $i\neq 3$. Therefore the vector space spanned by $\left\{E_0,E_1,E_2,E_3,E_4\right\}$ is symmetric, closed under matrix multiplication, and contains both the identity matrix and the all ones matrix. In order to show this algebra is a Bose-Mesner algebra, we must also show it is closed under entrywise products. We do this by listing the corresponding Krein parameters and verifying element-wise that $E_i\circ E_j = \frac{1}{2v}\sum_{k=0}^4q^k_{ij}E_k$. In the matrices that follow, we refer to the parameter definitions in Theorem \ref{srgparams} for the strongly regular graph parameters.
 	\[L_0^* =  \left[ \begin {array}{ccccc} 1&0&0&0&0\\ \noalign{\medskip}0&1&0&0&0
 	\\ \noalign{\medskip}0&0&1&0&0\\ \noalign{\medskip}0&0&0&1&0
 	\\ \noalign{\medskip}0&0&0&0&1\end {array} \right],\qquad L_1^* = \left[\begin{array}{ccccc}
@@ -291,7 +298,7 @@ While this theorem only provides information about $OPD$'s of strongly regular g
 			\right) }}&0\\
 	\noalign{\medskip}1&0&{\frac { \left( k-s \right)rf }{ \left( r-s \right) k  }
 	}&0&g-1-\frac{(k-s)rf}{(r-s)k}\end {array} \right].\]
-Therefore the algebra generated by $\left<E_0,\dots,E_4\right>$ is the Bose-Mesner algebra of a 4-class association scheme. Since $G = \frac{2v}{m}E_1$, it is clear that $\left<G\right>_\circ\subset\text{span}\left\{E_0,\dots,E_4\right\}$. For the other direction we use the adjacency matrices of this Bose-Mesner algebra. Define $c_i$ for $0\leq i\leq 4$ via $G\circ A_i = c_iA_i$ and we have
+Therefore the algebra generated by $\left<E_0,\dots,E_4\right>$ is the Bose-Mesner algebra of a 4-class association scheme. Since $G = \frac{2v}{m}E_1$, it is clear that $\left<G\right>_\circ\subset\text{span}\left\{E_0,\dots,E_4\right\}$. For the other direction we show $\text{span}\left\{A_0,\dots,A_4\right\}\subset \left<G\right>_\circ$. Define $c_i$ for $0\leq i\leq 4$ via $G\circ A_i = c_iA_i$ and we have
 \[A_i = \prod_{j\neq i}\left(\frac{G-c_jJ}{c_i-c_j}\right)\]
 where the product is taken entrywise.
 \end{proof}
@@ -300,10 +307,10 @@ where the product is taken entrywise.
 	Let $\Gamma$ be a strongly regular graph with $v$ vertices, valency $k$, and smallest eigenvalue $s$ with $k+rs>0$ which contains a Delsarte coclique. Let $G$ be the Gram matrix of an $OPD_m(\gamma)$ of $\Gamma$ with $m = v\left(1-\frac{k}{s}\right)^{-1}$. Then $\left<G\right>_\circ$ is the Bose-Mesner algebra of a 4-class $Q$-bipartite association scheme.
 \end{cor}
 \begin{proof}
-	Corollary \ref{cocliquebnd} tells us that $\gamma = \frac{1}{\sqrt{s}}$ and therefore $m = v\left(1+k\gamma^2\right)$. Then Theorem \ref{dimtoassociation} gives that $\left<G\right>_\circ$ is the Bose-Mesner algebra of a 4-class association scheme. The bipartite property follows as $(1+s\gamma^2) = 0$, implying $L_1^*$ is tridiagonal.
+	Corollary \ref{cocliquebnd} tells us that $\gamma = \frac{1}{\sqrt{s}}$ and therefore $m = v\left(1+k\gamma^2\right)$. Then Theorem \ref{dimtoassociation} gives that $\left<G\right>_\circ$ is the Bose-Mesner algebra of a 4-class association scheme. The $Q$-bipartite property follows as $(1+s\gamma^2) = 0$, implying $L_1^*$ is tridiagonal.
 \end{proof}
 
-Theorem \ref{dimtoassociation} tells us that $OPD$'s of strongly regular graphs induce association schemes whenever the dimension is tight with respect to Proposition \ref{cocliquebnd}. It turns out this is also a sufficient condition as long as the dimension is not too far away from optimal; that is, $m<v$. Consider the following theorem.
+Theorem \ref{dimtoassociation} tells us that $OPD$'s of strongly regular graphs induce association schemes whenever the dimension is tight with respect to Lemma \ref{mindim}. It turns out this is also a necessary condition as long as the dimension is not too far away from optimal; that is, $m<v$.
 \begin{thm}\label{genqbip}
 	Let $\Gamma$ be a strongly regular graph with $v$ vertices, valency $k$, and smallest eigenvalue $s$. Let $L$ be an $OPD_m(\gamma)$ of $\Gamma$ with $m<v$. $L$ induces an association scheme only if $m = v\left(1+k\gamma^2\right)^{-1}$. Further, either $\text{rank}\left(G\circ G\right)=v$ or the induced scheme is $Q$-bipartite and $s=-\gamma^{-2}$.
 \end{thm}
@@ -322,11 +329,9 @@ Theorem \ref{dimtoassociation} tells us that $OPD$'s of strongly regular graphs 
 	1 & * & \frac{fr}{k} & * & \frac{gs}{k}\\
 	1 & * & f & * & g\\
 	\end{array}\right].\]
-	Let $n_1$ and $n_3$ be the remaining two multiplicities corresponding to $E_1$ and $E_3$ respectively. Since $1+f+g=v$ and $\vert X\vert = 2v$, we must have $n_1+n_3 = v$. Now, by construction, $G = A_0 + \gamma A_1 -\gamma A_3 -A_4$ and therefore any diagonal entry of $GE_2$ is given by
+	Let $n_1$ and $n_3$ be the remaining two multiplicities corresponding to $E_1$ and $E_3$ respectively. Since $1+f+g=v$ and $\vert X\vert = 2v$, we must have $n_1+n_3 = v$. Now, by construction, $G = A_0 + \gamma A_1 -\gamma A_3 -A_4$ and therefore any diagonal entry of $GE_2$ is
 	\[\left[GE_2\right]_{ii} = \frac{1}{\vert X\vert}\left(f+k\left(\frac{fr}{k}\right)\gamma - k\left(\frac{fr}{k}\right)\gamma -f\right) = 0.\]
-	Similarly, the diagonal entries of both $GE_4$ and $GE_0$ are also $0$. This tells us that $\text{tr}(GE_0) = \text{tr}(GE_2) = \text{tr}(GE_4)=0$. Since $G$ is assumed to be contained within this commutative algebra, we find $GE_i = E_iG$ for each idempotent $E_i$ and therefore the matrices $GE_4$, $GE_2$, and $GE_0$ are all symmetric. This forces $GE_0=GE_2=GE_4=0$ since each product must be positive semi-definite. Thus there exists constants $c_1$ and $c_3$ such that $G = c_1E_1+c_3E_3$. Since $m<v$, only one of these constants may be non-zero; without loss of generality assume $c_3 =0$. This gives $n_1 = m$ and $G = \frac{\vert X\vert}{m}E_1$. Therefore $G^2 = \frac{\vert X\vert^2}{m^2}E_1 = \frac{\vert X\vert}{m}G$ and we must have
-	\[\left[G^2\right]_{11} = 2\left(1+k\gamma^2\right) = \frac{\vert X\vert}{m},\]
-	implying $m = v\left(1+k\gamma^2\right)^{-1}$.
+	Similar calculations for $GE_4$ and $GE_0$ show that $\text{tr}(GE_0) = \text{tr}(GE_2) = \text{tr}(GE_4)=0$. Since $G$ is contained within this commutative algebra, we find $GE_i = E_iG$ for each idempotent $E_i$ and therefore the matrices $GE_4$, $GE_2$, and $GE_0$ are all symmetric, forcing $GE_0=GE_2=GE_4=0$. Then $G = c_1E_1+c_3E_3$ for some $c_1,c_2\in\bbR$. Since $m<v$, only one of these constants may be non-zero. Without loss of generality assume $c_1\neq0$ giving $G = \frac{2v}{m}E_1$. Lemma \ref{mindim} then provides $m = v\left(1+k\gamma^2\right)^{-1}$.
 	
 	Now we may return to our $Q$ matrix and fill in the entries of the first column. Further, the orthogonality relations (Lemma \ref{orthorels}) tell us that $\sum_{j}Q_{ij} = \delta_{0j}\vert X\vert$. Using the same fact for $\tilde{Q}$, we may find the final column as well. 
 	\[Q = \left[\begin{array}{crccc}
@@ -342,7 +347,7 @@ Theorem \ref{dimtoassociation} tells us that $OPD$'s of strongly regular graphs 
 	q^4_{13} &= \frac{1}{2v g}\sum_{h=0}^d\left(k_hQ_{h1}Q_{h3}Q_{h4}\right) = \frac{m\left(v-m(1+\gamma^2s)\right)}{v}.\\	
 	\end{aligned}\]
 	Noting that $v- m(1+\gamma^2r)>v-m(1+\gamma^2k) = 0$ as long as $r\neq k$ ($\Gamma$ is not a union of cliques) we have all three Krein parameters nonzero. Thus $\BMA$ is $Q$-polynomial if and only if $q^{4}_{11}=0$. Calculating this similarly, we find
-	\[q^4_{11} = \frac{1}{2v g}\sum_{h=0}^d\left(k_hQ_{h1}Q_{h1}Q_{h4}\right) = \frac{m^2g\left(1+\gamma^2s\right)}{v}.\]
+	\[q^4_{11} = \frac{1}{2v g}\sum_{h=0}^d\left(k_hQ_{h1}Q_{h1}Q_{h4}\right) = \frac{m^2\left(1+\gamma^2s\right)}{v}.\]
 	We therefore find $q^4_{11}=0$ if and only if $s = -\gamma^{-2}$. Finally, since $q^0_{11},q^2_{11}>0$, we have $\text{rank}(G\circ G) = 1+f+g=v$ if $q^4_{11}>0$ and $\text{rank}(G\circ G) = 1+f<v$ otherwise.
 \end{proof}
 \dimiffassoc
@@ -350,9 +355,9 @@ Theorem \ref{dimtoassociation} tells us that $OPD$'s of strongly regular graphs 
 	The result follows immediately from Theorems \ref{genqbip} and \ref{dimtoassociation}.
 \end{proof}
 
-From these results we are very close to the statement ``The association scheme induced by a $OPD_m(\gamma)$ is $Q$-bipartite if and only if $\gamma = \frac{1}{\sqrt{-s}}$", however this statement is ultimately false. Consider the Gram matrix of any $OPD_m(\frac{1}{\sqrt{-s}})$ with $m = v\left(1-\frac{k}{s}\right)^{-1}$, following the proof of Theorem \ref{genqbip} we find that $\left<G\right>_\circ$ generates a $Q$-bipartite association scheme with $E_1 = \frac{m}{2v}G$. However, in this case, $\frac{2v}{v-m}E_3$ is the Gram matrix of an $OPD_{v-m}\left(\frac{m}{(v-m)\sqrt{-s}}\right)$. Further, since $E_3$ has five distinct entries just as $E_1$, we find that $\left<G\right>_\circ = \left<\frac{2v}{v-m}E_3\right>_\circ$ and thus we have an $OPD$ which generates a $Q$-bipartite association scheme without $\gamma = \frac{1}{\sqrt{-s}}$. It is the belief of this author that this is the only obstruction to our statement. We note that this requires $v-m>m$ else it would violate Corollary \ref{cocliquebnd}. Therefore we can avoid this issue by requiring $m<\frac{v}{2}$, guaranteeing our Gram matrix is the first idempotent in the $Q$-polynomial ordering.
+From these results we are very close to the statement ``The association scheme induced by a $OPD_m(\gamma)$ is $Q$-bipartite if and only if $\gamma = \frac{1}{\sqrt{-s}}$", however this statement is ultimately false. Consider the Gram matrix of any $OPD_m(\frac{1}{\sqrt{-s}})$ with $m = v\left(1-\frac{k}{s}\right)^{-1}$, following the proof of Theorem \ref{genqbip} we find that $\left<G\right>_\circ$ generates a $Q$-bipartite association scheme with $E_1 = \frac{m}{2v}G$. However, in this case, $\frac{2v}{v-m}E_3$ is the Gram matrix of an $OPD_{v-m}\left(\frac{m}{(v-m)\sqrt{-s}}\right)$. Further, since $E_3$ has five distinct entries just as $E_1$, we find that $\left<G\right>_\circ = \left<\frac{2v}{v-m}E_3\right>_\circ$ and thus we have an $OPD$ which generates a $Q$-bipartite association scheme without $\gamma = \frac{1}{\sqrt{-s}}$. It is the belief of this author that this is the only obstruction to our statement. We note that this requires $v-m>m$ else it would violate Corollary \ref{cocliquebnd}. Therefore we can avoid this issue by requiring $m<\frac{v}{2}$, guaranteeing our Gram matrix corresponds to the first idempotent in the $Q$-polynomial ordering.
 \begin{conj}
-	Let $\Gamma$ be a strongly regular graph with $v$ vertices, valency $k$, and smallest eigenvalue $s$. An $OPD_m(\gamma)$ of $\Gamma$ in dimension $m<\frac{v}{2}$ induces an association scheme if and only if either $m = v\left(1-\frac{k}{s}\right)^{-1}$. Further, the association scheme induced is $Q$-bipartite.
+	Let $\Gamma$ be a strongly regular graph with $v$ vertices, valency $k$, and smallest eigenvalue $s$. An $OPD_m(\gamma)$ of $\Gamma$ in dimension $m<\frac{v}{2}$ induces an association scheme if and only if $m = v\left(1-\frac{k}{s}\right)^{-1}$. Further, the association scheme induced is $Q$-bipartite.
 \end{conj}
 \section{4-class $Q$-bipartite association schemes}
 Theorem \ref{genqbip} and Corollary \ref{cocliquebnd} indicated that nearly any orthogonal projective double of a strongly regular graph which induces an association scheme must induce a 4-class $Q$-bipartite scheme. As we saw in Corollary \ref{nonexist}, many complete multipartite graphs will not have any orthogonal projective doubles in the dimension required to induce an association scheme. In general, the existence of an $OPD$ for $K_{n,m}$ which induces an association scheme is equivalent to the existence of a set of mutually unbiased bases in the same dimension. These are exactly the 4-class $Q$-bipartite schemes which are also $Q$-antipodal (\cite{LeCompte2010}). We will ignore these cases and assume that the underlying strongly regular graph is not complete multipartite. For the remaining 4-class $Q$-bipartite schemes, we examine the eigenmatrices and find that the parameters of such a scheme are completely determined by the spectrum of the quotient strongly regular graph. We will begin by showing that the parameters of any such scheme are determined completely by the spectrum of the quotient SRG. We then recast Theorem \ref{cometricbnds} in terms of these three parameters and derive explicit bounds for this case which are required for the parameter set to be realizable. Let $(X,\mathcal{R})$ be a 4-class $Q$-bipartite association scheme, not also $Q$-antipodal, with $Q$-polynomial ordering $E_0,E_1,\dots,E_4$ and natural ordering $A_0,A_1,\dots A_4$. We know from Theorem \ref{suzukiimprim} that the quotient of $(X,\mathcal{R})$ has exactly two non-trivial relations and thus must be strongly regular. Let $(v,k,\lambda,\mu)$ be the parameters of the quotient strongly regular graph corresponding to $A_1+A_3$. Let $k>r>s$ be the eigenvalues of this SRG with corresponding multiplicities $1$, $f$, and $g$. Since $(X,\mathcal{R})$ is not $Q$-antipodal, we must have $k>r$ and $s>-k$. The $Q$ matrix of this SRG will be
@@ -433,9 +438,9 @@ Before moving to examine the effect of Sch\"{o}nberg's theorem on 4-class $Q$-bi
 	\[\frac{k-n^4+\sqrt{n^8-2n^4k(2n^2+3)+k^2}}{2n^2}\leq r\leq \frac{k-n^2}{n(n+1)}.\]
 	This implies that 
 	\[k^2-n^2(n^5+2n^4-3n^2-3n+1)k+n^5(n^2+n-1)\leq0.\]
-	When $k=1$ and $n>1$, the left hand side will be negative. Therefore this requires that $k$ is less than the positive root of this quadratic, giving us our bound.
+	When $k=1$ and $n>1$, the left hand side will be negative. This requires that $k$ is less than the positive root of this quadratic, giving us our bound.
 \end{proof}
-We now examine the bounds arising from Corollary \ref{Qbipbnds} as applied to our 4-class $Q$-bipartite association scheme. We begin by noting that $\theta_{31}\geq 0$ becomes Theorem \ref{bounds} $(i)$ when we use the parameters $k$, $r$, and $n$, thus making it equivalent to an absolute bound in this context. Next, we find that plugging in our parameters gives $\theta_{42}\geq 0$ and $\theta_{53}\geq 0$ if and only if $k\geq \frac{-rn^2}{n^2-2}$ and $k\geq -\frac{(3n^2-7)rn^2}{n^4-3n^2+6}$ respectively. Both of these bounds are vacuous since the right hand side will be negative for any choice of $n>1$. Finally one may show that $\theta_{31}\geq 0$ and $\theta_{60}\geq 0$ together imply $\theta_{51}\geq 0$ in the specific case of a 4-class $Q$-bipartite scheme. Therefore the only new restriction, not implied by FC1-FC3 is $\theta_{60}\geq 0$, resulting in the following theorem.
+We now examine the bounds arising from Corollary \ref{Qbipbnds} as applied to our 4-class $Q$-bipartite association scheme. We begin by noting that $\theta_{31}\geq 0$ becomes Theorem \ref{bounds} $(i)$ when we use the parameters $k$, $r$, and $n$, thus making it equivalent to an absolute bound in this context. Next, we find that plugging in our parameters gives $\theta_{42}\geq 0$ and $\theta_{53}\geq 0$ if and only if $k\geq \frac{-rn^2}{n^2-2}$ and $k\geq -\frac{(3n^2-7)rn^2}{n^4-3n^2+6}$ respectively. Both of these bounds are vacuous since the right hand side will be negative for any choice of $n>1$. Finally one may show that $\theta_{31}\geq 0$ and $\theta_{60}\geq 0$ together imply $\theta_{51}\geq 0$ in the specific case of a 4-class $Q$-bipartite scheme. Thus the only new restriction, not implied by FC1-FC3, is $\theta_{60}\geq 0$.
 \fourclasssixzero
 \begin{comment}\begin{thm}\label{thm60}
 Suppose we have a feasible parameter set for a $4$-class association scheme which is $Q$-bipartite but not $Q$-antipodal. Let $k=P_{01}$, $r=P_{21}$, and $s=P_{41}$ where $P$ is the first eigenmatrix using the natural ordering. Then the scheme is realizable only if
