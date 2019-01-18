@@ -1,16 +1,16 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
-\contentsline {chapter}{\numberline {2}Association schemes}{5}{chapter.2}
-\contentsline {section}{\numberline {2.1}Bose-Mesner algebra}{7}{section.2.1}
-\contentsline {section}{\numberline {2.2}Parameter arrays}{10}{section.2.2}
-\contentsline {section}{\numberline {2.3}Duality: example}{12}{section.2.3}
-\contentsline {section}{\numberline {2.4}Feasibility and realizability}{14}{section.2.4}
-\contentsline {section}{\numberline {2.5}Imprimitivity}{15}{section.2.5}
-\contentsline {section}{\numberline {2.6}Polynomial schemes}{20}{section.2.6}
-\contentsline {chapter}{\numberline {3}Positive semidefinite cone of an association scheme}{23}{chapter.3}
-\contentsline {section}{\numberline {3.1}Lines with few angles}{26}{section.3.1}
-\contentsline {section}{\numberline {3.2}Gegenbauer polynomials}{30}{section.3.2}
+\contentsline {chapter}{\numberline {2}Association schemes}{6}{chapter.2}
+\contentsline {section}{\numberline {2.1}Bose-Mesner algebra}{8}{section.2.1}
+\contentsline {section}{\numberline {2.2}Parameter arrays}{11}{section.2.2}
+\contentsline {section}{\numberline {2.3}Duality: example}{13}{section.2.3}
+\contentsline {section}{\numberline {2.4}Feasibility and realizability}{15}{section.2.4}
+\contentsline {section}{\numberline {2.5}Imprimitivity}{16}{section.2.5}
+\contentsline {section}{\numberline {2.6}Polynomial schemes}{21}{section.2.6}
+\contentsline {chapter}{\numberline {3}Positive semidefinite cone of an association scheme}{24}{chapter.3}
+\contentsline {section}{\numberline {3.1}Lines with few angles}{27}{section.3.1}
+\contentsline {section}{\numberline {3.2}Gegenbauer polynomials}{31}{section.3.2}
 \contentsline {section}{\numberline {3.3}Sch\"{o}nberg's theorem}{33}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Bound on new feasibility conditions}{34}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.1}Bound on new feasibility conditions}{35}{subsection.3.3.1}
 \contentsline {section}{\numberline {3.4}Cometric association schemes}{43}{section.3.4}
 \contentsline {subsection}{\numberline {3.4.1}$Q$-bipartite association schemes}{48}{subsection.3.4.1}
 \contentsline {chapter}{\numberline {4}3-class $Q$-antipodal: LSSDs}{53}{chapter.4}
@@ -25,18 +25,18 @@
 \contentsline {subsection}{\numberline {4.4.1}Degenerate case}{67}{subsection.4.4.1}
 \contentsline {subsection}{\numberline {4.4.2}Cameron-Seidel scheme}{68}{subsection.4.4.2}
 \contentsline {section}{\numberline {4.5}New examples with $v\not =2^m$}{71}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}Restrictions on the parameters}{72}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.1}Restrictions on the design parameters}{72}{subsection.4.5.1}
 \contentsline {subsection}{\numberline {4.5.2}Hadamard matrix equivalence}{73}{subsection.4.5.2}
 \contentsline {subsection}{\numberline {4.5.3}Constructing LSSDs from certain real MUBs}{75}{subsection.4.5.3}
 \contentsline {subsubsection}{Wocjan and Beth construction}{75}{section*.24}
 \contentsline {chapter}{\numberline {5}Orthogonal projective double covers}{80}{chapter.5}
 \contentsline {section}{\numberline {5.1}Orthogonal projective doubles of regular graphs}{81}{section.5.1}
 \contentsline {section}{\numberline {5.2}Schemes induced by projective doubles}{84}{section.5.2}
-\contentsline {section}{\numberline {5.3}4-class $Q$-bipartite association schemes}{93}{section.5.3}
+\contentsline {section}{\numberline {5.3}4-class $Q$-bipartite association schemes}{92}{section.5.3}
 \contentsline {chapter}{\numberline {6}Connectivity of basis relations}{98}{chapter.6}
 \contentsline {section}{\numberline {6.1}Overview}{98}{section.6.1}
 \contentsline {subsection}{\numberline {6.1.1}Twins}{99}{subsection.6.1.1}
-\contentsline {subsection}{\numberline {6.1.2}The graph homomorphism $\varphi _a$}{101}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.2}The graph homomorphism $\varphi _a$}{100}{subsection.6.1.2}
 \contentsline {subsection}{\numberline {6.1.3}The decomposition $\{ I_a, U_a, W_a\}$ with respect to a basepoint $a$}{101}{subsection.6.1.3}
 \contentsline {subsection}{\numberline {6.1.4}Comparing the view from multiple basepoints}{102}{subsection.6.1.4}
 \contentsline {section}{\numberline {6.2}Proofs of the main theorem and its corollaries}{104}{section.6.2}

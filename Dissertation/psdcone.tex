@@ -700,7 +700,7 @@ We conclude this section by proving $Q$-bipartite analogues of Theorem \ref{degr
 \end{thm}
 \begin{proof}
 	We prove this by induction. First, note that $\theta_{0,j} = \vert X\vert\delta_{0j}$ and thus $\theta_{0,j} = 0$ whenever $j\notin2\bbZ$. Now let $\ell\in\mathbb{Z}$ be given so that $\theta_{\ell,j} = 0$ whenever $\ell+j\notin 2\bbZ$ and consider
-	\[\theta_{\ell+1,j}= \frac{(2\ell+m)(c_{j}^*\theta_{\ell,j-1} +a_i^*\theta_{\ell,j}+b_{j}^*\theta_{\ell,j+1}) - (\ell)m\theta_{\ell-2,j}}{m(\ell+m-2)}.\]
+	\[\theta_{\ell+1,j}= \frac{(2\ell+m)(c_{j}^*\theta_{\ell,j-1} +a_i^*\theta_{\ell,j}+b_{j}^*\theta_{\ell,j+1}) - \ell m\theta_{\ell-2,j}}{m(\ell+m-2)}.\]
 	If $(\ell+1)+j\notin2\bbZ$ then $\ell+(j-1),\ell+(j+1),(\ell-1)+j\notin2\bbZ$ and thus by our induction hypothesis,
 	\[\theta_{\ell+1,j}= \frac{(2\ell+m)(a_i^*\theta_{\ell,j})}{m(\ell+m-2)}.\]
 	However since $a_1^*=0$ for $Q$-bipartite schemes, we have $\theta_{\ell+1,j} = 0$.
@@ -747,13 +747,13 @@ This theorem tells us that approximately half of the eigenvalues $\theta_{\ell,j
 	\begin{itemize}
 		\item For even $\ell$,
 		\begin{itemize}
-			\item all entries in the odd part of the top half of $\text{proj}_{B_0\cup B_d}(\vec{y}_\ell)$ are 0;
-			\item all entries in the even part of the bottom half of $\text{proj}_{B_0\cup B_d}(\vec{y}_\ell)$ are 0.
+			\item all entries in the odd part of the top half of $\text{proj}_{B_0\oplus B_d}(\vec{y}_\ell)$ are 0;
+			\item all entries in the even part of the bottom half of $\text{proj}_{B_0\oplus B_d}(\vec{y}_\ell)$ are 0.
 		\end{itemize}
 		\item For odd $\ell$,
 		\begin{itemize}
-			\item all entries in the even part of the top half of $\text{proj}_{B_0\cup B_d}(\vec{y}_\ell)$ are 0;
-			\item all entries in the odd part of the bottom half of $\text{proj}_{B_0\cup B_d}(\vec{y}_\ell)$ are 0.
+			\item all entries in the even part of the top half of $\text{proj}_{B_0\oplus B_d}(\vec{y}_\ell)$ are 0;
+			\item all entries in the odd part of the bottom half of $\text{proj}_{B_0\oplus B_d}(\vec{y}_\ell)$ are 0.
 		\end{itemize}
 	\end{itemize}
 	Similarly Theorem \ref{Qbipeig} shows that the same is true for $y_\ell$, that is

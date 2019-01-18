@@ -1,6 +1,8 @@
 \chapter{3-class $Q$-antipodal: LSSDs}\label{3class}
-In \cite{Cameron1972}, Cameron investigated groups with inequivalent doubly-transitive permutation representations having the same permutation character and introduced the notion of a linked system of symmetric designs (LSSD). One such example arising from Kerdock codes was communicated by Goethals and later published in \cite{Goethals1976}. These structures in the homogeneous case were then further studied by Noda \cite{Noda1974} where he bounded the number of fibers in a LSSD in terms of the design parameters induced between any two of the fibers. Using the specific $(16,6,2)$ designs, Mathon \cite{Mathon1981} classified all inequivalent LSSDs on these parameters via a computer search, finding that there were many inequivalent LSSDs with two or three fibers but only the scheme described by Geothals worked with four or more fibers. Later, Van Dam proved in \cite{VanDam1999} the equivalence between these objects and 3-class Q-antipodal association schemes. Martin, Muzychuk, and Williford found a connection to mutually unbiased bases in certain dimensions \cite{Martin2007}. Finally Davis, Martin, Polhill \cite{Davis2014} and Jedwab, Li, Simon \cite{Jedwab2017} built more non-trivial examples using difference sets in 2-groups.\par
-We begin this chapter with a survey of known results focusing on the connection to association schemes. We then introduce ``linked simplices", natural geometric objects which are of interest in their own right. We then establish the equivalence of sets of linked simplices and LSSDs. We compare three known bounds on the number of fibers and then explore connections to structures in Euclidean space. We show how to construct equiangular lines from arbitrary LSSDs and explore cases where LSSDs lead to real mutually unbiased bases (MUBs). After reviewing known examples, we focus on the case of Menon parameters and, employing an equivalence with sets of mutually unbiased Hadamard matrices, we construct new families of LSSDs for many values of $v$. In particular, we show that one may fix the even part of $v$ without bounding the number of fibers in an LSSD, a result which was not previously known. In Appendix \ref{families}, we survey the parameters of known infinite families of symmetric designs and determine which of these cannot produce LSSDs with more than two fibers, noting differences from a recent discovery by Jedwab et.\ al.\ \cite{Jedwab2017} in restricted cases. Below we list the main theorems of this chapter.
+In \cite{Cameron1972}, Cameron investigated groups with inequivalent doubly-transitive permutation representations having the same permutation character and introduced the notion of a linked system of symmetric designs (LSSD). One such example arising from Kerdock codes was communicated by Goethals and later published in \cite{Goethals1976}. These structures in the homogeneous case were then further studied by Noda \cite{Noda1974} where he bounded the number of fibers in a LSSD in terms of the design parameters induced between any two of the fibers. Using the specific $(16,6,2)$ designs, Mathon \cite{Mathon1981} classified all inequivalent LSSDs using these design parameters via a computer search, finding that there were many inequivalent LSSDs with two or three fibers but only the scheme described by Geothals worked with four or more fibers. Later, Van Dam proved in \cite{VanDam1999} the equivalence between these objects and 3-class Q-antipodal association schemes. Martin, Muzychuk, and Williford found a connection to mutually unbiased bases in certain dimensions \cite{Martin2007}. Finally Davis, Martin, Polhill \cite{Davis2014} and Jedwab, Li, Simon \cite{Jedwab2017} built more non-trivial examples using difference sets in 2-groups.\par
+We begin this chapter with a survey of known results focusing on the connection to association schemes. We then introduce ``linked simplices", natural geometric objects which are of interest in their own right. We then establish the equivalence of sets of linked simplices and LSSDs. We compare three known bounds on the number of fibers and then explore connections to structures in Euclidean space. We show how to construct equiangular lines from arbitrary LSSDs and explore cases where LSSDs lead to real mutually unbiased bases (MUBs). After reviewing known examples, we focus on the case of Menon design parameters and, employing an equivalence with sets of mutually unbiased Hadamard matrices, we construct new families of LSSDs for many values of $v$. In particular, we show that one may fix the even part of $v$ without bounding the number of fibers in an LSSD, a result which was not previously known. In Appendix \ref{families}, we survey the design parameters of known infinite families of symmetric designs and determine which of these cannot produce LSSDs with more than two fibers, noting differences from a recent discovery by Jedwab et.\ al.\ \cite{Jedwab2017} in restricted cases.
+
+Throughout this chapter we will heavily discuss both the parameters of the association schemes given by LSSDs as well as the design parameters of the given symmetric designs. Thus, for clarity sake, we will always refer to the triple $(v,k,\lambda)$ as the \emph{design parameters} of the LSSD so as to distinguish these from the intersection numbers, Krein parameters, and eigenmatrices of an association scheme. Below we list the main theorems of this chapter.
 \begin{restatable*}{thm}{lssdsimpequiv}
 	A $LSSD(v,k,\lambda;w)$ is equivalent to a set of $w$ linked simplices in $\mathbb{R}^{v-1}$.
 \end{restatable*}
@@ -21,13 +23,13 @@ We begin this chapter with a survey of known results focusing on the connection 
 	For sufficiently large $s$, if there exists a regular Hadamard matrix of order $s$, then there exists a $LSSD(s^2,k,\lambda; w)$ with $w \geq s^\frac{1}{14.8}$.
 \end{restatable*}
 \begin{restatable*}{cor}{oddlssd}
-	For any $n\geq 1$ and $w>2$, there exists an odd $t$ permitting a $LSSD(16^nt,k,\lambda;w)$.
+	For any $n\geq 1$ and $w>2$, there exists an $LSSD(16^nt,k,\lambda;w)$ for some odd $t$.
 \end{restatable*}
 \begin{restatable*}{cor}{lssdthreesix}
 	There exists an $LSSD(v,k,\lambda;w)$ with $v=36^{2n}$ and $w = 4^n+1$ for all $n\geq 1$.
 \end{restatable*}
 \section{Homogeneous linked systems of symmetric designs}
-We begin by reviewing symmetric designs as these will play a central role in all that follows. A \textit{symmetric 2-design}\index{block design!2-design} with parameters $(v,k,\lambda)$ is a set of blocks $\mathcal{B}$ on point set $X$ written as $(X,\mathcal{B})$ satisfying the following three conditions:
+We begin by reviewing symmetric designs as these will play a central role in all that follows. A \textit{symmetric 2-design}\index{block design!2-design} with design parameters $(v,k,\lambda)$ is a set of blocks $\mathcal{B}$ on point set $X$ written as $(X,\mathcal{B})$ satisfying the following three conditions:
 \begin{itemize}
 	\item There are $v$ blocks and $v$ points ($\vert\mathcal{B}\vert = \vert X\vert = v$);
 	\item Every block contains $k$ points and every point is contained in $k$ blocks;
@@ -38,7 +40,7 @@ We form an \textit{incidence}\index{block design!incidence matrix} matrix $B$ fo
 k(k-1) &= \lambda(v-1)\label{sym:1},\\
 k(v-k) &= (k-\lambda)(v-1).\label{sym:2}
 \end{align}
-We now move to a description of a homogeneous\footnote{Here, ``homogeneous" refers to the designs between fibers all having the same parameters. For the duration of this chapter, we will only concern ourselves with this case, though we drop this clarification later and only refer to the structures as linked systems of symmetric designs.} linked system of symmetric designs as described by Cameron in \cite{Cameron1972} and Noda in \cite{Noda1974}. 
+We now move to a description of a homogeneous\footnote{Here, ``homogeneous" refers to the designs between fibers all having the same design parameters. For the duration of this chapter, we will only concern ourselves with this case, though we drop this clarification later and only refer to the structures as linked systems of symmetric designs.} linked system of symmetric designs as described by Cameron in \cite{Cameron1972} and Noda in \cite{Noda1974}. 
 Consider a multipartite graph $\Gamma$ on $wv$ vertices with vertex set partitioned into $w$ sets of $v$ vertices called ``fibers":
 \[X = X_1\dot{\cup} X_2\dot{\cup}\cdots\dot{\cup}X_w.\]
 We say $\Gamma$ is a \emph{linked system of symmetric designs}\index{linked system of symmetric designs}, $LSSD(v,k,\lambda;w)$ ($w\geq 2$), if it satisfies the following three properties:
@@ -53,12 +55,11 @@ We say $\Gamma$ is a \emph{linked system of symmetric designs}\index{linked syst
 	\end{cases}
 	\end{equation}
 \end{enumerate}
-where $\sim$ denotes adjacency in $\Gamma$ and $\Gamma(x)$ denotes the neighborhood of vertex $x$. Observe that $\Gamma$ is regular with valency $k(w-1)$. A specific type of LSSD introduced by \cite{Davis2014} called a \text{linking system of difference sets}\index{linking system of difference sets} is a LSSD where the symmetric design induced between any two fibers comes from a difference set. Recently Jedwab et al.\ \cite{Jedwab2017} examined these in more detail, building new examples and proving non-existence results for certain parameters. However, Mathon \cite{Mathon1981} showed there exist three fiber LSSDs which do not come from difference sets and therefore these objects are not always equivalent to LSSDs. We will consider the general case, and thus do not assume this added structure on our symmetric designs.\par
+where $\sim$ denotes adjacency in $\Gamma$ and $\Gamma(x)$ denotes the neighborhood of vertex $x$. Observe that $\Gamma$ is regular with valency $k(w-1)$. A specific type of LSSD introduced by \cite{Davis2014} called a \text{linking system of difference sets}\index{linking system of difference sets} is a LSSD where the symmetric design induced between any two fibers comes from a difference set with the further restriction that the difference sets induced between any pair of three fibers interact in a consistent way. Recently Jedwab et al.\ \cite{Jedwab2017} examined these in more detail, building new examples and proving non-existence results for certain design parameters. However, Mathon \cite{Mathon1981} showed there exist three fiber LSSDs which do not come from difference sets and therefore these objects are not always equivalent to LSSDs. We will consider the general case, and thus do not assume this added structure on our symmetric designs.\par
 In \cite[Proposition 0]{Noda1974}, Noda shows that $\mu$ and $\nu$ must take one of two pairs of values given by:
 \begin{equation}
 \nu = \frac{k(k\pm \sqrt{k-\lambda})}{v}, \qquad \mu = \nu\mp \sqrt{k-\lambda}. \label{mu-nu}
 \end{equation}
-
 With these two possibilities for $\mu$ and $\nu$, it becomes useful to distinguish between the two types of LSSDs. We will refer to the LSSD as \emph{$\mu$-heavy}\index{$\mu$-heavy} (resp., \emph{$\nu$-heavy}\index{$\nu$-heavy}) when $\mu>\nu$ (resp., $\nu>\mu$). Note that $\mu\neq \nu$ since $k-\lambda$ is positive. We now show that swapping adjacency between fibers produces another LSSD; we call this graph the multipartite complement of $\Gamma$. We again refer to \cite{Noda1974} for the following observation.
 \begin{prop}[Noda]
 	Let $\Gamma$ be a  $LSSD(v,k,\lambda;w)$ with $w>2$. If $\Gamma$ is $\mu$-heavy (resp., $\nu$-heavy), the multipartite complement $\Gamma'$ is a $\nu$-heavy (resp., $\mu$-heavy) $LSSD(v,v-k,v-2k+\lambda;w)$.
@@ -82,9 +83,9 @@ We further find that, given $v$, $k$, and $\lambda$, only one of the outcomes in
 \end{proof}
 \begin{remark}
 	\label{rmk1}
-	It is noteworthy that our assumption that the $LSSD$ exists can be replaced with the requirement that either of $\frac{k(k\pm s)}{v}$ is an integer for symmetric design parameters $(v,k,\lambda)$. Thus any time we can show that either $\mu$-heavy or $\nu$-heavy parameters are integral, we know the opposite parameters cannot be integral as well. This will become useful as this theorem does not require the parameter set is realizable, on that it is feasible under FC2.
+	It is noteworthy that our assumption that the $LSSD$ exists can be replaced with the requirement that either of $\frac{k(k\pm s)}{v}$ is an integer for design parameters $(v,k,\lambda)$. Thus, any time we can show that either of $\frac{k(k\pm s)}{v}$ is integral, we know the opposite choice will not be integral. This will become useful as we then do not require that the parameter set is realizable, only that it is feasible under FC2.
 \end{remark}
-The case where $k=1$ or $k=v-1$ produces LSSDs which are not of interest to us and for the remainder of the chapter, we will refer to these designs as degenerate. For a further description of why these designs are degenerate, see Section \ref{degenerate}. The observations that $\gcd(k,v)>1$ and $\gcd(s,v)>1$ are two tools which help us determine more easily which parameters might be feasible for a LSSD with $w>2$. There are many other statements similar to these we can find, but these two will be sufficient for now. Using these, we can immediately rule out many parameters, for instance:
+The case where $k=1$ or $k=v-1$ produces LSSDs which are not of interest to us and for the remainder of the chapter, we will refer to these designs as degenerate. For a further description of why these designs are degenerate, see Section \ref{degenerate}. The observations that $\gcd(k,v)>1$ and $\gcd(s,v)>1$ are two tools which help us determine more easily which design parameters might be feasible for a LSSD with $w>2$. There are many other statements similar to these we can find, but these two will be sufficient for now. Using these, we can immediately rule out many design parameters, for instance:
 \begin{cor}
 	\label{comp}
 	Assume $w>2$. If there exists a non-degenerate $LSSD(v,k,\lambda;w)$, then $v$ is composite.\qed
@@ -126,7 +127,7 @@ L_2 &= \left[\begin{array}{cccc}
 1 & (k-\nu)(w-2)  & v-k-1 & (v+\nu-2k)(w-2)\\
 \end{array}\right].\\
 \end{aligned}\]
-The first and second eigenmatrices are given as:
+We note here that, while $\mu$ and $\nu$ alone are not intersection numbers of our association scheme, we will often allow for the slight abuse of terminology and include both of these as parameters of an LSSD. The first and second eigenmatrices are given as:
 \begin{equation}\label{3classP}
 P = \left[\begin{array}{cccc}
 1&k(w-1)&v-1&(v-k)(w-1)\\
@@ -154,7 +155,7 @@ Finally, we use this matrix $Q$ to calculate our Krein parameters using standard
 0& 1& w-2& 0\\
 1& 0& 0& w-2\\
 \end{array}\right].$}\]
-Note that our association scheme is $Q$-polynomial if $L_1^*$ is irreducible tridiagonal (\cite[Prop.~2.7.1(i')]{Brouwer1989}), requiring that $s(v-2)>v-2k$ for which $k>1$ is sufficient. Further, the two $0$'s in the last column of $L_3^*$ signify that our scheme is $Q$-antipodal. We henceforth use the term \emph{linked system of symmetric designs}\index{linked system of symmetric designs} to refer to either the graph $\Gamma$ or to the association scheme it generates as in Theorem \ref{Qpoly}. It is worth noting that we can fulfill the LSSD conditions using \emph{degenerate parameters}\index{degenerage parameters} $(v,1,0)$, however these will not satisfy the requirement $s(v-2)>v-2k$ as $k=1$. Therefore, these association schemes will not be $Q$-polynomial. This is one reason why we will ignore this case for much of our discussion.
+Note that our association scheme is $Q$-polynomial if $L_1^*$ is irreducible tridiagonal (\cite[Prop.~2.7.1(i')]{Brouwer1989}), requiring that $s(v-2)>v-2k$ for which $k>1$ is sufficient. Further, the two $0$'s in the last column of $L_3^*$ signify that our scheme is $Q$-antipodal. We henceforth use the term \emph{linked system of symmetric designs}\index{linked system of symmetric designs} to refer to either the graph $\Gamma$ or to the association scheme it generates as in Theorem \ref{Qpoly}. It is worth noting that we can fulfill the LSSD conditions using \emph{degenerate design parameters}\index{degenerate parameters} $(v,1,0)$, however these will not satisfy the requirement $s(v-2)>v-2k$ as $k=1$. Therefore, these association schemes will not be $Q$-polynomial. This is one reason why we will ignore this case for much of our discussion.
 \subsection{Bounds for $w$}
 \subsubsection*{\sc Noda Bound}\index{Noda bound}
 In Theorem 2 of \cite{Noda1974}, Noda gives the following bound
@@ -190,12 +191,12 @@ $4(k-\lambda)\leq 4k^2-4kv+v^2$. Using \eqref{sym:2} this gives
 \[\begin{aligned}
 4(k-\lambda)\leq v.
 \end{aligned}\]
-This means that whenever the Krein condition is tight ($q_{1,1}^1 = 0$), we must have $4(k-\lambda)\leq v\leq 2k$. There is only one known family of constructions which achieve the Krein bound. For this construction (see \ref{kerdock}) $v = 4(k-\lambda)$. Further, the more general family of parameters (Menon) is the only possible family for which this inequality is tight.
+This means that whenever the Krein condition is tight ($q_{1,1}^1 = 0$), we must have $4(k-\lambda)\leq v\leq 2k$. There is only one known family of constructions which achieve the Krein bound. For this construction (see \ref{kerdock}) $v = 4(k-\lambda)$. Further, the more general family of design parameters (Menon) is the only possible family for which this inequality is tight.
 
 
 \section{Linked simplices}
 \label{linked simplices}
-In this section, we will write $\left\{b_j\right\}$ for the set $\left\{b_1,\dots,b_v\right\}$ for both sets of points and sets of blocks. For our purposes a \emph{regular simplex}\index{regular simplex} will be taken to be a set of $v$ unit vectors spanning $\mathbb{R}^{v-1}$ with the property that the inner product of any pair of distinct vectors is $-\frac{1}{v-1}$. Let $\mathcal{A} = \left\{a_i\right\}$ and $\mathcal{B} = \left\{b_j\right\}$ be two regular simplices in $\mathbb{R}^{v-1}$. We say $\mathcal{A}$ and $\mathcal{B}$ are \emph{linked}\index{linked simplices} if there exist two real numbers $\gamma$ and $\delta$ such that for all $1\leq i,j\leq v$, $\left<a_i,b_j\right>\in \left\{\gamma,\delta\right\}$. (Note that, here, ``linked" always implies regular.) Extending this, given regular simplices $\mathcal{A}_1,\dots,\mathcal{A}_w$ in $\mathbb{R}^{v-1}$ we say $\left\{A_1,\dots,A_w\right\}$ is a \emph{set of $w$ linked simplices} if any two of them are linked with the same parameters $\gamma$ and $\delta$. The next few theorems establish an equivalence between these objects and LSSDs. 
+In this section, we will write $\left\{b_j\right\}$ for the set $\left\{b_1,\dots,b_v\right\}$ for both sets of points and sets of blocks. For our purposes a \emph{regular simplex}\index{regular simplex} will be taken to be a set of $v$ unit vectors spanning $\mathbb{R}^{v-1}$ with the property that the inner product of any pair of distinct vectors is $-\frac{1}{v-1}$. Let $\mathcal{A} = \left\{a_i\right\}$ and $\mathcal{B} = \left\{b_j\right\}$ be two regular simplices in $\mathbb{R}^{v-1}$. We say $\mathcal{A}$ and $\mathcal{B}$ are \emph{linked}\index{linked simplices} if there exist two real numbers $\gamma$ and $\delta$ such that for all $1\leq i,j\leq v$, $\left<a_i,b_j\right>\in \left\{\gamma,\delta\right\}$. (Note that, here, ``linked" always implies regular.) Following the same abuse of notation as we did with equiangular lines in Chapter \ref{psdcone}, we will refer to the real numbers $\gamma$ and $\delta$ as the ``angles" of our linked simplices. Extending this, given regular simplices $\mathcal{A}_1,\dots,\mathcal{A}_w$ in $\mathbb{R}^{v-1}$ we say $\left\{A_1,\dots,A_w\right\}$ is a \emph{set of $w$ linked simplices} if any two of them are linked with the same angles $\gamma$ and $\delta$. The next few theorems establish an equivalence between these objects and LSSDs. 
 \begin{thm}
 	\label{Association2Simplex}
 	Consider a $LSSD(v,k,\lambda;w)$ with Bose-Mesner algebra $\mathbb{A}$. The first idempotent $E_1$ in a $Q$-polynomial ordering of $\mathbb{A}$, appropriately scaled, is the Gram matrix of a set of $w$ linked simplices. In the case $w=2$, $E_2$ scaled similarly is also the Gram matrix of a second set of two linked simplices.
@@ -450,7 +451,7 @@ thin,main node/.style={circle,fill=black,scale = .5}]
 
 
 \end{tikzpicture}\]
-In this case the $\mu$-heavy LSSD has parameters $(v,1,0)$, so we find that $s = \sqrt{k-\lambda} = 1$, $\nu = \frac{k(k-s)}{v} = 0$, and $\mu = \nu+s = 1$. We list the $P$ matrix and $Q$ matrix and use these to further describe the LSSD:
+In this case the $\mu$-heavy LSSD has design parameters $(v,1,0)$, so we find that $s = \sqrt{k-\lambda} = 1$, $\nu = \frac{k(k-s)}{v} = 0$, and $\mu = \nu+s = 1$. We list the $P$ matrix and $Q$ matrix and use these to further describe the LSSD:
 \[\scalebox{.9}{$P = \left[\begin{array}{cccc}
 1&w-1&v-1&(v-1)(w-1)\\
 1&w-1&-1&-(w-1)\\
@@ -601,7 +602,7 @@ X_2 = \frac{1}{\sqrt{15}}\setlength{\arraycolsep}{.8pt}\scalefont{.4}{\left[\beg
 \end{aligned}\]
 Likewise each $[Q_j(v)]_v$ gives us a coset of size 32, which in turn is transformed to a regular simplex $X_j$ in this manner.
 \subsubsection*{Symmetric design parameters}
-The parameters of this scheme will be $v = 2^{2r}$, $k = 2^{r-1}\left(2^{r}+1\right)$, $\lambda = 2^{r-1}\left(2^{r-1}+1\right)$, $s = 2^{r-1}$, $\nu = 2^{r-2}\left(2^r+1\right)$,  and $\mu=2^{r-2}\left(2^r+3\right)$.
+The design parameters of this scheme are $v = 2^{2r}$, $k = 2^{r-1}\left(2^{r}+1\right)$, and $\lambda = 2^{r-1}\left(2^{r-1}+1\right)$. Using these, we have: $s = 2^{r-1}$, $\nu = 2^{r-2}\left(2^r+1\right)$,  and $\mu=2^{r-2}\left(2^r+3\right)$.
 \subsubsection*{Intersection numbers}
 Noting that $p_{i,j}^k = p_{j,i}^k$, we list the unique intersection numbers while omitting the trivial $p_{0,i}^j$ parameters. Note that each $p^{j}_{i,k}$ is scaled by a constant based on $i$ and $k$ given in the first row of our table.
 \[\scalebox{.9}{$\begin{array}{c|ccc|cc|c}
@@ -633,7 +634,7 @@ This means our LSSD must be optimistic, leading to the following lemma:
 	\label{twoside}
 	Let $\mathbb{A}$ be the Bose-Mesner algebra of an optimistic $LSSD(v,k,\lambda;w)$ with $Q$-polynomial ordering $E_0,E_1,E_2,E_3$ of its primitive idempotents. If $\vert v-2k\vert = 2\sqrt{k-\lambda}$ then $w(E_0+E_1)$ is the Gram matrix of a set of $w$ real MUBs in dimension $v$.\qed
 \end{lem}
-It is important to note here that there exist pessimistic LSSDs such that $v-2k = 2\sqrt{k-\lambda}$. One such example is a specific case of the degenerate parameters in \ref{degenerate} given by $(v,k,\lambda)=(4,1,0)$ with the graph $\Gamma_1$ displayed below.
+It is important to note here that there exist pessimistic LSSDs such that $v-2k = 2\sqrt{k-\lambda}$. One such example is a specific case of the degenerate design parameters in \ref{degenerate} given by $(v,k,\lambda)=(4,1,0)$ with the graph $\Gamma_1$ displayed below.
 \[\begin{tikzpicture}[scale = .5,node distance=2cm,
 thin,main node/.style={circle,fill=black,scale = .5}]
 
@@ -658,8 +659,8 @@ thin,main node/.style={circle,fill=black,scale = .5}]
 We can easily see that $v-2k = 2 = 2\sqrt{k-\lambda}$. However, the sum of the first two eigenspaces gives
 \[M = 3(E_0 + E_1) =\frac{1}{3}A_0 -\frac{1}{4}A_1\]
 which is not the Gram matrix of a set of MUBs. In fact, any Menon parameter set with $v/4$ odd will satisfy $\vert v-2k\vert = 2\sqrt{k-\lambda}$ yet none of these will produce MUBs. Thus our restriction to optimistic LSSDs is required and we cannot say that any LSSD satisfying $\vert v-2k\vert = 2\sqrt{k-\lambda}$ will give us MUBs using this construction. Conversely, the existence of $w$ MUBs in $\mathbb{R}^v$ does not guarantee the existence of an optimistic $LSSD(v,k,\lambda;w)$; consider 3 MUBs in $\mathbb{R}^4$.
-\subsection{Restrictions on the parameters}
-In this section, we show that $\vert v-2k\vert = 2\sqrt{k-\lambda}$ implies $(v,k,\lambda)$ are Menon parameters. In the case of optimistic LSSDs, we also show $v/4$ is even. We now take a closer look at our restriction $v-2k = -2\sqrt{k-\lambda}$. First note we can square both sides to get
+\subsection{Restrictions on the design parameters}
+In this section, we show that $\vert v-2k\vert = 2\sqrt{k-\lambda}$ implies $(v,k,\lambda)$ are Menon design parameters. In the case of optimistic LSSDs, we also show $v/4$ is even. We now take a closer look at our restriction $v-2k = -2\sqrt{k-\lambda}$. First note we can square both sides to get
 \[\begin{aligned}
 4(k-\lambda)&=v^2-4k(v-k).
 \end{aligned}\]
@@ -675,14 +676,14 @@ If we re-parameterize the second family to avoid the trivial $(0,0,0)$ design wh
 k&=(2u-1)u\qquad \text{and}\qquad&k^\prime &= (2u+1)u\\
 v&= 4u^2\qquad \qquad&v^\prime &= 4u^2.
 \end{aligned}\]
-If we restrict to an optimistic LSSD, we must use the second family for our $\mu$-heavy LSSD $\Gamma$. From \eqref{mu-nu}, the remaining parameters of $\Gamma$ are
+If we restrict to an optimistic LSSD, we must use the second family for our $\mu$-heavy LSSD $\Gamma$. From \eqref{mu-nu}, we find
 \[\begin{aligned}
 s=\sqrt{k-\lambda}=u,\qquad\nu =\frac{k(k-s)}{v}=u^2+\frac{u}{2},\qquad\mu=\nu+s=u^2+\frac{3}{2}u.
 \end{aligned}\]
 This forces $\nu$ (and $\mu$) to be integral if and only if $u$ is even, resulting in the following theorem
 \begin{thm}
 	\label{MubLssdrestrictions}
-	Let $\Gamma$ be an optimistic $LSSD(v,k,\lambda;w)$. If $v-2k = -2\sqrt{k-\lambda}$ then the parameters are \emph{Menon parameters}\index{Menon parameters}. That is,
+	Let $\Gamma$ be an optimistic $LSSD(v,k,\lambda;w)$. If $v-2k = -2\sqrt{k-\lambda}$ then $\Gamma$ uses \emph{Menon design parameters}\index{Menon parameters}. That is,
 	\begin{enumerate}[label=(\roman*)]
 		\item $v = 4u^2$
 		\item $k = 2u^2+u$
@@ -696,7 +697,7 @@ This forces $\nu$ (and $\mu$) to be integral if and only if $u$ is even, resulti
 \end{proof}
 The upper bound for $w$ is achieved whenever $u$ is a power of two using the Cameron-Seidel scheme. In light of this family and the requirement that $w=2$ whenever $v/4$ is odd, one might ask if $w$ is bounded as a function of the highest power of $2$ dividing $v$. We will show later that this is not true by constructing examples with $w$ as large as we like and $v/16$ odd.
 \subsection{Hadamard matrix equivalence}
-In this section, we establish an equivalence between LSSDs with parameters as in Theorem \ref{MubLssdrestrictions} with sets of regular unbiased Hadamard matrices (see \cite{Kharaghani2010} for more detailed information on unbiased Hadamard matrices). Van Dam et al.\ \cite[p.~1423]{Davis2014} briefly mention this connection citing constructions of unbiased regular Hadamard matrices by Holzmann, Kharaghani, and Orrick \cite{Kharaghani2010} using mutually orthogonal latin squares. In this section, we describe the connection between unbiased regular Hadamard matrices and LSSDs in full using Theorem \ref{twoside}. A real Hadamard matrix\index{Hadamard matrix!real} of order $v$ is a $v\times v$ matrix $H$ with entries $\pm 1$ such that $HH^T = vI$. $H$ is a \textit{regular Hadamard matrix}\index{Hadamard matrix!regular} if $HJ = cJ$ for some constant $c$. Two Hadamard matrices $H_1$ and $H_2$ are \textit{unbiased}\index{Hadamard matrix!unbiased} if $\frac{1}{v}H_1H_2^T$ is itself a Hadamard matrix. Finally, a set of Hadamard matrix matrices are unbiased if each pair is unbiased. Using these definitions, consider the following:
+In this section, we establish an equivalence between LSSDs with design parameters as in Theorem \ref{MubLssdrestrictions} with sets of regular unbiased Hadamard matrices (see \cite{Kharaghani2010} for more detailed information on unbiased Hadamard matrices). Van Dam et al.\ \cite[p.~1423]{Davis2014} briefly mention this connection citing constructions of unbiased regular Hadamard matrices by Holzmann, Kharaghani, and Orrick \cite{Kharaghani2010} using mutually orthogonal latin squares. In this section, we describe the connection between unbiased regular Hadamard matrices and LSSDs in full using Theorem \ref{twoside}. A real Hadamard matrix\index{Hadamard matrix!real} of order $v$ is a $v\times v$ matrix $H$ with entries $\pm 1$ such that $HH^T = vI$. $H$ is a \textit{regular Hadamard matrix}\index{Hadamard matrix!regular} if $HJ = cJ$ for some constant $c$. Two Hadamard matrices $H_1$ and $H_2$ are \textit{unbiased}\index{Hadamard matrix!unbiased} if $\frac{1}{v}H_1H_2^T$ is itself a Hadamard matrix. Finally, a set of Hadamard matrix matrices are unbiased if each pair is unbiased. Using these definitions, consider the following:
 \begin{thm}
 	\label{LSSDtoHad}
 	Let $\Gamma$ be an optimistic $LSSD(v,k,\lambda;w)$. If $\vert v-2k\vert = -2\sqrt{k-\lambda}$, then there exists a set of $w-1$ real unbiased regular Hadamard matrices.
@@ -744,7 +745,7 @@ This leaves us with the following theorem
 %	An optimistic $LSSD(v,k,\lambda;w)$ with $\vert v-2k\vert = 2\sqrt{k-\lambda}$ exists if and only if there exists a set of $w-1$ regular unbiased Hadamard matrices with order $v$.\qed
 %\end{thm}
 \subsection{Constructing LSSDs from certain real MUBs}
-Using the results from the last section and the close relation between MUBs and Hadamard matrices, we wish to build new LSSDs. From theorem \ref{equiv} and theorem \ref{MubLssdrestrictions}, we are only going to find optimistic LSSDs with Menon parameters. Goethals gives a construction in \cite{Cameron1972} for $w = 2u^2$ whenever $u$ is a power of 2 (see \ref{kerdock}). We skip this case and instead look for constructions where $u$ (and equivalently $v$) is not necessarily a power of 2.
+Using the results from the last section and the close relation between MUBs and Hadamard matrices, we wish to build new LSSDs. From theorem \ref{equiv} and theorem \ref{MubLssdrestrictions}, we are only going to find optimistic LSSDs with Menon design parameters. Goethals gives a construction in \cite{Cameron1972} for $w = 2u^2$ whenever $u$ is a power of 2 (see \ref{kerdock}). We skip this case and instead look for constructions where $u$ (and equivalently $v$) is not necessarily a power of 2.
 \subsubsection{Wocjan and Beth construction}
 Wocjan and Beth in \cite{Wocjan2005} detail a way to create MUBs from MOLS. They take a set of $t$ MOLS with side length $d$ and create $t+2$ MUBs in dimension $d^2$. The process is to convert the MOLS into an orthogonal array with $d^2$ rows. They then expand the array by replacing each column with $d$ columns giving by the characteristic vector of each symbol in that column. Finally, they extend this matrix by replacing each 1 in the array with a row from a Hadamard matrix matrix and each 0 by an appropriate length vector of 0s. The result is that the $d$ columns arising from each original column are orthogonal to each other. We will focus on the case where the resultant MUBs produce regular Hadamard matrices using their inner products.\par
 For our purposes, an orthogonal array of size $(n^2\times s)$ has entries from the set $\left\{1,\dots, n\right\}$ and any two columns contain each ordered pair exactly once. Let $O$ be an orthogonal array of size $n^2\times s$, let $C^i$ denote the $i^{th}$ column of $O$ with entries $C^i_k$ ($1\leq k\leq n^2$). We may uniquely express
@@ -881,10 +882,10 @@ Using this OA, we have
 	&&&+ &&+&& &+&&&\\
 	&&&+ &&&+& &&+&&\\
 	&&&+ &&&&+ &&&+&\\
-	\end{array}\right]},\]
-and then using our Hadamard matrix,
+	\end{array}\right]}.\]
+Below we display the three arrays $M^{1,:,:}$, $M^{2,:,:}$, and $M^{3,:,:}$ resp.\
 \[\begin{aligned}
-M^{1,:,:}\hspace{-1mm}=\hspace{-2mm}\setlength{\arraycolsep}{0.3pt}\scalefont{.4}{\left[\begin{array}{rrrr|rrrr|rrrr|rrrr}
+\setlength{\arraycolsep}{0.4pt}\scalefont{.5}{\left[\begin{array}{rrrr|rrrr|rrrr|rrrr}
 	- & + & + & +&&&&&&&&&&&&\\
 	+ & - & + & +&&&&&&&&&&&&\\
 	+ & + & - & +&&&&&&&&&&&&\\
@@ -902,7 +903,7 @@ M^{1,:,:}\hspace{-1mm}=\hspace{-2mm}\setlength{\arraycolsep}{0.3pt}\scalefont{.4
 	&&&&&&&&&&&&+ & + & - & +\\
 	&&&&&&&&&&&&+ & + & + & -\\
 	\end{array}\right]},\quad
-M^{2,:,:}&\hspace{-1mm}=\hspace{-2mm}\setlength{\arraycolsep}{0.3pt}\scalefont{.4}{\left[\begin{array}{rrrr|rrrr|rrrr|rrrr}
+&\setlength{\arraycolsep}{0.4pt}\scalefont{.5}{\left[\begin{array}{rrrr|rrrr|rrrr|rrrr}
 	- & + & + & +&&&&&&&&&&&&\\
 	&&&&- & + & + & +&&&&&&&&\\
 	&&&&&&&&- & + & + & +&&&&\\
@@ -920,7 +921,7 @@ M^{2,:,:}&\hspace{-1mm}=\hspace{-2mm}\setlength{\arraycolsep}{0.3pt}\scalefont{.
 	&&&&&&&&+ & + & + & -&&&&\\
 	&&&&&&&&&&&&+ & + & + & -\\
 	\end{array}\right]},\quad
-M^{3,:,:}&\hspace{-3mm}=\hspace{-2mm}\setlength{\arraycolsep}{0.3pt}\scalefont{.4}{\left[\begin{array}{rrrr|rrrr|rrrr|rrrr}
+&\setlength{\arraycolsep}{0.4pt}\scalefont{.5}{\left[\begin{array}{rrrr|rrrr|rrrr|rrrr}
 	- & + & + & +&&&&&&&&&&&&\\
 	&&&&- & + & + & +&&&&&&&&\\
 	&&&&&&&&- & + & + & +&&&&\\
@@ -939,10 +940,10 @@ M^{3,:,:}&\hspace{-3mm}=\hspace{-2mm}\setlength{\arraycolsep}{0.3pt}\scalefont{.
 	&&&&&&&&+ & + & + & -&&&&\\
 	\end{array}\right]}.
 \end{aligned}\]
-Finding the inner products of each pair of bases we find the three Hadamard matrices
+Finding the inner products of each pair of bases we find the three Hadamard matrices $H_{1,2}$, $H_{1,3}$, and $H_{2,3}$ resp.\
 
 \[\begin{aligned}
-H_{1,2}&=\setlength{\arraycolsep}{.8pt}\scalefont{.4}{\left[\begin{array}{rrrrrrrrrrrrrrrr}
+\setlength{\arraycolsep}{.8pt}\scalefont{.4}{\left[\begin{array}{rrrrrrrrrrrrrrrr}
 	+&-&-&-&-&+&+&+&-&+&+&+&-&+&+&+\\
 	-&+&+&+&+&-&-&-&-&+&+&+&-&+&+&+\\
 	-&+&+&+&-&+&+&+&+&-&-&-&-&+&+&+\\
@@ -960,7 +961,7 @@ H_{1,2}&=\setlength{\arraycolsep}{.8pt}\scalefont{.4}{\left[\begin{array}{rrrrrr
 	+&+&+&-&+&+&+&-&-&-&-&+&+&+&+&-\\
 	+&+&+&-&+&+&+&-&+&+&+&-&-&-&-&+\\
 	\end{array}\right]},\quad
-H_{1,3}&=\setlength{\arraycolsep}{.8pt}\scalefont{.4}{\left[\begin{array}{rrrrrrrrrrrrrrrr}
+&\setlength{\arraycolsep}{.8pt}\scalefont{.4}{\left[\begin{array}{rrrrrrrrrrrrrrrr}
 	+&-&-&-&-&+&+&+&-&+&+&+&-&+&+&+\\
 	-&+&+&+&+&-&-&-&-&+&+&+&-&+&+&+\\
 	-&+&+&+&-&+&+&+&+&-&-&-&-&+&+&+\\
@@ -977,8 +978,7 @@ H_{1,3}&=\setlength{\arraycolsep}{.8pt}\scalefont{.4}{\left[\begin{array}{rrrrrr
 	-&-&-&+&+&+&+&-&+&+&+&-&+&+&+&-\\
 	+&+&+&-&-&-&-&+&+&+&+&-&+&+&+&-\\
 	+&+&+&-&+&+&+&-&-&-&-&+&+&+&+&-\\
-	\end{array}\right]},\\
-H_{2,3}&=\setlength{\arraycolsep}{.8pt}\scalefont{.4}{\left[\begin{array}{rrrrrrrrrrrrrrrr}
+	\end{array}\right]},&\setlength{\arraycolsep}{.8pt}\scalefont{.4}{\left[\begin{array}{rrrrrrrrrrrrrrrr}
 	+&-&-&-&+&-&+&+&+&+&-&+&+&+&+&-\\
 	-&+&+&+&-&+&-&-&+&+&-&+&+&+&+&-\\
 	-&+&+&+&+&-&+&+&-&-&+&-&+&+&+&-\\
