@@ -17,9 +17,9 @@
 		\item for $0\leq i,j,k\leq d$ there exist constants $p_{i,j}^k$ such that for any $(x,y)\in R_k$, the number of vertices $z$ for which $(x,z)\in R_i$ and $(z,y)\in R_j$ is equal to $p_{i,j}^k$ independent of our original choice of $x$ and $y$.
 	\end{enumerate}
 	\end{definition}
-	The constants $p_{i,j}^k$ are known as the \emph{intersection numbers}\index{parameters!intersection numbers} of our association scheme and we allow ourselves to suppress the comma whenever $i$ and $j$ are given by single digits, thus $p_{0,7}^6$ and $p_{07}^6$ are synonymous throughout this thesis. Properties $(iii)$ and $(iv)$ together imply that $p_{ij}^k = p_{ji}^k$ for all $i,j,k$; we call such an association scheme \textit{commutative}. There is a broader definition for a \emph{commutative association scheme}\index{association scheme!commutative} where we replace $(iii)$ with the requirement that for every $i$, there exists some $j$ such that $R_j = R_i^T$; that is $(x,y)\in R_i$ if and only if $(y,x)\in R_j$. In this case however, we add the requirement $p_{ij}^k = p_{ji}^k$. Throughout this thesis, all association schemes will be symmetric, though we will add remarks at times when the theorems apply directly to the non-symmetric case as well.
+	The constants $p_{i,j}^k$ are known as the \emph{intersection numbers}\index{parameters!intersection numbers} of our association scheme and we allow ourselves to suppress the comma whenever $i$ and $j$ are given by single digits, thus $p_{5,2}^7$ and $p_{52}^7$ are synonymous throughout this thesis. Properties $(iii)$ and $(iv)$ together imply that $p_{ij}^k = p_{ji}^k$ for all $i,j,k$; we call such an association scheme \textit{commutative}. There is a broader definition for a \emph{commutative association scheme}\index{association scheme!commutative} where we replace $(iii)$ with the requirement that for every $i$, there exists some $j$ such that $R_j = R_i^T$; that is $(x,y)\in R_i$ if and only if $(y,x)\in R_j$. In this case however, we add the requirement $p_{ij}^k = p_{ji}^k$. Throughout this thesis, all association schemes will be symmetric, though we will add remarks at times when the theorems apply directly to the non-symmetric case as well.
 	
-	For each $0\leq i\leq d$ we define the (undirected) graph $\Gamma_i = \Gamma(X,R_i)$ on $X$ with $\Gamma_1,\dots,\Gamma_d$ all simple. For each $a\in X$ we define the $i^\text{th}$ \emph{neighborhood}\index{relation!neighborhood} of $a$ $R_i(a) = \left\{b\in X\mid (a,b)\in R_i\right\}$; i.e. $R_i(a)$ is the neighborhood of $a$ in the graph $\Gamma_i$. Then for any $a\in X$, the set $X$ is partitioned into the \emph{subconstituents}\index{relation!subconstituents} $\left\{R_i(a)\mid 0\leq i\leq d\right\}$.
+	For each $0\leq i\leq d$ we define the (undirected) graph $\Gamma_i = \Gamma(X,R_i)$ on $X$ with $\Gamma_1,\dots,\Gamma_d$ all simple. For each $a\in X$ we define the $i^\text{th}$ \emph{neighborhood}\index{relation!neighborhood} of $a$ $R_i(a) = \left\{b\in X\mid (a,b)\in R_i\right\}$; i.e. $R_i(a)$ is the neighborhood of $a$ in the graph $\Gamma_i$. Then for any $a\in X$, the set $X$ is partitioned into the \emph{subconstituents}\index{relation!subconstituents} $\left\{R_i(a)\mid 0\leq i\leq d\right\}$ with respect to $a$.
 	\begin{example} The following association scheme is known as the \emph{3-cube}\index{3-cube} with vertex set $X = \left\{0,\dots,7\right\}$ and relations corresponding to the graphs $\Gamma_0,\dots,\Gamma_3$ given below.
 		\begin{figure}[H]\begin{center}\scalebox{.7}{$\begin{aligned}
 		\begin{tikzpicture}[shorten >=1pt,auto,node distance=2cm,
@@ -133,7 +133,7 @@
 		\end{array}\right].\]
 		Since $p^k_{ij} = p^k_{ji}$, many of the columns listed above are redundant, thus we may instead give a more brief list of the intersection numbers as follows:
 		\[\begin{array}{c|cccc|ccc|cc|c}
-		j & p^{j}_{0,0}	&p^{j}_{0,1}& p^{j}_{0,2} 	& p^{j}_{0,3}   & p^{j}_{1,1}	&p^{j}_{1,2}& p^{j}_{1,3} 	& p^{j}_{2,2} 	& p^{j}_{2,3} 	& p^{j}_{3,3}\\\hline
+		k & p^{k}_{0,0}	&p^{k}_{0,1}& p^{k}_{0,2} 	& p^{k}_{0,3}   & p^{k}_{1,1}	&p^{k}_{1,2}& p^{k}_{1,3} 	& p^{k}_{2,2} 	& p^{k}_{2,3} 	& p^{k}_{3,3}\\\hline
 		0 & 1			& 0			& 0 			& 0				& 3				& 0			& 0 			& 3				& 0   			& 1\\
 		1 & 0			& 1			& 0 			& 0				& 0				& 2			& 0 			& 0   			& 1   			& 0\\
 		2 & 0			& 0			& 1 			& 0				& 2				& 0 		& 1				& 2 			& 0 			& 0\\
@@ -145,14 +145,14 @@
 	\[p^{0}_{ii} = \left\vert\left\{y:(y,x)\in R_i\right\}\right\vert = \left\vert R_i(x)\right\vert.\]
 	Thus we define $k_i:=p^0_{ii}$ as the \emph{valency}\index{valency} of the $i^\text{th}$ relation. Many other restrictions on our intersection numbers follow immediately from our definition, for instance $p^0_{12} = 0$; we will summarize these in a lemma at the end of the next section.
 	\section{Bose-Mesner algebra}
-	Often it becomes useful to order the vertices in $X$ and represent each $R_i$ as a 01-matrix $A_i$ where the $(x,y)$ entry of $A_i$ is 1 if and only if $(x,y)\in R_i$, thus $A_i$ is the adjacency matrix of $\Gamma_i$. The defining properties of a symmetric association scheme are then encoded as:
+	Often it becomes useful to order the vertices in $X$ and represent each $R_i$ as a 01-matrix $A_i$ where the $(x,y)$ entry of $A_i$ is 1 if and only if $(x,y)\in R_i$; thus $A_i$ is the adjacency matrix of $\Gamma_i$. Let $I$ and $J$ denote the identity matrix and all-ones matrix respectively. The defining properties of a symmetric association scheme are then encoded as:
 	\begin{enumerate}[label=(\roman*)]
 		\item $A_0 = I$;
 		\item $\sum_i A_i = J$;
 		\item for all $0\leq i\leq d$, $A_i^T = A_i$;
-		\item for all $0\leq i,j\leq d$, $A_iA_j = \sum p_{ij}^k A_k$.
+		\item for all $0\leq i,j\leq d$, $A_iA_j = \sum p_{ij}^k A_k$,
 	\end{enumerate}
-	The fourth condition tells us that $\BMA = \text{span}\left\{A_0,A_1,\dots A_d\right\}$\index{01-basis} forms a matrix algebra under standard matrix multiplication. We call this algebra the \emph{Bose-Mesner algebra}\index{Bose-Mesner algebra} and note that the remaining conditions ensure it is a $(d+1)$-dimensional algebra of symmetric matrices containing the identity. Further, as our basis matrices are 01-matrices with pairwise disjoint support, this algebra is also closed under Schur (element-wise) products and contains the Schur identity, $J$. We find that the existence of such an algebra is also sufficient to define an association scheme; that is, any $(d+1)$-dimensional matrix algebra closed under both standard and Schur matrix products containing the identities for both operations corresponds to the Bose-Mesner algebra of some association scheme. In many of the chapters that follow, we will use this to show the existence or non-existence of an association scheme, focusing on the algebraic definition instead of the combinatorics. Recall that a commutative association scheme was defined as one in which $p^k_{ij} = p^k_{ji}$ for all $i,j,k$. In this setting this property tells us that $A_iA_j = A_jA_i$; that is, our algebra is commutative. Therefore, we may simultaneously diagonalize the matrices $A_0,\dots,A_d$ resulting in the maximal common orthogonal eigenspaces $V_0,\dots,V_{d'}$ with corresponding idempotents $E_0,\dots,E_{d'}$. Since, for every $i$, there exist eigenvalues $\theta_{ij}$ such that $A_i = \sum_{j=0}^{d'}\theta_{ij}E_j$ we find that $\BMA \subseteq \text{span}\left\{E_0,E_1,\dots, E_{d'}\right\}$ thus $d\leq d'$. Further since the eigenspaces $V_j$ are maximal for each $0\leq j\leq d$ and pairwise orthogonal,
+	where each $A_i$ has only zeros and ones as entries. The fourth condition tells us that $\BMA = \text{span}\left\{A_0,A_1,\dots A_d\right\}$\index{01-basis} forms a matrix algebra under standard matrix multiplication. We call this algebra the \emph{Bose-Mesner algebra}\index{Bose-Mesner algebra} and note that the remaining conditions ensure it is a $(d+1)$-dimensional algebra of symmetric matrices containing the identity. Further, as our basis matrices are 01-matrices with pairwise disjoint support, this algebra is also closed under Schur (element-wise) products and contains the Schur identity, $J$. We find that, conversely, any such an algebra determines an association scheme; that is, any $(d+1)$-dimensional vector space of symmetric matrices closed under both standard and Schur matrix products containing the identities for both operations corresponds to the Bose-Mesner algebra of some symmetric association scheme. In many of the chapters that follow, we will use this to show the existence or non-existence of an association scheme, focusing on the algebraic definition instead of the combinatorics. Recall that a commutative association scheme was defined as one in which $p^k_{ij} = p^k_{ji}$ for all $i,j,k$. In this setting this property tells us that $A_iA_j = A_jA_i$; that is, our algebra is commutative. Therefore, we may simultaneously diagonalize the matrices $A_0,\dots,A_d$ resulting in the maximal common orthogonal eigenspaces $V_0,\dots,V_{d'}$ with corresponding idempotents $E_0,\dots,E_{d'}$. Since, for every $i$, there exist eigenvalues $\theta_{ij}$ such that $A_i = \sum_{j=0}^{d'}\theta_{ij}E_j$ we find that $\BMA \subseteq \text{span}\left\{E_0,E_1,\dots, E_{d'}\right\}$ thus $d\leq d'$. Further since the eigenspaces $V_j$ are maximal for each $0\leq j\leq d$ and pairwise orthogonal,
 	\[E_j = \frac{1}{c_j}\prod_{i=0}^d\left(\prod_{\theta_{ik}\neq\theta_{ij}}\left(A_i-\theta_{ik}I\right)\right)\]
 	for some normalization constant $c_j$. Thus $E_j\in \BMA$ giving $\text{span}\left\{E_0,E_1,\dots, E_{d'}\right\}\subseteq\BMA$\index{idempotent basis} and therefore $d=d'$. Then, $\BMA$ contains a basis of $d+1$ idempotents $E_0,\dots,E_d$ which diagonalize every matrix in $\BMA$ and act as projection matrices onto the common eigenspaces. Since the rank 1 idempotent $J\in\BMA$, we find that $\frac{1}{\vert X\vert}J$ must belong to this basis; by convention we assume $E_0= \frac{1}{\vert X\vert}J$. For each $0\leq j\leq d$ we define $m_j = \text{rank } E_j$ and note that $m_0 = 1$ and $\sum_{j=0}^dm_j = \vert X\vert$.
 	
@@ -233,7 +233,7 @@
 	\end{equation}
 	The first isomorphism preserves standard matrix multiplication while the second preserves Schur products. This provides us with the following Lemma.
 	\begin{lem}\label{arrayeigenvec}
-		Let $P$ and $Q$ be the first and second eigenmatrices of an association scheme with the arrays of intersection numbers $L_0,\dots,L_d$ and arrays of Krein parameters $L_0^*,\dots,L_d^*$. Then column $j$ of $Q$ is an eigenvector of $L_i$ with eigenvalue $P_{ji}$. Likewise column $i$ of $P$ is an eigenvector of $L_j^*$ with eigenvalue $Q_{ij}$.
+		Let $P$ and $Q$ be the eigenmatrices of an association scheme with the arrays of intersection numbers $L_0,\dots,L_d$ and arrays of Krein parameters $L_0^* ,\dots, L_d^*$. For each $0\leq i,j\leq d$, column $j$ of $Q$ is an eigenvector of $L_i$ with eigenvalue $P_{ji}$. Likewise column $i$ of $P$ is an eigenvector of $L_j^*$ with eigenvalue $Q_{ij}$.
 	\end{lem}
 	\begin{proof}
 	Let $A_i$ be a 01-basis matrix and $E_j$ be a basis idempotent of our association scheme. Then $A_iE_j = P_{ji}E_j$ and $E_j\circ A_i = \frac{Q_{ji}}{\vert X\vert}A_i$. Noting that $E_j = \frac{1}{\vert X\vert}\sum_{j}Q_{ji} A_i$ we find that $\phi(\vert X\vert E_j) = \sum_{i}Q_{ij} L_i$ and thus
@@ -437,7 +437,7 @@
 		The Krein parameters of an association scheme must be non-negative real numbers.
 	\end{lem}
 	\begin{proof}
-		From equation \eqref{Emult}, we find that $\nicefrac{q_{ij}^0}{\vert X\vert},\dots,\nicefrac{q_{ij}^d}{\vert X\vert}$ are the eigenvalues of $E_i\circ E_j$. However $E_i\circ E_j\in \BMA$ and therefore it must be symmetric, implying all of its eigenvalues are real. Further, $E_i\circ E_j$ is a principal submatrix of $E_i\otimes E_j$, which has two distinct eigenvalues: $1$ and $0$. Hence $E_i\otimes E_j$ is positive semidefinite and any principal submatrix must share the same property.
+		From equation \eqref{Emult}, we find that $\bigslant{q_{ij}^0}{\vert X\vert},\dots,\bigslant{q_{ij}^d}{\vert X\vert}$ are the eigenvalues of $E_i\circ E_j$. However $E_i\circ E_j\in \BMA$ and therefore it must be symmetric, implying all of its eigenvalues are real. Further, $E_i\circ E_j$ is a principal submatrix of $E_i\otimes E_j$, which has two distinct eigenvalues: $1$ and $0$. Hence $E_i\otimes E_j$ is positive semidefinite and any principal submatrix must share the same property.
 	\end{proof}
 	The final feasibility condition we will list here is known as the \emph{absolute bound}\index{absolute bound}.
 	\begin{lem}[\cite{Neumaier1981},Absolute bound]\label{absolute}
@@ -454,8 +454,8 @@
 	\begin{definition}
 		A \emph{feasible parameter set} is a set of Krein parameters, intersection numbers, and eigenmatrices such that:
 		\begin{itemize}
-			\item[FC1:] The Krein parameters satisfy Lemmas \ref{kreinfeas} and \ref{kitchensink} $(i')--(xiii')$,
-			\item[FC2:] The intersection numbers satisfy Lemmas \ref{intfeas} and \ref{kitchensink} $(i)--(xiii)$,
+			\item[FC1:] The Krein parameters satisfy Lemmas \ref{kreinfeas} and \ref{kitchensink} $(i')$ -- $(xiii')$,
+			\item[FC2:] The intersection numbers satisfy Lemmas \ref{intfeas} and \ref{kitchensink} $(i)$ -- $(xiii)$,
 			\item[FC3:] The integers $m_j = q^0_{jj}$ satisfy Lemma \ref{absolute}.
 		\end{itemize}
 	\end{definition}

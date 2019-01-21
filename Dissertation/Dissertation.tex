@@ -2,7 +2,7 @@
 %
 %  B G Kodalen
 
-\documentclass[12pt]{report}
+\documentclass[12pt,oneside]{book}
 \usepackage{longtable}
 \input{preamble}
 
@@ -12,7 +12,9 @@
 %\title{\textbf{Cometric Association Schemes}}
 \author{Brian G. Kodalen}
 \date{}
+\pagenumbering{roman}
 \begin{document}
+	\frontmatter
 	\thispagestyle{empty}
 	\begin{center}
 		\brk
@@ -74,13 +76,15 @@ Professor Luca Capogna, Head of Department
 
 
 % end of titlepage
-\newpage
+\clearpage
 
 %\doublespacing
 
 \begin{abstract}
+	\thispagestyle{plain}
 	Abstract goes here.
 \end{abstract}
+\clearpage
 %	\begin{itemize}[label={}]
 %		\itemsep-.5em
 %		\item Dr. Peter J. Cameron, Queen Mary, University of London
@@ -91,7 +95,7 @@ Professor Luca Capogna, Head of Department
 %		\item Dr. G\'{a}bor N. S\'{a}rk\"{o}zy, WPI
 %	\end{itemize}
 
-\pagenumbering{roman}
+
 
 \begin{center}
 	\textbf{Acknowledgements}
@@ -109,9 +113,9 @@ Professor Luca Capogna, Head of Department
 	
 
 	
-	
-	\pagenumbering{arabic}
-	\setcounter{page}{1}
+	\mainmatter
+	%\pagenumbering{arabic}
+	%\setcounter{page}{1}
 	
 	\input{introduction}
 	\input{association}

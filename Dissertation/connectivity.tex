@@ -117,7 +117,7 @@ relation of the association scheme.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{The graph homomorphism $\varphi_a$}
+\subsection{The graph homomorphism \texorpdfstring{$\varphi_a$}{phia}}
 
 For $0< i \le d$, let $\Gamma_i=(X,R_i)$ and let $H_i$ denote the \emph{unweighted distribution diagram}\index{unweighted distribution diagram} corresponding to symmetric relation $R_i$---that is, $H_i = \Gamma(V,E)$ where $V = \left\{0,\dots,d\right\}$ and $(j,k)\in E$ if and only if $p^k_{ij}>0$. 
 
@@ -153,7 +153,7 @@ $x$ to $y$ exists in $\Delta$.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{The decomposition $\{ I_a, U_a, W_a\}$ with respect to a basepoint $a$}
+\subsection{The decomposition \texorpdfstring{$\{ I_a, U_a, W_a\}$}{{Ia, Ua, Wa}} with respect to a basepoint \texorpdfstring{$a$}{a}}
 \label{Sec:IUW}
 
 
@@ -178,7 +178,7 @@ We will compare the graphs $\Gamma_a := \Gamma \setminus a^\bot$ and $H' :=H \se
 \end{proof}
 
 %%%%%%%%%%%%%  First diagram begins  %%%%%%%
-\begin{figure}
+\begin{figure}[!ht]
 	\begin{center}
 		\begin{tikzpicture}
 		%
@@ -337,7 +337,7 @@ sets $Y_a$ and $Z_a$ are defined as above relative to this pair of vertices.
 \end{proof}
 
 %%%%%%%%%%%%%  Second diagram begins  %%%%%%%
-\begin{figure}
+\begin{figure}[!ht]
 	\begin{center}
 		\begin{tikzpicture}
 		%
@@ -412,7 +412,7 @@ sets $Y_a$ and $Z_a$ are defined as above relative to this pair of vertices.
 	By way of contradiction, assume $\tW \neq \emptyset$ and define
 	$$ \mu = \min \{ p_{11}^i \mid i \in \tU \},  \qquad \omega = \min \{ p_{11}^i \mid i \in \tW \}$$
 	and select $k\in \tU$ and $\ell \in \tW$ with $p_{11}^k = \mu$ and $p_{11}^\ell = \omega$. Note that
-	$\mu > 0$ and $\omega > 0$ by Lemma \ref{LWa-empty}.
+	$\mu,\omega > 0$ by Lemma \ref{LWa-empty}.
 	Now choose $a\in X$, and select $x$ in $R_k(a)$.  Since $x$ is not a twin of $a$, we may choose
 	$a'\in \Gamma(a) \setminus \Gamma(x)$ and since $p_{1\ell}^1>0$, we may choose and $y$ in $R_\ell(a)$ which is a neighbor of 
 	$a'$.  Since $\Gamma_x$ contains a path from $a$ to $y$ and $a\in U_x$, we have $y\in U_x$. So
@@ -431,47 +431,53 @@ sets $Y_a$ and $Z_a$ are defined as above relative to this pair of vertices.
 
 
 %%%%%%%%%%%%%  Third diagram begins  %%%%%%%
-\begin{figure}
-	\begin{center}
+
+\begin{figure}[!ht]
+	\begin{center}\vspace{-1.5em}
 		\begin{tikzpicture}
-		\draw[thick,black] (1.8,0) ellipse (0.75in and 0.4in);
-		\draw[thick,black] (4.2,0) ellipse (0.75in and 0.4in);
+		\def\y{.2}
+		\def\x{.5}
+		\def\z{.2} %%% These three parameters are shifting the original tikz image to fit the page better.
+		\draw[thick,black] (1.8,\y) ellipse (0.75in and 0.3in);
+		\draw[thick,black] (4.2,\y) ellipse (0.75in and 0.3in);
 		%
 		\draw[thick,black]
-		(-.1,-2.9) {[rounded corners=15pt] --
+		(-.1,-2.9+\x+\y+\z) {[rounded corners=15pt] --
 			++(3.,0)  -- 
-			++(0,1.7) --
+			++(0,1.7-\x) --
 			++(-3.,0) --
 			cycle};
 		\draw[thick,black]
-		(3.1,-2.9) {[rounded corners=15pt] --
+		(3.1,-2.9+\x+\y+\z) {[rounded corners=15pt] --
 			++(3,0)  -- 
-			++(0,1.7) --
+			++(0,1.7-\x) --
 			++(-3,0) --
 			cycle};
 		%
-		\node (uu) at (2.2,-2.4) {$U_a$};
-		\node (ww) at (3.8,-2.4) {$W_a$};
+		\node (uu) at (2.2,-2.4+\x+\y+\z) {$U_a$};
+		\node (ww) at (3.8,-2.4+\x+\y+\z) {$W_a$};
 		%
-		\node (ba) at (3,1.7) {$\bullet$};   \node (la) at (3.3,1.8) {$a$};
-		\node (bx) at (.8,-1.7) {$\bullet$};   \node (lx) at (1.1,-1.8) {$x$};
-		\node (by) at (5.2,-1.7) {$\bullet$};   \node (ly) at (5.5,-1.7) {$y$};
-		\node (bap) at (4.8,.35) {$\bullet$};   \node (lap) at (5.1,.35) {$a'$};
+		\node (ba) at (3,1.7) {$\bullet$};   \node (la) at (3.3,1.8) {a};
+		\node (bx) at (.8,-1.7+\y+\z) {$\bullet$};   \node (lx) at (1.1,-1.8+\y+\z) {$x$};
+		\node (by) at (5.2,-1.7+\y+\z) {$\bullet$};   \node (ly) at (5.5,-1.7+\y+\z) {$y$};
+		\node (bap) at (4.8,.35+\y) {$\bullet$};   \node (lap) at (5.1,.35+\y) {$a'$};
 		%
-		\node (lgamax) at (1.2,-.1) {$\Gamma(a)\cap \Gamma(x)$};
-		\node (lgamay) at (4.9,-.1) {$\Gamma(a)\cap \Gamma(y)$};
+		\node (lgamax) at (1.2,-.1+\y) {$\Gamma(a)\cap \Gamma(x)$};
+		\node (lgamay) at (4.9,-.1+\y) {$\Gamma(a)\cap \Gamma(y)$};
 		%
-		\draw (-0.08,-0.2) -- (.8,-1.7) -- (3.2,-0.7);
-		\draw (6.08,-0.18) -- (5.2,-1.7) -- (2.8,-0.7);
+		\draw (-0.08,-0.2+.25) -- (.8,-1.7+\y+\z) -- (3.2,-0.7+.4);
+		\draw (6.08,-0.18+.25) -- (5.2,-1.7+\y+\z) -- (2.8,-0.7+.4);
 		\draw (0.6,0.78) -- (3,1.7) -- (5.4,0.8);
 		%
 		\end{tikzpicture} 
 	\end{center}
 	%
+	\vspace{-1em}
 	\caption{Since $\Gamma$ has diameter two, all common neighbors of $x$ and $y$ are 
-		contained in  $\Gamma(a)$. }\label{FigWempty}
+		in  $\Gamma(a)$. }\label{FigWempty}
 	%contain the vertices of the component, $\Delta$, of $\Gamma_b$ which contains $a$.}
 \end{figure}
+
 %%%%%%%%%%%%% Third diagram ends  %%%%%%%
 
 
@@ -678,7 +684,7 @@ together must be locally a disjoint union of cliques of size at most $|T|$.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Intervals and metric properties of $\Gamma$}
+\subsection{Intervals and metric properties of \texorpdfstring{$\Gamma$}{Gamma}}
 \label{Sec:intervals}
 
 
@@ -710,8 +716,10 @@ $$c(i) = \sum_{ j \in I_{h-1} } p_{1j}^i ~.$$
 \begin{proof}
 	For part (a), observe that for $(a,b)\in R_{\ell_h}$ there exists $a' \in R_{\ell_{h-1}}(b)$ adjacent  to $a$ since
 	$p_{1,\ell_{h-1}}^{\ell_h} > 0$ so that 
-	$$ \{ x\in X \mid (x,b) \in R_1, \ d_\Gamma(x,a') = d_\Gamma(b,a')-1 \} \! \subseteq  \! 
-	\{ x\in X \mid (x,b) \in R_1, \ d_\Gamma(x,a) = d_\Gamma(b,a)-1 \}. $$ 
+	%$$ \{ x\in X \mid (x,b) \in R_1, \ d_\Gamma(x,a') = d_\Gamma(b,a')-1 \} \! \subseteq  \! 
+	%\{ x\in X \mid (x,b) \in R_1, \ d_\Gamma(x,a) = d_\Gamma(b,a)-1 \}. $$ 
+	$$ \{ x\in R_1(b) \mid \ d_\Gamma(x,a') = d_\Gamma(b,a')-1 \} \! \subseteq  \! 
+	\{ x\in R_1(b) \mid\ d_\Gamma(x,a) = d_\Gamma(b,a)-1 \}. $$ 
 	Parts (b) and (c) follow immediately.
 \end{proof}
 

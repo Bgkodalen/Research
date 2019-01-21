@@ -8,20 +8,20 @@
 \indexentry{01-basis|hyperpage}{8}
 \indexentry{Bose-Mesner algebra|hyperpage}{8}
 \indexentry{idempotent basis|hyperpage}{9}
-\indexentry{eigenmatrices|hyperpage}{9}
+\indexentry{eigenmatrices|hyperpage}{10}
 \indexentry{idempotent basis!dual eigenvalues|hyperpage}{10}
 \indexentry{eigenmatrices!orthogonality relations|hyperpage}{10}
 \indexentry{parameters!Krein|hyperpage}{10}
 \indexentry{parameters!arrays of intersection numbers|hyperpage}{11}
 \indexentry{parameters!arrays of Krein parameters|hyperpage}{12}
-\indexentry{parameters!intersection matrix|hyperpage}{13}
-\indexentry{parameters!Krein matrix|hyperpage}{13}
+\indexentry{parameters!intersection matrix|hyperpage}{12}
+\indexentry{parameters!Krein matrix|hyperpage}{12}
 \indexentry{association schemes!translation schemes|hyperpage}{14}
 \indexentry{formal duality|hyperpage}{14}
-\indexentry{bipartite|hyperpage}{15}
-\indexentry{bipartite!dual-|hyperpage}{15}
-\indexentry{antipodal|hyperpage}{15}
-\indexentry{antipodal!dual-|hyperpage}{15}
+\indexentry{bipartite|hyperpage}{14}
+\indexentry{bipartite!dual-|hyperpage}{14}
+\indexentry{antipodal|hyperpage}{14}
+\indexentry{antipodal!dual-|hyperpage}{14}
 \indexentry{Krein conditions|hyperpage}{15}
 \indexentry{absolute bound|hyperpage}{15}
 \indexentry{feasible parameter set|hyperpage}{16}
@@ -30,8 +30,8 @@
 \indexentry{imprimitivity!imprimitive|hyperpage}{16}
 \indexentry{imprimitivity!subscheme|hyperpage}{16}
 \indexentry{imprimitivity!quotient scheme|hyperpage}{16}
-\indexentry{imprimitivity!systems of -|hyperpage}{17}
-\indexentry{imprimitivity!subscheme|hyperpage}{18}
+\indexentry{imprimitivity!systems of -|hyperpage}{16}
+\indexentry{imprimitivity!subscheme|hyperpage}{17}
 \indexentry{imprimitivity!quotient scheme|hyperpage}{18}
 \indexentry{imprimitivity!quotient scheme|hyperpage}{19}
 \indexentry{$Q$-polynomial|hyperpage}{21}
@@ -40,8 +40,8 @@
 \indexentry{natural ordering|hyperpage}{21}
 \indexentry{$Q$-polynomial!$Q$-bipartite|hyperpage}{21}
 \indexentry{$Q$-polynomial!$Q$-antipodal|hyperpage}{21}
-\indexentry{$P$-polynomial|hyperpage}{22}
-\indexentry{$P$-polynomial!metric|hyperpage}{22}
+\indexentry{$P$-polynomial|hyperpage}{21}
+\indexentry{$P$-polynomial!metric|hyperpage}{21}
 \indexentry{$P$-polynomial!bipartite|hyperpage}{22}
 \indexentry{$P$-polynomial!antipodal|hyperpage}{22}
 \indexentry{equiangular lines|hyperpage}{24}
@@ -77,20 +77,20 @@
 \indexentry{optimistic lssd|hyperpage}{64}
 \indexentry{pessimistic lssd|hyperpage}{64}
 \indexentry{equiangular lines|hyperpage}{65}
-\indexentry{real mutually unbiased bases|hyperpage}{67}
+\indexentry{real mutually unbiased bases|hyperpage}{66}
 \indexentry{degenerate parameters|hyperpage}{67}
 \indexentry{Cameron-Seidel Scheme|hyperpage}{68}
-\indexentry{Menon parameters|hyperpage}{73}
+\indexentry{Menon parameters|hyperpage}{72}
 \indexentry{Hadamard matrix!real|hyperpage}{73}
 \indexentry{Hadamard matrix!regular|hyperpage}{73}
 \indexentry{Hadamard matrix!unbiased|hyperpage}{73}
+\indexentry{projective double|hyperpage}{79}
 \indexentry{projective double|hyperpage}{80}
-\indexentry{projective double|hyperpage}{81}
-\indexentry{orthogonal projective double|hyperpage}{81}
-\indexentry{strongly regular graph|hyperpage}{84}
-\indexentry{Delsarte coclique|hyperpage}{86}
-\indexentry{symmetrization of relations|hyperpage}{99}
-\indexentry{relation!symmetrization of -|hyperpage}{99}
-\indexentry{unweighted distribution diagram|hyperpage}{100}
-\indexentry{projection map|hyperpage}{101}
-\indexentry{proximal|hyperpage}{109}
+\indexentry{orthogonal projective double|hyperpage}{80}
+\indexentry{strongly regular graph|hyperpage}{83}
+\indexentry{Delsarte coclique|hyperpage}{85}
+\indexentry{symmetrization of relations|hyperpage}{98}
+\indexentry{relation!symmetrization of -|hyperpage}{98}
+\indexentry{unweighted distribution diagram|hyperpage}{99}
+\indexentry{projection map|hyperpage}{100}
+\indexentry{proximal|hyperpage}{107}

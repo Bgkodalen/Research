@@ -1,4 +1,4 @@
-\chapter{3-class $Q$-antipodal: LSSDs}\label{3class}
+\chapter{3-class \texorpdfstring{$Q$-antipodal}{Q-antipodal}: LSSDs}\label{3class}
 In \cite{Cameron1972}, Cameron investigated groups with inequivalent doubly-transitive permutation representations having the same permutation character and introduced the notion of a linked system of symmetric designs (LSSD). One such example arising from Kerdock codes was communicated by Goethals and later published in \cite{Goethals1976}. These structures in the homogeneous case were then further studied by Noda \cite{Noda1974} where he bounded the number of fibers in a LSSD in terms of the design parameters induced between any two of the fibers. Using the specific $(16,6,2)$ designs, Mathon \cite{Mathon1981} classified all inequivalent LSSDs using these design parameters via a computer search, finding that there were many inequivalent LSSDs with two or three fibers but only the scheme described by Geothals worked with four or more fibers. Later, Van Dam proved in \cite{VanDam1999} the equivalence between these objects and 3-class Q-antipodal association schemes. Martin, Muzychuk, and Williford found a connection to mutually unbiased bases in certain dimensions \cite{Martin2007}. Finally Davis, Martin, Polhill \cite{Davis2014} and Jedwab, Li, Simon \cite{Jedwab2017} built more non-trivial examples using difference sets in 2-groups.\par
 We begin this chapter with a survey of known results focusing on the connection to association schemes. We then introduce ``linked simplices", natural geometric objects which are of interest in their own right. We then establish the equivalence of sets of linked simplices and LSSDs. We compare three known bounds on the number of fibers and then explore connections to structures in Euclidean space. We show how to construct equiangular lines from arbitrary LSSDs and explore cases where LSSDs lead to real mutually unbiased bases (MUBs). After reviewing known examples, we focus on the case of Menon design parameters and, employing an equivalence with sets of mutually unbiased Hadamard matrices, we construct new families of LSSDs for many values of $v$. In particular, we show that one may fix the even part of $v$ without bounding the number of fibers in an LSSD, a result which was not previously known. In Appendix \ref{families}, we survey the design parameters of known infinite families of symmetric designs and determine which of these cannot produce LSSDs with more than two fibers, noting differences from a recent discovery by Jedwab et.\ al.\ \cite{Jedwab2017} in restricted cases.
 
@@ -156,7 +156,7 @@ Finally, we use this matrix $Q$ to calculate our Krein parameters using standard
 1& 0& 0& w-2\\
 \end{array}\right].$}\]
 Note that our association scheme is $Q$-polynomial if $L_1^*$ is irreducible tridiagonal (\cite[Prop.~2.7.1(i')]{Brouwer1989}), requiring that $s(v-2)>v-2k$ for which $k>1$ is sufficient. Further, the two $0$'s in the last column of $L_3^*$ signify that our scheme is $Q$-antipodal. We henceforth use the term \emph{linked system of symmetric designs}\index{linked system of symmetric designs} to refer to either the graph $\Gamma$ or to the association scheme it generates as in Theorem \ref{Qpoly}. It is worth noting that we can fulfill the LSSD conditions using \emph{degenerate design parameters}\index{degenerate parameters} $(v,1,0)$, however these will not satisfy the requirement $s(v-2)>v-2k$ as $k=1$. Therefore, these association schemes will not be $Q$-polynomial. This is one reason why we will ignore this case for much of our discussion.
-\subsection{Bounds for $w$}
+\subsection{Bounds on number of fibers}
 \subsubsection*{\sc Noda Bound}\index{Noda bound}
 In Theorem 2 of \cite{Noda1974}, Noda gives the following bound
 \begin{equation*}\resizebox{\textwidth}{!}{
@@ -309,7 +309,11 @@ This brings us to the main theorem of this section (cf. \cite[Theorem~2.6(1)]{Su
 	where $X_j$ is a third fiber. As we assumed $\gamma>\delta$, this also provides that $\mu>\nu$. Therefore $\Gamma$ is a $\mu$-heavy LSSD and adjacency in $\Gamma$ is the first relation of our proposed association scheme. The third relation (the $\nu$-heavy LSSD) is built from using $\delta$ to define adjacency.
 \end{proof}
 \subsection{A geometric classification}
-As every association scheme has relations corresponding to complementary $\mu$-heavy and $\nu$-heavy LSSDs, it becomes useful to differentiate between LSSDs where $P_{01}$ (the valency of the $\mu$-heavy design) is greater than $P_{03}$ (the valency of the $\nu$-heavy design) or vice versa. Noting that the $\mu$-heavy LSSD gives the nearest neighbor graph\index{nearest neighbor graph}\footnote{The ``nearest neighbor graph" here refers to the basis relation in our association scheme corresponding to largest innerproduct not equal to 1. By definition, this is $R_1$ under the natural ordering of relations for a $Q$-polynomial scheme.} of our association scheme and thus the only positive inner product apart from 1, we classify a LSSD as \emph{optimistic}\index{optimistic lssd} if $P_{01}>P_{03}$ (and thus there are more positive inner products than negative). Likewise we classify the opposite case as \emph{pessimistic}\index{pessimistic lssd}. While this classification helps designate whether the set of linked simplices has mostly positive or mostly negative inner products between distinct simplices, we also note that every known non-degenerate example of a LSSD is optimistic. At the parameter level, an LSSD is optimistic if $(2k-v)(\mu-\nu)>0$ and pessimistic if $(2k-v)(\mu-\nu)<0$. The following table lists the possibilities.
+As every association scheme has relations corresponding to complementary $\mu$-heavy and $\nu$-heavy LSSDs, it becomes useful to differentiate between LSSDs where $P_{01}$ (the valency of the $\mu$-heavy design) is greater than $P_{03}$ (the valency of the $\nu$-heavy design) or vice versa. Noting that the $\mu$-heavy LSSD gives the nearest neighbor graph\index{nearest neighbor graph}\footnote{The ``nearest neighbor graph" here refers to the basis relation in our association scheme corresponding to largest innerproduct not eq
+	
+	
+	
+	ual to 1. By definition, this is $R_1$ under the natural ordering of relations for a $Q$-polynomial scheme.} of our association scheme and thus the only positive inner product apart from 1, we classify a LSSD as \emph{optimistic}\index{optimistic lssd} if $P_{01}>P_{03}$ (and thus there are more positive inner products than negative). Likewise we classify the opposite case as \emph{pessimistic}\index{pessimistic lssd}. While this classification helps designate whether the set of linked simplices has mostly positive or mostly negative inner products between distinct simplices, we also note that every known non-degenerate example of a LSSD is optimistic. At the parameter level, an LSSD is optimistic if $(2k-v)(\mu-\nu)>0$ and pessimistic if $(2k-v)(\mu-\nu)<0$. The following table lists the possibilities.
 \[\begin{tabular}{c|c|c}
 & $2k>v$ & $2k<v$\\\hline
 $\mu$-heavy & optimistic & pessimistic\\\hline
@@ -545,7 +549,7 @@ We can form the characteristic vectors $[Q_i(v)]_v$. Below we display $[Q_2(v)]_
 [Q_8(v)]_v &= \left[\begin{array}{cccccccccccccccc}0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 1 & 0\end{array}\right].\\
 \end{aligned}\]
 Given the characteristic vectors, we can find the cosets of $\mathscr{R}(1,4)$. The coset corresponding to $Q_2(v)$ is given below as the set of rows of the matrix. To improve readability, $+$ denotes a $1$, $-$ denotes a $-1$ and an empty space denotes a $0$.
-\[[Q_2(v)]_v+\mathscr{R}(1,4) =\setlength{\arraycolsep}{.8pt}\scalefont{.4}{\left[\begin{array}{cccccccccccccccc}
+\[[Q_2(v)]_v+\mathscr{R}(1,4) =\setlength{\arraycolsep}{.8pt}{\fontsize{5}{6}\selectfont\left[\begin{array}{cccccccccccccccc}
 	&  &  & + &  &  &  & + &  &  &  & + & + & + & + & \\
 	+ & + & + &  & + & + & + &  & + & + & + &  &  &  &  & +\\
 	& + &  &  &  & + &  &  &  & + &  &  & + &  & + & +\\
@@ -581,7 +585,7 @@ Given the characteristic vectors, we can find the cosets of $\mathscr{R}(1,4)$. 
 	\end{array}\right]}.\]
 To form our regular simplex we now choose all vectors with 0 in the last coordinate, discard the last element, replace every 0 with a $-1$, and then scale by $\frac{1}{\sqrt{15}}$ giving us the vectors (given by rows):
 \[\begin{aligned}
-X_2 = \frac{1}{\sqrt{15}}\setlength{\arraycolsep}{.8pt}\scalefont{.4}{\left[\begin{array}{rrrrrrrrrrrrrrrr}
+X_2 = \frac{1}{\sqrt{15}}\setlength{\arraycolsep}{.8pt}{\fontsize{5}{6}\selectfont\left[\begin{array}{rrrrrrrrrrrrrrrr}
 	- & - & - & + & - & - & - & + & - & - & - & + & + & + & + \\
 	+ & - & + & + & + & - & + & + & + & - & + & + & - & + & - \\
 	+ & + & - & + & + & + & - & + & + & + & - & + & - & - & + \\
@@ -602,7 +606,7 @@ X_2 = \frac{1}{\sqrt{15}}\setlength{\arraycolsep}{.8pt}\scalefont{.4}{\left[\beg
 \end{aligned}\]
 Likewise each $[Q_j(v)]_v$ gives us a coset of size 32, which in turn is transformed to a regular simplex $X_j$ in this manner.
 \subsubsection*{Symmetric design parameters}
-The design parameters of this scheme are $v = 2^{2r}$, $k = 2^{r-1}\left(2^{r}+1\right)$, and $\lambda = 2^{r-1}\left(2^{r-1}+1\right)$. Using these, we have: $s = 2^{r-1}$, $\nu = 2^{r-2}\left(2^r+1\right)$,  and $\mu=2^{r-2}\left(2^r+3\right)$.
+The design parameters of this scheme are $\left(2^{2r},2^{r-1}\left(2^{r}+1\right),2^{r-1}\left(2^{r-1}+1\right)\right)$. Using these, we have: $s = 2^{r-1}$, $\nu = 2^{r-2}\left(2^r+1\right)$,  and $\mu=2^{r-2}\left(2^r+3\right)$.
 \subsubsection*{Intersection numbers}
 Noting that $p_{i,j}^k = p_{j,i}^k$, we list the unique intersection numbers while omitting the trivial $p_{0,i}^j$ parameters. Note that each $p^{j}_{i,k}$ is scaled by a constant based on $i$ and $k$ given in the first row of our table.
 \[\scalebox{.9}{$\begin{array}{c|ccc|cc|c}
@@ -622,7 +626,7 @@ j & q^{j}_{1,1}			& q^{j}_{1,2}	 						& q^{j}_{1,3} 	& q^{j}_{2,2} 									& q
 3 & 0 					& 2^{2r}-1								& 0 			& (w-2)(2^{2r}-1)								& 0  			& w-2\\
 \end{array}\]
 
-\section{New examples with $v\neq 2^m$}
+\section{New examples with \texorpdfstring{$v\neq 2^m$}{v not equal to a power of 2}}
 \label{LSSDMUBs}
 Recall from Section $\ref{bases}$ that we found the Gram matrix for a set of bases by adding the first two idempotents of our scheme, giving us
 \begin{equation}\label{MubGram}M = w(E_0+E_1) = \left(A_0+\frac{v-k+\sqrt{k-\lambda}}{v\sqrt{k-\lambda}}A_1-\frac{k-\sqrt{k-\lambda}}{v\sqrt{k-\lambda}}A_3\right)\end{equation}
@@ -802,7 +806,7 @@ Then the sum of any row of the Hadamard matrix built from $M^{i,j,l}$ and $M^{i'
 %\end{cor}
 \begin{proof}
 	Using the MacNeish construction (\cite{Macneish1922},\cite[Thm~1.1.2]{Bommel2015}), there exists an orthogonal array $O_n$ of size $36^{2n}\times(4^n+1)$. Consider the regular Hadamard matrix of order 36:
-	\[H = \setlength{\arraycolsep}{0.6pt}\scalefont{.4}{\left[\begin{array}{cccccccccccccccccccccccccccccccccccc}
+	\[H = \setlength{\arraycolsep}{0.6pt}{\fontsize{5}{6}\selectfont\left[\begin{array}{cccccccccccccccccccccccccccccccccccc}
 		-&-&-&-&+&-&-&+&+&+&+&-&+&+&-&+&-&+&+&+&+&+&-&-&-&+&+&+&+&-&+&+&+&-&+&-\\
 		+&-&-&-&-&+&-&-&+&+&-&+&+&-&+&-&+&+&+&+&+&-&-&-&+&+&+&+&-&+&+&+&-&+&-&+\\
 		+&+&-&-&-&-&+&-&-&-&+&+&-&+&-&+&+&+&+&+&-&-&-&+&+&+&+&-&+&+&+&-&+&-&+&+\\
@@ -865,7 +869,7 @@ To give an example of the construction for Theorem $\ref{newLSSD}$ we build a $\
 + & + & + & -\\
 \end{array}\right].\]
 Using this OA, we have
-\[B^{:,:} = \setlength{\arraycolsep}{0.8pt}\scalefont{.4}{\left[\begin{array}{cccc|cccc|cccc}
+\[B^{:,:} = \setlength{\arraycolsep}{0.8pt}{\fontsize{5}{6}\selectfont\left[\begin{array}{cccc|cccc|cccc}
 	+&&& &+&&& &+&&&\\
 	+&&& &&+&& &&+&&\\
 	+&&& &&&+& &&&+&\\
@@ -885,7 +889,7 @@ Using this OA, we have
 	\end{array}\right]}.\]
 Below we display the three arrays $M^{1,:,:}$, $M^{2,:,:}$, and $M^{3,:,:}$ resp.\
 \[\begin{aligned}
-\setlength{\arraycolsep}{0.4pt}\scalefont{.5}{\left[\begin{array}{rrrr|rrrr|rrrr|rrrr}
+\setlength{\arraycolsep}{0.4pt}{\fontsize{5}{6}\selectfont\left[\begin{array}{rrrr|rrrr|rrrr|rrrr}
 	- & + & + & +&&&&&&&&&&&&\\
 	+ & - & + & +&&&&&&&&&&&&\\
 	+ & + & - & +&&&&&&&&&&&&\\
@@ -903,7 +907,7 @@ Below we display the three arrays $M^{1,:,:}$, $M^{2,:,:}$, and $M^{3,:,:}$ resp
 	&&&&&&&&&&&&+ & + & - & +\\
 	&&&&&&&&&&&&+ & + & + & -\\
 	\end{array}\right]},\quad
-&\setlength{\arraycolsep}{0.4pt}\scalefont{.5}{\left[\begin{array}{rrrr|rrrr|rrrr|rrrr}
+&\setlength{\arraycolsep}{0.4pt}{\fontsize{5}{6}\selectfont\left[\begin{array}{rrrr|rrrr|rrrr|rrrr}
 	- & + & + & +&&&&&&&&&&&&\\
 	&&&&- & + & + & +&&&&&&&&\\
 	&&&&&&&&- & + & + & +&&&&\\
@@ -921,7 +925,7 @@ Below we display the three arrays $M^{1,:,:}$, $M^{2,:,:}$, and $M^{3,:,:}$ resp
 	&&&&&&&&+ & + & + & -&&&&\\
 	&&&&&&&&&&&&+ & + & + & -\\
 	\end{array}\right]},\quad
-&\setlength{\arraycolsep}{0.4pt}\scalefont{.5}{\left[\begin{array}{rrrr|rrrr|rrrr|rrrr}
+&\setlength{\arraycolsep}{0.4pt}{\fontsize{5}{6}\selectfont\left[\begin{array}{rrrr|rrrr|rrrr|rrrr}
 	- & + & + & +&&&&&&&&&&&&\\
 	&&&&- & + & + & +&&&&&&&&\\
 	&&&&&&&&- & + & + & +&&&&\\
@@ -943,7 +947,7 @@ Below we display the three arrays $M^{1,:,:}$, $M^{2,:,:}$, and $M^{3,:,:}$ resp
 Finding the inner products of each pair of bases we find the three Hadamard matrices $H_{1,2}$, $H_{1,3}$, and $H_{2,3}$ resp.\
 
 \[\begin{aligned}
-\setlength{\arraycolsep}{.8pt}\scalefont{.4}{\left[\begin{array}{rrrrrrrrrrrrrrrr}
+\setlength{\arraycolsep}{.8pt}{\fontsize{5}{6}\selectfont\left[\begin{array}{rrrrrrrrrrrrrrrr}
 	+&-&-&-&-&+&+&+&-&+&+&+&-&+&+&+\\
 	-&+&+&+&+&-&-&-&-&+&+&+&-&+&+&+\\
 	-&+&+&+&-&+&+&+&+&-&-&-&-&+&+&+\\
@@ -961,7 +965,7 @@ Finding the inner products of each pair of bases we find the three Hadamard matr
 	+&+&+&-&+&+&+&-&-&-&-&+&+&+&+&-\\
 	+&+&+&-&+&+&+&-&+&+&+&-&-&-&-&+\\
 	\end{array}\right]},\quad
-&\setlength{\arraycolsep}{.8pt}\scalefont{.4}{\left[\begin{array}{rrrrrrrrrrrrrrrr}
+&\setlength{\arraycolsep}{.8pt}{\fontsize{5}{6}\selectfont\left[\begin{array}{rrrrrrrrrrrrrrrr}
 	+&-&-&-&-&+&+&+&-&+&+&+&-&+&+&+\\
 	-&+&+&+&+&-&-&-&-&+&+&+&-&+&+&+\\
 	-&+&+&+&-&+&+&+&+&-&-&-&-&+&+&+\\
@@ -978,7 +982,7 @@ Finding the inner products of each pair of bases we find the three Hadamard matr
 	-&-&-&+&+&+&+&-&+&+&+&-&+&+&+&-\\
 	+&+&+&-&-&-&-&+&+&+&+&-&+&+&+&-\\
 	+&+&+&-&+&+&+&-&-&-&-&+&+&+&+&-\\
-	\end{array}\right]},&\setlength{\arraycolsep}{.8pt}\scalefont{.4}{\left[\begin{array}{rrrrrrrrrrrrrrrr}
+	\end{array}\right]},&\setlength{\arraycolsep}{.8pt}{\fontsize{5}{6}\selectfont\left[\begin{array}{rrrrrrrrrrrrrrrr}
 	+&-&-&-&+&-&+&+&+&+&-&+&+&+&+&-\\
 	-&+&+&+&-&+&-&-&+&+&-&+&+&+&+&-\\
 	-&+&+&+&+&-&+&+&-&-&+&-&+&+&+&-\\

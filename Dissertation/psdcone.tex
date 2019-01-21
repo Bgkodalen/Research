@@ -9,7 +9,7 @@ In this chapter we will examine the cone of positive semidefinite matrices withi
 
 In both Theorem \ref{schoen-as} and the final line of Theorem \ref{degreebound}, $Q_k^m(t)$ denotes the Gegenbauer polynomial of degree $k$ in dimension $m$.
 \begin{restatable*}{lem}{buildingequi}\label{equilines}
-	Let $(X,\cR)$ be given with second eigenmatrix $Q$ with multiplicities $m_0,\dots,m_d$. Define $Q^\prime$ to be the submatrix of $Q$ given by deleting row $0$. If there exists a non-negative vector $x$ so that $Q^\prime x\in\left\{-1,1\right\}^d$, then $\BMA$ contains the Gram matrix of $\vert X\vert$ equiangular lines in dimension $n=\sum_{x_j\neq 0} m_j$ with angle $\alpha =\left(\sum x_jm_j\right)^{-1}$.
+	Let $\BMA$ be a Bose-Mesner algebra with second eigenmatrix $Q$ and multiplicities $m_0,\dots,m_d$. Define $Q^\prime$ to be the submatrix of $Q$ given by deleting row $0$. If there exists a non-negative vector $x$ so that $Q^\prime x\in\left\{-1,1\right\}^d$, then $\BMA$ contains the Gram matrix of $\vert X\vert$ equiangular lines in dimension $n=\sum_{x_j\neq 0} m_j$ with angle $\alpha =\left(\sum x_jm_j\right)^{-1}$.
 \end{restatable*}
 \begin{restatable*}{thm}{schAS}\label{schoen-as}
 	Let $(X,\mathcal{R})$ be an association scheme with minimal idempotents $E_0,\dots,E_d$ and matrices of Krein parameters $\displaystyle{L_0^*,\dots,L_d^*}$. Fix some $E_i$, $0\leq i\leq d$, and let $m_i:=\text{rank}\left(E_i\right)$. Then for any choice of $\ell>0$, there exist non-negative constants $\theta_{\ell j}$, $0\leq j\leq d$, such that
@@ -41,7 +41,7 @@ In both Theorem \ref{schoen-as} and the final line of Theorem \ref{degreebound},
 \end{restatable*}
 
 
-\section{Lines with few angles}\label{equilines}
+\section{Lines with few angles}\label{equianglines}
 Let $(X,\cR)$ be an association scheme with basis relations $A_0,\dots,A_d$, orthogonal idempotents $E_0,\dots,E_d$, and Bose-Mesner algebra $\BMA$. Since each $E_i$ is an idempotent matrix, it has spectrum $\left\{0,1\right\}$ and thus is positive semidefinite, denoted $E_i\succeq 0$. Any $G\in\BMA$ may be uniquely expressed
 \begin{equation}G = \sum_i\alpha_i E_i,\label{lincomb}\end{equation}
 and we have $\text{spec}\left(G\right) = \left\{\alpha_0,\dots,\alpha_d\right\}$. Therefore $G\succeq 0$ if and only if $\alpha_i\geq 0$ for all $0\leq i\leq d$. Thus the \emph{positive semidefinite cone}\index{positive semidefinite cone} of $(X,\cR)$ is the set of non-negative linear combinations of the idempotents $E_0,\dots,E_d$. Further, equation \eqref{lincomb} gives us that \begin{equation}\text{rank}\left(G\right) = \sum_{\alpha_i\neq 0} m_i.\label{rank}\end{equation}
@@ -201,13 +201,13 @@ Q_2(t)=\frac{mt^2 - 1}{m-1},\qquad
 Q_3(t)=\frac{(m+2)t^3 - 3t}{m-1},\qquad\]\[
 Q_4(t)=\frac{(m+4)(m+2)t^4 - 6(m+2)t^2+3}{m^2-1},\]\[
 Q_5(t)=\frac{(m+6)(m+4)t^5-10(m+4)t^3+15t}{m^2-1}.\]
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\begin{center}
 		\includegraphics[scale=.35]{gegenbauer_polynomials.PNG}
 		\caption[Gegenbauer polynomials]{Gegenbauer polynomials with degree 1 through degree 5 with $m=10$.}\label{gegpic}
 	\end{center}
 \end{figure}
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\begin{center}
 		\includegraphics[scale=.35]{roots.PNG}
 		\caption[Roots of Gegenbauer polynomials]{Roots of the five Gegenbauer polynomials with degrees $1$ to $5$.}\label{rootpic}
@@ -560,8 +560,8 @@ Consider the feasible parameter set with first and second eigenmatrices
 1 & \nicefrac{-26}{5} & \nicefrac{91}{5} & -12
 \end{array}\right].\]
 If realizable, the association scheme with this parameter set would be a 3-class primitive $Q$-polynomial association scheme. Using the first eigenspace for our Gram matrix, that is $i=1$ in Theorem \ref{schoen-as}, we find $\lambda_0 = 1$, $\lambda_1 = \frac{37}{100}$, $\lambda_2 = -\frac{1}{20}$, and $\lambda_3 = -\frac{26}{100}$ where $\lambda_j = \nicefrac{Q_{j1}}{Q_{01}}$. Noting that $(1+\mu_\ell)^2\lambda^2-4\mu_\ell<0$ if and only if $\mu_\ell = \frac{\ell-1}{\ell+m-3}>2-\vert\lambda\vert-2\sqrt{1-\vert\lambda\vert}$. For $1\leq j\leq d$ define $\ell_j$ as the largest integer for which $\frac{\ell-1}{\ell+m-3}\leq2-\lambda-2\sqrt{1-\lambda}$. Then we find $\ell_1=\ell_2=\ell_3=1$ giving
-\[\begin{aligned}\sum_{j=1}^3k_j\left(1+\lambda_j^2\right)\left(\prod_{\ell=2}^{x+1}\gamma_{\ell,j}\right) &= \left(\prod_{\ell=2}^{x+1}\mu_\ell\right)\left(440+100\left(\frac{37}{100}\right)^2+240\left(\frac{1}{20}\right)^2+100\left(\frac{26}{100}\right)^2\right)\\
-&=\left(\prod_{\ell=2}^{x+1}\mu_\ell\right)\frac{18843}{40}\end{aligned}\]
+\[\scalebox{.95}{$\begin{aligned}\sum_{j=1}^3k_j\left(1+\lambda_j^2\right)\left(\prod_{\ell=2}^{x+1}\gamma_{\ell,j}\right) &= \left(\prod_{\ell=2}^{x+1}\mu_\ell\right)\left(440+100\left(\frac{37}{100}\right)^2+240\left(\frac{1}{20}\right)^2+100\left(\frac{26}{100}\right)^2\right)\\
+&=\left(\prod_{\ell=2}^{x+1}\mu_\ell\right)\frac{18843}{40}\end{aligned}$}\]
 Noting that
 \[\left(\prod_{\ell=2}^8\mu_\ell\right)\frac{18843}{40}\approx 0.00098<\frac{1}{441},\]
 we have that the conditions $\theta_{\ell j}\geq 0$ are vacuous for this parameter set whenever $\ell\geq 7$. Below we list $\theta_{\ell j}$ for $0\leq \ell\leq 6$ and $0\leq j\leq 3$, listing only the first two decimal places for readability:
@@ -642,8 +642,8 @@ In this case we find four new conditions arising from $\theta_{5i}\geq 0$ for $0
 Note that the inequality $\eqref{Co41}$ is implied by the inequality $\eqref{Co50}$ for $m>2$.
 \subsection*{Degree 6 constraint}
 Here, we list only $\theta_{60}$ as we will use this bound in section \ref{4classbip}.
-\[\begin{aligned}\frac{\theta_{60}}{\vert X\vert( m+6)} = &\frac{16m^2(m-2)(m-1) + \left(\left(a_1^*\right)^4 + \left(3a_1^*\left(a_1^*+a_2^*\right)+c_2^*q_{22}^2\right)b_1^*c_2^*\right)(m+8)(m+4)}{m^5(m^2-1)(m+3)}\\
-&-\frac{12\left(\left(a_1^*\right)^2+b_1^*c_2^*\right)(m-2)(m+4)m}{m^5(m^2-1)(m+3)}
+\[\begin{aligned}\frac{\theta_{60}}{\vert X\vert( m+6)} = &\frac{16(m-2)}{m^3(m+1)(m+3)} + \frac{\left(\left(a_1^*\right)^4 + \left(3a_1^*\left(a_1^*+a_2^*\right)+c_2^*q_{22}^2\right)b_1^*c_2^*\right)(m+8)(m+4)}{m^5(m^2-1)(m+3)}\\
+&-\frac{12\left(\left(a_1^*\right)^2+b_1^*c_2^*\right)(m-2)(m+4)}{m^4(m^2-1)(m+3)}
 \end{aligned}\]
 This results in the final condition that
 \begin{equation}\label{Co60}
@@ -691,7 +691,7 @@ Dr. Williford maintains a list of small ($\vert X\vert<10000$) feasible paramete
 		
 	\end{itemize}
 \end{itemize}
-\subsection{$Q$-bipartite association schemes}
+\subsection{\texorpdfstring{$Q$-bipartite}{Q-bipartite} association schemes}
 We conclude this section by proving $Q$-bipartite analogues of Theorem \ref{degreebound}, Corollary \ref{maxlambda}, and Theorem \ref{cometricbnds}. We begin by proving an important theorem concerning the eigenvalues $\theta_{\ell i}$ as described in Theorem \ref{schoen-as}.
 \begin{thm}\label{Qbipeig}
 	Let $(X,\cR)$ be a $Q$-bipartite association scheme with cometric ordering $E_0,E_1,\dots,E_d$. Define $\theta_{\ell,j}$ for $0\leq j\leq d$ and $\ell\geq 0$ so that
