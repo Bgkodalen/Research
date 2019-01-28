@@ -119,7 +119,7 @@ relation of the association scheme.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The graph homomorphism \texorpdfstring{$\varphi_a$}{phia}}
 
-For $0< i \le d$, let $\Gamma_i=(X,R_i)$ and let $H_i$ denote the \emph{unweighted distribution diagram}\index{unweighted distribution diagram} corresponding to symmetric relation $R_i$---that is, $H_i = \Gamma(V,E)$ where $V = \left\{0,\dots,d\right\}$ and $(j,k)\in E$ if and only if $p^k_{ij}>0$. 
+For $0< i \le d$, let $\Gamma_i=(X,R_i)$ and let $H_i$ denote the \emph{unweighted distribution diagram}\index{unweighted distribution diagram} corresponding to symmetric relation $R_i$ --- that is, $H_i = \Gamma(V,E)$ where $V = \left\{0,\dots,d\right\}$ and $(j,k)\in E$ if and only if $p^k_{ij}>0$. 
 
 \begin{prop}  \label{Pphi}
 	For any $a\in X$, the map $\varphi_{a,i} : \Gamma_i \rightarrow H_i$ sending $b\in X$ to $j$ where $(a,b)\in R_j$
@@ -304,7 +304,7 @@ $\tI$ will remain fixed for this connected graph $\Gamma$.
 
 Now fix $a\in X$ and choose $b\in U_a$. 
 Consider the component $\Delta$ of $\Gamma_b$ containing $a$.
-%Denote by $V\Delta$ and $E\Delta$ the vertex set of $\Delta$, 
+Denote by $V\Delta$ the vertex set of $\Delta$.
 %and let $\Delta(a)$ denote the neighbors of 
 %$a\in V\Delta$ in $\Delta$.
 Since $b$ and $a$ are not twins, some element of $\Gamma(a)$ is a vertex of $\Delta$ and hence $\Delta$ contains vertices in $W_a$ unless $\tW = \emptyset$. Let $Z_a = V\Delta \cap W_a$ and let $Y_a= W_a \setminus Z_a$. This vertex decomposition is depicted in Figure \ref{FigGamma}. 
@@ -390,7 +390,7 @@ sets $Y_a$ and $Z_a$ are defined as above relative to this pair of vertices.
 
 
 \begin{proof}
-	Let $a,x \in X$ with $x \not\in a^\bot$. Choose $b\in U_a$ as above and consider, in turn, each part of
+	Let $a,x \in X$ with $x \not\in a^\bot$. Let $V\Gamma_a$ be the vertex set of the graph $\Gamma_a$. Choose $b\in U_a$ as above and consider, in turn, each part of
 	the decomposition 
 	$$ V\Gamma_a \ = \ I_a \ \dot{\cup} \ U_a  \ \dot{\cup} \  Z_a  \ \dot{\cup}  \  Y_a $$
 	relative to $a$ and $b$.
@@ -611,7 +611,7 @@ to any connected simple graph $\Gamma$.
 	\label{Psptree}
 	Let $\Gamma=(X,R_1)$ be the graph associated to a con\-nec\-ted basis relation in  a 
 	symmetric association scheme  $(X,\cR)$.
-	Suppose any two vertices at distance two in  $\Gamma$ lie in some common cycle of  length at most  $g$ and $T \subseteq V\Gamma$ satisfies $d_\Gamma(y,y') 
+	Suppose any two vertices at distance two in  $\Gamma$ lie in some common cycle of length at most  $g$ and $T \subseteq V\Gamma$ satisfies $d_\Gamma(y,y') 
 	\ge g+1$ for all pairs $y,y'$ of distinct vertices from $T$. Then $\Gamma \setminus T$ is connected.
 \end{prop}
 

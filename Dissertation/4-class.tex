@@ -1,14 +1,14 @@
 \chapter{Orthogonal projective double covers}
 \label{4classbip}
-Throughout this thesis we have examined many different spherical $t$-distance sets and their close relation to association schemes. In some cases, we may find an equivalence between such $t$-distance sets and certain classes of association schemes; thus is the case discussed in Chapter \ref{3class} where we found 3-class $Q$-antipodal association schemes were equivalent to the 3-distance sets called linked simplices. In other cases we find that equivalence occurs only when we restrict certain aspects of the $t$-distance set, for instance only certain equiangular lines occur within 2-class $Q$-bipartite association schemes. In this chapter, we introduce a line system known as a \emph{projective double}\index{projective double} of a graph, denoted $PD_m(\Gamma;\beta,\gamma)$. These consist of lines in $\mathbb{R}^m$ with two possible angles where the incidence graph on $\beta$ is $\Gamma$. Here, as with equiangular lines, $\beta$ and $\gamma$ represent the cosine of the angles between lines; despite this we will abuse notation and refer to them as the ``angles" of our projective double. We find that these systems are closely related to $4$- and $5$-class $Q$-bipartite association schemes. In this chapter, we will focus on the $4$-class case and define a related line system called an \emph{orthogonal projective double} of a graph $\Gamma$, denoted $OPD_m(\Gamma;\beta)$. These are projective doubles for which $\gamma = 0$. We begin by considering the general objects but will add restrictions along the way with the motivation of finding an equivalence between these objects and our association schemes. Below is a list of the main results found in this chapter.
+Throughout this thesis we have examined many different spherical $t$-distance sets and their close relation to association schemes. In some cases, we may find an equivalence between such $t$-distance sets and certain classes of association schemes; thus is the case discussed in Chapter \ref{3class} where we found 3-class $Q$-antipodal association schemes were equivalent to the 3-distance sets called linked simplices. In other cases we find that equivalence occurs only when we impose additional restrictions on the $t$-distance set, for instance only certain sets of equiangular lines occur within 3-class $Q$-bipartite association schemes. In this chapter, we introduce a line system known as a \emph{projective double}\index{projective double} of a graph, denoted $PD_m(\Gamma;\beta,\gamma)$. This object is a set of lines in $\mathbb{R}^m$ with two possible angles, $\alpha$ and $\beta$, where $\Gamma$ is the incidence graph on $\beta$. Here, as with sets of equiangular lines, $\beta$ and $\gamma$ represent the cosine of the angles between lines; despite this we will abuse notation and refer to them as the ``angles" of our projective double. We find that these systems are closely related to $4$- and $5$-class $Q$-bipartite association schemes. In this chapter, we will focus on the $4$-class case and define a related line system called an \emph{orthogonal projective double} of a graph $\Gamma$, denoted $OPD_m(\Gamma;\beta)$. These are projective doubles for which $\gamma = 0$. We begin by considering the general objects but will add restrictions along the way with the motivation of finding an equivalence between these objects and our association schemes. Below is a list of the main results found in this chapter.
 \begin{restatable*}{prop}{projsrg}\label{projnec}
 	An $OPD_m(\Gamma;\beta)$ for simple graph $\Gamma$ induces an association scheme only if $\Gamma$ is strongly regular.
 \end{restatable*}
 \begin{restatable*}{cor}{cocliquealpha}\label{snegsquare}
-	Let $\Gamma$ be a nonempty strongly regular graph with $v$ vertices, valency $k$ and smallest eigenvalue $s$ which contains a Delsarte coclique $C$. Then an $OPD_{\vert C\vert}(\Gamma;\beta)$ exists only if $\beta=\frac{1}{\sqrt{-s}}$. Further, either $\Gamma$ is complete bipartite or $\beta^{-1}\in \mathbb{Z}$.
+	Let $\Gamma$ be a connected strongly regular graph with $v$ vertices and eigenvalues $k>r>s$ which contains a Delsarte coclique $C$ of size $m$. Then an $OPD_{m}(\Gamma;\beta)$ exists only if $\beta=\frac{1}{\sqrt{-s}}$. Further, either $\Gamma$ is complete bipartite or $\beta^{-1}\in \mathbb{Z}$.
 \end{restatable*}
 \begin{restatable*}{cor}{dimiffassoc}\label{dimiffassoc}
-	Let $\Gamma$ be a strongly regular graph with $v$ vertices, valency $k$, and smallest eigenvalue $s$ with $k+rs>0$. An $OPD_{m}(\Gamma;\beta)$ with $m<v$ induces an association scheme if and only if $m = v\left(1+k\beta^2\right)^{-1}$.
+	Let $\Gamma$ be a connected strongly regular graph with $v$ vertices and eigenvalues $k>r>s$. An $OPD_{m}(\Gamma;\beta)$ with $m<v$ induces an association scheme if and only if $m = v\left(1+k\beta^2\right)^{-1}$.
 \end{restatable*}
 
 \begin{restatable*}{thm}{fourclasssixzero}\label{thm60}
@@ -17,14 +17,14 @@ Throughout this thesis we have examined many different spherical $t$-distance se
 \end{restatable*}
 
 \section{Orthogonal projective doubles of regular graphs}
-As we saw with other examples, it becomes useful to represent a line system by a set of unit vectors, defining the ``angle" between two lines to be the absolute value of the inner product between representative unit vectors. We often chose one representative for each line, resulting in many equivalent representations of any line set. In this chapter, we will instead include both directions; that is, we will represent our line system with an antipodal set of unit vectors with twice as many vectors as there are lines. Further, we will describe a projective double by not only the parameters $m$, $\beta$, and $\delta$ but also the graph which is induced on the set of lines where two lines are adjacent if they intersect in angle $\beta$. Let $\Gamma$ be an undirected graph on $v$ vertices. A \emph{projective double}\index{projective double}($PD_m(\beta,\delta)$) of $\Gamma$ is an antipodal spherical set, say $L = \left\{\ell_1,\dots,\ell_{2v}\right\}\subset \mathbb{R}^m$ with inner products $A = \left\{\pm 1,\pm \beta,\pm\delta\right\}$ such that there exists a mapping $\phi:L\rightarrow V\Gamma$ with the properties
+As we saw with other examples, it becomes useful to represent a line system by a set of unit vectors, defining the ``angle" between two lines to be the absolute value of the inner product between representative unit vectors. As we have two choices of a representative for each line, we have many equivalent such representations of any line set. In this chapter, we will instead include both directions; that is, we will represent our line system with an antipodal set of unit vectors with twice as many vectors as there are lines. Further, we will describe a projective double by not only the parameters $m$, $\beta$, and $\delta$ but also the graph which is induced on the set of lines where two lines are adjacent if they intersect in angle $\beta$. Let $\Gamma = \Gamma(V,E)$ be an undirected graph on $v$ vertices. A \emph{projective double}\index{projective double}($PD_m(\beta,\delta)$) of $\Gamma$ is an antipodal spherical code, say $L = \left\{\ell_1,\dots,\ell_{2v}\right\}\subset \mathbb{R}^m$ with inner products $A = \left\{\pm 1,\pm \beta,\pm\delta\right\}$ such that there exists a mapping $\phi:L\rightarrow V$ with the properties
 \begin{enumerate}[label=(\roman*)]
 	\item $\phi(\ell_i) = \phi(\ell_j)$ if and only if $\left\vert\left<\ell_i,\ell_j\right>\right\vert = 1$,
 	\item $\phi(\ell_i) \sim \phi(\ell_j)$ if and only if $\left\vert\left<\ell_i,\ell_j\right>\right\vert = \gamma$	
 \end{enumerate}
-for $1\leq i,j\leq 2v$. Thus any $PD_m(\beta,\delta)$ of $\Gamma$ is immediately a $PD_m(\delta,\beta)$ of $\overline{\Gamma}$---for this reason, we adopt the convention that $\beta>\delta$ for all of our projective doubles. So long as $\delta>0$, a $PD_m(\Gamma;\beta,\delta)$ will be a $5$-distance set and thus cannot produce a $4$-class association schemes. Thus, our first restriction is that $\delta = 0$ and we define an \emph{orthogonal projective double}\index{orthogonal projective double} $(OPD_m(\Gamma;\beta))$ as a projective double of $\Gamma$ for which $\delta = 0$. It is this class of objects which we will focus on for the entirety of this chapter. Our primary goal is to determine which $OPD$s induce association schemes, though we begin by asking the simpler question--- for which graphs do they exist and what restrictions occur on the dimension $m$ and angle $\beta$. We find quickly that without any restrictions on the dimension, we may always find an $OPD$ for a given graph $\Gamma$---consider the following two propositions.
+for $1\leq i,j\leq 2v$. Thus any $PD_m(\beta,\delta)$ of $\Gamma$ is immediately a $PD_m(\delta,\beta)$ of $\overline{\Gamma}$ --- for this reason, we adopt the convention that $\beta>\delta$ for all of our projective doubles. So long as $\delta>0$, a $PD_m(\Gamma;\beta,\delta)$ will be a spherical $5$-distance set and thus the Gram matrix of such a projective double cannot belong to the Bose-Mesner algebra of a 4-class association scheme. Thus, our first restriction is that $\delta = 0$ and we define an \emph{orthogonal projective double},\index{orthogonal projective double} $OPD_m(\Gamma;\beta)$, as a projective double of $\Gamma$ for which $\delta = 0$. It is this class of objects which we will focus on for the entirety of this chapter. Our primary goal is to determine which $OPD$s induce association schemes; that is, when is the Schur closure of the Gram matrix a Bose-Mesner algebra. We begin by asking the simpler question --- for which graphs does there exist an OPD. We find quickly that without any restrictions on the dimension, we may always find an $OPD$ for a given graph $\Gamma$ --- consider the following two propositions.
 \begin{prop}\label{dirnaive}
-	For any non-empty simple graph $\Gamma$, there exists an $OPD_m(\Gamma;d^{-1})$ for some $m\leq \vert V\Gamma\vert$ with $d$ the max degree of $\Gamma$.
+	For any non-empty simple graph $\Gamma(V,E)$, there exists an $OPD_m(\Gamma;\frac{1}{d})$ for some $m\leq \vert V\vert$ with $d$ the maximum degree of $\Gamma$.
 \end{prop}
 \begin{proof}
 	Let $\Gamma = \Gamma(V,E)$ be given. Now orient every edge of $\Gamma$ and define $e_i^+,e_i^-\in V$ so that $e_i = (e_i^-,e_i^+)$, thus $e_i$ points from vertex $e_i^-$ to $e_i^+$. Let $M$ be the matrix with rows indexed by vertices and columns indexed by edges such that
@@ -38,7 +38,7 @@ for $1\leq i,j\leq 2v$. Thus any $PD_m(\beta,\delta)$ of $\Gamma$ is immediately
 	1 & \text{ if } i\sim j,\\
 	0 & \text{ otherwise}
 	\end{cases}\]
-	where $k_i$ is the degree of vertex $i$. Thus two distinct rows are orthogonal if and only if their corresponding vertices are non-adjacent. However unless $k_i$ is constant independent of $i$ (the graph is regular), the rows do not have the same norm. To solve this, let $d = \max_{i}(k_i)$ (the max degree of $\Gamma$) and define the diagonal matrix $D$ whose $i^\text{th}$ diagonal entry is $\sqrt{d-k_i}$. Then the matrix $N = \left[\begin{array}{c|c}
+	where $k_i$ is the degree of vertex $i$. Thus two distinct rows are orthogonal if and only if their corresponding vertices are non-adjacent. However unless $k_i$ is constant independent of $i$ (i.e.\ unless the graph is regular), the rows do not have the same norm. To fix this, let $d = \max_{i}(k_i)$ (the maximum degree of $\Gamma$) and define the diagonal matrix $D$ whose $i^\text{th}$ diagonal entry is $\sqrt{d-k_i}$. Then the matrix $N = \left[\begin{array}{c|c}
 	M & D
 	\end{array}\right]$ has the property that
 	\[\left[NN^T\right]_{ij} = \left[MM^T\right]_{ij} + (d-k_i)\delta_{ij} = \begin{cases}
@@ -52,9 +52,9 @@ for $1\leq i,j\leq 2v$. Thus any $PD_m(\beta,\delta)$ of $\Gamma$ is immediately
 	Let $\Gamma$ be a regular graph with valency $k>0$. There exists an $OPD_m(\Gamma;\frac{1}{k})$ for some $m\leq \vert T\vert$ where $T$ a spanning forest.
 \end{cor}
 \begin{proof}
-	We follow the same proof as with Proposition \ref{dirnaive}, however we note that since our graph is regular, the rows of $M$ all have the same norm. Thus the normalized rows (with their negatives) suffice as our orthogonal projective double. Now, consider any cycle $C$ in $\Gamma$ and assume without loss of generality that $C = \left\{e_1,\dots,e_s\right\}$. Then, replacing a column with its negative if necessary, $\displaystyle{M_{e_s} = \sum_{i=1}^{s-1}M_{e_{i}}}$. We then reorder the columns of $M$ so that the first $T$ edges correspond to the edges of a spanning forest and note that every remaining column induces a linear dependence.
+	We follow the same approach as in the proof of Proposition \ref{dirnaive}, however we note that since our graph is regular, the rows of $M$ all have the same norm. Thus the normalized rows (with their negatives) suffice as our orthogonal projective double. Now, consider any cycle $C$ in $\Gamma$ and assume without loss of generality that $C = \left\{e_1,\dots,e_s\right\}$. Then, replacing a column with its negative if necessary, $\displaystyle{M_{e_s} = \sum_{i=1}^{s-1}M_{e_{i}}}$, where $M_e$ denote the column of $M$ indexed by $e$. We then reorder the columns of $M$ so that the first $T$ edges correspond to the edges of a spanning forest and note that every remaining column lies in the span of these.
 \end{proof}
-Proposition \ref{dirnaive} and corollary \ref{regnaive} provide upper bounds on the dimension necessary for an $OPD$ to exist for a given graph. The following observation gives us a lower bound using the independence number of a graph $\alpha\left(\Gamma\right)$.
+Proposition \ref{dirnaive} and corollary \ref{regnaive} provide upper bounds on the dimension necessary for an $OPD$ to exist for a given graph. The following observation gives us a lower bound using the size of a largest coclique in $\Gamma$. We denote the cardinality of any such maximum coclique as the independence number, $\alpha\left(\Gamma\right)$, of the graph $\Gamma$.
 \begin{prop}\label{cocliquebnd}
 	Let $\Gamma$ be a simple graph for which an $OPD_m(\Gamma;\beta)$ exists. Then $m\geq \alpha\left(\Gamma\right)$ where $\alpha\left(\Gamma\right)$ is the independence number of $\Gamma$.
 \end{prop}
@@ -62,13 +62,13 @@ Proposition \ref{dirnaive} and corollary \ref{regnaive} provide upper bounds on 
 	Assume $\left\{\pm\ell_1,\dots,\pm\ell_{\vert V\vert}\right\}$ is an $OPD_m(\Gamma;\beta)$ with $\phi(\pm\ell_i) = v_i$ for $1\leq i\leq\vert V\vert$. Let $\alpha = \alpha\left(\Gamma\right)$ and, without loss of generality, let $S = \left\{v_1,\dots,v_\alpha\right\}$ be an independent set. Then $\left\{\ell_1,\dots,\ell_\alpha\right\}$ is an orthonormal set, forcing $m\geq\alpha$.
 \end{proof}
 \begin{example}\label{doublecoverc4}
-Consider the graph $C_4$. This is a regular graph with 3 edges in any spanning tree, thus Corollary \ref{regnaive} tells us there exists an orthogonal projective double in $\mathbb{R}^3$ with angle $\frac{1}{2}$. In fact, the columns of $U_1$ serve as one such $OPD$. 
+Consider the graph $C_4$. This is a regular graph with 3 edges in any spanning tree, thus Corollary \ref{regnaive} tells us there exists an orthogonal projective double in $\mathbb{R}^3$ with angle $\frac{1}{2}$. In fact, the columns of $U_1$ serve as one such $OPD$, where 
 \[U_1 = \left[\begin{array}{crcccccc}
 1 & -1 & \frac{1}{2} & -\frac{1}{2} & 0 & 0 &\frac{1}{2} &-\frac{1}{2}\\
 0 & 0 & \frac{\sqrt{3}}{2} & -\frac{\sqrt{3}}{2} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{12}}& \frac{1}{\sqrt{12}}\\
 0 & 0 & 0 & 0 & \sqrt{\frac{2}{3}} & -\sqrt{\frac{2}{3}} & \sqrt{\frac{2}{3}} & -\sqrt{\frac{2}{3}} \\			
-\end{array}\right]\]
-The maximum independent set in this graph has size $2$ and thus Proposition \ref{cocliquebnd} allows for the possibility of an $OPD_2(C_4;\beta)$. While it is not hard to show that we cannot find an $OPD_2(C_4;\beta)$ with $\beta=\frac{1}{2}$, the following is an example in dimension $2$ with angle $\frac{1}{\sqrt{2}}$.
+\end{array}\right].\]
+A largest coclique in this graph has size $2$ and thus Proposition \ref{cocliquebnd} allows for the possibility of an $OPD_2(C_4;\beta)$. While it is not hard to show that we cannot find an $OPD_2(C_4;\beta)$ with $\beta=\frac{1}{2}$, the following is an example in dimension $2$ with angle $\frac{1}{\sqrt{2}}$.
 \[U_2 = \left[\begin{array}{crcrcccc}
 1 & -1 & 0 & 0 & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2}\\
 0 & 0 & 1 & -1 & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2}\\				
@@ -100,17 +100,16 @@ edge node {} (6);
 Alternatively, if we consider $U_2$, $\Gamma_{\frac{1}{\sqrt{2}}}$ is given below.
 \[\begin{tikzpicture}[shorten >=1pt,auto,node distance=2cm,
 	thin,main node/.style = {circle,draw, inner sep = 0pt, minimum size = 15pt}]
-	
 	\node[main node,fill=white] (1) {$v_1$};
-	\node[main node,fill=white] [right of = 1](2) {$v_5$};
+	\node[main node,fill=white] [below right of = 1](2) {$v_5$};
 	\node[main node,fill=white] [above of = 1](3) {$v_7$};
-	\node[main node,fill=white] [above of =2](4) {$v_4$};
+	\node[main node,fill=white] [above right of =3](4) {$v_4$};
 	
 	\node[main node,fill=white] [right of =2](5) {$v_3$};
-	\node[main node,fill=white] [right of = 5](6) {$v_8$};
-	\node[main node,fill=white] [above of = 5](7) {$v_6$};
+	\node[main node,fill=white] [above right of = 5](6) {$v_8$};
+	\node[main node,fill=white] [right of = 4](7) {$v_6$};
 	\node[main node,fill=white] [above of =6](8) {$v_2$};
-	\node at (3.1,2.5) (9) {$\Gamma_{\frac{1}{\sqrt{2}}}$};
+	\node at (2.5,4) (9) {$\Gamma_{\frac{1}{\sqrt{2}}}$};
 	
 	\path[-]
 	(1) edge node {} (2)
@@ -121,8 +120,9 @@ Alternatively, if we consider $U_2$, $\Gamma_{\frac{1}{\sqrt{2}}}$ is given belo
 	edge node {} (2)
 	(8) edge node {} (7)
 	edge node {} (6);
+	\draw[-,dashed] (1) --(8) -- (6) --(3) --(4) -- (5) -- (2) -- (7);
 \end{tikzpicture}\]
-Thus $U_1$ and $U_2$ are non-isomorphic as their corresponding graphs are non-isomorphic double covers of $C_4$. We similarly define the five relations $R_0,\dots,R_4$ on any $OPD_m(\Gamma;\beta)$ via the inner products $1$, $\beta$, $0$, $-\beta$, and $-1$ respectively so that, for instance, $(x,y)\in R_2$ if and only if the corresponding vectors are orthogonal. These five relations satisfy all the requirements of an association scheme except for possibly the existence of intersection numbers. In the case of the first $OPD$, we find that even though both $(v_1,v_5)$ and $(v_1,v_6)$ are in $R_2$,
+Note the dashed lines in $\Gamma_{\frac{1}{\sqrt{2}}}$ appear only to emphasize the extra symmetry. Thus $U_1$ and $U_2$ are clearly different as their corresponding graphs are non-isomorphic double covers of $C_4$. We similarly define the five relations $R_0,\dots,R_4$ on any $OPD_m(\Gamma;\beta)$ via the inner products $1$, $\beta$, $0$, $-\beta$, and $-1$ respectively so that, for instance, $(x,y)\in R_2$ if and only if the corresponding vectors are orthogonal. These five relations satisfy conditions $(i)$--$(iii)$ of an association scheme, leaving condition $(iv)$ as our final test; that is, we must determine if the intersection numbers are well-defined. In the case of the first $OPD$, we find that even though both $(v_1,v_5)$ and $(v_1,v_6)$ are in $R_2$,
 \[\left\vert\left\{v_x : (v_x,v_1),(v_5,v_x)\in R_{\beta}\right\}\right\vert\neq\left\vert\left\{v_x : (v_x,v_1),(v_6,v_x)\in R_{\beta}\right\}\right\vert.\]
 On the other hand, the second $OPD$ has well-defined intersection numbers and we find that the columns of $U_2$, along with the relations $R_0,\dots,R_4$, give the association scheme $C_8$.
 \end{example}
@@ -132,17 +132,17 @@ As one might expect, there are many graphs for which we cannot find an orthogona
 	Let $\Gamma$ be a complete multipartite graph with $w$ parts of size $v$. Let $U$ be the matrix with columns corresponding to an $OPD_{\alpha(\Gamma)}(\Gamma;\beta)$. Then a subset of the columns of $U$ form a set of $w$ mutually unbiased bases in $\mathbb{R}^v$.
 \end{prop}
 \begin{proof}
-	Follow the same proof as in Proposition \ref{cocliquebnd}, however only consider one line from each antipodal pair. Noting that non orthogonal vectors must have inner product $\pm\beta$, the result is immediate.
+	Follow the same approach as in Proposition \ref{cocliquebnd}, however only consider one vector from each antipodal pair. Noting that non orthogonal vectors must have inner product $\pm\beta$, the result is immediate.
 \end{proof}
 \begin{cor}\label{nonexist}
-	Let $\Gamma = K_{2\times t}$ for $t\neq 0\mod 4$. There does not exist an $OPD_{\alpha(\Gamma)}(\Gamma;\beta)$.
+	Let $\Gamma = K_{t,t}$ for $t\neq 0\mod 4$. There does not exist an $OPD_{\alpha(\Gamma)}(\Gamma;\beta)$.
 \end{cor}
 \begin{proof}
-	If $K_{2\times t}$ had an orthogonal projective double, Proposition \ref{completemulti} would guarantee the existence of two mutually unbiased bases in $\mathbb{R}^t$. This is only possible when $t$ is a multiple of $4$.
+	If $K_{t,t}$ had an orthogonal projective double, Proposition \ref{completemulti} would guarantee the existence of two mutually unbiased bases in $\mathbb{R}^t$. This is only possible when $t$ is a multiple of $4$.
 \end{proof}
 
 \section{Schemes induced by projective doubles}
-Example \ref{doublecoverc4} provides an orthogonal projective double which naturally gives an association scheme on the vectors. In this section, we consider which graphs produce such an association scheme and some properties of the association scheme which arise. First, let $L = \left\{\ell_i\right\}$ be an orthogonal projective double of some graph $\Gamma$ and let $G$ be the Gram matrix of $L$; that is, the matrix whose entry in row $i$ and column $j$ is $\left<\ell_i,\ell_j\right>$. We denote by $\left<G\right>_\circ$ the vector space of matrices generated by $G$ using entrywise products. Note that the adjacency matrices of each graph $\Gamma_{\theta}$ for $\theta\in\left\{\pm 1,\pm \beta,0\right\}$ are all contained in $\left<G\right>_{\circ}$. Thus $\left<G\right>_\circ$ is a Bose-Mesner algebra if and only if it is closed under standard matrix multiplication. If this occurs, we say $L$ induces the corresponding 4-class association scheme. Thus, from example \ref{doublecoverc4}, the association scheme $C_8$ is induced by the columns of $U_2$. We similarly define $\left<A\right>_*$ for any matrix $A$ and note that this algebra is a Bose-Mesner algebra if and only if it is closed under Schur products.
+The OPD given by the columns of $U_2$ in Example \ref{doublecoverc4} provides an orthogonal projective double which naturally gives an association scheme on the vectors. In this section, we consider which graphs produce such an association scheme and some properties of the association scheme which arise. First, let $L = \left\{\ell_i\right\}$ be an orthogonal projective double of some graph $\Gamma$ and let $G$ be the Gram matrix of $L$; that is, the matrix whose entry in row $i$ and column $j$ is $\left<\ell_i,\ell_j\right>$. We denote by $\left<G\right>_\circ$ the smallest vector space of matrices  containing $G$ and closed under entrywise products; we say this vector space is the \emph{Schur closure} of $G$. Note that the adjacency matrices of each graph $\Gamma_{\theta}$ for $\theta\in\left\{\pm 1,\pm \beta,0\right\}$ are all contained in $\left<G\right>_{\circ}$. Thus $\left<G\right>_\circ$ is a Bose-Mesner algebra if and only if it is closed under standard matrix multiplication. If this occurs, we say $L$ induces the corresponding 4-class association scheme. Thus, from Example \ref{doublecoverc4}, the association scheme $C_8$ is induced by the columns of $U_2$. We similarly define $\left<A\right>_*$ for any matrix $A$ and note that this algebra is a Bose-Mesner algebra if and only if it is closed under Schur products.
 
 A \emph{strongly regular graph}\index{strongly regular graph} (see \cite{Brouwer1989}) with parameters $(v,k,\lambda,\mu)$ is a $k$-regular graph with $v$ points where every pair of adjacent vertices have exactly $\lambda$ neighbors in common while distinct non-adjacent vertices have $\mu$ neighbors in common. Using the terminology of association schemes, a strongly regular graph is a 2-class association scheme with parameters $k = p^0_{11}$, $\lambda = p^1_{11}$ and $\mu = p^2_{11}$.
 
@@ -151,7 +151,7 @@ A \emph{strongly regular graph}\index{strongly regular graph} (see \cite{Brouwer
 %	A projective double of a simple graph $\Gamma$ induces an association scheme only if $\Gamma$ is strongly regular.
 %\end{prop}
 \begin{proof}
-	We will prove our result by showing that $\overline{\Gamma}$, the complement of $\Gamma$, is strongly regular. Define $v = \vert V\Gamma\vert$ and let $L = \left\{\ell_1,\dots,\ell_{2v}\right\}$ be our $OPD$ with the projective mapping $\phi:L\rightarrow V\Gamma$. First let $R_0,\dots,R_4$ be the relations of the association scheme induced by $L$ where $R_2$ is given by orthogonality, $R_0$ is the identity relation, and the remaining relations are given by the inner products $\beta,-\beta,$ and $-1$ respectively. By definition of our mapping, $\phi(\ell)=\phi(\ell^\prime)$ for $\ell\neq \ell^\prime$ if and only if $\ell=-\ell^\prime$. Thus for distinct vertices $u,w\in V\Gamma$, $u\not\sim w$ if and only if $\phi^{-1}(w)\subset \phi^{-1}(u)^\perp$. Then the number of vertices not adjacent to $u$ is half the number of vectors orthogonal to either vector in $\phi^{-1}(u)$; this value is $\frac{1}{2}p^0_{22}$. Similarly, assuming $u\not\sim w$, the number of vertices adjacent to neither $u$ nor $w$ must be half the number of vectors orthogonal to any pair of vectors, one from $\phi^{-1}(v)$ and the other from $\phi^{-1}(w)$; that is, $\frac{1}{2}p^2_{22}$. Similarly, assume $v\sim w$ and we find the number of vertices adjacent to neither $v$ nor $w$ must be $\frac{1}{2}p^1_{22} = \frac{1}{2}p^3_{22}$. Thus $\overline{\Gamma}$ is strongly regular with parameters $(\vert\Gamma\vert,\frac{1}{2}p^0_{22},\frac{1}{2}p^{2}_{22},\frac{1}{2}p^1_{22})$.
+	We will prove our result by showing that $\overline{\Gamma}$, the complement of $\Gamma$, is strongly regular. Let $V$ be the vertex set of $\Gamma$ and define $v = \vert V\vert$. Now, let $L = \left\{\ell_1,\dots,\ell_{2v}\right\}$ be our $OPD$ with the projective mapping $\phi:L\rightarrow V$. First let $R_0,\dots,R_4$ be the relations of the association scheme induced by $L$ where $R_2$ is given by orthogonality, $R_0$ is the identity relation, and the remaining relations are given by the inner products $\beta,-\beta,$ and $-1$ respectively. By definition of our mapping, $\phi(\ell)=\phi(\ell^\prime)$ for $\ell\neq \ell^\prime$ if and only if $\ell=-\ell^\prime$. Thus for distinct vertices $u,w\in V$, $u\not\sim w$ if and only if $\phi^{-1}(w)\subset \phi^{-1}(u)^\perp$. Then the number of vertices not adjacent to $u$ is half the number of vectors orthogonal to either vector in $\phi^{-1}(u)$; this value is $\frac{1}{2}p^0_{22}$. Similarly, assuming $u\not\sim w$, the number of vertices adjacent to neither $u$ nor $w$ must be half the number of vectors orthogonal to any pair of vectors, one from $\phi^{-1}(v)$ and the other from $\phi^{-1}(w)$; that is, $\frac{1}{2}p^2_{22}$. Similarly, assume $v\sim w$ and we find the number of vertices adjacent to neither $v$ nor $w$ must be $\frac{1}{2}p^1_{22} = \frac{1}{2}p^3_{22}$. Thus $\overline{\Gamma}$ is strongly regular with parameters $(v,\frac{1}{2}p^0_{22},\frac{1}{2}p^{2}_{22},\frac{1}{2}p^1_{22})$.
 \end{proof}
 
 This proposition tells us that we must only consider strongly regular graphs if we wish to find orthogonal projective doubles which induce association schemes. Note that the converse of Proposition \ref{projnec} is certainly not true; the first projective double of Example \ref{doublecoverc4} does not result in an association scheme even though $C_4$ is strongly regular. Thus we will look for further necessary or sufficient conditions for a $OPD$ to induce an association scheme. Before we continue, we review a few details of strongly regular graphs which will be useful for us.
@@ -166,58 +166,58 @@ Let $\Gamma$ be a strongly regular graph with parameters $(v,k,\lambda,\mu)$. Le
 1 & \frac{fr}{k} & \frac{gs}{k}\\
 1 & \frac{f(1+r)}{k+1-v} & \frac{g(1+s)}{k+1-v}
 \end{array}\right].\end{equation}
-The following lemma from \cite{Brouwer1989}, shows us that the parameters $k,r,$ and $s$ are sufficient to define all other parameters as long as $k+rs\neq 0$. In the case of $k+rs=0$, $\Gamma$ is a union of cliques and $v$ is not uniquely determined by the spectrum---we will ignore this case in much of our discussion.
+The following lemma from \cite{Brouwer1989}, shows us that the parameters $k,r,$ and $s$ are sufficient to define all other parameters as long as $k+rs\neq 0$. In the case of $k+rs=0$, $\Gamma$ is a union of cliques and $v$ is not uniquely determined by the spectrum --- we will ignore this case in our discussion.
 \begin{lem}\cite[Theorem.~1.3.1.(iii,vi)]{Brouwer1989}\label{srgparams} Whenever $k+rs>0$, the parameters of a strongly regular graph may be expressed in terms of $r$, $s$, and $k$ with $g = v-f-1$:
 	\[\mu = k+rs, \qquad v = \frac{(k-r)(k-s)}{\mu},\qquad \lambda = \mu+r+s,\qquad f = \frac{(s+1)k(k-s)}{\mu(s+r)}.\]
 \end{lem}
 The association scheme structure allows us to improve on the naive upper bound given in Corollary \ref{regnaive} by using the techniques discussed in Section \ref{equianglines}.
 \begin{thm}
-	Let $\Gamma$ be a strongly regular graph with spectrum $k^1,r^f,s^g$ $(r>s)$. There exists an $OPD_{f+1}(\Gamma;\beta)$.
+	Let $\Gamma$ be a strongly regular graph with $v$ vertices and spectrum $k^1,$ $r^f$, $s^g$ ($r>s$). There exists an $OPD_{f+1}(\Gamma;\beta)$ where $\beta = \bigslant{k+r(v-1)}{v+r-k}$.
 \end{thm}
 \begin{proof}
-	Let $A_0$, $A_1$, and $A_2$, be the adjacency matrices of the identity graph, $\Gamma$, and $\overline{\Gamma}$ respectively. From equation \eqref{PQsrg}, $E_1 = \frac{1}{v}\left(fA_0 + \frac{fr}{k}A_1 + \frac{f(1+r)}{k+1-v}A_2\right)$. Then 
+	Let $A_0=I$. Let $A_1$ and $A_2$ be the adjacency matrices of $\Gamma$ and $\overline{\Gamma}$ respectively. From Equation \eqref{PQsrg}, $E_1 = \frac{1}{v}\left(fA_0 + \frac{fr}{k}A_1 + \frac{f(1+r)}{k+1-v}A_2\right)$. Then the matrix
 	\[G = \frac{(1+r)}{v-k-1}E_0 + \frac{1}{f}E_1 = \left(\frac{v+r-k}{v(v-k-1)}\right)A_0 +\left(\frac{k+r(v-1)}{v(v-k-1)}\right)A_1\]
-	is a $v\times v$ positive semi-definite matrix with rank $f+1$ with the off diagonal entries we seek. We may then find a matrix $U$ such that $\left(\frac{v(v-k-1)}{v+r-k}\right)G = U^TU$, that is, the columns of $U$ are unit vectors in $\mathbb{R}^{f+1}$ such that $u_i\perp u_j$ if and only if the corresponding points in $X$ are related by $R_2$. Then $L = \left\{\pm u_1,\dots,\pm u_v\right\}$ is an $OPD_{f+1}\left(\Gamma;\frac{k+r(v-1)}{v+r-k}\right)$ where $u_i$ is the $i^\text{th}$ column of $U$.
+	is a $v\times v$ positive semi-definite matrix with rank $f+1$ with the off diagonal entries we seek. We may then find an $(f+1)\times v$ matrix $U$ such that $\left(\frac{v(v-k-1)}{v+r-k}\right)G = U^TU$; that is, the columns of $U$ are unit vectors in $\mathbb{R}^{f+1}$ such that $u_i\perp u_j$ if the corresponding points in $X$ are related by $R_2$ and $\left<u_i,u_j\right>$ is otherwise constant for $i\neq j$. Then $L = \left\{\pm u_1,\dots,\pm u_v\right\}$ is an $OPD_{f+1}\left(\Gamma;\frac{k+r(v-1)}{v+r-k}\right)$ where $u_i$ is the $i^\text{th}$ column of $U$.
 \end{proof}
-Note that this construction does not induce a 4-class association scheme. We see this by noting that all off diagonal entries in $G$ must be positive. Thus we may split our $OPD$ into two sets $L^+$ and $L^-$ where $L^+$ contains all the columns of $U$ and $L^-$ contains their negatives. Then for vectors $u\perp v$, the number of vectors $w$ such that $\left<v,w\right> = \left<u,w\right>=\beta$ could be either $0$ (if $v\in L^+$ and $u\in L^-$) or $\lambda$ (if $v,w\in L^+$). Thus this value is not solely dependent on the inner product $\left<u,v\right>$ and $p^2_{11}$ is not well defined. While this does not solve our question of which $OPD$'s induce association schemes, it does provide us with a better upper bound on the dimension needed for strongly regular graphs. For example, this gives an $OPD$ of the Petersen graph in dimension $5$ while Corollary \ref{regnaive} produces one in dimension $9$. Now consider the following theorem of Delsarte.
+Note that this construction does not induce a 4-class association scheme. We see this by noting that all off diagonal entries in $G$ are non-negative. Thus we may split our $OPD$ into two sets $L^+$ and $L^-$ where $L^+$ contains all the columns of $U$ and $L^-$ contains their negatives. Then for vectors $u\perp v$, the number of vectors $w$ such that $\left<v,w\right> = \left<u,w\right>=\beta$ could be either $0$ (if $v\in L^+$ and $u\in L^-$) or $\lambda$ (if $v,w\in L^+$). Thus this value is not solely dependent on the inner product $\left<u,v\right>$ and $p^2_{11}$ is not well defined. While this does not solve our question of which $OPD$'s induce association schemes, it does provide us with a better upper bound on the dimension needed for strongly regular graphs. For example, this gives an $OPD$ of the Petersen graph in dimension $5$ while Corollary \ref{regnaive} produces one in dimension $9$. Now consider the following theorem of Delsarte.
 
-\begin{thm}\cite{Delsarte1973} \label{delsarte}
-	Let $\Gamma$ be a strongly regular graph with $v$ vertices, valency $k$, and smallest eigenvalue $s$. If $C$ is a coclique of $\Gamma$, then
-	\[\vert C\vert\leq v\left(1-\frac{k}{s}\right)^{-1}, \]
-	with equality if and only if every vertex $\beta\notin C$ has the same number of neighbors (namely $-s$) in $C$.\qed
+\begin{thm}\cite[Theorem 3.8]{Delsarte1973} \label{delsarte}
+	Let $\Gamma=\Gamma(V,E)$ be a strongly regular graph with $v$ vertices and eigenvalues $k>r>s$. Then
+	\[\alpha\left(\Gamma\right)\leq v\left(1-\frac{k}{s}\right)^{-1}. \]
+	A coclique $C\subset V$ achieves equality in this bound if and only if every vertex $\beta\notin C$ has the same number of neighbors (namely $-s$) in $C$.\qed
 \end{thm}
-We will refer to a \emph{Delsarte coclique}\index{Delsarte coclique} as a coclique for which this bound is tight. This theorem, along with Proposition \ref{cocliquebnd}, gives a lower bound on the dimension of any $OPD$ in terms of the spectrum whenever $\Gamma$ contains a Delsarte coclique. Further, we may use the final line of Theorem \ref{delsarte} to learn more information about any $OPD$ achieving this bound.
+We will refer to a \emph{Delsarte coclique}\index{Delsarte coclique} as a coclique for which this bound is tight. This theorem, along with Proposition \ref{cocliquebnd}, gives a lower bound on the dimension of any $OPD$ in terms of the spectrum whenever $\Gamma$ contains a Delsarte coclique. Further, we may use the second half of Theorem \ref{delsarte} to learn more information about any $OPD$ achieving this bound.
 \cocliquealpha
 %\begin{cor}\label{snegsquare}
 %	Let $\Gamma$ be a nonempty strongly regular graph with $v$ vertices, valency $k$ and smallest eigenvalue $s$ which contains a Delsarte coclique $C$. Then any projective double in $\mathbb{R}^{\vert C\vert}$ has inner product $\beta=\sqrt{-s}$. Further, either $\Gamma$ is complete bipartite or $\beta^{-1}\in \mathbb{Z}$.
 %\end{cor}
 \begin{proof}
-	Let $L$ be the $OPD_{\vert C\vert}(\beta)$ of $\Gamma$. Further, let $\ell_1,\dots,\ell_{\vert C\vert}$ be vectors in $L$ such that the set $\left\{\phi(\ell_1),\dots,\phi(\ell_{\vert C\vert})\right\}$ is a Delsarte coclique. Then $\left\{\ell_1,\dots,\ell_{\vert C\vert}\right\}$ forms an orthonormal basis for $\mathbb{R}^{\vert C\vert} = \text{span}(L)$. Let $a\in L$ be given with $\phi(a)\notin C$. By Theorem \ref{delsarte}, $\phi(a)$ must be adjacent to exactly $-s$ points in $C$ and thus, reordering the vectors and replacing $\ell_i$ with $-\ell_i$ as needed, we may assume $\left<a,\ell_i\right> = \beta$ for $1\leq i\leq -s$. Therefore $a = \sum_{i=1}^{-s} \beta\ell_i$ implying that $-s\beta^2 = 1$ and thus $s = -\beta^{-2}$. Now, as long as $\Gamma$ is not complete bipartite, there must be another vector $b\in L$ for which $\phi(b)\notin C$ and $\phi(b) \sim\phi(a)$; assume $\left<b,a\right> = \beta$ taking $-b$ if needed. We again find that $\phi(b)$ is adjacent to exactly $-s$ vertices in $C$; let $h$ be the number of vertices adjacent to both $a$ and $b$. Without loss of generality $b =  \sum_{i=1}^{h} \beta_i\ell_i + \sum_{i=-s+1}^{-2s-h}\beta\ell_i$ where $\beta_i = \pm\beta$. Thus $\left<a,b\right> = (p-q)\beta^2$ where $p$ is the number of vectors in $\left\{\ell_1,\dots,\ell_h\right\}$ with $\left<b,\ell_i\right> = \left<a,\ell_i\right>$ and $q = h-p$. However, since $a$ and $b$ have inner product $\beta$, this implies $\beta^{-1} = p-q$.
+	Let $L$ be the $OPD_{m}(\beta)$ of $\Gamma$. Further, let $\ell_1,\dots,\ell_{m}$ be vectors in $L$ such that the set $\left\{\phi(\ell_1),\dots,\phi(\ell_{m})\right\}$ is a Delsarte coclique. Then $\left\{\ell_1,\dots,\ell_{m}\right\}$ forms an orthonormal basis for $\mathbb{R}^{m} = \text{span}(L)$. Let $a\in L$ be given with $\phi(a)\notin C$. By Theorem \ref{delsarte}, $\phi(a)$ must be adjacent to exactly $-s$ points in $C$ and thus, reordering the vectors and replacing $\ell_i$ with $-\ell_i$ as needed, we may assume $\left<a,\ell_i\right> = \beta$ for $1\leq i\leq -s$. Therefore $a = \sum_{i=1}^{-s} \beta\ell_i$ implying that $-s\beta^2 = 1$ and thus $s = -\beta^{-2}$. Note $\left<a,\ell_i\right>=0$ for $-s<i\leq m$. Now, as long as $\Gamma$ is not complete bipartite (i.e., provided $s\neq k$), there must be another vector $b\in L$ for which $\phi(b)\notin C$ and $\phi(b) \sim\phi(a)$; assume $\left<b,a\right> = \beta$ taking $-b$ if needed. We again find that $\phi(b)$ is adjacent to exactly $-s$ vertices in $C$; let $h$ be the number of vertices adjacent to both $a$ and $b$. Without loss of generality $b =  \sum_{i=1}^{h} \beta_i\ell_i + \sum_{i=-s+1}^{-2s-h}\beta\ell_i$ where $\beta_i = \pm\beta$. Thus $\left<a,b\right> = (p-q)\beta^2$ where $p$ is the number of vectors in $\left\{\ell_1,\dots,\ell_h\right\}$ with $\left<b,\ell_i\right> = \left<a,\ell_i\right>$ and $q = h-p$. However, since $a$ and $b$ have inner product $\beta$, this implies $\beta^{-1} = p-q$.
 \end{proof}
 While this theorem only provides information about $OPD$s of strongly regular graphs with Delsarte cocliques, there are many common examples which contain these cocliques for which we may apply our theorem. For instance, consider the following result.
 \begin{cor}
-	There do not exist $OPD$s for either the Petersen graph in $\mathbb{R}^4$ or the 9-Paley graph in $\mathbb{R}^3$. 
+	There do not exist $OPD$s for either the Petersen graph in $\mathbb{R}^4$ or the Paley graph on $\bbF_9$ in $\mathbb{R}^3$. 
 \end{cor}
 \begin{proof}
-	Recall that the Petersen graph has 10 vertices, valency 3, and smallest eigenvalue $-2$. Thus a Delsarte coclique has size $\bigslant{10}{\left(1+\frac{3}{2}\right)} = 4$; we may verify quickly that such a coclique exists. Thus Corollary \ref{snegsquare} tells us a projective double of the Petersen graph in $\mathbb{R}^4$ would require that $\sqrt{-s}$ is an integer, which is false. Similarly the 9-Paley graph has 9 vertices, valency 4, and smallest eigenvalue $-2$. Using the same reasoning, noting that here a Delsarte coclique has size 3, we have our result.
+	Recall that the Petersen graph is an srg$(10,3,0,1)$ with $s=-2$. Thus a Delsarte coclique has size $\bigslant{10}{\left(1+\frac{3}{2}\right)} = 4$; we may verify quickly that such a coclique exists. Thus Corollary \ref{snegsquare} tells us a projective double of the Petersen graph in $\mathbb{R}^4$ would require that $\sqrt{-s}$ is an integer, which is false. Similarly the Paley graph on $\bbF_9$ is an srg$(9,4,1,2)$ with $s=-2$. Using the same reasoning, noting that here a Delsarte coclique has size 3, we have our result.
 \end{proof}
 Corollary \ref{snegsquare} hints that OPDs in the smallest possible dimension for a given graph have some extra structure imposed on them. The following lemma and theorem will detail much of this extra structure in the general case.
 \begin{lem}\label{mindim}
-	Let $\Gamma$ be a strongly regular graph with $v$ vertices, valency $k$, and smallest eigenvalues $s$. Let $G$ be the Gram matrix of an $OPD_m(\Gamma;\beta)$. Then $m\geq v\left(1+k\beta^2\right)^{-1}$ with equality if and only if $\frac{m}{2v}G$ is idempotent.
+	Let $\Gamma$ be a connected strongly regular graph with $v$ vertices and eigenvalues $k>r>s$. Let $G$ be the Gram matrix of an $OPD_m(\Gamma;\beta)$. Then $m\geq v\left(1+k\beta^2\right)^{-1}$ with equality if and only if $\frac{m}{2v}G$ is idempotent.
 \end{lem}
 \begin{proof}
-	This is an immediate result of a theorem of Delsarte, Goethals, and Seidel. Recall that \cite[Theorem 5.5]{Delsarte1977} tells us that $\sum_{i,j}Q^m_\ell\left(G_{ij}\right)\geq 0$ for all $\ell\geq 0$ with equality for $\ell=1,2$ if and only if $G$ is the Gram matrix of a $2$-design. The antipodal nature of our OPD makes it clear that $\sum_{i,j}Q_1^m\left(G_{ij}\right) = \sum_{i,j}G_{ij} = 0$. Using the second degree Gegenbauer polynomial (see equation \eqref{gegdef}) we find
+	This is an immediate result of a theorem of Delsarte, Goethals, and Seidel. Recall that \cite[Theorem 5.5]{Delsarte1977} tells us that $\sum_{i,j}Q^m_\ell\left(G_{ij}\right)\geq 0$ for all $\ell\geq 0$ with equality for $\ell=1,2$ if and only if $G$ is the Gram matrix of a spherical $2$-design. The antipodal nature of our OPD makes it clear that $\sum_{i,j}Q_1^m\left(G_{ij}\right) = \sum_{i,j}G_{ij} = 0$. Using the second degree Gegenbauer polynomial (see equation \eqref{gegdef}) we find
 	\[\sum_{i,j}Q_2^m\left(G_{ij}\right) = 2v\left(\frac{m\left(2+2k\beta^2\right)-2v}{m-1}\right).\]
-	Thus we must have $m\left(2+2k\beta^2\right)\geq2v$ with equality if and only if our OPD admits a $2$-design. Seen later in \cite{Delsarte1977}, we find that this happens exactly when $G$ has two distinct eigenvalues: $0$ and $\frac{2v}{m}$; that is, $\frac{m}{2v}G$ is idempotent.
+	Thus we must have $m\left(2+2k\beta^2\right)\geq2v$ with equality if and only if our OPD admits a spherical $2$-design. Seen later in \cite{Delsarte1977}, we find that this occurs exactly when $G$ has two distinct eigenvalues: $0$ and $\frac{2v}{m}$; that is, $\frac{m}{2v}G$ is idempotent.
 \end{proof}
 We note that, while $Q_2^m$ denoted the second degree Gegenbauer polynomial in this lemma, for the remainder of the chapter we will exclusively use $Q$ to denote the second eigenmatrix of an association scheme.
 
 
 \begin{thm}\label{dimtoassociation}
-	Let $\Gamma$ be a strongly regular graph with $v$ vertices, valency $k$, and smallest eigenvalue $s$ with $k+rs>0$. Let $G$ be the Gram matrix of an $OPD_m(\Gamma;\beta)$ with $m = v\left(1+k\beta^2\right)^{-1}$. Then $\left<G\right>_\circ$ is the Bose-Mesner algebra of a 4-class association scheme.
+	Let $\Gamma$ be a connected strongly regular graph with $v$ vertices and eigenvalues $k>r>s$. Let $G$ be the Gram matrix of an $OPD_m(\Gamma;\beta)$ with $m = v\left(1+k\beta^2\right)^{-1}$. Then $\left<G\right>_\circ$ is the Bose-Mesner algebra of a 4-class association scheme.
 \end{thm}
 \begin{proof}
-	We begin by ordering the vectors in our orthogonal projective double so that $\ell_1,\dots,\ell_v$ are representatives from distinct lines and $\ell_{i+v} = -\ell_{i}$ for $1\leq i\leq v$. Likewise we order the vertices of $\Gamma$ so that $\ell_i$ and $\ell_{v+i}$ are mapped to vertex $i$. Let $G$ be the Gram matrix of our $OPD_m(\Gamma;\beta)$ with rows and columns ordered in this fashion; that is, $G_{ij} = \left<\ell_i,\ell_j\right>$ for $1\leq i,j\leq 2v$. This ordering implies there exists a matrix $\tilde{G}$ such that
+	We begin by ordering the vectors in our orthogonal projective double so that $\ell_1,\dots,\ell_v$ are representatives from distinct lines and $\ell_{i+v} = -\ell_{i}$ for $1\leq i\leq v$. Likewise we order the vertices of $\Gamma$ so that $\ell_i$ and $\ell_{v+i}$ are mapped to vertex $i$. Let $G$ be the Gram matrix of our $OPD_m(\Gamma;\beta)$ with rows and columns ordered in this fashion; that is, $G_{ij} = \left<\ell_i,\ell_j\right>$ for $1\leq i,j\leq 2v$. This ordering implies there exists a matrix $\tilde{G}$\footnote{Here, we use $\sim$ only to emphasize that $\tilde{G}$ is the Gram matrix induced on a subset of the vertices. This matrix does not belong to the Bose-Mesner algebra of the quotient scheme.} such that
 	\[G =\def\arraystretch{1.4}\left[\begin{array}{c:c}
 	\tilde{G} & -\tilde{G}\\\hdashline[2pt/2pt]
 	-\tilde{G} & \tilde{G}\\[2pt]
@@ -229,7 +229,15 @@ We note that, while $Q_2^m$ denoted the second degree Gegenbauer polynomial in t
 	1 & \frac{f(r+1)}{k+1-v} & \frac{g(s+1)}{k+1-v}
 	\end{array}\right].\]
 	
-	We now define 5 matrices $E_0,\dots,E_4$, which we will show are orthogonal idempotents. For the first two, define $E_0 = \frac{1}{2v}J$ and $E_1 = \frac{m}{2v}G$. We then define $E_2$ and $E_4$ entrywise based on the values of $G$
+	We now define five matrices $E_0,\dots,E_4$, which we will show are orthogonal idempotents. First, define $E_0 = \frac{1}{2v}J$ and $E_1 = \frac{m}{2v}G$. We then define $E_2$ and $E_4$ using the idempotents of our quotient scheme via
+	\[E_2 = \frac{1}{2}\def\arraystretch{1.4}\left[\begin{array}{c:c}
+	\tilde{E}_1 & \tilde{E}_1\\\hdashline[2pt/2pt]
+	\tilde{E}_1 & \tilde{E}_1\\[2pt]
+	\end{array}\right],\qquad E_4 = \frac{1}{2}\def\arraystretch{1.4}\left[\begin{array}{c:c}
+	\tilde{E}_2 & \tilde{E}_2\\\hdashline[2pt/2pt]
+	\tilde{E}_2 & \tilde{E}_2\\[2pt]
+	\end{array}\right].\]
+	We note that the definition of $E_0$ implies an analogous structure using $\tilde{E}_0$. Further, these constructions imply that
 	\[2v\left[E_2\right]_{ij} = \begin{cases}
 	f & \text{ if }G_{ij} = \pm1,\\
 	\frac{fr}{k} & \text{ if }G_{ij} = \pm\beta,\\
@@ -239,20 +247,9 @@ We note that, while $Q_2^m$ denoted the second degree Gegenbauer polynomial in t
 	\frac{gs}{k} & \text{ if }G_{ij} = \pm\beta,\\
 	\frac{g(s+1)}{k+1-v} & \text{ if }G_{ij} = 0.\\
 	\end{cases}\]
-	Our final matrix will be $E_3 = I-E_0-E_1-E_2-E_4$.	Note that the definitions for $E_0$, $E_2$, and $E_4$ imply
-	\[E_0 =\frac{1}{2}\def\arraystretch{1.4}\left[\begin{array}{c:c}
-	\tilde{E}_0 & \tilde{E}_0\\\hdashline[2pt/2pt]
-	\tilde{E}_0 & \tilde{E}_0\\[2pt]
-	\end{array}\right],\qquad E_2 = \frac{1}{2}\def\arraystretch{1.4}\left[\begin{array}{c:c}
-	\tilde{E}_1 & \tilde{E}_1\\\hdashline[2pt/2pt]
-	\tilde{E}_1 & \tilde{E}_1\\[2pt]
-	\end{array}\right],\qquad E_4 = \frac{1}{2}\def\arraystretch{1.4}\left[\begin{array}{c:c}
-	\tilde{E}_2 & \tilde{E}_2\\\hdashline[2pt/2pt]
-	\tilde{E}_2 & \tilde{E}_2\\[2pt]
-	\end{array}\right].\]
-	It follows that the set $\left\{E_0,E_2,E_4\right\}$ is a set of orthogonal idempotents. Now, Lemma \ref{mindim} tells us that $E_1$ is a fourth idempotent since $m = v\left(1+k\beta^2\right)^{-1}$. Additionally, the block structure of the matrices $E_0$, $E_1$, $E_2$, and $E_4$ imply that $E_1E_0=E_1E_2=E_1E_4 = 0$ telling us that $\left\{E_0,E_1,E_2,E_4\right\}$ is a set of orthogonal idempotents. Using this fact, we now consider our fifth matrix and find
+	It follows that $E_0$, $E_2$, and $E_4$ are pairwise orthogonal idempotents. Now, Lemma \ref{mindim} tells us that $E_1$ is also idempotent since $m = v\left(1+k\beta^2\right)^{-1}$. Additionally, the block structure of the matrices $E_0$, $E_1$, $E_2$, and $E_4$ imply that $E_1E_0=E_1E_2=E_1E_4 = 0$ telling us that $E_0$, $E_1$, $E_2$, $E_4$ are pairwise orthogonal idempotents. In view of Lemma \ref{AElem} $(iii')$, we define $E_3 = I-E_0-E_1-E_2-E_4$ and may immediately compute.
 	\[E_3^2 = \left(I-E_0-E_1-E_2-E_4\right)^2 = I-E_0-E_1-E_2-E_4\]
-	and $E_3E_i = 0$ for $i\neq 3$. Therefore the vector space spanned by $\left\{E_0,E_1,E_2,E_3,E_4\right\}$ is symmetric, closed under matrix multiplication, and contains both the identity matrix and the all ones matrix. In order to show this algebra is a Bose-Mesner algebra, we must also show it is closed under entrywise products. We do this by listing the corresponding Krein parameters and verifying element-wise that $E_i\circ E_j = \frac{1}{2v}\sum_{k=0}^4q^k_{ij}E_k$. In the matrices that follow, we refer to the parameter definitions in Theorem \ref{srgparams} for the strongly regular graph parameters.
+	and $E_3E_i = 0$ for $i\neq 3$. Therefore the vector space spanned by $\left\{E_0,E_1,E_2,E_3,E_4\right\}$ is symmetric, closed under matrix multiplication, and contains both the identity matrix and the all ones matrix. In order to show this algebra is a Bose-Mesner algebra, we must also show it is closed under entrywise products. By construction of $E_1$, $E_2$, and $E_4$, any linear combination of $E_0,\dots,E_4$ has at most $5$ distinct entries. This gives the dimension of $\left<E_1\right>_\circ$ as five. Since we have five basis matrices, this forces $\left<E_0,\dots,E_4\right> = \left<E_1\right>_\circ$ and thus our algebra is a Bose-Mesner algebra. We finish our proof by listing the Krein parameters of our association scheme, referring to the parameter definitions in Theorem \ref{srgparams} for the strongly regular graph parameters.
 	\[L_0^* =  \left[ \begin {array}{ccccc} 1&0&0&0&0\\ \noalign{\medskip}0&1&0&0&0
 	\\ \noalign{\medskip}0&0&1&0&0\\ \noalign{\medskip}0&0&0&1&0
 	\\ \noalign{\medskip}0&0&0&0&1\end {array} \right],\qquad L_1^* = \left[\begin{array}{ccccc}
@@ -305,7 +302,7 @@ where the product is taken entrywise.
 \end{proof}
 \begin{cor}
 	\label{delcocliquetoqbip}
-	Let $\Gamma$ be a strongly regular graph with $v$ vertices, valency $k$, and smallest eigenvalue $s$ with $k+rs>0$ which contains a Delsarte coclique. Let $G$ be the Gram matrix of an $OPD_m(\Gamma;\beta)$ with $m = v\left(1-\frac{k}{s}\right)^{-1}$. Then $\left<G\right>_\circ$ is the Bose-Mesner algebra of a 4-class $Q$-bipartite association scheme.
+	Let $\Gamma$ be a conntected strongly regular graph with $v$ vertices and eigenvalues $k>r>s$ which contains a Delsarte coclique. Let $G$ be the Gram matrix of an $OPD_m(\Gamma;\beta)$ with $m = v\left(1-\frac{k}{s}\right)^{-1}$. Then $\left<G\right>_\circ$ is the Bose-Mesner algebra of a 4-class $Q$-bipartite association scheme.
 \end{cor}
 \begin{proof}
 	Corollary \ref{cocliquebnd} tells us that $\beta = \frac{1}{\sqrt{s}}$ and therefore $m = v\left(1+k\beta^2\right)$. Then Theorem \ref{dimtoassociation} gives that $\left<G\right>_\circ$ is the Bose-Mesner algebra of a 4-class association scheme. The $Q$-bipartite property follows as $(1+s\beta^2) = 0$, implying $L_1^*$ is tridiagonal.
