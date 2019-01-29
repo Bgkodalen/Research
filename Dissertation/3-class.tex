@@ -1,20 +1,20 @@
 \chapter{3-class \texorpdfstring{$Q$-antipodal}{Q-antipodal}: LSSDs}\label{3class}
-In \cite{Cameron1972}, Cameron investigated groups with inequivalent doubly-transitive permutation representations having the same permutation character and introduced the notion of a linked system of symmetric designs (LSSD). One such example arising from Kerdock codes was communicated by Goethals and later published in \cite{Goethals1976}. These structures in the homogeneous case were then further studied by Noda \cite{Noda1974} where he bounded the number of fibers in a LSSD in terms of the design parameters induced between any two of the fibers. Using the specific $(16,6,2)$ designs, Mathon \cite{Mathon1981} classified all inequivalent LSSDs using these design parameters via a computer search, finding that there were many inequivalent LSSDs with two or three fibers but only the scheme described by Geothals worked with four or more fibers. Later, Van Dam proved in \cite{VanDam1999} the equivalence between these objects and 3-class Q-antipodal association schemes. Martin, Muzychuk, and Williford found a connection to mutually unbiased bases in certain dimensions \cite{Martin2007}. Finally Davis, Martin, Polhill \cite{Davis2014} and Jedwab, Li, Simon \cite{Jedwab2017} built more non-trivial examples using difference sets in 2-groups.\par
-We begin this chapter with a survey of known results focusing on the connection to association schemes. We then introduce ``linked simplices", natural geometric objects which are of interest in their own right. We then establish the equivalence of sets of linked simplices and LSSDs. We compare three known bounds on the number of fibers and then explore connections to structures in Euclidean space. We show how to construct equiangular lines from arbitrary LSSDs and explore cases where LSSDs lead to real mutually unbiased bases (MUBs). After reviewing known examples, we focus on the case of Menon design parameters and, employing an equivalence with sets of mutually unbiased Hadamard matrices, we construct new families of LSSDs for many values of $v$. In particular, we show that one may fix the even part of $v$ without bounding the number of fibers in an LSSD, a result which was not previously known. In Appendix \ref{families}, we survey the design parameters of known infinite families of symmetric designs and determine which of these cannot produce LSSDs with more than two fibers, noting differences from a recent discovery by Jedwab et.\ al.\ \cite{Jedwab2017} in restricted cases.
+In \cite{Cameron1972}, Cameron investigated groups with inequivalent doubly-transitive permutation representations having the same permutation character and introduced the notion of a linked system of symmetric designs (LSSD). One such example arising from Kerdock codes was communicated by Goethals and later published in \cite{Goethals1976}. These structures, in the homogeneous case, were then further studied by Noda \cite{Noda1974} who bounded the number of fibers in a LSSD in terms of the design parameters induced between any two of the fibers. Focusing on the specific $(16,6,2)$ designs, Mathon \cite{Mathon1981} classified all inequivalent LSSDs using these design parameters via a computer search, finding that there were multiple inequivalent LSSDs with two or three fibers but only the scheme described by Geothals worked with four or more fibers. Later, Van Dam proved in \cite{VanDam1999} the equivalence between these objects and 3-class Q-antipodal association schemes. Martin, Muzychuk, and Williford found a connection to mutually unbiased bases in certain dimensions \cite{Martin2007}. Finally Davis, Martin, Polhill \cite{Davis2014} and Jedwab, Li, Simon \cite{Jedwab2017} built more non-trivial examples using difference sets in 2-groups.\par
+We begin this chapter with a survey of known results focusing on the connection to association schemes. We introduce ``linked simplices", natural geometric objects which are of interest in their own right as collections of full-dimensional simplices with only two possible angles between vectors in distinct simplices. We establish the equivalence of sets of linked simplices and LSSDs. We compare three known bounds on the number of fibers and explore connections to structures in Euclidean space. We show how to construct equiangular lines from arbitrary LSSDs and explore cases where LSSDs lead to real mutually unbiased bases (MUBs). After reviewing known examples, we focus on the case of Menon design parameters and, employing an equivalence with sets of mutually unbiased Hadamard matrices, we construct new families of LSSDs for many values of $v$. In particular, we show that one may fix the even part of $v$ without bounding the number of fibers in an LSSD, a result which was not previously known. In Appendix \ref{families}, we survey the design parameters of known infinite families of symmetric designs and determine which of these cannot be the design parameters of LSSDs with more than two fibers, noting differences vis-\'{a}-vis a recent discovery by Jedwab et.\ al.\ \cite{Jedwab2017} in restricted cases.
 
 Throughout this chapter we will heavily discuss both the parameters of the association schemes given by LSSDs as well as the design parameters of the given symmetric designs. Thus, for clarity sake, we will always refer to the triple $(v,k,\lambda)$ as the \emph{design parameters} of the LSSD so as to distinguish these from the intersection numbers, Krein parameters, and eigenmatrices of an association scheme. Below we list the main theorems of this chapter.
 \begin{restatable*}{thm}{lssdsimpequiv}
-	A $LSSD(v,k,\lambda;w)$ is equivalent to a set of $w$ linked simplices in $\mathbb{R}^{v-1}$.
+	A $LSSD(v,k,\lambda;w)$ is equivalent to a set of $w$ linked simplices in $\mathbb{R}^{v-1}$ with angles given by \eqref{angles} below.
 \end{restatable*}
 \begin{restatable*}{thm}{lssdhadequiv}
 	\label{equiv}
 	An optimistic $LSSD(v,k,\lambda;w)$ with $\vert v-2k\vert = 2\sqrt{k-\lambda}$ exists if and only if there exists a set of $w-1$ regular unbiased Hadamard matrices with order $v$.
 \end{restatable*}
-\begin{restatable*}{thm}{buildinghad}[{cf.\cite[Thm~13]{Kharaghani2010}}]
+\begin{restatable*}{thm}{buildinghad}{(cf.\cite[Thm~13]{Kharaghani2010})}
 	\label{newLSSD}
 	Given a regular Hadamard matrix of order $s$ and an orthogonal array of size $s^2\times N$,
 	\begin{itemize}
-		\item There exists $N-1$ regular unbiased Hadamard matrices of order $s^2$.
+		\item There exist $N-1$ regular unbiased Hadamard matrices of order $s^2$.
 		\item There exists a $LSSD$ with $v=s^2$ and $w=N$.
 	\end{itemize}
 \end{restatable*}
@@ -40,7 +40,7 @@ We form an \textit{incidence}\index{block design!incidence matrix} matrix $B$ fo
 k(k-1) &= \lambda(v-1)\label{sym:1},\\
 k(v-k) &= (k-\lambda)(v-1).\label{sym:2}
 \end{align}
-We now move to a description of a homogeneous\footnote{Here, ``homogeneous" refers to the designs between fibers all having the same design parameters. For the duration of this chapter, we will only concern ourselves with this case, though we drop this clarification later and only refer to the structures as linked systems of symmetric designs.} linked system of symmetric designs as described by Cameron in \cite{Cameron1972} and Noda in \cite{Noda1974}. 
+We now move to a description of a homogeneous\footnote{Here, ``homogeneous" refers to the designs between fibers all having the same design parameters. For the duration of this chapter, we will only concern ourselves with this case, though we drop this clarification later and refer to the structures simply as linked systems of symmetric designs.} linked system of symmetric designs as described by Cameron in \cite{Cameron1972} and Noda in \cite{Noda1974}. 
 Consider a multipartite graph $\Gamma$ on $wv$ vertices with vertex set partitioned into $w$ sets of $v$ vertices called ``fibers":
 \[X = X_1\dot{\cup} X_2\dot{\cup}\cdots\dot{\cup}X_w.\]
 We say $\Gamma$ is a \emph{linked system of symmetric designs}\index{linked system of symmetric designs}, $LSSD(v,k,\lambda;w)$ ($w\geq 2$), if it satisfies the following three properties:
@@ -55,12 +55,12 @@ We say $\Gamma$ is a \emph{linked system of symmetric designs}\index{linked syst
 	\end{cases}
 	\end{equation}
 \end{enumerate}
-where $\sim$ denotes adjacency in $\Gamma$ and $\Gamma(x)$ denotes the neighborhood of vertex $x$. Observe that $\Gamma$ is regular with valency $k(w-1)$. A specific type of LSSD introduced by \cite{Davis2014} called a \text{linking system of difference sets}\index{linking system of difference sets} is a LSSD where the symmetric design induced between any two fibers comes from a difference set with the further restriction that the difference sets induced between any pair of three fibers interact in a consistent way. Recently Jedwab et al.\ \cite{Jedwab2017} examined these in more detail, building new examples and proving non-existence results for certain design parameters. However, Mathon \cite{Mathon1981} showed there exist three fiber LSSDs which do not come from difference sets and therefore these objects are not always equivalent to LSSDs. We will consider the general case, and thus do not assume this added structure on our symmetric designs.\par
+where $\sim$ denotes adjacency in $\Gamma$ and $\Gamma(x)$ denotes the neighborhood of vertex $x$. Observe that $\Gamma$ is regular with valency $k(w-1)$. A specific type of LSSD introduced in \cite{Davis2014}, called a \text{linking system of difference sets}\index{linking system of difference sets}, is a LSSD where the symmetric design induced between any two fibers comes from a difference set with the further restriction that the difference sets induced between any pair of three fibers interact in a consistent way. Recently Jedwab et al.\ \cite{Jedwab2017} examined these in more detail, building new examples and proving non-existence results for certain design parameters. However, Mathon \cite{Mathon1981} showed there exist three fiber LSSDs which do not come from difference sets and therefore these objects are not always equivalent to LSSDs. We will consider the general case, and thus do not assume this added structure on our symmetric designs.\par
 In \cite[Proposition 0]{Noda1974}, Noda shows that $\mu$ and $\nu$ must take one of two pairs of values given by:
 \begin{equation}
 \nu = \frac{k(k\pm \sqrt{k-\lambda})}{v}, \qquad \mu = \nu\mp \sqrt{k-\lambda}. \label{mu-nu}
 \end{equation}
-With these two possibilities for $\mu$ and $\nu$, it becomes useful to distinguish between the two types of LSSDs. We will refer to the LSSD as \emph{$\mu$-heavy}\index{$\mu$-heavy} (resp., \emph{$\nu$-heavy}\index{$\nu$-heavy}) when $\mu>\nu$ (resp., $\nu>\mu$). Note that $\mu\neq \nu$ since $k-\lambda$ is positive. We now show that swapping adjacency between fibers produces another LSSD; we call this graph the multipartite complement of $\Gamma$. We again refer to \cite{Noda1974} for the following observation.
+With these two possibilities for $\mu$ and $\nu$, it becomes useful to distinguish between the two types of LSSDs. We will refer to the LSSD as \emph{$\mu$-heavy}\index{$\mu$-heavy} (resp., \emph{$\nu$-heavy}\index{$\nu$-heavy}) when $\mu>\nu$ (resp., $\nu>\mu$). Note that $\mu\neq \nu$ since $k-\lambda$ is positive. We now show that swapping adjacency between fibers produces another LSSD; we call this graph the \emph{multipartite complement} of $\Gamma$. We again refer to \cite{Noda1974} for the following observation.
 \begin{prop}[Noda]
 	Let $\Gamma$ be a  $LSSD(v,k,\lambda;w)$ with $w>2$. If $\Gamma$ is $\mu$-heavy (resp., $\nu$-heavy), the multipartite complement $\Gamma'$ is a $\nu$-heavy (resp., $\mu$-heavy) $LSSD(v,v-k,v-2k+\lambda;w)$.
 \end{prop}
@@ -75,17 +75,17 @@ We further find that, given $v$, $k$, and $\lambda$, only one of the outcomes in
 	\end{enumerate}
 \end{lem}
 \begin{proof}
-	Assume first (taking complements if necessary) that $k\leq\frac{v}{2}$. One can quickly check that $k+s<v$ except when $(v,k,\lambda) = (2,1,0)$ and $0<k-s$ whenever $k>1$. Then, for any $x\in\mathbb{Z}^+$, we have that if $\frac{x(k\pm s)}{v}$ is an integer then $\gcd(x,v) >1$. Using our expression for $\nu$ in \eqref{mu-nu}, we see that $\gcd(k,v)>1$. Noting that $k' = v-k$ and therefore (ii) holds: $\gcd(k',v) = \gcd(k,v)>1$. Now, using equation \eqref{sym:1} and our requirement that $\sqrt{k-\lambda} = s$, we have the two equations:
+	Assume first (taking complements if necessary) that $k\leq\frac{v}{2}$. One can quickly check that $k+s<v$ except when $(v,k,\lambda) = (2,1,0)$ and $0<k-s$ whenever $k>1$. Then, for any $x\in\mathbb{Z}^+$, we have that if $\frac{x(k\pm s)}{v}$ is an integer then $\gcd(x,v) >1$. Using our expression for $\nu$ in \eqref{mu-nu}, we see that $\gcd(k,v)>1$. Noting that $k' = v-k$ and therefore \emph{(ii)} holds: $\gcd(k',v) = \gcd(k,v)>1$. Now, using equation \eqref{sym:1} and our requirement that $\sqrt{k-\lambda} = s$, we have the two equations:
 	\[\begin{aligned}
 	\frac{k(k\pm s)}{v} \mp\frac{s(k\pm s)}{v} &= \lambda.
 	\end{aligned}\]
-	The integer $\nu$ in \eqref{mu-nu} appears as the first term in one of these equations. This implies we must have that either $\frac{s(k+ s)}{v}$ or $\frac{s(k-s)}{v}$ must also be an integer, giving us (iii): $\gcd(s,v)>1$. To show (i), consider that if both $\frac{k(k+ s)}{v}$ and $\frac{k(k- s)}{v}$ are integers, then the same must hold for both $\frac{s(k+s)}{v}$ and $\frac{s(k-s)}{v}$. However, this implies $\frac{2s^2}{v}\in\mathbb{Z}^+$, contradicting $s^2 <k \leq \frac{v}{2}$.
+	The integer $\nu$ in \eqref{mu-nu} appears as the first term in one of these equations. This implies we must have that either $\frac{s(k+ s)}{v}$ or $\frac{s(k-s)}{v}$ must also be an integer, giving us \emph{(iii)}: $\gcd(s,v)>1$. To show \emph{(i)}, consider that if both $\frac{k(k+ s)}{v}$ and $\frac{k(k- s)}{v}$ are integers, then the same must hold for both $\frac{s(k+s)}{v}$ and $\frac{s(k-s)}{v}$. However, this implies $\frac{2s^2}{v}\in\mathbb{Z}^+$, contradicting $s^2 <k \leq \frac{v}{2}$.
 \end{proof}
 \begin{remark}
 	\label{rmk1}
 	It is noteworthy that our assumption that the $LSSD$ exists can be replaced with the requirement that either of $\frac{k(k\pm s)}{v}$ is an integer for design parameters $(v,k,\lambda)$. Thus, any time we can show that either of $\frac{k(k\pm s)}{v}$ is integral, we know the opposite choice will not be integral. This will become useful as we then do not require that the parameter set is realizable, only that it is feasible under FC2.
 \end{remark}
-The case where $k=1$ or $k=v-1$ produces LSSDs which are not of interest to us and for the remainder of the chapter, we will refer to these designs as degenerate. For a further description of why these designs are degenerate, see Section \ref{degenerate}. The observations that $\gcd(k,v)>1$ and $\gcd(s,v)>1$ are two tools which help us determine more easily which design parameters might be feasible for a LSSD with $w>2$. There are many other statements similar to these we can find, but these two will be sufficient for now. Using these, we can immediately rule out many design parameters, for instance:
+The case where $k=1$ or $k=v-1$ produces LSSDs which are not of interest to us and for the remainder of the chapter, we will refer to these designs as ``degenerate". For a further description of why these designs are degenerate, see Section \ref{degenerate}. The observations that $\gcd(k,v)>1$ and $\gcd(s,v)>1$ are two tools which help us determine more easily which design parameters might be feasible for a LSSD with $w>2$. There are many other statements similar to these we can find, but these two will be sufficient for now. Using these, we can immediately rule out many design parameters, for instance:
 \begin{cor}
 	\label{comp}
 	Assume $w>2$. If there exists a non-degenerate $LSSD(v,k,\lambda;w)$, then $v$ is composite.\qed
@@ -196,7 +196,7 @@ This means that whenever the Krein condition is tight ($q_{1,1}^1 = 0$), we must
 
 \section{Linked simplices}
 \label{linked simplices}
-In this section, we will write $\left\{b_j\right\}$ for the set $\left\{b_1,\dots,b_v\right\}$ for both sets of points and sets of blocks. For our purposes a \emph{regular simplex}\index{regular simplex} will be taken to be a set of $v$ unit vectors spanning $\mathbb{R}^{v-1}$ with the property that the inner product of any pair of distinct vectors is $-\frac{1}{v-1}$. Let $\mathcal{A} = \left\{a_i\right\}$ and $\mathcal{B} = \left\{b_j\right\}$ be two regular simplices in $\mathbb{R}^{v-1}$. We say $\mathcal{A}$ and $\mathcal{B}$ are \emph{linked}\index{linked simplices} if there exist two real numbers $\gamma$ and $\delta$ such that for all $1\leq i,j\leq v$, $\left<a_i,b_j\right>\in \left\{\gamma,\delta\right\}$. (Note that, here, ``linked" always implies regular.) Following the same abuse of notation as we did with equiangular lines in Chapter \ref{psdcone}, we will refer to the real numbers $\gamma$ and $\delta$ as the ``angles" of our linked simplices. Extending this, given regular simplices $\mathcal{A}_1,\dots,\mathcal{A}_w$ in $\mathbb{R}^{v-1}$ we say $\left\{A_1,\dots,A_w\right\}$ is a \emph{set of $w$ linked simplices} if any two of them are linked with the same angles $\gamma$ and $\delta$. The next few theorems establish an equivalence between these objects and LSSDs. 
+In this section, we will write $\left\{b_j\right\}$ for the set $\left\{b_1,\dots,b_v\right\}$ for both sets of points and sets of blocks. For our purposes a \emph{regular simplex}\index{regular simplex} will be taken to be a set of $v$ unit vectors spanning $\mathbb{R}^{v-1}$ with the property that the inner product of any pair of distinct vectors is $-\frac{1}{v-1}$. Let $\mathcal{A} = \left\{a_i\right\}$ and $\mathcal{B} = \left\{b_j\right\}$ be two regular simplices in $\mathbb{R}^{v-1}$. We say $\mathcal{A}$ and $\mathcal{B}$ are \emph{linked}\index{linked simplices} if there exist two real numbers $\gamma$ and $\delta$ such that for all $1\leq i,j\leq v$, $\left<a_i,b_j\right>\in \left\{\gamma,\delta\right\}$. (Note that, here, ``linked" always implies regular.) Following the same abuse of terminology as we did with equiangular lines in Chapter \ref{psdcone}, we will refer to the real numbers $\gamma$ and $\delta$ as the ``angles" of our linked simplices. Extending this, given regular simplices $\mathcal{A}_1,\dots,\mathcal{A}_w$ in $\mathbb{R}^{v-1}$ we say $\left\{A_1,\dots,A_w\right\}$ is a \emph{set of $w$ linked simplices} if any two of them are linked with the same angles $\gamma$ and $\delta$. The next few theorems establish an equivalence between these objects and LSSDs. 
 \begin{thm}
 	\label{Association2Simplex}
 	Consider a $LSSD(v,k,\lambda;w)$ with Bose-Mesner algebra $\mathbb{A}$. The first idempotent $E_1$ in a $Q$-polynomial ordering of $\mathbb{A}$, appropriately scaled, is the Gram matrix of a set of $w$ linked simplices. In the case $w=2$, $E_2$ scaled similarly is also the Gram matrix of a second set of two linked simplices.
@@ -224,7 +224,7 @@ This tells us that every LSSD gives rise to a set of linked simplices. Before pr
 	\end{aligned}\]
 \end{lem}
 \begin{proof}
-	For a vector $x$, let $x(i)$ denote the $i^\text{th}$ element of $x$. For each $1\leq i\leq v$, define $\alpha_i\in \mathbb{R}^{v}$ as the unit vector
+	For a vector $x$, let $x(i)$ denote the $i^\text{th}$ entry of $x$. For each $1\leq i\leq v$, define $\alpha_i\in \mathbb{R}^{v}$ as the unit vector
 	\[\alpha_i = \sqrt{\frac{v-1}{v}}\left[a_i(1),a_i(2),\dots,a_i(v-1),\frac{1}{\sqrt{v-1}}\right].\]
 	For $i\neq i^\prime$,
 	\[\left<\alpha_i,\alpha_{i^\prime}\right> = \frac{v-1}{v}\left(\left<a_i,a_{i^\prime}\right> + \frac{1}{v-1}\right)=0.\]
@@ -259,7 +259,7 @@ k\gamma + (v-k)\delta &= 0,\\
 \lambda(\delta-\gamma)^2 - v\delta^2 &= -\frac{v}{(v-1)^2}\\
 \end{aligned}\]
 to find that $\delta^2 =\frac{k}{(v-1)(v-k)}$. Using \eqref{sym:2}, this simplifies to
-\begin{equation}
+\begin{equation}\label{angles}
 \delta = \pm\frac{k}{(v-1)\sqrt{k-\lambda}},\qquad\gamma = \mp\frac{v-k}{(v-1)\sqrt{k-\lambda}}.
 \end{equation}
 These match the previously determined entries of $E_1$ and $E_2$ corresponding to the first and third relations. Our next theorem concerns the existence of $\mu$ and $\nu$, which arise between triples of fibers.
@@ -369,6 +369,7 @@ of a set of $w$ orthonormal bases where two vectors from distinct bases have one
 \beta_2= -\frac{k-\sqrt{k-\lambda}}{v\sqrt{k-\lambda}}.\]
 Of particular interest is the case when $\vert \beta_1\vert = \vert\beta_2\vert;$ this is precisely when our construction gives a set of mutually unbiased bases. This will be discussed in greater detail in Section \ref{LSSDMUBs}.
 \section{Two families}
+This section discusses two families of LSSDs, one trivial and one quite central to the subject. In each case we introduce the family and provide the parameters of the association schemes.
 \subsection{Degenerate case}\index{degenerate parameters}
 \label{degenerate}
 We first examine the case when the $Q$-polynomial structure fails as seen in the discussion of Theorem $\ref{Qpoly}$. Arguably the most interesting property of this scheme is that there are no bounds on $w$. In fact, for any choice of $v,w>0$, we can build a LSSD with $w$ fibers by building a set of cliques, each of size $w$, where each clique contains a single vertex from each fiber. This gives a $\mu$-heavy LSSD with the complement giving us the $\nu$-heavy LSSD. Below is a representation of the complementary pairs LSSD(4,1,0;3) and LSSD(4,3,2;3).
@@ -583,7 +584,7 @@ Given the characteristic vectors, we can find the cosets of $\mathscr{R}(1,4)$. 
 	+ &  &  &  &  & + & + & + &  & + & + & + &  & + & + & +\\
 	& + & + & + & + &  &  &  & + &  &  &  & + &  &  & \\
 	\end{array}\right]}.\]
-To form our regular simplex we now choose all vectors with 0 in the last coordinate, discard the last element, replace every 0 with a $-1$, and then scale by $\frac{1}{\sqrt{15}}$ giving us the vectors (given by rows):
+To form our regular simplex we now choose all vectors with 0 in the last coordinate, discard the last entry, replace every 0 with a $-1$, and then scale by $\frac{1}{\sqrt{15}}$ giving us the vectors (given by rows):
 \[\begin{aligned}
 X_2 = \frac{1}{\sqrt{15}}\setlength{\arraycolsep}{.8pt}{\fontsize{5}{6}\selectfont\left[\begin{array}{rrrrrrrrrrrrrrrr}
 	- & - & - & + & - & - & - & + & - & - & - & + & + & + & + \\
@@ -697,7 +698,7 @@ This forces $\nu$ (and $\mu$) to be integral if and only if $u$ is even, resulti
 	Further, if $u$ is odd, then $w = 2$.
 \end{thm}
 \begin{proof}
-	Statements $(i)$-$(iii)$ as well as our restriction when $u$ is odd follow directly from above. Conclusion $(iv)$ follows from \eqref{Noda}.
+	Statements \emph{(i)--(iii)} as well as our restriction when $u$ is odd follow directly from above. Conclusion \emph{(iv)} follows from \eqref{Noda}.
 \end{proof}
 The upper bound for $w$ is achieved whenever $u$ is a power of two using the Cameron-Seidel scheme. In light of this family and the requirement that $w=2$ whenever $v/4$ is odd, one might ask if $w$ is bounded as a function of the highest power of $2$ dividing $v$. We will show later that this is not true by constructing examples with $w$ as large as we like and $v/16$ odd.
 \subsection{Hadamard matrix equivalence}
@@ -847,7 +848,7 @@ Then the sum of any row of the Hadamard matrix built from $M^{i,j,l}$ and $M^{i'
 	Since $H$ is regular, $H_n = H^{\otimes n}$ is a regular Hadamard of order $36^n$. Then $O_n$ and $H_n$, along with Theorem \ref{newLSSD}, give us the desired LSSD.
 \end{proof}
 The same construction gives, for example, $LSSD(100^{2n},k,\lambda;4^n+1)$ for all $n\geq 1$. Finally, we note that if we can build a regular Hadamard matrix of order $4t^2$ for $1\leq t\leq 50$, the table of largest known orthogonal arrays for small $n$ in \cite{Colbourn2006} gives us LSSDs with the following number of fibers.\par
-\begin{table}[h]
+\begin{table}[ht]
 \scalebox{.9}{\begin{tabular}{c|*{17}{c}}
 	$t$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10& 11 & 12 & 13 & 14 & 15 & 16 & 17 \\\hline
 	$w$&5&17&9&65&10&12&8&257&10&17&17&10&10&10&29&1025&10\\\\

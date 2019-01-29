@@ -122,7 +122,7 @@ Alternatively, if we consider $U_2$, $\Gamma_{\frac{1}{\sqrt{2}}}$ is given belo
 	edge node {} (6);
 	\draw[-,dashed] (1) --(8) -- (6) --(3) --(4) -- (5) -- (2) -- (7);
 \end{tikzpicture}\]
-Note the dashed lines in $\Gamma_{\frac{1}{\sqrt{2}}}$ appear only to emphasize the extra symmetry. Thus $U_1$ and $U_2$ are clearly different as their corresponding graphs are non-isomorphic double covers of $C_4$. We similarly define the five relations $R_0,\dots,R_4$ on any $OPD_m(\Gamma;\beta)$ via the inner products $1$, $\beta$, $0$, $-\beta$, and $-1$ respectively so that, for instance, $(x,y)\in R_2$ if and only if the corresponding vectors are orthogonal. These five relations satisfy conditions $(i)$--$(iii)$ of an association scheme, leaving condition $(iv)$ as our final test; that is, we must determine if the intersection numbers are well-defined. In the case of the first $OPD$, we find that even though both $(v_1,v_5)$ and $(v_1,v_6)$ are in $R_2$,
+Thus $U_1$ and $U_2$ are clearly different as their corresponding graphs are non-isomorphic double covers of $C_4$. We similarly define the five relations $R_0,\dots,R_4$ on any $OPD_m(\Gamma;\beta)$ via the inner products $1$, $\beta$, $0$, $-\beta$, and $-1$ respectively so that, for instance, $(x,y)\in R_2$ if and only if the corresponding vectors are orthogonal. These five relations satisfy conditions \emph{(i)--(iii)} of an association scheme, leaving condition \emph{(iv)} as our final test; that is, we must determine if the intersection numbers are well-defined. In the case of the first $OPD$, we find that even though both $(v_1,v_5)$ and $(v_1,v_6)$ are in $R_2$,
 \[\left\vert\left\{v_x : (v_x,v_1),(v_5,v_x)\in R_{\beta}\right\}\right\vert\neq\left\vert\left\{v_x : (v_x,v_1),(v_6,v_x)\in R_{\beta}\right\}\right\vert.\]
 On the other hand, the second $OPD$ has well-defined intersection numbers and we find that the columns of $U_2$, along with the relations $R_0,\dots,R_4$, give the association scheme $C_8$.
 \end{example}
@@ -247,7 +247,7 @@ We note that, while $Q_2^m$ denoted the second degree Gegenbauer polynomial in t
 	\frac{gs}{k} & \text{ if }G_{ij} = \pm\beta,\\
 	\frac{g(s+1)}{k+1-v} & \text{ if }G_{ij} = 0.\\
 	\end{cases}\]
-	It follows that $E_0$, $E_2$, and $E_4$ are pairwise orthogonal idempotents. Now, Lemma \ref{mindim} tells us that $E_1$ is also idempotent since $m = v\left(1+k\beta^2\right)^{-1}$. Additionally, the block structure of the matrices $E_0$, $E_1$, $E_2$, and $E_4$ imply that $E_1E_0=E_1E_2=E_1E_4 = 0$ telling us that $E_0$, $E_1$, $E_2$, $E_4$ are pairwise orthogonal idempotents. In view of Lemma \ref{AElem} $(iii')$, we define $E_3 = I-E_0-E_1-E_2-E_4$ and may immediately compute.
+	It follows that $E_0$, $E_2$, and $E_4$ are pairwise orthogonal idempotents. Now, Lemma \ref{mindim} tells us that $E_1$ is also idempotent since $m = v\left(1+k\beta^2\right)^{-1}$. Additionally, the block structure of the matrices $E_0$, $E_1$, $E_2$, and $E_4$ imply that $E_1E_0=E_1E_2=E_1E_4 = 0$ telling us that $E_0$, $E_1$, $E_2$, $E_4$ are pairwise orthogonal idempotents. In view of Lemma \ref{AElem} \emph{($\mathit{iii'}$)}, we define $E_3 = I-E_0-E_1-E_2-E_4$ and may immediately compute.
 	\[E_3^2 = \left(I-E_0-E_1-E_2-E_4\right)^2 = I-E_0-E_1-E_2-E_4\]
 	and $E_3E_i = 0$ for $i\neq 3$. Therefore the vector space spanned by $\left\{E_0,E_1,E_2,E_3,E_4\right\}$ is symmetric, closed under matrix multiplication, and contains both the identity matrix and the all ones matrix. In order to show this algebra is a Bose-Mesner algebra, we must also show it is closed under entrywise products. By construction of $E_1$, $E_2$, and $E_4$, any linear combination of $E_0,\dots,E_4$ has at most $5$ distinct entries. This gives the dimension of $\left<E_1\right>_\circ$ as five. Since we have five basis matrices, this forces $\left<E_0,\dots,E_4\right> = \left<E_1\right>_\circ$ and thus our algebra is a Bose-Mesner algebra. We finish our proof by listing the Krein parameters of our association scheme, referring to the parameter definitions in Theorem \ref{srgparams} for the strongly regular graph parameters.
 	\[L_0^* =  \left[ \begin {array}{ccccc} 1&0&0&0&0\\ \noalign{\medskip}0&1&0&0&0
@@ -339,7 +339,7 @@ Theorem \ref{dimtoassociation} tells us that $OPD$s of strongly regular graphs i
 	1 & -m\beta & \frac{fr}{k} & m\beta & \frac{gs}{k}\\
 	1 & -m & f & m-v & g\\
 	\end{array}\right]\]
-	Since we now have the entire $Q$ matrix, we may use Lemma $\ref{kitchensink}$ $(xiii^\prime)$ to find the Krein parameters of our scheme. In particular we find that $q^3_{11} = q^4_{12} = 0$ as well as
+	Since we now have the entire $Q$ matrix, we may use Lemma $\ref{kitchensink}$ \emph{($\mathit{xiii^\prime}$)} to find the Krein parameters of our scheme. In particular we find that $q^3_{11} = q^4_{12} = 0$ as well as
 	\[\begin{aligned}q^2_{11} &= \frac{1}{2v f}\sum_{h=0}^d\left(k_hQ_{h1}Q_{h1}Q_{h2}\right) = \frac{m^2\left(1+\beta^2r\right)}{v},\\
 	q^3_{12} &= \frac{1}{2v (v-m)}\sum_{h=0}^d\left(k_hQ_{h1}Q_{h2}Q_{h3}\right) = \frac{mf\left(v-m(1+\beta^2r)\right)}{v(v-m)},\\
 	q^4_{13} &= \frac{1}{2v g}\sum_{h=0}^d\left(k_hQ_{h1}Q_{h3}Q_{h4}\right) = \frac{m\left(v-m(1+\beta^2s)\right)}{v}.\\	
@@ -423,7 +423,7 @@ Before moving to examine the effect of Sch\"{o}nberg's theorem on 4-class $Q$-bi
 	Further, $n$ is an integer greater than 1.
 \end{thm}
 \begin{proof}
-	First note that $k$, $r$, and $s$ are the eigenvalues of a strongly regular graph and thus integral (we assume here that the SRG is not a conference graph). For $(i)$ and $(ii)$, note that	$p_{13}^1 = \frac{(n-1)(\mu-n(r+n))}{2n}$. FC2 tells us that this must be a non-negative integer, and therefore we must either have $-s = n = 1$ or $\mu-n(r+n)\geq0$. As $s=-1$ implies our SRG is a union of cliques (and thus $(X,\mathcal{R})$ is $Q$-antipodal), we may ignore this case and $(i)$ follows. Since $\gcd(n,n-1)=1$, we have that $n\vert (\mu-n(r+n))$ forcing $n\vert \mu$ and since $k=\mu+rn^2$, $(ii)$ follows. Next, $(iii)$ follows from the absolute bound $1+f \leq \frac{m(m+1)}{2}$ giving us $n^4+3n^2r-2k\geq 0$. Using another absolute bound, $(iv)$ follows from $\frac{v}{m}\leq f$. Finally, since $n = \sqrt{-s}$, if $n$ is not an integer, then columns one and three of $Q$ must be irrational. However Galois conjugation is an automorphism of our Bose-Mesner algebra and thus $E_0$, $E_3$, $E_2$, $E_1$, $E_4$ must be a second $Q$ polynomial ordering in this case, implying $q_{3,3}^4=0$. Using our $P$ and $Q$ matrices, we find that $q_{3,3}^4 = \frac{(k-r)(k+s)}{\mu}$. This means that whenever $n$ is irrational, either $r=k$ or $s = -k$, both of which imply $(X,\mathcal{R})$ is $Q$-antipodal.
+	First note that $k$, $r$, and $s$ are the eigenvalues of a strongly regular graph and thus integral (we assume here that the SRG is not a conference graph). For \emph{(i)} and \emph{(ii)}, note that	$p_{13}^1 = \frac{(n-1)(\mu-n(r+n))}{2n}$. FC2 tells us that this must be a non-negative integer, and therefore we must either have $-s = n = 1$ or $\mu-n(r+n)\geq0$. As $s=-1$ implies our SRG is a union of cliques (and thus $(X,\mathcal{R})$ is $Q$-antipodal), we may ignore this case and \emph{(i)} follows. Since $\gcd(n,n-1)=1$, we have that $n\vert (\mu-n(r+n))$ forcing $n\vert \mu$ and since $k=\mu+rn^2$, \emph{(ii)} follows. Next, \emph{(iii)} follows from the absolute bound $1+f \leq \frac{m(m+1)}{2}$ giving us $n^4+3n^2r-2k\geq 0$. Using another absolute bound, \emph{(iv)} follows from $\frac{v}{m}\leq f$. Finally, since $n = \sqrt{-s}$, if $n$ is not an integer, then columns one and three of $Q$ must be irrational. However Galois conjugation is an automorphism of our Bose-Mesner algebra and thus $E_0$, $E_3$, $E_2$, $E_1$, $E_4$ must be a second $Q$ polynomial ordering in this case, implying $q_{3,3}^4=0$. Using our $P$ and $Q$ matrices, we find that $q_{3,3}^4 = \frac{(k-r)(k+s)}{\mu}$. This means that whenever $n$ is irrational, either $r=k$ or $s = -k$, both of which imply $(X,\mathcal{R})$ is $Q$-antipodal.
 \end{proof}
 
 \begin{cor}
@@ -432,11 +432,11 @@ Before moving to examine the effect of Sch\"{o}nberg's theorem on 4-class $Q$-bi
 	\[k^2-n^2(n^5+2n^4-3n^2-3n+1)k+n^5(n^2+n-1)\leq0.\]
 \end{cor}
 \begin{proof}
-	Using Theorem \ref{bounds}$(i)$ and $(iv)$, we have that $n(r+n)\leq \mu\leq \frac{kn^2(n^2-1)}{n^2+r}$. Using $\mu = k-rn^2$, these two inequalities give us
+	Using Theorem \ref{bounds} \emph{(i)} and \emph{(iv)}, we have that $n(r+n)\leq \mu\leq \frac{kn^2(n^2-1)}{n^2+r}$. Using $\mu = k-rn^2$, these two inequalities give us
 	\[\frac{k-n^4+\sqrt{n^8-2n^4k(2n^2+3)+k^2}}{2n^2}\leq r\leq \frac{k-n^2}{n(n+1)},\]
 	implying our bound. The lower bound on $k$ is always less than $1$ and thus vacuous. However, the upper bound is non-trivial for any $n>1$.
 \end{proof}
-We now examine the bounds arising from Corollary \ref{Qbipbnds} as applied to our 4-class $Q$-bipartite association scheme. We begin by noting that $\theta_{31}\geq 0$ becomes Theorem \ref{bounds} $(i)$ when we use the parameters $k$, $r$, and $n$, thus making it equivalent to an absolute bound in this context. Next, we find that plugging in our parameters gives $\theta_{42}\geq 0$ and $\theta_{53}\geq 0$ if and only if $k\geq \frac{-rn^2}{n^2-2}$ and $k\geq -\frac{(3n^2-7)rn^2}{n^4-3n^2+6}$ respectively. Both of these bounds are vacuous since the right hand side will be negative for any choice of $n>1$. Finally one may show that $\theta_{31}\geq 0$ and $\theta_{60}\geq 0$ together imply $\theta_{51}\geq 0$ in the specific case of a 4-class $Q$-bipartite scheme. Thus the only new restriction, not implied by FC1-FC3, is $\theta_{60}\geq 0$.
+We now examine the bounds arising from Corollary \ref{Qbipbnds} as applied to our 4-class $Q$-bipartite association scheme. We begin by noting that $\theta_{31}\geq 0$ becomes Theorem \ref{bounds} \emph{(i)} when we use the parameters $k$, $r$, and $n$, thus making it equivalent to an absolute bound in this context. Next, we find that plugging in our parameters gives $\theta_{42}\geq 0$ and $\theta_{53}\geq 0$ if and only if $k\geq \frac{-rn^2}{n^2-2}$ and $k\geq -\frac{(3n^2-7)rn^2}{n^4-3n^2+6}$ respectively. Both of these bounds are vacuous since the right hand side will be negative for any choice of $n>1$. Finally one may show that $\theta_{31}\geq 0$ and $\theta_{60}\geq 0$ together imply $\theta_{51}\geq 0$ in the specific case of a 4-class $Q$-bipartite scheme. Thus the only new restriction, not implied by FC1-FC3, is $\theta_{60}\geq 0$.
 \fourclasssixzero
 \begin{comment}\begin{thm}\label{thm60}
 Suppose we have a feasible parameter set for a $4$-class association scheme which is $Q$-bipartite but not $Q$-antipodal. Let $k=P_{01}$, $r=P_{21}$, and $s=P_{41}$ where $P$ is the first eigenmatrix using the natural ordering. Then the scheme is realizable only if
@@ -444,7 +444,7 @@ Suppose we have a feasible parameter set for a $4$-class association scheme whic
 \end{thm}
 \end{comment}
 \begin{proof}
-	Apply the parameters $k,r,$ and $s$ to Theorem \ref{Qbipbnds} $(v)$.
+	Apply the parameters $k,r,$ and $s$ to Theorem \ref{Qbipbnds} \emph{(v)}.
 \end{proof}
 We may pair this Theorem with Theorem \ref{bounds} to get the following corollary.
 \begin{cor}\label{newkbnds}
@@ -455,7 +455,7 @@ We may pair this Theorem with Theorem \ref{bounds} to get the following corollar
 	\end{tabular}\]
 \end{cor}
 \begin{proof}
-	Let $r_1\geq r_2$ be the two roots of $15n^4(2n^2-3)r^2 + (n^6-45kn^2+76k)n^2r+k(16k+n^6)(n^2-2)$. Then Theorem \ref{thm60} tells us that either $r\geq r_1$ or $r\leq r_2$. Pairing this with Theorem $\ref{bounds}$ we find that $r\geq r_1$ and $\mu\geq n(r+n)$ together restrict $k$ via
+	Let $r_1\geq r_2$ be the two roots of $15n^4(2n^2-3)r^2 + (n^6-45kn^2+76k)n^2r+k(16k+n^6)(n^2-2)$. Then Theorem \ref{thm60} tells us that either $r\geq r_1$ or $r\leq r_2$. Pairing this with Theorem \ref{bounds} we find that $r\geq r_1$ and $\mu\geq n(r+n)$ together restrict $k$ via
 	\[\begin{aligned}	\frac{k}{n^3(n^2-1)}&\leq \frac{n^7+2n^6-3n^4-17n^3+45n^2+14n-76}{-2(n^4-13n^3+15n^2+12n-32)(n^2-1)}\\
 	&\qquad+\frac{\sqrt{n^{10}+4n^9+6n^8+2n^7-35n^6+22n^5+145n^4-72n^2+32n+16}}{-2(n^4-13n^3+15n^2+12n-32)}.\end{aligned}\]
 	Secondly, $r\leq r_2$ with $r\geq\frac{2k}{3n^2}-\frac{n^2}{3}$ implies that $k\leq \frac{3n^6-5n^4}{2}$. Taking the maximum of these two bounds for each $2\leq n\leq 10$ results in the values given in the table. While we may also find a nontrivial bound for the case $n=11$, the resultant bound is larger than the bound given in Theorem \ref{kbnds}, thus we omit it here.
