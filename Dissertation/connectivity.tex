@@ -19,7 +19,7 @@ is equal to the smallest valency. A vertex transitive graph of valency $k$ has v
 at least $\frac23(k+1)$. Further, in 1971, Mader \cite{Mader1971} proved that any vertex transitive graph 
 has edge connectivity equal to its valency. 
 
-The main goal of this chapter is to prove the following theorem related to connectivity in symmetric association schemes:
+This chapter is based on joint work with Martin, published in \cite{Kodalen2017}. The main goal of this chapter is to prove the following theorem related to connectivity in symmetric association schemes:
 
 \begin{thm} \label{Tmain}
 	Let $(X,\cR)$ be a symmetric association scheme. Assume the graph $\Gamma=(X,R_i)$ is connected 
@@ -329,7 +329,7 @@ sets $Y_a$ and $Z_a$ are defined as above relative to this pair of vertices.
 	Let $y \in Y_a$ and consider a shortest $ya$-path $\pi$ in $\Gamma$, of length $\ell$ say, and label its vertices as follows: $\pi=(y=v_\ell,v_{\ell-1},\ldots,v_1,v_{0} = a)$.
 	Then, by Lemma \ref{LpathYa}, $v_s \in Y_a$ for  $1 < s \le \ell$.  Consider $j_s=\varphi_a(v_s)$, $0\le s \le \ell$, and assume $j_\ell=i$. Then we have $p_{1,j_{s+1}}^{j_s} >0$ for $0\le s < \ell$.  Note $j_0=0$ and $j_1=1$. Now we lift the walk $(j_0,\ldots,j_\ell)$ in $H$ to a different walk in $\Gamma$. Since $a$ and $b$ are not twins,
 	we may choose $v'_1 \in \Gamma(a) \setminus \Gamma(b)$.
-	Since $p_{1j_2}^{1}>0$, there exists $v'_2\in R_{j_2}(a)$ with $v'_2$ adjacenct to  $v'_1$ in $\Gamma$. Continuing in this manner, we
+	Since $p_{1j_2}^{1}>0$, there exists $v'_2\in R_{j_2}(a)$ with $v'_2$ adjacent to  $v'_1$ in $\Gamma$. Continuing in this manner, we
 	may construct a walk $\pi'=(a=v'_0,v'_1,\ldots, v'_\ell)$ in $\Gamma$ with $\varphi_a(v'_s)=j_s$. 
 	Since $\Gamma(b) \subseteq \Gamma(a) \cup U_a$, none of the vertices $v'_s$ lie in 
 	$\Gamma(b)$, so the entire walk $\pi'$ is contained in one component of $\Gamma_b$. By definition of $Z_a$, we then have $v'_\ell \in Z_a \cap R_i(a)$.

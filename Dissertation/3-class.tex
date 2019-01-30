@@ -2,7 +2,7 @@
 In \cite{Cameron1972}, Cameron investigated groups with inequivalent doubly-transitive permutation representations having the same permutation character and introduced the notion of a linked system of symmetric designs (LSSD). One such example arising from Kerdock codes was communicated by Goethals and later published in \cite{Goethals1976}. These structures, in the homogeneous case, were then further studied by Noda \cite{Noda1974} who bounded the number of fibers in a LSSD in terms of the design parameters induced between any two of the fibers. Focusing on the specific $(16,6,2)$ designs, Mathon \cite{Mathon1981} classified all inequivalent LSSDs using these design parameters via a computer search, finding that there were multiple inequivalent LSSDs with two or three fibers but only the scheme described by Geothals worked with four or more fibers. Later, Van Dam proved in \cite{VanDam1999} the equivalence between these objects and 3-class Q-antipodal association schemes. Martin, Muzychuk, and Williford found a connection to mutually unbiased bases in certain dimensions \cite{Martin2007}. Finally Davis, Martin, Polhill \cite{Davis2014} and Jedwab, Li, Simon \cite{Jedwab2017} built more non-trivial examples using difference sets in 2-groups.\par
 We begin this chapter with a survey of known results focusing on the connection to association schemes. We introduce ``linked simplices", natural geometric objects which are of interest in their own right as collections of full-dimensional simplices with only two possible angles between vectors in distinct simplices. We establish the equivalence of sets of linked simplices and LSSDs. We compare three known bounds on the number of fibers and explore connections to structures in Euclidean space. We show how to construct equiangular lines from arbitrary LSSDs and explore cases where LSSDs lead to real mutually unbiased bases (MUBs). After reviewing known examples, we focus on the case of Menon design parameters and, employing an equivalence with sets of mutually unbiased Hadamard matrices, we construct new families of LSSDs for many values of $v$. In particular, we show that one may fix the even part of $v$ without bounding the number of fibers in an LSSD, a result which was not previously known. In Appendix \ref{families}, we survey the design parameters of known infinite families of symmetric designs and determine which of these cannot be the design parameters of LSSDs with more than two fibers, noting differences vis-\'{a}-vis a recent discovery by Jedwab et.\ al.\ \cite{Jedwab2017} in restricted cases.
 
-Throughout this chapter we will heavily discuss both the parameters of the association schemes given by LSSDs as well as the design parameters of the given symmetric designs. Thus, for clarity sake, we will always refer to the triple $(v,k,\lambda)$ as the \emph{design parameters} of the LSSD so as to distinguish these from the intersection numbers, Krein parameters, and eigenmatrices of an association scheme. Below we list the main theorems of this chapter.
+Throughout this chapter we will heavily discuss both the parameters of the association schemes given by LSSDs as well as the design parameters of the given symmetric designs. Thus, for clarity sake, we will always refer to the triple $(v,k,\lambda)$ as the \emph{design parameters} of the LSSD so as to distinguish these from the intersection numbers, Krein parameters, and eigenmatrices of an association scheme. This chapter is based on research published in \cite{Kodalen2019}. Below we list the main theorems of this chapter.
 \begin{restatable*}{thm}{lssdsimpequiv}
 	A $LSSD(v,k,\lambda;w)$ is equivalent to a set of $w$ linked simplices in $\mathbb{R}^{v-1}$ with angles given by \eqref{angles} below.
 \end{restatable*}
@@ -10,7 +10,7 @@ Throughout this chapter we will heavily discuss both the parameters of the assoc
 	\label{equiv}
 	An optimistic $LSSD(v,k,\lambda;w)$ with $\vert v-2k\vert = 2\sqrt{k-\lambda}$ exists if and only if there exists a set of $w-1$ regular unbiased Hadamard matrices with order $v$.
 \end{restatable*}
-\begin{restatable*}{thm}{buildinghad}{(cf.\cite[Thm~13]{Kharaghani2010})}
+\begin{restatable*}{thm}{buildinghad}[cf.\ Thm~13 in \cite{Kharaghani2010}]
 	\label{newLSSD}
 	Given a regular Hadamard matrix of order $s$ and an orthogonal array of size $s^2\times N$,
 	\begin{itemize}
@@ -44,7 +44,7 @@ We now move to a description of a homogeneous\footnote{Here, ``homogeneous" refe
 Consider a multipartite graph $\Gamma$ on $wv$ vertices with vertex set partitioned into $w$ sets of $v$ vertices called ``fibers":
 \[X = X_1\dot{\cup} X_2\dot{\cup}\cdots\dot{\cup}X_w.\]
 We say $\Gamma$ is a \emph{linked system of symmetric designs}\index{linked system of symmetric designs}, $LSSD(v,k,\lambda;w)$ ($w\geq 2$), if it satisfies the following three properties:
-\begin{enumerate}[label=(\roman*)]
+\begin{enumerate}[label=$(\roman*)$]
 	\item no edge of $\Gamma$ has both ends in the same fiber $X_i$;
 	\item for all $1\leq i,j\leq w$ with $i\neq j$, the induced subgraph of $\Gamma$ between $X_i$ and $X_j$ is the incidence graph of some $(v,k,\lambda)$-design;
 	\item there exist constants $\mu$ and $\nu$ such that for distinct $h,i,j$ ($1\leq h,i,j\leq w$), 
@@ -68,7 +68,7 @@ We further find that, given $v$, $k$, and $\lambda$, only one of the outcomes in
 \begin{lem}
 	\label{gcd}
 	Let $\Gamma$ be a  $LSSD(v,k,\lambda;w)$ with $w>2$ and $1<k<v-1$. Then the following hold:
-	\begin{enumerate}[label=(\roman*)]
+	\begin{enumerate}[label=$(\roman*)$]
 		\item exactly one of $\frac{k(k+ s)}{v}$ and $\frac{k(k-s)}{v}$ is an integer;
 		\item $\gcd(k,v)>1$;
 		\item $\gcd(s,v)>1$.
@@ -143,7 +143,7 @@ P = \left[\begin{array}{cccc}
 1 & \frac{-k}{\sqrt{k-\lambda}} & \frac{k}{\sqrt{k-\lambda}} & -1\\
 \end{array}\right].
 \end{equation}
-Finally, we use this matrix $Q$ to calculate our Krein parameters using standard techniques (see \cite{Brouwer1989}). Defining $L_i^* = [q_{i,j}^k]_{k,j}$ similar to before, we find
+Finally, we use this matrix $Q$ to calculate our Krein parameters using standard techniques (see \cite{Brouwer1989}). Defining $L_i^* = [q_{ij}^k]_{k,j}$ similar to before, we find
 \[\scalebox{.9}{$L_1^* = \left[\begin{array}{cccc}
 0 & v-1 & 0 & 0\\
 1 & \frac{(1-w)(2k-v)+(v-2)s}{ws} &\frac{(w-1)\left(s(v-2)+(2k-v)\right)}{ws}& 0\\
@@ -168,30 +168,30 @@ If we have that $2k>v$, then we arrive at the bound
 \begin{equation}\label{Noda}w \leq \frac{(v-2)\sqrt{k-\lambda}}{2k-v}+1.\end{equation}
 Since the condition becomes vacuous when $2k<v$, the bound only applies when $(2k-v)(\mu-\nu)>0$.
 \subsubsection*{\sc Krein Conditions}
-In \cite{Mathon1981}, Mathon shows that the previous bound is equivalent to the requirement that $q_{1,1}^1\geq 0$. We have
+In \cite{Mathon1981}, Mathon shows that the previous bound is equivalent to the requirement that $q_{11}^1\geq 0$. We have
 \[\begin{aligned}
-q_{1,1}^1 =\frac{(1-w)(2k-v)+(v-2)s}{ws}\geq 0,\qquad w\leq \frac{(v-2)s}{2k-v}+1
+q_{11}^1 =\frac{(1-w)(2k-v)+(v-2)s}{ws}\geq 0,\qquad w\leq \frac{(v-2)s}{2k-v}+1
 \end{aligned}\]
 assuming $v<2k$. As before, the bound says nothing about LSSDs with $(2k-v)(\mu-\nu)<0$.
 \subsubsection*{\sc Absolute Bound}\index{absolute bound}
 In \cite{Martin2007}, a bound is provided independent of the sign of $(2k-v)(\mu-\nu)$ relying only on the $Q$-polynomial structure (particularly that $q_{11}^3 = 0$ and $q_{11}^2 >0$). Let $m_i = \text{rank}(E_i)$. We know from our $Q$ matrix that $m_2 = (w-1)m_1$. Further,
 \[E_1\circ E_1 = \frac{1}{\vert X\vert}\left(q_{11}^0E_0 + q_{11}^1E_1+q_{11}^2E_2\right).\]
-Therefore $m_2+m_1 + 1\leq \frac{1}{2}m_1\left(m_1+1\right)$ if $q_{11}^1>0$ and $m_2+1\leq \frac{1}{2}m_1\left(m_1+1\right)$ otherwise (c.f. \cite{Brouwer1989} Thm. 2.3.3). First consider the case when $q_{11}^1>0$:
+Therefore $m_2+m_1 + 1\leq \frac{1}{2}m_1\left(m_1+1\right)$ if $q_{11}^1>0$ and $m_2+1\leq \frac{1}{2}m_1\left(m_1+1\right)$ otherwise (cf.\ \cite{Brouwer1989} Thm. 2.3.3). First consider the case when $q_{11}^1>0$:
 \[\begin{aligned}
 (w-1)m_1 &\leq \frac{m_1^2-m_1-2}{2},\\
 w&\leq \frac{m_1}{2}+\frac{1}{2}-\frac{2}{m_1}.
 \end{aligned}\]
 Since $m_1 = v-1$ is an integer, this gives $w \leq \frac{v-1}{2}$.\par
-If instead we have that $q_{1,1}^1 = 0$ then we find $w\leq \frac{v+1}{2}$, so the absolute bound is never tight. But here, know our Krein condition is tight giving us
+If instead we have that $q_{11}^1 = 0$ then we find $w\leq \frac{v+1}{2}$, so the absolute bound is never tight. But here, know our Krein condition is tight giving us
 \[w = \frac{(v-2)s}{2k-v}+1\]
-with $2k>v$ ($q_{1,1}^1 = 0$ is not possible unless $2k>v$ since $w\geq 2$). Further, our bound from the eigenspace structure gives
+with $2k>v$ ($q_{11}^1 = 0$ is not possible unless $2k>v$ since $w\geq 2$). Further, our bound from the eigenspace structure gives
 \[w\leq \frac{m_1+2}{2} = \frac{v+1}{2}.\]
 This means we must have $\frac{(v-2)s}{2k-v}+1\leq \frac{v+1}{2}$ giving $2(v-2)s\leq(v-1)(2k-v)$ or $2s\leq (2k-v) + \frac{2s}{v-1}$. Since $2s<k<v-1$, this means that $2s\leq (2k-v)$. We can square both sides and preserve the inequality, giving:
 $4(k-\lambda)\leq 4k^2-4kv+v^2$. Using \eqref{sym:2} this gives
 \[\begin{aligned}
 4(k-\lambda)\leq v.
 \end{aligned}\]
-This means that whenever the Krein condition is tight ($q_{1,1}^1 = 0$), we must have $4(k-\lambda)\leq v\leq 2k$. There is only one known family of constructions which achieve the Krein bound. For this construction (see \ref{kerdock}) $v = 4(k-\lambda)$. Further, the more general family of design parameters (Menon) is the only possible family for which this inequality is tight.
+This means that whenever the Krein condition is tight ($q_{11}^1 = 0$), we must have $4(k-\lambda)\leq v\leq 2k$. There is only one known family of constructions which achieve the Krein bound. For this construction (see \ref{kerdock}) $v = 4(k-\lambda)$. Further, the more general family of design parameters (Menon) is the only possible family for which this inequality is tight.
 
 
 \section{Linked simplices}
@@ -295,7 +295,7 @@ These match the previously determined entries of $E_1$ and $E_2$ corresponding t
 	\end{aligned}\]
 	Since $\mu$ and $\nu$ are both cardinalities of sets, any time we find non-integral values for $\mu$ and $\nu$ we can conclude that the hypothesized set of linked simplices does not exist.
 \end{proof}
-This brings us to the main theorem of this section (cf. \cite[Theorem~2.6(1)]{Suda2011}).
+This brings us to the main theorem of this section (cf.\ \cite[Theorem~2.6(1)]{Suda2011}).
 \lssdsimpequiv
 %\begin{thm}
 %	A $LSSD(v,k,\lambda;w)$ is equivalent to a set of $w$ linked simplices in $\mathbb{R}^{v-1}$.
@@ -323,7 +323,7 @@ Motivated by the natural ordering of relations, we will adopt the convention of 
 \section{Connections to other Euclidean structures}
 In the previous section, we developed the equivalence between LSSDs and a certain geometric structure using the first and second idempotents as Gram matrices. We now explore similar structures which can be built using combinations of these idempotents, though we will not always be able to reverse these constructions as we did in Chapter \ref{psdcone}. Recall that
 \[E_j = \frac{1}{\vert X\vert}\sum Q_{ij}A_i\]
-and the rank of $E_j$ is given by $Q_{0j}$. By considering nonnegative linear combinations of these idempotents, we construct Gram matrices of systems of vectors with desirable properties. As we are interested in low rank Gram matrices, we will only consider combinations of two or three of these idempotents, avoiding $E_2$ as this has rank $(w-1)(v-1)$. Before moving to the examples, we note that the matrix $x_0E_0 + x_1E_1+x_3E_3$ is expressible as $\sum_i y_i A_i$ with the following values for $y_i$:
+and the rank of $E_j$ is given by $Q_{0j}$. By considering non-negative linear combinations of these idempotents, we construct Gram matrices of systems of vectors with desirable properties. As we are interested in low rank Gram matrices, we will only consider combinations of two or three of these idempotents, avoiding $E_2$ as this has rank $(w-1)(v-1)$. Before moving to the examples, we note that the matrix $x_0E_0 + x_1E_1+x_3E_3$ is expressible as $\sum_i y_i A_i$ with the following values for $y_i$:
 \[\begin{aligned}
 y_0 &= \frac{1}{vw}(x_0 + (v-1)x_1 + (w-1) x_3),\\
 y_1 &= \frac{1}{vw}(x_0 + \frac{v-k}{\sqrt{k-\lambda}}x_1 -x_3),\\
@@ -618,9 +618,9 @@ j & \bigslant{p^{j}_{1,1}}{2^{r-2}}			& \bigslant{p^{j}_{1,2}}{2^{r-1}} 			& \bi
 3 & \left(2^r+1\right)(w-2) 	& 2^{r}+1						& (2^r+1)(w-2) 			& 0   		&\left(2^{r}-1\right)-1 		& \left(2^{r-2}-3\right)(w-2)\\
 \end{array}$}\]
 \subsubsection*{Krein parameters}
-As with the intersection numbers, we recall that $q_{i,j}^k = q_{j,i}^k$ and list each unique Krein parameter omitting the trivial $q_{0,i}^j$ parameters. No scaling is needed here.
+As with the intersection numbers, we recall that $q_{ij}^k = q_{ji}^k$ and list each unique Krein parameter omitting the trivial $q_{0i}^j$ parameters. No scaling is needed here.
 \[\begin{array}{c|ccc|cc|c}
-j & q^{j}_{1,1}			& q^{j}_{1,2}	 						& q^{j}_{1,3} 	& q^{j}_{2,2} 									& q^{j}_{2,3} 	& q^{j}_{3,3}\\\hline
+j & q^{j}_{11}			& q^{j}_{12}	 						& q^{j}_{13} 	& q^{j}_{22} 									& q^{j}_{23} 	& q^{j}_{33}\\\hline
 0 & 2^{2r}-1			& 0										& 0 			& (w-1)(2^{2r}-1)								& 0  			& w-1\\
 1 & \frac{2^{2r}}{w}-2	& 2^{2r}\left(\frac{w-1}{w}\right)		& 0 			& 2^{2r}\left(\frac{(w-1)^2}{w}\right)-2(w-1)	& w-1			& 0\\
 2 & \frac{2^{2r}}{w}	& 2^{2r}\left(\frac{w-1}{w}\right)-2	& 1				& 2^{2r}\left(\frac{(w-1)^2}{w}\right)+2(w-2)	& w-2			& 0\\
@@ -689,7 +689,7 @@ This forces $\nu$ (and $\mu$) to be integral if and only if $u$ is even, resulti
 \begin{thm}
 	\label{MubLssdrestrictions}
 	Let $\Gamma$ be an optimistic $LSSD(v,k,\lambda;w)$. If $v-2k = -2\sqrt{k-\lambda}$ then $\Gamma$ uses \emph{Menon design parameters}\index{Menon parameters}. That is,
-	\begin{enumerate}[label=(\roman*)]
+	\begin{enumerate}[label=$(\roman*)$]
 		\item $v = 4u^2$
 		\item $k = 2u^2+u$
 		\item $\lambda = u^2+u$
@@ -698,7 +698,7 @@ This forces $\nu$ (and $\mu$) to be integral if and only if $u$ is even, resulti
 	Further, if $u$ is odd, then $w = 2$.
 \end{thm}
 \begin{proof}
-	Statements \emph{(i)--(iii)} as well as our restriction when $u$ is odd follow directly from above. Conclusion \emph{(iv)} follows from \eqref{Noda}.
+	Statements \emph{(i) -- (iii)} as well as our restriction when $u$ is odd follow directly from above. Conclusion \emph{(iv)} follows from \eqref{Noda}.
 \end{proof}
 The upper bound for $w$ is achieved whenever $u$ is a power of two using the Cameron-Seidel scheme. In light of this family and the requirement that $w=2$ whenever $v/4$ is odd, one might ask if $w$ is bounded as a function of the highest power of $2$ dividing $v$. We will show later that this is not true by constructing examples with $w$ as large as we like and $v/16$ odd.
 \subsection{Hadamard matrix equivalence}

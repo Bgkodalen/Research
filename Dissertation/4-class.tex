@@ -1,6 +1,6 @@
 \chapter{Orthogonal projective double covers}
 \label{4classbip}
-Throughout this thesis we have examined many different spherical $t$-distance sets and their close relation to association schemes. In some cases, we may find an equivalence between such $t$-distance sets and certain classes of association schemes; thus is the case discussed in Chapter \ref{3class} where we found 3-class $Q$-antipodal association schemes were equivalent to the 3-distance sets called linked simplices. In other cases we find that equivalence occurs only when we impose additional restrictions on the $t$-distance set, for instance only certain sets of equiangular lines occur within 3-class $Q$-bipartite association schemes. In this chapter, we introduce a line system known as a \emph{projective double}\index{projective double} of a graph, denoted $PD_m(\Gamma;\beta,\gamma)$. This object is a set of lines in $\mathbb{R}^m$ with two possible angles, $\alpha$ and $\beta$, where $\Gamma$ is the incidence graph on $\beta$. Here, as with sets of equiangular lines, $\beta$ and $\gamma$ represent the cosine of the angles between lines; despite this we will abuse notation and refer to them as the ``angles" of our projective double. We find that these systems are closely related to $4$- and $5$-class $Q$-bipartite association schemes. In this chapter, we will focus on the $4$-class case and define a related line system called an \emph{orthogonal projective double} of a graph $\Gamma$, denoted $OPD_m(\Gamma;\beta)$. These are projective doubles for which $\gamma = 0$. We begin by considering the general objects but will add restrictions along the way with the motivation of finding an equivalence between these objects and our association schemes. Below is a list of the main results found in this chapter.
+Throughout this thesis we have examined many different spherical $t$-distance sets and their close relation to association schemes. In some cases, we may find an equivalence between such $t$-distance sets and certain classes of association schemes; thus is the case discussed in Chapter \ref{3class} where we found 3-class $Q$-antipodal association schemes were equivalent to the 3-distance sets called linked simplices. In other cases we find that equivalence occurs only when we impose additional restrictions on the $t$-distance set, for instance only certain sets of equiangular lines occur within 3-class $Q$-bipartite association schemes. In this chapter, we introduce a line system known as a \emph{projective double}\index{projective double} of a graph, denoted $PD_m(\Gamma;\beta,\gamma)$. This object is a set of lines in $\mathbb{R}^m$ with two possible angles, $\alpha$ and $\beta$, where $\Gamma$ is the incidence graph on $\beta$. Here, as with sets of equiangular lines, $\beta$ and $\gamma$ represent the cosine of the angles between lines; despite this we will abuse notation and refer to them as the ``angles" of our projective double. We find that these systems are closely related to $4$- and $5$-class $Q$-bipartite association schemes. In this chapter, we will focus on the $4$-class case and define a related line system called an \emph{orthogonal projective double} of a graph $\Gamma$, denoted $OPD_m(\Gamma;\beta)$. These are projective doubles for which $\gamma = 0$. We begin by considering the general objects but will add restrictions along the way with the motivation of finding an equivalence between these objects and our association schemes. This material in this chapter contains joint work with Martin. Below is a list of the main results found in this chapter.
 \begin{restatable*}{prop}{projsrg}\label{projnec}
 	An $OPD_m(\Gamma;\beta)$ for simple graph $\Gamma$ induces an association scheme only if $\Gamma$ is strongly regular.
 \end{restatable*}
@@ -18,7 +18,7 @@ Throughout this thesis we have examined many different spherical $t$-distance se
 
 \section{Orthogonal projective doubles of regular graphs}
 As we saw with other examples, it becomes useful to represent a line system by a set of unit vectors, defining the ``angle" between two lines to be the absolute value of the inner product between representative unit vectors. As we have two choices of a representative for each line, we have many equivalent such representations of any line set. In this chapter, we will instead include both directions; that is, we will represent our line system with an antipodal set of unit vectors with twice as many vectors as there are lines. Further, we will describe a projective double by not only the parameters $m$, $\beta$, and $\delta$ but also the graph which is induced on the set of lines where two lines are adjacent if they intersect in angle $\beta$. Let $\Gamma = \Gamma(V,E)$ be an undirected graph on $v$ vertices. A \emph{projective double}\index{projective double}($PD_m(\beta,\delta)$) of $\Gamma$ is an antipodal spherical code, say $L = \left\{\ell_1,\dots,\ell_{2v}\right\}\subset \mathbb{R}^m$ with inner products $A = \left\{\pm 1,\pm \beta,\pm\delta\right\}$ such that there exists a mapping $\phi:L\rightarrow V$ with the properties
-\begin{enumerate}[label=(\roman*)]
+\begin{enumerate}[label=$(\roman*)$]
 	\item $\phi(\ell_i) = \phi(\ell_j)$ if and only if $\left\vert\left<\ell_i,\ell_j\right>\right\vert = 1$,
 	\item $\phi(\ell_i) \sim \phi(\ell_j)$ if and only if $\left\vert\left<\ell_i,\ell_j\right>\right\vert = \gamma$	
 \end{enumerate}
@@ -63,13 +63,13 @@ Proposition \ref{dirnaive} and corollary \ref{regnaive} provide upper bounds on 
 \end{proof}
 \begin{example}\label{doublecoverc4}
 Consider the graph $C_4$. This is a regular graph with 3 edges in any spanning tree, thus Corollary \ref{regnaive} tells us there exists an orthogonal projective double in $\mathbb{R}^3$ with angle $\frac{1}{2}$. In fact, the columns of $U_1$ serve as one such $OPD$, where 
-\[U_1 = \left[\begin{array}{crcccccc}
+\[U_1 = \left[\begin{array}{rrrrrrrr}
 1 & -1 & \frac{1}{2} & -\frac{1}{2} & 0 & 0 &\frac{1}{2} &-\frac{1}{2}\\
 0 & 0 & \frac{\sqrt{3}}{2} & -\frac{\sqrt{3}}{2} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{12}}& \frac{1}{\sqrt{12}}\\
 0 & 0 & 0 & 0 & \sqrt{\frac{2}{3}} & -\sqrt{\frac{2}{3}} & \sqrt{\frac{2}{3}} & -\sqrt{\frac{2}{3}} \\			
 \end{array}\right].\]
 A largest coclique in this graph has size $2$ and thus Proposition \ref{cocliquebnd} allows for the possibility of an $OPD_2(C_4;\beta)$. While it is not hard to show that we cannot find an $OPD_2(C_4;\beta)$ with $\beta=\frac{1}{2}$, the following is an example in dimension $2$ with angle $\frac{1}{\sqrt{2}}$.
-\[U_2 = \left[\begin{array}{crcrcccc}
+\[U_2 = \left[\begin{array}{rrrrrrrr}
 1 & -1 & 0 & 0 & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2}\\
 0 & 0 & 1 & -1 & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2}\\				
 \end{array}\right]\]
@@ -122,7 +122,7 @@ Alternatively, if we consider $U_2$, $\Gamma_{\frac{1}{\sqrt{2}}}$ is given belo
 	edge node {} (6);
 	\draw[-,dashed] (1) --(8) -- (6) --(3) --(4) -- (5) -- (2) -- (7);
 \end{tikzpicture}\]
-Thus $U_1$ and $U_2$ are clearly different as their corresponding graphs are non-isomorphic double covers of $C_4$. We similarly define the five relations $R_0,\dots,R_4$ on any $OPD_m(\Gamma;\beta)$ via the inner products $1$, $\beta$, $0$, $-\beta$, and $-1$ respectively so that, for instance, $(x,y)\in R_2$ if and only if the corresponding vectors are orthogonal. These five relations satisfy conditions \emph{(i)--(iii)} of an association scheme, leaving condition \emph{(iv)} as our final test; that is, we must determine if the intersection numbers are well-defined. In the case of the first $OPD$, we find that even though both $(v_1,v_5)$ and $(v_1,v_6)$ are in $R_2$,
+Thus $U_1$ and $U_2$ are clearly different as their corresponding graphs are non-isomorphic double covers of $C_4$. We similarly define the five relations $R_0,\dots,R_4$ on any $OPD_m(\Gamma;\beta)$ via the inner products $1$, $\beta$, $0$, $-\beta$, and $-1$ respectively so that, for instance, $(x,y)\in R_2$ if and only if the corresponding vectors are orthogonal. These five relations satisfy conditions \emph{(i) -- (iii)} of an association scheme, leaving condition \emph{(iv)} as our final test; that is, we must determine if the intersection numbers are well-defined. In the case of the first $OPD$, we find that even though both $(v_1,v_5)$ and $(v_1,v_6)$ are in $R_2$,
 \[\left\vert\left\{v_x : (v_x,v_1),(v_5,v_x)\in R_{\beta}\right\}\right\vert\neq\left\vert\left\{v_x : (v_x,v_1),(v_6,v_x)\in R_{\beta}\right\}\right\vert.\]
 On the other hand, the second $OPD$ has well-defined intersection numbers and we find that the columns of $U_2$, along with the relations $R_0,\dots,R_4$, give the association scheme $C_8$.
 \end{example}
@@ -177,7 +177,7 @@ The association scheme structure allows us to improve on the naive upper bound g
 \begin{proof}
 	Let $A_0=I$. Let $A_1$ and $A_2$ be the adjacency matrices of $\Gamma$ and $\overline{\Gamma}$ respectively. From Equation \eqref{PQsrg}, $E_1 = \frac{1}{v}\left(fA_0 + \frac{fr}{k}A_1 + \frac{f(1+r)}{k+1-v}A_2\right)$. Then the matrix
 	\[G = \frac{(1+r)}{v-k-1}E_0 + \frac{1}{f}E_1 = \left(\frac{v+r-k}{v(v-k-1)}\right)A_0 +\left(\frac{k+r(v-1)}{v(v-k-1)}\right)A_1\]
-	is a $v\times v$ positive semi-definite matrix with rank $f+1$ with the off diagonal entries we seek. We may then find an $(f+1)\times v$ matrix $U$ such that $\left(\frac{v(v-k-1)}{v+r-k}\right)G = U^TU$; that is, the columns of $U$ are unit vectors in $\mathbb{R}^{f+1}$ such that $u_i\perp u_j$ if the corresponding points in $X$ are related by $R_2$ and $\left<u_i,u_j\right>$ is otherwise constant for $i\neq j$. Then $L = \left\{\pm u_1,\dots,\pm u_v\right\}$ is an $OPD_{f+1}\left(\Gamma;\frac{k+r(v-1)}{v+r-k}\right)$ where $u_i$ is the $i^\text{th}$ column of $U$.
+	is a $v\times v$ positive semidefinite matrix with rank $f+1$ with the off diagonal entries we seek. We may then find an $(f+1)\times v$ matrix $U$ such that $\left(\frac{v(v-k-1)}{v+r-k}\right)G = U^TU$; that is, the columns of $U$ are unit vectors in $\mathbb{R}^{f+1}$ such that $u_i\perp u_j$ if the corresponding points in $X$ are related by $R_2$ and $\left<u_i,u_j\right>$ is otherwise constant for $i\neq j$. Then $L = \left\{\pm u_1,\dots,\pm u_v\right\}$ is an $OPD_{f+1}\left(\Gamma;\frac{k+r(v-1)}{v+r-k}\right)$ where $u_i$ is the $i^\text{th}$ column of $U$.
 \end{proof}
 Note that this construction does not induce a 4-class association scheme. We see this by noting that all off diagonal entries in $G$ are non-negative. Thus we may split our $OPD$ into two sets $L^+$ and $L^-$ where $L^+$ contains all the columns of $U$ and $L^-$ contains their negatives. Then for vectors $u\perp v$, the number of vectors $w$ such that $\left<v,w\right> = \left<u,w\right>=\beta$ could be either $0$ (if $v\in L^+$ and $u\in L^-$) or $\lambda$ (if $v,w\in L^+$). Thus this value is not solely dependent on the inner product $\left<u,v\right>$ and $p^2_{11}$ is not well defined. While this does not solve our question of which $OPD$'s induce association schemes, it does provide us with a better upper bound on the dimension needed for strongly regular graphs. For example, this gives an $OPD$ of the Petersen graph in dimension $5$ while Corollary \ref{regnaive} produces one in dimension $9$. Now consider the following theorem of Delsarte.
 
@@ -218,7 +218,7 @@ We note that, while $Q_2^m$ denoted the second degree Gegenbauer polynomial in t
 \end{thm}
 \begin{proof}
 	We begin by ordering the vectors in our orthogonal projective double so that $\ell_1,\dots,\ell_v$ are representatives from distinct lines and $\ell_{i+v} = -\ell_{i}$ for $1\leq i\leq v$. Likewise we order the vertices of $\Gamma$ so that $\ell_i$ and $\ell_{v+i}$ are mapped to vertex $i$. Let $G$ be the Gram matrix of our $OPD_m(\Gamma;\beta)$ with rows and columns ordered in this fashion; that is, $G_{ij} = \left<\ell_i,\ell_j\right>$ for $1\leq i,j\leq 2v$. This ordering implies there exists a matrix $\tilde{G}$\footnote{Here, we use $\sim$ only to emphasize that $\tilde{G}$ is the Gram matrix induced on a subset of the vertices. This matrix does not belong to the Bose-Mesner algebra of the quotient scheme.} such that
-	\[G =\def\arraystretch{1.4}\left[\begin{array}{c:c}
+	\[G =\def\arraystretch{1.4}\left[\begin{array}{r:r}
 	\tilde{G} & -\tilde{G}\\\hdashline[2pt/2pt]
 	-\tilde{G} & \tilde{G}\\[2pt]
 	\end{array}\right].\]
@@ -296,16 +296,14 @@ We note that, while $Q_2^m$ denoted the second degree Gegenbauer polynomial in t
 			\right) }}&0\\
 	\noalign{\medskip}1&0&{\frac { \left( k-s \right)rf }{ \left( r-s \right) k  }
 	}&0&g-1-\frac{(k-s)rf}{(r-s)k}\end {array} \right].\]
-Therefore the algebra generated by $\left<E_0,\dots,E_4\right>$ is the Bose-Mesner algebra of a 4-class association scheme. Since $G = \frac{2v}{m}E_1$, it is clear that $\left<G\right>_\circ\subset\text{span}\left\{E_0,\dots,E_4\right\}$. For the other direction we show $\text{span}\left\{A_0,\dots,A_4\right\}\subset \left<G\right>_\circ$. Define $c_i$ for $0\leq i\leq 4$ via $G\circ A_i = c_iA_i$ and we have
-\[A_i = \prod_{j\neq i}\left(\frac{G-c_jJ}{c_i-c_j}\right)\]
-where the product is taken entrywise.
+Therefore the algebra generated by $\left<E_0,\dots,E_4\right>$ is the Bose-Mesner algebra of a 4-class association scheme. Since $G = \frac{2v}{m}E_1$, it is clear that $\left<G\right>_\circ\subset\text{span}\left\{E_0,\dots,E_4\right\}$. Further, since $G$ has exactly $5$ distinct entries, the dimension of $\left<G\right>_\circ$ is five and thus we must have $\left<G\right>_\circ=\text{span}\left\{E_0,\dots,E_4\right\}$.
 \end{proof}
 \begin{cor}
 	\label{delcocliquetoqbip}
-	Let $\Gamma$ be a conntected strongly regular graph with $v$ vertices and eigenvalues $k>r>s$ which contains a Delsarte coclique. Let $G$ be the Gram matrix of an $OPD_m(\Gamma;\beta)$ with $m = v\left(1-\frac{k}{s}\right)^{-1}$. Then $\left<G\right>_\circ$ is the Bose-Mesner algebra of a 4-class $Q$-bipartite association scheme.
+	Let $\Gamma$ be a connected strongly regular graph with $v$ vertices and eigenvalues $k>r>s$ which contains a Delsarte coclique. Let $G$ be the Gram matrix of an $OPD_m(\Gamma;\beta)$ with $m = v\left(1-\frac{k}{s}\right)^{-1}$. Then $\left<G\right>_\circ$ is the Bose-Mesner algebra of a 4-class $Q$-bipartite association scheme.
 \end{cor}
 \begin{proof}
-	Corollary \ref{cocliquebnd} tells us that $\beta = \frac{1}{\sqrt{s}}$ and therefore $m = v\left(1+k\beta^2\right)$. Then Theorem \ref{dimtoassociation} gives that $\left<G\right>_\circ$ is the Bose-Mesner algebra of a 4-class association scheme. The $Q$-bipartite property follows as $(1+s\beta^2) = 0$, implying $L_1^*$ is tridiagonal.
+	Corollary \ref{snegsquare} tells us that $\beta = \frac{1}{\sqrt{-s}}$ and therefore $m = v\left(1+k\beta^2\right)$. Then Theorem \ref{dimtoassociation} gives that $\left<G\right>_\circ$ is the Bose-Mesner algebra of a 4-class association scheme. The $Q$-bipartite property follows as $(1+s\beta^2) = 0$, implying $L_1^*$ is tridiagonal.
 \end{proof}
 
 Theorem \ref{dimtoassociation} tells us that $OPD$s of strongly regular graphs induce association schemes whenever the dimension is tight with respect to Lemma \ref{mindim}. It turns out this is also a necessary condition as long as the dimension is not too far away from optimal; that is, $m<v$.
@@ -344,9 +342,9 @@ Theorem \ref{dimtoassociation} tells us that $OPD$s of strongly regular graphs i
 	q^3_{12} &= \frac{1}{2v (v-m)}\sum_{h=0}^d\left(k_hQ_{h1}Q_{h2}Q_{h3}\right) = \frac{mf\left(v-m(1+\beta^2r)\right)}{v(v-m)},\\
 	q^4_{13} &= \frac{1}{2v g}\sum_{h=0}^d\left(k_hQ_{h1}Q_{h3}Q_{h4}\right) = \frac{m\left(v-m(1+\beta^2s)\right)}{v}.\\	
 	\end{aligned}\]
-	Noting that $v- m(1+\beta^2r)>v-m(1+\beta^2k) = 0$ as long as $r\neq k$ ($\Gamma$ is not a union of cliques) we have all three Krein parameters nonzero. Thus $\BMA$ is $Q$-polynomial if and only if $q^{4}_{11}=0$. Calculating this similarly, we find
+	Recall that $m = v(1+k\beta^2)^{-1}$ and therefore $v-m(1+\beta^2k)=0$. Thus we have both $v-m(1+\beta^2r)>0$ and $v-m(1+\beta^2s)>0$ as long as $r<k$ (i.e.\ $\Gamma$ is connected), forcing all three of the above Krein parameters to be nonzero. Thus $\BMA$ is $Q$-polynomial if and only if $q^{4}_{11}=0$. Calculating this similarly, we find
 	\[q^4_{11} = \frac{1}{2v g}\sum_{h=0}^d\left(k_hQ_{h1}Q_{h1}Q_{h4}\right) = \frac{m^2\left(1+\beta^2s\right)}{v}.\]
-	We therefore find $q^4_{11}=0$ if and only if $s = -\beta^{-2}$. Finally, since $q^0_{11},q^2_{11}>0$, we have $\text{rank}(G\circ G) = 1+f+g=v$ if $q^4_{11}>0$ and $\text{rank}(G\circ G) = 1+f<v$ otherwise.
+	We therefore find $q^4_{11}=0$ if and only if $s = -\beta^{-2}$. Finally, noting that $q^1_{11}=0$ (calculated similarly), we must have $\text{rank}(G\circ G) = 1+f+g=v$ if $q^4_{11}>0$ and $\text{rank}(G\circ G) = 1+f<v$ otherwise.
 \end{proof}
 \dimiffassoc
 \begin{proof}
@@ -414,7 +412,7 @@ Before moving to examine the effect of Sch\"{o}nberg's theorem on 4-class $Q$-bi
 \begin{thm}
 	\label{bounds}
 	Suppose we have a feasible parameter set for a $4$-class association scheme which is $Q$-bipartite but not $Q$-antipodal. Let $k=P_{01}$, $r=P_{21}$, and $s=P_{41}$ where $P$ is the first eigenmatrix using the natural ordering. The following must hold with $n:=\sqrt{-s}$ and $\mu=k+rs$:
-	\begin{enumerate}[label=(\roman*)]
+	\begin{enumerate}[label=$(\roman*)$]
 		\item $\mu\geq n(r+n)$,
 		\item $n\vert \mu$ and $n\vert k$,
 		\item $r\geq \frac{2k}{3n^2}-\frac{n^2}{3}$,
@@ -423,7 +421,7 @@ Before moving to examine the effect of Sch\"{o}nberg's theorem on 4-class $Q$-bi
 	Further, $n$ is an integer greater than 1.
 \end{thm}
 \begin{proof}
-	First note that $k$, $r$, and $s$ are the eigenvalues of a strongly regular graph and thus integral (we assume here that the SRG is not a conference graph). For \emph{(i)} and \emph{(ii)}, note that	$p_{13}^1 = \frac{(n-1)(\mu-n(r+n))}{2n}$. FC2 tells us that this must be a non-negative integer, and therefore we must either have $-s = n = 1$ or $\mu-n(r+n)\geq0$. As $s=-1$ implies our SRG is a union of cliques (and thus $(X,\mathcal{R})$ is $Q$-antipodal), we may ignore this case and \emph{(i)} follows. Since $\gcd(n,n-1)=1$, we have that $n\vert (\mu-n(r+n))$ forcing $n\vert \mu$ and since $k=\mu+rn^2$, \emph{(ii)} follows. Next, \emph{(iii)} follows from the absolute bound $1+f \leq \frac{m(m+1)}{2}$ giving us $n^4+3n^2r-2k\geq 0$. Using another absolute bound, \emph{(iv)} follows from $\frac{v}{m}\leq f$. Finally, since $n = \sqrt{-s}$, if $n$ is not an integer, then columns one and three of $Q$ must be irrational. However Galois conjugation is an automorphism of our Bose-Mesner algebra and thus $E_0$, $E_3$, $E_2$, $E_1$, $E_4$ must be a second $Q$ polynomial ordering in this case, implying $q_{3,3}^4=0$. Using our $P$ and $Q$ matrices, we find that $q_{3,3}^4 = \frac{(k-r)(k+s)}{\mu}$. This means that whenever $n$ is irrational, either $r=k$ or $s = -k$, both of which imply $(X,\mathcal{R})$ is $Q$-antipodal.
+	First note that $k$, $r$, and $s$ are the eigenvalues of a strongly regular graph and thus integral (we assume here that the SRG is not a conference graph). For \emph{(i)} and \emph{(ii)}, note that	$p_{13}^1 = \frac{(n-1)(\mu-n(r+n))}{2n}$. FC2 tells us that this must be a non-negative integer, and therefore we must either have $-s = n = 1$ or $\mu-n(r+n)\geq0$. As $s=-1$ implies our SRG is a union of cliques (and thus $(X,\mathcal{R})$ is $Q$-antipodal), we may ignore this case and \emph{(i)} follows. Since $\gcd(n,n-1)=1$, we have that $n\vert (\mu-n(r+n))$ forcing $n\vert \mu$ and since $k=\mu+rn^2$, \emph{(ii)} follows. Next, \emph{(iii)} follows from the absolute bound $1+f \leq \frac{m(m+1)}{2}$ giving us $n^4+3n^2r-2k\geq 0$. Using another absolute bound, \emph{(iv)} follows from $\frac{v}{m}\leq f$. Finally, since $n = \sqrt{-s}$, if $n$ is not an integer, then columns one and three of $Q$ must be irrational. However Galois conjugation is an automorphism of our Bose-Mesner algebra and thus $E_0$, $E_3$, $E_2$, $E_1$, $E_4$ must be a second $Q$ polynomial ordering in this case, implying $q_{33}^4=0$. Using our $P$ and $Q$ matrices, we find that $q_{33}^4 = \frac{(k-r)(k+s)}{\mu}$. This means that whenever $n$ is irrational, either $r=k$ or $s = -k$, both of which imply $(X,\mathcal{R})$ is $Q$-antipodal.
 \end{proof}
 
 \begin{cor}
