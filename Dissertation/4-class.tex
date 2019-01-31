@@ -222,7 +222,7 @@ We note that, while $Q_2^m$ denoted the second degree Gegenbauer polynomial in t
 	\tilde{G} & -\tilde{G}\\\hdashline[2pt/2pt]
 	-\tilde{G} & \tilde{G}\\[2pt]
 	\end{array}\right].\]
-	Now let $\tilde{A}_1$ and $\tilde{A}_2$ be the adjacency matrices of $\Gamma$ and $\overline{\Gamma}$ respectively. Let $\tilde{E}_0$, $\tilde{E}_1$, and $\tilde{E}_2$ be the minimal idempotents corresponding to the eigenvalues $k$, $r$, and $s$ respectively; that is, $\tilde{A}_1\tilde{E}_0 = k\tilde{E}_0$, $\tilde{A}_1\tilde{E}_1 = r\tilde{E}_1$, and $\tilde{A}_1\tilde{E}_2 = s\tilde{E}_2$. For each matrix, assume the rows and columns are ordered via the ordering defined above. Recall that the second eigenmatrix of this association scheme is
+	Now let $\tilde{A}_1$ and $\tilde{A}_2$ be the adjacency matrices of $\Gamma$ and $\overline{\Gamma}$ respectively. Let $\tilde{E}_0$, $\tilde{E}_1$, and $\tilde{E}_2$ be the minimal idempotents corresponding to the eigenvalues $k$, $r$, and $s$ respectively; that is, $\tilde{A}_1\tilde{E}_0 = k\tilde{E}_0$, $\tilde{A}_1\tilde{E}_1 = r\tilde{E}_1$, and $\tilde{A}_1\tilde{E}_2 = s\tilde{E}_2$. For each matrix, assume the rows and columns are ordered via the vertex ordering defined above. Recall that the second eigenmatrix of this association scheme is
 	\[\tilde{Q} = \left[\begin{array}{ccc}
 	1 & f & g\\
 	1 & \frac{fr}{k} & \frac{gs}{k}\\
@@ -237,19 +237,35 @@ We note that, while $Q_2^m$ denoted the second degree Gegenbauer polynomial in t
 	\tilde{E}_2 & \tilde{E}_2\\\hdashline[2pt/2pt]
 	\tilde{E}_2 & \tilde{E}_2\\[2pt]
 	\end{array}\right].\]
-	We note that the definition of $E_0$ implies an analogous structure using $\tilde{E}_0$. Further, these constructions imply that
-	\[2v\left[E_2\right]_{ij} = \begin{cases}
-	f & \text{ if }G_{ij} = \pm1,\\
-	\frac{fr}{k} & \text{ if }G_{ij} = \pm\beta,\\
-	\frac{f(r+1)}{k+1-v} & \text{ if }G_{ij} = 0,\\
-	\end{cases}\qquad 2v\left[E_4\right]_{ij} = \begin{cases}
-	g & \text{ if }G_{ij} = \pm1,\\
-	\frac{gs}{k} & \text{ if }G_{ij} = \pm\beta,\\
-	\frac{g(s+1)}{k+1-v} & \text{ if }G_{ij} = 0.\\
-	\end{cases}\]
-	It follows that $E_0$, $E_2$, and $E_4$ are pairwise orthogonal idempotents. Now, Lemma \ref{mindim} tells us that $E_1$ is also idempotent since $m = v\left(1+k\beta^2\right)^{-1}$. Additionally, the block structure of the matrices $E_0$, $E_1$, $E_2$, and $E_4$ imply that $E_1E_0=E_1E_2=E_1E_4 = 0$ telling us that $E_0$, $E_1$, $E_2$, $E_4$ are pairwise orthogonal idempotents. In view of Lemma \ref{AElem} \emph{($\mathit{iii'}$)}, we define $E_3 = I-E_0-E_1-E_2-E_4$ and may immediately compute.
+	We note that the definition of $E_0$ implies an analogous structure using $\tilde{E}_0$. It follows that $E_0$, $E_2$, and $E_4$ are pairwise orthogonal idempotents. Now, Lemma \ref{mindim} tells us that $E_1$ is also idempotent since $m = v\left(1+k\beta^2\right)^{-1}$. Additionally, the block structure of the matrices $E_0$, $E_1$, $E_2$, and $E_4$ imply that $E_1E_0=E_1E_2=E_1E_4 = 0$ telling us that $E_0$, $E_1$, $E_2$, $E_4$ are pairwise orthogonal idempotents. In view of Lemma \ref{AElem} \emph{($\mathit{iii'}$)}, we define $E_3 = I-E_0-E_1-E_2-E_4$ and may immediately compute.
 	\[E_3^2 = \left(I-E_0-E_1-E_2-E_4\right)^2 = I-E_0-E_1-E_2-E_4\]
-	and $E_3E_i = 0$ for $i\neq 3$. Therefore the vector space spanned by $\left\{E_0,E_1,E_2,E_3,E_4\right\}$ is symmetric, closed under matrix multiplication, and contains both the identity matrix and the all ones matrix. In order to show this algebra is a Bose-Mesner algebra, we must also show it is closed under entrywise products. By construction of $E_1$, $E_2$, and $E_4$, any linear combination of $E_0,\dots,E_4$ has at most $5$ distinct entries. This gives the dimension of $\left<E_1\right>_\circ$ as five. Since we have five basis matrices, this forces $\left<E_0,\dots,E_4\right> = \left<E_1\right>_\circ$ and thus our algebra is a Bose-Mesner algebra. We finish our proof by listing the Krein parameters of our association scheme, referring to the parameter definitions in Theorem \ref{srgparams} for the strongly regular graph parameters.
+	and $E_3E_i = 0$ for $i\neq 3$. Therefore the vector space $\left<E_0,E_1,E_2,E_3,E_4\right>$ is symmetric, closed under matrix multiplication, and contains both the identity matrix and the all ones matrix. In order to show this vector space is a Bose-Mesner algebra, we must also show it is closed under entrywise products. First note that since $G$ contains exactly five distinct entries, we have $\left<G\right>_\circ = \left<A_1,A_{\beta},A_0,A_{-\beta},A_{-1}\right>$ where, for each $\theta\in\left\{\pm 1, \pm\beta, 0\right\}$,
+	\[A_{\theta} = \begin{cases}
+	1 & G_{ij} = \theta,\\
+	0 & o.w.\\
+	\end{cases}\]
+	Now, the ordering of rows and columns of our quotient matrices imply the following\vspace{-1cm}
+	\begin{multicols}{2}
+		\[2v\left[E_2\right]_{ij} = \begin{cases}
+		f & \text{ if }G_{ij} = \pm1,\\
+		\frac{fr}{k} & \text{ if }G_{ij} = \pm\beta,\\
+		\frac{f(r+1)}{k+1-v} & \text{ if }G_{ij} = 0,\\
+		\end{cases}\]\[ 2v\left[E_4\right]_{ij} = \begin{cases}
+		g & \text{ if }G_{ij} = \pm1,\\
+		\frac{gs}{k} & \text{ if }G_{ij} = \pm\beta,\\
+		\frac{g(s+1)}{k+1-v} & \text{ if }G_{ij} = 0.\\
+		\end{cases}\]
+		\null\vfill
+	\[2v\left[E_3\right]_{ij} = \begin{cases}
+		v-m & \text{ if }G_{ij} = 1,\\
+		-m\beta & \text{ if }G_{ij} = \beta,\\
+		0 & \text{ if }G_{ij} = 0,\\
+		m\beta & \text{ if }G_{ij} = -\beta,\\
+		m-v & \text{ if }G_{ij} = -1,\\
+		\end{cases}
+		\]\vfill\null
+	\end{multicols}
+	Thus the entries of our idempotents $E_0,\dots,E_4$ depend solely on the corresponding entries of $G$. It follows that each idempotent is contained in $\left<A_1,A_{\beta},A_0,A_{-\beta},A_{-1}\right>$ forcing $\left<E_0,E_1,E_2,E_3,E_4\right>\subset \left<G\right>_\circ$. Finally, since $\left<G\right>_\circ$ has dimension five, we must have equality. Therefore $\left<E_0,E_1,E_2,E_3,E_4\right>$ is Schur-closed and is the Bose-Mesner algebra of a 4-class association scheme. We complete our proof by listing the Krein parameters, referring to the parameter definitions in Theorem \ref{srgparams} for the strongly regular graph parameters.
 	\[L_0^* =  \left[ \begin {array}{ccccc} 1&0&0&0&0\\ \noalign{\medskip}0&1&0&0&0
 	\\ \noalign{\medskip}0&0&1&0&0\\ \noalign{\medskip}0&0&0&1&0
 	\\ \noalign{\medskip}0&0&0&0&1\end {array} \right],\qquad L_1^* = \left[\begin{array}{ccccc}
@@ -296,7 +312,6 @@ We note that, while $Q_2^m$ denoted the second degree Gegenbauer polynomial in t
 			\right) }}&0\\
 	\noalign{\medskip}1&0&{\frac { \left( k-s \right)rf }{ \left( r-s \right) k  }
 	}&0&g-1-\frac{(k-s)rf}{(r-s)k}\end {array} \right].\]
-Therefore the algebra generated by $\left<E_0,\dots,E_4\right>$ is the Bose-Mesner algebra of a 4-class association scheme. Since $G = \frac{2v}{m}E_1$, it is clear that $\left<G\right>_\circ\subset\text{span}\left\{E_0,\dots,E_4\right\}$. Further, since $G$ has exactly $5$ distinct entries, the dimension of $\left<G\right>_\circ$ is five and thus we must have $\left<G\right>_\circ=\text{span}\left\{E_0,\dots,E_4\right\}$.
 \end{proof}
 \begin{cor}
 	\label{delcocliquetoqbip}
@@ -342,7 +357,7 @@ Theorem \ref{dimtoassociation} tells us that $OPD$s of strongly regular graphs i
 	q^3_{12} &= \frac{1}{2v (v-m)}\sum_{h=0}^d\left(k_hQ_{h1}Q_{h2}Q_{h3}\right) = \frac{mf\left(v-m(1+\beta^2r)\right)}{v(v-m)},\\
 	q^4_{13} &= \frac{1}{2v g}\sum_{h=0}^d\left(k_hQ_{h1}Q_{h3}Q_{h4}\right) = \frac{m\left(v-m(1+\beta^2s)\right)}{v}.\\	
 	\end{aligned}\]
-	Recall that $m = v(1+k\beta^2)^{-1}$ and therefore $v-m(1+\beta^2k)=0$. Thus we have both $v-m(1+\beta^2r)>0$ and $v-m(1+\beta^2s)>0$ as long as $r<k$ (i.e.\ $\Gamma$ is connected), forcing all three of the above Krein parameters to be nonzero. Thus $\BMA$ is $Q$-polynomial if and only if $q^{4}_{11}=0$. Calculating this similarly, we find
+	Recall that $m = v(1+k\beta^2)^{-1}$ and therefore $v-m(1+\beta^2k)=0$. Thus we have both $v-m(1+\beta^2r)>0$ and $v-m(1+\beta^2s)>0$ as long as $r<k$ (i.e.\ $\Gamma$ is connected), forcing all three of the above Krein parameters to be non-zero. Thus $\BMA$ is $Q$-polynomial if and only if $q^{4}_{11}=0$. Calculating this similarly, we find
 	\[q^4_{11} = \frac{1}{2v g}\sum_{h=0}^d\left(k_hQ_{h1}Q_{h1}Q_{h4}\right) = \frac{m^2\left(1+\beta^2s\right)}{v}.\]
 	We therefore find $q^4_{11}=0$ if and only if $s = -\beta^{-2}$. Finally, noting that $q^1_{11}=0$ (calculated similarly), we must have $\text{rank}(G\circ G) = 1+f+g=v$ if $q^4_{11}>0$ and $\text{rank}(G\circ G) = 1+f<v$ otherwise.
 \end{proof}

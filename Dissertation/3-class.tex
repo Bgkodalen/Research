@@ -756,7 +756,7 @@ Wocjan and Beth in \cite{Wocjan2005} detail a way to create MUBs from MOLS. They
 For our purposes, an orthogonal array of size $(n^2\times s)$ has entries from the set $\left\{1,\dots, n\right\}$ and any two columns contain each ordered pair exactly once. Let $O$ be an orthogonal array of size $n^2\times s$, let $C^i$ denote the $i^{th}$ column of $O$ with entries $C^i_k$ ($1\leq k\leq n^2$). We may uniquely express
 \[C^i = \sum_{j=1}^n kB^{i,j} \]
 where each $B^{i,j}$ is a 01-vector of length $n^2$. As each symbol $j$ appears in each column $C^i$ exactly $n$ times, $B^{i,j}$ will have $n$ 1s and $n^2-n$ 0s. Let $H$ be a Hadamard matrix matrix of order $n$. For $1\leq l\leq n$ define a matrix $M^{i,j,l}$ as follows: For $1\leq k\leq n$, we replace the $k^\text{th}$ 1, counting from the top, in $B^{i,j}$ with the $H_{k,l}$. This produces $n^2s$ columns each with $n^2$ entries $M_k^{i,j,l}\in\left\{0,1,-1\right\}$.\par
-The fact that $H^TH = nI$ together with $B^{i,j}\circ B^{i,j^\prime} = 0$ for $j\neq j^\prime$ give us that $\mathcal{B}_i = \left\{M^{i,1,1},\dots,M^{i,n,n}\right\}$ is an orthogonal basis for each $i=1,\dots,s$. Each vector in these bases has squared norm $n$. For $i\neq i'$, $C^i$ and $C^{i'}$ denote distinct columns in our orthogonal array implying, for any $j$ and $j'$ (not necessarily distinct), $B^{i,j}\circ B^{i',j'}$ has one nonzero entry. Then $M^{i,j,l}\circ M^{i',j',l'}$ also has one nonzero entry giving
+The fact that $H^TH = nI$ together with $B^{i,j}\circ B^{i,j^\prime} = 0$ for $j\neq j^\prime$ give us that $\mathcal{B}_i = \left\{M^{i,1,1},\dots,M^{i,n,n}\right\}$ is an orthogonal basis for each $i=1,\dots,s$. Each vector in these bases has squared norm $n$. For $i\neq i'$, $C^i$ and $C^{i'}$ denote distinct columns in our orthogonal array implying, for any $j$ and $j'$ (not necessarily distinct), $B^{i,j}\circ B^{i',j'}$ has one non-zero entry. Then $M^{i,j,l}\circ M^{i',j',l'}$ also has one non-zero entry giving
 \begin{equation}\left<M^{i,j,l},M^{i',j',l'}\right>=M^{i,j,l}_kM^{i',j',l'}_k=\pm 1\\
 \end{equation}
 where $O_{k,i} = j$ and $O_{k,i'} = j'$. This tells us the bases $\mathcal{B}_1,\dots,\mathcal{B}_s$ produced by Wocjan and Beth are unbiased.\par
@@ -764,7 +764,7 @@ We now show that if $H$ is regular, then the resulting unbiased Hadamard matrice
 \begin{equation*}
 \sum_{l'} \left<M^{i,j,l},M^{i',j',l'}\right>=M^{i,j,l}_k\left(\sum_{l'}M^{i',j',l'}_k\right)=pM^{i,j,l}_k.
 \end{equation*}
-We then sum this result over $j'$, noting that $k$ was chosen so that $O_{k,i} = j$ and $O_{k,i'} = j'$, meaning it depends on $j'$. As this sum will include every nonzero entry in $M^{i,j,l}$ exactly once, we know
+We then sum this result over $j'$, noting that $k$ was chosen so that $O_{k,i} = j$ and $O_{k,i'} = j'$, meaning it depends on $j'$. As this sum will include every non-zero entry in $M^{i,j,l}$ exactly once, we know
 \begin{equation}
 \label{rowsum}
 \sum_{j'}\sum_{l'}\left<M^{i,j,l},M^{i',j',l'}\right> =\sum_{j'}pM^{i,j,l}_{k}=p\sum_{j'}H_{j',l}=p^2.
