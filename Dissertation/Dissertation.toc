@@ -41,6 +41,6 @@
 \contentsline {section}{\numberline {6.4}Proofs of the main theorem and its corollaries}{108}{section.6.4}
 \contentsline {section}{\numberline {6.5}Further results on connectivity}{110}{section.6.5}
 \contentsline {subsection}{\numberline {6.5.1}A spectral lemma}{111}{subsection.6.5.1}
-\contentsline {subsection}{\numberline {6.5.2}Intervals and metric properties of $\Gamma $}{111}{subsection.6.5.2}
+\contentsline {subsection}{\numberline {6.5.2}Intervals and metric properties of $\Gamma $}{112}{subsection.6.5.2}
 \contentsline {subsection}{\numberline {6.5.3}Small disconnecting sets}{113}{subsection.6.5.3}
 \contentsline {chapter}{\numberline {A}Feasible parameter sets}{116}{appendix.A}

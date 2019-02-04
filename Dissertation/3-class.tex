@@ -84,7 +84,7 @@ We further find that, given $v$, $k$, and $\lambda$, only one of the outcomes in
 \end{lem}
 \begin{proof}
 	From Proposition \ref{complement}, we see that \emph{(i)} will hold for a symmetric design with parameters $(v,k,\lambda)$ if and only if it holds for the complement design with parameters $(v',k',\lambda') = (v,v-k,v-2k+\lambda)$. Further, noting that $s' = \sqrt{k'-\lambda'} = \sqrt{k-\lambda}=s$ and $k' = v-k$, we find that the latter two conditions will also hold for one design if and only if they hold for the complement. Thus, we may assume without loss of generality that $k\leq\frac{v}{2}$. Additionally, whenever $k>1$ we find $s<k$ and thus $k+s<v$. Then, for any $x\in\mathbb{Z}^+$, we find $\gcd(x,v)>1$ whenever $\frac{x(k\pm s)}{v}\in\mathbb{Z}$. Using our expression for $\nu$ in \eqref{mu-nu}, we see that $\gcd(k,v)>1$ and thus \emph{(ii)} holds.
-	Now, using equations \eqref{sym:1} and \eqref{mu-nu}, we have the two equations:
+	Now, using Equations \eqref{sym:1} and \eqref{mu-nu}, we have the two equations:
 	\[\begin{aligned}
 	\frac{k(k+ s)}{v} -\frac{s(k+ s)}{v} &= \lambda,\qquad \frac{k(k- s)}{v} +\frac{s(k- s)}{v} &= \lambda.
 	\end{aligned}\]
@@ -200,7 +200,7 @@ $4(k-\lambda)\leq 4k^2-4kv+v^2$. Using \eqref{sym:2} this gives
 \[\begin{aligned}
 4(k-\lambda)\leq v.
 \end{aligned}\]
-This means that whenever the Krein condition is tight ($q_{11}^1 = 0$), we must have $4(k-\lambda)\leq v\leq 2k$. There is only one known family of constructions which achieve the Krein bound. For this construction (see \ref{kerdock}) $v = 4(k-\lambda)$. Further, the more general family of design parameters (Menon) is the only possible family for which this inequality is tight.
+This means that whenever the Krein condition is tight ($q_{11}^1 = 0$), we must have $4(k-\lambda)\leq v\leq 2k$. There is only one known family of constructions which achieve the Krein bound. For this construction (see Section \ref{kerdock}) $v = 4(k-\lambda)$. Further, the more general family of design parameters (Menon) is the only possible family for which this inequality is tight.
 
 
 \section{Linked simplices}
@@ -648,7 +648,7 @@ This means our LSSD must be optimistic, leading to the following lemma:
 	\label{twoside}
 	Let $\mathbb{A}$ be the Bose-Mesner algebra of an optimistic $LSSD(v,k,\lambda;w)$ with $Q$-polynomial ordering $E_0,E_1,E_2,E_3$ of its primitive idempotents. If $\vert v-2k\vert = 2\sqrt{k-\lambda}$ then $w(E_0+E_1)$ is the Gram matrix of a set of $w$ real MUBs in dimension $v$.\qed
 \end{lem}
-It is important to note here that there exist pessimistic LSSDs such that $v-2k = 2\sqrt{k-\lambda}$. One such example is a specific case of the degenerate design parameters in \ref{degenerate} given by $(v,k,\lambda)=(4,1,0)$ with the graph $\Gamma_1$ displayed below.
+It is important to note here that there exist pessimistic LSSDs such that $v-2k = 2\sqrt{k-\lambda}$. One such example is a specific case of the degenerate design parameters in Section \ref{degenerate} given by $(v,k,\lambda)=(4,1,0)$ with the graph $\Gamma_1$ displayed below.
 \[\begin{tikzpicture}[scale = .5,node distance=2cm,
 thin,main node/.style={circle,fill=black,scale = .5}]
 
@@ -759,7 +759,7 @@ This leaves us with the following theorem
 %	An optimistic $LSSD(v,k,\lambda;w)$ with $\vert v-2k\vert = 2\sqrt{k-\lambda}$ exists if and only if there exists a set of $w-1$ regular unbiased Hadamard matrices with order $v$.\qed
 %\end{thm}
 \subsection{Constructing LSSDs from certain real MUBs}
-Using the results from the last section and the close relation between MUBs and Hadamard matrices, we wish to build new LSSDs. From theorem \ref{equiv} and theorem \ref{MubLssdrestrictions}, we are only going to find optimistic LSSDs with Menon design parameters. Goethals gives a construction in \cite{Cameron1972} for $w = 2u^2$ whenever $u$ is a power of 2 (see \ref{kerdock}). We skip this case and instead look for constructions where $u$ (and equivalently $v$) is not necessarily a power of 2.
+Using the results from the last section and the close relation between MUBs and Hadamard matrices, we wish to build new LSSDs. From Theorem \ref{equiv} and Theorem \ref{MubLssdrestrictions}, we are only going to find optimistic LSSDs with Menon design parameters. Goethals gives a construction in \cite{Cameron1972} for $w = 2u^2$ whenever $u$ is a power of 2 (see Section \ref{kerdock}). We skip this case and instead look for constructions where $u$ (and equivalently $v$) is not necessarily a power of 2.
 \subsubsection{Wocjan and Beth construction}
 Wocjan and Beth in \cite{Wocjan2005} detail a way to create MUBs from MOLS. They take a set of $t$ MOLS with side length $d$ and create $t+2$ MUBs in dimension $d^2$. The process is to convert the MOLS into an orthogonal array with $d^2$ rows. They then expand the array by replacing each column with $d$ columns giving by the characteristic vector of each symbol in that column. Finally, they extend this matrix by replacing each 1 in the array with a row from a Hadamard matrix matrix and each 0 by an appropriate length vector of 0s. The result is that the $d$ columns arising from each original column are orthogonal to each other. We will focus on the case where the resultant MUBs produce regular Hadamard matrices using their inner products.\par
 For our purposes, an orthogonal array of size $(n^2\times s)$ has entries from the set $\left\{1,\dots, n\right\}$ and any two columns contain each ordered pair exactly once. Let $O$ be an orthogonal array of size $n^2\times s$, let $C^i$ denote the $i^{th}$ column of $O$ with entries $C^i_k$ ($1\leq k\leq n^2$). We may uniquely express

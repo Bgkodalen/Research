@@ -54,7 +54,7 @@ for $1\leq i,j\leq 2v$. Thus any $PD_m(\beta,\delta)$ of $\Gamma$ is immediately
 \begin{proof}
 	We follow the same approach as in the proof of Proposition \ref{dirnaive}, however we note that since our graph is regular, the rows of $M$ all have the same norm. Thus the normalized rows (with their negatives) suffice as our orthogonal projective double. Now, consider any cycle $C$ in $\Gamma$ and assume without loss of generality that $C = \left\{e_1,\dots,e_s\right\}$. Then, replacing a column with its negative if necessary, $\displaystyle{M_{e_s} = \sum_{i=1}^{s-1}M_{e_{i}}}$, where $M_e$ denote the column of $M$ indexed by $e$. We then reorder the columns of $M$ so that the first $T$ edges correspond to the edges of a spanning forest and note that every remaining column lies in the span of these.
 \end{proof}
-Proposition \ref{dirnaive} and corollary \ref{regnaive} provide upper bounds on the dimension necessary for an $OPD$ to exist for a given graph. The following observation gives us a lower bound using the size of a largest coclique in $\Gamma$. We denote the cardinality of any such maximum coclique as the independence number, $\alpha\left(\Gamma\right)$, of the graph $\Gamma$.
+Proposition \ref{dirnaive} and Corollary \ref{regnaive} provide upper bounds on the dimension necessary for an $OPD$ to exist for a given graph. The following observation gives us a lower bound using the size of a largest coclique in $\Gamma$. We denote the cardinality of any such maximum coclique as the independence number, $\alpha\left(\Gamma\right)$, of the graph $\Gamma$.
 \begin{prop}\label{cocliquebnd}
 	Let $\Gamma$ be a simple graph for which an $OPD_m(\Gamma;\beta)$ exists. Then $m\geq \alpha\left(\Gamma\right)$ where $\alpha\left(\Gamma\right)$ is the independence number of $\Gamma$.
 \end{prop}
@@ -206,7 +206,7 @@ Corollary \ref{snegsquare} hints that OPDs in the smallest possible dimension fo
 	Let $\Gamma$ be a connected strongly regular graph with $v$ vertices and eigenvalues $k>r>s$. Let $G$ be the Gram matrix of an $OPD_m(\Gamma;\beta)$. Then $m\geq v\left(1+k\beta^2\right)^{-1}$ with equality if and only if $\frac{m}{2v}G$ is idempotent.
 \end{lem}
 \begin{proof}
-	This is an immediate result of a theorem of Delsarte, Goethals, and Seidel. Recall that \cite[Theorem 5.5]{Delsarte1977} tells us that $\sum_{i,j}Q^m_\ell\left(G_{ij}\right)\geq 0$ for all $\ell\geq 0$ with equality for $\ell=1,2$ if and only if $G$ is the Gram matrix of a spherical $2$-design. The antipodal nature of our OPD makes it clear that $\sum_{i,j}Q_1^m\left(G_{ij}\right) = \sum_{i,j}G_{ij} = 0$. Using the second degree Gegenbauer polynomial (see equation \eqref{gegdef}) we find
+	This is an immediate result of a theorem of Delsarte, Goethals, and Seidel. Recall that \cite[Theorem 5.5]{Delsarte1977} tells us that $\sum_{i,j}Q^m_\ell\left(G_{ij}\right)\geq 0$ for all $\ell\geq 0$ with equality for $\ell=1,2$ if and only if $G$ is the Gram matrix of a spherical $2$-design. The antipodal nature of our OPD makes it clear that $\sum_{i,j}Q_1^m\left(G_{ij}\right) = \sum_{i,j}G_{ij} = 0$. Using the second degree Gegenbauer polynomial (see Equation \eqref{gegdef}) we find
 	\[\sum_{i,j}Q_2^m\left(G_{ij}\right) = 2v\left(\frac{m\left(2+2k\beta^2\right)-2v}{m-1}\right).\]
 	Thus we must have $m\left(2+2k\beta^2\right)\geq2v$ with equality if and only if our OPD admits a spherical $2$-design. Seen later in \cite{Delsarte1977}, we find that this occurs exactly when $G$ has two distinct eigenvalues: $0$ and $\frac{2v}{m}$; that is, $\frac{m}{2v}G$ is idempotent.
 \end{proof}
@@ -407,7 +407,7 @@ We may use this information to build the first and second eigenmatrices of our $
 	\end{array}\right],\]
 	matching our theorem in all but two places.	Since we have ordered the relations using the natural ordering, the valencies of our relations are given by $[1,k,2(v-1-k),k,1]$. This allows us to derive an expression for $q_{01}^1$ using \cite[Theorem.~2.3.2.]{Brouwer1989} which gives
 	\[q_{ij}^k = \frac{1}{\vert X\vert m_k}\sum_{l=0}^d\left(v_lQ_{li}Q_{lj}Q_{lk}\right)\]
-	where $m_k$ and $v_l$ are the multiplicities and valencies of the $k^\text{th}$ and $l^\text{th}$ relations respectively. We find that $q_{01}^1 = \frac{1}{2vm}\left(2m^2+\frac{2km^2}{n^2}\right)$, however we know from Theorem \ref{kitchensink} that $q_{01}^1=1$, resulting in $\frac{km}{n^2} = v-m$. This completes our proof for the second eigenmatrix and we may use the second orthogonality condition to find $P$ noting that the first row of $P$ is the valencies of our relations. Thus
+	where $m_k$ and $v_l$ are the multiplicities and valencies of the $k^\text{th}$ and $l^\text{th}$ relations respectively. We find that $q_{01}^1 = \frac{1}{2vm}\left(2m^2+\frac{2km^2}{n^2}\right)$, however we know from Lemma \ref{kitchensink} that $q_{01}^1=1$, resulting in $\frac{km}{n^2} = v-m$. This completes our proof for the second eigenmatrix and we may use the second orthogonality condition to find $P$ noting that the first row of $P$ is the valencies of our relations. Thus
 	\[P = \left[\begin{array}{crcrr}
 	1 & k & 2(v-1-k) & k & 1\\
 	1 & \frac{k}{n} & 0 & -\frac{k}{n} & -1\\

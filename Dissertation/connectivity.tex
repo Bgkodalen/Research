@@ -72,6 +72,13 @@ The edge sets of all the graphs considered in the following corollaries are give
 	the Petersen graph.
 \end{restatable*}
 
+\begin{restatable*}{lem}{spectrallem}
+	\label{Lspec-cut}
+	Let $(X,\cR)$ be a symmetric association scheme and let $\Gamma=\Gamma(X,R_1)$ be the graph associated to a con\-nec\-ted basis relation.
+	Assume that $\Gamma$ contains no induced subgraph isomorphic to $K_{2,1,1}$. 
+	If  $T\subseteq X$ is a disconnecting set for $\Gamma$, then $|T|> p_{11}^1$.
+\end{restatable*}
+
 
 We should remark that Corollaries \ref{C1} and \ref{C3} extend naturally to the case where $\Gamma$ is not connected in that the deletion of vertices does not increase the number of components. One verifies this by applying the
 respective corollary to the subscheme induced by vertices in a particular component of $\Gamma$.
@@ -646,13 +653,15 @@ Eigenvalue techniques such as applications of eigenvalue interlacing play an imp
 Lemma \ref{PK211}, to show that a graph with a small disconnecting set $T$ whose elements are not too close
 together must be locally a disjoint union of cliques of size at most $|T|$. 
 
-
+\spectrallem
+\begin{comment}
 \begin{lem}
 	\label{Lspec-cut}
 	Let $(X,\cR)$ be a symmetric association scheme and let $\Gamma=\Gamma(X,R_1)$ be the graph associated to a con\-nec\-ted basis relation.
 	Assume that $\Gamma$ contains no induced subgraph isomorphic to $K_{2,1,1}$. 
 	If  $T\subseteq X$ is a disconnecting set for $\Gamma$, then $|T|> p_{11}^1$.
 \end{lem}
+\end{comment}
 
 \begin{proof}
 	The result obviously holds when $\Gamma$ is complete multipartite, so assume $\Gamma$ is not a com\-plete 
