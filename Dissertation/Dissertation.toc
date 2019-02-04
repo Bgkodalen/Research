@@ -15,20 +15,20 @@
 \contentsline {subsection}{\numberline {3.4.1}$Q$-bipartite association schemes}{51}{subsection.3.4.1}
 \contentsline {chapter}{\numberline {4}3-class $Q$-antipodal: LSSDs}{56}{chapter.4}
 \contentsline {section}{\numberline {4.1}Homogeneous linked systems of symmetric designs}{57}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Bounds on number of fibers}{61}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.1}Bounds on number of fibers}{62}{subsection.4.1.1}
 \contentsline {section}{\numberline {4.2}Linked simplices}{63}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}A geometric classification}{67}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.1}A geometric classification}{68}{subsection.4.2.1}
 \contentsline {section}{\numberline {4.3}Connections to other Euclidean structures}{68}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Equiangular lines}{68}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.1}Equiangular lines}{69}{subsection.4.3.1}
 \contentsline {subsection}{\numberline {4.3.2}Real mutually unbiased bases}{70}{subsection.4.3.2}
-\contentsline {section}{\numberline {4.4}Two families}{70}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Degenerate case}{70}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Cameron-Seidel scheme}{71}{subsection.4.4.2}
-\contentsline {section}{\numberline {4.5}New examples with $v\not =2^m$}{74}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}Restrictions on the design parameters}{75}{subsection.4.5.1}
-\contentsline {subsection}{\numberline {4.5.2}Hadamard matrix equivalence}{76}{subsection.4.5.2}
-\contentsline {subsection}{\numberline {4.5.3}Constructing LSSDs from certain real MUBs}{78}{subsection.4.5.3}
-\contentsline {subsubsection}{Wocjan and Beth construction}{78}{section*.24}
+\contentsline {section}{\numberline {4.4}Two families}{71}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Degenerate case}{71}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Cameron-Seidel scheme}{72}{subsection.4.4.2}
+\contentsline {section}{\numberline {4.5}New examples with $v\not =2^m$}{75}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Restrictions on the design parameters}{76}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Hadamard matrix equivalence}{77}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.3}Constructing LSSDs from certain real MUBs}{79}{subsection.4.5.3}
+\contentsline {subsubsection}{Wocjan and Beth construction}{79}{section*.24}
 \contentsline {chapter}{\numberline {5}Orthogonal projective double covers}{83}{chapter.5}
 \contentsline {section}{\numberline {5.1}Orthogonal projective doubles of regular graphs}{84}{section.5.1}
 \contentsline {section}{\numberline {5.2}Schemes induced by projective doubles}{87}{section.5.2}

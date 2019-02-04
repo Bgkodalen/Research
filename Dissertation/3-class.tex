@@ -100,7 +100,9 @@ The case where $k=1$ or $k=v-1$ produces LSSDs which are not of interest to us a
 	Assume $w>2$. If there exists a non-degenerate $LSSD(v,k,\lambda;w)$, then $v$ is composite.\qed
 \end{cor}
 For a further use of these tools to rule out certain families of symmetric designs, see Appendix \ref{families}.
-\begin{thm}[Van Dam \cite{VanDam1999}]
+
+We now list a theorem of van Dam concerning the equivalence between linked systems of symmetric designs and 3-class $Q$-antipodal association schemes. While this result appears in \cite{VanDam1999}, we include a later result appearing in \cite{vanDam2013} to assist with our proof.
+\begin{thm}[\cite{VanDam1999}]
 	\label{Qpoly}
 	Let $\Gamma$ be a non-degenerate LSSD with adjacency matrix $A$. Then the algebra $\langle A\rangle_*$ is the Bose-Mesner algebra of a 3-class Q-antipodal association scheme on $X$. Conversely, every $Q$-antipodal 3-class association scheme arises in this way. More specifically, the natural ordering of the relations of any $Q$-antipodal 3-class association scheme is as follows:
 	\begin{itemize}
@@ -110,7 +112,10 @@ For a further use of these tools to rule out certain families of symmetric desig
 		\item $R_3$ is given by adjacency in a $\nu$-heavy LSSD;
 	\end{itemize}
 \end{thm}
-While we will not provide a proof here, instead referring the reader to \cite{VanDam1999}, we list the intersection numbers, the first and second eigenmatrices, and a some of the Krein parameters for later use. Let $\Gamma_1 = (X,R_1)$ be a $\mu$-heavy $LSSD(v,k,\lambda)$ with complement design given by $\Gamma_2 = (X,R_3)$. The following are the intersection numbers, listed via the four matrices $L_0,L_1,L_2,L_3$ where $L_i = [p_{i,j}^k]_{k,j}$;
+\begin{proof}
+	Let $\Gamma$ be the graph of a linked system of symmetric designs with $0<\lambda<k-1$ and assume without loss of generality that $k\leq \frac{v}{2}$. From \cite{VanDam1999}, we see that the adjacency algebra of $\Gamma$ is the Bose-Mesner algebra of a 3-class association scheme. We may then build $L_1$ to find that the eigenvalues of this graph are $k(w-1)>\sqrt{k-\lambda}(w-1)>-\sqrt{k-\lambda}>-k$ with multiplicities $m_0,m_1,m_2,m_3$ respectively. Since $\Gamma$ is connected, we find that $m_0=1$. Further, since $\Gamma$ has four distinct eigenvalues, Theorem 5.8 of \cite{VanDam1999} tells us $m_1 = v-1$. We then use the equations $\sum_{i=0}^3\theta_im_i = 0$ and $\sum_{i=0}^3 m_i = vw$ to find that $m_3 = w-1$ and $m_2 = (w-1)(v-1)$. We then apply Proposition 6.1 of \cite{vanDam2013} to see that this association scheme is $Q$-antipodal. Conversely, let $(X,\mathcal{R})$ be a 3-class $Q$-antipodal association scheme with relations ordered naturally. Then Theorem \ref{suzukiimprim} tells us the system of imprimitivity is given by $\mathcal{J} = \left\{0,3\right\}$ and $\mathcal{I} = \left\{0,2\right\}$ and Theorem 5.1 of \cite{vanDam2013} tells us $(X,\mathcal{R})$ is uniform. We may then refer again to Proposition 6.1 of \cite{vanDam2013} to see that $m_2 = (w-1)m_1$. This, along with the antipodal property, forces $k_1 = v-1$ where $k_1$ is the valency of the nearest neighbor graph. Thus Theorem 5.8 of \cite{VanDam1999} tells us this nearest neighbor graph is the incidence graph of a linked system of symmetric designs with $0<\lambda<k-1$.
+\end{proof}
+In addition to the above proof, we list the intersection numbers, the first and second eigenmatrices, and a some of the Krein parameters for later use. Let $\Gamma_1 = (X,R_1)$ be a $\mu$-heavy $LSSD(v,k,\lambda)$ with complement design given by $\Gamma_2 = (X,R_3)$. The following are the intersection numbers, listed via the four matrices $L_0,L_1,L_2,L_3$ where $L_i = [p_{i,j}^k]_{k,j}$;
 \[\begin{aligned}
 L_0 &= \left[\begin{array}{cccc}
 1 & 0 & 0 & 0\\
