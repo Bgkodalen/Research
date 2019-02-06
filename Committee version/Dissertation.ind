@@ -1,0 +1,159 @@
+\begin{theindex}
+
+  \item $P$-polynomial, 19
+    \subitem antipodal, 19
+    \subitem bipartite, 19
+    \subitem metric, 19
+  \item $Q$-polynomial, 18
+    \subitem $Q$-antipodal, 18
+    \subitem $Q$-bipartite, 18
+    \subitem cometric, 18
+  \item $\mu$-heavy, 53
+  \item $\nu$-heavy, 53
+  \item 01-basis, 5
+  \item 3-cube, 4
+
+  \indexspace
+
+  \item absolute bound, 12, 57
+  \item antipodal, 11
+    \subitem dual-, 12
+  \item association scheme
+    \subitem commutative, 4
+    \subitem symmetric, 3
+  \item association schemes
+    \subitem translation schemes, 11
+
+  \indexspace
+
+  \item bipartite, 11
+    \subitem dual-, 11
+  \item block design
+    \subitem 2-design, 52
+    \subitem incidence matrix, 52
+  \item Bose-Mesner algebra, 5
+
+  \indexspace
+
+  \item Cameron-Seidel Scheme, 66
+
+  \indexspace
+
+  \item degenerage parameters, 56
+  \item degenerate parameters, 65
+  \item Delsarte coclique, 85
+
+  \indexspace
+
+  \item eigenmatrices, 7
+    \subitem orthogonality relations, 7
+  \item equiangular lines, 21, 24, 63
+    \subitem near optimal, 25
+    \subitem optimal, 25
+  \item equiangular tight frame, 59
+
+  \indexspace
+
+  \item feasible parameter set, 13
+  \item formal duality, 11
+
+  \indexspace
+
+  \item Gegenbauer polynomials, 29
+
+  \indexspace
+
+  \item Hadamard matrix
+    \subitem real, 71
+    \subitem regular, 71
+    \subitem unbiased, 71
+
+  \indexspace
+
+  \item idempotent basis, 6
+    \subitem dual eigenvalues, 7
+  \item imprimitivity
+    \subitem imprimitive, 13
+    \subitem primitive, 13
+    \subitem quotient scheme, 13, 15, 16
+    \subitem subscheme, 13, 14
+    \subitem systems of -, 13
+
+  \indexspace
+
+  \item Krein array, 18
+  \item Krein conditions, 12
+
+  \indexspace
+
+  \item linked simplices, 58
+  \item linked system of symmetric designs, 53, 56
+  \item linking system of difference sets, 53
+
+  \indexspace
+
+  \item Menon parameters, 71
+  \item mutually unbiased bases, 22
+
+  \indexspace
+
+  \item natural ordering, 18
+  \item nearest neighbor graph, 62
+  \item Noda bound, 56
+
+  \indexspace
+
+  \item optimistic lssd, 62
+  \item orthogonal projective double, 79
+
+  \indexspace
+
+  \item parameters
+    \subitem arrays of intersection numbers, 8
+    \subitem arrays of Krein parameters, 9
+    \subitem intersection matrix, 9
+    \subitem intersection numbers, 3
+    \subitem Krein, 7
+    \subitem Krein matrix, 9
+  \item pessimistic lssd, 62
+  \item polnomial
+    \subitem homogeneous
+      \subsubitem on the sphere, 29
+  \item polynomial
+    \subitem degree, 28
+    \subitem derivative, 28
+    \subitem harmonic, 29
+      \subsubitem on the sphere, 29
+    \subitem homogeneous, 28
+    \subitem monomial, 28
+    \subitem zonal, 29
+  \item positive definite function, 31
+  \item positive semidefinite cone, 24
+  \item projection map, 99
+  \item projective double, 78, 79
+  \item proximal, 107
+
+  \indexspace
+
+  \item real mutually unbiased bases, 65
+  \item realizable parameter set, 13
+  \item regular simplex, 57
+  \item relation
+    \subitem neighborhood, 4
+    \subitem subconstituents, 4
+    \subitem symmetrization of -, 97
+
+  \indexspace
+
+  \item strongly regular graph, 83
+  \item symmetrization of relations, 97
+
+  \indexspace
+
+  \item unweighted distribution diagram, 99
+
+  \indexspace
+
+  \item valency, 5
+
+\end{theindex}

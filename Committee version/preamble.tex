@@ -1,0 +1,202 @@
+\usepackage{graphicx,amsthm,fullpage} 
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{units}
+\usepackage[mathscr]{euscript}
+\usepackage{arydshln}
+\usepackage{array}
+\usepackage{bbm}
+\usepackage{enumitem}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{scalefnt}
+\usepackage{setspace}
+\usepackage{bbm}
+\usepackage{multicol}
+
+
+%\usepackage{showlabels}
+\usepackage{thmtools}
+\usepackage{thm-restate}
+\usepackage{comment}
+\usepackage{float}
+\usepackage{lmodern}
+
+\usepackage{epigraph}
+
+\usepackage{makeidx}
+%\usepackage{showidx}
+\makeindex
+
+%\usepackage[symbols,nogroupskip,sort=none]{glossaries-extra}
+
+%\input{symbols}
+
+\newcommand{\vnorm}[1]{\left\|#1\right\|}
+\newcommand*{\swap}[2]{#2#1}
+\newcommand{\PLH}{{\mkern-2mu\times\mkern-2mu}}
+\newcommand{\bigslant}[2]{{\left.\raisebox{.2em}{$#1$}\middle/\raisebox{-.2em}{$#2$}\right.}}
+
+
+\makeatletter
+\newenvironment{chapquote}[2][2em]
+{\setlength{\@tempdima}{#1}%
+	\def\chapquote@author{#2}%
+	\parshape 1 \@tempdima \dimexpr\textwidth-2\@tempdima\relax%
+	\itshape}
+{\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\bigskip}
+\makeatother
+%%% CS Template
+
+\setlength{\textheight}{8.63in}
+\setlength{\textwidth}{6.3in}
+\setlength{\topmargin}{-0.2in}
+\setlength{\oddsidemargin}{0.1in}
+\setlength{\evensidemargin}{0.1in}
+\setlength{\headsep}{0.0in}
+\newcommand{\brk}{\vspace*{0.18in}}
+
+%%% End template
+
+
+%%% Connectivity commands
+\newcommand{\m}{{{24}}}  % Special for this paper, subscripts and superscripts {24}
+\newcommand{\IP}{{\rm IP}}
+\newcommand{\re}{{\mathbb R}}
+\newcommand{\ints}{{\mathbb Z}}
+\newcommand{\A}{{\bf A}}
+\newcommand{\B}{{\bf B}}
+\newcommand{\E}{{\mathsf E}}
+\newcommand{\cE}{{\mathcal E}}  % Euclidean space
+\newcommand{\F}{{\mathcal F}}
+\newcommand{\G}{{\mathcal G}}
+\newcommand{\I}{{\mathsf I}}
+\newcommand{\tI}{\tilde{I}}
+\newcommand{\J}{{\mathsf J}}
+\renewcommand{\L}{\boldsymbol{\wedge}}  % Leech lattice in \sf font
+\newcommand{\Z}{{\mathsf Z}}
+\newcommand{\cI}{{\mathcal I}}
+\newcommand{\cJ}{{\mathcal J}}
+\renewcommand{\S}{{\mathsf S}}
+\newcommand{\cT}{{\mathcal T}}
+\newcommand{\tU}{\tilde{U}}
+\newcommand{\bv}{{\mathbf v}}
+\newcommand{\tW}{\tilde{W}}
+\newcommand{\X}{{\mathcal X}}
+\newcommand{\cZ}{{\mathcal Z}}
+\newcommand{\QI}{{\mathcal Q}{\mathcal I}}
+\newcommand{\Nm}{{\sf Nm}}
+\newcommand{\cP}{{\mathcal P}}
+\newcommand{\one}{{\mathbf 1}}
+\newcommand{\dis}{\displaystyle}
+
+\DeclareMathOperator\Rad{Rad}
+\DeclareMathOperator\colsp{colsp}
+\DeclareMathOperator\nullsp{nullsp}
+\DeclareMathOperator\diam{diam}
+\DeclareMathOperator\mult{mult}
+%%% End connectivity
+
+
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\bw}{\mathbf{w}}
+\newcommand{\bx}{\mathbf{x}}
+
+\newcommand{\sA}{\mathsf{A}}
+\newcommand{\sB}{\mathsf{B}}
+\newcommand{\sF}{\mathsf{F}}
+\newcommand{\sS}{\mathsf{S}}
+\newcommand{\sQ}{\mathsf{Q}}
+
+
+\newcommand{\scR}{\mathscr{R}}
+
+
+\newcommand{\BMA}{\mathbb{A}}
+\newcommand{\BMB}{\mathbb{B}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbQ}{\mathbb{Q}}
+
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cx}{\mathbb{C}}
+
+\newcommand{\ones}{\mathbf{1}}
+
+\newcommand{\dash}{\hdashline[2pt/2pt]}
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+\graphicspath{{Figures/}}
+
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\srg}{srg}
+\DeclareMathOperator{\Mat}{\mathsf{Mat}}
+
+%\newenvironment{my_enumerate}{
+%\begin{enumerate}
+%  \setlength{\itemsep}{1pt}
+%  \setlength{\parskip}{0pt}
+%  \setlength{\parsep}{0pt}}{\end{enumerate}
+%}
+
+
+
+\newtheorem*{thm*}{Theorem}
+\newtheorem{thm}{Theorem}[chapter]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem*{remark}{Remark}
+\newtheorem*{conj*}{Conjecture}
+\newtheorem{conj}[thm]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{example}{Example}[chapter]
+\newtheorem*{definition}{Definition}
+
+\newcommand\abstractname{Abstract}  %%% here
+\makeatletter
+\if@titlepage
+\newenvironment{abstract}{%
+	\thispagestyle{plain}
+	\null\vfil
+	\@beginparpenalty\@lowpenalty
+	\begin{center}%
+		\bfseries \abstractname
+		\@endparpenalty\@M
+\end{center}}%
+{\par\vfil\null}
+\else
+\newenvironment{abstract}{%
+	\if@twocolumn
+	\section*{\abstractname}%
+	\else
+	\small
+	\begin{center}%
+		{\bfseries \abstractname\vspace{-.5em}\vspace{\z@}}%
+	\end{center}%
+	\quotation
+	\fi}
+{\if@twocolumn\else\endquotation\fi}
+\fi
+\makeatother
+
+
+\usepackage{hyperref}
+%\usepackage{cleveref}
+%\doublespacing
