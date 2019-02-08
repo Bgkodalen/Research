@@ -149,12 +149,17 @@ def parameterlist():
             g.write('$\\left<%s\\right>$ & %0.f & %0.f & %0.f \\\\\n' % (nearop[-1][0][1:-1],nearop[-1][1],nearop[-1][2],nearop[-1][3]))
         f.close()
         g.close()
+    if numclasses.get() == 4:
+        schemelist = [scheme+' '+str(-selectedschemes[scheme]['P'][4,1]) for scheme in schemelist]
     #    schemelist = [scheme for scheme in schemelist if sum(Qpoly.Qm(selectedschemes[scheme]['P'])[0,:])-Qpoly.Qm(selectedschemes[scheme]['P']).max()<140]
     if len(schemelist) == 0:
         schemelist = ['None']
     else:
         #+selectedschemes[scheme]['exists']
-        schemelist = sortedlist([scheme for scheme in schemelist])
+        if numclasses.get()==4:
+            schemelist = sorted(schemelist, key=lambda x: int(re.search(r'\d+$',x).group()))
+        else:
+            schemelist = sortedlist([scheme for scheme in schemelist])
     
     #def sortThird(val):
     #    return val[2]
