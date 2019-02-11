@@ -43,20 +43,67 @@ def Build_next_col(O):
 n=17
 O = Prime_OA(n)
 
+check_complement = 1
+
 success = 0
-combs = list(combinations([i for i in range(n-1)],9))
+combs = list(combinations([i for i in range(n-1)],7))
 indx = 0
-win = []
-while indx < len(combs):
-    if indx % 100 == 0:
-        print(indx/len(combs))
-    columns = [0,1]+[i+2 for i in combs[indx]]
-    A = Build_adj(O[:,columns])
-    C = 17-((A[n:,0:n] @ A[0:n,n:]) * A[n:,n:])
-    u = n-np.unique(C)
-    #print(u)
-    if len(np.unique(u % 2)) == 1 and np.unique(u % 2)[0] == 0:
-         win.append(columns)
-         print(win)
-    else:
+wineven = []
+winodd = []
+
+if check_complement == 0:
+    print('checking main graph\n')
+    while indx < len(combs):
+        if indx % 100 == 0:
+            print(indx/len(combs))
+        columns = [0,1]+[i+2 for i in combs[indx]]
+        A = Build_adj(O[:,columns])
+        C = (A[n:,0:n] @ A[0:n,n:])[A[n:,n:]==1]
+        u = np.unique(C)
+        #print(u)
+        #print(np.unique(u % 2))
+        if len(np.unique(u % 2)) == 1:
+            if np.unique(u % 2)[0] == 0:
+                wineven.append(columns)
+            elif np.unique(u % 2)[0] ==1:
+                winodd.append(columns)
+            print(columns)
+            print(np.unique(u % 2))
         indx+=1
+else:
+    print('checking complement\n')
+    while indx < len(combs):
+        if indx % 100 == 0:
+            print(indx/len(combs))
+        columns = [0,1]+[i+2 for i in combs[indx]]
+        A = Build_adj(O[:,columns])
+        total_index = {i for i in range(n+1)}
+        acceptable = total_index-set(columns)
+        next_square = acceptable.pop()
+        coclique = [i for i in range(n*n) if O[i,next_square] == 1]
+        remaining = [i for i in range(n*n) if i not in coclique]
+        sub_A = A[:,coclique]
+        sub_A = sub_A[remaining,:]
+        rem_A = A[remaining,:]
+        rem_A = rem_A[:,remaining]-1*np.eye(len(remaining))
+        C = (sub_A @ np.transpose(sub_A))[rem_A==0]
+        u = np.unique(C)#[:-1]
+        #if np.unique(C)[-1] != 9:
+        #    print(np.unique(C))
+        #if len(u)<3:
+        print(u)
+        #print(u)
+        #print(np.unique(u % 2))
+        if len(np.unique(u % 2)) == 1:
+            if np.unique(u % 2)[0] == 0:
+                wineven.append(columns)
+            elif np.unique(u % 2)[0] ==1:
+                winodd.append(columns)
+            print(columns)
+            print(np.unique(u % 2))
+        indx+=1
+    
+print('even')
+print(wineven)
+print('odd')
+print(winodd)
