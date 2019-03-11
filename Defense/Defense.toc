@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{Association schemes}{3}{0}{1}
+\beamer@sectionintoc {2}{Realizability vs feasibility}{25}{0}{2}
+\beamer@sectionintoc {3}{Constructing new schemes}{47}{0}{3}
+\beamer@sectionintoc {4}{List of theorems}{68}{0}{4}
