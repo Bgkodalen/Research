@@ -458,11 +458,20 @@ $Q$-polynomial:
 
 \begin{frame}
 	\frametitle{Parameter Constraints}
+	\[A_i = \sum_j P_{ji}E_j,\qquad E_j=\frac{1}{\vert X\vert}\sum_i Q_{ij}A_i.\]\pause
+	\begin{figure}[h]
+	\includegraphics[scale=.3]{Feas1.PNG}
+	\end{figure}\pause
+	\[p^k_{0j} = \delta_{k\ell},\qquad\onslide<4>{\sum_{\ell}q^\ell_{ij}q^m_{\ell h} = \sum_{\ell}q^m_{i\ell}q^\ell_{jh}.} \]
+\end{frame}
+
+\begin{frame}
+	\frametitle{Parameter Constraints}
 	\vspace{-.5cm}\[
 	\begin{tikzpicture}
 	\node at (0,0) (pic) {\includegraphics[scale=.45,trim={0cm 0cm 0cm 0cm}, clip]{Feas2.PNG}};
 	\only<2>{\draw[red,ultra thick, rounded corners] (-4,3.3) rectangle (-2.7,2.8);}
-	\only<3>{\draw[red,ultra thick, rounded corners] (0,.2) rectangle (2.7,.8);}
+	\only<2>{\draw[red,ultra thick, rounded corners] (0,.2) rectangle (2.7,.8);}
 	\end{tikzpicture}\]
 \end{frame}
 
@@ -1222,12 +1231,16 @@ is the Gram matrix of a set of linked simplices.
 %\end{tabular}}\vfill
 %\end{frame}
 
-\section{List of theorems}
+\section{Other questions/topics}
 
-\begin{frame}[allowframebreaks]
+\begin{frame}
+\frametitle{Equiangular lines related to association schemes}
 \begin{lemma}
 	Let $\mathbb{A}$ be a Bose-Mesner algebra with second eigenmatrix $Q$ and multiplicities $m_0,\dots,m_d$. Define $Q^\prime$ to be the submatrix of $Q$ given by deleting row $0$. If there exists a non-negative vector $x$ so that $Q^\prime x\in\left\{-1,1\right\}^d$, then $\mathbb{A}$ contains the Gram matrix of $\vert X\vert$ equiangular lines in dimension $n=\sum_{x_j\neq 0} m_j$ with angle $\alpha =\left(\sum x_jm_j\right)^{-1}$.
 \end{lemma}
+\end{frame}
+\begin{frame}[allowframebreaks]
+\frametitle{Effect of Gegenbaur polynomails}
 \begin{theorem}
 	Suppose we have a feasible parameter set for an association scheme with first and second eigenmatrices $P$ and $Q$. Fix $0\leq i\leq d$ and set $m_i:=Q_{0i}$. For $\ell>0$ define $\mu_\ell = \frac{\ell-1}{\ell+m_i-3}$ and $\lambda_j = \nicefrac{Q_{ji}}{Q_{0i}}$. Let $\gamma_{\ell,j}$ equal $\lambda_j^2$ if $(1+\mu_\ell)^2\lambda_j^2\geq 4\mu_\ell$ and $\mu_\ell$ otherwise. Then all entries of $Q_{\ell^*}^{m_i}\left(\frac{1}{m_i}L_i^*\right)$ are non-negative whenever
 	\[\sum_{j=1}^d \left(\prod_{\ell=2}^{\ell^*+1}\gamma_{x,j}\right)P_{0j}\left(1+\lambda_j^2\right)\leq\frac{1}{\vert X\vert}.\]
@@ -1250,6 +1263,7 @@ is the Gram matrix of a set of linked simplices.
 \end{theorem}
 \end{frame}
 \begin{frame}[allowframebreaks]
+\frametitle{LSSDs coming from unbiased Hadamard matrices}
 \begin{theorem}
 	A $LSSD(v,k,\lambda;w)$ is equivalent to a set of $w$ linked simplices in $\mathbb{R}^{v-1}$ with angles given by $(4.8)$.
 \end{theorem}
@@ -1272,6 +1286,23 @@ is the Gram matrix of a set of linked simplices.
 	There exists an $LSSD(v,k,\lambda;w)$ with $v=36^{2n}$ and $w = 4^n+1$ for all $n\geq 1$.
 \end{theorem}
 \end{frame}
+
+
+\begin{frame}
+\frametitle{Orthogonal projective doubles}
+
+\begin{tikzpicture}[shorten >=1pt,auto,node distance=2cm,
+thin,main node/.style = {circle,draw}]
+	\node[main node,fill=red] at (0,0) (0) {0};
+	\node[main node,fill=yellow] at (2,0) (1) {1};
+	\node[main node,fill=green] at (2,2) (2) {2};
+	\node[main node,fill=blue] at (0,2) (3) {3};
+	
+	\path[draw,-] (0) -- (1) -- (2) -- (3) -- (0);
+	
+\end{tikzpicture}
+\end{frame}
+
 \begin{frame}[allowframebreaks]
 \begin{proposition}
 	An $OPD_m(\Gamma;\beta)$ for simple graph $\Gamma$ induces an association scheme only if $\Gamma$ is strongly regular.
