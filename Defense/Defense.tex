@@ -131,25 +131,25 @@ thin,main node/.style = {circle,draw, minimum size = 5pt}]
 \node at (-5.5,-3) () {};
 \node at (5.5,-3) () {};
 }
-%distance 1
+%dista2ce 1
 \only<2->{
 \foreach \t in {1,5,13}
 {{\node[main node] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}
 	{\node[main node,fill=red] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}}
 \node at (-4,3) () {$p^1_{11} = 0$};}
 %distance 2
-\only<3->{
+\only<2->{
 \foreach \t in {2,10,12,8,4,6}
 {{\node[main node] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}
 	{\node[main node,fill=green] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}}
 \node at (4,3) () {$p^1_{12} = p^1_{21} = 2$};
 }%\node at (-4,-3) () {$p^1_{21} = 2=p^1_{12}$};}
 %distance 3
-\only<4->{
+\only<2->{
 \foreach \t in {3,7,9,11}
 {{\node[main node] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}
 	{\node[main node,fill=yellow] at ({\r*cos(180*(1+\t / 7))},{\r*sin(180*(\t / 7))}) (\t) {\t};}}
-\node at (-4,-3) () {$p^3_{11} = 0$};}
+}%\node at (-4,-3) () {$p^3_{11} = 0$};}
 \end{tikzpicture}}
 \end{frame}
 
@@ -268,8 +268,8 @@ thin,main node/.style = {circle,draw}]
 		\draw[-,very thin,gray] (y4)-- (b2);
 		\draw[-,very thin,gray] (y4)-- (b3);
 		\draw[-,very thin,gray] (y4)-- (b1);}
-	\only<4>{\draw[-,yellow] (y1) --(b2) -- (r1);
-	\draw[-,green] (y1) -- (b3) -- (y2);}
+	\only<4>{\draw[-,yellow,thick] (y1) --(b2) -- (r1);
+	\draw[-,green,thick] (y1) -- (b3) -- (y2);}
 \end{tikzpicture}\]
 \end{frame}
 
@@ -330,7 +330,7 @@ $(X,\mathcal{R})$ is {\em $Q$-polynomial} if we can order the idempotents so tha
 
 \begin{frame}
 	\frametitle{$P$-polynomial vs. $Q$-polynomial}
-$P$-polynomial:
+$P$-polynomial (metric):
 \[p^{k}_{ij}\begin{cases}
 =0 & k>i+j\text{ or }k<\vert i-j\vert\\
 >0 & k = i+j\\
@@ -339,7 +339,7 @@ $P$-polynomial:
 	\item $R_i$ given by distance $i$ in a ``distance-regular graph"
 	\item extensively studied for decades
 \end{itemize}\vfill
-$Q$-polynomial:
+$Q$-polynomial (cometric):
 \begin{itemize}
 	\item no known combinatorial defining property
 	\item studied more within the last 20 years
@@ -462,7 +462,7 @@ $Q$-polynomial:
 	\begin{figure}[h]
 	\includegraphics[scale=.3]{Feas1.PNG}
 	\end{figure}\pause
-	\[p^k_{0j} = \delta_{k\ell},\qquad\onslide<4>{\sum_{\ell}q^\ell_{ij}q^m_{\ell h} = \sum_{\ell}q^m_{i\ell}q^\ell_{jh}.} \]
+	\[p^k_{0j} = \delta_{kj},\qquad\onslide<4>{\sum_{\ell}q^\ell_{ij}q^m_{\ell h} = \sum_{\ell}q^m_{i\ell}q^\ell_{jh}.} \]
 \end{frame}
 
 \begin{frame}
@@ -1235,18 +1235,18 @@ is the Gram matrix of a set of linked simplices.
 
 \begin{frame}
 \frametitle{Equiangular lines related to association schemes}
-\begin{lemma}
+\begin{lemma}[K.]
 	Let $\mathbb{A}$ be a Bose-Mesner algebra with second eigenmatrix $Q$ and multiplicities $m_0,\dots,m_d$. Define $Q^\prime$ to be the submatrix of $Q$ given by deleting row $0$. If there exists a non-negative vector $x$ so that $Q^\prime x\in\left\{-1,1\right\}^d$, then $\mathbb{A}$ contains the Gram matrix of $\vert X\vert$ equiangular lines in dimension $n=\sum_{x_j\neq 0} m_j$ with angle $\alpha =\left(\sum x_jm_j\right)^{-1}$.
 \end{lemma}
 \end{frame}
 \begin{frame}[allowframebreaks]
 \frametitle{Effect of Gegenbaur polynomails}
-\begin{theorem}
+\begin{theorem}[K.,Martin]
 	Suppose we have a feasible parameter set for an association scheme with first and second eigenmatrices $P$ and $Q$. Fix $0\leq i\leq d$ and set $m_i:=Q_{0i}$. For $\ell>0$ define $\mu_\ell = \frac{\ell-1}{\ell+m_i-3}$ and $\lambda_j = \nicefrac{Q_{ji}}{Q_{0i}}$. Let $\gamma_{\ell,j}$ equal $\lambda_j^2$ if $(1+\mu_\ell)^2\lambda_j^2\geq 4\mu_\ell$ and $\mu_\ell$ otherwise. Then all entries of $Q_{\ell^*}^{m_i}\left(\frac{1}{m_i}L_i^*\right)$ are non-negative whenever
 	\[\sum_{j=1}^d \left(\prod_{\ell=2}^{\ell^*+1}\gamma_{x,j}\right)P_{0j}\left(1+\lambda_j^2\right)\leq\frac{1}{\vert X\vert}.\]
 \end{theorem}
 
-\begin{theorem}
+\begin{theorem}[K.,Martin]
 	Suppose we have a feasible parameter set for a cometric association scheme with Krein array $\iota^*(X,\mathcal{R}) = \left\{m,b^*_1,\dots,b^*_{d-1};1,c_2^*\dots,c^*_{d}\right\}$ where $m>2$. Define $b_{j-1}^* = c_j^*=a_j^*=0$ for $j>d$. Then the scheme is realizable only if
 	\begin{itemize}
 		\item $\left(a_1^*\right)^2 + b_1^*c_2^* \geq\frac{2m(m-1)}{m+2},$
@@ -1264,25 +1264,25 @@ is the Gram matrix of a set of linked simplices.
 \end{frame}
 \begin{frame}[allowframebreaks]
 \frametitle{LSSDs coming from unbiased Hadamard matrices}
-\begin{theorem}
+\begin{theorem}[K.]
 	A $LSSD(v,k,\lambda;w)$ is equivalent to a set of $w$ linked simplices in $\mathbb{R}^{v-1}$ with angles given by $(4.8)$.
 \end{theorem}
 
-\begin{theorem}
+\begin{theorem}[K.]
 	\label{equiv}
 	An optimistic $LSSD(v,k,\lambda;w)$ with $\vert v-2k\vert = 2\sqrt{k-\lambda}$ exists if and only if there exists a set of $w-1$ regular unbiased Hadamard matrices, $H_i$, with order $v$ and $H_iJ = 2\sqrt{k-\lambda}J$.
 \end{theorem}
 
-\begin{theorem}
+\begin{theorem}[K.]
 	\label{asymptotics}
 	For sufficiently large $n$, if there exists a regular Hadamard matrix of order $n$, then there exists a $LSSD(n^2,k,\lambda; w)$ with $w \geq n^\frac{1}{14.8}$.
 \end{theorem}
 
-\begin{theorem}
+\begin{theorem}[K.]
 	For any $n\geq 1$ and $w>2$, there exists an $LSSD(16^nt,k,\lambda;w)$ for some odd $t$.
 \end{theorem}
 
-\begin{theorem}
+\begin{theorem}[K.]
 	There exists an $LSSD(v,k,\lambda;w)$ with $v=36^{2n}$ and $w = 4^n+1$ for all $n\geq 1$.
 \end{theorem}
 \end{frame}
@@ -1291,7 +1291,7 @@ is the Gram matrix of a set of linked simplices.
 \begin{frame}
 \frametitle{Orthogonal projective doubles}
 
-\begin{tikzpicture}[shorten >=1pt,auto,node distance=2cm,
+\[\begin{tikzpicture}[shorten >=1pt,auto,node distance=2cm,
 thin,main node/.style = {circle,draw}]
 	\node[main node,fill=red] at (0,0) (0) {0};
 	\node[main node,fill=yellow] at (2,0) (1) {1};
@@ -1299,31 +1299,61 @@ thin,main node/.style = {circle,draw}]
 	\node[main node,fill=blue] at (0,2) (3) {3};
 	
 	\path[draw,-] (0) -- (1) -- (2) -- (3) -- (0);
+	\pause
+	\node[main node,fill=white] [right of =1 ](11) {$0^+$};
+	\node[main node,fill=white] [below right of = 11](22) {$1^+$};
+	\node[main node,fill=white] [above of = 11](33) {$3^+$};
+	\node[main node,fill=white] [above right of =33](44) {$2^+$};
+
+	\node[main node,fill=white] [right of =22](5) {$2^-$};
+	\node[main node,fill=white] [above right of = 5](6) {$3^-$};
+	\node[main node,fill=white] [right of = 44](7) {$1^-$};
+	\node[main node,fill=white] [below right of =7](8) {$0^-$};
 	
-\end{tikzpicture}
+	
+	\path[-,dashed]
+	(11) edge node {} (22)
+	edge node {} (33)
+	(44) edge node {} (33)
+	edge node {} (7)
+	(5) edge node {} (6)
+	edge node {} (22)
+	(8) edge node {} (7)
+	edge node {} (6);
+	\draw[-, red,thick] (11) -- (8);
+	\draw[-, blue,thick] (33) -- (6);
+	\draw[-, green,thick] (5) -- (44);
+	\draw[-, yellow,thick] (7) -- (22);
+	\draw[->] (6.42,1) -> (6.42,4);
+	\draw[->] (6.42,1) -> (9.42,1);
+	
+	
+\end{tikzpicture}\]
 \end{frame}
 
 \begin{frame}[allowframebreaks]
-\begin{proposition}
+\frametitle{Orthogonal projective doubles}
+
+\begin{proposition}[K.,Martin]
 	An $OPD_m(\Gamma;\beta)$ for simple graph $\Gamma$ induces an association scheme only if $\Gamma$ is strongly regular.
 \end{proposition}
 
-\begin{corollary}
+\begin{corollary}[K.,Martin]
 	Let $\Gamma$ be a connected strongly regular graph with $v$ vertices and eigenvalues $k>r>s$ which contains a Delsarte coclique $C$ of size $m$. Then an $OPD_{m}(\Gamma;\beta)$ exists only if $\beta=\frac{1}{\sqrt{-s}}$. Further, either $\Gamma$ is complete bipartite or $\beta^{-1}\in \mathbb{Z}$.
 \end{corollary}
 
-\begin{corollary}
+\begin{corollary}[K.,Martin]
 	Let $\Gamma$ be a connected strongly regular graph with $v$ vertices and eigenvalues $k>r>s$. An $OPD_{m}(\Gamma;\beta)$ with $m<v$ induces an association scheme if and only if $m = v\left(1+k\beta^2\right)^{-1}$.
 \end{corollary}
 
-\begin{theorem}
+\begin{theorem}[K.,Martin]
 	Suppose we have a feasible parameter set for a $4$-class association scheme which is $Q$-bipartite but not $Q$-antipodal. Let $k=P_{01}$, $r=P_{21}$, and $s=P_{41}$ where $P$ is the first eigenmatrix using the natural ordering. Then the scheme is realizable only if $s=-n^2$ for some integer $n>1$ and
 	\[15n^4(2n^2-3)r^2 + (n^6-45kn^2+76k)n^2r+k(16k+n^6)(n^2-2)\geq 0.\]
 \end{theorem}
 \end{frame}
 \begin{frame}[allowframebreaks]
-
-\begin{theorem} \label{Tmain}
+\frametitle{Connectivity of association schemes}
+\begin{theorem}[K.,Martin] \label{Tmain}
 	Let $(X,\mathcal{R})$ be a symmetric association scheme. Assume the graph $\Gamma=\Gamma(X,R_i)$ is connected 
 	and not complete multipartite. Let
 	$H=H_i$ be the corresponding unweighted distribution diagram on $\{0,1,\ldots, d\}$. The following are equivalent:
@@ -1336,32 +1366,32 @@ thin,main node/.style = {circle,draw}]
 	\end{itemize} 
 \end{theorem}
 
-\begin{corollary}  \label{C2}
+\begin{corollary}[K.,Martin]  \label{C2}
 	Let $(X,\mathcal{R})$ be a commutative association scheme. Assume the undirected graph 
 	$\Gamma=\Gamma(X,R_i  \cup R_{i'})$ is connected and $a\in X$. Then $\Gamma \setminus 
 	\Gamma(a)$ contains at most one non-singleton component.
 \end{corollary}
 
 
-\begin{corollary} \label{C1}
+\begin{corollary}[K.,Martin] \label{C1}
 	Let $(X,\mathcal{R})$ be a commutative association scheme.  Assume the undirected graph 
 	$\Gamma=\Gamma(X,R_i  \cup R_{i'})$ is connected and $a\in X$.  Then, for any  $T \subseteq a^\bot$ with $\Gamma(a) \not\subseteq T$, the graph  $\Gamma \setminus T$ is connected.
 \end{corollary}
 
-\begin{corollary} \label{C3}
+\begin{corollary}[K.,Martin] \label{C3}
 	Let $(X,\mathcal{R})$ be a commutative association scheme. Assume the undirected graph 
 	$\Gamma=\Gamma(X,R_i  \cup R_{i'})$ is connected and $C\subseteq  X$ is the vertex set of a clique in $\Gamma$. Then $\Gamma \setminus C$ is connected.
 \end{corollary}
 
 
-\begin{theorem}
+\begin{theorem}[K.,Martin]
 	\label{Tcutsize2}
 	Let $(X,\mathcal{R})$ be a symmetric association scheme and let $\Gamma=\Gamma(X,R_1)$  be the graph 
 	associated to a connected basis relation. If $\Gamma$ admits a  disconnecting set of size two, 
 	then $\Gamma$ is isomorphic to a polygon.
 \end{theorem}
 
-\begin{theorem}
+\begin{theorem}[K.,Martin]
 	\label{Tcutsize3}
 	Let $(X,\mathcal{R})$ be a symmetric association scheme and let $\Gamma=\Gamma(X,R_1)$  be the graph 
 	associated to a connected basis relation. If $\Gamma$ has diameter two, then either
@@ -1370,7 +1400,7 @@ thin,main node/.style = {circle,draw}]
 	the Petersen graph.
 \end{theorem}
 
-\begin{lemma}
+\begin{lemma}[K.,Martin]
 	\label{Lspec-cut}
 	Let $(X,\mathcal{R})$ be a symmetric association scheme and let $\Gamma=\Gamma(X,R_1)$ be the graph associated to a con\-nec\-ted basis relation.
 	Assume that $\Gamma$ contains no induced subgraph isomorphic to $K_{2,1,1}$. 
