@@ -14,6 +14,9 @@
 \usepackage{float}
 %\usepackage{cite}
 \usepackage{tikz}
+\usetikzlibrary{tikzmark,fit}
+\setbeamertemplate{frametitle continuation}[from second][]
+
 %\usepackage{collcell}
 \usepackage{comment}
 \usepackage{xcolor}
@@ -88,7 +91,7 @@
 
 \begin{document}
 \title{Cometric Association Schemes}
-\date[March 11, 2019]{PhD Thesis Defense\\March 11, 2019}
+\date[March 19, 2019]{PhD Thesis Defense\\March 19, 2019}
 \author{Brian Kodalen}
 \institute[WPI]{Worcester Polytechnic Institute}
 \frame{\titlepage}
@@ -100,10 +103,11 @@
 
 \section{Association schemes}
 \begin{frame}
-	\frametitle{Symmetric Association Scheme}
-	A \textbf{symmetric association scheme} is an ordered pair $(X,\mathcal{R})$ where $X$ is a finite set and $\mathcal{R} = \left\{R_0,\dots,R_d\right\}$ is a partition of $X\times X$ into $d+1$ symmetric binary relations satisfying
+	\frametitle{Symmetric association scheme}
+	A \textbf{symmetric $d$-class association scheme} is an ordered pair $(X,\mathcal{R})$ where $X$ is a finite set and $\mathcal{R} = \left\{R_0,\dots,R_d\right\}$ is a partition of $X\times X$ into $d+1$ binary relations satisfying
 	\begin{itemize}
 		\item $R_0$ is the identity relation on $X$;
+		\item $(a,b)\in R_i$ if and only if $(b,a)\in R_i$;
 		\item for $0\leq i,j,k\leq d$, there exists $p^k_{ij}\in\mathbb{Z}$ such that
 		\[\vert R_i(a)\cap R_j(b)\vert = p^k_{ij}\]
 		whenever $(a,b)\in R_k$.
@@ -111,7 +115,7 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{Example: Heawood Graph}
+\frametitle{Example: Heawood graph}
 \centering
 \scalebox{.95}{\begin{tikzpicture}[shorten >=1pt,auto,node distance=2cm,
 thin,main node/.style = {circle,draw, minimum size = 5pt}]
@@ -154,7 +158,7 @@ thin,main node/.style = {circle,draw, minimum size = 5pt}]
 \end{frame}
 
 \begin{frame}
-\frametitle{Relations need not be given by distance in a graph}
+\frametitle{Example: Linked system of symmetric designs}
 
 \[\begin{tikzpicture}[shorten >=1pt,auto,node distance=2cm,
 thin,main node/.style = {circle,draw}]
@@ -294,15 +298,15 @@ Examples:
 \end{comment}
 
 \begin{frame}
-\frametitle{Bose-Mesner Algebra}
+\frametitle{Bose-Mesner algebra}
 Let $A_i$ denote the adjacency matrix of the graph $(X,R_i)$.
 \[\mathbb{A} = \text{span}_\mathbb{R}(A_0,A_1,\dots,A_d)\]
 \[A_iA_j = \sum_k p^k_{ij}A_k\]\pause
 
 
-\only<1-2,4->{\[\underset{(symmetric)}{A_i = A_i^T}\implies p^k_{ij} = p^k_{ji}\implies \underset{(commutative)}{A_iA_j = A_jA_i}\]}\pause
-\only<3>{
-\[\xcancel{\light{\underset{(symmetric)}{A_i = A_i^T}}}\light{\implies} p^k_{ij} = p^k_{ji}\implies \underset{(commutative)}{A_iA_j = A_jA_i}\]}\pause\pause
+\[\underset{(symmetric)}{A_i = A_i^T}\implies p^k_{ij} = p^k_{ji}\implies \underset{(commutative)}{A_iA_j = A_jA_i}\]\pause
+%\only<3>{
+%\[\xcancel{\light{\underset{(symmetric)}{A_i = A_i^T}}}\light{\implies} p^k_{ij} = p^k_{ji}\implies \underset{(commutative)}{A_iA_j = A_jA_i}\]}\pause\pause
 
 \vfill
 Second basis using projection matrices (idempotents):
@@ -312,15 +316,10 @@ Second basis using projection matrices (idempotents):
 
 
 \begin{frame}
-\frametitle{Q-polynomial (cometric)}
+\frametitle{Krein parameters}
 \[A_i\circ A_j = \delta_{ij}A_i\implies \mathbb{A}\text{ is closed under }\circ\]\pause\vfill
 There exists ``Krein parameters" $q^k_{ij}$ such that:
-\[E_i\circ E_j = \frac{1}{\vert X\vert}\sum_{k} q^k_{ij}E_k\]\pause
-$(X,\mathcal{R})$ is {\em $Q$-polynomial} if we can order the idempotents so that:
-\[q^{k}_{ij}\begin{cases}
-=0 & k>i+j\text{ or }k<\vert i-j\vert\\
->0 & k = i+j\\
-\end{cases}\]
+\[E_i\circ E_j = \frac{1}{\vert X\vert}\sum_{k} q^k_{ij}E_k\]\vfill
 
 %\begin{itemize}
 %\item\textit{Q-antipodal} if $q^{k}_{dd}>0 \implies k\in\left\{0,d\right\}$\\
@@ -329,23 +328,17 @@ $(X,\mathcal{R})$ is {\em $Q$-polynomial} if we can order the idempotents so tha
 \end{frame}
 
 \begin{frame}
-	\frametitle{$P$-polynomial vs. $Q$-polynomial}
-$P$-polynomial (metric):
+	\frametitle{Polynomial association schemes}
+$(X,\mathcal{R})$ is {\em $P$-polynomial} (metric) if we can order the \textbf{relations} so that:
 \[p^{k}_{ij}\begin{cases}
 =0 & k>i+j\text{ or }k<\vert i-j\vert\\
 >0 & k = i+j\\
+\end{cases}\]\vfill\pause
+$(X,\mathcal{R})$ is {\em $Q$-polynomial} (cometric) if we can order the \textbf{idempotents} so that:
+\[q^{k}_{ij}\begin{cases}
+=0 & k>i+j\text{ or }k<\vert i-j\vert\\
+>0 & k = i+j\\
 \end{cases}\]
-\begin{itemize}
-	\item $R_i$ given by distance $i$ in a ``distance-regular graph"
-	\item extensively studied for decades
-\end{itemize}\vfill
-$Q$-polynomial (cometric):
-\begin{itemize}
-	\item no known combinatorial defining property
-	\item studied more within the last 20 years
-\end{itemize}
-
-
 \end{frame}
 
 \begin{comment}
@@ -457,16 +450,24 @@ $Q$-polynomial (cometric):
 \section{Realizability vs feasibility}
 
 \begin{frame}
-	\frametitle{Parameter Constraints}
+	\frametitle{Parameter constraints}
 	\[A_i = \sum_j P_{ji}E_j,\qquad E_j=\frac{1}{\vert X\vert}\sum_i Q_{ij}A_i.\]\pause
-	\begin{figure}[h]
-	\includegraphics[scale=.3]{Feas1.PNG}
-	\end{figure}\pause
+	%\begin{figure}[h]
+	%\includegraphics[scale=.3]{Feas1.PNG}
+	%\end{figure}\pause
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item $\displaystyle{A_iA_j = \sum_k p^k_{ij}A_k}$,
+			\item $\displaystyle{A_iE_j = P_{ji}E_j}$,
+			\item $\displaystyle{\vert X\vert E_i\circ E_j = \sum_{k}q^k_{ij}E_k}$,
+			\item $\displaystyle{\vert X\vert A_i\circ E_j = Q_{ij}A_i}$.
+		\end{itemize}
+	\end{multicols}\pause
 	\[p^k_{0j} = \delta_{kj},\qquad\onslide<4>{\sum_{\ell}q^\ell_{ij}q^m_{\ell h} = \sum_{\ell}q^m_{i\ell}q^\ell_{jh}.} \]
 \end{frame}
 
 \begin{frame}
-	\frametitle{Parameter Constraints}
+	\frametitle{Parameter constraints}
 	\vspace{-.5cm}\[
 	\begin{tikzpicture}
 	\node at (0,0) (pic) {\includegraphics[scale=.45,trim={0cm 0cm 0cm 0cm}, clip]{Feas2.PNG}};
@@ -494,7 +495,7 @@ $Q$-polynomial (cometric):
 A parameter set is \emph{realizable} if there exists a scheme with those parameters.
 \end{frame}
 \begin{frame}
-\frametitle{Realizability vs. Feasibility}\vspace{-.5cm}
+\frametitle{Realizability vs. feasibility}\vspace{-.5cm}
 \only<1>{\[\includegraphics[scale=.4,trim={0cm 0cm 22.3cm 0cm},clip]{prim1.PNG}\]}
 \only<2>{\[\includegraphics[scale=.4,trim={0cm 3.35cm 22.3cm 0cm},clip]{prim2.PNG}\]}
 \\
@@ -503,7 +504,7 @@ Image clipped from Williford's tables: \underline{http://www.uwyo.edu/jwilliford
 
 \begin{frame}
 	\frametitle{Isomorphic algebras}
-	Let $L_i^* = \left[q^k_{ij}\right]_{k,j}$.\\\pause
+	Assume we have a feasible parameter set. Let $L_i^* = \left[q^k_{ij}\right]_{k,j}$.\\\pause
 	Since $\sum_{\ell}q^\ell_{ij}q^m_{\ell h} = \sum_{\ell}q^m_{i\ell}q^\ell_{jh}$, we find
 	\[L_i^*L_j^* =\sum_k q^k_{ij}L_{k}^*.\qquad\onslide<3->{\left(\text{ Recall: }E_i\circ E_j =\frac{1}{\vert X\vert}\sum_k q^k_{ij}E_{k}\right)}\]\pause\pause
 	Then $\phi^*:\mathbb{A}\rightarrow \left<L_0^*,\dots,L_d^*\right>$ via
@@ -512,16 +513,16 @@ Image clipped from Williford's tables: \underline{http://www.uwyo.edu/jwilliford
 \end{frame}
 
 \begin{frame}
-\frametitle{Sch\"{o}nberg's Theorem}
-A function $f:[-1,1]\rightarrow \mathbb{R}$ is \textit{positive definite} if, for every finite subset $X$, $f\circ\left(G_X\right)\succeq 0$, where $G_X$ is the Gram matrix of $X$.\vspace{1cm}
+\frametitle{Sch\"{o}nberg's theorem}
+A function $f:[-1,1]\rightarrow \mathbb{R}$ is \textit{positive definite} in $\mathbb{S}^{m-1}$ if, for every finite subset $X\subset\mathbb{S}^{m-1}$, $f\circ\left(G_X\right)\succeq 0$, where $G_X$ is the Gram matrix of $X$.\vspace{1cm}
 \begin{thm}[Sch\"{o}nberg,`45]
-	A continuous function $f:[-1,1]\rightarrow \mathbb{R}$ is positive definite if and only if $f$ is expressible as a non-negative linear combination of the Gegenbauer polynomials.
+	A polynomial $f:[-1,1]\rightarrow \mathbb{R}$ of degree $n$ is positive definite in $\mathbb{S}^{m-1}$ if and only if it is expressible as a non-negative linear combination of the Gegenbauer polynomials $Q_0^{(m)},\dots,Q_n^{(m)}$.
 \end{thm}
 
 \end{frame}
 
 \begin{frame}
-\frametitle{Gegenbauer Polynomials}
+\frametitle{Gegenbauer polynomials}
 \[\begin{aligned}
 Q_0^{(m)} &= 1 \qquad Q_1^{(m)} = t\\
 Q_{k}^{(m)} &= \frac{(2k+m-4)tQ_{k-1}^{(m)}(t)-(k-1)Q_{k-2}^{(m)}(t)}{k+m-3}
@@ -568,15 +569,14 @@ $$Q_0^{(m)}(t)=1\qquad	Q_1^{(m)}(t)=t\qquad Q_2^{(m)}(t)=\frac{mt^2 - 1}{m-1}$$
 \end{comment}
 
 \begin{frame}
-\frametitle{$Q$-polynomial Consequences}
+\frametitle{$Q$-polynomial application}
 \begin{thm}[K.]
 Let $(X,\mathcal{R})$ be a $Q$-polynomial association scheme with $m=\text{rank}\left(E_1\right)$. Then,
 \begin{itemize}
-\item $\left(q_{11}^1\right)^2 + q_{12}^1q_{11}^2\geq\frac{2m(m-1)}{m+2}$
 \item $\left(q_{11}^1\right)^2 + \left(2+\frac{q^2_{12}}{q^1_{11}}\right)q_{12}^1q_{11}^2\geq\frac{4m(2m-3)}{m+6}$
 \end{itemize}
 \end{thm}
-Proof technique: Apply $Q_4^{(m)}(t)$ and $Q_5^{(m)}(t)$ to $\frac{\vert X\vert}{m}E_1$.
+Proof technique: Apply $Q_5^{(m)}(t)$ to $\frac{\vert X\vert}{m}E_1$.
 \vfill\vfill
 {\tiny Rules out, e.g.:
 \[\begin{aligned}\left\{(441; 20)\right.&; (576; 23); (729; 26); (1015; 28); (1240; 30); (1548; 35);\\ &\left. (1836; 35); (1944; 29); (1976; 25); (1000; 27); (1331; 30)\right\}
@@ -783,6 +783,7 @@ thin,main node/.style = {circle,draw, inner sep = 1pt, minimum size = 8pt}]
 \end{comment}
 
 \section{Constructing new schemes}
+\begin{comment}
 \begin{frame}
 \frametitle{Two simplices in $\mathbb{R}^3$}
 \begin{columns}
@@ -813,9 +814,10 @@ thin,main node/.style = {circle,draw, inner sep = 1pt, minimum size = 8pt}]
 		\end{tikzpicture}
 	\end{column}
 \end{columns}\end{frame}
+\end{comment}
 
 \begin{frame}
-\frametitle{Three fibers?}
+\frametitle{Three fiber LSSD}
 
 		\[\begin{tikzpicture}[shorten >=1pt,auto,node distance=2cm,
 		thin,main node/.style = {circle,draw}]
@@ -922,11 +924,7 @@ thin,main node/.style = {circle,draw, inner sep = 1pt, minimum size = 8pt}]
 			\draw[-,yellow,thick] (y1)-- (b2);
 			\draw[-,yellow,thick] (y1)-- (b3);
 			\draw[-,yellow,thick] (y1)-- (b4);	}
-		\end{tikzpicture}\]\pause\pause\pause\pause\pause
-		\vspace{-1cm}
-		\begin{center}
-			Not representable as (distinct) simplices in $\mathbb{R}^3$
-		\end{center}
+		\end{tikzpicture}\]
 \end{frame}
 
 \begin{frame}
@@ -950,7 +948,8 @@ Let $\Gamma$ be a graph with vertex set $X$ and adjacency relation $\sim$. We sa
 	\[\begin{tikzpicture}
 		\draw (-3.2,0) ellipse (2 and 1);
 		\draw (3.2,0) ellipse (2 and 1);
-		\node at (-3.2,0) (lssd) {LSSDs};
+		\node at (-3.2,-.25) (lssd) {LSSDs};
+		\node at (-3.2,.2) (non) {(Non-degenerate)};
 		\node at (3.2,.2) (assoc) {3-class $Q$-antipodal};
 		\node at (3.2,-.25) (assoc2) {association schemes};
 		\node at (0,0) (iff) {$\xLongleftrightarrow{\text{van Dam '99}}$};
@@ -962,7 +961,7 @@ Let $\Gamma$ be a graph with vertex set $X$ and adjacency relation $\sim$. We sa
 \end{frame}
 
 \begin{frame}
-\frametitle{Def: Linked Simplices}
+\frametitle{Def: Linked simplices}
 Regular simplex:
 \begin{itemize}
 \item $v$ unit vectors spanning $\mathbb{R}^{v-1}$;
@@ -1234,13 +1233,13 @@ is the Gram matrix of a set of linked simplices.
 \section{Other questions/topics}
 
 \begin{frame}
-\frametitle{Equiangular lines related to association schemes}
+\frametitle{Equiangular lines}
 \begin{lemma}[K.]
 	Let $\mathbb{A}$ be a Bose-Mesner algebra with second eigenmatrix $Q$ and multiplicities $m_0,\dots,m_d$. Define $Q^\prime$ to be the submatrix of $Q$ given by deleting row $0$. If there exists a non-negative vector $x$ so that $Q^\prime x\in\left\{-1,1\right\}^d$, then $\mathbb{A}$ contains the Gram matrix of $\vert X\vert$ equiangular lines in dimension $n=\sum_{x_j\neq 0} m_j$ with angle $\alpha =\left(\sum x_jm_j\right)^{-1}$.
 \end{lemma}
 \end{frame}
 \begin{frame}[allowframebreaks]
-\frametitle{Effect of Gegenbaur polynomails}
+\frametitle{Effect of Gegenbauer polynomials}
 \begin{theorem}[K.,Martin]
 	Suppose we have a feasible parameter set for an association scheme with first and second eigenmatrices $P$ and $Q$. Fix $0\leq i\leq d$ and set $m_i:=Q_{0i}$. For $\ell>0$ define $\mu_\ell = \frac{\ell-1}{\ell+m_i-3}$ and $\lambda_j = \nicefrac{Q_{ji}}{Q_{0i}}$. Let $\gamma_{\ell,j}$ equal $\lambda_j^2$ if $(1+\mu_\ell)^2\lambda_j^2\geq 4\mu_\ell$ and $\mu_\ell$ otherwise. Then all entries of $Q_{\ell^*}^{m_i}\left(\frac{1}{m_i}L_i^*\right)$ are non-negative whenever
 	\[\sum_{j=1}^d \left(\prod_{\ell=2}^{\ell^*+1}\gamma_{x,j}\right)P_{0j}\left(1+\lambda_j^2\right)\leq\frac{1}{\vert X\vert}.\]
@@ -1417,7 +1416,7 @@ Adviser:
 \end{itemize}
 Dissertation Committee:
 \begin{itemize}
-	\item Dr. Peter J. Cameron, Queen Mary, University of London
+	\item Dr. Peter J. Cameron, University of St Andrews
 	\item Dr. Padraig \'{O} Cath\'{a}in, WPI
 	\item Dr. Peter R. Christopher, WPI
 	\item Dr. William M. Kantor, University of Oregon

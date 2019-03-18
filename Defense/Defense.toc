@@ -1,4 +1,4 @@
 \beamer@sectionintoc {1}{Association schemes}{3}{0}{1}
-\beamer@sectionintoc {2}{Realizability vs feasibility}{23}{0}{2}
-\beamer@sectionintoc {3}{Constructing new schemes}{48}{0}{3}
-\beamer@sectionintoc {4}{Other questions/topics}{69}{0}{4}
+\beamer@sectionintoc {2}{Realizability vs feasibility}{21}{0}{2}
+\beamer@sectionintoc {3}{Constructing new schemes}{46}{0}{3}
+\beamer@sectionintoc {4}{Other questions/topics}{66}{0}{4}
