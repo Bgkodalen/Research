@@ -4,7 +4,7 @@ We begin this chapter with a survey of known results focusing on the connection 
 
 Throughout this chapter we will heavily discuss both the parameters of the association schemes given by LSSDs as well as the design parameters of the given symmetric designs. Thus, for clarity sake, we will always refer to the triple $(v,k,\lambda)$ as the \emph{design parameters} of the LSSD so as to distinguish these from the intersection numbers, Krein parameters, and eigenmatrices of an association scheme. This chapter is based on research published in \cite{Kodalen2019}. Below we list the main theorems of this chapter.
 \begin{restatable*}{thm}{lssdsimpequiv}
-	A $LSSD(v,k,\lambda;w)$ is equivalent to a set of $w$ linked simplices in $\mathbb{R}^{v-1}$ with angles given by \eqref{angles} below.
+	A $LSSD(v,k,\lambda;w)$ is equivalent to a set of $w$ linked simplices in $\mathbb{R}^{v-1}$ with angles given by \eqref{angles}.
 \end{restatable*}
 \begin{restatable*}{thm}{lssdhadequiv}
 	\label{equiv}
@@ -44,7 +44,7 @@ k(v-k) &= (k-\lambda)(v-1).\label{sym:2}
 \end{align}
 The \emph{incidence graph} of $(X,\mathcal{B})$ is the graph whose adjacency matrix is $\left[\begin{array}{c:c}
 0 & B\\\hdashline[2pt/2pt]
-B & 0
+B^T & 0
 \end{array}\right].$
 
 
@@ -101,7 +101,7 @@ The case where $k=1$ or $k=v-1$ produces LSSDs which are not of interest to us a
 \end{cor}
 For a further use of these tools to rule out certain families of symmetric designs, see Appendix \ref{families}.
 
-We now list a theorem of van Dam concerning the equivalence between linked systems of symmetric designs and 3-class $Q$-antipodal association schemes. While this result appears in \cite{VanDam1999}, we include a later result appearing in \cite{vanDam2013} to assist with our proof.
+We now provide a theorem of van Dam concerning the equivalence between linked systems of symmetric designs and 3-class $Q$-antipodal association schemes. While this result appears in \cite{VanDam1999}, we include a later result appearing in \cite{vanDam2013} to assist with our proof.
 \begin{thm}[\cite{VanDam1999}]
 	\label{Qpoly}
 	Let $\Gamma$ be a non-degenerate LSSD with adjacency matrix $A$. Then the algebra $\langle A\rangle_*$ is the Bose-Mesner algebra of a 3-class Q-antipodal association scheme on $X$. Conversely, every $Q$-antipodal 3-class association scheme arises in this way. More specifically, the natural ordering of the relations of any $Q$-antipodal 3-class association scheme is as follows:
@@ -109,7 +109,7 @@ We now list a theorem of van Dam concerning the equivalence between linked syste
 		\item $R_0$ is the identity relation on $X$;
 		\item $R_1$ is given by adjacency in a $\mu$-heavy LSSD;
 		\item $R_2$ is the union of complete graphs on the fibers induced by $R_1$;
-		\item $R_3$ is given by adjacency in a $\nu$-heavy LSSD;
+		\item $R_3$ is given by adjacency in a $\nu$-heavy LSSD.
 	\end{itemize}
 \end{thm}
 \begin{proof}
@@ -766,7 +766,7 @@ This provides us with the following theorem
 \subsection{Constructing LSSDs from certain real MUBs}
 Using the results from the last section and the close relation between MUBs and Hadamard matrices, we wish to build new LSSDs. From Theorem \ref{equiv} and Theorem \ref{MubLssdrestrictions}, we are only going to find optimistic LSSDs with Menon design parameters. The Cameron-Seidel scheme is a construction for $w = 2u^2$ whenever $u$ is a power of 2 (see Section \ref{kerdock}). We skip this case and instead look for constructions where $u$ (and equivalently $v$) is not necessarily a power of 2.
 \subsubsection{Wocjan and Beth construction}
-Wocjan and Beth in \cite{Wocjan2005} detail a way to create MUBs from MOLS. They take a set of $t$ MOLS with side length $d$ and create $t+2$ MUBs in dimension $d^2$. The process is to convert the MOLS into an orthogonal array with $d^2$ rows. They then expand the array by replacing each column with $d$ columns given by the characteristic vector of each symbol in that column. Finally, they extend this matrix by replacing each 1 in the array with a row from a Hadamard matrix matrix and each 0 by an appropriate length vector of 0s. The result is that the $d$ columns arising from each original column are orthogonal to each other. We will focus on the case where the resultant MUBs produce regular Hadamard matrices as scalar multiples of the mixed Gram matrices between any pair of fibers.\par
+Wocjan and Beth in \cite{Wocjan2005} detail a way to create MUBs from MOLS. They take a set of $t$ MOLS with side length $d$ and create $t+2$ MUBs in dimension $d^2$. The process is to convert the MOLS into an orthogonal array with $d^2$ rows. They then expand the array by replacing each column with $d$ columns given by the characteristic vector of each symbol in that column. Finally, they extend this matrix by replacing each 1 in the array with a row from a Hadamard matrix and each 0 by an appropriate length vector of 0s. The result is that the $d$ columns arising from each original column are orthogonal to each other. We will focus on the case where the resultant MUBs produce regular Hadamard matrices as scalar multiples of the mixed Gram matrices between any pair of fibers.\par
 For our purposes, an orthogonal array of size $(n^2\times N)$ has entries from the set $\left\{1,\dots, n\right\}$ and any two columns contain each ordered pair exactly once. Let $O$ be an orthogonal array of size $n^2\times N$, let $C^i$ denote the $i^{th}$ column of $O$ with entries $C^i_h$ ($1\leq h\leq n^2$). We may uniquely express
 \[C^i = \sum_{j=1}^n jB^{i,j} \]
 where each $B^{i,j}$ is a 01-vector of length $n^2$. As each symbol $j$ appears in each column $C^i$ exactly $n$ times, $B^{i,j}$ will have $n$ 1s and $n^2-n$ 0s. Let $H$ be a Hadamard matrix matrix of order $n$. For $1\leq l\leq n$ define a matrix $M^{i,j,l}$ as follows: for $1\leq h\leq n$, we replace the $h^\text{th}$ 1, counting from the top, in $B^{i,j}$ with the $H_{h,l}$. This produces $n^2N$ columns each with $n^2$ entries $M_h^{i,j,l}\in\left\{0,1,-1\right\}$.\par
