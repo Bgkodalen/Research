@@ -1,0 +1,72 @@
+\documentclass{article}
+
+
+\usepackage{tikz}
+\usepackage{units}
+\usepackage{scalefnt}
+\usepackage{bbm}
+\usepackage{mathrsfs}
+\usepackage{amsmath, amssymb, amsthm, url, graphicx,rotating,tkz-graph,relsize}
+\usepackage{graphicx}
+\usepackage{fullpage}
+\usepackage{enumitem}
+
+%\numberwithin{equation}{section}
+\newcommand{\m}{{{24}}}  % Special for this paper, subscripts and superscripts {24}
+%\newcommand{\ip}[1]{\langle {#1}\rangle}
+\newcommand{\IP}{{\rm IP}}
+\newcommand{\re}{{\mathbb R}}
+\newcommand{\cx}{{\mathbb C}}
+\newcommand{\ints}{{\mathbb Z}}
+%\renewcommand{\i}{{\rm i}}
+\newcommand{\BMA}{{\mathbb A}}
+\newcommand{\A}{{\bf A}}
+\newcommand{\B}{{\bf B}}
+\newcommand{\cC}{{\mathcal C}} 
+\newcommand{\E}{{\mathsf E}}
+\newcommand{\cE}{{\mathcal E}}  % Euclidean space
+\newcommand{\F}{{\mathcal F}}
+\newcommand{\G}{{\mathcal G}}
+\newcommand{\I}{{\mathsf I}}
+\newcommand{\tI}{\tilde{I}}
+\newcommand{\J}{{\mathsf J}}
+\renewcommand{\L}{\boldsymbol{\wedge}}  % Leech lattice in \sf font
+\newcommand{\Z}{{\mathsf Z}}
+\newcommand{\cI}{{\mathcal I}}
+\newcommand{\cJ}{{\mathcal J}}
+\newcommand{\cR}{{\mathcal R}}
+\renewcommand{\S}{{\mathsf S}}
+\newcommand{\cS}{{\mathcal S}}
+\newcommand{\cT}{{\mathcal T}}
+\newcommand{\tU}{\tilde{U}}
+\newcommand{\bv}{{\mathbf v}}
+\newcommand{\bw}{{\mathbf w}}
+\newcommand{\tW}{\tilde{W}}
+\newcommand{\X}{{\mathcal X}}
+\newcommand{\cZ}{{\mathcal Z}}
+\newcommand{\QI}{{\mathcal Q}{\mathcal I}}
+\newcommand{\Nm}{{\sf Nm}}
+\newcommand{\cP}{{\mathcal P}}
+\newcommand{\one}{{\mathbf 1}}
+\newcommand{\dis}{\displaystyle}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}
+\newcommand*{\swap}[2]{#2#1}
+
+\title{\textbf{Cometric Association Schemes}}
+\author{Brian G. Kodalen}
+\date{}
+\begin{document}
+	\maketitle
+	\vspace{3cm}
+	The combinatorial objects known as association schemes arise in group theory, extremal graph theory, coding theory, the design of experiments, and even quantum information theory. One may think of a {\em $d$-class association scheme} as a $d+1$ dimensional matrix algebra closed under the entrywise product. In this context, an \textit{imprimitive} scheme is one which admits a subalgebra of block matrices, also closed under the entrywise product. Such systems of imprimitivity provide us with \textit{quotient schemes}, smaller association schemes which are often easier to understand, providing useful information about the structure of the larger scheme. One important property of any association scheme is that we may find a basis of $d+1$ idempotent matrices for our algebra. A \textit{cometric} scheme is one whose idempotent basis may be ordered $E_0,E_1,\dots,E_d$ so that there exists polynomials $f_0,f_1,\dots,f_d$ with $f_i\circ(E_1) = E_i$ and $\text{deg}(f_i) = i$ for each $i$. Imprimitive cometric schemes relate closely to $t$-distance sets, sets of unit vectors with only $t$ distinct inner products, such as equiangular lines and mutually unbiased bases. A similar type of association schemes known as \textit{metric} schemes have been studied extensively with fundamental results such as a classification of imprimitive metric schemes dating back to the early 1970s. Analogous results for cometric schemes weren't settled until nearly four decades later, with many other questions still open today.\par
+	After introducing association schemes with relevant terminology and definitions, this talk focuses on a few recent results regarding cometric schemes, especially those which are imprimitive with small $d$. First, we consider a result of Brouwer and Koolen on the connectivity of graphs arising from metric association schemes. We partially extend this theorem to general schemes by classifying all association schemes with connectivity two. We then introduce $3$-distance sets known as \textit{linked simplices} and show their equivalence to certain imprimitive 3-class cometric schemes called \textit{linked systems of symmetric designs} (LSSDs). We use this connection to construct new infinite families of LSSDs without parameter restrictions which have been required for every previous construction since their introduction in 1972. We conclude this talk by applying a theorem of Sch\"{o}nberg to the idempotent basis matrices of cometric schemes. This theorem allows us to find new restrictions on the parameters of schemes, resolving the existence of many open cases. In particular, we will focus on certain imprimitive 4-class cometric schemes and show that we find new bounds on the valency of such a scheme based on the smallest eigenvalue of its quotient scheme.
+	
+\end{document}
+
+
+
+
