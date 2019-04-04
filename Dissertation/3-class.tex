@@ -63,7 +63,7 @@ We say $\Gamma$ is a \emph{linked system of symmetric designs}\index{linked syst
 	\end{cases}
 	\end{equation}
 \end{enumerate}
-where $\sim$ denotes adjacency in $\Gamma$ and $\Gamma(x)$ denotes the neighborhood of vertex $x$. Observe that $\Gamma$ is regular with valency $k(w-1)$. A specific type of LSSD introduced in \cite{Davis2014}, constructed from a \text{linking system of difference sets}\index{linking system of difference sets}, is a LSSD where the symmetric design induced between any two fibers comes from a difference set with the further restriction that the difference sets induced between any pair of three fibers interact in a consistent way. Recently Jedwab et al.\ \cite{Jedwab2017} examined these in more detail, building new examples and proving non-existence results for certain design parameters. However, Mathon \cite{Mathon1981} showed there exist three-fiber LSSDs which do not come from difference sets and therefore these objects are not always equivalent to LSSDs. We will consider the general case, and thus do not assume this added structure on our symmetric designs.\par
+where $\sim$ denotes adjacency in $\Gamma$ and $\Gamma(x)$ denotes the neighborhood of vertex $x$. Observe that $\Gamma$ is regular with valency $k(w-1)$. A specific type of LSSD introduced in \cite{Davis2014}, constructed from a \text{linking system of difference sets}\index{linking system of difference sets}, is a LSSD where the symmetric design induced between any two fibers comes from a difference set with the further restriction that the difference sets induced between any pair of three fibers interact in a consistent way. Recently Jedwab, Li, and Simon \cite{Jedwab2017} examined these in more detail, building new examples and proving non-existence results for certain design parameters. However, Mathon \cite{Mathon1981} showed there exist three-fiber LSSDs which do not come from difference sets and therefore these objects are not always equivalent to LSSDs. We will consider the general case, and thus do not assume this added structure on our symmetric designs.\par
 In \cite[Proposition 0]{Noda1974}, Noda shows that $\mu$ and $\nu$ must take one of two pairs of values given by:
 \begin{equation}
 \nu = \frac{k(k\pm \sqrt{k-\lambda})}{v}, \qquad \mu = \nu\mp \sqrt{k-\lambda}. \label{mu-nu}
@@ -252,7 +252,7 @@ This tells us that every LSSD gives rise to a set of linked simplices. Before pr
 	\left<\alpha_i, \chi\right> = \sqrt{\frac{v-1}{v}}\left<a_i,x\right>,\qquad\left<\alpha_i, \psi\right> = \sqrt{\frac{v-1}{v}}\left<a_i,y\right>
 	\end{aligned}\]
 	giving us
-	\[\left<x,y\right> =\left<\chi,\psi\right>=\sum_i\left<\alpha_i, \chi\right>\left<\alpha_i, \psi\right> =\frac{v-1}{v}\sum_i\left<a_i,x\right>\left<a_i,y\right>.\]
+	\[\left<x,y\right> =\left<\chi,\psi\right>=\sum_i\left<\alpha_i, \chi\right>\left<\alpha_i, \psi\right> =\frac{v-1}{v}\sum_i\left<a_i,x\right>\left<a_i,y\right>.\qedhere\]
 \end{proof}
 Using this lemma, we now seek to build a LSSD with $w$ fibers from a set of $w$ linked simplices. We first provide a construction of the graph $\Gamma$ and then split the verification into two parts: first that $\Gamma$ restricted to a pair of fibers represents a symmetric design, and second that the constants $\mu$ and $\nu$ given by \eqref{munudef} are well-defined. Clearly, we need only consider three fibers in the proofs to follow; the arguments extend to $w$ fibers.
 \begin{thm}
@@ -308,7 +308,7 @@ These match the previously determined entries of $E_1$ and $E_2$ corresponding t
 	giving us that
 	\[\begin{aligned}
 	\nu&= \frac{k(k\pm \sqrt{k-\lambda})}{v},\\
-	\mu&=\nu\mp\sqrt{k-\lambda}.
+	\mu&=\nu\mp\sqrt{k-\lambda}.\qedhere
 	\end{aligned}\]
 \end{proof}
 Note that, since $\mu$ and $\nu$ are both cardinalities of sets, any time we find non-integral values for $\mu$ and $\nu$ we can conclude that the hypothesized set of linked simplices does not exist. This brings us to the main theorem of this section (cf.\ \cite[Theorem~2.6(1)]{Suda2011}).
@@ -346,13 +346,15 @@ y_3 &= \frac{1}{vw}(\alpha -\frac{k}{\sqrt{k-\lambda}}\beta - \gamma).
 \end{equation}
 
 \subsection{Equiangular lines}
-Recall that a set of \emph{equiangular lines}\index{equiangular lines} in dimension $n$ with ``angle" $0<\alpha<1$ may be considered a set of unit vectors in $\mathbb{R}^n$ such that the inner product between any distinct vectors has a fixed magnitude $\alpha$. Thus we construct equiangular lines by building the corresponding Gram matrix. This construction is a generalization of de Caen's construction \cite{deCaen2000} using the Cameron-Seidel scheme. Using the above idempotents, we wish to make a positive semidefinite matrix with low rank, constant diagonal and only one possible magnitude off the main diagonal. Since the rank of our matrix is the sum of the multiplicities of the idempotents with non-zero coefficients, we will always exclde $E_2$. Consider the matrix
-\[G = vw(\alpha E_0 + \beta E_1 + \gamma E_3).\]
-This is a $vw\times vw$ matrix with rank at most $v+w-1$. The off-diagonal entries are given by $y_1$, $y_2$, $y_3$ above. In order to obtain a Gram matrix for a set of equiangular lines, we must have a constant positive value $c$ such that
+Recall that a set of \emph{equiangular lines}\index{equiangular lines} in dimension $n$ with ``angle" $0<\alpha<1$ may be considered a set of unit vectors in $\mathbb{R}^n$ such that the inner product between any distinct vectors has a fixed magnitude $\alpha$. Thus we consider a set of equiangular lines equivalent to a Gram matrix with only one magnitude off the main diagonal. Our task of constructing equiangular lines from an LSSD then reduces to finding a low rank matrix inside the Bose-Mesner algebra for which the off diagonal entries ($y_1$, $y_2$, and $y_3$ in \eqref{coeffs}) all have the same norm.
+
+We now show that we may find a set of equiangular lines from any LSSD whose size and dimension depend on the number of fibers used in the construction. This is a generalization of the construction of de Caen's \cite{deCaen2000} which used the Cameron-Seidel scheme. Let $\BMA$ be the Bose-Mesner algebra of an LSSD with $Q$-polynomial ordering $E_0,\dots,E_3$ and relations ordered naturally. Consider the matrix
+\[G = vw(\alpha E_0 + \beta E_1 + \gamma E_3)\]
+for $\alpha,\beta,\gamma\geq 0$. This is a $vw\times vw$ matrix with rank at most $v+w-1$. The off-diagonal entries are given by $y_1$, $y_2$, $y_3$ in \eqref{coeffs}. In order to obtain a Gram matrix for a set of equiangular lines, we must have a constant positive value $c$ such that
 \[\begin{aligned}
 \Big| \alpha + \beta\left(\frac{v-k}{\sqrt{k-\lambda}}\right) - \gamma\Big| =\Big| \alpha - \beta +(w-1)\gamma\Big| =\Big| \alpha - \beta\left(\frac{k}{\sqrt{k-\lambda}}\right) - \gamma\Big| = c.
 \end{aligned}\]
-Since $\alpha$, $\beta$, and $\gamma$ must all be positive, we note that $\alpha+\beta\left(\frac{v-k}{\sqrt{k-\lambda}}\right) - \gamma >\alpha - \beta\left(\frac{k}{\sqrt{k-\lambda}}\right)-\gamma$ and we must have
+First note that, if $\beta = 0$ then the above equations imply $\vert \alpha-\gamma\vert = \vert\alpha+(w-1)\gamma\vert$ which is impossible unless $\gamma = 0$. Since the case $\beta=\gamma=0$ results in the rank 1 matrix $J$, we are not interested in this case. Thus we may assume $\beta>0$. This implies $\alpha+\beta\left(\frac{v-k}{\sqrt{k-\lambda}}\right) - \gamma >\alpha - \beta\left(\frac{k}{\sqrt{k-\lambda}}\right)-\gamma$ and we must have
 \[c=\alpha+\beta\left(\frac{v-k}{\sqrt{k-\lambda}}\right) - \gamma = -\left[\alpha-\beta\left(\frac{k}{\sqrt{k-\lambda}}\right) - \gamma\right] .\]
 This tells us that
 \[\beta = \frac{2c\sqrt{k-\lambda}}{v}\qquad \text{and}\qquad \alpha - \gamma = c\left(\frac{2k-v}{v}\right).\]
