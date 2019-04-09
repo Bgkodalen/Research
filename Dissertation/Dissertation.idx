@@ -26,69 +26,65 @@
 \indexentry{absolute bound|hyperpage}{20}
 \indexentry{feasible parameter set|hyperpage}{20}
 \indexentry{realizable parameter set|hyperpage}{20}
-\indexentry{imprimitivity!primitive|hyperpage}{20}
-\indexentry{imprimitivity!imprimitive|hyperpage}{20}
-\indexentry{imprimitivity!subscheme|hyperpage}{20}
-\indexentry{imprimitivity!quotient scheme|hyperpage}{21}
+\indexentry{imprimitivity|hyperpage}{21}
 \indexentry{imprimitivity!systems of -|hyperpage}{21}
 \indexentry{imprimitivity!subscheme|hyperpage}{22}
 \indexentry{imprimitivity!quotient scheme|hyperpage}{22}
-\indexentry{imprimitivity!quotient scheme|hyperpage}{23}
-\indexentry{$Q$-polynomial|hyperpage}{25}
-\indexentry{$Q$-polynomial!cometric|hyperpage}{25}
-\indexentry{Krein array|hyperpage}{25}
-\indexentry{natural ordering|hyperpage}{26}
-\indexentry{$Q$-polynomial!$Q$-bipartite|hyperpage}{26}
-\indexentry{$Q$-polynomial!$Q$-antipodal|hyperpage}{26}
-\indexentry{$P$-polynomial|hyperpage}{26}
-\indexentry{$P$-polynomial!metric|hyperpage}{26}
-\indexentry{$P$-polynomial!bipartite|hyperpage}{27}
-\indexentry{$P$-polynomial!antipodal|hyperpage}{27}
-\indexentry{equiangular lines|hyperpage}{29}
-\indexentry{mutually unbiased bases|hyperpage}{30}
-\indexentry{positive semidefinite cone|hyperpage}{32}
-\indexentry{equiangular lines|hyperpage}{32}
-\indexentry{equiangular lines!optimal|hyperpage}{33}
-\indexentry{equiangular lines!near optimal|hyperpage}{33}
-\indexentry{polynomial!monomial|hyperpage}{36}
-\indexentry{polynomial!degree|hyperpage}{36}
-\indexentry{polynomial!derivative|hyperpage}{36}
-\indexentry{polynomial!homogeneous|hyperpage}{36}
-\indexentry{polynomial!harmonic|hyperpage}{36}
-\indexentry{polynomial!harmonic!on the sphere|hyperpage}{37}
-\indexentry{polnomial!homogeneous!on the sphere|hyperpage}{37}
-\indexentry{polynomial!zonal|hyperpage}{37}
-\indexentry{Gegenbauer polynomials|hyperpage}{37}
-\indexentry{positive definite function|hyperpage}{38}
-\indexentry{block design!2-design|hyperpage}{59}
-\indexentry{block design!incidence matrix|hyperpage}{60}
-\indexentry{linked system of symmetric designs|hyperpage}{60}
-\indexentry{linking system of difference sets|hyperpage}{60}
-\indexentry{$\mu$-heavy|hyperpage}{61}
-\indexentry{$\nu$-heavy|hyperpage}{61}
-\indexentry{degenerate parameters|hyperpage}{63}
-\indexentry{linked system of symmetric designs|hyperpage}{64}
-\indexentry{Noda bound|hyperpage}{64}
-\indexentry{absolute bound|hyperpage}{64}
-\indexentry{regular simplex|hyperpage}{65}
-\indexentry{linked simplices|hyperpage}{65}
-\indexentry{equiangular tight frame|hyperpage}{66}
-\indexentry{nearest neighbor graph|hyperpage}{70}
-\indexentry{optimistic lssd|hyperpage}{70}
-\indexentry{pessimistic lssd|hyperpage}{70}
-\indexentry{equiangular lines|hyperpage}{71}
-\indexentry{real mutually unbiased bases|hyperpage}{72}
-\indexentry{degenerate parameters|hyperpage}{73}
-\indexentry{Cameron-Seidel Scheme|hyperpage}{74}
-\indexentry{Menon parameters|hyperpage}{78}
-\indexentry{Hadamard matrix!real|hyperpage}{79}
-\indexentry{Hadamard matrix!regular|hyperpage}{79}
-\indexentry{Hadamard matrix!unbiased|hyperpage}{79}
-\indexentry{projective double|hyperpage}{86}
+\indexentry{$Q$-polynomial|hyperpage}{27}
+\indexentry{$Q$-polynomial!cometric|hyperpage}{27}
+\indexentry{Krein array|hyperpage}{27}
+\indexentry{natural ordering|hyperpage}{27}
+\indexentry{$Q$-polynomial!$Q$-bipartite|hyperpage}{27}
+\indexentry{$Q$-polynomial!$Q$-antipodal|hyperpage}{27}
+\indexentry{$P$-polynomial|hyperpage}{28}
+\indexentry{$P$-polynomial!metric|hyperpage}{28}
+\indexentry{$P$-polynomial!bipartite|hyperpage}{28}
+\indexentry{$P$-polynomial!antipodal|hyperpage}{28}
+\indexentry{equiangular lines|hyperpage}{30}
+\indexentry{mutually unbiased bases|hyperpage}{31}
+\indexentry{positive semidefinite cone|hyperpage}{33}
+\indexentry{equiangular lines|hyperpage}{33}
+\indexentry{equiangular lines!optimal|hyperpage}{34}
+\indexentry{equiangular lines!near optimal|hyperpage}{34}
+\indexentry{polynomial!monomial|hyperpage}{37}
+\indexentry{polynomial!degree|hyperpage}{37}
+\indexentry{polynomial!derivative|hyperpage}{37}
+\indexentry{polynomial!homogeneous|hyperpage}{37}
+\indexentry{polynomial!harmonic|hyperpage}{37}
+\indexentry{polynomial!harmonic!on the sphere|hyperpage}{38}
+\indexentry{polnomial!homogeneous!on the sphere|hyperpage}{38}
+\indexentry{polynomial!zonal|hyperpage}{38}
+\indexentry{Gegenbauer polynomials|hyperpage}{38}
+\indexentry{positive definite function|hyperpage}{39}
+\indexentry{block design!2-design|hyperpage}{60}
+\indexentry{block design!incidence matrix|hyperpage}{61}
+\indexentry{linked system of symmetric designs|hyperpage}{61}
+\indexentry{linking system of difference sets|hyperpage}{61}
+\indexentry{$\mu$-heavy|hyperpage}{62}
+\indexentry{$\nu$-heavy|hyperpage}{62}
+\indexentry{degenerate parameters|hyperpage}{64}
+\indexentry{linked system of symmetric designs|hyperpage}{65}
+\indexentry{Noda bound|hyperpage}{65}
+\indexentry{absolute bound|hyperpage}{65}
+\indexentry{regular simplex|hyperpage}{66}
+\indexentry{linked simplices|hyperpage}{66}
+\indexentry{equiangular tight frame|hyperpage}{67}
+\indexentry{nearest neighbor graph|hyperpage}{71}
+\indexentry{optimistic lssd|hyperpage}{71}
+\indexentry{pessimistic lssd|hyperpage}{71}
+\indexentry{equiangular lines|hyperpage}{72}
+\indexentry{real mutually unbiased bases|hyperpage}{73}
+\indexentry{degenerate parameters|hyperpage}{74}
+\indexentry{Cameron-Seidel Scheme|hyperpage}{75}
+\indexentry{Menon parameters|hyperpage}{79}
+\indexentry{Hadamard matrix!real|hyperpage}{80}
+\indexentry{Hadamard matrix!regular|hyperpage}{80}
+\indexentry{Hadamard matrix!unbiased|hyperpage}{80}
 \indexentry{projective double|hyperpage}{87}
-\indexentry{orthogonal projective double|hyperpage}{87}
-\indexentry{strongly regular graph|hyperpage}{91}
-\indexentry{Delsarte coclique|hyperpage}{93}
-\indexentry{unweighted distribution diagram|hyperpage}{107}
-\indexentry{projection map|hyperpage}{108}
-\indexentry{proximal|hyperpage}{115}
+\indexentry{projective double|hyperpage}{88}
+\indexentry{orthogonal projective double|hyperpage}{88}
+\indexentry{strongly regular graph|hyperpage}{92}
+\indexentry{Delsarte coclique|hyperpage}{94}
+\indexentry{unweighted distribution diagram|hyperpage}{108}
+\indexentry{projection map|hyperpage}{109}
+\indexentry{proximal|hyperpage}{116}
