@@ -1,10 +1,10 @@
 \chapter{3-class \texorpdfstring{$Q$-antipodal}{Q-antipodal}: LSSDs}\label{3class}
-In \cite{Cameron1972}, Cameron investigated groups with inequivalent doubly-transitive permutation representations having the same permutation character and introduced the notion of a linked system of symmetric designs (LSSD). One such example arising from Kerdock codes was communicated by Goethals \cite{Goethals1976} and studied in depth by Cameron and Seidel \cite{Cameron1973}. These structures, in the homogeneous case, were then further studied by Noda \cite{Noda1974} who bounded the number of fibers in a LSSD in terms of the design parameters induced between any two of the fibers. Focusing on the specific $(16,6,2)$ designs, Mathon \cite{Mathon1981} classified all inequivalent LSSDs using these design parameters via a computer search, finding that there were multiple inequivalent LSSDs with two or three fibers but only the scheme described by Geothals worked with four or more fibers. Later, Van Dam proved in \cite{VanDam1999} the equivalence between these objects and 3-class Q-antipodal association schemes. Martin, Muzychuk, and Williford found a connection to mutually unbiased bases in certain dimensions \cite{Martin2007}. Finally Davis, Martin, Polhill \cite{Davis2014} and Jedwab, Li, Simon \cite{Jedwab2017} built more non-trivial examples using difference sets in 2-groups.\par
-We begin this chapter with a survey of known results focusing on the connection to association schemes. We introduce ``linked simplices", natural geometric objects which are of interest in their own right, as collections of full-dimensional simplices with only two possible angles between vectors in distinct simplices. We establish the equivalence of sets of linked simplices and LSSDs. We compare three known bounds on the number of fibers and explore connections to structures in Euclidean space. We show how to construct equiangular lines from arbitrary LSSDs and explore cases where LSSDs lead to real mutually unbiased bases (MUBs). After reviewing known examples, we focus on the case of Menon design parameters and, employing an equivalence with sets of mutually unbiased Hadamard matrices, we construct new families of LSSDs for many values of $v$. In particular, we show that one may fix the even part of $v$ without bounding the number of fibers in an LSSD, a result which was not previously known. In Appendix \ref{families}, we survey the design parameters of known infinite families of symmetric designs and determine which of these cannot be the design parameters of LSSDs with more than two fibers, noting differences vis-\'{a}-vis a recent discovery by Jedwab et.\ al.\ \cite{Jedwab2017} in restricted cases.
+In \cite{Cameron1972}, Cameron investigated groups with inequivalent doubly-transitive permutation representations having the same permutation character and introduced the notion of a linked system of symmetric designs (LSSD). One such example arising from Kerdock codes was communicated by Goethals \cite{Goethals1976} and studied in depth by Cameron and Seidel \cite{Cameron1973}. These structures, in the homogeneous case, were then further studied by Noda \cite{Noda1974} who bounded the number of fibers in a LSSD in terms of the design parameters induced between any two of the fibers. Focusing on the $(16,6,2)$ designs, Mathon \cite{Mathon1981} classified all inequivalent LSSDs using these design parameters via a computer search, finding that there were multiple inequivalent LSSDs with two or three fibers but only the scheme described by Geothals worked with four or more fibers. Later, Van Dam proved in \cite{VanDam1999} the equivalence between these objects and 3-class Q-antipodal association schemes. Martin, Muzychuk, and Williford found a connection to mutually unbiased bases in certain dimensions \cite{Martin2007}. Finally Davis, Martin, Polhill \cite{Davis2014} and Jedwab, Li, Simon \cite{Jedwab2017} built more non-trivial examples using difference sets in 2-groups.\par
+We begin this chapter with a survey of known results focusing on the connection to association schemes. We introduce ``linked simplices", natural geometric objects which are of interest in their own right, as collections of full-dimensional simplices with only two possible angles between vectors in distinct simplices. We establish the equivalence of sets of linked simplices and LSSDs. We compare three known bounds on the number of fibers and explore connections to structures in Euclidean space. We show how to construct equiangular lines from arbitrary LSSDs and explore cases where LSSDs lead to real mutually unbiased bases (MUBs). After reviewing known examples, we focus on the case of Menon design parameters and, employing an equivalence with sets of mutually unbiased Hadamard matrices, we construct new families of LSSDs for many values of $v$. In particular, we show that one may fix the largest power of two dividing $v$ without bounding the number of fibers in an LSSD, a result which was not previously known. In Appendix \ref{families}, we survey the design parameters of known infinite families of symmetric designs and determine which of these cannot be the design parameters of LSSDs with more than two fibers, noting differences vis-\'{a}-vis a recent discovery by Jedwab et.\ al.\ \cite{Jedwab2017} in restricted cases.
 
 Throughout this chapter we will heavily discuss both the parameters of the association schemes given by LSSDs as well as the design parameters of the given symmetric designs. Thus, for clarity sake, we will always refer to the triple $(v,k,\lambda)$ as the \emph{design parameters} of the LSSD so as to distinguish these from the intersection numbers, Krein parameters, and eigenmatrices of an association scheme. This chapter is based on research published in \cite{Kodalen2019}. Below we list the main theorems of this chapter.
 \begin{restatable*}{thm}{lssdsimpequiv}
-	A $LSSD(v,k,\lambda;w)$ is equivalent to a set of $w$ linked simplices in $\mathbb{R}^{v-1}$ with angles given by \eqref{angles}.
+	A $LSSD(v,k,\lambda;w)$ is equivalent to a set of $w$ linked simplices in $\mathbb{R}^{v-1}$ whose angles depend on the parameters $v$, $k$, and $\lambda$.
 \end{restatable*}
 \begin{restatable*}{thm}{lssdhadequiv}
 	\label{equiv}
@@ -23,7 +23,7 @@ Throughout this chapter we will heavily discuss both the parameters of the assoc
 	For sufficiently large $n$, if there exists a regular Hadamard matrix of order $n$, then there exists a $LSSD(n^2,k,\lambda; w)$ with $w \geq n^\frac{1}{14.8}$.
 \end{restatable*}
 \begin{restatable*}{cor}{oddlssd}
-	For any $n\geq 1$ and $w>2$, there exists an $LSSD(16^nt,k,\lambda;w)$ for some odd $t$.
+	For any $n\geq 1$ and $w>2$, there exists an odd $t$ for which there exists an $LSSD(16^nt,k,\lambda;w)$.
 \end{restatable*}
 \begin{restatable*}{cor}{lssdthreesix}
 	There exists an $LSSD(v,k,\lambda;w)$ with $v=36^{2n}$ and $w = 4^n+1$ for all $n\geq 1$.
@@ -63,12 +63,12 @@ We say $\Gamma$ is a \emph{linked system of symmetric designs}\index{linked syst
 	\end{cases}
 	\end{equation}
 \end{enumerate}
-where $\sim$ denotes adjacency in $\Gamma$ and $\Gamma(x)$ denotes the neighborhood of vertex $x$. Observe that $\Gamma$ is regular with valency $k(w-1)$. A specific type of LSSD introduced in \cite{Davis2014}, constructed from a \text{linking system of difference sets}\index{linking system of difference sets}, is a LSSD where the symmetric design induced between any two fibers comes from a difference set with the further restriction that the difference sets induced between any pair of three fibers interact in a consistent way. Recently Jedwab, Li, and Simon \cite{Jedwab2017} examined these in more detail, building new examples and proving non-existence results for certain design parameters. However, Mathon \cite{Mathon1981} showed there exist three-fiber LSSDs which do not come from difference sets and therefore these objects are not always equivalent to LSSDs. We will consider the general case, and thus do not assume this added structure on our symmetric designs.\par
+where $\sim$ denotes adjacency in $\Gamma$ and $\Gamma(x)$ denotes the neighborhood of vertex $x$. Observe that $\Gamma$ is regular with valency $k(w-1)$. A specific type of LSSD introduced in \cite{Davis2014}, constructed from a \text{linking system of difference sets}\index{linking system of difference sets}, is a LSSD where the symmetric design induced between any two fibers comes from a difference set with the further restriction that the difference sets induced between any pair of three fibers interact in a consistent way. Recently Jedwab, Li, and Simon \cite{Jedwab2017} examined these in more detail, building new examples and proving non-existence results for certain design parameters. However, Mathon \cite{Mathon1981} showed there exist three-fiber LSSDs which do not correspond to linking systems of difference sets, thus we expect there to be many LSSDs which we cannot build via linking difference sets. We will consider the general case, and thus do not assume this added structure on our symmetric designs.\par
 In \cite[Proposition 0]{Noda1974}, Noda shows that $\mu$ and $\nu$ must take one of two pairs of values given by:
 \begin{equation}
 \nu = \frac{k(k\pm \sqrt{k-\lambda})}{v}, \qquad \mu = \nu\mp \sqrt{k-\lambda}. \label{mu-nu}
 \end{equation}
-With these two possibilities for $\mu$ and $\nu$, it becomes useful to distinguish between the two types of LSSDs. We will refer to the LSSD as \emph{$\mu$-heavy}\index{$\mu$-heavy} (resp., \emph{$\nu$-heavy}\index{$\nu$-heavy}) when $\mu>\nu$ (resp., $\nu>\mu$). Note that since both $\mu$ and $\nu$ are integers, we must also have $\sqrt{k-\lambda}\in\bbZ$; for the remainder of this chapter, define $s = \sqrt{k-\lambda}$. Further, since $k\neq \lambda$, we must have $s>0$ and thus $\mu\neq \nu$. We now show that, given $\Gamma$, swapping adjacency between fibers produces another LSSD; we call this graph the \emph{multipartite complement} of $\Gamma$. We again refer to \cite{Noda1974} for the following observation.
+With these two possibilities for $\mu$ and $\nu$, it becomes useful to distinguish between the two types of LSSDs. We will refer to the LSSD as \emph{$\mu$-heavy}\index{$\mu$-heavy} (resp., \emph{$\nu$-heavy}\index{$\nu$-heavy}) when $\mu>\nu$ (resp., $\nu>\mu$). Note that since both $\mu$ and $\nu$ are integers, we must also have $\sqrt{k-\lambda}\in\bbZ$; for the remainder of this chapter, define $s = \sqrt{k-\lambda}$ Note, this parameter is known as the ``order" of the symmetric design and many authors use $n$ to denote this value --- we will always use $s$. Further, since $k\neq \lambda$, we must have $s>0$ and thus $\mu\neq \nu$. We now review a proposition of Noda which notes that, given an LSSD $\Gamma$, swapping adjacency between fibers produces another LSSD; we call this graph the \emph{multipartite complement} of $\Gamma$.
 \begin{prop}[Noda]\label{complement}
 	Let $\Gamma$ be a  $LSSD(v,k,\lambda;w)$ with $w>2$. If $\Gamma$ is $\mu$-heavy (resp., $\nu$-heavy), the multipartite complement $\Gamma'$ is a $\nu$-heavy (resp., $\mu$-heavy) $LSSD(v,v-k,v-2k+\lambda;w)$.
 \end{prop}
@@ -83,16 +83,15 @@ We further find that, given $v$, $k$, and $\lambda$, only one of the outcomes in
 	\end{enumerate}
 \end{lem}
 \begin{proof}
-	From Proposition \ref{complement}, we see that \emph{(i)} will hold for a symmetric design with parameters $(v,k,\lambda)$ if and only if it holds for the complement design with parameters $(v',k',\lambda') = (v,v-k,v-2k+\lambda)$. Further, noting that $s' = \sqrt{k'-\lambda'} = \sqrt{k-\lambda}=s$ and $k' = v-k$, we find that the latter two conditions will also hold for one design if and only if they hold for the complement. Thus, we may assume without loss of generality that $k\leq\frac{v}{2}$. Additionally, whenever $k>1$ we find $s<k$ and thus $k+s<v$. Then, for any $x\in\mathbb{Z}^+$, we find $\gcd(x,v)>1$ whenever $\frac{x(k\pm s)}{v}\in\mathbb{Z}$. Using our expression for $\nu$ in \eqref{mu-nu}, we see that $\gcd(k,v)>1$ and thus \emph{(ii)} holds.
-	Now, using Equations \eqref{sym:1} and \eqref{mu-nu}, we have the two equations:
+	By Proposition $\ref{complement}$, we may assume $k\leq \frac{v}{2}$ as $\frac{k(k\pm s)}{v}$ is integral if and only if $\frac{(v-k)((v-k)\pm s)}{v}$ is integral. Now, Equation \eqref{sym:1} gives $k^2-s^2 = \lambda v$ and thus we have the equations
 	\[\begin{aligned}
-	\frac{k(k+ s)}{v} -\frac{s(k+ s)}{v} &= \lambda,\qquad \frac{k(k- s)}{v} +\frac{s(k- s)}{v} &= \lambda.
+	\frac{k(k+ s)}{v} -\frac{s(k+ s)}{v} =\frac{k(k- s)}{v} +\frac{s(k- s)}{v} &= \lambda.
 	\end{aligned}\]
-	The integer $\nu$ in \eqref{mu-nu} appears as the first term in one of these equations depending on whether our LSSD is $\mu$-heavy or $\nu$-heavy. This implies either $\frac{s(k+ s)}{v}$ or $\frac{s(k-s)}{v}$ must also be an integer, giving us \emph{(iii)}: $\gcd(s,v)>1$. To show \emph{(i)}, consider that if both $\frac{k(k+ s)}{v}$ and $\frac{k(k- s)}{v}$ are integers, then the same must hold for both $\frac{s(k+s)}{v}$ and $\frac{s(k-s)}{v}$. However, this implies $\frac{2s^2}{v}\in\mathbb{Z}^+$, contradicting $s^2 <k \leq \frac{v}{2}$.
+	Now assume $\frac{k(k+s)}{v}$ and $\frac{k(k-s)}{v}$ are both integral. This implies that $\frac{s(k+s)}{v}$ and $\frac{s(k-s)}{v}$ are both integral, and thus their difference $\frac{2s^2}{v}$ must also be integral. However this contradicts $s<k\leq\frac{v}{2}$, thus at most one of $\frac{k(k+s)}{v}$ and $\frac{k(k-s)}{v}$ may be integral. The assumption that our parameters were feasible (in fact, realizable) is sufficient to guarantee at least one is an integer, giving $(i)$. For $(ii)$, we again assume $k\leq \frac{v}{2}$ (noting that $\gcd(k,v) = \gcd(v-k,v)$ since $k<v$). Now, since $s<k$ we must have $k+s<v$. Thus if $\frac{k(k+s)}{v}$ is an integer, we must have $\gcd(k,v)>1$. Similarly $\frac{k(k-s)}{v}\in\mathbb{Z}$ implies $\gcd(k,v)>1$. The same argument applies to $(iii)$ noting again that one of $\frac{k(k\pm s)}{v}$ is integral if and only if one of $\frac{s(k\pm s)}{v}$ is integral.
 \end{proof}
 \begin{remark}
 	\label{rmk1}
-	It is noteworthy that our assumption that the $LSSD$ exists can be replaced with the constraint that either of $\frac{k(k\pm s)}{v}$ is an integer for design parameters $(v,k,\lambda)$. Thus, any time we can show that either of $\frac{k(k\pm s)}{v}$ is integral, we know the opposite choice will not be integral. This will become useful as we then do not require that the parameter set is realizable, only that it is feasible under FC2.
+	Theorem \ref{Qpoly} and the discussion that follows shows that the parameters of an LSSD uniquely determine the parameters of an association scheme. It is important to note here that the first line of Lemma \ref{gcd} may be replaced with the line ``Suppose the parameter set of a $LSSD(v,k,\lambda;w)$ with $w>2$ and $1<k<v-1$ is feasible." In fact, all we need to prove Lemma \ref{gcd} is that either $\frac{k(k+s)}{v}$ or $\frac{k(k-s)}{v}$ is integral. This will become useful as we apply this lemma to rule out feasible parameter sets where, clearly, we cannot assume the LSSD exists.
 \end{remark}
 The case where $k=1$ or $k=v-1$ produces LSSDs which are not of interest to us and for the remainder of the chapter, we will refer to these designs as ``degenerate". For a further description of why these designs are degenerate, see Section \ref{degenerate}. The observations that $\gcd(k,v)>1$ and $\gcd(s,v)>1$ are two tools which help us determine more easily which design parameters might be feasible for a LSSD with $w>2$. We may find many other statements similar to these, but these two will be sufficient for now. Using these, we can immediately rule out many design parameters. For instance:
 \begin{cor}
@@ -101,20 +100,20 @@ The case where $k=1$ or $k=v-1$ produces LSSDs which are not of interest to us a
 \end{cor}
 For a further use of these tools to rule out certain families of symmetric designs, see Appendix \ref{families}.
 
-We now provide a theorem of van Dam concerning the equivalence between linked systems of symmetric designs and 3-class $Q$-antipodal association schemes. While this result appears in \cite{VanDam1999}, we include a later result appearing in \cite{vanDam2013} to assist with our proof.
+We now provide a theorem of Van Dam concerning the equivalence between linked systems of symmetric designs and 3-class $Q$-antipodal association schemes. We do not give a self-contained proof here, instead referring to results of Van Dam to outline the proof. While this result appears in \cite{VanDam1999}, we include a later result appearing in \cite{vanDam2013} to assist with our outline.
 \begin{thm}[\cite{VanDam1999}]
 	\label{Qpoly}
 	Let $\Gamma$ be a non-degenerate LSSD with adjacency matrix $A$. Then the algebra $\langle A\rangle_*$ is the Bose-Mesner algebra of a 3-class Q-antipodal association scheme on $X$. Conversely, every $Q$-antipodal 3-class association scheme arises in this way. More specifically, the natural ordering of the relations of any $Q$-antipodal 3-class association scheme is as follows:
 	\begin{itemize}
 		\item $R_0$ is the identity relation on $X$;
-		\item $R_1$ is given by adjacency in a $\mu$-heavy LSSD;
+		\item $R_1$ is given by adjacency in the $\mu$-heavy LSSD;
 		\item $R_2$ is the union of complete graphs on the fibers induced by $R_1$;
-		\item $R_3$ is given by adjacency in a $\nu$-heavy LSSD.
+		\item $R_3$ is given by adjacency in the $\nu$-heavy LSSD.
 	\end{itemize}
 \end{thm}
-\begin{proof}
-	Let $\Gamma$ be the graph of a linked system of symmetric designs with $0<\lambda<k-1$ and assume without loss of generality that $k\leq \frac{v}{2}$. From \cite{VanDam1999}, we see that the adjacency algebra of $\Gamma$ is the Bose-Mesner algebra of a 3-class association scheme. We may then build $L_1$ to find that the eigenvalues of this graph are $k(w-1)>\sqrt{k-\lambda}(w-1)>-\sqrt{k-\lambda}>-k$ with multiplicities $m_0,m_1,m_2,m_3$ respectively. Since $\Gamma$ is connected, we find that $m_0=1$. Further, since $\Gamma$ has four distinct eigenvalues, Theorem 5.8 of \cite{VanDam1999} tells us $m_1 = v-1$. We then use the equations $\sum_{i=0}^3\theta_im_i = 0$ and $\sum_{i=0}^3 m_i = vw$ to find that $m_3 = w-1$ and $m_2 = (w-1)(v-1)$. We then apply Proposition 6.1 of \cite{vanDam2013} to see that this association scheme is $Q$-antipodal. Conversely, let $(X,\mathcal{R})$ be a 3-class $Q$-antipodal association scheme with relations ordered naturally. Then Theorem \ref{suzukiimprim} tells us the system of imprimitivity is given by $\mathcal{J} = \left\{0,3\right\}$ and $\mathcal{I} = \left\{0,2\right\}$ and Theorem 5.1 of \cite{vanDam2013} tells us $(X,\mathcal{R})$ is uniform. We may then refer again to Proposition 6.1 of \cite{vanDam2013} to see that $m_2 = (w-1)m_1$. This, along with the antipodal property, forces $k_1 = v-1$ where $k_1$ is the valency of the nearest neighbor graph. Thus Theorem 5.8 of \cite{VanDam1999} tells us this nearest neighbor graph is the incidence graph of a linked system of symmetric designs with $0<\lambda<k-1$.
-\end{proof}
+%\begin{proof}
+\noindent \textit{Proof outline.} Let $\Gamma$ be the graph of a linked system of symmetric designs with $0<\lambda<k-1$ and assume without loss of generality that $k\leq \frac{v}{2}$. Using the definition of an LSSD, one may verify quickly that all intersection numbers are well-defined, and thus the adjacency algebra of $\Gamma$ is the Bose-Mesner algebra of a 3-class association scheme. We may then build $L_1$ to find that the eigenvalues of this graph are $k(w-1)>\sqrt{k-\lambda}(w-1)>-\sqrt{k-\lambda}>-k$ with multiplicities $m_0,m_1,m_2,m_3$ respectively. Since $\Gamma$ is connected, we find that $m_0=1$. Further, since $\Gamma$ has four distinct eigenvalues, Theorem 5.8 of \cite{VanDam1999} tells us $m_1 = v-1$. We then use the equations $\sum_{i=0}^3\theta_im_i = 0$ and $\sum_{i=0}^3 m_i = vw$ to find that $m_3 = w-1$ and $m_2 = (w-1)(v-1)$. We then apply Proposition 6.1 of \cite{vanDam2013} to see that this association scheme is $Q$-antipodal. Conversely, let $(X,\mathcal{R})$ be a 3-class $Q$-antipodal association scheme with relations ordered naturally. Then Theorem \ref{suzukiimprim} tells us the system of imprimitivity is given by $\mathcal{J} = \left\{0,3\right\}$ and $\mathcal{I} = \left\{0,2\right\}$ and Theorem 5.1 of \cite{vanDam2013} tells us $(X,\mathcal{R})$ is uniform. We may then refer again to Proposition 6.1 of \cite{vanDam2013} to see that $m_2 = (w-1)m_1$. This, along with the antipodal property, forces $k_1 = v-1$ where $k_1$ is the valency of the nearest neighbor graph. Thus Theorem 5.8 of \cite{VanDam1999} tells us this nearest neighbor graph is the incidence graph of a linked system of symmetric designs with $0<\lambda<k-1$.\qed
+%\end{proof}
 In addition to the above proof, we list the intersection numbers, the first and second eigenmatrices, and a some of the Krein parameters for later use. Let $\Gamma_1 = (X,R_1)$ be a $\mu$-heavy $LSSD(v,k,\lambda)$ with complement design given by $\Gamma_2 = (X,R_3)$. The following are the intersection numbers, listed via the four matrices $L_0,L_1,L_2,L_3$ where $L_i = [p_{i,j}^k]_{k,j}$;
 \[\begin{aligned}
 L_0 &= \left[\begin{array}{cccc}
@@ -173,42 +172,49 @@ Note that our $Q$-polynomial property means that $L_1^*$ must be irreducible tri
 
 Finally, the final column of $L_3^*$ tells us that $E_3\circ E_3\in\left<E_0,E_3\right>$; that is, our scheme is $Q$-antipodal. We henceforth use the term \emph{linked system of symmetric designs}\index{linked system of symmetric designs} to refer to either the graph $\Gamma$ or to the association scheme it generates as in Theorem \ref{Qpoly}.
 \subsection{Bounds on number of fibers}
-\subsubsection*{\sc Noda Bound}\index{Noda bound}
-In Theorem 2 of \cite{Noda1974}, Noda gives the following bound
+\index{Noda bound}
+One central question in the study of linked systems of symmetric designs is determining the maximum number of fibers one may use to build LSSDs. Theorem 2 of \cite{Noda1974} provides us with the main non-trivial bound known to date. In this paper, Noda proves
 \begin{equation*}\resizebox{\textwidth}{!}{
 	$(w-1)\left[(k-2)\lambda\binom{k}{3}-(v-2)\left[(v-k)\binom{\nu}{3} + k\binom{\mu}{3}\right]\right]\leq(v-2)\left[(v-1)\binom{\lambda}{3}+\binom{k}{3}-\left[(v-k)\binom{\nu}{3} + k\binom{\mu}{3}\right]\right]$
 }\end{equation*}
-with equality if and only if a pair $(X_1,X_2\cup X_3\cup\dots\cup X_w)$ forms a 3-design. If we restrict ourselves to the case of $\mu$-heavy LSSDs, one can verify that this gives
-\[(w-1)(2k-v)\leq(v-2)\sqrt{k-\lambda}.\]
-If we have that $2k>v$, then we arrive at the bound
-\begin{equation}\label{Noda}w \leq \frac{(v-2)\sqrt{k-\lambda}}{2k-v}+1.\end{equation}
-Since the condition becomes vacuous when $2k<v$, the bound only applies when $(2k-v)(\mu-\nu)>0$.
-\subsubsection*{\sc Krein Conditions}
-In \cite{Mathon1981}, Mathon shows that the previous bound is equivalent to the condition that $q_{11}^1\geq 0$. We have
-\[\begin{aligned}
-q_{11}^1 =\frac{(1-w)(2k-v)+(v-2)s}{ws}\geq 0,\qquad w\leq \frac{(v-2)s}{2k-v}+1
-\end{aligned}\]
-assuming $v<2k$. As before, the bound says nothing about LSSDs with $(2k-v)(\mu-\nu)<0$.
-\subsubsection*{\sc Absolute Bound}\index{absolute bound}
-In \cite{Martin2007}, a bound is provided independent of the sign of $(2k-v)(\mu-\nu)$ relying only on the $Q$-polynomial structure (particularly that $q_{11}^3 = 0$ and $q_{11}^2 >0$). Let $m_i = \text{rank}(E_i)$. We know from our $Q$ matrix that $m_2 = (w-1)m_1$. Further,
-\[E_1\circ E_1 = \frac{1}{\vert X\vert}\left(q_{11}^0E_0 + q_{11}^1E_1+q_{11}^2E_2\right).\]
-Therefore $m_2+m_1 + 1\leq \frac{1}{2}m_1\left(m_1+1\right)$ if $q_{11}^1>0$ and $m_2+1\leq \frac{1}{2}m_1\left(m_1+1\right)$ otherwise (cf.\ \cite{Brouwer1989} Thm. 2.3.3). First consider the case when $q_{11}^1>0$:
-\[\begin{aligned}
-(w-1)m_1 &\leq \frac{m_1^2-m_1}{2}-1,\\
-w&\leq \frac{m_1+1}{2}-\frac{1}{m_1}.
-\end{aligned}\]
-Since $m_1 = v-1$, this gives $w \leq \frac{v}{2}-\frac{1}{m_1}$. Further, since $m_1>1$ this results in $w\leq\frac{v-1}{2}$. 
+with equality if and only if a pair $(X_1,X_2\cup X_3\cup\dots\cup X_w)$ forms a 3-design. If we restrict ourselves to the case of $\mu$-heavy LSSDs, this results in the following theorem
+\begin{thm}
+	Suppose there exists a $LSSD(v,k,\lambda;w)$ with $\nu = \frac{k(k-s)}{v}$ and $\mu = \nu+s$. Then if $k>\frac{v}{2}$,
+	\begin{equation}\label{Noda}w \leq \frac{(v-2)\sqrt{k-\lambda}}{2k-v}+1.\end{equation}
+\end{thm}
+Note the condition becomes vacuous when $2k<v$, thus the bound only applies when $(2k-v)(\mu-\nu)>0$.
 
-If instead we have $q_{11}^1 = 0$, we find $w\leq \frac{v+1}{2}$. However, we may say more in this case as $q^1_{11}=0$ implies our Krein condition above is tight, giving us
-\[w = \frac{(v-2)s}{2k-v}+1\]
-with $2k>v$ ($q_{11}^1 = 0$ is not possible unless $2k>v$ since $w\geq 2$). Taking these two bounds together gives $\frac{(v-2)s}{2k-v}+1\leq \frac{v+1}{2}$ resulting in $2(v-2)s\leq(v-1)(2k-v)$ or $2s\leq (2k-v) + \frac{2s}{v-1}$. Since $2s<k<v-1$ and all three are positive integers, we must then have $2s\leq (2k-v)$. Squaring both sides then gives
-$4(k-\lambda)\leq 4k^2-4kv+v^2$. Using Equation \eqref{sym:2} we have
+Examining the Krein parameters which arise (in particular those listed in the discussion following Theorem \ref{Qpoly}), we find that the only non-trivial condition from the Krein conditions is $q^1_{11}\geq 0$. While constructing the various different possible configurations of LSSDs using design parameters $(16,6,2)$ \cite{Mathon1981}, Mathon also shows that the condition $q^1_{11}\geq 0$ is equivalent to the Noda bound (seen above). In fact, we have
+\begin{equation}\label{q111}
+q_{11}^1 =\frac{(1-w)(2k-v)+(v-2)s}{ws}.
+\end{equation}
+Thus, as long as $k<\frac{v}{2}$ we may rearrange the terms to get
+\[w\leq \frac{(v-2)s}{2k-v}+1.\]
+This is, of course, equivalent to the previous bound since $s = \sqrt{k-\lambda}$. Note that, as before, we only arrive at this bound if $k<\frac{v}{2}$ for the $\mu$-heavy design.
+
+The final bound we will consider is one which does not require $k<\frac{v}{2}$ for the $\mu$-heavy design. In \cite{Martin2007}, Martin, Muzychuk, and Williford use the absolute bound to bound the number of fibers, relying on the $Q$-polynomial structure (particularly that $q_{11}^3 = 0$ and $q_{11}^2 >0$). Let $m_i = \text{rank}(E_i)$. We know from our $Q$ matrix that $m_2 = (w-1)m_1$. Further,
+\begin{equation}\label{abslssd}E_1\circ E_1 = \frac{1}{\vert X\vert}\left(q_{11}^0E_0 + q_{11}^1E_1+q_{11}^2E_2\right).\end{equation}
+The bound itself will depend on whether or not $q^1_{11}$ is non-zero. Thus we must split our derivation into two cases. In what follows, we derive the bound for the case $q^1_{11}>0$ as well as examine further the case of $q^1_{11}=0$, deriving the absolute bound for this case and pairing this with tightness in the Noda bound to further restrict our parameters.
+
+First consider the case when $q^1_{11}>0$. Here, we find the rank of the right hand side of \eqref{abslssd} is $m_2+m_1+1$ while the rank on the left is no larger than $\frac{1}{2}m_1\left(m_1+1\right)$. Thus we must have
+\[\begin{aligned}
+m_2+m_1+1&\leq \frac{1}{2}m_1(m_1+1)\\
+(w-1)m_1 &\leq \frac{m_1^2-m_1}{2}-1,\\
+w&\leq \frac{m_1-1}{2}-\frac{1}{m_1}.
+\end{aligned}\]
+Since $m_1 = v-1$, this gives $w \leq \frac{v}{2}-\frac{1}{v-1}$. Further, since $v>2$ this results in $w\leq\frac{v-1}{2}$. 
+
+Now consider the case where $q_{11}^1=0$. The only change is that the right hand side of \eqref{abslssd} now has rank $m_2+1$. Thus our bound gives instead $w\leq \frac{v+1}{2}$. However, \eqref{q111} gives us an expression for $q^1_{11}$. Thus, if $q^1_{11}=0$, we must have $k>\frac{v}{2}$ and $w = \frac{(v-2)s}{2k-v}+1$. Using this value for $w$ in our bound $w\leq \frac{v+1}{2}$ results in the inequality $\frac{(v-2)s}{2k-v}+1\leq \frac{v+1}{2}$ or equivalently, 
+\[2s\leq (2k-v) + \frac{2s}{v-1}.\]
+Since $0<2s<k<v-1$, we must then have $2s\leq (2k-v)$. Squaring both sides then gives
+$4(k-\lambda)\leq 4k^2-4kv+v^2$. Finally, using Equation \eqref{sym:2} we have
 \[\begin{aligned}
 4(k-\lambda)\leq v.
 \end{aligned}\]
-This means that whenever the Krein condition is tight ($q_{11}^1 = 0$), we must have $4(k-\lambda)\leq v\leq 2k$. There is only one known family of constructions which achieve the Krein bound. For this construction (see Section \ref{kerdock}) $v = 4(k-\lambda)$. Further, these designs have parameters belonging to the Menon family --- the only possible family for which this inequality is tight.
 
-We finish this section by noting that, in either case ($q^1_{11}>0$ and $q^1_{11}=0$), the exact bound arising from the absolute bound is non-integral assuming $m_1>2$. Thus, while we reduce these bounds to $w\leq\frac{v-1}{2}$ and $w\leq\frac{v+1}{2}$ (both of which are achievable in some cases), the actual absolute bound will never be tight.
+In summary, if $q^1_{11}>0$, the absolute bound tells us $w\leq \frac{v-1}{2}$ for both $\mu$-heavy and $\nu$-heavy designs independent of the size of $k$. Additionally, if $q^1_{11}=0$ (i.e.\ the Noda bound is tight), we must have $4(k-\lambda)\leq v$. Recall this is exactly the case where Noda showed $(X_1,X_2\cup X_3\cup\dots\cup X_w)$ forms a 3-design. There is only one known family of constructions which achieve the Noda bound. For this construction (see Section \ref{kerdock}) $v = 4(k-\lambda)$. Further, these designs have parameters belonging to the Menon family --- the only possible family for which this $v=4(k-\lambda)$.
+
+We finish this section by noting that, in either case ($q^1_{11}>0$ and $q^1_{11}=0$), the exact bound arising from the absolute bound is non-integral assuming $m_1>2$. Thus, while we reduce these bounds to $w\leq\frac{v-1}{2}$ and $w\leq\frac{v+1}{2}$, the actual absolute bound will never be tight.
 
 
 \section{Linked simplices}
@@ -348,7 +354,7 @@ y_3 &= \frac{1}{vw}(\alpha -\frac{k}{\sqrt{k-\lambda}}\beta - \gamma).
 \subsection{Equiangular lines}
 Recall that a set of \emph{equiangular lines}\index{equiangular lines} in dimension $n$ with ``angle" $0<\alpha<1$ may be considered a set of unit vectors in $\mathbb{R}^n$ such that the inner product between any distinct vectors has a fixed magnitude $\alpha$. Thus we consider a set of equiangular lines equivalent to a Gram matrix with only one magnitude off the main diagonal. Our task of constructing equiangular lines from an LSSD then reduces to finding a low rank matrix inside the Bose-Mesner algebra for which the off diagonal entries ($y_1$, $y_2$, and $y_3$ in \eqref{coeffs}) all have the same norm.
 
-We now show that we may find a set of equiangular lines from any LSSD whose size and dimension depend on the number of fibers used in the construction. This is a generalization of the construction of de Caen's \cite{deCaen2000} which used the Cameron-Seidel scheme. Let $\BMA$ be the Bose-Mesner algebra of an LSSD with $Q$-polynomial ordering $E_0,\dots,E_3$ and relations ordered naturally. Consider the matrix
+We now show that we may find a set of equiangular lines from any LSSD whose size and dimension depend on the number of fibers used in the construction. This is a generalization of the construction of de Caen's \cite{deCaen2000} which uses the idempotents Cameron-Seidel scheme to build a family of equiangular lines with $\frac{2}{9}(d+1)^2$ lines in $\mathbb{R}^d$. Let $\BMA$ be the Bose-Mesner algebra of an LSSD with $Q$-polynomial ordering $E_0,\dots,E_3$ and relations ordered naturally. Consider the matrix
 \[G = vw(\alpha E_0 + \beta E_1 + \gamma E_3)\]
 for $\alpha,\beta,\gamma\geq 0$. This is a $vw\times vw$ matrix with rank at most $v+w-1$. The off-diagonal entries are given by $y_1$, $y_2$, $y_3$ in \eqref{coeffs}. In order to obtain a Gram matrix for a set of equiangular lines, we must have a constant positive value $c$ such that
 \[\begin{aligned}
@@ -384,7 +390,7 @@ of a set of $w$ orthonormal bases where two vectors from distinct bases have one
 \[\beta_1 = \frac{v-k+\sqrt{k-\lambda}}{v\sqrt{k-\lambda}},\qquad
 \beta_2= -\frac{k-\sqrt{k-\lambda}}{v\sqrt{k-\lambda}}.\]
 Of particular interest is the case when $\vert \beta_1\vert = \vert\beta_2\vert;$ this is precisely when our construction gives a set of mutually unbiased bases. This will be discussed in greater detail in Section \ref{LSSDMUBs}.
-\section{Two families}
+\section{Known infinite families}
 This section discusses two families of LSSDs, one trivial and one quite central to the subject. In each case we introduce the family and provide the parameters of the association schemes.
 \subsection{Degenerate case}\index{degenerate parameters}
 \label{degenerate}
@@ -489,7 +495,19 @@ This means that our first idempotent is given by:
 If we scale this appropriately to obtain a Gram matrix of unit vectors, we find that $E_1$ is the Gram matrix of $w$ copies of the same simplex in $\mathbb{R}^v$. This can be seen as well from the fact that $Q_{01} = Q_{11}$ meaning that any simplex vector has inner product 1 with exactly one vector from each of the ``other" simplices, meaning the simplices are just copies of the same simplex. This explains why $w$ is unbounded as we can always copy the same simplex as many times as we would like. This also indicates why this example is not of interest to us as it is not giving $w$ distinct linked simplices.
 \subsection{Cameron-Seidel scheme}\index{Cameron-Seidel Scheme}
 \label{kerdock}
-This construction is given originally by Goethals \cite{Goethals1976} in terms of Kerdock codes, though it was extensively studied by Cameron and Seidel. A generalization of this concept is found in \cite{Bey2008}, where Bey and Kyureghyan frame the properties of Kerdock sets in terms of bent functions rather than quadratic forms. While this generalization gives the same parameter sets as the original construction, it shows that there are many non-isomorphic constructions using various different realizations of Kerdock sets. In fact, Kantor \cite{Kantor1982} showed that there are exponentially many such constructions. Let $Q_1,Q_2,\dots,Q_w$ be a set of $w$ quadratic forms on $\mathbb{Z}_2^n$ for which $Q_i+Q_j$ is a full rank quadratic form whenever $i\neq j$. Note that, through evaluation, each quadratic form gives us a vector $[Q_i(v)]_{v\in\mathbb{Z}^n_2}$ of length $2^n$. Let $\mathcal{Q}_1,\mathcal{Q}_2,\dots,\mathcal{Q}_w$ be cosets, $\mathcal{Q}_i = [Q_i(v)]_{v\in\mathbb{Z}_2^n}+\mathscr{R}(1,n)$, of the first order Reed Muller code (see \cite[Section 4.5]{vanLint1999}). For each $1\leq i\leq w$, define the shortening of $\mathcal{Q}_i$ as the set of vectors
+This construction is given originally by Goethals \cite{Goethals1976} in terms of Kerdock codes, though it was extensively studied by Cameron and Seidel. A restating of this concept is found in \cite{Bey2008}, where Bey and Kyureghyan frame the properties of Kerdock sets in terms of bent functions rather than quadratic forms. In addition, Kantor \cite{Kantor1982} showed that there are exponentially many non-isomorphic non-linear binary codes having Kerdock parameters.
+\begin{definition}[\cite{Cameron1973}]
+	Let $V=V(2m,2)$ be a $2m$-dimensional vector space over the field $\mathbb{F} = GF(2)$, ($m\geq 2$). A quadratic form on $V$ is a function $Q$ from $V$ to $\mathbb{F}$ with the properties
+	\begin{itemize}
+		\item[(i)] $Q(x_0) = 0$, where $x_0$ is the zero vector;
+		\item[(ii)] The function $B = B(Q)$: $V\times V\rightarrow\mathbb{F}$ defined by
+		\[B(x,y) = Q(x+y) + Q(x)+Q(y), \forall x,y\in V\]
+		is bilinear.
+	\end{itemize}
+\end{definition}
+We note that, over any field $\mathbb{F}$, the bilinear form corresponding to any quadratic form is symmetric $(B(x,y) = B(y,x))$. In the specific case of $\mathbb{F} = GF(2)$ however, this bilinear form is also alternating $(B(x,x) = 0)$. That is, for any $x\in V$, $B(x,x) = Q(x+x) + Q(x) + Q(x) = Q(2x) + 2Q(x) = 0$. Thus, within this context, we associate any quadratic form with an alternating bilinear form given by a square matrix with 0's on the main diagonal.
+
+We now give a derivation of the Kerdock codes coming from quadratic forms. Let $Q_1,Q_2,\dots,Q_w$ be a set of $w$ quadratic forms on $\mathbb{Z}_2^n$ for which $Q_i+Q_j$ is a full rank quadratic form whenever $i\neq j$. Note that, through evaluation, each quadratic form gives us a vector $[Q_i(v)]_{v\in\mathbb{Z}^n_2}$ of length $2^n$. Let $\mathcal{Q}_1,\mathcal{Q}_2,\dots,\mathcal{Q}_w$ be cosets, $\mathcal{Q}_i = [Q_i(v)]_{v\in\mathbb{Z}_2^n}+\mathscr{R}(1,n)$, of the first order Reed Muller code (see \cite[Section 4.5]{vanLint1999}). For each $1\leq i\leq w$, define the shortening of $\mathcal{Q}_i$ as the set of vectors
 \[V_i = \big\{\left[q(1),q(2),\dots,q\left(2^n-1\right)\right]\mid q(2^n) = 0\big\}_{q\in\mathcal{Q}_i}\]
 where $q(j)$ denotes the $j^\text{th}$ entry of $q$. Since $\mathcal{Q}_i$ is closed under complements, we know that $\vert V_i\vert = \frac{1}{2}\vert\mathcal{Q}_i\vert = 2^{n}$. Further, any pair of vectors $v,w\in\bigcup_iV_i$ come from vectors $q_v,q_w\in\bigcup_i\mathcal{Q}_i$ with last entry $0$, so $wt(v\oplus w) = wt(q_v\oplus q_w)$ where $wt(x)$, the Hamming weight of the binary tuple $x$, is equal to the number of non-zero entries. Finally, for each $i$, construct the set of vectors
 \[X_i = \left\{\frac{1}{\sqrt{2^n-1}}\left(2v-\mathbbm{1}\right)\vert v\in V_i\right\}.\]
@@ -717,7 +735,7 @@ This forces $\nu$ (and $\mu$) to be integral if and only if $u$ is even, resulti
 	Statements \emph{(i) -- (iii)} as well as our restriction when $u$ is odd follow directly from above. Conclusion \emph{(iv)} follows from \eqref{Noda}.
 \end{proof}
 The upper bound for $w$ is achieved whenever $u$ is a power of two using the Cameron-Seidel scheme. In light of this family and the condition that $w=2$ whenever $v/4$ is odd, one might ask if $w$ is bounded as a function of the highest power of $2$ dividing $v$. We will show later that this is not true by constructing examples with $w$ as large as we like and $v/16$ odd.
-\subsection{Hadamard matrix equivalence}
+\subsection{Mutually unbiased Hadamard matrices}
 In this section, we establish an equivalence between LSSDs with design parameters as in Theorem \ref{MubLssdrestrictions} with sets of regular unbiased Hadamard matrices (see \cite{Kharaghani2010} for more detailed information on unbiased Hadamard matrices). Van Dam et al.\ \cite[p.~1423]{Davis2014} briefly mention this connection citing constructions of unbiased regular Hadamard matrices by Holzmann, Kharaghani, and Orrick \cite{Kharaghani2010} using mutually orthogonal latin squares. In this section, we describe the connection between unbiased regular Hadamard matrices and LSSDs in full, using Theorem \ref{twoside}. A real Hadamard matrix\index{Hadamard matrix!real} of order $v$ is a $v\times v$ matrix $H$ with entries $\pm 1$ such that $HH^T = vI$. $H$ is a \textit{regular Hadamard matrix}\index{Hadamard matrix!regular} if $HJ = JH = cJ$ for some constant $c$; one easily verifies that $c = \sqrt{v}$. Two Hadamard matrices $H_1$ and $H_2$ are \textit{unbiased}\index{Hadamard matrix!unbiased} if $\frac{1}{\sqrt{v}}H_1H_2^T$ is itself a Hadamard matrix. Finally, a set of Hadamard matrix matrices are mutually unbiased if each pair is unbiased. Using these definitions, consider the following:
 \begin{thm}
 	\label{LSSDtoHad}
@@ -765,7 +783,7 @@ This provides us with the following theorem
 %	\label{equiv}
 %	An optimistic $LSSD(v,k,\lambda;w)$ with $\vert v-2k\vert = 2\sqrt{k-\lambda}$ exists if and only if there exists a set of $w-1$ regular unbiased Hadamard matrices with order $v$.\qed
 %\end{thm}
-\subsection{Constructing LSSDs from certain real MUBs}
+\subsection{Constructing LSSDs from real MUBs}
 Using the results from the last section and the close relation between MUBs and Hadamard matrices, we wish to build new LSSDs. From Theorem \ref{equiv} and Theorem \ref{MubLssdrestrictions}, we are only going to find optimistic LSSDs with Menon design parameters. The Cameron-Seidel scheme is a construction for $w = 2u^2$ whenever $u$ is a power of 2 (see Section \ref{kerdock}). We skip this case and instead look for constructions where $u$ (and equivalently $v$) is not necessarily a power of 2.
 \subsubsection{Wocjan and Beth construction}
 Wocjan and Beth in \cite{Wocjan2005} detail a way to create MUBs from MOLS. They take a set of $t$ MOLS with side length $d$ and create $t+2$ MUBs in dimension $d^2$. The process is to convert the MOLS into an orthogonal array with $d^2$ rows. They then expand the array by replacing each column with $d$ columns given by the characteristic vector of each symbol in that column. Finally, they extend this matrix by replacing each 1 in the array with a row from a Hadamard matrix and each 0 by an appropriate length vector of 0s. The result is that the $d$ columns arising from each original column are orthogonal to each other. We will focus on the case where the resultant MUBs produce regular Hadamard matrices as scalar multiples of the mixed Gram matrices between any pair of fibers.\par
@@ -785,8 +803,8 @@ where $p$ is the row sum of our Hadamard matrix $H$. We then sum this result ove
 \label{rowsum}
 \sum_{j'}\sum_{l'}\left<M^{i,j,l},M^{i',j',l'}\right> =\sum_{j'}pM^{i,j,l}_{h}=p\sum_{j'}H_{j',l}=p^2.
 \end{equation}
-Then the sum of any row of the Hadamard matrix built from $M^{i,j,l}$ and $M^{i',j',l'}$ ($i\neq i'$) will be $p^2$. Further, we showed in Theorem \ref{LSSDtoHad} that these Hadamard matrices are unbiased. Noting that $n = 4t^2$ for some $t$, as our original Hadamard must be regular, Theorem \ref{equiv} tells us that our LSSD will be an optimistic $LSSD(16t^4,k,\lambda;N)$. This leads to our final theorem.
-\buildinghad\vspace{-8mm}\qed
+Then the sum of any row of the Hadamard matrix built from $M^{i,j,l}$ and $M^{i',j',l'}$ ($i\neq i'$) will be $p^2$. Further, we showed in Theorem \ref{LSSDtoHad} that these Hadamard matrices are unbiased. Noting that $n = 4t^2$ for some $t$, Theorem \ref{equiv} tells us that the resultant LSSD will be an optimistic $LSSD(16t^4,k,\lambda;N)$. This leads to our final theorem.
+\buildinghad
 %\begin{thm}[{cf.\cite[Thm~13]{Kharaghani2010}}]
 %	\label{newLSSD}
 %	Given a regular Hadamard matrix of order $s$ and an orthogonal array of size $s^2\times N$,
@@ -795,20 +813,24 @@ Then the sum of any row of the Hadamard matrix built from $M^{i,j,l}$ and $M^{i'
 %		\item There exists a $LSSD$ with $v=s^2$ and $w=N$.\qed
 %	\end{itemize}
 %\end{thm}
+The following theorem is due to Beth \cite{Beth1983} and will be used to show the number of fibers is unbounded as $v$ increases.
+\begin{thm}\cite{Beth1983}\label{beth}
+	Let $N(n)$ be the maximum size of a set of mutually orthogonal latin squares of side $n$. Then, for $n$ sufficiently large, $N(n)\geq n^\frac{1}{14.8}$.
+\end{thm}
 \asymplssd
 %\begin{cor}
 %	\label{asymptotics}
 %	For sufficiently large $s$, if there exists a regular Hadamard matrix of order $s$, then there exists a $LSSD(s^2,k,\lambda; w)$ with $w \geq s^\frac{1}{14.8}$.
 %\end{cor}
 \begin{proof}
-	\cite{Colbourn2006} states that for sufficiently large $n$, $N(n)\geq s^\frac{1}{14.8}$ where $N(n)$ is the maximum number of columns in an orthogonal array on $n$ symbols.
+	Using Theorem \ref{beth}, we know that for sufficiently large $n$, we may find a set of mutually orthogonal latin squares of side $n$ with at least $n^\frac{1}{14.8}$ squares. However, given $t$ mutually orthogonal latin squares of side $n$, we may build an orthogonal array with $n+2$ columns with $n$ symbols. This is achieved by indexing the rows of our orthogonal array by the $n^2$ positions in a latin square. The first and second columns of the orthgonal array denote the row and column (resp.) of the position within the latin square. Each remaining column corresponds to one of the mutually orthogonal latin squares where the symbols in each position generate the column. Thus, as long as we may find a regular Hadamard matrix of order $n$, we may build a $LSSD(n^2,k,\lambda;w)$ with $w\geq n^\frac{1}{14.8}$.
 \end{proof}
 \oddlssd
 %\begin{cor}
 %	For any $n\geq 1$ and $w>2$, there exists an odd $t$ permitting a $LSSD(16^nt,k,\lambda;w)$.
 %\end{cor}
 \begin{proof}
-	Muzychuk and Xiang \cite{Xiang2006} tell us that, for any odd $t$, there exists a regular Hadamard matrix of order $4t^4$. Let $H_t$ be the regular Hadamard matrix of order $4t^4$. Using Corollary \ref{asymptotics}, we can choose $t$ large enough to guarantee the existence of a $LSSD(16t^8,k,\lambda;w)$. Now consider the Hadamard matrix
+	Considering a symmetric Bush-type Hadamard matrix as a specific case of regular Hadamard matrices, Theorem 3.5 of \cite{Xiang2006} tell us that there exists regular Hadamard matrices of order $4t^4$ for any odd $t$. Let $t\geq 1$ and $H_t$ be one such regular Hadamard matrix of order $4t^4$. Using Corollary \ref{asymptotics}, we can choose $t$ large enough to guarantee the existence of a $LSSD(16t^8,k,\lambda;w)$. Now consider the Hadamard matrix
 	\[H = \left[\begin{array}{rrrr}
 	-1 & 1 & 1 & 1\\
 	1 & -1 & 1 & 1\\
@@ -861,7 +883,7 @@ Then the sum of any row of the Hadamard matrix built from $M^{i,j,l}$ and $M^{i'
 		+&-&+&+&-&+&+&+&-&+&+&+&+&+&-&-&-&+&+&-&-&-&+&-&+&-&-&+&+&-&+&+&-&-&+&+\\
 		-&+&+&-&+&+&+&-&+&+&+&+&+&-&-&-&+&+&-&-&-&+&-&+&-&-&+&+&+&+&-&+&+&-&-&+
 		\end{array}\right]}.\]
-	Since $H$ is regular, $H_n = H^{\otimes n}$ is a regular Hadamard of order $36^n$. Then $O_n$ and $H_n$, along with Theorem \ref{newLSSD}, give us the desired LSSD.
+	Alternatively, one may use the Menon difference set \[\begin{aligned}\left\{(0\right.&10),(011),(012),(020),(021),(022),(100),(110),\\&\left.(120),(200),(211),(222),(300),(312),(321)\right\}\end{aligned}\] within $\mathbb{Z}_4\times \mathbb{Z}_3^2$ to generate a regular Hadamard matrix $H$. In either case, since $H$ is regular, $H_n = H^{\otimes n}$ is a regular Hadamard of order $36^n$. Then $O_n$ and $H_n$, along with Theorem \ref{newLSSD}, give us the desired LSSD.
 \end{proof}
 The same construction gives, for example, $LSSD(100^{2n},k,\lambda;4^n+1)$ for all $n\geq 1$. Finally, we note that if we can build a regular Hadamard matrix of order $4t^2$ for $1\leq t\leq 50$, the table of largest known orthogonal arrays for small $n$ in \cite{Colbourn2006} gives us LSSDs with the following number of fibers.\par
 \begin{table}[ht]
@@ -872,7 +894,7 @@ The same construction gives, for example, $LSSD(100^{2n},k,\lambda;4^n+1)$ for a
 	$w$&26&11&26&11&17&11&32&10&17&10&50&30&30&12&4097&32\\\\
 	$t$ & 34 & 35 & 36 & 37 & 38 & 39 & 40 & 41 & 42 & 43 & 44 & 45 & 46 & 47 & 48 & 49 &\\\hline
 	$w$&18&32&65&32&18&32&26&13&20&32&65&17&32&32&30&17
-\end{tabular}}\caption[Number of fibers for each $t$ with $v = 4t^2$.]{For each $t$, $w$ represents the largest known number of fibers for a LSSD on $v=16t^4$ vertices provided we can build a regular Hadamard matrix of order $4t^2$.}
+\end{tabular}}\caption[Number of fibers for each $t$ with $v = 4t^2$.]{For each $t$, $w$ represents the largest known number of fibers for a LSSD on $v=16t^4$ vertices. In each case, we will also require the existence of a regular Hadamard matrix of order $4t^2$ in order to apply Theorem $\ref{newLSSD}$; Remark 1.25 in the handbook of combinatorial designs \cite{Colbourn2006} guarantees such regular Hadamard matrices up to $t=46$.}
 \end{table}
 To give an example of the construction for Theorem $\ref{newLSSD}$ we build a $\text{LSSD}(16,10,6; 3)$. In all matrices that follow, ``$+$" denotes a positive 1, ``$-$" denotes a $-1$, and an empty space denotes $0$. We begin by using the orthogonal array $O$ and the Hadamard matrix $H$:
 \[O^T = \left[\begin{array}{cccccccccccccccc}
