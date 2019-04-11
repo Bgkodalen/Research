@@ -438,7 +438,7 @@ b\vec{p}
 	Let $\ell\in\bbZ^+$ and $-1<\lambda< 1$ be given. Assume that $x^2-(1+\mu_{\ell+1})\lambda x+\mu_{\ell+1}$ has real roots $x_{\ell+1}^-\leq x_{\ell+1}^+$. Then $x^2-(1+\mu_{\ell})\lambda x+\mu_{\ell}$ also has real roots $x_{\ell}^-$ and $x_{\ell}^+$ with $x_{\ell}^-<x_{\ell+1}^-\leq x_{\ell+1}^+< x_{\ell}^+$.
 \end{lem}
 \begin{proof}
-	Fix $-1<\lambda<1$ and define the multivariate polynomial $p(x,\mu) = x^2-(1+\mu)\lambda x+\mu$ with domain $-1\leq x,\mu\leq 1$. Fix $m>2$ and define $\mu_{\ell} = \frac{\ell -1}{\ell+m-3}$. If $(1+\mu_\ell)^2\lambda^2-4\mu_\ell\geq 0$ we have that $p(x,\mu_\ell)=0$ has real solutions $x^-\leq x^+$. Further, since the leading term of $p(x,\mu_\ell)$ is positive, $p(x,\mu_\ell)<0$ only on the interval $x\in\left(x^-,x^+\right)$. Now consider that $\frac{\partial p(x,\mu)}{\partial \mu} = 1-\lambda x>0$ for all values in our domain. Since $\mu_{\ell+1}>\mu_{\ell}$, we must have $p(x,\mu_{\ell+1})>p(x,\mu_{\ell})$ and thus any real solutions of $p(x,\mu_{\ell+1})=0$ must lie strictly between $x^-$ and $x^+$. Finally our constraint $(1+\mu_\ell)^2\lambda^2-4\mu_\ell\geq 0$ reduces to $\mu_{\ell}\leq2-\lambda\pm2\sqrt{1-\lambda}$ since $\mu_{\ell}<1$ for all values of $\ell\in\bbZ^+$. Again using $\mu_{\ell+1}>\mu_{l}$, we find that $p(x,\mu_{\ell+1})$ has real roots only if $p(x,\mu_\ell)$ has real roots.
+	Fix $-1<\lambda<1$ and define the multivariate polynomial $p(x,\mu) = x^2-(1+\mu)\lambda x+\mu$ with domain $-1\leq x,\mu\leq 1$. For fixed $\mu'$, $p(x,\mu')=0$ has real solutions if and only if $\mu'\leq 2-\lambda\pm2\sqrt{1-\lambda}$ since $\mu'\leq1$. Fix $m>2$, $\ell\geq 1$ and define $\mu_{\ell} = \frac{\ell -1}{\ell+m-3}$. Assume $p(x,\mu_{\ell+1})$ has real solutions, then $p(x,\mu_{\ell})$ must also have real solutions since $\mu_\ell<\mu_{\ell+1}\leq 2-\lambda\pm2\sqrt{1-\lambda}$. Let $x_\ell^-\leq x_{\ell}^+$ be the real roots of $p(x,\mu_{\ell})$. Since the leading term of $p(x,\mu_\ell)$ is positive, $p(x,\mu_\ell)<0$ only on the interval $x\in\left(x_\ell^-,x_\ell^+\right)$. Now consider that $\frac{\partial p(x,\mu)}{\partial \mu} = 1-\lambda x>0$ for all values in our domain. Since $\mu_{\ell+1}>\mu_{\ell}$, we must have $p(x,\mu_{\ell+1})>p(x,\mu_{\ell})$ and thus the real solutions of $p(x,\mu_{\ell+1})=0$ must lie strictly between $x_\ell^-$ and $x_\ell^+$.
 \end{proof}
 With this lemma, we know that the largest absolute value of the roots of $x^2-(1+\mu_\ell)\lambda_j + \mu_\ell$ decreases as $\mu_\ell$ increases so long as the roots are real. Further, this lemma also implies that if the roots of $x^2-(1+\mu_\ell)\lambda_j + \mu_\ell$ are not real, then $x^2-(1+\mu_{\ell+1})\lambda_j + \mu_{\ell+1}$ cannot have real roots either. We will use these two facts as well as the proceeding lemmas to prove our next lemma. We will use this lemma again in a later section, so we will make it self-contained.
 \begin{lem}\label{normbound}
@@ -564,8 +564,8 @@ We are now ready to prove the main theorem of this section, using Lemma \ref{nor
 	\[x\geq\frac{\ln\left[(1+(\lambda^*)^2)\vert X\vert(\vert X\vert-1)\right]}{-2\ln(\lambda^*)}+1.\]
 	Thus for $\ell^*=\left\lceil\frac{\ln\left[(1+(\lambda^*)^2)\vert X\vert(\vert X\vert-1)\right]}{-2\ln(\lambda^*)}\right\rceil$, $\ell^*+1$ is the smallest integer for which Inequality \eqref{ineq} holds. Using Theorem \ref{degreebound}, as long as $\vert\lambda^*\vert^2\geq\mu_{\ell^*+1}$, we have our result.
 \end{proof}
-\subsection*{Example}
-Consider the feasible parameter set with first and second eigenmatrices
+\begin{example}
+	We now give an example of a feasible parameter set which fails to be realizable due to Theorem \ref{schoenL}. We will also use Theorem \ref{degreebound} to specify which Gegenbauer polynomials we will apply. Consider the feasible parameter set with first and second eigenmatrices
 \[P = \left[\begin{array}{rrrr}
 1 & 100 & 240 & 100\\
 1 & 37 & -12 & -26\\
@@ -577,28 +577,29 @@ Consider the feasible parameter set with first and second eigenmatrices
 1 & -1 & -9 & 9\\
 1 & \nicefrac{-26}{5} & \nicefrac{91}{5} & -12
 \end{array}\right].\]
-If realizable, an association scheme with this parameter set would be a 3-class primitive $Q$-polynomial association scheme. Using the first eigenspace for our Gram matrix, that is $i=1$ in Theorem \ref{schoen-as}, we find $\lambda_0 = 1$, $\lambda_1 = \frac{37}{100}$, $\lambda_2 = -\frac{1}{20}$, and $\lambda_3 = -\frac{26}{100}$ where $\lambda_j = \nicefrac{Q_{j1}}{Q_{01}}$. Noting that $(1+\mu_\ell)^2\lambda^2-4\mu_\ell<0$ if and only if $\mu_\ell = \frac{\ell-1}{\ell+m-3}>2-\vert\lambda\vert-2\sqrt{1-\vert\lambda\vert}$. For $1\leq j\leq d$ define $\ell_j$ as the largest integer for which $\frac{\ell_j-1}{\ell_j+m-3}\leq2-\lambda_j-2\sqrt{1-\lambda_j}$. Then we find $\ell_1=\ell_2=\ell_3=1$ giving
+If realizable, an association scheme with this parameter set would be a 3-class primitive $Q$-polynomial association scheme. We will apply these two theorems to the parameters of the first idempotent in the $Q$-polynomial ordering --- this idempotent, if realizable, would correspond to a spherical 3-distance set in $\mathbb{R}^20$. Using column $1$ of $Q$, we find $\lambda_0 = 1$, $\lambda_1 = \frac{37}{100}$, $\lambda_2 = -\frac{1}{20}$, and $\lambda_3 = -\frac{26}{100}$ where $\lambda_j = \nicefrac{Q_{j1}}{Q_{01}}$. Let $\mu_\ell = \frac{\ell-1}{\ell+m-3}$ and, for $1\leq j\leq d$, define $\ell_j$ as the largest integer for which $\frac{\ell_j-1}{\ell_j+m-3}\leq2-\vert\lambda_j\vert-2\sqrt{1-\vert\lambda_j\vert}$. Then we find $\ell_1=\ell_2=\ell_3=1$ giving
 \[\scalebox{.95}{$\begin{aligned}\sum_{j=1}^3k_j\left(1+\lambda_j^2\right)\left(\prod_{\ell=2}^{x+1}\gamma_{\ell,j}\right) &= \left(\prod_{\ell=2}^{x+1}\mu_\ell\right)\left(440+100\left(\frac{37}{100}\right)^2+240\left(\frac{1}{20}\right)^2+100\left(\frac{26}{100}\right)^2\right)\\
 &=\left(\prod_{\ell=2}^{x+1}\mu_\ell\right)\frac{18843}{40}.\end{aligned}$}\]
-Noting that
-\[\left(\prod_{\ell=2}^8\mu_\ell\right)\frac{18843}{40}\approx 0.00098<\frac{1}{441},\]
-we have that the conditions $\theta_{\ell j}\geq 0$ are vacuous for this parameter set whenever $\ell\geq 7$. Below we list $\theta_{\ell j}$ for $0\leq \ell\leq 6$ and $0\leq j\leq 3$, listing only the first two decimal places for readability:
+We then apply Theorem \ref{degreebound} noting that if we choose $x=7$ then we find
+\[\left(\prod_{\ell=2}^8\mu_\ell\right)\frac{18843}{40}\approx 0.00098<\frac{1}{441} = \frac{1}{\vert X\vert}.\]
+Thus, we have that the conditions $\theta_{\ell j}\geq 0$ are vacuous for this parameter set whenever $\ell\geq 7$. Below we list $\theta_{\ell j}$ for $0\leq \ell\leq 6$ and $0\leq j\leq 3$, listing only the first two decimal places for readability:
 \[\left[\begin{array}{cccccrc}
 441 & 0 & 0 & 4.95 & 0.43 & -0.11 & 0.93 \\
 0 & 22.05 & 4.5 & 0.38 & 0.67 & 0.84 & 0.97 \\
 0 & 0 & 1.95 & 1.09 & 0.81 & 1 & 1.04 \\
 0 & 0 & 0 & 0.97 & 1.17 & 1.02 & 0.98 
 \end{array}\right].\]
-Note that $\theta_{50} = -0.11<0$ and therefore this parameter set is not realizable.
+Note that $\theta_{50} = -0.11<0$ and therefore this parameter set is not realizable due to Theorem \ref{schoenL}.
+\end{example}
 
 \section{Cometric association schemes}\label{cometricGeg}
 In this section, we restrict to the case of cometric association schemes and explicitly compute the entries in the first column of $Q_\ell^{m_i}\left(\frac{1}{m_i}L_i^*\right)$. If the parameter set is realizable, these values correspond to the eigenvalues of the same Gegenbauer polynomial applied entrywise to $\frac{\vert X\vert}{m_i}E_i$, thus we denote the $j^\text{th}$ entry of the first column of $Q_\ell^{m_i}\left(\frac{1}{m_i}L_i^*\right)$ by $\theta_{\ell,j}$. We will compute $\theta_{\ell,j}$ for $2\leq \ell\leq 5$ and $0\leq j\leq d$ as well as $\theta_{6,0}$. Theorem \ref{schoen-as} tells us that each eigenvalue must be non-negative, and thus we derive more feasibility conditions on the parameters of a cometric association scheme. Many of these feasibility conditions will be implied by our previous conditions FC1, FC2, and FC3, however there are some which are independent of these three conditions. We will examine one such example closely in the section that follows. Suppose we have a feasible parameter set for a $Q$-polynomial association scheme with Krein array $\left\{m,b^*_1,\dots,b^*_{d-1};1,c_2^*\dots,c^*_{d}\right\}$. From our initial two Gegenbauer polynomials, we know
-\[\theta_{0i}= \vert X\vert\delta_{0i};\qquad \theta_{1i} =\frac{\vert X\vert}{m}\delta_{1i}.\]
-Using Equation \eqref{gegprop} and our Krein array, we have
+\[\theta_{0i}= \vert X\vert\delta_{0i};\qquad \theta_{1i} =\frac{\vert X\vert}{m}\delta_{1i}\]
+where $\delta_{ij}$ equals $q$ if $i=j$ and zero otherwise. Using Equation \eqref{gegprop} and our Krein array, we have for $\ell\geq 2$ and $0\leq i\leq d$,
 \begin{equation}\label{thetarec}
-\theta_{\ell i}= \frac{(2\ell+m-4)(c_{i}^*\theta_{\ell-1,i-1} +a_i^*\theta_{\ell-1,i}+b_{i}^*\theta_{\ell-1,i+1}) - (\ell-1)m\theta_{\ell-2,i}}{m(\ell+m-3)}.
+\theta_{\ell i}= \frac{(2\ell+m-4)(c_{i}^*\theta_{\ell-1,i-1} +a_i^*\theta_{\ell-1,i}+b_{i}^*\theta_{\ell-1,i+1}) - (\ell-1)m\theta_{\ell-2,i}}{m(\ell+m-3)}
 \end{equation}
-Before listing the eigenvalues, we note that many of the conditions $\theta_{\ell i}\geq 0$ will be implied by either the Krein conditions FC1 or the cometric property.
+where $\theta_{\ell,-1} = \theta_{\ell,d+1} = 0$ for all choices of $\ell$. Before listing the eigenvalues, we note that many of the conditions $\theta_{\ell i}\geq 0$ will be implied by either the Krein conditions FC1 or the cometric property.
 \begin{lem}
 	Suppose we have a feasible parameter set for a $Q$-polynomial association scheme with Krein array $\left\{m,b^*_1,\dots,b^*_{d-1};1,c_2^*\dots,c^*_{d}\right\}$. For $\ell\geq 0$, define $\theta_{\ell j}$ via Equation \eqref{thetarec} with $\theta_{0i}=\vert X\vert\delta_{0i}$ and $\theta_{1i}= \frac{\vert X\vert}{m}\delta_{1i}$. Then $\theta_{\ell i} = 0$ for $i>\ell$ and FC1 implies $\theta_{\ell i}\geq 0$ for $i\in\left\{\ell-1,\ell\right\}$.
 \end{lem}
@@ -633,7 +634,7 @@ First, note that we used Equation \eqref{kreinid} with $j=k=1$ and $i=m=2$ to re
 \left(a_1^*\right)^2 + b_1^*c_2^*\left(2+\frac{a_2^*}{a_1^*}\right)\geq \frac{4m}{m+4}\qquad \text{whenever }a_1^*>0;
 \end{equation}
 \begin{equation}\label{Co42}
-\left(a_1^*\right)^2+2a_1^*a_2^*+c_2q^2_{22}\geq \frac{4m(m-2)}{m+4}.
+\left(a_1^*\right)^2+2a_1^*a_2^*+c_2^*q^2_{22}\geq \frac{4m(m-2)}{m+4}.
 \end{equation}
 \subsection*{Degree 5 constraint}
 \[\frac{\theta_{50}}{\vert X\vert} = \frac{\left(-4a_1^*m\left(2m-3\right) + \left(\left(a_1^*\right)^3+\left(2a_1^*+a_2^*\right)b_1^*c_2^*\right)\left(m+6\right)\right)\left(m+4\right)}{m^4\left(m^2-1\right)}~;\]
@@ -807,7 +808,7 @@ Finally, we use our $Q$-bipartite property to simplify the expressions in Theore
 	Suppose we have a feasible parameter set for a $Q$-bipartite association scheme with Krein array $\left\{m,b^*_1,\dots,b^*_{d-1};1,c_2^*\dots,c^*_{d}\right\}$. Then the scheme is realizable only if each of the following hold:
 	\begin{enumerate}[label=(\roman*)]
 		\item $\displaystyle{b_1^*c_2^* \geq\frac{2m(m-1)}{m+2},}$
-		\item $\displaystyle{c_2q^2_{22}\geq \frac{4m(m-2)}{m+4},}$
+		\item $\displaystyle{c_2^*q^2_{22}\geq \frac{4m(m-2)}{m+4},}$
 		\item $\displaystyle{\frac{6m(m-1)(m-4)}{(m+4)(m+6)} + \frac{b_1^*c_2^*c_2^*q_{22}^2}{m}\geq \frac{b_1^*c_2^*(7m-18)}{m+6},}$
 		\item $\displaystyle{\sum_{i=1}^3b_i^*c_{i+1}^*\leq \frac{3(3m-2)}{m+6},}$
 		\item $\displaystyle{\frac{16m(m-1)}{(m+4)b_1^*c_2^*} + \frac{c_2^*q_{22}^2(m+8)}{(m-2)m}\geq 12.}$
@@ -816,8 +817,9 @@ Finally, we use our $Q$-bipartite property to simplify the expressions in Theore
 \begin{proof}
 	Consider Theorem \ref{cometricbnds} with the added constraint that $a_i^* = 0$ for $0\leq i\leq d$.
 \end{proof}
-\subsection*{Example}
-Consider the feasible parameter set with first and second eigenmatrices 
+We finish this chapter with two examples, one with a feasible parameter set which satisfies all above conditions and another which is ruled out by Corollary \ref{Qbipbnds}.
+\begin{example}
+In this example we will apply Corollary \ref{Qbipuppbnd} to find the maximum degree of Gegenbauer polynomials which we need to check in order to verify Theorem \ref{Qbipeig}. Consider the feasible parameter set with first and second eigenmatrices 
 \[P = \left[\begin{array}{rrrrr}
 1 & 1116 & 7750 &1116 &1\\
 1 &186& 0 &-186& -1\\
@@ -841,6 +843,29 @@ Since $\left\vert\lambda^*\right\vert^2 = \mu_6 = \frac{4}{158}>\frac{1}{36} = \
 0 & 0 & 0 & 1.98& 0\\
 0 & 0 & 0 & 0 & 2.02
 \end{array}\right]\]
-Since all eigenvalues are non-negative, this parameter set is not ruled out by our method. We will see many more examples like this in Chapter \ref{4classbip}, many of which will be ruled out.
+Since all eigenvalues are non-negative, this parameter set is not ruled out by Theorem \ref{Qbipeig}. We will see many more examples like this in Chapter \ref{4classbip}, many of which will be ruled out.
 
-
+\end{example}
+\begin{example}
+	In contrast to the example above, we now give a feasible parameter set for a 4-class $Q$-bipartite association scheme which is ruled out by the methods discussed in this chapter. Consider the feasible parameter set with first and second eigenmatrices 
+	\[P = \left[\begin{array}{rrrrr}
+	1 & 128 & 336 &128 &1\\
+	1 &64& 0 &-64& -1\\
+	1 &20& -42& 20& 1\\
+	1 &-2& 0 &2 &-1\\
+	1 &-4& 6 &-4 & 1\\
+	\end{array}\right],\qquad Q = \left[\begin{array}{rrrrr}
+	1 &9& 44& 288 &252\\
+	1 &\nicefrac{9}{2}& \nicefrac{55}{8} &\nicefrac{-9}{2}& \nicefrac{-63}{8}\\
+	1 &0 &\nicefrac{-11}{2} &0 &\nicefrac{9}{2}\\
+	1 &\nicefrac{-9}{2}& \nicefrac{55}{8} &\nicefrac{9}{2}& \nicefrac{-63}{8}\\
+	1 &-9& 44& -288& 252
+	\end{array}\right].\]
+	
+	Using Lemma \ref{kitchensink}, we may calculate the various krein parameters appearing in Corollary \ref{Qbipbnds} as follows
+	\[b_1^* = 8;\qquad c_2^* = \frac{18}{11};\qquad q^2_{22} = \frac{121}{16};\qquad m = 9.\]
+	Plugging these values into the left hand side of Corollary \ref{Qbipbnds} $(v)$ results in
+	\[\frac{16m(m-1)}{(m+4)b_1^*c_2^*} + \frac{c_2^*q_{22}^2(m+8)}{(m-2)m} = \frac{7359}{728}\approx 10.1,\]
+	thus, Corollary \ref{Qbipbnds} $(v)$ is violated and this parameter set is not realizable.
+	
+\end{example}
