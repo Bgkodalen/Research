@@ -31,16 +31,16 @@
 \contentsline {subsubsection}{Wocjan and Beth construction}{85}{section*.19}
 \contentsline {chapter}{\numberline {5}Orthogonal projective double covers}{91}{chapter.5}
 \contentsline {section}{\numberline {5.1}Orthogonal projective doubles of regular graphs}{92}{section.5.1}
-\contentsline {section}{\numberline {5.2}Schemes induced by projective doubles}{95}{section.5.2}
-\contentsline {section}{\numberline {5.3}4-class $Q$-bipartite association schemes}{104}{section.5.3}
-\contentsline {chapter}{\numberline {6}Connectivity of basis relations}{109}{chapter.6}
-\contentsline {section}{\numberline {6.1}Twins}{111}{section.6.1}
-\contentsline {section}{\numberline {6.2}The graph homomorphism $\varphi _a$}{112}{section.6.2}
-\contentsline {section}{\numberline {6.3}The decomposition $\{ I_a, U_a, W_a\}$}{113}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Comparing the view from multiple basepoints}{114}{subsection.6.3.1}
-\contentsline {section}{\numberline {6.4}Proofs of the main theorem and its corollaries}{116}{section.6.4}
-\contentsline {section}{\numberline {6.5}Further results on connectivity}{118}{section.6.5}
-\contentsline {subsection}{\numberline {6.5.1}A spectral lemma}{119}{subsection.6.5.1}
-\contentsline {subsection}{\numberline {6.5.2}Intervals and metric properties of $\Gamma $}{120}{subsection.6.5.2}
-\contentsline {subsection}{\numberline {6.5.3}Small disconnecting sets}{121}{subsection.6.5.3}
-\contentsline {chapter}{\numberline {A}Feasible parameter sets}{124}{appendix.A}
+\contentsline {section}{\numberline {5.2}Schemes induced by projective doubles}{96}{section.5.2}
+\contentsline {section}{\numberline {5.3}4-class $Q$-bipartite association schemes}{105}{section.5.3}
+\contentsline {chapter}{\numberline {6}Connectivity of basis relations}{110}{chapter.6}
+\contentsline {section}{\numberline {6.1}Twins}{112}{section.6.1}
+\contentsline {section}{\numberline {6.2}The graph homomorphism $\varphi _a$}{113}{section.6.2}
+\contentsline {section}{\numberline {6.3}The decomposition $\{ I_a, U_a, W_a\}$}{114}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Comparing the view from multiple basepoints}{115}{subsection.6.3.1}
+\contentsline {section}{\numberline {6.4}Proofs of the main theorem and its corollaries}{117}{section.6.4}
+\contentsline {section}{\numberline {6.5}Further results on connectivity}{119}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}A spectral lemma}{120}{subsection.6.5.1}
+\contentsline {subsection}{\numberline {6.5.2}Intervals and metric properties of $\Gamma $}{121}{subsection.6.5.2}
+\contentsline {subsection}{\numberline {6.5.3}Small disconnecting sets}{122}{subsection.6.5.3}
+\contentsline {chapter}{\numberline {A}Feasible parameter sets}{125}{appendix.A}
