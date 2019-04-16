@@ -1,0 +1,181 @@
+%  This template is essentially a copy of the template found in the WPI CS directory with a few modifications.
+
+\documentclass[12pt,oneside]{book}
+\usepackage{longtable}
+\usepackage{setspace}
+\usepackage{fullpage}
+
+% These margins worked nicely for me, don't play with these too much but you can change to fit your needs --- WPI seems to not have any strict requirements that I could find.
+\setlength{\textheight}{8.63in}
+\setlength{\textwidth}{6.3in}
+\setlength{\topmargin}{-0.2in}
+\setlength{\oddsidemargin}{0.1in}
+\setlength{\evensidemargin}{0.1in}
+\setlength{\headsep}{0.0in}
+
+% These are used exclusively to space out the wording on the title page. These will likely change based on how many people you have signing your document.
+\newcommand{\brk}{\vspace*{0.18in}}
+\newcommand{\smlbrk}{\vspace*{0.04in}}
+
+
+% This command is primarily used to fulfill WPI's requirement of "all pages should be numbered except the title page" added with "the page after the title page should start with (ii)". Tex has a built in abstract environment, this basically overrides that if you have a format that doesn't include the abstract on the title page.
+\newcommand\abstractname{Abstract}  
+\makeatletter
+\if@titlepage
+\newenvironment{abstract}{%
+	\thispagestyle{plain}
+	\null\vfil
+	\@beginparpenalty\@lowpenalty
+	\begin{center}%
+		\bfseries \abstractname
+		\@endparpenalty\@M
+\end{center}}%
+{\par\vfil\null}
+\else
+\newenvironment{abstract}{%
+	\if@twocolumn
+	\section*{\abstractname}%
+	\else
+	\small
+	\begin{center}%
+		{\bfseries \abstractname\vspace{-.5em}\vspace{\z@}}%
+	\end{center}%
+	\quotation
+	\fi}
+{\if@twocolumn\else\endquotation\fi}
+\fi
+\makeatother
+
+
+
+
+
+\begin{document}
+	% Roman for the intro stuff, Latin from then on out (\frontmatter and \mainmatter take care of this).
+	\frontmatter
+	\thispagestyle{empty} %no numbering on the title page
+	\begin{center}
+		
+		{\large\textbf{Cometric Association Schemes}}
+		
+		
+		by
+		
+		\smlbrk
+		Brian G.\ Kodalen
+		
+		\smlbrk\smlbrk
+		A Thesis
+	
+		
+		Submitted to the Faculty
+		
+		
+		of the 
+		
+		
+		WORCESTER POLYTECHNIC INSTITUTE
+		
+		
+		In partial fulfillment of the requirements for the
+		
+		
+		Degree of Doctor of Philosophy
+		
+		
+		in
+		
+		
+		Mathematical Sciences
+		
+		
+		by
+		
+		\brk\brk
+		\rule{3in}{1.2pt}
+		
+		\smlbrk
+		March 2019
+	\end{center}
+\vfill
+APPROVED:
+
+{\setlength{\parindent}{0cm}
+\begin{center}
+\vspace{0.4in}
+\rule{3in}{0.8pt}
+
+% Change this to your advisor
+Dr.\ William J.\ Martin\\ Major Thesis Advisor
+\end{center}
+\vspace{0.4in}
+\rule{3in}{0.8pt}\hfill\rule{3in}{0.8pt}
+
+% These are the people on your committee and/or advisors. You need at least your advisor (above) and the Dept Head
+Dr.\ Peter J.\ Cameron\hfill Dr. Padraig \'{O} Cath\'{a}in\\University of St Andrews\hfill Worcester Polytechnic Institute
+
+\vspace{0.4in}
+\rule{3in}{0.8pt}\hfill\rule{3in}{0.8pt}
+
+
+Dr. Peter R. Christopher\hfill Dr. William M. Kantor\\Worcester Polytechnic Institute \hfill University of Oregon
+
+\vspace{0.4in}
+\rule{3in}{0.8pt}\hfill\rule{3in}{0.8pt}
+
+
+Dr. G\'{a}bor N. S\'{a}rk\"{o}zy\hfill Dr. Luca Capogna\\Worcester Polytechnic Institute\hfill Worcester Polytechnic Institute\\\hspace*{\fill} Head of Department
+
+}
+% end of titlepage
+\clearpage
+
+
+% You can double space if you'd like.
+%\doublespacing
+
+\begin{abstract}
+	\thispagestyle{plain} %Number this page
+	
+	Abstract goes here
+\end{abstract}
+\clearpage
+
+
+\begin{center}
+	\textbf{Acknowledgments}
+\end{center}
+ Acknowledgments go here.
+
+ 
+ \clearpage
+
+	\tableofcontents
+	\listoffigures
+	\listoftables
+	\clearpage
+	
+
+	
+	\mainmatter %Swaps numbering and resets counter as well as some other small stuff.
+	
+	%This is the bulk of your document --- either use \input or just type it here.
+	\chapter{First Chapter}
+	Content goes here
+	%\input{Chapter1}
+	\chapter{Second Chapter}
+	Content goes here
+	%\input{Chapter2}
+	
+	
+	
+	\appendix %Note, this command does not build the appendix itself, this simply swaps you into "appendix mode" for chapter labeling, etc.
+	
+	%\input{appendix}
+	
+	\singlespacing %For the bibliography if you used double spacing before.
+	%\nocite{*}
+	%\bibliographystyle{abbrv}
+	%\bibliography{Dissertation}
+	%\printindex
+\end{document}
