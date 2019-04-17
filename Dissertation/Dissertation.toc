@@ -7,7 +7,7 @@
 \contentsline {section}{\numberline {2.5}Imprimitivity}{20}{section.2.5}
 \contentsline {section}{\numberline {2.6}Polynomial schemes}{27}{section.2.6}
 \contentsline {chapter}{\numberline {3}Positive semidefinite cone of an association scheme}{30}{chapter.3}
-\contentsline {section}{\numberline {3.1}Lines with few angles}{33}{section.3.1}
+\contentsline {section}{\numberline {3.1}Lines with few angles}{34}{section.3.1}
 \contentsline {section}{\numberline {3.2}Gegenbauer polynomials}{38}{section.3.2}
 \contentsline {section}{\numberline {3.3}Sch\"{o}nberg's theorem}{41}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}Bound on new feasibility conditions}{42}{subsection.3.3.1}
@@ -28,7 +28,7 @@
 \contentsline {subsection}{\numberline {4.5.1}Restrictions on the design parameters}{82}{subsection.4.5.1}
 \contentsline {subsection}{\numberline {4.5.2}Mutually unbiased Hadamard matrices}{83}{subsection.4.5.2}
 \contentsline {subsection}{\numberline {4.5.3}Constructing LSSDs from real MUBs}{85}{subsection.4.5.3}
-\contentsline {subsubsection}{Wocjan and Beth construction}{85}{section*.19}
+\contentsline {subsubsection}{Wocjan and Beth construction}{85}{section*.21}
 \contentsline {chapter}{\numberline {5}Orthogonal projective double covers}{91}{chapter.5}
 \contentsline {section}{\numberline {5.1}Orthogonal projective doubles of regular graphs}{92}{section.5.1}
 \contentsline {section}{\numberline {5.2}Schemes induced by projective doubles}{96}{section.5.2}

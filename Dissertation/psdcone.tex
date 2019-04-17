@@ -1,5 +1,52 @@
 \chapter{Positive semidefinite cone of an association scheme}\label{psdcone}
-We begin this chapter with a simple problem: How many lines may one draw on a piece of paper which intersect in a single angle? It is clear that we may draw two lines which intersect with any angle $0< \theta< \frac{\pi}{2}$. However, if we fix $\theta = \frac{\pi}{3}$, we may draw a third line disecting the obtuse angle between our pair of lines which results in a angle of $\frac{\pi}{3}$ which both original lines. The same question may be asked in a higher dimension: how many lines may one construct in $\mathbb{R}^3$ so that any pair of lines intersect in the same angle? For this case, we construct a regular pentagon centered at the origin of the $xy$-plane and draw fives lines connecting the origin to each vertex of the pentagon. The resulting five lines (identified by each vertex) admit two possible angles between them: $\frac{2\pi}{5}$ between adjacent vertices and $\frac{\pi}{5}$ between non-adjacent vertices. Now shift the pentagon along the $z$-axis and track the five lines joining the origin of $\mathbb{R}^3$ to its vertices. By shifting the pentagon far enough, we eventually find that each pair of lines with adjacent vertices admit a smaller angle than those pairs which are not adjacent. Thus there exists some height for which the angles are all the same --- this occurs when the cosine of the angle between pairs is $\frac{1}{\sqrt{5}}$. Further, one finds that this configuration allows for a sixth line to be added, given by the $z$-axis, which is ``equiangular" with each of the other five lines. More commonly, this configuration of lines is given by connecting the center of an icosahedron to the six pairs of antipodal points. In both cases listed above, we find that these configurations are optimal for that dimension --- that is, one cannot find a set of four lines in $\mathbb{R}^2$ nor seven lines in $\mathbb{R}^3$ for which any pair of lines intersect in a given angle.
+We begin this chapter with a simple problem: How many lines may one draw on a piece of paper which intersect in a single angle? It is clear that we may draw two lines which intersect with any angle $0< \theta< \frac{\pi}{2}$. However, if we fix $\theta = \frac{\pi}{3}$, we may draw a third line disecting the obtuse angle between our pair of lines which results in a angle of $\frac{\pi}{3}$ which both original lines. The same question may be asked in a higher dimension: how many lines may one construct in $\mathbb{R}^3$ so that any pair of lines intersect in the same angle? For this case, we construct a regular pentagon centered at the origin of the $xy$-plane and draw fives lines connecting the origin to each vertex of the pentagon. The resulting five lines (identified by each vertex) admit two possible angles between them: $\frac{2\pi}{5}$ between adjacent vertices and $\frac{\pi}{5}$ between non-adjacent vertices.
+
+\begin{figure}[h]\centering\begin{tikzpicture}[shorten >=1pt,auto,node distance=2cm,
+thin,main node/.style = {circle,draw, inner sep = 0pt, minimum size = 7pt}]
+\foreach \a in {90,162,...,378} { %\a is the angle variable
+	\node[main node,fill=white] at (\a:2cm) (\a) {};
+	\node at (\a+180:2cm) (\a2) {};
+	\draw[<->] (\a:3cm) -- (\a+180:3cm);
+}
+\draw[blue] (90:0.9cm) arc (90:54:0.9cm);
+\draw[red] (90:0.4cm) arc (90:18:0.4cm);
+\draw[blue] (90:1.1cm) arc (90:126:1.1cm);
+\draw[red] (90:0.6cm) arc (90:162:0.6cm);
+\end{tikzpicture}\caption[Five lines with two angles in $\mathbb{R}^2$]{Five lines resulting from a regular pentagon in $\mathbb{R}^2$. The blue angle is $\frac{\pi}{5}$ while the red angle is $\frac{2\pi}{5}$}.\end{figure}
+
+
+Now shift the pentagon along the $z$-axis and track the five lines joining the origin of $\mathbb{R}^3$ to its vertices. By shifting the pentagon far enough, we eventually find that each pair of lines with adjacent vertices admit a smaller angle than those pairs which are not adjacent.
+\begin{figure}[h]\centering\begin{tikzpicture}[shorten >=1pt,auto,node distance=2cm,
+	thin,main node/.style = {circle,draw, inner sep = 0pt, minimum size = 4pt}]
+	\def\z{6}
+	\def\x{1.2}
+	\def\y{.9}
+	\def\xx{2.4}
+	\def\yy{2}
+	\node[main node, fill=white] at (0,\z) (1) {};
+	\node[main node, fill=white] at (\xx,\z-\y) (2) {};
+	\node[main node, fill=white] at (-\xx,\z-\y) (3) {};
+	\node[main node, fill=white] at (\x,\z-\yy) (4) {};
+	\node[main node, fill=white] at (-\x,\z-\yy) (5) {};
+	\begin{scope}[yscale=-0.2,xscale=-0.2]
+	\node at (0,\z) (1b) {};
+	\node at (\xx,\z-\y) (2b) {};
+	\node at (-\xx,\z-\y) (3b) {};
+	\node at (\x,\z-\yy) (4b) {};
+	\node at (-\x,\z-\yy) (5b) {};
+	\end{scope}
+	\node at (0,0) (0) {};
+	\draw[<->] (1) -- (1b);
+	\draw[<->] (2) -- (2b);
+	\draw[<->] (3) -- (3b);
+	\draw[<->] (4) -- (4b);
+	\draw[<->] (5) -- (5b);
+	\draw[-,dashed] (1) -- (2) -- (4) -- (5) -- (3) -- (1);
+	
+	
+	\end{tikzpicture}\caption[Pentagon lifted out of the plane]{Lines joining the origin to the points on a regular pentagon after lifting it out of the plane. In this case, consecutive lines have a smaller angle.}\end{figure}
+
+Thus there exists some height for which the angles are all the same --- this occurs when the cosine of the angle between pairs is $\frac{1}{\sqrt{5}}$. Further, one finds that this configuration allows for a sixth line to be added, given by the $z$-axis, which is ``equiangular" with each of the other five lines. More commonly, this configuration of lines is given by connecting the center of an icosahedron to the six pairs of antipodal points. In both cases listed above, we find that these configurations are optimal for that dimension --- that is, one cannot find a set of four lines in $\mathbb{R}^2$ nor seven lines in $\mathbb{R}^3$ for which any pair of lines intersect in a given angle.
 
 This simple problem generalizes to a classic unsolved problem in discrete geometry (\cite{Haantjes1948},\cite{Lemmens1973},\cite{vanLint1966}): Given a fixed positive integer $n$ and angle $0<\theta<\frac{\pi}{2}$, what is the maximum number of lines through the origin in $\mathbb{R}^n$ such that the angle between any pair of distinct lines is $\theta$. Over the past 70 years, researchers in both math and physics have developed the theory of these \emph{equiangular lines}\index{equiangular lines}, finding upper bounds on the number of lines in any given dimension coming from tools such as linear programming \cite{Delsarte1975}, number theory \cite{Lemmens1973}, graph spectra \cite{Brouwer2012}, and most recently semidefinite programming \cite{Barg2014}. A related question is as follows: How many orthonormal bases may we find in $\mathbb{R}^n$ such that the absolute value of the inner product between vectors in distinct bases is fixed. Such a set is called a set of \emph{real mutually unbiased bases}\index{mutually unbiased bases} (see \cite{Boykin2005},\cite{Calderbank1997},\cite{Delsarte1975}). Recently, the complex analogues have attracted interest in quantum computing (\cite{Appleby2005},\cite{Grassl2008},\cite{Goyeneche2015},\cite{Ivanovic1981},\cite{Waldron2018},\cite{Wootters1989}), though we will restrict ourselves to the questions in real space as the adjacency matrices of symmetric association schemes are always diagonalizable over the reals.
 
