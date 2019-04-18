@@ -124,8 +124,8 @@ Dr. G\'{a}bor N. S\'{a}rk\"{o}zy\hfill Dr. Luca Capogna\\Worcester Polytechnic I
  \clearpage
 
 	\tableofcontents
-	\listoffigures
-	\listoftables
+	%\listoffigures
+	%\listoftables
 	\clearpage
 	\input{symbols}
 	\clearpage
@@ -149,7 +149,9 @@ Dr. G\'{a}bor N. S\'{a}rk\"{o}zy\hfill Dr. Luca Capogna\\Worcester Polytechnic I
 	
 	\singlespacing %For the bibliography
 	%\nocite{*}
+	\addcontentsline{toc}{chapter}{Bibliography}
 	\bibliographystyle{abbrv}
 	\bibliography{Dissertation}
+	\addcontentsline{toc}{chapter}{Index}
 	\printindex
 \end{document}

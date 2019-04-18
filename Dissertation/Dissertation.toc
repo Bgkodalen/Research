@@ -28,7 +28,7 @@
 \contentsline {subsection}{\numberline {4.5.1}Restrictions on the design parameters}{82}{subsection.4.5.1}
 \contentsline {subsection}{\numberline {4.5.2}Mutually unbiased Hadamard matrices}{83}{subsection.4.5.2}
 \contentsline {subsection}{\numberline {4.5.3}Constructing LSSDs from real MUBs}{85}{subsection.4.5.3}
-\contentsline {subsubsection}{Wocjan and Beth construction}{85}{section*.21}
+\contentsline {subsubsection}{Wocjan and Beth construction}{85}{section*.19}
 \contentsline {chapter}{\numberline {5}Orthogonal projective double covers}{91}{chapter.5}
 \contentsline {section}{\numberline {5.1}Orthogonal projective doubles of regular graphs}{92}{section.5.1}
 \contentsline {section}{\numberline {5.2}Schemes induced by projective doubles}{96}{section.5.2}
@@ -43,4 +43,6 @@
 \contentsline {subsection}{\numberline {6.5.1}A spectral lemma}{120}{subsection.6.5.1}
 \contentsline {subsection}{\numberline {6.5.2}Intervals and metric properties of $\Gamma $}{121}{subsection.6.5.2}
 \contentsline {subsection}{\numberline {6.5.3}Small disconnecting sets}{122}{subsection.6.5.3}
-\contentsline {chapter}{\numberline {A}Feasible parameter sets}{125}{appendix.A}
+\contentsline {chapter}{\numberline {A}Feasible parameter sets for LSSDs}{125}{appendix.A}
+\contentsline {chapter}{Bibliography}{131}{section*.46}
+\contentsline {chapter}{Index}{139}{appendix*.47}

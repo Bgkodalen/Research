@@ -1,159 +1,167 @@
 \begin{theindex}
 
-  \item $P$-polynomial, 19
-    \subitem antipodal, 19
-    \subitem bipartite, 19
-    \subitem metric, 19
-  \item $Q$-polynomial, 18
-    \subitem $Q$-antipodal, 18
-    \subitem $Q$-bipartite, 18
-    \subitem cometric, 18
-  \item $\mu$-heavy, 53
-  \item $\nu$-heavy, 53
-  \item 01-basis, 5
-  \item 3-cube, 4
+  \item $P$-polynomial, 28
+    \subitem antipodal, 28
+    \subitem bipartite, 28
+    \subitem metric, 28
+  \item $Q$-polynomial, 27
+    \subitem $Q$-antipodal, 27
+    \subitem $Q$-bipartite, 27
+    \subitem cometric, 27
+  \item $\mu$-heavy, 64
+  \item $\nu$-heavy, 64
+  \item 01-basis, 10
+  \item 3-cube, 9
 
   \indexspace
 
-  \item absolute bound, 12, 57
-  \item antipodal, 11
-    \subitem dual-, 12
+  \item absolute bound, 20
+  \item antipodal, 19
+    \subitem dual-, 19
   \item association scheme
-    \subitem commutative, 4
-    \subitem symmetric, 3
-  \item association schemes
-    \subitem translation schemes, 11
+    \subitem commutative, 9
+    \subitem symmetric, 8
 
   \indexspace
 
-  \item bipartite, 11
-    \subitem dual-, 11
+  \item bipartite, 19
+    \subitem dual-, 19
   \item block design
-    \subitem 2-design, 52
-    \subitem incidence matrix, 52
-  \item Bose-Mesner algebra, 5
+    \subitem 2-design, 62
+    \subitem incidence matrix, 63
+  \item Bose-Mesner algebra, 10
 
   \indexspace
 
-  \item Cameron-Seidel Scheme, 66
+  \item Cameron-Seidel Scheme, 77
+  \item complete multipartite, 110
 
   \indexspace
 
-  \item degenerage parameters, 56
-  \item degenerate parameters, 65
-  \item Delsarte coclique, 85
+  \item Delsarte coclique, 98
 
   \indexspace
 
-  \item eigenmatrices, 7
-    \subitem orthogonality relations, 7
-  \item equiangular lines, 21, 24, 63
-    \subitem near optimal, 25
-    \subitem optimal, 25
-  \item equiangular tight frame, 59
+  \item eigenmatrices, 13
+    \subitem orthogonality relations, 13
+  \item equiangular lines, 31, 35, 74
+    \subitem near optimal, 35
+    \subitem optimal, 35
+  \item equiangular tight frame, 70
 
   \indexspace
 
-  \item feasible parameter set, 13
-  \item formal duality, 11
+  \item feasible parameter set, 20
+  \item formal duality, 18
 
   \indexspace
 
-  \item Gegenbauer polynomials, 29
+  \item Gegenbauer polynomials, 39
 
   \indexspace
 
   \item Hadamard matrix
-    \subitem real, 71
-    \subitem regular, 71
-    \subitem unbiased, 71
+    \subitem mutually unbiased, 83
+    \subitem real, 83
+    \subitem regular, 83
 
   \indexspace
 
-  \item idempotent basis, 6
-    \subitem dual eigenvalues, 7
+  \item idempotent basis, 11
+  \item imprimitive, 21
   \item imprimitivity
-    \subitem imprimitive, 13
-    \subitem primitive, 13
-    \subitem quotient scheme, 13, 15, 16
-    \subitem subscheme, 13, 14
-    \subitem systems of -, 13
+    \subitem quotient scheme, 22
+    \subitem subscheme, 22
+    \subitem system of -, 21
 
   \indexspace
 
-  \item Krein array, 18
-  \item Krein conditions, 12
+  \item Krein conditions, 19
 
   \indexspace
 
-  \item linked simplices, 58
-  \item linked system of symmetric designs, 53, 56
-  \item linking system of difference sets, 53
+  \item linked simplices, 69
+  \item linked system of symmetric designs, 63, 67
+    \subitem degenerate, 65, 67, 76
+    \subitem optimistic, 73
+    \subitem pessimistic, 73
+  \item linking system of difference sets, 63
 
   \indexspace
 
-  \item Menon parameters, 71
-  \item mutually unbiased bases, 22
+  \item Menon parameters, 82
+  \item multipartite complement, 64
+  \item mutually unbiased bases, 31
 
   \indexspace
 
-  \item natural ordering, 18
-  \item nearest neighbor graph, 62
-  \item Noda bound, 56
+  \item natural ordering, 27
+  \item nearest neighbor graph, 73
+  \item Noda bound, 67
 
   \indexspace
 
-  \item optimistic lssd, 62
-  \item orthogonal projective double, 79
+  \item orthogonal projective double, 92
 
   \indexspace
 
+  \item parameter set, 15
   \item parameters
-    \subitem arrays of intersection numbers, 8
-    \subitem arrays of Krein parameters, 9
-    \subitem intersection matrix, 9
-    \subitem intersection numbers, 3
-    \subitem Krein, 7
-    \subitem Krein matrix, 9
-  \item pessimistic lssd, 62
-  \item polnomial
-    \subitem homogeneous
-      \subsubitem on the sphere, 29
+    \subitem arrays of intersection numbers, 15
+    \subitem arrays of Krein parameters, 15
+    \subitem intersection matrix, 16
+    \subitem intersection numbers, 9
+    \subitem Krein, 13
+    \subitem Krein array, 27
+    \subitem Krein matrix, 16
   \item polynomial
-    \subitem degree, 28
-    \subitem derivative, 28
-    \subitem harmonic, 29
-      \subsubitem on the sphere, 29
-    \subitem homogeneous, 28
-    \subitem monomial, 28
-    \subitem zonal, 29
-  \item positive definite function, 31
-  \item positive semidefinite cone, 24
-  \item projection map, 99
-  \item projective double, 78, 79
-  \item proximal, 107
+    \subitem degree, 38
+    \subitem derivative, 39
+    \subitem harmonic, 39
+      \subsubitem on the sphere, 39
+    \subitem homogeneous, 39
+      \subsubitem on the sphere, 39
+    \subitem monomial, 38
+    \subitem zonal, 39
+  \item positive definite function, 41
+  \item positive semidefinite cone, 32, 34
+  \item projection map, 114
+  \item projective double, 92
+  \item proximal, 121
 
   \indexspace
 
-  \item real mutually unbiased bases, 65
-  \item realizable parameter set, 13
-  \item regular simplex, 57
+  \item real mutually unbiased bases, 76
+  \item realizable parameter set, 20
+  \item regular simplex, 69
   \item relation
-    \subitem neighborhood, 4
-    \subitem subconstituents, 4
-    \subitem symmetrization of -, 97
+    \subitem neighborhood, 9
+    \subitem subconstituents, 9
+  \item relative bound, 32, 35
 
   \indexspace
 
-  \item strongly regular graph, 83
-  \item symmetrization of relations, 97
+  \item strongly regular graph, 96
+  \item subalgebra, 11
+    \subitem Schur, 12
+  \item symmetric design
+    \subitem incidence graph, 63
+  \item symmetric design parameters, 62
+  \item symmetrization
+    \subitem of association scheme, 111
+    \subitem of relation, 111
 
   \indexspace
 
-  \item unweighted distribution diagram, 99
+  \item translation schemes, 18
+  \item twins, 110
 
   \indexspace
 
-  \item valency, 5
+  \item unweighted distribution diagram, 113
+
+  \indexspace
+
+  \item valency, 10
 
 \end{theindex}

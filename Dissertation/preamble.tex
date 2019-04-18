@@ -29,9 +29,7 @@
 
 \usepackage{epigraph}
 
-\usepackage{makeidx}
-%\usepackage{showidx}
-\makeindex
+
 
 %\usepackage[symbols,nogroupskip,sort=none]{glossaries-extra}
 
@@ -201,5 +199,11 @@
 
 
 \usepackage{hyperref}
-%\usepackage{cleveref}
+\usepackage{cleveref}
 %\doublespacing
+
+\usepackage{makeidx}
+\usepackage{showidx}
+%\let\oldindex\index
+%\renewcommand{\index}[1]{\oldindex{#1}\marginpar{\small#1}}
+\makeindex
