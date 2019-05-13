@@ -148,7 +148,7 @@
 \newtheorem*{conj*}{Conjecture}
 \newtheorem{conj}[thm]{Conjecture}
 \theoremstyle{definition}
-\newtheorem{example}{Example}[section]
+\newtheorem{example}{Example}
 \newtheorem*{definition}{Definition}
 
 \usepackage{hyperref}
@@ -166,7 +166,7 @@
 \begin{abstract}
 	Abstract goes here
 \end{abstract}
-In this paper, we introduce a line system known as a \emph{projective double} of a graph, denoted $PD_m(\Gamma;\beta,\delta)$. This object is a set of lines in $\mathbb{R}^m$ with two possible angles, $\beta$ and $\delta$, where $\Gamma$ is the incidence graph on $\beta$. We note that projective double covers of complete graphs $(\Gamma = K_n)$ give sets of equiangular lines, and thus are well-studied in the literature. Here, as with sets of equiangular lines, $\beta$ and $\delta$ represent the cosine of the angles between lines; despite this we will abuse notation and refer to them as the ``angles" of our projective double. We find that these systems are closely related to $4$- and $5$-class $Q$-bipartite association schemes. In this paper, we will focus on the $4$-class case and define a related line system called an \emph{orthogonal projective double} of a graph $\Gamma$, denoted $OPD_m(\Gamma;\beta)$. These are projective doubles for which $\delta = 0$. We begin by considering the general objects but will add restrictions along the way with the motivation of finding an equivalence between these objects and our association schemes. T
+In this paper, we introduce a line system known as a \emph{projective double} of a graph, denoted $PD_m(\Gamma;\beta,\delta)$. This object is a set of lines in $\mathbb{R}^m$ with two possible angles, $\beta$ and $\delta$, where $\Gamma$ is the incidence graph on $\beta$. We note that projective double covers of complete graphs $(\Gamma = K_n)$ give sets of equiangular lines, and thus are well-studied in the literature. Here, as with sets of equiangular lines, $\beta$ and $\delta$ represent the cosine of the angles between lines; despite this we will abuse notation and refer to them as the ``angles" of our projective double. We find that these systems are closely related to $4$- and $5$-class $Q$-bipartite association schemes. In this paper, we will focus on the $4$-class case and define a related line system called an \emph{orthogonal projective double} of a graph $\Gamma$, denoted $OPD_m(\Gamma;\beta)$. These are projective doubles for which $\delta = 0$. We begin by considering the general objects but will add restrictions along the way with the motivation of finding an equivalence between these objects and our association schemes.
 
 \section{Orthogonal projective doubles of regular graphs}
 As we saw with other examples, it becomes useful to represent a line system by a set of unit vectors, defining the ``angle" between two lines to be the absolute value of the inner product between representative unit vectors. As we have two choices of a representative for each line, we have many equivalent such representations of any line set. In this chapter, we will instead include both directions; that is, we will represent our line system with an antipodal set of unit vectors with twice as many vectors as there are lines. Further, we will describe a projective double by not only the parameters $m$, $\beta$, and $\delta$ but also the graph which is induced on the set of lines where two lines are adjacent if they intersect in angle $\beta$.
@@ -318,20 +318,33 @@ extensive literature on the subject, the reader may consult \cite{Delsarte1973,B
 \end{definition}
 The constants $p_{i,j}^k$ are known as the \emph{intersection numbers}\index{parameters!intersection numbers} of our association scheme and we allow ourselves to suppress the comma whenever $i$ and $j$ are given by single digits. For each $0\leq i\leq d$ we define the (undirected) graph $\Gamma_i = \Gamma(X,R_i)$ on $X$ with $\Gamma_1,\dots,\Gamma_d$ all simple. 
 
-Often it becomes useful to order the vertices in $X$ and represent each $R_i$ as a 01-matrix $A_i$ where the $(x,y)$ entry of $A_i$ is 1 if and only if $(x,y)\in R_i$; thus $A_i$ is the adjacency matrix of $\Gamma_i$. Let $\vert X\vert = n$ and denote the $n\times n$ identity as $I_n$ and the $n\times n$ matrix of ones as $J_n$; we suppress the subscript $n$ when it is clear from the context. The defining properties of a symmetric association scheme are then encoded as:
+Often it becomes useful to order the vertices in $X$ and represent each $R_i$ as a 01-matrix $A_i$ where the $(x,y)$ entry of $A_i$ is 1 if and only if $(x,y)\in R_i$; thus $A_i$ is the adjacency matrix of $\Gamma_i$. Let $\vert X\vert = n$ and denote the $n\times n$ identity as $I_n$ and the $n\times n$ matrix of ones as $J_n$; we suppress the subscript $n$ when it is clear from the context. The defining properties of a symmetric association scheme are then encoded as in the following lemma.
+\begin{lem}\label{Alaws} Let $A_0,\dots,A_d$ be the $01$-basis matrices of a $d$-class symmetric association scheme. Then,
 \begin{enumerate}[label=$(\roman*)$]
 	\item $A_0 = I$;
 	\item $\sum_i A_i = J$;
 	\item for all $0\leq i\leq d$, $A_i^T = A_i$;
-	\item for all $0\leq i,j\leq d$, $A_iA_j = \sum p_{ij}^k A_k$,
+	\item for all $0\leq i,j\leq d$, $A_iA_j = \sum p_{ij}^k A_k$.
 \end{enumerate}
-where each $A_i$ has only zeros and ones as entries. The fourth condition tells us that $\BMA = \text{span}\left\{A_0,A_1,\dots A_d\right\}$ forms a matrix algebra under standard matrix multiplication. We call this algebra the \emph{Bose-Mesner algebra}\index{Bose-Mesner algebra} and note that the remaining conditions ensure it is a $(d+1)$-dimensional algebra of symmetric matrices containing the identity. Further, as our basis matrices are 01-matrices with pairwise disjoint support, this algebra is also closed under Schur (entrywise) products and contains the Schur identity, $J$. We find that, conversely, any such an algebra determines an association scheme; that is, any $(d+1)$-dimensional vector space of symmetric matrices closed under both standard and Schur matrix products containing the identities for both operations corresponds to the Bose-Mesner algebra of some symmetric association scheme. Throughout, we will use this algebraic definition interchangeably with the combinatorial definition.
+\end{lem}
+The fourth condition tells us that $\BMA = \text{span}\left\{A_0,A_1,\dots A_d\right\}$ forms a matrix algebra under standard matrix multiplication. We call this algebra the \emph{Bose-Mesner algebra}\index{Bose-Mesner algebra} and note that the remaining conditions ensure it is a $(d+1)$-dimensional algebra of symmetric matrices containing the identity. Further, as our basis matrices are 01-matrices with pairwise disjoint support, this algebra is also closed under Schur (entrywise) products and contains the Schur identity, $J$. We find that, conversely, any such an algebra determines an association scheme; that is, any $(d+1)$-dimensional vector space of symmetric matrices closed under both standard and Schur matrix products containing the identities for both operations corresponds to the Bose-Mesner algebra of some symmetric association scheme. Throughout, we will use this algebraic definition interchangeably with the combinatorial definition.
 
 As our algebra is commutative, we may simultaneously diagonalize our basis matrices to find the primitive idempotents $E_0,E_1,\dots,E_d$ representing orthogonal projection onto the maximal common eigenspaces; by convention we assume $E_0= \frac{1}{\vert X\vert}J$. It follows that these idempotents form another basis for $\BMA$. Recall that $\BMA$ is closed under entrywise multiplication, thus there must exists constants $q^k_{ij}$ for $0\leq i,j,k\leq d$ such that
 \begin{equation}
 	E_i\circ E_j = \frac{1}{\vert X\vert}\sum_{k=0}^d q^k_{ij}E_k;
 \end{equation}
-we call these constants the \emph{Krein parameters} of our association scheme. For convenience, we will organize the intersection numbers and Krein parameters into arrays $L_i$ and $L_i^*$ so that
+we call these constants the \emph{Krein parameters} of our association scheme. Thus we find an analogous lemma as
+\begin{lem}\label{Elaw}
+	Let $E_0,\dots,E_d$ be the idempotent basis matrices of a $d$-class symmetric association scheme. Then,
+	\begin{enumerate}[label=$(\roman*)$]
+		\item $E_0 = \frac{1}{\vert X\vert} J$;
+		\item $\sum_j E_j = I$;
+		\item for all $0\leq j\leq d$, $E_i^T = E_i$;
+		\item for all $0\leq i,j\leq d$, $E_iE_j = \frac{1}{\vert X\vert}\sum q_{ij}^k E_k$.
+	\end{enumerate}
+\end{lem}
+
+For convenience, we will organize the intersection numbers and Krein parameters into arrays $L_i$ and $L_i^*$ so that
 \begin{equation}
 	\left[L_i\right]_{k,j} = p^k_{ij}\qquad \left[L_i^*\right]_{k,j} = q^k_{ij}.
 \end{equation}
@@ -355,7 +368,34 @@ An association scheme is said to be \emph{cometric} if there exists an ordering 
 		\item[(iv)] $L_1^*$ is an irreducible tridiagonal matrix.
 	\end{itemize}
 \end{thm}
-From Theorem \ref{cometricequiv} $(ii)$ we see that $E_1$ generates all of $\BMA$ using entrywise products. Paired with the fact that $\BMA$ is $d+1$ dimensional, this implies $E_1$ has exactly $d+1$ distinct entries. Thus, given some $Q$-polynomial ordering, we may order the relations so that $Q_{01}>Q_{11}>\dots>Q_{d1}$; we call such an ordering the \emph{natural ordering of relations}. We say a cometric association scheme is $Q$-bipartite if the Krein parameters satisfy $q^k_{ij} = 0$ whenever $i+j+k\notin2\bbZ$; we say a cometric association scheme is $Q$-antipodal if the Krein parameters satisfy $q^k_{dd}=0$ whenever $k\notin\left\{0,d\right\}$.
+From Theorem \ref{cometricequiv} $(ii)$ we see that $E_1$ generates all of $\BMA$ using entrywise products. Paired with the fact that $\BMA$ is $d+1$ dimensional, this implies $E_1$ has exactly $d+1$ distinct entries. Thus, given some $Q$-polynomial ordering, we may order the relations so that $Q_{01}>Q_{11}>\dots>Q_{d1}$; we call such an ordering the \emph{natural ordering of relations}. 
+
+An association scheme is said to be \emph{imprimitive} if there exists some basis relation whose graph is disconnected. In the next theorem and henceforth, we let $I_r$ (or simply $I$) denote the $r\times r$ identity matrix and $J_r$ (or $J$) will denote the all ones matrix of order $r\times r$.
+
+\begin{thm}[see \cite{Bannai1984}, \cite{Brouwer1989},\cite{Godsil1993}] The following are equivalent:
+	\begin{itemize}
+		\item[(i)] $(X,\BMA)$ is imprimitive;
+		\item[(ii)] for some $j>0$, $E_j$ has repeated columns;
+		\item[(iii)] for some subset $\cI = \left\{i_0=0,i_1,\dots,i_s\right\}$ of $\left\{0,1,\dots,d\right\}$ and some ordering of the vertices $\sum_{h=0}^sA_{i_h} = I_w\otimes J_r$ for some integers $w$ and $r$ with $v=wr$, $1<w,r<v$;
+		\item[(iv)] for some subset $\cJ = \left\{j_0=0,j_1,\dots,j_s\right\}$ of $\left\{0,1,\dots,d\right\}$ and some ordering of the vertices $\sum_{h=0}^sE_{j_h} = \frac{1}{r}\left(I_w\otimes J_r\right)$ for some integers $w$ and $r$ with $v=wr$, $1<w,r<v$;
+	\end{itemize}
+\end{thm}
+
+Property $(iii)$ of the above theorem tells us that the union of relations $\bigcup_{i\in\cI}R_i$ is an equiavalence relation. Given an imprimitive association scheme, we may define a quotient scheme $(\tilde{X},\tilde{R})$ where $\tilde{X}$ is the set of equivalence classes induced and for $\tilde{x},\tilde{y}\in\tilde{X}$, $(\tilde{x},\tilde{y})\in\tilde{R}_i$ if there exists points $x\in \tilde{x}$ and $y\in\tilde{y}$ such that $(x,y)\in R_i$. The following lemma relates the second eigenmatrices of an imprimitive association scheme and its quotient scheme.
+\begin{lem}[\cite{Brouwer2003},\cite{Martin2007}]\label{repeatedcols}
+	Let $P$ and $Q$ be the first and second eigenmatrix of an imprimitive association scheme with a system of imprimitivity given by index sets $\cI$ and $\cJ$. Let $\tilde{Q}$ be the second eigenmatrix of the quotient scheme. Then for any $j\in \cJ$ and $h\in\tilde{h}$ we have
+	\[\tilde{Q}_{\tilde{h}j} = Q_{hj}.\]
+\end{lem}
+
+We say a cometric association scheme is $Q$-bipartite if the Krein parameters satisfy $q^k_{ij} = 0$ whenever $i+j+k\notin2\bbZ$; we say a cometric association scheme is $Q$-antipodal if the Krein parameters satisfy $q^k_{dd}=0$ whenever $k\notin\left\{0,d\right\}$. The following theorem of Suzuki characterizes the imprimitive cometric association schemes.
+\begin{thm}[\cite{Suzuki1998},\cite{Cerzo2009},\cite{Tanaka2011}] \label{suzukiimprim} Suppose $(X,\mathcal{R})$ is an imprimitive cometric association scheme with $Q$-polynomial ordering $E_0,\dots,E_d$ and natural ordering $A_0,\dots,A_d$. Then one of the following holds:
+	\begin{enumerate}[label=$(\roman*)$]
+		\item $(X,\mathcal{R})$ is $Q$-bipartite and $\mathcal{J} = \left\{0,2,4,\dots\right\}$, $\mathcal{I} = \left\{0,d\right\}$;
+		\item $(X,\mathcal{R})$ is $Q$-antipodal and $\mathcal{J} = \left\{0,d\right\}$, $\mathcal{I} = \left\{0,2,4,\dots\right\}$.
+	\end{enumerate}
+\end{thm}
+
+
 
 \section{Schemes induced by projective doubles}
 The OPD given by the columns of $U_2$ in Example \ref{doublecoverc4} provides an orthogonal projective double which gives an association scheme on the vectors by relating vectors based on their inner product. In this section, we consider which graphs produce such an association scheme and some properties of the association scheme which arise. First, let $L = \left\{\ell_i\right\}$ be an orthogonal projective double of some graph $\Gamma$ and let $G$ be the Gram matrix of $L$; that is, the matrix whose entry in row $i$ and column $j$ is $\left<\ell_i,\ell_j\right>$. We denote by $\left<G\right>_\circ$ the smallest vector space of matrices  containing $G$ and closed under entrywise products; we say this vector space is the \emph{Schur closure} of $G$. Note that the adjacency matrices of each graph $\Gamma_{\theta}$ for $\theta\in\left\{\pm 1,\pm \beta,0\right\}$ are all contained in $\left<G\right>_{\circ}$. Thus $\left<G\right>_\circ$ is a Bose-Mesner algebra if and only if it is closed under standard matrix multiplication. If this occurs, we say $L$ induces the corresponding 4-class association scheme. Thus, from Example \ref{doublecoverc4}, the association scheme $C_8$ is induced by the columns of $U_2$. We similarly define $\left<A\right>_*$ for any matrix $A$ and note that this algebra is a Bose-Mesner algebra if and only if it is closed under Schur products.
@@ -386,7 +426,7 @@ The following lemma from \cite{Brouwer1989}, shows us that the parameters $k,r,$
 \begin{lem}\cite[Theorem.~1.3.1.(iii,vi)]{Brouwer1989}\label{srgparams} Whenever $k+rs>0$, the parameters of a strongly regular graph may be expressed in terms of $r$, $s$, and $k$ with $g = v-f-1$:
 	\[\mu = k+rs, \qquad v = \frac{(k-r)(k-s)}{\mu},\qquad \lambda = \mu+r+s,\qquad f = \frac{(s+1)k(k-s)}{\mu(s-r)}.\]
 \end{lem}
-The association scheme structure allows us to improve on the naive upper bound given in Corollary \ref{regnaive} by using the techniques discussed in Section \ref{equianglines}.
+The association scheme structure allows us to improve on the naive upper bound given in Corollary \ref{regnaive}.
 \begin{thm}
 	Let $\Gamma$ be a strongly regular graph with $v$ vertices and spectrum $k^1,$ $r^f$, $s^g$ ($r>s$). There exists an $OPD_{f+1}(\Gamma;\beta)$ where $\beta = \bigslant{k+r(v-1)}{v+r-k}$.
 \end{thm}
@@ -463,7 +503,7 @@ We note that, while $Q_2^m$ denoted the second degree Gegenbauer polynomial in t
 	\tilde{E}_2 & \tilde{E}_2\\\hdashline[2pt/2pt]
 	\tilde{E}_2 & \tilde{E}_2\\[2pt]
 	\end{array}\right].\]
-	We note that the definition of $E_0$ implies an analogous structure using $\tilde{E}_0$. It follows that $E_0$, $E_2$, and $E_4$ are pairwise orthogonal idempotents. Now, Lemma \ref{mindim} tells us that $E_1$ is also idempotent since $m = v\left(1+k\beta^2\right)^{-1}$. Additionally, the block structure of the matrices $E_0$, $E_1$, $E_2$, and $E_4$ imply that $E_1E_0=E_1E_2=E_1E_4 = 0$ telling us that $E_0$, $E_1$, $E_2$, $E_4$ are pairwise orthogonal idempotents. In view of Lemma \ref{AElem} \emph{($\mathit{iii'}$)}, we define $E_3 = I-E_0-E_1-E_2-E_4$ and may immediately compute.
+	We note that the definition of $E_0$ implies an analogous structure using $\tilde{E}_0$. It follows that $E_0$, $E_2$, and $E_4$ are pairwise orthogonal idempotents. Now, Lemma \ref{mindim} tells us that $E_1$ is also idempotent since $m = v\left(1+k\beta^2\right)^{-1}$. Additionally, the block structure of the matrices $E_0$, $E_1$, $E_2$, and $E_4$ imply that $E_1E_0=E_1E_2=E_1E_4 = 0$ telling us that $E_0$, $E_1$, $E_2$, $E_4$ are pairwise orthogonal idempotents. In view of Lemma \ref{Elaw} \emph{($\mathit{ii'}$)}, we define $E_3 = I-E_0-E_1-E_2-E_4$ and may immediately compute.
 	\[E_3^2 = \left(I-E_0-E_1-E_2-E_4\right)^2 = I-E_0-E_1-E_2-E_4\]
 	and $E_3E_i = 0$ for $i\neq 3$. Therefore the vector space $\left<E_0,E_1,E_2,E_3,E_4\right>$ is symmetric, closed under matrix multiplication, and contains both the identity matrix and the all ones matrix. In order to show this vector space is a Bose-Mesner algebra, we must also show it is closed under entrywise products. First note that since $G$ contains exactly five distinct entries, we have $\left<G\right>_\circ = \left<A_1,A_{\beta},A_0,A_{-\beta},A_{-1}\right>$ where, for each $\theta\in\left\{\pm 1, \pm\beta, 0\right\}$,
 	\[A_{\theta} = \begin{cases}
@@ -578,7 +618,7 @@ Theorem \ref{dimtoassociation} tells us that $OPD$s of strongly regular graphs i
 	1 & -m\beta & \frac{fr}{k} & m\beta & \frac{gs}{k}\\
 	1 & -m & f & m-v & g\\
 	\end{array}\right]\]
-	Since we now have the entire $Q$ matrix, we may use Lemma $\ref{kitchensink}$ \emph{($\mathit{xiii^\prime}$)} to find the Krein parameters of our scheme. In particular we find that $q^3_{11} = q^4_{12} = 0$ as well as
+	Since we now have the entire $Q$ matrix, we may standard techniques (see \cite[Theorem 2.3.2]{Brouwer1989}) to find the Krein parameters of our scheme. In particular, $q^3_{11} = q^4_{12} = 0$ as well as
 	\[\begin{aligned}q^2_{11} &= \frac{1}{2v f}\sum_{h=0}^d\left(k_hQ_{h1}Q_{h1}Q_{h2}\right) = \frac{m^2\left(1+\beta^2r\right)}{v},\\
 	q^3_{12} &= \frac{1}{2v (v-m)}\sum_{h=0}^d\left(k_hQ_{h1}Q_{h2}Q_{h3}\right) = \frac{mf\left(v-m(1+\beta^2r)\right)}{v(v-m)},\\
 	q^4_{13} &= \frac{1}{2v g}\sum_{h=0}^d\left(k_hQ_{h1}Q_{h3}Q_{h4}\right) = \frac{m\left(v-m(1+\beta^2s)\right)}{v}.\\	
@@ -635,7 +675,7 @@ We may use this information to build the first and second eigenmatrices of our $
 	\end{array}\right],\]
 	matching our theorem in all but two places.	Since we have ordered the relations using the natural ordering, the valencies of our relations are given by $[1,k,2(v-1-k),k,1]$. This allows us to derive an expression for $q_{01}^1$ using \cite[Theorem.~2.3.2.]{Brouwer1989} which gives
 	\[q_{ij}^k = \frac{1}{\vert X\vert m_k}\sum_{l=0}^d\left(v_lQ_{li}Q_{lj}Q_{lk}\right)\]
-	where $m_k$ and $v_l$ are the multiplicities and valencies of the $k^\text{th}$ and $l^\text{th}$ relations respectively. We find that $q_{01}^1 = \frac{1}{2vm}\left(2m^2+\frac{2km^2}{n^2}\right)$, however we know from Lemma \ref{kitchensink} that $q_{01}^1=1$, resulting in $\frac{km}{n^2} = v-m$. This completes our proof for the second eigenmatrix and we may use the second orthogonality condition to find $P$ noting that the first row of $P$ is the valencies of our relations. Thus
+	where $m_k$ and $v_l$ are the multiplicities and valencies of the $k^\text{th}$ and $l^\text{th}$ relations respectively. We find that $q_{01}^1 = \frac{1}{2vm}\left(2m^2+\frac{2km^2}{n^2}\right)$, however we know that $q_{01}^1=1$, resulting in $\frac{km}{n^2} = v-m$. This completes our proof for the second eigenmatrix and we may use the second orthogonality condition to find $P$ noting that the first row of $P$ is the valencies of our relations. Thus
 	\[P = \left[\begin{array}{crcrr}
 	1 & k & 2(v-1-k) & k & 1\\
 	1 & \frac{k}{n} & 0 & -\frac{k}{n} & -1\\
